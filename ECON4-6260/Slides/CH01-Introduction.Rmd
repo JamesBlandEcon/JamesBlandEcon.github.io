@@ -1,0 +1,160 @@
+---
+title: "ECON 4/6260 - Behaviroal Economics"
+subtitle: "01 - Introduction "
+author: "Dr. James Bland"
+
+
+output:
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Doing economic research without experiments
+
+Research question $\rightarrow$ I need data
+
+* Data might not exactly answer the research question
+* Often difficult to establish a causal relationship 
+* Often requires assumptions to be made about the data that you cannot test.
+
+
+I have data $\rightarrow$ what questions can I answer?
+
+* Limits the questions you can answer
+* Still difficult to establish a causal relationship
+* Still (often) requires untestable assumptions
+
+## Economic experiments
+
+We will be using economic experiments to learn about concepts in Behavioral Economics.
+
+Mostly, we will use *laboratory experiments*
+
+* Use people who have volunteered to participate. Usually undergrads.
+  + In this class: you
+* Give them a task to perform, and observe their behavior.
+* Pay them money based on their decisions
+
+## Why pay money?
+
+Mankiw's *10 Principles of Economics*: "4. People respond to incentives"
+
+If I pay you enough, I will have a good idea about what your incentives are. 
+
+This means that:
+
+* Participants need to understand {\bf how} decisions determine payments
+  + Explain to participants how this works before they make decisions (and maybe verify)
+* Participants need to believe that decisions *will* determine payments 
+  + The experimenter will never lie to participants
+* Payments need to care enough about the reward mechanism that they will respond to it
+  + We can't pay you in chocolate or Monopoly money, or ask you to make hypothetical choices. We use US dollars!
+
+## How this will work for ECON4/6260
+
+
+* I have approval from the Department of Economics to pay you in US dollars
+* If I pay you, I will need to record your name and how much I paid you
+* I don't have enough to pay everybody every time. I will randomly select (at least) one person to be paid after each experiment. You will not know who is getting paid until all decisions have been made.
+* As this is an online class, I will give you several choices of how you can be paid
+
+* This is not my money, so don't feel badly about taking it
+* Don't rely on it for lunch, car payments, etc.
+
+## And now for our first experiment
+
+...
+
+## Reasons for running an experiment 
+
+Studying theoretical predictions
+
+* Point and comparative static predictions
+* Comparing the predictions of two or more theories
+
+Studying behavioral assumptions
+
+* Maybe a theory performs poorly. Can we work out which assumption(s) is (are) causing this?
+* E.g. Are people selfish? Do people maximize expected value? Do people ignore sunk costs?
+
+
+
+Establishing behavioral regularities
+
+* Does the theory make more than one prediction? (multiple equilibria)
+* Explore behavior to help us make better behavioral assumptions
+
+
+Further reading: 
+
+> Nikiforakis, Nikos. ["For the student: experimental economics."](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1467-8462.2010.00607.x?casa_token=K6AYdLRDvdAAAAAA%3AideO69vzWNyKiBui76sE4jOLASAPBw0JoDZ97Uxy0POWYZ_pOV-T1feeFWAOtUdY9fWIYXcFSNGe3RJ6) Australian Economic Review 43, no. 3 (2010): 337-345.
+
+## Economic experiments and causality
+
+Conduct a study that resembles a drug trial.
+
+Often referred to as a "randomized controlled trial"
+
+
+Drug trials:
+
+* Randomly assign people to two groups
+* One group gets the treatment (i.e. they get the drug)
+* One group doesn't get the drug (or a placebo)
+* Random assignment ensures that differences between groups' health outcomes could only be due to the drug
+
+Economic experiments:
+
+* Instead of health outcomes, we are interested in peoples' decisions
+* Instead of drugs, we will be treating people with *different incentives*
+* Many field experiments use this format, e.g the work associated with the [2019 Nobel prize in Economics](https://www.nobelprize.org/prizes/economic-sciences/2019/press-release/)
+
+## Complement to data from outside the lab
+
+Example: ECON1200 model of a market.
+
+* Buyers with values
+* Sellers with costs
+* If we know all of these, we can calculate the equilibrium price and quantity
+
+
+Outside the lab:
+
+* Buyers might not want to tell you their values
+* Sellers will probably lie to you about costs
+* We can easily observe price and quantity, but not the values and costs that got us there
+
+
+Inside the lab:
+
+* We can assign buyers and sellers values and costs
+* Hence, we know what the theory predicts, and we can observe the outcomes.
+
+## A roadmap for this course
+
+Usually, I will introduce a topic with an experiment.
+
+Then, you will have a homework assignment based on the data from the experiment
+
+We will discuss this in the next class
+
+For 6260 students, we will use our extra hour mostly as a reading group. I will assign the first few readings, but I am very open to suggestions. 
+
+For next class
+
+* Everyone:
+  + Make sure you understand the syllabus
+  + Complete Problem Set 1 using the data from today's experiment
+  + Read Chapter 1 of *Markets, Games, and Strategic Behavior*. This chapter is available online [here](https://press.princeton.edu/books/hardcover/9780691179247/markets-games-and-strategic-behavior).
+* 6260 students:
+  + xxx
+
+
+
+
