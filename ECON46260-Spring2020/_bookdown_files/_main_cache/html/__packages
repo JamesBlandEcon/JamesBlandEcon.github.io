@@ -1,0 +1,8 @@
+base
+ggplot2
+dplyr
+tidyr
+readxl
+stargazer
+sandwich
+latex2exp
