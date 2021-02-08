@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Limited dependent variable models | Econometrics II Notes 20201</title>
+  <meta name="description" content="1 Limited dependent variable models | Econometrics II Notes 20201" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Limited dependent variable models | Econometrics II Notes 20201" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Limited dependent variable models | Econometrics II Notes 20201" />
+  
+  
+  
+
+<meta name="author" content="James Bland" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="section.html"/>
+<link rel="next" href="behavioral-econometrics.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="section.html#section"></a></li>
+<li class="chapter" data-level="1" data-path="limited-dependent-variable-models.html"><a href="limited-dependent-variable-models.html"><i class="fa fa-check"></i><b>1</b> Limited dependent variable models</a><ul>
+<li class="chapter" data-level="1.1" data-path="limited-dependent-variable-models.html"><a href="limited-dependent-variable-models.html#some-example-data"><i class="fa fa-check"></i><b>1.1</b> Some example data</a></li>
+<li class="chapter" data-level="1.2" data-path="limited-dependent-variable-models.html"><a href="limited-dependent-variable-models.html#analyzing-with-linear-regression"><i class="fa fa-check"></i><b>1.2</b> Analyzing with linear regression</a></li>
+<li class="chapter" data-level="1.3" data-path="limited-dependent-variable-models.html"><a href="limited-dependent-variable-models.html#focusing-on-males-only"><i class="fa fa-check"></i><b>1.3</b> Focusing on males only</a></li>
+<li class="chapter" data-level="1.4" data-path="limited-dependent-variable-models.html"><a href="limited-dependent-variable-models.html#marginal-effects"><i class="fa fa-check"></i><b>1.4</b> Marginal effects</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="limited-dependent-variable-models.html"><a href="limited-dependent-variable-models.html#marginal-effect-at-the-mean"><i class="fa fa-check"></i><b>1.4.1</b> Marginal effect at the mean</a></li>
+<li class="chapter" data-level="1.4.2" data-path="limited-dependent-variable-models.html"><a href="limited-dependent-variable-models.html#marginal-effect-of-an-interaction"><i class="fa fa-check"></i><b>1.4.2</b> Marginal effect of an interaction</a></li>
+<li class="chapter" data-level="1.4.3" data-path="limited-dependent-variable-models.html"><a href="limited-dependent-variable-models.html#marginal-effect-for-a-dummy-variable"><i class="fa fa-check"></i><b>1.4.3</b> Marginal effect for a dummy variable</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="limited-dependent-variable-models.html"><a href="limited-dependent-variable-models.html#maximizing-a-function"><i class="fa fa-check"></i><b>1.5</b> Maximizing a function</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html"><i class="fa fa-check"></i><b>2</b> Behavioral econometrics</a><ul>
+<li class="chapter" data-level="2.1" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#example-dataset"><i class="fa fa-check"></i><b>2.1</b> Example dataset</a></li>
+<li class="chapter" data-level="2.2" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#risk-neutral"><i class="fa fa-check"></i><b>2.2</b> Risk neutral</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Econometrics II Notes 20201</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="limited-dependent-variable-models" class="section level1">
+<h1><span class="header-section-number">1</span> Limited dependent variable models</h1>
+<div id="some-example-data" class="section level2">
+<h2><span class="header-section-number">1.1</span> Some example data</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="limited-dependent-variable-models.html#cb1-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="limited-dependent-variable-models.html#cb1-2"></a>D&lt;-(<span class="kw">data.frame</span>(<span class="kw">read.csv</span>(<span class="st">&quot;https://vincentarelbundock.github.io/Rdatasets/csv/carData/TitanicSurvival.csv&quot;</span>))</span>
+<span id="cb1-3"><a href="limited-dependent-variable-models.html#cb1-3"></a>)</span>
+<span id="cb1-4"><a href="limited-dependent-variable-models.html#cb1-4"></a></span>
+<span id="cb1-5"><a href="limited-dependent-variable-models.html#cb1-5"></a>DSummary&lt;-D <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(sex,age,passengerClass) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">fracSurvived =</span> <span class="kw">mean</span>(<span class="dv">1</span><span class="op">*</span>(survived<span class="op">==</span><span class="st">&quot;yes&quot;</span>)),<span class="dt">n=</span><span class="kw">n</span>())</span>
+<span id="cb1-6"><a href="limited-dependent-variable-models.html#cb1-6"></a></span>
+<span id="cb1-7"><a href="limited-dependent-variable-models.html#cb1-7"></a>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(DSummary))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">sex</th>
+<th align="right">age</th>
+<th align="left">passengerClass</th>
+<th align="right">fracSurvived</th>
+<th align="right">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">female</td>
+<td align="right">0.1667</td>
+<td align="left">3rd</td>
+<td align="right">1.00</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">female</td>
+<td align="right">0.7500</td>
+<td align="left">3rd</td>
+<td align="right">1.00</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">female</td>
+<td align="right">0.9167</td>
+<td align="left">2nd</td>
+<td align="right">1.00</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">female</td>
+<td align="right">1.0000</td>
+<td align="left">2nd</td>
+<td align="right">1.00</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">female</td>
+<td align="right">1.0000</td>
+<td align="left">3rd</td>
+<td align="right">0.75</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">female</td>
+<td align="right">2.0000</td>
+<td align="left">1st</td>
+<td align="right">0.00</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="limited-dependent-variable-models.html#cb2-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="limited-dependent-variable-models.html#cb2-2"></a>(<span class="kw">ggplot</span>(DSummary ,<span class="kw">aes</span>(<span class="dt">y=</span>fracSurvived,<span class="dt">x=</span>age,<span class="dt">color=</span>sex,<span class="dt">shape=</span>passengerClass,<span class="dt">size=</span>n))</span>
+<span id="cb2-3"><a href="limited-dependent-variable-models.html#cb2-3"></a>  <span class="op">+</span><span class="kw">geom_point</span>()</span>
+<span id="cb2-4"><a href="limited-dependent-variable-models.html#cb2-4"></a> <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb2-5"><a href="limited-dependent-variable-models.html#cb2-5"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Age&quot;</span>)</span>
+<span id="cb2-6"><a href="limited-dependent-variable-models.html#cb2-6"></a>  <span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Fraction survived&quot;</span>)</span>
+<span id="cb2-7"><a href="limited-dependent-variable-models.html#cb2-7"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb2-8"><a href="limited-dependent-variable-models.html#cb2-8"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/PlotTitanic-1.png" width="672" /></p>
+</div>
+<div id="analyzing-with-linear-regression" class="section level2">
+<h2><span class="header-section-number">1.2</span> Analyzing with linear regression</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="limited-dependent-variable-models.html#cb3-1"></a>D &lt;-<span class="st"> </span>(D</span>
+<span id="cb3-2"><a href="limited-dependent-variable-models.html#cb3-2"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">adult =</span> <span class="dv">1</span><span class="op">*</span>(age<span class="op">&gt;=</span><span class="dv">18</span>),</span>
+<span id="cb3-3"><a href="limited-dependent-variable-models.html#cb3-3"></a>             <span class="dt">class2 =</span> <span class="dv">1</span><span class="op">*</span>(passengerClass<span class="op">==</span><span class="st">&quot;2nd&quot;</span>),</span>
+<span id="cb3-4"><a href="limited-dependent-variable-models.html#cb3-4"></a>             <span class="dt">class3 =</span> <span class="dv">1</span><span class="op">*</span>(passengerClass<span class="op">==</span><span class="st">&quot;3rd&quot;</span>),</span>
+<span id="cb3-5"><a href="limited-dependent-variable-models.html#cb3-5"></a>             <span class="dt">male =</span> <span class="dv">1</span><span class="op">*</span>(sex<span class="op">==</span><span class="st">&quot;male&quot;</span>),</span>
+<span id="cb3-6"><a href="limited-dependent-variable-models.html#cb3-6"></a>             <span class="dt">S =</span> <span class="dv">1</span><span class="op">*</span>(survived<span class="op">==</span><span class="st">&quot;yes&quot;</span>)</span>
+<span id="cb3-7"><a href="limited-dependent-variable-models.html#cb3-7"></a>             )</span>
+<span id="cb3-8"><a href="limited-dependent-variable-models.html#cb3-8"></a>)</span>
+<span id="cb3-9"><a href="limited-dependent-variable-models.html#cb3-9"></a></span>
+<span id="cb3-10"><a href="limited-dependent-variable-models.html#cb3-10"></a>reg1&lt;-<span class="kw">lm</span>(S <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>male<span class="op">+</span>class2<span class="op">+</span>class3,<span class="dt">data=</span>D)</span>
+<span id="cb3-11"><a href="limited-dependent-variable-models.html#cb3-11"></a>reg2&lt;-<span class="kw">lm</span>(S <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>adult<span class="op">+</span><span class="st"> </span>male<span class="op">+</span>class2<span class="op">+</span>class3,<span class="dt">data=</span>D)</span>
+<span id="cb3-12"><a href="limited-dependent-variable-models.html#cb3-12"></a>reg3&lt;-<span class="kw">lm</span>(S <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>adult <span class="op">+</span>adult<span class="op">*</span>male <span class="op">+</span><span class="st"> </span>male <span class="op">+</span><span class="st"> </span>class2 <span class="op">+</span><span class="st"> </span>class3,<span class="dt">data=</span>D)</span>
+<span id="cb3-13"><a href="limited-dependent-variable-models.html#cb3-13"></a></span>
+<span id="cb3-14"><a href="limited-dependent-variable-models.html#cb3-14"></a></span>
+<span id="cb3-15"><a href="limited-dependent-variable-models.html#cb3-15"></a><span class="kw">library</span>(stargazer)</span>
+<span id="cb3-16"><a href="limited-dependent-variable-models.html#cb3-16"></a><span class="kw">stargazer</span>(reg1,reg2,reg3,<span class="dt">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+S
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+age
+</td>
+<td>
+-0.005<sup>***</sup>
+</td>
+<td>
+-0.004<sup>***</sup>
+</td>
+<td>
+-0.004<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+adult
+</td>
+<td>
+</td>
+<td>
+-0.057
+</td>
+<td>
+0.069
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.043)
+</td>
+<td>
+(0.057)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+male
+</td>
+<td>
+-0.491<sup>***</sup>
+</td>
+<td>
+-0.490<sup>***</sup>
+</td>
+<td>
+-0.296<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.026)
+</td>
+<td>
+(0.026)
+</td>
+<td>
+(0.063)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+class2
+</td>
+<td>
+-0.211<sup>***</sup>
+</td>
+<td>
+-0.207<sup>***</sup>
+</td>
+<td>
+-0.202<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.035)
+</td>
+<td>
+(0.035)
+</td>
+<td>
+(0.035)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+class3
+</td>
+<td>
+-0.370<sup>***</sup>
+</td>
+<td>
+-0.367<sup>***</sup>
+</td>
+<td>
+-0.362<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.033)
+</td>
+<td>
+(0.033)
+</td>
+<td>
+(0.032)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+adult:male
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-0.232<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.069)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+1.105<sup>***</sup>
+</td>
+<td>
+1.124<sup>***</sup>
+</td>
+<td>
+1.015<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.044)
+</td>
+<td>
+(0.046)
+</td>
+<td>
+(0.056)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+1,046
+</td>
+<td>
+1,046
+</td>
+<td>
+1,046
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.369
+</td>
+<td>
+0.370
+</td>
+<td>
+0.377
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.367
+</td>
+<td>
+0.367
+</td>
+<td>
+0.373
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+0.391 (df = 1041)
+</td>
+<td>
+0.391 (df = 1040)
+</td>
+<td>
+0.389 (df = 1039)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+152.257<sup>***</sup> (df = 4; 1041)
+</td>
+<td>
+122.252<sup>***</sup> (df = 5; 1040)
+</td>
+<td>
+104.795<sup>***</sup> (df = 6; 1039)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="limited-dependent-variable-models.html#cb4-1"></a>(<span class="kw">ggplot</span>(DSummary ,<span class="kw">aes</span>(<span class="dt">y=</span>fracSurvived,<span class="dt">x=</span>age,<span class="dt">color=</span>sex,<span class="dt">shape=</span>passengerClass,<span class="dt">size=</span>n))</span>
+<span id="cb4-2"><a href="limited-dependent-variable-models.html#cb4-2"></a>  <span class="op">+</span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>)</span>
+<span id="cb4-3"><a href="limited-dependent-variable-models.html#cb4-3"></a>  <span class="op">+</span><span class="kw">geom_point</span>()</span>
+<span id="cb4-4"><a href="limited-dependent-variable-models.html#cb4-4"></a> <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb4-5"><a href="limited-dependent-variable-models.html#cb4-5"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Age&quot;</span>)</span>
+<span id="cb4-6"><a href="limited-dependent-variable-models.html#cb4-6"></a>  <span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Fraction survived&quot;</span>)</span>
+<span id="cb4-7"><a href="limited-dependent-variable-models.html#cb4-7"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb4-8"><a href="limited-dependent-variable-models.html#cb4-8"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/PlotTitanicLinear-1.png" width="672" /></p>
+</div>
+<div id="focusing-on-males-only" class="section level2">
+<h2><span class="header-section-number">1.3</span> Focusing on males only</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="limited-dependent-variable-models.html#cb5-1"></a>(</span>
+<span id="cb5-2"><a href="limited-dependent-variable-models.html#cb5-2"></a>  <span class="kw">ggplot</span>(<span class="dt">data=</span>(D <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(sex<span class="op">==</span><span class="st">&quot;male&quot;</span>)), <span class="kw">aes</span>(<span class="dt">x=</span>age,<span class="dt">y=</span><span class="dv">1</span><span class="op">*</span>(survived<span class="op">==</span><span class="st">&quot;yes&quot;</span>),<span class="dt">group=</span><span class="kw">paste</span>(<span class="kw">factor</span>(age<span class="op">&lt;</span><span class="dv">18</span>),passengerClass),<span class="dt">color=</span>passengerClass))</span>
+<span id="cb5-3"><a href="limited-dependent-variable-models.html#cb5-3"></a>  <span class="op">+</span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>,<span class="dt">formula =</span> y<span class="op">~</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">*</span>(x<span class="op">&lt;</span><span class="dv">18</span>)))</span>
+<span id="cb5-4"><a href="limited-dependent-variable-models.html#cb5-4"></a>  <span class="op">+</span><span class="kw">geom_point</span>(<span class="dt">data=</span>(DSummary <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(sex<span class="op">==</span><span class="st">&quot;male&quot;</span>)) ,<span class="kw">aes</span>(<span class="dt">y=</span>fracSurvived,<span class="dt">x=</span>age,<span class="dt">color=</span>passengerClass,<span class="dt">size=</span>n))</span>
+<span id="cb5-5"><a href="limited-dependent-variable-models.html#cb5-5"></a>  </span>
+<span id="cb5-6"><a href="limited-dependent-variable-models.html#cb5-6"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb5-7"><a href="limited-dependent-variable-models.html#cb5-7"></a>  <span class="op">+</span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Titanic survival (males only)&quot;</span>)</span>
+<span id="cb5-8"><a href="limited-dependent-variable-models.html#cb5-8"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/TitanicMale-1.png" width="672" /></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="limited-dependent-variable-models.html#cb6-1"></a>Dmale&lt;-(D<span class="op">%&gt;%</span><span class="kw">filter</span>(sex<span class="op">==</span><span class="st">&quot;male&quot;</span>)</span>
+<span id="cb6-2"><a href="limited-dependent-variable-models.html#cb6-2"></a>         <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">AgeMinus18 =</span> age<span class="dv">-18</span>)</span>
+<span id="cb6-3"><a href="limited-dependent-variable-models.html#cb6-3"></a>)</span>
+<span id="cb6-4"><a href="limited-dependent-variable-models.html#cb6-4"></a></span>
+<span id="cb6-5"><a href="limited-dependent-variable-models.html#cb6-5"></a>reg1&lt;-<span class="kw">lm</span>(S <span class="op">~</span><span class="st"> </span>AgeMinus18 <span class="op">+</span><span class="st"> </span>class2<span class="op">+</span>class3,<span class="dt">data=</span>Dmale)</span>
+<span id="cb6-6"><a href="limited-dependent-variable-models.html#cb6-6"></a>reg2&lt;-<span class="kw">lm</span>(S <span class="op">~</span><span class="st"> </span>AgeMinus18 <span class="op">+</span><span class="st"> </span>adult<span class="op">+</span>class2<span class="op">+</span>class3,<span class="dt">data=</span>Dmale)</span>
+<span id="cb6-7"><a href="limited-dependent-variable-models.html#cb6-7"></a>reg3&lt;-<span class="kw">lm</span>(S <span class="op">~</span><span class="st"> </span>AgeMinus18 <span class="op">+</span><span class="st"> </span>adult <span class="op">+</span>AgeMinus18<span class="op">*</span>adult<span class="op">+</span><span class="st"> </span>class2 <span class="op">+</span><span class="st"> </span>class3,<span class="dt">data=</span>Dmale)</span>
+<span id="cb6-8"><a href="limited-dependent-variable-models.html#cb6-8"></a></span>
+<span id="cb6-9"><a href="limited-dependent-variable-models.html#cb6-9"></a><span class="kw">stargazer</span>(reg1,reg2,reg3,<span class="dt">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+S
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+AgeMinus18
+</td>
+<td>
+-0.007<sup>***</sup>
+</td>
+<td>
+-0.005<sup>***</sup>
+</td>
+<td>
+-0.036<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.007)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+adult
+</td>
+<td>
+</td>
+<td>
+-0.110<sup>**</sup>
+</td>
+<td>
+0.147<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.056)
+</td>
+<td>
+(0.079)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+class2
+</td>
+<td>
+-0.277<sup>***</sup>
+</td>
+<td>
+-0.267<sup>***</sup>
+</td>
+<td>
+-0.265<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.046)
+</td>
+<td>
+(0.046)
+</td>
+<td>
+(0.045)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+class3
+</td>
+<td>
+-0.288<sup>***</sup>
+</td>
+<td>
+-0.278<sup>***</sup>
+</td>
+<td>
+-0.259<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.042)
+</td>
+<td>
+(0.042)
+</td>
+<td>
+(0.041)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+AgeMinus18:adult
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+0.032<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.007)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+0.513<sup>***</sup>
+</td>
+<td>
+0.582<sup>***</sup>
+</td>
+<td>
+0.294<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.041)
+</td>
+<td>
+(0.054)
+</td>
+<td>
+(0.083)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+658
+</td>
+<td>
+658
+</td>
+<td>
+658
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.090
+</td>
+<td>
+0.095
+</td>
+<td>
+0.123
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.086
+</td>
+<td>
+0.090
+</td>
+<td>
+0.117
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+0.386 (df = 654)
+</td>
+<td>
+0.386 (df = 653)
+</td>
+<td>
+0.380 (df = 652)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+21.563<sup>***</sup> (df = 3; 654)
+</td>
+<td>
+17.228<sup>***</sup> (df = 4; 653)
+</td>
+<td>
+18.340<sup>***</sup> (df = 5; 652)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="limited-dependent-variable-models.html#cb7-1"></a>fitted&lt;-(reg3<span class="op">$</span>fitted.values)</span>
+<span id="cb7-2"><a href="limited-dependent-variable-models.html#cb7-2"></a>(</span>
+<span id="cb7-3"><a href="limited-dependent-variable-models.html#cb7-3"></a>  <span class="kw">ggplot</span>(<span class="dt">data=</span><span class="kw">data.frame</span>(fitted),<span class="kw">aes</span>(<span class="dt">x=</span>fitted))</span>
+<span id="cb7-4"><a href="limited-dependent-variable-models.html#cb7-4"></a>  <span class="op">+</span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">20</span>)</span>
+<span id="cb7-5"><a href="limited-dependent-variable-models.html#cb7-5"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb7-6"><a href="limited-dependent-variable-models.html#cb7-6"></a>  <span class="op">+</span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="dv">0</span>)</span>
+<span id="cb7-7"><a href="limited-dependent-variable-models.html#cb7-7"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="limited-dependent-variable-models.html#cb8-1"></a>probit1&lt;-<span class="kw">glm</span>(S <span class="op">~</span><span class="st"> </span>AgeMinus18 <span class="op">+</span><span class="st"> </span>class2<span class="op">+</span>class3,<span class="dt">data=</span>Dmale,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb8-2"><a href="limited-dependent-variable-models.html#cb8-2"></a>probit2&lt;-<span class="kw">glm</span>(S <span class="op">~</span><span class="st"> </span>AgeMinus18<span class="op">+</span>adult<span class="op">*</span>(AgeMinus18) <span class="op">+</span><span class="st"> </span>adult<span class="op">+</span><span class="st"> </span>class2<span class="op">+</span>class3,<span class="dt">data=</span>Dmale,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb8-3"><a href="limited-dependent-variable-models.html#cb8-3"></a></span>
+<span id="cb8-4"><a href="limited-dependent-variable-models.html#cb8-4"></a><span class="kw">stargazer</span>(probit1,probit2,<span class="dt">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+S
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+AgeMinus18
+</td>
+<td>
+-0.027<sup>***</sup>
+</td>
+<td>
+-0.113<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.005)
+</td>
+<td>
+(0.027)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+adult
+</td>
+<td>
+</td>
+<td>
+0.550<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.325)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+class2
+</td>
+<td>
+-1.014<sup>***</sup>
+</td>
+<td>
+-0.985<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.178)
+</td>
+<td>
+(0.181)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+class3
+</td>
+<td>
+-0.999<sup>***</sup>
+</td>
+<td>
+-0.906<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.156)
+</td>
+<td>
+(0.157)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+AgeMinus18:adult
+</td>
+<td>
+</td>
+<td>
+0.096<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.027)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+0.217
+</td>
+<td>
+-0.554<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.150)
+</td>
+<td>
+(0.334)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+658
+</td>
+<td>
+658
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+-304.351
+</td>
+<td>
+-296.947
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+616.702
+</td>
+<td>
+605.894
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</div>
+<div id="marginal-effects" class="section level2">
+<h2><span class="header-section-number">1.4</span> Marginal effects</h2>
+<p>Our goal is to evaluate:
+<span class="math display">\[
+\frac{\partial \Pr(Y_i=1\mid X)}{\partial X_k} = 
+\phi(\beta_0+\beta_1X_1+\beta_2X_2+\ldots)\beta_k
+\]</span>
+### Average marginal effect
+<span class="math display">\[
+\frac{1}{n}\sum_{i=1}^n\phi(\beta_0+\beta_1X_{1,i}+\beta_2X_{2,i}+\ldots)\beta_k
+\]</span></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="limited-dependent-variable-models.html#cb9-1"></a><span class="kw">library</span>(mfx)</span>
+<span id="cb9-2"><a href="limited-dependent-variable-models.html#cb9-2"></a>Dmale&lt;-Dmale <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">S =</span> <span class="dv">1</span><span class="op">*</span>(survived<span class="op">==</span><span class="st">&quot;yes&quot;</span>))</span>
+<span id="cb9-3"><a href="limited-dependent-variable-models.html#cb9-3"></a>p1&lt;-<span class="kw">glm</span>(S <span class="op">~</span><span class="st"> </span>AgeMinus18,<span class="dt">data=</span>Dmale,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb9-4"><a href="limited-dependent-variable-models.html#cb9-4"></a>p1mfx&lt;-<span class="kw">probitmfx</span>(<span class="dt">formula=</span>S<span class="op">~</span>AgeMinus18, <span class="dt">data=</span>Dmale,<span class="dt">atmean=</span><span class="ot">FALSE</span>)</span>
+<span id="cb9-5"><a href="limited-dependent-variable-models.html#cb9-5"></a></span>
+<span id="cb9-6"><a href="limited-dependent-variable-models.html#cb9-6"></a><span class="kw">print</span>(p1mfx)</span></code></pre></div>
+<pre><code>## Call:
+## probitmfx(formula = S ~ AgeMinus18, data = Dmale, atmean = FALSE)
+## 
+## Marginal Effects:
+##                 dF/dx  Std. Err.       z   P&gt;|z|   
+## AgeMinus18 -0.0036101  0.0011240 -3.2117 0.00132 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="limited-dependent-variable-models.html#cb11-1"></a><span class="co"># replicate point estimate of these</span></span>
+<span id="cb11-2"><a href="limited-dependent-variable-models.html#cb11-2"></a>B&lt;-p1<span class="op">$</span>coefficients</span>
+<span id="cb11-3"><a href="limited-dependent-variable-models.html#cb11-3"></a></span>
+<span id="cb11-4"><a href="limited-dependent-variable-models.html#cb11-4"></a>mfx&lt;-<span class="kw">dnorm</span>(B[<span class="dv">1</span>]<span class="op">+</span>Dmale<span class="op">$</span>AgeMinus18<span class="op">*</span>B[<span class="dv">2</span>])<span class="op">*</span>B[<span class="dv">2</span>]</span>
+<span id="cb11-5"><a href="limited-dependent-variable-models.html#cb11-5"></a><span class="kw">print</span>(<span class="kw">mean</span>(mfx,<span class="dt">na.rm=</span><span class="ot">TRUE</span>))</span></code></pre></div>
+<pre><code>## [1] -0.003610091</code></pre>
+<div id="marginal-effect-at-the-mean" class="section level3">
+<h3><span class="header-section-number">1.4.1</span> Marginal effect at the mean</h3>
+<p><span class="math display">\[ \phi(\beta_0+\bar X_1\beta_1+\bar X_2\beta_2+\ldots)\beta_k  \]</span></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="limited-dependent-variable-models.html#cb13-1"></a>p1mfxatmean&lt;-<span class="kw">probitmfx</span>(<span class="dt">formula=</span>S<span class="op">~</span>AgeMinus18, <span class="dt">data=</span>Dmale,<span class="dt">atmean=</span><span class="ot">TRUE</span>)</span>
+<span id="cb13-2"><a href="limited-dependent-variable-models.html#cb13-2"></a></span>
+<span id="cb13-3"><a href="limited-dependent-variable-models.html#cb13-3"></a><span class="kw">print</span>(p1mfxatmean)</span></code></pre></div>
+<pre><code>## Call:
+## probitmfx(formula = S ~ AgeMinus18, data = Dmale, atmean = TRUE)
+## 
+## Marginal Effects:
+##                 dF/dx  Std. Err.       z    P&gt;|z|   
+## AgeMinus18 -0.0036257  0.0011381 -3.1857 0.001444 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="limited-dependent-variable-models.html#cb15-1"></a>mfxatmean&lt;-<span class="kw">dnorm</span>(B[<span class="dv">1</span>]<span class="op">+</span><span class="kw">mean</span>(Dmale<span class="op">$</span>AgeMinus18,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)<span class="op">*</span>B[<span class="dv">2</span>])<span class="op">*</span>B[<span class="dv">2</span>]</span>
+<span id="cb15-2"><a href="limited-dependent-variable-models.html#cb15-2"></a><span class="kw">print</span>(mfxatmean)</span></code></pre></div>
+<pre><code>##  (Intercept) 
+## -0.003625654</code></pre>
+</div>
+<div id="marginal-effect-of-an-interaction" class="section level3">
+<h3><span class="header-section-number">1.4.2</span> Marginal effect of an interaction</h3>
+<p>Continuous <span class="math inline">\(X\)</span>, dummy <span class="math inline">\(D\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr(Y_i=1\mid X,D)&amp;=\Phi(\beta_0+\beta_1X+\beta_2D+\beta_3XD)\\
+\frac{\partial \Pr(Y_i=1\mid X,D)}{\partial X}&amp;=\phi(\beta_0+\beta_1X+\beta_2D+\beta_3XD)(\beta_1+\beta_3D)\\
+&amp;=\begin{cases}
+\phi(\beta_0+\beta_1X+\beta_2D+\beta_3XD)\beta_1 &amp;\text{ if } D=0\\
+\phi(\beta_0+\beta_1X+\beta_2D+\beta_3XD)(\beta_1+\beta_3) &amp;\text{ if } D=1
+\end{cases}
+\end{aligned}
+\]</span></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="limited-dependent-variable-models.html#cb17-1"></a>D&lt;-D<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">S=</span><span class="dv">1</span><span class="op">*</span>(survived<span class="op">==</span><span class="st">&quot;yes&quot;</span>),<span class="dt">female=</span><span class="dv">1</span><span class="op">*</span>(sex<span class="op">==</span><span class="st">&quot;female&quot;</span>),<span class="dt">AgeMinus18=</span>age<span class="dv">-18</span>)</span>
+<span id="cb17-2"><a href="limited-dependent-variable-models.html#cb17-2"></a>p2&lt;-<span class="kw">glm</span>(S <span class="op">~</span><span class="st"> </span>AgeMinus18<span class="op">+</span>AgeMinus18<span class="op">*</span>female,<span class="dt">data=</span>D,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb17-3"><a href="limited-dependent-variable-models.html#cb17-3"></a><span class="kw">print</span>(p2)</span></code></pre></div>
+<pre><code>## 
+## Call:  glm(formula = S ~ AgeMinus18 + AgeMinus18 * female, family = binomial(link = &quot;probit&quot;), 
+##     data = D)
+## 
+## Coefficients:
+##       (Intercept)         AgeMinus18             female  AgeMinus18:female  
+##          -0.67430           -0.01290            1.22801            0.02617  
+## 
+## Degrees of Freedom: 1045 Total (i.e. Null);  1042 Residual
+##   (263 observations deleted due to missingness)
+## Null Deviance:       1415 
+## Residual Deviance: 1084  AIC: 1092</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="limited-dependent-variable-models.html#cb19-1"></a><span class="co"># average marginal effect of age</span></span>
+<span id="cb19-2"><a href="limited-dependent-variable-models.html#cb19-2"></a>B&lt;-p2<span class="op">$</span>coefficients</span>
+<span id="cb19-3"><a href="limited-dependent-variable-models.html#cb19-3"></a></span>
+<span id="cb19-4"><a href="limited-dependent-variable-models.html#cb19-4"></a>mfx1&lt;-<span class="kw">mean</span>(<span class="kw">dnorm</span>(B[<span class="dv">1</span>]<span class="op">+</span>B[<span class="dv">2</span>]<span class="op">*</span>D<span class="op">$</span>Ageminus18<span class="op">+</span>B[<span class="dv">3</span>]<span class="op">*</span>D<span class="op">$</span>female<span class="op">+</span>B[<span class="dv">4</span>]<span class="op">*</span>D<span class="op">$</span>Ageminus18<span class="op">*</span>D<span class="op">$</span>female)<span class="op">*</span>(B[<span class="dv">2</span>]<span class="op">+</span>D<span class="op">$</span>female<span class="op">*</span>B[<span class="dv">4</span>]),<span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span>
+<span id="cb19-5"><a href="limited-dependent-variable-models.html#cb19-5"></a></span>
+<span id="cb19-6"><a href="limited-dependent-variable-models.html#cb19-6"></a><span class="kw">print</span>(mfx1)</span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="limited-dependent-variable-models.html#cb21-1"></a><span class="co"># let&#39;s see what the mfx package gives us</span></span>
+<span id="cb21-2"><a href="limited-dependent-variable-models.html#cb21-2"></a></span>
+<span id="cb21-3"><a href="limited-dependent-variable-models.html#cb21-3"></a></span>
+<span id="cb21-4"><a href="limited-dependent-variable-models.html#cb21-4"></a>mfxp2&lt;-<span class="kw">probitmfx</span>(S <span class="op">~</span><span class="st"> </span>AgeMinus18<span class="op">+</span>AgeMinus18<span class="op">*</span>female,<span class="dt">data=</span>D,<span class="dt">atmean=</span><span class="ot">FALSE</span>)</span>
+<span id="cb21-5"><a href="limited-dependent-variable-models.html#cb21-5"></a>mfxp2a&lt;-<span class="kw">probitmfx</span>(S <span class="op">~</span><span class="st"> </span>AgeMinus18<span class="op">+</span>AgeMinus18<span class="op">*</span><span class="kw">as.factor</span>(female),<span class="dt">data=</span>D,<span class="dt">atmean=</span><span class="ot">FALSE</span>)</span>
+<span id="cb21-6"><a href="limited-dependent-variable-models.html#cb21-6"></a><span class="kw">print</span>(mfxp2)</span></code></pre></div>
+<pre><code>## Call:
+## probitmfx(formula = S ~ AgeMinus18 + AgeMinus18 * female, data = D, 
+##     atmean = FALSE)
+## 
+## Marginal Effects:
+##                        dF/dx  Std. Err.       z     P&gt;|z|    
+## AgeMinus18        -0.0037559  0.0011756 -3.1948  0.001399 ** 
+## female             0.4474343  0.0392824 11.3902 &lt; 2.2e-16 ***
+## AgeMinus18:female  0.0076227  0.0018341  4.1560 3.238e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## dF/dx is for discrete change for the following variables:
+## 
+## [1] &quot;female&quot;</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="limited-dependent-variable-models.html#cb23-1"></a><span class="kw">print</span>(mfxp2a)</span></code></pre></div>
+<pre><code>## Call:
+## probitmfx(formula = S ~ AgeMinus18 + AgeMinus18 * as.factor(female), 
+##     data = D, atmean = FALSE)
+## 
+## Marginal Effects:
+##                                    dF/dx  Std. Err.       z     P&gt;|z|    
+## AgeMinus18                    -0.0037559  0.0011756 -3.1948  0.001399 ** 
+## as.factor(female)1             0.4474343  0.0392824 11.3902 &lt; 2.2e-16 ***
+## AgeMinus18:as.factor(female)1  0.0076227  0.0018341  4.1560 3.238e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## dF/dx is for discrete change for the following variables:
+## 
+## [1] &quot;as.factor(female)1&quot;</code></pre>
+<p>These are different, neither of the mfx package options work.</p>
+</div>
+<div id="marginal-effect-for-a-dummy-variable" class="section level3">
+<h3><span class="header-section-number">1.4.3</span> Marginal effect for a dummy variable</h3>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr(Y_i=1\mid X,D)&amp;=\Phi(\beta_0+\beta_1X + \beta_2D)
+\\
+\Phi(\beta_0+\beta_1X + \beta_2)-\Phi(\beta_0+\beta_1X)
+\end{aligned}
+\]</span></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="limited-dependent-variable-models.html#cb25-1"></a>p3&lt;-<span class="kw">glm</span>(S <span class="op">~</span><span class="st"> </span>AgeMinus18<span class="op">+</span>female,<span class="dt">data=</span>D,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb25-2"><a href="limited-dependent-variable-models.html#cb25-2"></a>mfx3&lt;-<span class="kw">probitmfx</span>(S <span class="op">~</span><span class="st"> </span>AgeMinus18<span class="op">+</span><span class="kw">as.factor</span>(female),<span class="dt">data=</span>D,<span class="dt">atmean=</span><span class="ot">FALSE</span>)</span>
+<span id="cb25-3"><a href="limited-dependent-variable-models.html#cb25-3"></a></span>
+<span id="cb25-4"><a href="limited-dependent-variable-models.html#cb25-4"></a><span class="kw">print</span>(mfx3)</span></code></pre></div>
+<pre><code>## Call:
+## probitmfx(formula = S ~ AgeMinus18 + as.factor(female), data = D, 
+##     atmean = FALSE)
+## 
+## Marginal Effects:
+##                          dF/dx   Std. Err.       z  P&gt;|z|    
+## AgeMinus18         -0.00076633  0.00089176 -0.8593 0.3902    
+## as.factor(female)1  0.54576066  0.02709187 20.1448 &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## dF/dx is for discrete change for the following variables:
+## 
+## [1] &quot;as.factor(female)1&quot;</code></pre>
+</div>
+</div>
+<div id="maximizing-a-function" class="section level2">
+<h2><span class="header-section-number">1.5</span> Maximizing a function</h2>
+<p>Coin flips</p>
+<p><span class="math display">\[
+\begin{aligned}
+y_i&amp;\sim iid \mathrm{Bernoulli}(\theta)\\
+\mathcal L(\theta)&amp;=n_1\log\theta+n_0\log(1-\theta)\\
+\frac{\partial \mathcal L(\theta)}{\partial \theta}&amp;=\frac{n_1}{\theta}-\frac{n_0}{1-\theta}\\
+\frac{\partial^2\mathcal L(\theta)}{\partial \theta^2}&amp;=-\frac{n_1}{\theta^2}-\frac{n_0}{(1-\theta)^2}
+\end{aligned}
+\]</span>
+Newton’s method in general:
+<span class="math display">\[ 
+\begin{aligned}
+f(x)&amp;\approx f(x_0)+(x-x_0)f&#39;(x_0)+\frac12(x-x_0)^2f&#39;&#39;(x_0)\\
+\text{FOC: }0&amp;=f&#39;(x_0)+(x-x_0)f&#39;&#39;(x_0)\\
+x_{t+1}&amp;=x_t-\frac{f&#39;(x_t)}{f&#39;&#39;(x_t)}
+\end{aligned}
+\]</span></p>
+<p>In our example:
+<span class="math display">\[
+\begin{aligned}
+\theta_{t+1}&amp;=\theta_t+\frac{\frac{n_1}{\theta_{t}}+\frac{n_0}{1-\theta_{t}}}{\frac{n_1}{\theta_t^2}+\frac{n_0}{(1-\theta_t^2)}}
+\end{aligned}
+\]</span></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="limited-dependent-variable-models.html#cb27-1"></a>theta0&lt;-<span class="fl">0.1</span></span>
+<span id="cb27-2"><a href="limited-dependent-variable-models.html#cb27-2"></a></span>
+<span id="cb27-3"><a href="limited-dependent-variable-models.html#cb27-3"></a>n1&lt;-<span class="dv">1000</span></span>
+<span id="cb27-4"><a href="limited-dependent-variable-models.html#cb27-4"></a>n0&lt;-<span class="dv">400</span></span>
+<span id="cb27-5"><a href="limited-dependent-variable-models.html#cb27-5"></a></span>
+<span id="cb27-6"><a href="limited-dependent-variable-models.html#cb27-6"></a>ThetaNext&lt;-<span class="cf">function</span>(t0,n1,n0) {</span>
+<span id="cb27-7"><a href="limited-dependent-variable-models.html#cb27-7"></a>  numerator&lt;-n1<span class="op">/</span>t0 <span class="op">-</span><span class="st"> </span>n0<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>t0)</span>
+<span id="cb27-8"><a href="limited-dependent-variable-models.html#cb27-8"></a>  denominator&lt;-n1<span class="op">/</span>t0<span class="op">^</span><span class="dv">2</span><span class="op">+</span>n0<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>t0)<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb27-9"><a href="limited-dependent-variable-models.html#cb27-9"></a>  f&lt;-n1<span class="op">*</span><span class="kw">log</span>(t0)<span class="op">+</span>n0<span class="op">*</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">-</span>t0)</span>
+<span id="cb27-10"><a href="limited-dependent-variable-models.html#cb27-10"></a>  </span>
+<span id="cb27-11"><a href="limited-dependent-variable-models.html#cb27-11"></a>  ThetaNext&lt;-t0<span class="op">+</span>numerator<span class="op">/</span>denominator</span>
+<span id="cb27-12"><a href="limited-dependent-variable-models.html#cb27-12"></a>  </span>
+<span id="cb27-13"><a href="limited-dependent-variable-models.html#cb27-13"></a>  <span class="kw">c</span>(ThetaNext,f,numerator,<span class="op">-</span>denominator)</span>
+<span id="cb27-14"><a href="limited-dependent-variable-models.html#cb27-14"></a>}</span>
+<span id="cb27-15"><a href="limited-dependent-variable-models.html#cb27-15"></a></span>
+<span id="cb27-16"><a href="limited-dependent-variable-models.html#cb27-16"></a>THETA&lt;-<span class="kw">seq</span>(<span class="fl">0.001</span>,<span class="fl">0.999</span>,<span class="dt">length=</span><span class="dv">999</span>)</span>
+<span id="cb27-17"><a href="limited-dependent-variable-models.html#cb27-17"></a></span>
+<span id="cb27-18"><a href="limited-dependent-variable-models.html#cb27-18"></a>D&lt;-(<span class="kw">data.frame</span>(THETA)</span>
+<span id="cb27-19"><a href="limited-dependent-variable-models.html#cb27-19"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Likelihood =</span> n1<span class="op">*</span><span class="kw">log</span>(THETA)<span class="op">+</span>n0<span class="op">*</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">-</span>THETA))</span>
+<span id="cb27-20"><a href="limited-dependent-variable-models.html#cb27-20"></a>)</span>
+<span id="cb27-21"><a href="limited-dependent-variable-models.html#cb27-21"></a></span>
+<span id="cb27-22"><a href="limited-dependent-variable-models.html#cb27-22"></a>thetaNewton&lt;-theta0</span>
+<span id="cb27-23"><a href="limited-dependent-variable-models.html#cb27-23"></a>derivatives&lt;-<span class="kw">c</span>()</span>
+<span id="cb27-24"><a href="limited-dependent-variable-models.html#cb27-24"></a></span>
+<span id="cb27-25"><a href="limited-dependent-variable-models.html#cb27-25"></a>ApproxFun&lt;-<span class="kw">data.frame</span>()</span>
+<span id="cb27-26"><a href="limited-dependent-variable-models.html#cb27-26"></a></span>
+<span id="cb27-27"><a href="limited-dependent-variable-models.html#cb27-27"></a><span class="cf">for</span> (ii <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
+<span id="cb27-28"><a href="limited-dependent-variable-models.html#cb27-28"></a>  f&lt;-<span class="kw">ThetaNext</span>(theta0,n1,n0)</span>
+<span id="cb27-29"><a href="limited-dependent-variable-models.html#cb27-29"></a>  </span>
+<span id="cb27-30"><a href="limited-dependent-variable-models.html#cb27-30"></a>  x&lt;-THETA[<span class="kw">abs</span>(THETA<span class="op">-</span>theta0)<span class="op">&lt;=</span><span class="fl">0.2</span>]</span>
+<span id="cb27-31"><a href="limited-dependent-variable-models.html#cb27-31"></a>  </span>
+<span id="cb27-32"><a href="limited-dependent-variable-models.html#cb27-32"></a>  y&lt;-f[<span class="dv">2</span>]<span class="op">+</span>(x<span class="op">-</span>theta0)<span class="op">*</span>f[<span class="dv">3</span>]<span class="op">+</span><span class="fl">0.5</span><span class="op">*</span>(x<span class="op">-</span>theta0)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>f[<span class="dv">4</span>]</span>
+<span id="cb27-33"><a href="limited-dependent-variable-models.html#cb27-33"></a>  </span>
+<span id="cb27-34"><a href="limited-dependent-variable-models.html#cb27-34"></a>  iteration&lt;-ii<span class="dv">-1</span></span>
+<span id="cb27-35"><a href="limited-dependent-variable-models.html#cb27-35"></a>  </span>
+<span id="cb27-36"><a href="limited-dependent-variable-models.html#cb27-36"></a>  theta0&lt;-f[<span class="dv">1</span>]</span>
+<span id="cb27-37"><a href="limited-dependent-variable-models.html#cb27-37"></a>  </span>
+<span id="cb27-38"><a href="limited-dependent-variable-models.html#cb27-38"></a>  derivatives&lt;-f[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>]</span>
+<span id="cb27-39"><a href="limited-dependent-variable-models.html#cb27-39"></a>  </span>
+<span id="cb27-40"><a href="limited-dependent-variable-models.html#cb27-40"></a>  </span>
+<span id="cb27-41"><a href="limited-dependent-variable-models.html#cb27-41"></a>  </span>
+<span id="cb27-42"><a href="limited-dependent-variable-models.html#cb27-42"></a>  ApproxFun&lt;-<span class="kw">rbind</span>(ApproxFun,<span class="kw">data.frame</span>(x,y,iteration))</span>
+<span id="cb27-43"><a href="limited-dependent-variable-models.html#cb27-43"></a>  </span>
+<span id="cb27-44"><a href="limited-dependent-variable-models.html#cb27-44"></a>  </span>
+<span id="cb27-45"><a href="limited-dependent-variable-models.html#cb27-45"></a>  thetaNewton&lt;-<span class="kw">c</span>(thetaNewton,theta0)</span>
+<span id="cb27-46"><a href="limited-dependent-variable-models.html#cb27-46"></a>}</span>
+<span id="cb27-47"><a href="limited-dependent-variable-models.html#cb27-47"></a></span>
+<span id="cb27-48"><a href="limited-dependent-variable-models.html#cb27-48"></a>NewtonPoints&lt;-<span class="kw">data.frame</span>(thetaNewton)<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Likelihood =</span> n1<span class="op">*</span><span class="kw">log</span>(thetaNewton)<span class="op">+</span>n0<span class="op">*</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">-</span>thetaNewton))</span>
+<span id="cb27-49"><a href="limited-dependent-variable-models.html#cb27-49"></a>NewtonPoints<span class="op">$</span>iteration&lt;-<span class="dv">0</span><span class="op">:</span>(<span class="kw">dim</span>(NewtonPoints)[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb27-50"><a href="limited-dependent-variable-models.html#cb27-50"></a></span>
+<span id="cb27-51"><a href="limited-dependent-variable-models.html#cb27-51"></a></span>
+<span id="cb27-52"><a href="limited-dependent-variable-models.html#cb27-52"></a></span>
+<span id="cb27-53"><a href="limited-dependent-variable-models.html#cb27-53"></a>(<span class="kw">ggplot</span>(D,<span class="kw">aes</span>(<span class="dt">x=</span>THETA,<span class="dt">y=</span>Likelihood))</span>
+<span id="cb27-54"><a href="limited-dependent-variable-models.html#cb27-54"></a>  <span class="op">+</span><span class="kw">geom_path</span>(<span class="dt">size=</span><span class="dv">1</span>)</span>
+<span id="cb27-55"><a href="limited-dependent-variable-models.html#cb27-55"></a>  <span class="op">+</span><span class="kw">geom_point</span>(<span class="dt">data=</span>NewtonPoints,<span class="kw">aes</span>(<span class="dt">x=</span>thetaNewton,<span class="dt">y=</span>Likelihood))</span>
+<span id="cb27-56"><a href="limited-dependent-variable-models.html#cb27-56"></a>  <span class="op">+</span><span class="kw">geom_path</span>(<span class="dt">data=</span>ApproxFun,<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y,<span class="dt">group=</span>iteration),<span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb27-57"><a href="limited-dependent-variable-models.html#cb27-57"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb27-58"><a href="limited-dependent-variable-models.html#cb27-58"></a>  <span class="op">+</span><span class="kw">ylim</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">2000</span>,<span class="dv">0</span>))</span>
+<span id="cb27-59"><a href="limited-dependent-variable-models.html#cb27-59"></a>  </span>
+<span id="cb27-60"><a href="limited-dependent-variable-models.html#cb27-60"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Algorithm does not converge</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="limited-dependent-variable-models.html#cb28-1"></a>n1&lt;-<span class="dv">1000</span></span>
+<span id="cb28-2"><a href="limited-dependent-variable-models.html#cb28-2"></a>n0&lt;-<span class="dv">1</span></span>
+<span id="cb28-3"><a href="limited-dependent-variable-models.html#cb28-3"></a></span>
+<span id="cb28-4"><a href="limited-dependent-variable-models.html#cb28-4"></a>theta0&lt;-<span class="fl">0.1</span></span>
+<span id="cb28-5"><a href="limited-dependent-variable-models.html#cb28-5"></a></span>
+<span id="cb28-6"><a href="limited-dependent-variable-models.html#cb28-6"></a>thetaT&lt;-theta0</span>
+<span id="cb28-7"><a href="limited-dependent-variable-models.html#cb28-7"></a></span>
+<span id="cb28-8"><a href="limited-dependent-variable-models.html#cb28-8"></a><span class="cf">for</span> (ii <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</span>
+<span id="cb28-9"><a href="limited-dependent-variable-models.html#cb28-9"></a>  f&lt;-<span class="kw">ThetaNext</span>(theta0,n1,n0)</span>
+<span id="cb28-10"><a href="limited-dependent-variable-models.html#cb28-10"></a>  </span>
+<span id="cb28-11"><a href="limited-dependent-variable-models.html#cb28-11"></a>  thetaT&lt;-<span class="kw">c</span>(thetaT,f[<span class="dv">1</span>])</span>
+<span id="cb28-12"><a href="limited-dependent-variable-models.html#cb28-12"></a>  theta0&lt;-f[<span class="dv">1</span>]</span>
+<span id="cb28-13"><a href="limited-dependent-variable-models.html#cb28-13"></a>}</span>
+<span id="cb28-14"><a href="limited-dependent-variable-models.html#cb28-14"></a></span>
+<span id="cb28-15"><a href="limited-dependent-variable-models.html#cb28-15"></a><span class="kw">print</span>(thetaT)</span></code></pre></div>
+<pre><code>##  [1]   0.1000000   0.1999877   0.3999128   0.7993817   1.5831346   3.1589526
+##  [7]   6.3157689  12.6301282  25.2590785  50.5170741 101.0331084</code></pre>
+<p>Solution 1: don’t move as far as the algorithms suggests:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="limited-dependent-variable-models.html#cb30-1"></a>theta0&lt;-<span class="fl">0.1</span></span>
+<span id="cb30-2"><a href="limited-dependent-variable-models.html#cb30-2"></a></span>
+<span id="cb30-3"><a href="limited-dependent-variable-models.html#cb30-3"></a>n0&lt;-<span class="dv">10</span></span>
+<span id="cb30-4"><a href="limited-dependent-variable-models.html#cb30-4"></a></span>
+<span id="cb30-5"><a href="limited-dependent-variable-models.html#cb30-5"></a>thetaT&lt;-theta0</span>
+<span id="cb30-6"><a href="limited-dependent-variable-models.html#cb30-6"></a>c&lt;-<span class="fl">0.1</span></span>
+<span id="cb30-7"><a href="limited-dependent-variable-models.html#cb30-7"></a></span>
+<span id="cb30-8"><a href="limited-dependent-variable-models.html#cb30-8"></a><span class="cf">for</span> (ii <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>) {</span>
+<span id="cb30-9"><a href="limited-dependent-variable-models.html#cb30-9"></a>  f&lt;-<span class="kw">ThetaNext</span>(theta0,n1,n0)</span>
+<span id="cb30-10"><a href="limited-dependent-variable-models.html#cb30-10"></a>  </span>
+<span id="cb30-11"><a href="limited-dependent-variable-models.html#cb30-11"></a>  thetaNext&lt;-f[<span class="dv">1</span>]<span class="op">*</span>c <span class="op">+</span>theta0<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>c)</span>
+<span id="cb30-12"><a href="limited-dependent-variable-models.html#cb30-12"></a>  theta0&lt;-thetaNext</span>
+<span id="cb30-13"><a href="limited-dependent-variable-models.html#cb30-13"></a>  thetaT&lt;-<span class="kw">c</span>(thetaT ,thetaNext)</span>
+<span id="cb30-14"><a href="limited-dependent-variable-models.html#cb30-14"></a>}</span>
+<span id="cb30-15"><a href="limited-dependent-variable-models.html#cb30-15"></a></span>
+<span id="cb30-16"><a href="limited-dependent-variable-models.html#cb30-16"></a><span class="kw">plot</span>(thetaT)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="section.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="behavioral-econometrics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
