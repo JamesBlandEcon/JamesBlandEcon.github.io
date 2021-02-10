@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Econometrics II Notes 20201</title>
-  <meta name="description" content="Econometrics II Notes 20201" />
+  <title>2 Time Series | Econometrics II Notes 20201</title>
+  <meta name="description" content="2 Time Series | Econometrics II Notes 20201" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Econometrics II Notes 20201" />
+  <meta property="og:title" content="2 Time Series | Econometrics II Notes 20201" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Econometrics II Notes 20201" />
+  <meta name="twitter:title" content="2 Time Series | Econometrics II Notes 20201" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="limited-dependent-variable-models.html"/>
+<link rel="prev" href="limited-dependent-variable-models.html"/>
+<link rel="next" href="behavioral-econometrics.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -141,20 +141,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="limited-dependent-variable-models.html"><a href="limited-dependent-variable-models.html#maximizing-a-function"><i class="fa fa-check"></i><b>1.5</b> Maximizing a function</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="mle-and-hypothesis-testing.html"><a href="mle-and-hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> MLE and hypothesis testing</a></li>
-<li class="chapter" data-level="3" data-path="time-series-prediction-and-forecasting.html"><a href="time-series-prediction-and-forecasting.html"><i class="fa fa-check"></i><b>3</b> Time series, prediction, and forecasting</a><ul>
-<li class="chapter" data-level="3.1" data-path="time-series-prediction-and-forecasting.html"><a href="time-series-prediction-and-forecasting.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="time-series-prediction-and-forecasting.html"><a href="time-series-prediction-and-forecasting.html#notation"><i class="fa fa-check"></i><b>3.2</b> Notation</a></li>
-<li class="chapter" data-level="3.3" data-path="time-series-prediction-and-forecasting.html"><a href="time-series-prediction-and-forecasting.html#building-blocks"><i class="fa fa-check"></i><b>3.3</b> Building blocks</a></li>
-<li class="chapter" data-level="3.4" data-path="time-series-prediction-and-forecasting.html"><a href="time-series-prediction-and-forecasting.html#diagnostics"><i class="fa fa-check"></i><b>3.4</b> Diagnostics</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="time-series-prediction-and-forecasting.html"><a href="time-series-prediction-and-forecasting.html#acf-and-pacf"><i class="fa fa-check"></i><b>3.4.1</b> ACF and PACF</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html"><i class="fa fa-check"></i><b>4</b> Behavioral econometrics</a><ul>
-<li class="chapter" data-level="4.1" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#example-dataset"><i class="fa fa-check"></i><b>4.1</b> Example dataset</a></li>
-<li class="chapter" data-level="4.2" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#risk-neutral"><i class="fa fa-check"></i><b>4.2</b> Risk neutral</a></li>
-<li class="chapter" data-level="4.3" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#estimate-a-lambda_i-for-every-subject-split-by-id"><i class="fa fa-check"></i><b>4.3</b> Estimate a <span class="math inline">\(\lambda_i\)</span> for every subject (split by ID)</a></li>
-<li class="chapter" data-level="4.4" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#to-do"><i class="fa fa-check"></i><b>4.4</b> To do</a></li>
+<li class="chapter" data-level="2" data-path="time-series.html"><a href="time-series.html"><i class="fa fa-check"></i><b>2</b> Time Series</a></li>
+<li class="chapter" data-level="3" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html"><i class="fa fa-check"></i><b>3</b> Behavioral econometrics</a><ul>
+<li class="chapter" data-level="3.1" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#example-dataset"><i class="fa fa-check"></i><b>3.1</b> Example dataset</a></li>
+<li class="chapter" data-level="3.2" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#risk-neutral"><i class="fa fa-check"></i><b>3.2</b> Risk neutral</a></li>
 </ul></li>
 </ul>
 
@@ -173,21 +163,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Econometrics II Notes 20201</h1>
-<p class="author"><em>James Bland</em></p>
-<p class="date"><em>Spring 2021</em></p>
-</div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
+<div id="time-series" class="section level1">
+<h1><span class="header-section-number">2</span> Time Series</h1>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="limited-dependent-variable-models.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="limited-dependent-variable-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="behavioral-econometrics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

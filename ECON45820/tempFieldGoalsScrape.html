@@ -1,0 +1,1707 @@
+
+<!DOCTYPE html>
+<html data-version="klecko-" data-root="/home/pfr/deploy/www" itemscope itemtype="https://schema.org/WebSite" lang="en" class="no-js" >
+<head id="suppress_all_ads">
+<!-- Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+<script type="text/javascript" async=true>
+    (function() {
+	var host = window.location.hostname;
+	var element = document.createElement('script');
+	var firstScript = document.getElementsByTagName('script')[0];
+	var url = 'https://quantcast.mgr.consensu.org'
+	    .concat('/choice/', 'XwNYEpNeFfhfr', '/', host, '/choice.js')
+	var uspTries = 0;
+	var uspTriesLimit = 3;
+	element.async = true;
+	element.type = 'text/javascript';
+	element.src = url;
+	
+	firstScript.parentNode.insertBefore(element, firstScript);
+	
+	function makeStub() {
+	    var TCF_LOCATOR_NAME = '__tcfapiLocator';
+	    var queue = [];
+	    var win = window;
+	    var cmpFrame;
+	    
+	    function addFrame() {
+		var doc = win.document;
+		var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+		
+		if (!otherCMP) {
+		    if (doc.body) {
+			var iframe = doc.createElement('iframe');
+			
+			iframe.style.cssText = 'display:none';
+			iframe.name = TCF_LOCATOR_NAME;
+			doc.body.appendChild(iframe);
+		    } else {
+			setTimeout(addFrame, 5);
+		    }
+		}
+		return !otherCMP;
+	    }
+	    
+	    function tcfAPIHandler() {
+		var gdprApplies;
+		var args = arguments;
+		
+		if (!args.length) {
+		    return queue;
+		} else if (args[0] === 'setGdprApplies') {
+		    if (
+			args.length > 3 &&
+			    args[2] === 2 &&
+			    typeof args[3] === 'boolean'
+		    ) {
+			gdprApplies = args[3];
+			if (typeof args[2] === 'function') {
+			    args[2]('set', true);
+			}
+		    }
+		} else if (args[0] === 'ping') {
+		    var retr = {
+			gdprApplies: gdprApplies,
+			cmpLoaded: false,
+			cmpStatus: 'stub'
+		    };
+		    
+		    if (typeof args[2] === 'function') {
+			args[2](retr);
+		    }
+		} else {
+		    queue.push(args);
+		}
+	    }
+	    
+	    function postMessageEventHandler(event) {
+		var msgIsString = typeof event.data === 'string';
+		var json = {};
+		
+		try {
+		    if (msgIsString) {
+			json = JSON.parse(event.data);
+		    } else {
+			json = event.data;
+		    }
+		} catch (ignore) {}
+		
+		var payload = json.__tcfapiCall;
+		
+		if (payload) {
+		    window.__tcfapi(
+			payload.command,
+			payload.version,
+			function(retValue, success) {
+			    var returnMsg = {
+				__tcfapiReturn: {
+				    returnValue: retValue,
+				    success: success,
+				    callId: payload.callId
+				}
+			    };
+			    if (msgIsString) {
+				returnMsg = JSON.stringify(returnMsg);
+			    }
+			    event.source.postMessage(returnMsg, '*');
+			},
+			payload.parameter
+		    );
+		}
+	    }
+	    
+	    while (win) {
+		try {
+		    if (win.frames[TCF_LOCATOR_NAME]) {
+			cmpFrame = win;
+			break;
+		    }
+		} catch (ignore) {}
+		
+		if (win === window.top) {
+		    break;
+		}
+		win = win.parent;
+	    }
+	    if (!cmpFrame) {
+		addFrame();
+		win.__tcfapi = tcfAPIHandler;
+		win.addEventListener('message', postMessageEventHandler, false);
+	    }
+	};
+	
+	makeStub();
+	
+	var uspStubFunction = function() {
+	    var arg = arguments;
+	    if (typeof window.__uspapi !== uspStubFunction) {
+		setTimeout(function() {
+		    if (typeof window.__uspapi !== 'undefined') {
+			window.__uspapi.apply(window.__uspapi, arg);
+		    }
+		}, 500);
+	    }
+	};
+	
+	var checkIfUspIsReady = function() {
+	    uspTries++;
+	    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+		console.warn('USP is not accessible');
+	    } else {
+		clearInterval(uspInterval);
+	    }
+	};
+	
+	if (typeof window.__uspapi === 'undefined') {
+	    window.__uspapi = uspStubFunction;
+	    var uspInterval = setInterval(checkIfUspIsReady, 6000);
+	}
+    })();
+</script>
+<!-- End Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0" />
+    <link rel="dns-prefetch" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032" />
+
+    <title>Football | Field Goal Finder | Stathead.com</title>
+
+    
+    
+    <meta name="Description" content="Field Goal Finder.">
+    <link rel="canonical" href="https://www.stathead.com/football/fg_finder.cgi" />
+
+<!-- include:start ="/inc/stathead/klecko_header_stathead.html_f" -->
+<!-- no:cookie fast load the css.           -->
+<script>function gup(n) {n = n.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]'); var r = new RegExp('[\\?&]'+n+'=([^&#]*)'); var re = r.exec(location.search);   return re === null?'':decodeURIComponent(re[1].replace(/\+/g,' '));}; document.srdev = gup('srdev')</script>
+<link rel="preconnect" href="https://d2p3bygnnzw9w3.cloudfront.net" crossorigin>
+<link rel="preconnect" href="https://www.google-analytics.com"  crossorigin>
+<link rel="preconnect" href="https://www.googletagservices.com" crossorigin>
+<link rel="preload"    href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102091/js/stathead/sr-min.js" as="script" crossorigin>
+<link rel="preload"    href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102091/icons/sr_icons-min.svg?stathead" as="fetch" crossorigin>
+<link rel="preload"    href="/inc/main_nav_menu.json" as="fetch" crossorigin>
+<link rel="preload"    href="https://d2p3bygnnzw9w3.cloudfront.net/req/201604190/images/chosen-sprite.png" as="image" crossorigin>
+<link rel="preload"    href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102091/css/stathead/sr-min.css" as="style"    crossorigin>
+
+<!-- CSS start -->
+ <style>html,body{margin:0;padding:0;font:14px/1.25 "Helvetica Neue",helvetica,arial,sans-serif;color:#000}html:not(.backstop){scroll-behavior:smooth}html:not(.backstop) div,html:not(.backstop) span{scroll-margin:2.5em 0 0 0;scroll-snap-margin:2.5em 0 0 0}body{position:relative;background:#c9cbcd;z-index:0;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none}a img{border:0}ul,li,ol{margin:0;padding:0;list-style-type:none}table th,table td{border:0}iframe{max-width:100%}code{background:#eee}a,button,input,select,textarea,label,summary{touch-action:manipulation;-ms-touch-action:manipulation}::selection{background:#ff0;text-shadow:none}html.no-js .hasmore,html.no-js .js,html.js .no-js,html.no-js button,html.is_build .hide_build,html.is_dev .hide_dev,html.is_live .hide_live{display:none!important}.js-select{visibility:hidden}a[href]{color:#34d}a[href]:visited{color:#848}a[href]:hover{color:#5e44b3}a[href]:active{color:#b12}a[href^="tel:"]::before{content:"\260E";display:inline-block;margin-right:0}a[href^="mailto:"]::before{content:"\2709";display:inline-block;margin-right:0}.icon_group a[href^="tel:"]:before,.icon_group a[href^="mailto:"]:before{content:""}.screen_only{display:initial}.user_logged_in .not_logged_in,.logged_in,.sr_cpi_control,.print_only{display:none}#perflog,#modernizr,.user_logged_in .logged_in{display:block}h2{color:#000;margin-bottom:5px;font-size:1.5em}img.right{float:right;margin:0 0 5px 5px}img.left{float:left;margin:0 15px 15px 0}sup{font-size:.75em;position:relative;top:-0.4em;vertical-align:baseline}#wrap{width:100%;background:#fff;position:relative}#wrap>div,#wrap>ul{width:100%;position:relative;clear:both}.hidden-iso,.hidden,#content .hidden,.gutterad,.more,.print_only,#warnings.hide,#nag_devs{display:none}#inner_nav.hidden{visibility:hidden}.float_wrap{overflow:hidden}.grid2{display:grid;grid-column-gap:10px;grid-template-columns:1fr 1fr}.grid2 img{max-width:100%}.grid2.heavyleft{grid-template-columns:2fr 1fr}.grid2.heavyright{grid-template-columns:1fr 2fr}#header{overflow:visible;background:#eeecee;border-bottom:3px solid #8e4496;min-height:50px}#header img{height:25px;float:left;padding:8px 0 8px 2%;max-width:71%;max-width:calc(95% - 80px)}#header #nav_trigger{display:block;cursor:pointer;float:right;padding:7px 2% 7px 1%;height:30px}#header #nav_trigger a{color:#8e4496;font-size:20px;font-weight:bold;text-decoration:none;display:inline-block}#header #nav_trigger a:before{color:#8e4496;content:"\2630 ";font-weight:normal}#header #nav{display:none;clear:both;width:88%;background:#fff;padding:7px 6% 0;border-bottom:3px solid #8e4496;border-top:3px solid #8e4496;overflow:hidden;font-size:12px}#header #nav .usertools{font-weight:bold;font-size:12px;margin:0 0 4px;padding:7px 6% 0;border-top:1px solid #c9cbcd}#header #nav .breadcrumbs{font-size:12px;padding:7px 6%;border-top:1px solid #c9cbcd}#header #nav_trigger.open{background:#8e4496}#header #nav_trigger.open a{color:#fff}#header #nav_trigger.open a:before{color:#fff}#header #nav.open{display:block}#header .social{margin:15px 0;display:none}#header.open_search{margin-bottom:50px}#header #subnav{display:none}#translations{background-color:#ffa;padding:4px 0;text-align:center;display:none}#translations.show{display:block}#translations .closer{top:4px}#translations .langs{display:inline-block}#translations .links{margin:0 35px 0 0}#translations .links>div{display:inline-block}#translations .links .welcome{font-weight:bold}#header .search{margin-top:10px;clear:both;padding:0 2% 6px}#header .search input,#header .search input:active,#header .search input:focus{height:32px;font-size:20px}.search input[type="search"]{padding:4px 5px;border:#747678 1px solid;width:73%;margin-right:2%}.search input[type="search"].prefilled{background-color:#ffa}.search input[type="submit"]{float:right;background:#8e4496;color:white;border:1px solid #747678;padding:0;border-radius:5px;height:24px;width:25%;width:calc(25% 0 2px)}.search input[type="submit"]:hover{text-decoration:underline}.search input[type="submit"]:active{background-color:#444045}.search .ac-outline{width:73%;margin-right:2%}.search .ac-outline input[type="search"]{width:100%;margin:0}@media screen and (-webkit-min-device-pixel-ratio:0) and (max-width:400px){#header .search input,#header .search input:active,#header .search input:focus{height:32px;font-size:20px}}#wrap>#info{width:96%;margin:0 auto;padding-bottom:10px}#info .opener,#info .opener:active,#inner_nav div .opener{color:#900;font-weight:bold;clear:both;width:100%;text-align:left;padding:10px 0;border:0;background:transparent}#info button#meta_more_button{border:1px solid #c9cbcd;background-color:#eeecee;padding:.5em;margin:.5em 0;text-align:center;width:100%;max-width:400px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;display:none}#info button#meta_more_button.show{display:inline-block}#info #meta>div>p:nth-child(n+6){display:none}#info.open #meta>div>p:nth-child(n+6){display:block}#info #meta .opener{display:none}#info #meta{margin-top:10px;overflow:hidden}#info #meta p{font-size:.93em;margin:3px 0}#info #meta>div.media-item{float:right;margin-left:10px;width:70px}#info #meta>div.media-item.country{width:100px;height:75px}#info #meta>div.media-item.country .flag{width:100%;height:100%;background-size:100%}#info .media-item img{width:100%;height:auto;border:1px solid black;box-sizing:border-box}#info .media-item img.additional{display:none}#info .media-item.logo img,.bbr #info .media-item img,.cbb #info .media-item img{border:0}#info #meta .media-item p{margin:3px 0;font-size:.785em;font-style:italic}#info #meta .media-item.loader p{visibility:hidden}#info h1{margin-top:0;margin-bottom:5px;line-height:1.1em;font-size:1.5em}#info h1+p{margin-top:5px}#info #bling{margin:6px 1% 6px 0;color:#fff;height:24px;overflow:hidden;float:left;width:88%;display:grid;grid-gap:5px 4px;grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}#info.teams #bling{width:100%}#info #bling li{padding:4px 1.25%;text-align:center;position:relative;height:15px;background:#7e3e89;font-size:.85em;word-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:5px;display:inline-block;width:27%;margin-bottom:5px}#info.teams #bling li{width:45%}#bling li a{color:inherit}#info #bling li.bling_hof{background-color:#ffdb1c;color:#000}#info #bling li.bling_all_star{background-color:#c9cbcd;color:#444045}#info #bling li.bling_hof,#info.teams #bling li.bling_all_star,#info.teams #bling li.bling_champ{grid-column-end:span 2}#info #bling li.important{grid-column-end:span 2}#info #bling li.special{background-color:#ffdb1c;color:#000}#info #bling li.all_star{background-color:#c9cbcd;color:#444045}#info.open #bling{height:auto;width:100%;margin-right:0;float:none;overflow:visible}@supports(display:grid){#info #bling li,#info.open #bling li,#info.teams #bling li{width:auto!important;margin-bottom:0!important}}.uni_holder{margin:3px 0;float:none;width:100%;position:relative}#info .uni_holder{float:left}#bling+.uni_holder{width:11%}#info.open #bling+.uni_holder{width:100%;overflow:visible;float:none;margin-bottom:5px}.uni_holder>a{display:inline-block;position:relative;height:auto;width:28px;margin-bottom:3px;margin-right:.3em;text-decoration:none;overflow:hidden}.uni_holder svg{height:28px;width:28px}.uni_holder svg.jersey{height:35px}.uni_holder svg text{font-size:1.8em;font-weight:bold}.uni_holder svg text.string{font-size:1.3em}.uni_holder svg.jersey text{font-size:1.5em}.uni_holder svg.jersey text.string{font-size:.7em}#info #bling+.uni_holder>a{display:none}#info .uni_holder>a.default,#info.open .uni_holder>a,#info #bling+.uni_holder>a.default{display:inline-block}#info .uni_holder .counter{display:none;position:absolute;height:14px;width:18px;border-radius:50%;color:#fff;font-weight:bold;font-size:10px;top:-4px;left:18px;background:black;text-align:center;border:0;padding:4px 0 0;cursor:pointer;text-overflow:inherit}#info .uni_holder .counter:after{content:'';padding:0;font-size:0}#info #bling+.uni_holder .counter{display:block}#info.open #bling+.uni_holder .counter{display:none}#info.open #bling+.uni_holder>a{display:inline-block}#info.open .uni_holder>a{display:inline-block;width:33px}#info.open .uni_holder svg{height:33px;width:33px}#info.open .uni_holder svg.jersey{height:41px}.stats_pullout{overflow:hidden;text-align:center;width:96%;margin:0 auto 15px 0;padding-top:6px}.stats_pullout>div{float:left}.stats_pullout>div:first-child{text-align:left}.stats_pullout>div.p2,.stats_pullout>div.p3{display:none}.stats_pullout>div>div{float:left;margin-left:15px}.stats_pullout>div>div.p2{display:none}.stats_pullout>div:first-child>div{margin-left:0}.stats_pullout h4{color:#900;margin:2px 0;font-size:.785714286em;text-align:center}.stats_pullout p{margin:2px 0;font-size:1.1em}.stats_pullout .caption{clear:both;text-align:left}@media screen and (min-width:520px){.stats_pullout>div.p2{display:block}}@media screen and (min-width:600px){.stats_pullout>div{border-left:1px solid #c9cbcd;margin-left:10px}.stats_pullout>div:first-child{border-left:none;margin-left:0}}@media screen and (min-width:736px){.stats_pullout>div.p2{display:none}}@media screen and (min-width:800px){.stats_pullout>div.p2{display:block}.stats_pullout>div>div.p2{display:block}}.opener{cursor:pointer;position:relative;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.opener:after{content:"\25BC";font-size:.75em;padding-left:5px;display:inline-block;text-decoration:none}.opener.open:after{content:"\25B2"}.note .opener{white-space:normal}.toggleable{display:none}.toggleable.open{display:block}tr.toggleable.open{display:table-row}table.toggleable.open{display:table}span.toggleable.open{display:inline}.hoverer{cursor:pointer}.hoverer:after{content:"\25BC";position:absolute;top:7px;right:0}html.no-touchevents .hoverer:hover:after{content:"\25B2"}ul.news_stories>li{margin:5px 10px 0 0;float:none}ul.news_stories.more{display:none}ul.news_stories.more.open{display:block}.bullets{padding-left:20px}.bullets>li{margin-left:0;margin-bottom:6px}ul.bullets>li{list-style-type:disc}ol.bullets>li{list-style-type:decimal}.bullets-inline>li{display:inline-block;margin-right:9px;margin-bottom:10px}.bullets-inline>li:after{content:"\00B7";margin-left:9px}.bullets-inline>li:last-child:after{content:"";margin-left:0}.bullets-inline>li.logged_in{display:none}.user_logged_in .bullets-inline>li.logged_in{display:inline-block}.desc{font-style:italic;font-size:.93em}.hilite{background-color:#ffa}.modified,.modified *{background-color:#f5f5f5}tr.hilite th,tr.hilite td{background-color:#ffa}.callout{margin:10px 0;padding:10px 15px;border:1px solid #aaa;background:#444045;color:#c9cbcd;font-size:1.1em}.callout a{color:#b3beff}.callout a:visited,.callout a:active{color:#a4adff}.callout a:hover,.callout a:visited:hover,.callout a:active:hover{color:#c4cfff}.callout.light{border-color:#404542;background:#c9cbcd;color:#404452}.callout.light a{color:#34d}.callout.light a.button,.callout.light a.button:hover{color:white}.callout.light a:hover{color:#5e44b3}.callout.light h3{background-color:transparent}#content>.notables{background-color:#ffa;border:1px dotted #747678;margin:0 auto;padding:6px;text-align:center;width:auto;max-width:500px;font-size:.93em;display:table}.notables li{margin-top:8px}.notables li:first-child{margin-top:0}.note{color:#444;font-size:.92em}.header{font-weight:bold;font-size:1.16em}.pagelog{width:90%;overflow:scroll}.preformatted-desc{width:90%;overflow:auto}.callout.stathead_player_highlight{background:#fff;border:1px solid #7e3e89;text-align:center}.stathead_player_highlight .cta{font-size:90%}.stathead_player_highlight .button.stathead_button{background-color:#7e3e89;display:none}.stathead_player_highlight img{max-width:300px}.stathead_player_highlight .stathead_player_highlight_content>div:first-child{margin-bottom:.25em}@media screen and (min-width:736px){.callout.stathead_player_highlight{display:grid;grid-template-columns:minmax(205px,1fr) 4fr minmax(175px,1fr);grid-column-gap:10px;align-items:center}.stathead_player_highlight .button.stathead_button{display:block}.stathead_player_highlight img{width:100%}}#info .adblock{display:none}.adblock{overflow:hidden}.adblock>p{font-size:.93em;margin:2px 0}.adblock img{display:block;margin:0 auto}.adblock{background-color:white;text-align:center}.adblock.ad728{display:none}body.hr #srcom .adblock.ad728{display:block}.adblock.ad300{padding:10px}.adblock.grouped{float:left;padding:0}.adblock.ad300.grouped{float:none;padding:10px}.adblock.rails{display:none}#div-gpt-ad-728x90-BTF-1{max-height:340px}@media screen and (min-width:481px){.adblock.ad300{padding:10px 0}}@media screen and (min-width:800px){.adblock.ad728{display:block;float:none;margin-bottom:10px}.adblock.ad300{display:none}.adblock.grouped.ad728{display:none}.adblock.grouped.ad300{float:left;width:320px;background:0;padding:0;display:block}}@media screen and (min-width:1810px){.adblock.rails{display:block;height:600px;width:160px;background-color:transparent;position:absolute;top:96px}.adblock.rails.left{left:0}.adblock.rails.right{right:0}}@media screen and (max-width:330px){.adblock{padding:0}.adblock.grouped{padding:0}.adblock.ad300.grouped{padding:0}}.button{background-color:#7e3e89;padding:10px 15px;color:white;text-decoration:none;display:inline-block;text-align:center;font-size:1.1em;margin:10px 0;border-radius:5px;cursor:pointer}.button.stathead_button{background-color:#7e3e89}.button:active,.button:visited,a.button,a.button:visited,a.button:hover{color:white}.button.alt{background:#8e4496;border:#747678 1px solid;display:block}.button.mini{font-size:.8em;padding:4px 8px;cursor:auto}button.tooltip,button.modal{background:transparent;border:0;text-align:left;padding:0;color:#900}.button2{display:inline-block;border:1px solid #c9cbcd;border-radius:3px;background-color:#eeecee;font-size:.93em;font-weight:normal;margin:0 8px 0 0;padding:8px 12px;width:auto;text-align:center}#meta .button2{font-size:.785714286em;margin:0 6px 0 0;padding:8px 7px}.button2[href]{text-decoration:none}.button2.next{text-align:right}.button2.prev{text-align:left}.button2.index,.button2.index:hover,.button2.index:active,.button2.index:visited{background-color:#444045;color:#fff}.button2.index:hover{color:#ccc}.button2.current{text-align:left;background-color:#fff;border:0;font-weight:bold;padding-left:0;padding-right:0;margin-left:-8px;margin-right:0}.button2:last-child{margin-right:0}.button2.next:after{content:"\203A\203A";padding-left:6px;color:black}.button2.prev:before{content:"\2039\2039";padding-right:6px;color:black}#info_box div.prevnext{margin-left:1em}.prevnext{margin:10px 0 15px 0}#content .prevnext>*{margin:.25em}#header #main_nav{color:#444045;overflow:hidden}#header #main_nav>li{border-top:1px solid #c9cbcd}#header #main_nav>li:first-child{border-top:0}#header #main_nav>li>a{display:block;padding:8px 0 8px 6%;font-weight:bold;text-decoration:none;font-size:1.4em}html.no-touchevents #header #main_nav>li:active{background-color:#444045}#header #main_nav>li:active>a{color:#eeecee}#header #main_nav li.current{background-color:#8e4496}#header #main_nav li.current>a{color:#eeecee}#header #main_nav h4{margin:4px 0}#header #main_nav h4:first-child{margin-top:0}#header #main_nav .nm{display:none}#header #main_nav>li>div{display:none;width:98%;position:absolute;top:100%;left:0;z-index:200;border-top:1px solid #444045;padding:1%;background:#fff;font-size:14px;font-weight:normal;box-shadow:0 6px 12px -3px #444045;color:black}#header #main_nav>li.drophover>div{display:block;line-height:initial}#main_nav td{padding:3px}#main_nav .end_links{clear:both}#main_nav .list{margin:0 0 8px;padding:3px;overflow-x:hidden;text-overflow:ellipsis}#main_nav div.list span{font-weight:bold;display:inline-block}#header_leaders div.list span{min-width:70px}#main_nav .game_summary td{padding:1px}@media screen and (max-width:1019px){#header #main_nav>li>div.mobile_list{display:block;position:relative;top:auto;box-shadow:none;border:0;padding:0 0 0 12%}#header #main_nav>li>div.mobile_list strong.desc{display:none}#header #main_nav>li>div.mobile_list div.list{width:90%;line-height:2em}}.ac-outline{display:inline-block}.ac-wrapper{position:relative}.ac-prompt{position:absolute;font-size:16px;color:#444045;top:0;left:0;overflow:hidden;background:transparent}.ac-input:focus,.ac-input:active,.ac-hint:focus,.ac-input,.ac-hint{font-size:16px;background-color:#fff;width:100%;outline:0;border:0;margin:0;padding:0}.ac-input:focus,.ac-input:active,.ac-input{background-color:transparent}.ac-input{vertical-align:top;position:relative;color:#444045}.ac-hint{position:absolute;top:0;left:0;border-color:transparent;box-shadow:none;color:#747678}.ac-dropdown{position:absolute;visibility:hidden;padding:.5em 0;font-size:16px;background-color:#fff;z-index:100;cursor:default;overflow-x:hidden;overflow-y:scroll;width:calc(100% - 2px);border:#aaa 1px solid;border-top:0}.ac-dropdown>div:first-of-type>.ac-results-header{padding-top:0}.ac-results-header{font-size:1em;padding:.35em .5em;font-weight:700}.ac-suggestion{cursor:pointer;padding:.35em 1em;font-size:1em;line-height:1em;border-top:1px solid #fff;border-bottom:1px solid #fff}.ac-suggestion p{margin:0}.ac-suggestion.active,.ac-suggestion.active .search-results-item{color:#b12;font-weight:bold}.search-results-item em{font-style:normal;border-bottom:1px dotted}.ac-suggestion.ac-is-under-cursor,html.no-touchevents .ac-suggestion:hover{border-top:1px solid #aaa!important;border-bottom:1px solid #aaa!important;background-color:#ffa!important}.ac-suggestion .subhead{margin-left:.5em;padding-top:.25em;display:block;font-size:.75em}.ac-suggestion-other-search{font-size:1em;line-height:1.2em;padding-left:.5em;color:#34d}.player_select_name{font-size:16px}.player_select_name button{font-size:2em;margin-left:10px;vertical-align:middle}.player_select_name strong{display:inline-block}.pi_forms .group input[type="search"]{max-width:none;height:auto;font-size:16px;padding-bottom:3px}.pi_forms .ac-outline{width:100%;max-width:520px}@media screen and (max-width:480px){.ac-dropdown{min-width:310px}#desc_container{font-size:12px}}@media screen and (min-width:400px){#info h1 span{display:inline-block}#info h1 span.header_end{display:inline}}@media screen and (min-width:481px){#header #nav_trigger a{font-size:24px}#header img{height:28px}#info #meta>div.media-item{width:92px}#info #meta>div.media-item.logo{width:118px}#info #meta>div.media-item.country{width:140px;height:105px}#info #meta>div>p:nth-child(6){display:block}#info #meta>div>p:nth-child(7){display:block}#info h1{font-size:1.7em}.button2,.button2.current{padding:8px 12px;margin:0 20px 0 0}}@media screen and (min-width:600px){#info #bling{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}#info.open #bling li{width:19.5%}#meta .button2{font-size:.93em;margin:0 20px 0 0;padding:8px 12px}}@media screen and (max-width:735px){.no_mobile{display:none}}@media screen and (min-width:736px){.mobile_only{display:none}#wrap>#header{width:100%;padding-left:0;padding-right:0;border-bottom:0}#wrap>#srcom{width:99%;margin:0 auto}#wrap>#info{width:65%;width:calc(99% - 322px);margin:0 auto;padding-right:320px;min-height:270px}#info .adblock{display:block;position:absolute;top:0;right:0;height:270px;width:300px;padding:0}h2{font-size:1.8em;line-height:1.2em}#info h1{font-size:2em;line-height:1.1em}#info #meta{min-height:auto}#info#general #meta{min-height:auto}#info.open #bling li{width:28%}}@media screen and (min-width:800px){#info #meta>div{float:left;width:100%}#info #meta>div.media-item{float:left;margin-left:0;margin-right:10px}#info #meta>div.media-item+div{width:85%;width:calc(100% - 102px)}#info #meta>div.media-item.logo+div{width:calc(100% - 128px)}#info #meta>div.media-item.country+div{width:calc(100% - 160px)}#info #meta>div>p.opener{max-width:75%}#info.open.teams #bling li{width:45%}}@media screen and (min-width:1020px){#header #nav_trigger{display:none}#wrap>#header{border-bottom:2px solid #8e4496;overflow:visible;height:126px;background:#fff}#header img{position:absolute;top:22px;height:auto;max-height:55px;max-width:35%}#header #nav{display:block;width:100%;padding:0;margin:0;clear:none;background:#eeecee;border-top:1px solid #c9cbcd;border-bottom:0;overflow:visible;height:30px;position:absolute;bottom:0}#header #nav>*{display:none}#header #nav>#main_nav{display:block;color:#444045;text-align:left;margin-bottom:0;border:0;overflow:visible}#header #main_nav ul{border:0;position:relative}#header #main_nav>li{border:0;width:auto;white-space:nowrap;float:left;color:#444045;font-size:1.16666667em;font-weight:bold;height:14px;padding:8px 1.7%;line-height:12px}#header #main_nav>li>a{color:#444045;padding:0;position:relative;font-size:1em}#header #main_nav>li.current>a{color:#fff}#header #main_nav>li.nm{display:block}#header #main_nav>li.m{display:none}#header #main_nav>li.hasmore>a:after{content:"";display:none}#header #main_nav>li.hasmore.drophover>a:after{content:"";display:none}#header #main_nav li:nth-child(even){border:0}#header #main_nav>li.drophover,#header #main_nav>li:not(.hasmore):hover,#inner_nav>ul>li.drophover{background:#444045}#header #main_nav>li.drophover>a,#header #main_nav>li:not(.hasmore):hover>a,#inner_nav>ul>li.drophover>a{color:#fff}#header #main_nav>li.drophover>span,#header #main_nav>li:not(.hasmore):hover>span,#inner_nav>ul>li.drophover>span{color:#fff}#header #main_nav>li>div>ul{overflow:hidden;margin-top:10px;margin-bottom:10px}#header #main_nav>li>div>ul>li{width:18%;margin-right:2%;margin-bottom:8px;float:left}html.no-touchevents .hasmore>div{position:absolute;left:-999em}html.no-touchevents .hasmore.drophover>div{z-index:69;left:0;box-shadow:0 6px 12px -3px #444045}#header #subnav{display:block;color:#c9cbcd;background-color:#444045;width:100%;padding:0;height:22px}#header #subnav>li{font-size:.785714286em;float:left;padding:2px 10px 2px;margin-top:3px;position:relative;border-left:1px solid #747678;height:12px}#header #subnav>li.user .username{display:inline-block;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:12px;vertical-align:text-bottom;padding-left:3px;margin-top:-7px}#header #subnav>li:first-child{display:block;border-left:none}#header #subnav>li:nth-child(9){display:none}#header #subnav>li:nth-child(n+10){float:right;border-left:none;border-right:1px solid #747678}#header #subnav>li:last-child{display:none}#header #subnav>li:last-child(2){border-right:0}#header #subnav>li.current a{color:#fff}#header #subnav li a{color:#c9cbcd;text-decoration:none}#header #subnav li a:hover{color:#fff;text-decoration:underline}#header #subnav li svg{vertical-align:top;margin-top:-2px}#header .search{position:relative;float:right;padding:0;width:60%;max-width:700px;clear:none;margin-right:12px;margin-top:17px}#wrap #info{overflow:hidden;margin-bottom:8px}#info #meta{margin-top:0;margin-bottom:10px;padding-top:15px;float:left;width:70%;width:calc(100% - 265px)}#info #bling,#info.open #bling,#info.teams #bling{float:right;width:250px;height:auto;margin-top:10px;margin-right:0;grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}#info #bling li,#info.open #bling li{width:45%}#info.teams #bling li,#info.open.teams #bling li{width:92%}#info #meta>div>p.opener{display:none}#info #meta>div>p:nth-child(6){display:none}#info #meta>div>p:nth-child(7){display:none}#info.teams #meta>div>p:nth-child(n+6){display:block}#info.teams #meta>div>p:nth-child(n+11){display:none}#info.teams.open #meta>div>p:nth-child(n+11){display:block}#info.leagues #meta>div>p:nth-child(n+6){display:block}#info.leagues #meta>div>p:nth-child(n+11){display:none}#info.leagues.open #meta>div>p:nth-child(n+11){display:block}#info .adblock>div{margin-top:2px}.uni_holder{float:right;clear:right;width:250px;margin-top:10px}.uni_holder>a{width:42px}.uni_holder svg{height:42px;width:42px}.uni_holder svg.jersey{height:52px}#info .uni_holder{float:right}#info .uni_holder>a,#info #bling+.uni_holder>a{display:inline-block}#bling+.uni_holder,#info.open #bling+.uni_holder{margin-top:0;width:250px;float:right}#info #bling+.uni_holder .counter{display:none}#info.open .uni_holder>a{width:42px}#info.open .uni_holder svg{height:42px;width:42px}#info.open .uni_holder svg.jersey{height:52px}.stats_pullout>div.p3{display:block}#bling li:after{content:"";position:absolute;top:-110%;left:-210%;width:150%;height:200%;opacity:0;transform:rotate(10deg);background:rgba(255,255,255,0.13);background:linear-gradient(to right,rgba(255,255,255,0.13) 0,rgba(255,255,255,0.13) 77%,rgba(255,255,255,0.5) 92%,rgba(255,255,255,0.0) 100%)}#bling li:hover:after{opacity:1;top:-63%;left:-26%;transition-property:left,top,opacity;transition-duration:.7s,0.7s,0.15s;transition-timing-function:ease}#bling li:active:after{opacity:0}.adblock.ad728{display:block;float:left}.adblock.grouped.ad300{display:none}}@media screen and (min-width:1160px){#header #main_nav>li{padding:8px 2.2%}#info #meta>div.media-item{margin-right:20px;width:92px}#info #meta>div.media-item.logo{margin-right:10px;width:125px}#info #meta>div.media-item.country{width:160px;height:120px}#info #meta>div.media-item.logo>img{height:125px;width:125px}#info #meta>div.media-item+div{width:calc(100% - 112px)}#info #meta>div.media-item.logo+div{width:calc(100% - 135px)}#info #meta>div.media-item.country+div{width:calc(100% - 180px)}#info #meta>div.media-item.multiple:hover img.additional{display:block}#info #meta>div.media-item.multiple:hover{position:fixed;z-index:200;width:auto;background-color:rgba(200,200,200,0.8);padding:5px;border:1px solid black}#info #meta>div.media-item.multiple:hover+div{margin-left:112px}#info #meta>div.media-item.multiple:hover img{width:92px;float:left;margin-right:10px}#info #meta>div.media-item.multiple:hover img:last-child{margin-right:0}#info #meta>div.media-item.multiple:hover:after{content:'Order may not be chronological';font display:block;background:rgba(200,200,200,1);float:right;clear:left;padding:2px 5px;font-size:.83em}.stats_pullout>div>div{margin-left:21px}.stats_pullout p{font-size:1em}:lang(en) #info #meta>div.media-item.multiple:hover:after{content:"Order may not be chronological"}:lang(es) #info #meta>div.media-item.multiple:hover:after{content:"El orden no puede ser cronológico"}:lang(fr) #info #meta>div.media-item.multiple:hover:after{content:"L'ordre peut ne pas être chronologique"}:lang(pt) #info #meta>div.media-item.multiple:hover:after{content:"A ordem pode não ser cronológica"}:lang(de) #info #meta>div.media-item.multiple:hover:after{content:"Reihenfolge darf nicht chronologisch sein"}#header #subnav>li:nth-child(9){display:block}#header #subnav>li.user .username{max-width:160px}}@media screen and (min-width:1478px){#wrap{width:1450px;border-left:1px solid #747678;border-right:1px solid #747678;box-shadow:0 0 27px #444045;margin:0 auto}.sr_expanded>#wrap{width:100%;border:0;box-shadow:none}#header #subnav>li:last-child{display:block}.user_logged_in #header #subnav>li:last-child.not_logged_in{display:none}#info #meta>div>p:nth-child(6){display:block}#info #meta>div>p:nth-child(7){display:block}}.f-i,#footer,#content,#inner_nav,#srcom{display:none}</style>
+<link rel="stylesheet" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102091/css/stathead/sr-min.css" media="print" crossorigin
+      onload="if (document.srdev) { this.href = 'https://d2p3bygnnzw9w3.cloudfront.net/nocdn/dev/'.concat(document.srdev.substr(0,2),'/css/stathead/sr.css'); }; this.media='all'">
+<noscript><link href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102091/css/stathead/sr-min.css"  rel="stylesheet" type="text/css" /></noscript>
+<!-- CSS END -->
+
+<!-- JS START -->
+<script class="allowed">var sr_is_production = true;
+function vjs_getUrlParameter(e){e=e.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");var t=new RegExp("[\\?&]"+e+"=([^&#]*)").exec(location.search);return null===t?"":decodeURIComponent(t[1].replace(/\+/g," "))}document.lang="","/es/"===window.location.pathname.substr(0,4)?document.lang="es":"/pt/"===window.location.pathname.substr(0,4)?document.lang="pt":"/fr/"===window.location.pathname.substr(0,4)?document.lang="fr":"/it/"===window.location.pathname.substr(0,4)?document.lang="it":"/de/"===window.location.pathname.substr(0,4)?document.lang="de":(window.location.pathname.substr(0,4),document.lang="en"),vjs_getUrlParameter("lang")&&(document.lang=vjs_getUrlParameter("lang")),document.srdev=null,vjs_getUrlParameter("srdev")&&(document.srdev=vjs_getUrlParameter("srdev"));var log_performance=!0,is_new_jscss_version=!1,sr_detect_operaMini=-1<navigator.userAgent.indexOf("Opera Mini");sr_detect_operaMini&&((el=document.querySelector("html")).className=el.className.concat(" operamini"));var sr_detect_firefox=-1<navigator.userAgent.indexOf("Firefox");sr_detect_firefox&&((el=document.querySelector("html")).className=el.className.concat(" firefox"));var sr_detect_firefoxMobile=-1<navigator.userAgent.indexOf("Firefox")&&(-1<navigator.userAgent.indexOf("Mobile")||-1<navigator.userAgent.indexOf("Tablet"));sr_detect_firefoxMobile&&((el=document.querySelector("html")).className=el.className.concat(" firefox-mobile"));var el,sr_detect_ie=function(){var e=window.navigator.userAgent;if(0<e.indexOf("Trident/7.0"))return 11;if(0<e.indexOf("Trident/6.0"))return 10;if(0<e.indexOf("Trident/5.0"))return 9;for(var t=3,n=document.createElement("div"),r=n.getElementsByTagName("i");n.innerHTML="\x3c!--[if gt IE "+ ++t+"]><i></i><![endif]--\x3e",r[0];);return 4<t&&t}(),sr_detect_edge=!sr_detect_ie&&!!window.StyleMedia,sr_detect_safari=/Safari/.test(navigator.userAgent)&&/Apple Computer/.test(navigator.vendor),className="no-js";(el=document.querySelector("html")).classList?el.classList.remove(className):el.className=el.className.replace(new RegExp("(^|\\b)"+className.split(" ").join("|")+"(\\b|)","gi")," "),el.className=el.className.concat(" js"),function(a,u,f){function m(e,t){return typeof e===t}function p(e){return"function"!=typeof u.createElement?u.createElement(e):y?u.createElementNS.call(u,"http://www.w3.org/2000/svg",e):u.createElement.apply(u,arguments)}function o(e,t,n,r){var o,i,a,s,l="modernizr",c=p("div"),d=function(){var e=u.body;return e||((e=p(y?"svg":"body")).fake=!0),e}();if(parseInt(n,10))for(;n--;)(a=p("div")).id=r?r[n]:l+(n+1),c.appendChild(a);return(o=p("style")).type="text/css",o.id="s"+l,(d.fake?d:c).appendChild(o),d.appendChild(c),o.styleSheet?o.styleSheet.cssText=e:o.appendChild(u.createTextNode(e)),c.id=l,d.fake&&(d.style.background="",d.style.overflow="hidden",s=_.style.overflow,_.style.overflow="hidden",_.appendChild(d)),i=t(c,e),d.fake?(d.parentNode.removeChild(d),_.style.overflow=s,_.offsetHeight):c.parentNode.removeChild(c),!!i}function h(e){return e.replace(/([a-z])-([a-z])/g,function(e,t,n){return t+n.toUpperCase()}).replace(/^-/,"")}function s(e,t){return function(){return e.apply(t,arguments)}}function i(e){return e.replace(/([A-Z])/g,function(e,t){return"-"+t.toLowerCase()}).replace(/^ms-/,"-ms-")}function v(e,t){var n=e.length;if("CSS"in a&&"supports"in a.CSS){for(;n--;)if(a.CSS.supports(i(e[n]),t))return!0;return!1}if("CSSSupportsRule"in a){for(var r=[];n--;)r.push("("+i(e[n])+":"+t+")");return o("@supports ("+(r=r.join(" or "))+") { #modernizr { position: absolute; } }",function(e){return"absolute"==function(e,t,n){var r;if("getComputedStyle"in a){r=getComputedStyle.call(a,e,t);var o=a.console;if(null!==r)n&&(r=r.getPropertyValue(n));else if(o){o[o.error?"error":"log"].call(o,"getComputedStyle returning null, its possible modernizr test results are inaccurate")}}else r=!t&&e.currentStyle&&e.currentStyle[n];return r}(e,null,"position")})}return f}function r(e,t,n,r,o){var i=e.charAt(0).toUpperCase()+e.slice(1),a=(e+" "+z.join(i+" ")+i).split(" ");return m(t,"string")||m(t,"undefined")?function(e,t,n,r){function o(){a&&(delete T.style,delete T.modElem)}if(r=!m(r,"undefined")&&r,!m(n,"undefined")){var i=v(e,n);if(!m(i,"undefined"))return i}for(var a,s,l,c,d,u=["modernizr","tspan","samp"];!T.style&&u.length;)a=!0,T.modElem=p(u.shift()),T.style=T.modElem.style;for(l=e.length,s=0;s<l;s++)if(c=e[s],d=T.style[c],!~(""+c).indexOf("-")||(c=h(c)),T.style[c]!==f){if(r||m(n,"undefined"))return o(),"pfx"!=t||c;try{T.style[c]=n}catch(e){}if(T.style[c]!=d)return o(),"pfx"!=t||c}return o(),!1}(a,t,r,o):function(e,t,n){var r;for(var o in e)if(e[o]in t)return!1===n?e[o]:m(r=t[e[o]],"function")?s(r,n||t):r;return!1}(a=(e+" "+M.join(i+" ")+i).split(" "),t,n)}function e(e,t,n){return r(e,f,f,t,n)}var l=[],c=[],t={_version:"3.6.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,t){var n=this;setTimeout(function(){t(n[e])},0)},addTest:function(e,t,n){c.push({name:e,fn:t,options:n})},addAsyncTest:function(e){c.push({name:null,fn:e})}},d=function(){};d.prototype=t,(d=new d).addTest("cookies",function(){try{u.cookie="cookietest=1";var e=-1!=u.cookie.indexOf("cookietest=");return u.cookie="cookietest=1; expires=Thu, 01-Jan-1970 00:00:01 GMT",e}catch(e){return!1}}),d.addTest("localstorage",function(){var e="modernizr";try{return localStorage.setItem(e,e),localStorage.removeItem(e),!0}catch(e){return!1}}),d.addTest("sessionstorage",function(){var e="modernizr";try{return sessionStorage.setItem(e,e),sessionStorage.removeItem(e),!0}catch(e){return!1}}),d.addTest("cors","XMLHttpRequest"in a&&"withCredentials"in new XMLHttpRequest),d.addTest("history",function(){var e=navigator.userAgent;return(-1===e.indexOf("Android 2.")&&-1===e.indexOf("Android 4.0")||-1===e.indexOf("Mobile Safari")||-1!==e.indexOf("Chrome")||-1!==e.indexOf("Windows Phone")||"file:"===location.protocol)&&(a.history&&"pushState"in a.history)});var g=t._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):["",""];t._prefixes=g;var _=u.documentElement,y="svg"===_.nodeName.toLowerCase();y||function(e,a){function u(e,t){var n=e.createElement("p"),r=e.getElementsByTagName("head")[0]||e.documentElement;return n.innerHTML="x<style>"+t+"</style>",r.insertBefore(n.lastChild,r.firstChild)}function f(){var e=g.elements;return"string"==typeof e?e.split(" "):e}function m(e){var t=v[e[d]];return t||(t={},h++,e[d]=h,v[h]=t),t}function r(e,t,n){return t=t||a,s?t.createElement(e):!(r=(n=n||m(t)).cache[e]?n.cache[e].cloneNode():c.test(e)?(n.cache[e]=n.createElem(e)).cloneNode():n.createElem(e)).canHaveChildren||l.test(e)||r.tagUrn?r:n.frag.appendChild(r);var r}function o(e){var t=m(e=e||a);return!g.shivCSS||n||t.hasCSS||(t.hasCSS=!!u(e,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),s||function(t,n){n.cache||(n.cache={},n.createElem=t.createElement,n.createFrag=t.createDocumentFragment,n.frag=n.createFrag()),t.createElement=function(e){return g.shivMethods?r(e,t,n):n.createElem(e)},t.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+f().join().replace(/[\w\-:]+/g,function(e){return n.createElem(e),n.frag.createElement(e),'c("'+e+'")'})+");return n}")(g,n.frag)}(e,t),e}function p(e){for(var t,n=e.attributes,r=n.length,o=e.ownerDocument.createElement(w+":"+e.nodeName);r--;)(t=n[r]).specified&&o.setAttribute(t.nodeName,t.nodeValue);return o.style.cssText=e.style.cssText,o}function t(s){function l(){clearTimeout(e._removeSheetTimer),c&&c.removeNode(!0),c=null}var c,d,e=m(s),t=s.namespaces,n=s.parentWindow;return!x||s.printShived||(void 0===t[w]&&t.add(w),n.attachEvent("onbeforeprint",function(){l();for(var e,t,n,r=s.styleSheets,o=[],i=r.length,a=Array(i);i--;)a[i]=r[i];for(;n=a.pop();)if(!n.disabled&&y.test(n.media)){try{t=(e=n.imports).length}catch(e){t=0}for(i=0;i<t;i++)a.push(e[i]);try{o.push(n.cssText)}catch(e){}}o=function(e){for(var t,n=e.split("{"),r=n.length,o=RegExp("(^|[\\s,>+~])("+f().join("|")+")(?=[[\\s,>+~#.:]|)","gi"),i="1"+w+"\\:2";r--;)(t=n[r]=n[r].split("}"))[t.length-1]=t[t.length-1].replace(o,i),n[r]=t.join("}");return n.join("{")}(o.reverse().join("")),d=function(e){for(var t,n=e.getElementsByTagName("*"),r=n.length,o=RegExp("^(?:"+f().join("|")+")","i"),i=[];r--;)t=n[r],o.test(t.nodeName)&&i.push(t.applyElement(p(t)));return i}(s),c=u(s,o)}),n.attachEvent("onafterprint",function(){(function(e){for(var t=e.length;t--;)e[t].removeNode()})(d),clearTimeout(e._removeSheetTimer),e._removeSheetTimer=setTimeout(l,500)}),s.printShived=!0),s}var n,s,i=e.html5||{},l=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)/i,c=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)/i,d="_html5shiv",h=0,v={};!function(){try{var e=a.createElement("a");e.innerHTML="<xyz></xyz>",n="hidden"in e,s=1==e.childNodes.length||function(){a.createElement("a");var e=a.createDocumentFragment();return void 0===e.cloneNode||void 0===e.createDocumentFragment||void 0===e.createElement}()}catch(e){s=n=!0}}();var g={elements:i.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video",version:"3.7.3",shivCSS:!1!==i.shivCSS,supportsUnknownElements:s,shivMethods:!1!==i.shivMethods,type:"default",shivDocument:o,createElement:r,createDocumentFragment:function(e,t){if(e=e||a,s)return e.createDocumentFragment();for(var n=(t=t||m(e)).frag.cloneNode(),r=0,o=f(),i=o.length;r<i;r++)n.createElement(o[r]);return n},addElements:function(e,t){var n=g.elements;"string"!=typeof n&&(n=n.join(" ")),"string"!=typeof e&&(e=e.join(" ")),g.elements=n+" "+e,o(t)}};e.html5=g,o(a);var _,y=/^|\b(?:all|print)\b/,w="html5shiv",x=!(s||(_=a.documentElement,void 0===a.namespaces||void 0===a.parentWindow||void 0===_.applyElement||void 0===_.removeNode||void 0===e.attachEvent));g.type+=" print",(g.shivPrint=t)(a),"object"==typeof module&&module.exports&&(module.exports=g)}(void 0!==a?a:this,u),d.addTest("csspositionsticky",function(){var e="position:",t=p("a").style;return t.cssText=e+g.join("sticky;"+e).slice(0,-e.length),-1!==t.position.indexOf("sticky")});var w,n=(w=!("onblur"in u.documentElement),function(e,t){var n;return!!e&&(t&&"string"!=typeof t||(t=p(t||"div")),!(n=(e="on"+e)in t)&&w&&(t.setAttribute||(t=p("div")),t.setAttribute(e,""),n="function"==typeof t[e],t[e]!==f&&(t[e]=f),t.removeAttribute(e)),n)});t.hasEvent=n;var x=t.testStyles=o;d.addTest("touchevents",function(){var t;if("ontouchstart"in a||a.DocumentTouch&&u instanceof DocumentTouch)t=!0;else{var e=["@media (",g.join("touch-enabled),("),"heartz",")","{#modernizr{top:9px;position:absolute}}"].join("");x(e,function(e){t=9===e.offsetTop})}return t});var b="Moz O ms Webkit",M=t._config.usePrefixes?b.toLowerCase().split(" "):[];t._domPrefixes=M,d.addTest("pointerevents",function(){var e=!1,t=M.length;for(e=d.hasEvent("pointerdown");t--&&!e;)n(M[t]+"pointerdown")&&(e=!0);return e});var z=t._config.usePrefixes?b.split(" "):[];t._cssomPrefixes=z;function S(e){var t,n=g.length,r=a.CSSRule;if(void 0===r)return f;if(!e)return!1;if((t=(e=e.replace(/^@/,"")).replace(/-/g,"_").toUpperCase()+"_RULE")in r)return"@"+e;for(var o=0;o<n;o++){var i=g[o];if(i.toUpperCase()+"_"+t in r)return"@-"+i.toLowerCase()+"-"+e}return!1}t.atRule=S;var E={elem:p("modernizr")};d._q.push(function(){delete E.elem});var T={style:E.elem.style};d._q.unshift(function(){delete T.style}),t.testAllProps=r;var C=t.prefixed=function(e,t,n){return 0===e.indexOf("@")?S(e):(-1!=e.indexOf("-")&&(e=h(e)),t?r(e,t,n):r(e,"pfx"))};d.addTest("matchmedia",!!C("matchMedia",a)),t.testAllProps=e,d.addTest("flexwrap",e("flexWrap","wrap",!0)),function(){var e,t,n,r,o,i;for(var a in c)if(c.hasOwnProperty(a)){if(e=[],(t=c[a]).name&&(e.push(t.name.toLowerCase()),t.options&&t.options.aliases&&t.options.aliases.length))for(n=0;n<t.options.aliases.length;n++)e.push(t.options.aliases[n].toLowerCase());for(r=m(t.fn,"function")?t.fn():t.fn,o=0;o<e.length;o++)1===(i=e[o].split(".")).length?d[i[0]]=r:(!d[i[0]]||d[i[0]]instanceof Boolean||(d[i[0]]=new Boolean(d[i[0]])),d[i[0]][i[1]]=r),l.push((r?"":"no-")+i.join("-"))}}(),function(e){var t=_.className,n=d._config.classPrefix||"";if(y&&(t=t.baseVal),d._config.enableJSClass){var r=new RegExp("(^|\\s)"+n+"no-js(\\s|)");t=t.replace(r,"1"+n+"js2")}d._config.enableClasses&&(t+=" "+n+e.join(" "+n),y?_.className.baseVal=t:_.className=t)}(l),delete t.addTest,delete t.addAsyncTest;for(var N=0;N<d._q.length;N++)d._q[N]();a.Modernizr=d}(window,document),Modernizr.viewport_width=Math.max(document.documentElement.clientWidth,window.innerWidth||0),Modernizr.viewport_height=Math.max(document.documentElement.clientHeight,window.innerHeight||0),Modernizr.narrow=Modernizr.viewport_width<=704,Modernizr.constrained=Modernizr.viewport_width<=1200,Modernizr.site_menu=Modernizr.viewport_width<=1020?"button":"nav_bar",Modernizr.touch=Modernizr.touchevents||Modernizr.pointerevents&&(0<navigator.MaxTouchPoints||0<navigator.msMaxTouchPoints),Modernizr.phone=Modernizr.narrow&&Modernizr.touch,Modernizr.tablet=Modernizr.viewport_width<1075&&Modernizr.touch,Modernizr.desktop=!Modernizr.constrained&&!Modernizr.touch,Modernizr.laptop=!(Modernizr.desktop||Modernizr.tablet||Modernizr.phone);var patt=new RegExp("hideallads");Modernizr.adfree=patt.test(window.location.href);var sr_html=document.querySelector("html"),cn=sr_html.className;Modernizr.phone?sr_html.className=cn.concat(" phone"):Modernizr.tablet?sr_html.className=cn.concat(" tablet"):(Modernizr.desktop||Modernizr.laptop)&&(sr_html.className=cn.concat(" desktop"));var sr_host_parts=window.location.hostname.split(".");cn=sr_html.className;Modernizr.is_build=Modernizr.is_live=Modernizr.is_dev=!1,"www"===sr_host_parts[0]||"fbref"===sr_host_parts[0]?(Modernizr.is_live=!0,sr_html.className=cn.concat(" is_live")):sr_host_parts[0].startsWith("b")?(Modernizr.is_build=!0,sr_html.className=cn.concat(" is_build")):(sr_host_parts[0].startsWith("d")||sr_host_parts[0].startsWith("r"))&&(Modernizr.is_dev=!0,sr_html.className=cn.concat(" is_dev")),Modernizr.is_stathead=!1,("stathead"===sr_host_parts[1]&&"srdevel"===sr_host_parts[2]||"stathead"===sr_host_parts[0]||"www"===sr_host_parts[0]&&"stathead"===sr_host_parts[1])&&(cn=sr_html.className,sr_html.className=cn.concat(" is_stathead"),Modernizr.is_stathead=!0);var sr_logger=function(){var e=null,t={enableLogger:function(){null!=e&&(window.console.log=e)},disableLogger:function(){e=console.log,window.console.log=function(){}}};return t}();!document.srdev&&sr_is_production&&sr_logger.disableLogger(),Modernizr.is_modern=1,Modernizr.lang=document.lang||"",Modernizr.srdev=document.srdev;var sr_utilities_js_loader=[];function vjs_readCookie(e){for(var t=e+"=",n=document.cookie.split(";"),r=0;r<n.length;r++){for(var o=n[r];" "===o.charAt(0);)o=o.substring(1,o.length);if(0===o.indexOf(t))return decodeURIComponent(o.substring(t.length,o.length))}return null}function vjs_createCookie(e,t,n){var r="";if(n){var o=new Date;o.setTime(o.getTime()+24*n*60*60*1e3),r="; expires="+o.toGMTString()}else r="";var i=encodeURIComponent(e)+"="+encodeURIComponent(t)+r+"; path=/";document.cookie=i}!function(o){function e(e,t){"use strict";var n=o.document.getElementsByTagName("script")[0],r=o.document.createElement("script");return r.src=e,r.async=!0,n.parentNode.insertBefore(r,n),t&&"function"==typeof t&&(r.onload=t),r}"undefined"!=typeof module?module.exports=e:o.loadJS=e}("undefined"!=typeof global?global:this),String.prototype.vjs_isMatch=function(e){return null!==this.match(e)};var sr_time_begin=new Date,sr_perf_startTime=new Date,sr_perf_log="<strong>Performance:</strong>",sr_perf_lastTime=new Date;function vjs_ready(e){"loading"!=document.readyState?e():document.addEventListener("DOMContentLoaded",e)}
+</script>
+<script>
+var _sr_modern_url = ''.concat(document.srdev?'https://d2p3bygnnzw9w3.cloudfront.net/nocdn/dev/'.concat(document.srdev.substring(0, 2)):"https://d2p3bygnnzw9w3.cloudfront.net/req/202102091",
+                               "/js/stathead", "/sr",document.srdev?"":"-min",   			       ".js");
+loadJS( _sr_modern_url, function() { vjs_ready(sr_fire_js); });
+</script>
+<!-- JS END -->
+
+
+<!-- include:end ="/inc/stathead/klecko_header_stathead.html_f" -->
+<script>sr_utilities_js_loader.push(function() { vjs_createCookie('srcssfull', 'yes', 0.5 )});</script>
+
+
+
+    <meta name="revised" content="13:31:07 10-Feb-2021" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="generated-by"     content="/home/pfr/deploy/www/football/fg_finder.cgi" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="theme-color" content="#384d42" />
+    <meta name="msapplication-navbutton-color" content="#384d42" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#384d42" />
+    
+
+    <!-- HeaderSeoSocial -->
+    <meta name="keywords" content="">
+    <meta itemprop="url"           content="https://stathead.com">
+    <meta itemprop="name"          content="Stathead">
+    <meta itemprop="alternateName" content="Stathead">
+    <meta property="fb:app_id"     content="">
+    <meta property="og:url"          content="https://www.stathead.com/football/fg_finder.cgi">
+    <meta property="og:title"        content="Football | Field Goal Finder | Stathead.com">
+    <meta property="og:site_name"    content="Stathead.com">
+    <meta property="og:type"         content="    article" />
+    <meta property="og:description"  content="Field Goal Finder.">
+    <meta property="og:image"        content="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-228x228-precomposed.png">
+    <meta name="twitter:card"         content="summary">
+    <meta name="twitter:site"         content="@stathead">
+    <meta name="twitter:creator"      content="@stathead">
+    <meta property="twitter:image"    content="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-228x228-precomposed.png">
+    <meta name="twitter:domain"       content="Stathead.com">
+    <meta name="referrer" content="unsafe-url">
+    <!-- HeaderSeoSocial:END -->
+
+    <!-- tiles, touch, favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-180x180-precomposed.png">
+    <link rel="icon"                         sizes="48x48"   href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/favicon-48.png">
+    <link rel="shortcut icon"                sizes="228x228" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-228x228-precomposed.png">
+    <link rel="apple-touch-icon"             sizes="228x228" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-228x228-precomposed.png">
+    <link rel="apple-touch-icon"             sizes="195x195" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-195x195-precomposed.png">
+    <link rel="apple-touch-icon"             sizes="180x180" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-180x180-precomposed.png">
+    <link rel="apple-touch-icon"             sizes="152x152" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-152x152-precomposed.png">
+    <link rel="apple-touch-icon"             sizes="144x144" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon"             sizes="128x128" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-128x128-precomposed.png">
+    <link rel="apple-touch-icon"             sizes="120x120" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-120x120-precomposed.png">
+    <link rel="apple-touch-icon"             sizes="114x114" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon"             sizes="76x76"   href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-76x76-precomposed.png">
+    <link rel="apple-touch-icon"             sizes="72x72"   href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon"             sizes="57x57"   href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/apple-touch-icon-57x57-precomposed.png">
+    <link rel="icon"                         sizes="32x32"   href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/favicon-32.png">
+    <!--[if IE]>
+    <link rel="shortcut icon"                                href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/favicon.ico"><![endif]-->
+    <meta name="msapplication-TileColor" content="#9f26b5" />
+    <meta name="msapplication-TileImage" content="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/favicons/stathead/ms-tile-144.png" />
+    <link rel=search        type="application/opensearchdescription+xml" href="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/opensearch/opensearch-stathead.xml" title=" Player and Team Search">
+    <!-- tiles, touch, favicons:end -->
+
+<!-- ad code: begin -->
+<!-- ad code:end -->
+
+
+
+</head>
+<body class="stathead">
+<div id="wrap">
+  
+  <div id="header" role="banner">
+  <ul id="subnav" class="notranslate">
+	<li><a href="https://www.sports-reference.com/"><svg height="15px" width="20px"><use xlink:href="#ic-sr-pennant"></use></svg> Sports Reference</a></li>
+	<li><a href="https://www.baseball-reference.com/">Baseball</a></li>
+	<li><a href="https://www.pro-football-reference.com/">Football</a> <a href="https://www.sports-reference.com/cfb/">(college)</a></li>
+	<li><a href="https://www.basketball-reference.com/">Basketball</a> <a href="https://www.sports-reference.com/cbb/">(college)</a></li>
+	<li><a href="https://www.hockey-reference.com/">Hockey</a></li>
+
+
+	
+	
+	
+	<li><a href="https://fbref.com/fr/">Football</a></li>
+
+	<li><a href="https://www.sports-reference.com/blog/">Blog</a></li>
+
+    <li class="current"><a href="https://stathead.com/?utm_source=web&amp;utm_medium=stathead&amp;utm_campaign=sr-nav-bar-top-link">Stathead</a></li>
+    <li><a href="https://widgets.sports-reference.com/">Widgets</a></li>
+
+	<li><a href="#" onclick="FreshworksWidget('open'); return false;">Questions or Comments?</a></li>
+	<li class="user logged_in">Welcome <span class="username"></span>&nbsp;&#183;&nbsp;<a href="https://stathead.com/profile/?utm_source=web&amp;utm_medium=stathead&amp;utm_campaign=sr-nav-bar-top-account">Your Account</a></li>
+<li class="user logged_in"><a class="logout" onclick="if(!this.href.match('redirect_uri')){this.href += '&redirect_uri='+escape(document.location.href)}" href="https://stathead.com/profile/?do=logout">Logout</a></li>
+<li class="user not_logged_in"><a class="login" onclick="if(!this.href.match('redirect_uri')){this.href += '?redirect_uri='+escape(document.location.href)}" href="https://stathead.com/users/login.cgi">Login</a></li>
+<li class="user not_logged_in"><a href="https://stathead.com/users/signup.cgi">Create Account</a></li>
+
+</ul>
+
+  <a href="/"><img src="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/logos/stathead-pfr.svg" onerror="this.src='https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/logos/stathead-pfr.png'; this.onerror = null;" alt="Stathead.com Logo &amp; Link to home page" /></a>
+<div id="nav_trigger" role="button"><a href="#site_menu_link">MENU</a></div>
+<div id="nav" role="navigation" aria-label="Stathead.com sections">
+	<ul id="main_nav" class="hoversmooth nohover"><li>
+	<a href="/baseball/">Baseball</a>
+	<div>
+		<div class="list"><span>Stathead: Baseball's Most Powerful Search Tool</span></div>
+		<div class="list">
+		  <span>Player Finders</span>:
+		  Season &amp; Career <a href="/baseball/season_finder.cgi?type=b">Batting</a> &amp; <a href="/baseball/season_finder.cgi?type=p">Pitching</a> &nbsp;&bull; 
+		  Game <a href="/baseball/game_finder.cgi?type=b">Batting</a> &amp; <a href="/baseball/game_finder.cgi?type=p">Pitching</a> &nbsp;&bull; 
+		  Split <a href="/baseball/split_finder.cgi?type=b">Batting</a> &amp; <a href="/baseball/split_finder.cgi?type=p">Pitching</a> &nbsp;&bull; 
+		  Streak <a href="/baseball/streak_finder.cgi?type=b">Batting</a> &amp; <a href="/baseball/streak_finder.cgi?type=p">Pitching</a> &nbsp;&bull; 
+		  Player Comparison <a href="/baseball/player-comparison.cgi?type=b">Batting</a> &amp; <a href="/baseball/player-comparison.cgi?type=p">Pitching</a> &nbsp;&bull; 
+		  Neutralized Stats <a href="/baseball/neutralized-stats.cgi?t=b">Batting</a> &amp; <a href="/baseball/neutralized-stats.cgi?t=p">Pitching</a>
+		</div>
+		<div class="list">
+		  <span>Team Finders</span>:
+		  Season <a href="/baseball/team-season-finder.cgi?type=b">Batting</a> &amp; <a href="/baseball/team-season-finder.cgi?type=p">Pitching</a> &nbsp;&bull; 
+		  Game <a href="/baseball/game_finder.cgi?class=team&amp;type=b">Batting</a> &amp; <a href="/baseball/game_finder.cgi?class=team&amp;type=p">Pitching</a> &nbsp;&bull; 
+		  Split <a href="/baseball/split_finder.cgi?class=team&amp;type=b">Batting</a> &amp; <a href="/baseball/split_finder.cgi?class=team&amp;type=p">Pitching</a> &nbsp;&bull; 
+		  Streak <a href="/baseball/streak_finder.cgi?class=team&amp;type=b">Batting</a> &amp; <a href="/baseball/streak_finder.cgi?class=team&amp;type=p">Pitching</a> &nbsp;&bull; 
+		  Events <a href="/baseball/event_finder.cgi?type=b">Batting</a> &amp; <a href="/baseball/event_finder.cgi?type=p">Pitching</a>
+		</div>
+		<div class="list">
+		  <span>Other Event Finders</span>:
+		  All-Star <a href="/baseball/event_finder.cgi?as=1&amp;type=b">Batting</a> &amp; <a href="/baseball/event_finder.cgi?as=1&amp;type=p">Pitching</a> &nbsp;&bull; 
+		  Postseason <a href="/baseball/event_finder.cgi?post=1&amp;type=b">Batting</a> &amp; <a href="/baseball/event_finder.cgi?post=1&amp;type=p">Pitching</a>
+		</div>
+		<div class="list">
+		  <span>Other Finders</span>:
+		  <a href="/baseball/pivotal_play_finder.cgi">Biggest Plays, Most Crucial Moments, etc.</a> &nbsp;&bull; 
+		  <a href="/baseball/inning_summary.cgi">Innings Leading, Runs by Inning, etc.</a> &nbsp;&bull; 
+		  <a href="/baseball/event_bop.cgi">Batting Order Position</a>
+		</div>
+		<div class="list">
+		  <span>Game Results</span>:
+		  <a href="https://baseball-reference.com/boxes/">Standings on any Date</a> &nbsp;&bull; 
+		  <a href="/baseball/situational.cgi">Situational</a> &nbsp;&bull; 
+		  <a href="/baseball/streaks.cgi">Best n-Game Streaks</a> &nbsp;&bull; 
+		  <a href="/baseball/head2head.cgi">Head-to-Head Records</a>
+		</div>
+	</div>
+</li>
+<li>
+	<a href="/hockey/">Hockey</a>
+	<div>
+		<div class="list"><span>Stathead: Hockey's Most Powerful Research Tool</span></div>
+		<div class="list"><span>Players</span>:
+			<a href="/hockey/psl_finder.cgi">Season Finder</a>&nbsp;·
+			<a href="/hockey/pgl_finder.cgi">Game Finder</a>&nbsp;·
+			<a href="/hockey/goal_finder.cgi">Goal Finder</a>&nbsp;·
+			<a href="/hockey/pcomp_finder.cgi">Comparison Finder</a>&nbsp;·
+			<a href="/hockey/">…</a>
+		</div>
+		<div class="list"><span>Teams</span>:
+			<a href="/hockey/tgl_finder.cgi">Game Finder</a>&nbsp;·
+			<a href="/hockey/tstreak_finder.cgi">Streak Finder</a>&nbsp;·
+			<a href="/hockey/">…</a>
+		</div>
+		<div class="list"><span>Advanced</span>:
+			<a href="/hockey/ppbp_finder.cgi">Player Advanced Stats Finder</a>&nbsp;·
+			<a href="/hockey/tpbp_finder.cgi">Team Advanced Stats Finder</a>&nbsp;·
+			<a href="/hockey/">…</a>
+		</div>
+		<div class="list"><span>Other</span>:
+			<a href="/hockey/draft_finder.cgi">Draft Finder</a>&nbsp;·
+			<a href="/hockey/">…</a>
+		</div>
+	</div>
+</li>
+<li>
+	<a href="/basketball/">Basketball</a>
+	<div>
+		<div class="list"><span>Stathead: Basketball's Most Powerful Research Tool</span></div>
+		<div class="list"><span>Players</span>:
+			<a href="/basketball/psl_finder.cgi">Season Finder</a>&nbsp;·
+			<a href="/basketball/pgl_finder.cgi">Game Finder</a>&nbsp;·
+			<a href="/basketball/pcm_finder.cgi">Comparison Finder</a>&nbsp;·
+			<a href="/basketball/pstreak.cgi">Streak Finder</a>&nbsp;·
+			<a href="/basketball/h2h_finder.cgi">Head-to-Head Finder</a>&nbsp;·
+			<a href="/basketball/quarter_finder.cgi">Quarter Finder</a>&nbsp;·
+			<a href="/basketball/">…</a>
+		</div>
+		<div class="list"><span>Teams</span>:
+			<a href="/basketball/tsl_finder.cgi">Season Finder</a>&nbsp;·
+			<a href="/basketball/tgl_finder.cgi">Game Finder</a>&nbsp;·
+			<a href="/basketball/tstreak.cgi">Streak Finder</a>&nbsp;·
+			<a href="/basketball/tscore.cgi">Score Finder</a>&nbsp;·
+			<a href="/basketball/rivals.cgi">Rivalry Finder</a>&nbsp;·
+			<a href="/basketball/">…</a>
+		</div>
+		<div class="list"><span>Play-by-Play Tools</span>:
+			<a href="/basketball/shot_finder.cgi">Shot Finder</a>&nbsp;·
+			<a href="/basketball/event_finder.cgi">Event Finder</a>&nbsp;·
+			<a href="/basketball/lineup_finder.cgi">Lineup Finder</a>&nbsp;·
+			<a href="/basketball/plus_minus_finder.cgi">Plus-Minus Finder</a>&nbsp;·
+			<a href="/basketball/">…</a>
+		</div>
+		<div class="list"><span>Other</span>:
+			<a href="/basketball/draft_finder.cgi">Draft Finder</a>&nbsp;·
+			<a href="/basketball/wnba_psl_finder.cgi">WNBA Season Finder</a>&nbsp;·
+			<a href="/basketball/">…</a>
+		</div>
+	</div>
+</li>
+<li class="current hasmore">
+	<a href="/football/">Football</a>
+	<div>
+		<div class="list"><span>Stathead: Football's Most Powerful Research Tool</span></div>
+		<div class="list"><span>Players</span>:
+			<a href="/football/psl_finder.cgi">Season Finder</a>&nbsp;·
+			<a href="/football/pgl_finder.cgi">Game Finder</a>&nbsp;·
+			<a href="/football/pcm_finder.cgi">Comparison Finder</a>&nbsp;·
+			<a href="/football/player_streak_finder.cgi">Streak Finder</a>&nbsp;·
+			<a href="/football/ptd_finder.cgi">TD Finder</a>&nbsp;·
+			<a href="/football/player_split_finder.cgi">Split Finder</a>
+			<a href="/football/">…</a>
+		</div>
+		<div class="list"><span>Teams</span>:
+			<a href="/football/tgl_finder.cgi">Game Finder</a>&nbsp;·
+			<a href="/football/split_finder.cgi">Split Finder</a>&nbsp;·
+			<a href="/football/team_streak_finder.cgi">Streak Finder</a>&nbsp;·
+			<a href="/football/record_finder.cgi">Record Finder</a>&nbsp;·
+			<a href="/football/">…</a>
+		</div>
+		<div class="list"><span>Play-by-Play Tools</span>:
+			<a href="/football/play_finder.cgi">Play Finder</a>&nbsp;·
+			<a href="/football/drive_finder.cgi">Drive Finder</a>&nbsp;·
+			<a href="/football/fg_finder.cgi">Field Goal Finder</a>&nbsp;·
+			<!--<a href="/football/penalty_finder.cgi">Penalty Finder</a>&nbsp;·-->
+			<a href="/football/">…</a>
+		</div>
+		<div class="list"><span>Other</span>:
+			<a href="/football/draft_finder.cgi">Draft Finder</a>&nbsp;·
+			<a href="/football/trade_finder.cgi">Trade Finder</a>&nbsp;·
+			<a href="/football/nfl-combine-results.cgi">NFL Combine Results</a>&nbsp;·
+			<a href="/football/">…</a>
+		</div>
+	</div>
+</li>
+<li class="user logged_in"><a href="/profile/">Your Account</a></li>
+<li class="user logged_in"><a class="logout" onclick="sr_auth_logout_page_elements();if(!this.href.match('redirect_uri')){this.href += '&redirect_uri='+escape(document.location.href)}" href="/profile/?do=logout">Logout</a></li>
+<li class="user not_logged_in"><a class="login" onclick="if(!this.href.match('redirect_uri')){this.href += '?redirect_uri='+escape(document.location.href)}" href="/users/login.cgi">Login</a></li>
+<li class="user not_logged_in"><a href="/">Subscribe</a></li>
+<li><a href="https://stathead.com/getting_started.html">Get Started</a></li>
+<li><a href="/newsletter.cgi">Newsletters</a></li>
+	</ul>
+	<div class="breadcrumbs">You are here: <div itemscope itemtype="https://schema.org/BreadcrumbList" class="crumbs"><span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/football/"><span itemprop="name">Football Stathead</span></a> <meta itemprop="position" content="1" /></span> &gt; <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/football/fg_finder.cgi"><span itemprop="name">Field Goal Finder</span></a> <meta itemprop="position" content="2" /></span> &gt; <strong>Query Results</strong></div></div>
+	<ul class="usertools bullets-inline"><li class="user logged_in">Welcome <span class="username"></span>&nbsp;&#183;&nbsp;<a href="https://stathead.com/profile/?utm_source=web&amp;utm_medium=stathead&amp;utm_campaign=sr-nav-bar-top-account">Your Account</a></li>
+<li class="user logged_in"><a class="logout" onclick="if(!this.href.match('redirect_uri')){this.href += '&redirect_uri='+escape(document.location.href)}" href="https://stathead.com/profile/?do=logout">Logout</a></li>
+<li class="user not_logged_in"><a class="login" onclick="if(!this.href.match('redirect_uri')){this.href += '?redirect_uri='+escape(document.location.href)}" href="https://stathead.com/users/login.cgi">Login</a></li>
+<li class="user not_logged_in"><a href="https://stathead.com/users/signup.cgi">Create Account</a></li>
+	</ul><!-- ul.user -->
+</div><!-- div#nav -->
+<script>
+function sr_menus_setupMainNav_button_inline () {
+    if (sr_detect_operaMini || !("classList" in document.createElement("_"))) {
+	return false;
+    }
+    var nav_trigger = document.getElementById('nav_trigger');
+    if(!nav_trigger || nav_trigger.triggered) {
+	return false;
+    }
+    nav_trigger.triggered = true;
+    var nav = document.getElementById('nav');
+    var nav_trigger_a = nav_trigger.querySelector('a');
+    if (nav_trigger_a) {
+	nav_trigger_a.setAttribute('href','javascript:void(0)');
+	nav_trigger.onclick = function (event) {
+	    nav.classList.toggle('open');
+	    var is_open = nav.classList.contains('open');
+	    if (is_open) {
+		nav_trigger.classList.add('open');
+	    }
+	    else {
+		nav_trigger.classList.remove('open');
+	    }
+	    event.preventDefault();
+	    try { sr_record_analytics_event('MainNavButtonClick_inline',sr_record_directory(),sr_record_page());}
+	    catch(err) {}
+	};
+    }
+    return true;
+}
+sr_menus_setupMainNav_button_inline();
+</script><div class="search" role="search" aria-label="Site Search for players, teams and sections">
+<form method="get" name="f_big"  action="https://www.pro-football-reference.com/search/search.fcgi">
+<div class="ac-outline">
+  <div class="ac-wrapper"><input type="search" tabindex="-1" class="ac-hint" name="hint" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" dir="auto">
+
+<input tabindex="1" type="search" class="ac-input completely" name="search" placeholder="Enter Person, Team, Section, etc" aria-label="Enter a player, team or section name" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" dir="auto" />
+    <div class="ac-dropdown"></div>
+  </div>
+</div>
+
+<input type="submit" value="Search" tabindex="2" />
+<input type="hidden" name="pid" value="" data-search-id>
+<input type="hidden" name="idx" value="" data-search-idx>
+
+</form>
+</div><!-- div.search -->
+
+</div><!-- div#header -->
+
+
+
+<div id="content" role="main">
+	<div id="pi">
+		<h1>Football | Field Goal Finder</h1>
+<h3 style="margin-bottom: 2px;">Current Search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><button class="tooltip js no-operamini" onclick="makeTinyURL(event, this, location.href)">Click for URL to Share With Others</button></span></h3>
+<div id="desc_container">
+	<div id="form_description">Field goal attempts, in 2020, in  season, playing for the Ari (StL/Chi) Cardinals, in the Regular Season or Playoffs, between 7 and 80 yards.</div>
+</div>
+
+
+		
+
+		
+	<div id="criteria_opener" role="button" class="sr_preset button" data-toggle=".criteria, .options, #criteria_opener span">
+	<span class="">Show Criteria</span>
+	<span class="hidden">Hide Criteria</span>
+</div>
+
+
+
+<form class="pi_forms has_live_desc no-deserialize" name="fg_finder" id="fg_finder" action="/football/fg_finder.cgi" method="get" data-site="pfr">
+<input type="hidden" name="request" value="1" />
+
+
+<div class="content_grid" id="content_grid">
+	<div class="criteria toggleable">
+		<div class="section_heading"><h2>Search Criteria</h2></div>
+		<p class="sr_preset_explain js" style="margin-top: 0"><small>Click on the <span class="tooltip">red text</span> to pre-fill the form with various values</small></p>
+		<div class="pi_fields">
+			<div class="fieldset">
+
+	<div class="formlabel">Sort By</div><div class=""><div class="formfield label"><span class="">Sorting options are only available for subscribers. <a href='/users/signup.cgi'>Sign up now for a free trial.</a></span>
+</div></div>
+		<div class=""><div class="formfield hidden"><input type="hidden" name="order_by" id="order_by" value="game_date" />
+</div></div>
+		
+
+	</div>
+<div class="fieldset linear open">
+
+	<div class="formlabel">Seasons</div><div class=""><div class="formfield dropdown"><select id="year_min" name="year_min" class="no_chosen">
+	
+
+	
+			<option value=""
+						>Any</option>
+			<option value="1960"
+						>1960</option>
+			<option value="1961"
+						>1961</option>
+			<option value="1962"
+						>1962</option>
+			<option value="1963"
+						>1963</option>
+			<option value="1964"
+						>1964</option>
+			<option value="1965"
+						>1965</option>
+			<option value="1966"
+						>1966</option>
+			<option value="1967"
+						>1967</option>
+			<option value="1968"
+						>1968</option>
+			<option value="1969"
+						>1969</option>
+			<option value="1970"
+						>1970</option>
+			<option value="1971"
+						>1971</option>
+			<option value="1972"
+						>1972</option>
+			<option value="1973"
+						>1973</option>
+			<option value="1974"
+						>1974</option>
+			<option value="1975"
+						>1975</option>
+			<option value="1976"
+						>1976</option>
+			<option value="1977"
+						>1977</option>
+			<option value="1978"
+						>1978</option>
+			<option value="1979"
+						>1979</option>
+			<option value="1980"
+						>1980</option>
+			<option value="1981"
+						>1981</option>
+			<option value="1982"
+						>1982</option>
+			<option value="1983"
+						>1983</option>
+			<option value="1984"
+						>1984</option>
+			<option value="1985"
+						>1985</option>
+			<option value="1986"
+						>1986</option>
+			<option value="1987"
+						>1987</option>
+			<option value="1988"
+						>1988</option>
+			<option value="1989"
+						>1989</option>
+			<option value="1990"
+						>1990</option>
+			<option value="1991"
+						>1991</option>
+			<option value="1992"
+						>1992</option>
+			<option value="1993"
+						>1993</option>
+			<option value="1994"
+						>1994</option>
+			<option value="1995"
+						>1995</option>
+			<option value="1996"
+						>1996</option>
+			<option value="1997"
+						>1997</option>
+			<option value="1998"
+						>1998</option>
+			<option value="1999"
+						>1999</option>
+			<option value="2000"
+						>2000</option>
+			<option value="2001"
+						>2001</option>
+			<option value="2002"
+						>2002</option>
+			<option value="2003"
+						>2003</option>
+			<option value="2004"
+						>2004</option>
+			<option value="2005"
+						>2005</option>
+			<option value="2006"
+						>2006</option>
+			<option value="2007"
+						>2007</option>
+			<option value="2008"
+						>2008</option>
+			<option value="2009"
+						>2009</option>
+			<option value="2010"
+						>2010</option>
+			<option value="2011"
+						>2011</option>
+			<option value="2012"
+						>2012</option>
+			<option value="2013"
+						>2013</option>
+			<option value="2014"
+						>2014</option>
+			<option value="2015"
+						>2015</option>
+			<option value="2016"
+						>2016</option>
+			<option value="2017"
+						>2017</option>
+			<option value="2018"
+						>2018</option>
+			<option value="2019"
+						>2019</option>
+			<option value="2020"
+						 selected>2020</option>
+</select>
+
+</div></div>
+		<div class=""><button class="sr_preset" type="button" data-preset="{'year_max': 'year_min'}">to</button></div>
+		<div class=""><div class="formfield dropdown"><select id="year_max" name="year_max" class="no_chosen">
+	
+
+	
+			<option value="2020"
+						 selected>2020</option>
+			<option value="2019"
+						>2019</option>
+			<option value="2018"
+						>2018</option>
+			<option value="2017"
+						>2017</option>
+			<option value="2016"
+						>2016</option>
+			<option value="2015"
+						>2015</option>
+			<option value="2014"
+						>2014</option>
+			<option value="2013"
+						>2013</option>
+			<option value="2012"
+						>2012</option>
+			<option value="2011"
+						>2011</option>
+			<option value="2010"
+						>2010</option>
+			<option value="2009"
+						>2009</option>
+			<option value="2008"
+						>2008</option>
+			<option value="2007"
+						>2007</option>
+			<option value="2006"
+						>2006</option>
+			<option value="2005"
+						>2005</option>
+			<option value="2004"
+						>2004</option>
+			<option value="2003"
+						>2003</option>
+			<option value="2002"
+						>2002</option>
+			<option value="2001"
+						>2001</option>
+			<option value="2000"
+						>2000</option>
+			<option value="1999"
+						>1999</option>
+			<option value="1998"
+						>1998</option>
+			<option value="1997"
+						>1997</option>
+			<option value="1996"
+						>1996</option>
+			<option value="1995"
+						>1995</option>
+			<option value="1994"
+						>1994</option>
+			<option value="1993"
+						>1993</option>
+			<option value="1992"
+						>1992</option>
+			<option value="1991"
+						>1991</option>
+			<option value="1990"
+						>1990</option>
+			<option value="1989"
+						>1989</option>
+			<option value="1988"
+						>1988</option>
+			<option value="1987"
+						>1987</option>
+			<option value="1986"
+						>1986</option>
+			<option value="1985"
+						>1985</option>
+			<option value="1984"
+						>1984</option>
+			<option value="1983"
+						>1983</option>
+			<option value="1982"
+						>1982</option>
+			<option value="1981"
+						>1981</option>
+			<option value="1980"
+						>1980</option>
+			<option value="1979"
+						>1979</option>
+			<option value="1978"
+						>1978</option>
+			<option value="1977"
+						>1977</option>
+			<option value="1976"
+						>1976</option>
+			<option value="1975"
+						>1975</option>
+			<option value="1974"
+						>1974</option>
+			<option value="1973"
+						>1973</option>
+			<option value="1972"
+						>1972</option>
+			<option value="1971"
+						>1971</option>
+			<option value="1970"
+						>1970</option>
+			<option value="1969"
+						>1969</option>
+			<option value="1968"
+						>1968</option>
+			<option value="1967"
+						>1967</option>
+			<option value="1966"
+						>1966</option>
+			<option value="1965"
+						>1965</option>
+			<option value="1964"
+						>1964</option>
+			<option value="1963"
+						>1963</option>
+			<option value="1962"
+						>1962</option>
+			<option value="1961"
+						>1961</option>
+			<option value="1960"
+						>1960</option>
+			<option value=""
+						>Any</option>
+</select>
+
+</div></div>
+		
+
+	</div>
+<div class="fieldset game_type open" data-type="radio">
+
+	<div class="formlabel">Game Type</div><div class="formfield radio">
+
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="game_type" value="R" data-hide=".playoff_round" class="sr_preset"
+			/>
+		</div>
+		<div class="choiceoption">Regular Season
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="game_type" value="P" data-show=".playoff_round" class="sr_preset"
+			/>
+		</div>
+		<div class="choiceoption">Playoffs
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice selected">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="game_type" value="E" checked data-hide=".playoff_round" class="sr_preset"
+			/>
+		</div>
+		<div class="choiceoption">Either
+		</div>
+		</label>
+	</div>
+
+</div>
+
+	</div>
+<div class="fieldset playoff_round toggleable" data-type="radio">
+
+	<div class="formlabel">Playoff Round</div><div class="formfield radio">
+
+	
+		
+		<div class="choice selected">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="playoff_round" value="" checked
+			/>
+		</div>
+		<div class="choiceoption">Any
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="playoff_round" value="w"
+			/>
+		</div>
+		<div class="choiceoption">Wild Card
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="playoff_round" value="d"
+			/>
+		</div>
+		<div class="choiceoption">Divisional
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="playoff_round" value="c"
+			/>
+		</div>
+		<div class="choiceoption">Championship
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="playoff_round" value="s"
+			/>
+		</div>
+		<div class="choiceoption">Super Bowl
+		</div>
+		</label>
+	</div>
+
+</div>
+
+	</div>
+
+		</div>
+		<div class="pi_filter_sets">
+			
+			<div>
+				<h3>Game Filters <small>(Team, Opp., Location, etc...)</small></h3>
+				
+				
+					<div class="fieldset team_id open" data-type="dropdown">
+
+	<div class="formlabel">Kicking Team</div><div class="formfield dropdown"><select id="team_id" name="team_id" class="">
+	
+
+	
+			<option value=""
+						>All Teams</option>
+			<option value="crd"
+						 selected>Ari (StL/Chi) Cardinals</option>
+			<option value="atl"
+						>Atlanta Falcons</option>
+			<option value="rav"
+						>Baltimore Ravens</option>
+			<option value="buf"
+						>Buffalo Bills</option>
+			<option value="car"
+						>Carolina Panthers</option>
+			<option value="chi"
+						>Chicago Bears</option>
+			<option value="cin"
+						>Cincinnati Bengals</option>
+			<option value="cle"
+						>Cleveland Browns</option>
+			<option value="dal"
+						>Dallas Cowboys</option>
+			<option value="den"
+						>Denver Broncos</option>
+			<option value="det"
+						>Detroit Lions</option>
+			<option value="gnb"
+						>Green Bay Packers</option>
+			<option value="htx"
+						>Houston Texans</option>
+			<option value="clt"
+						>Indianapolis (Bal) Colts</option>
+			<option value="jax"
+						>Jacksonville Jaguars</option>
+			<option value="kan"
+						>Kansas City Chiefs</option>
+			<option value="rai"
+						>Las Vegas/Oakland/LA Raiders</option>
+			<option value="sdg"
+						>LA/ San Diego  Chargers</option>
+			<option value="ram"
+						>Los Angeles (SL/Cle) Rams</option>
+			<option value="mia"
+						>Miami Dolphins</option>
+			<option value="min"
+						>Minnesota Vikings</option>
+			<option value="nwe"
+						>New England Patriots</option>
+			<option value="nor"
+						>New Orleans Saints</option>
+			<option value="nyg"
+						>New York Giants</option>
+			<option value="nyj"
+						>New York Jets</option>
+			<option value="phi"
+						>Philadelphia Eagles</option>
+			<option value="pit"
+						>Pittsburgh Steelers</option>
+			<option value="sfo"
+						>San Francisco 49ers</option>
+			<option value="sea"
+						>Seattle Seahawks</option>
+			<option value="tam"
+						>Tampa Bay Buccaneers</option>
+			<option value="oti"
+						>Ten Titans/Hou Oilers</option>
+			<option value="was"
+						>Washington Football Team</option>
+</select>
+
+</div>
+
+	</div>
+
+				
+					<div class="fieldset opp_id" data-type="dropdown">
+
+	<div class="formlabel">Opponent</div><div class="formfield dropdown"><select id="opp_id" name="opp_id" class="">
+	
+
+	
+			<option value="" selected>All Teams</option>
+			<option value="crd">Ari (StL/Chi) Cardinals</option>
+			<option value="atl">Atlanta Falcons</option>
+			<option value="rav">Baltimore Ravens</option>
+			<option value="buf">Buffalo Bills</option>
+			<option value="car">Carolina Panthers</option>
+			<option value="chi">Chicago Bears</option>
+			<option value="cin">Cincinnati Bengals</option>
+			<option value="cle">Cleveland Browns</option>
+			<option value="dal">Dallas Cowboys</option>
+			<option value="den">Denver Broncos</option>
+			<option value="det">Detroit Lions</option>
+			<option value="gnb">Green Bay Packers</option>
+			<option value="htx">Houston Texans</option>
+			<option value="clt">Indianapolis (Bal) Colts</option>
+			<option value="jax">Jacksonville Jaguars</option>
+			<option value="kan">Kansas City Chiefs</option>
+			<option value="rai">Las Vegas/Oakland/LA Raiders</option>
+			<option value="sdg">LA/ San Diego  Chargers</option>
+			<option value="ram">Los Angeles (SL/Cle) Rams</option>
+			<option value="mia">Miami Dolphins</option>
+			<option value="min">Minnesota Vikings</option>
+			<option value="nwe">New England Patriots</option>
+			<option value="nor">New Orleans Saints</option>
+			<option value="nyg">New York Giants</option>
+			<option value="nyj">New York Jets</option>
+			<option value="phi">Philadelphia Eagles</option>
+			<option value="pit">Pittsburgh Steelers</option>
+			<option value="sfo">San Francisco 49ers</option>
+			<option value="sea">Seattle Seahawks</option>
+			<option value="tam">Tampa Bay Buccaneers</option>
+			<option value="oti">Ten Titans/Hou Oilers</option>
+			<option value="was">Washington Football Team</option>
+</select>
+
+</div>
+
+	</div>
+
+				
+					<div class="fieldset game_location" data-type="radio">
+
+	<div class="formlabel">Game Location</div><div class="formfield radio">
+
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="game_location" value="H"
+			/>
+		</div>
+		<div class="choiceoption">Home
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="game_location" value="R"
+			/>
+		</div>
+		<div class="choiceoption">Away
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="game_location" value="N"
+			/>
+		</div>
+		<div class="choiceoption">Neutral
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice selected">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="game_location" value="" checked
+			/>
+		</div>
+		<div class="choiceoption">Any
+		</div>
+		</label>
+	</div>
+
+</div>
+
+	</div>
+
+				
+					<div class="fieldset game_result" data-type="radio">
+
+	<div class="formlabel">Game Result</div><div class="formfield radio">
+
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="game_result" value="W"
+			/>
+		</div>
+		<div class="choiceoption">Won
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="game_result" value="L"
+			/>
+		</div>
+		<div class="choiceoption">Lost
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="game_result" value="T"
+			/>
+		</div>
+		<div class="choiceoption">Tied
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice selected">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="game_result" value="" checked
+			/>
+		</div>
+		<div class="choiceoption">Any
+		</div>
+		</label>
+	</div>
+
+</div>
+
+	</div>
+
+				
+					<div class="fieldset linear">
+
+	<div class="formlabel">Game Number <span>for team</span></div><div class=""><div class="formfield dropdown"><select id="game_num_min" name="game_num_min" class="no_chosen">
+	<option value="0" selected>Any</option>
+
+	
+		
+		<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option>
+</select>
+
+</div></div>
+		<div class=""><button class="sr_preset" type="button" data-preset="{'game_num_max': 'game_num_min'}">to</button></div>
+		<div class=""><div class="formfield dropdown"><select id="game_num_max" name="game_num_max" class="no_chosen">
+	
+
+	
+		
+		<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="99" selected>Any</option>
+</select>
+
+</div></div>
+		
+
+	</div>
+
+				
+					<div class="fieldset linear">
+
+	<div class="formlabel">Week Number <span>of season</span></div><div class=""><div class="formfield dropdown"><select id="week_num_min" name="week_num_min" class="no_chosen">
+	<option value="0" selected>Any</option>
+
+	
+		
+		<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option>
+</select>
+
+</div></div>
+		<div class=""><button class="sr_preset" type="button" data-preset="{'week_num_max': 'week_num_min'}">to</button></div>
+		<div class=""><div class="formfield dropdown"><select id="week_num_max" name="week_num_max" class="no_chosen">
+	
+
+	
+		
+		<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="99" selected>Any</option>
+</select>
+
+</div></div>
+		
+
+	</div>
+
+				
+				<select class=" no_chosen">
+					<option>Choose a Game Filter</option>
+					
+						<option value="1">Kicking Team</option><option value="2">Opponent</option><option value="3">Game Location</option><option value="4">Game Result</option><option value="5">Game Number </option><option value="6">Week Number </option>
+					
+				</select>
+			</div>
+			
+			<div>
+				<h3>Kick Filters <small>(Distance, Was Good?, Blocked?, etc...)</small></h3>
+				
+				
+					<div class="fieldset linear">
+
+	<div class="formlabel">Kick Distance</div><div class=""><div class="formfield dropdown"><select id="min_distance" name="min_distance" class="no_chosen">
+	
+
+	
+		
+		<option value="7" selected>7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option><option value="60">60</option><option value="61">61</option><option value="62">62</option><option value="63">63</option><option value="64">64</option><option value="65">65</option><option value="66">66</option><option value="67">67</option><option value="68">68</option><option value="69">69</option><option value="70">70</option><option value="71">71</option><option value="72">72</option><option value="73">73</option><option value="74">74</option><option value="75">75</option><option value="76">76</option><option value="77">77</option><option value="78">78</option><option value="79">79</option><option value="80">80</option>
+</select>
+
+</div></div>
+		<div class=""><button class="sr_preset" type="button" data-preset="{'max_distance':'min_distance'}">to</button></div>
+		<div class=""><div class="formfield dropdown"><select id="max_distance" name="max_distance" class="no_chosen">
+	
+
+	
+		
+		<option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option><option value="60">60</option><option value="61">61</option><option value="62">62</option><option value="63">63</option><option value="64">64</option><option value="65">65</option><option value="66">66</option><option value="67">67</option><option value="68">68</option><option value="69">69</option><option value="70">70</option><option value="71">71</option><option value="72">72</option><option value="73">73</option><option value="74">74</option><option value="75">75</option><option value="76">76</option><option value="77">77</option><option value="78">78</option><option value="79">79</option><option value="80" selected>80</option>
+</select>
+
+</div></div>
+		
+
+	</div>
+
+				
+					<div class="fieldset is_good" data-type="radio">
+
+	<div class="formlabel">Was Good?</div><div class="formfield radio">
+
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="is_good" value="Y"
+			/>
+		</div>
+		<div class="choiceoption">Yes
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="is_good" value="N"
+			/>
+		</div>
+		<div class="choiceoption">No
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice selected">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="is_good" value="" checked
+			/>
+		</div>
+		<div class="choiceoption">Either
+		</div>
+		</label>
+	</div>
+
+</div>
+
+	</div>
+
+				
+					<div class="fieldset is_blocked" data-type="radio">
+
+	<div class="formlabel">Was Blocked?</div><div class="formfield radio">
+
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="is_blocked" value="Y"
+			/>
+		</div>
+		<div class="choiceoption">Yes
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="is_blocked" value="N"
+			/>
+		</div>
+		<div class="choiceoption">No
+		</div>
+		</label>
+	</div>
+	
+		
+		<div class="choice selected">
+		<label>
+		<div class="choicefield">
+			<input type="radio" name="is_blocked" value="" checked
+			/>
+		</div>
+		<div class="choiceoption">Either
+		</div>
+		</label>
+	</div>
+
+</div>
+
+	</div>
+
+				
+				<select class=" no_chosen">
+					<option>Choose a Kick Filter</option>
+					
+						<option value="1">Kick Distance</option><option value="2">Was Good?</option><option value="3">Was Blocked?</option>
+					
+				</select>
+			</div>
+			
+		</div>
+		<div class="pi_final">
+			<div class="formfield">
+				<input type="submit" value="Get Results" onclick="sr_form_setValue_submit('fg_finder', 'offset', 0);" />
+			</div>
+			<p style="text-align: center;"><a href="/football/fg_finder.cgi">Clear All</a></p>
+		</div>
+		
+	</div>
+	<div id="stathead_results" class="results">
+		<div class="pi_modal_bg"></div>
+		<div class="pi_modal">
+			<p style="font-size: 1.2em;">You have edited your search criteria</p>
+			<p><input type="submit" value="Get Results" /></p>
+			<p>or keep editing your search</p>
+			<p><a href="/football/fg_finder.cgi?request=1&year_min=2020&year_max=2020&team_id=crd&game_type=E&game_num_min=0&game_num_max=99&week_num_min=0&week_num_max=99&min_distance=7&max_distance=80&order_by=game_date">clear changes</a></p>
+		</div>
+		<!-- onclick="document.location='#content_grid'" -->
+		
+		<div class="content_grid">
+<div>
+<div id="all_kickers" class="table_wrapper setup_long long">
+
+<div class="section_heading" id="kickers_sh">
+  <span class="section_anchor" id="kickers_link" data-label="All Kickers"></span><h2>All Kickers</h2>    <div class="section_heading_text">
+      <ul>
+      </ul>
+    </div>
+    		
+</div>
+<div class="table_container" id="div_kickers">
+    
+<div class="stathead_cta">
+<h3>Subscribe to Stathead Football for full results.</h3>
+<p>Stathead users enjoy the most powerful research tools in sports for just &#36;8/month. <a href="https://stathead.com/?utm_medium=blockedresults&utm_source=stathead&utm_campaign=football">Learn More</a>.</p>
+<p><a href="https://stathead.com/?ref=pfr&utm_medium=blockedresults&utm_source=stathead&utm_campaign=football" class="button2">Subscribe Now <span style="font-weight: normal">(First Month Free)</span></a></p>
+<p><a href="https://stathead.com/users/login.cgi">Already a subscriber? Log in for full results.</a></p>
+</div>
+
+
+    <table class="sortable stats_table" id="kickers" data-cols-to-freeze="1,2">
+    <caption>All Kickers Table</caption>
+    
+   <colgroup><col><col><col><col><col><col><col></colgroup>
+   <thead>      
+      <tr>
+         <th aria-label="Player" data-stat="player" scope="col" class=" poptip sort_default_asc show_partial_when_sorting left" >Player</th>
+         <th aria-label="Tm" data-stat="team" scope="col" class=" poptip sort_default_asc show_partial_when_sorting left" >Tm</th>
+         <th aria-label="Games" data-stat="g" scope="col" class=" poptip center" data-tip="Games played" >G</th>
+         <th aria-label="AvgDist" data-stat="avg_distance" scope="col" class=" poptip center" >AvgDist</th>
+         <th aria-label="Total Field Goals Made" data-stat="fgm" scope="col" class=" poptip center" data-tip="Total Field Goals Made" >FGM</th>
+         <th aria-label="Field Goals Att" data-stat="fga" scope="col" class=" poptip center" data-tip="Field Goals Attempted" >FGA</th>
+         <th aria-label="Field Goal %" data-stat="fg_perc" scope="col" class=" poptip hide_non_quals center" data-tip="Percentage of field goals made, 100*(FGM/FGA)<br>Minimum 0.75 attempts per game scheduled to qualify as a leader.<br />Minimum 100 FGA to qualify as career leader." data-filter="1" data-name="Field Goal %" >FG%</th>
+      </tr>
+      </thead>
+<tbody><tr ><th scope="row" class="left " data-stat="player" >.</th><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="g" ></td><td class="right iz" data-stat="avg_distance" ></td><td class="right iz" data-stat="fgm" ></td><td class="right iz" data-stat="fga" ></td><td class="right iz" data-stat="fg_perc" ></td></tr>
+<tr ><th scope="row" class="left " data-stat="player" >.</th><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="g" ></td><td class="right iz" data-stat="avg_distance" ></td><td class="right iz" data-stat="fgm" ></td><td class="right iz" data-stat="fga" ></td><td class="right iz" data-stat="fg_perc" ></td></tr>
+</tbody><tfoot><tr ><th scope="row" class="left " data-stat="player" >2 kickers</th><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="g" ></td><td class="right " data-stat="avg_distance" >40.50</td><td class="right " data-stat="fgm" >23</td><td class="right " data-stat="fga" >30</td><td class="right " data-stat="fg_perc" >76.7%</td></tr>
+
+   </tfoot>
+
+</table>
+
+
+</div>
+
+<div class="placeholder"></div>
+
+</div>
+</div><div>
+<div id="all_attempts" class="table_wrapper setup_long long setup_commented commented">
+
+<div class="section_heading" id="attempts_sh">
+  <span class="section_anchor" id="attempts_link" data-label="All Attempts"></span><h2>All Attempts</h2>    <div class="section_heading_text">
+      <ul>
+      </ul>
+    </div>
+    		
+</div><div class="placeholder"></div>
+<!--
+
+<div class="table_container" id="div_attempts">
+    
+<div class="stathead_cta">
+<h3>Subscribe to Stathead Football for full results.</h3>
+<p>Stathead users enjoy the most powerful research tools in sports for just &#36;8/month. <a href="https://stathead.com/?utm_medium=blockedresults&utm_source=stathead&utm_campaign=football">Learn More</a>.</p>
+<p><a href="https://stathead.com/?ref=pfr&utm_medium=blockedresults&utm_source=stathead&utm_campaign=football" class="button2">Subscribe Now <span style="font-weight: normal">(First Month Free)</span></a></p>
+<p><a href="https://stathead.com/users/login.cgi">Already a subscriber? Log in for full results.</a></p>
+</div>
+
+
+    <table class="sortable stats_table" id="attempts" data-cols-to-freeze=",1">
+    <caption>All Attempts Table</caption>
+    
+   <colgroup><col><col><col><col><col><col><col><col><col><col></colgroup>
+   <thead>      
+      <tr>
+         <th aria-label="RankThis is a count of the rows from top to bottom.It is recalculated following the sorting of a column." data-stat="ranker" scope="col" class="ranker poptip sort_default_asc show_partial_when_sorting center" data-tip="<b>Rank</b><br>This is a count of the rows from top to bottom.<br>It is recalculated following the sorting of a column." >Rk</th>
+         <th aria-label="Date" data-stat="game_date" scope="col" class=" poptip sort_default_asc center" >Date</th>
+         <th aria-label="Tm" data-stat="team" scope="col" class=" poptip sort_default_asc show_partial_when_sorting left" >Tm</th>
+         <th aria-label=" " data-stat="at_or_vs" scope="col" class=" poptip center" ></th>
+         <th aria-label="Opp" data-stat="opp" scope="col" class=" poptip sort_default_asc center" >Opp</th>
+         <th aria-label="Result" data-stat="game_result" scope="col" class=" poptip sort_default_asc left" >Result</th>
+         <th aria-label="Player" data-stat="player" scope="col" class=" poptip sort_default_asc show_partial_when_sorting left" >Player</th>
+         <th aria-label="Distance" data-stat="distance" scope="col" class=" poptip center" data-tip="Distance" >Dist</th>
+         <th aria-label="Good?" data-stat="is_good" scope="col" class=" poptip center" >Good?</th>
+         <th aria-label="Blk?" data-stat="is_blocked" scope="col" class=" poptip center" >Blk?</th>
+      </tr>
+      </thead>
+<tbody><tr ><th scope="row" class="right " data-stat="ranker" >1</th><td class="left iz" data-stat="game_date" ></td><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left iz" data-stat="opp" ></td><td class="left iz" data-stat="game_result" ></td><td class="left iz" data-stat="player" ></td><td class="right iz" data-stat="distance" ></td><td class="right iz" data-stat="is_good" ></td><td class="right iz" data-stat="is_blocked" ></td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >2</th><td class="left iz" data-stat="game_date" ></td><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left iz" data-stat="opp" ></td><td class="left iz" data-stat="game_result" ></td><td class="left iz" data-stat="player" ></td><td class="right iz" data-stat="distance" ></td><td class="right iz" data-stat="is_good" ></td><td class="right iz" data-stat="is_blocked" ></td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >3</th><td class="left iz" data-stat="game_date" ></td><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left iz" data-stat="opp" ></td><td class="left iz" data-stat="game_result" ></td><td class="left iz" data-stat="player" ></td><td class="right iz" data-stat="distance" ></td><td class="right iz" data-stat="is_good" ></td><td class="right iz" data-stat="is_blocked" ></td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >4</th><td class="left iz" data-stat="game_date" ></td><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left iz" data-stat="opp" ></td><td class="left iz" data-stat="game_result" ></td><td class="left iz" data-stat="player" ></td><td class="right iz" data-stat="distance" ></td><td class="right iz" data-stat="is_good" ></td><td class="right iz" data-stat="is_blocked" ></td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >5</th><td class="left iz" data-stat="game_date" ></td><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left iz" data-stat="opp" ></td><td class="left iz" data-stat="game_result" ></td><td class="left iz" data-stat="player" ></td><td class="right iz" data-stat="distance" ></td><td class="right iz" data-stat="is_good" ></td><td class="right iz" data-stat="is_blocked" ></td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >6</th><td class="left iz" data-stat="game_date" ></td><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left iz" data-stat="opp" ></td><td class="left iz" data-stat="game_result" ></td><td class="left iz" data-stat="player" ></td><td class="right iz" data-stat="distance" ></td><td class="right iz" data-stat="is_good" ></td><td class="right iz" data-stat="is_blocked" ></td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >7</th><td class="left iz" data-stat="game_date" ></td><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left iz" data-stat="opp" ></td><td class="left iz" data-stat="game_result" ></td><td class="left iz" data-stat="player" ></td><td class="right iz" data-stat="distance" ></td><td class="right iz" data-stat="is_good" ></td><td class="right iz" data-stat="is_blocked" ></td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >8</th><td class="left iz" data-stat="game_date" ></td><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left iz" data-stat="opp" ></td><td class="left iz" data-stat="game_result" ></td><td class="left iz" data-stat="player" ></td><td class="right iz" data-stat="distance" ></td><td class="right iz" data-stat="is_good" ></td><td class="right iz" data-stat="is_blocked" ></td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >9</th><td class="left iz" data-stat="game_date" ></td><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left iz" data-stat="opp" ></td><td class="left iz" data-stat="game_result" ></td><td class="left iz" data-stat="player" ></td><td class="right iz" data-stat="distance" ></td><td class="right iz" data-stat="is_good" ></td><td class="right iz" data-stat="is_blocked" ></td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >10</th><td class="left iz" data-stat="game_date" ></td><td class="left iz" data-stat="team" ></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left iz" data-stat="opp" ></td><td class="left iz" data-stat="game_result" ></td><td class="left iz" data-stat="player" ></td><td class="right iz" data-stat="distance" ></td><td class="right iz" data-stat="is_good" ></td><td class="right iz" data-stat="is_blocked" ></td></tr>
+<tr style="background-color: #eee;" ><th scope="row" class="right " data-stat="ranker" >11</th><td class="left " data-stat="game_date" ><a href="https://www.pro-football-reference.com/boxscores/202011290nwe.htm" rel="noopener" target="_blank">2020-11-29</a></td><td class="left " data-stat="team" ><a href="https://www.pro-football-reference.com/teams/crd/2020.htm" rel="noopener" target="_blank">ARI</a></td><td class="right " data-stat="at_or_vs" >@</td><td class="left " data-stat="opp" ><a href="https://www.pro-football-reference.com/teams/nwe/2020.htm" rel="noopener" target="_blank">NWE</a></td><td class="left " data-stat="game_result" csk="-3" >L 17-20</td><td class="left " data-append-csv="GonzZa00" data-stat="player" ><a href="https://www.pro-football-reference.com/players/G/GonzZa00.htm" rel="noopener" target="_blank">Zane Gonzalez</a></td><td class="right " data-stat="distance" >45</td><td class="right " data-stat="is_good" >N</td><td class="right " data-stat="is_blocked" >N</td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >12</th><td class="left " data-stat="game_date" ><a href="https://www.pro-football-reference.com/boxscores/202011150crd.htm" rel="noopener" target="_blank">2020-11-15</a></td><td class="left " data-stat="team" ><a href="https://www.pro-football-reference.com/teams/crd/2020.htm" rel="noopener" target="_blank">ARI</a></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left " data-stat="opp" ><a href="https://www.pro-football-reference.com/teams/buf/2020.htm" rel="noopener" target="_blank">BUF</a></td><td class="left " data-stat="game_result" csk="2" >W 32-30</td><td class="left " data-append-csv="GonzZa00" data-stat="player" ><a href="https://www.pro-football-reference.com/players/G/GonzZa00.htm" rel="noopener" target="_blank">Zane Gonzalez</a></td><td class="right " data-stat="distance" >42</td><td class="right " data-stat="is_good" >Y</td><td class="right " data-stat="is_blocked" >N</td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >13</th><td class="left " data-stat="game_date" ><a href="https://www.pro-football-reference.com/boxscores/202011150crd.htm" rel="noopener" target="_blank">2020-11-15</a></td><td class="left " data-stat="team" ><a href="https://www.pro-football-reference.com/teams/crd/2020.htm" rel="noopener" target="_blank">ARI</a></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left " data-stat="opp" ><a href="https://www.pro-football-reference.com/teams/buf/2020.htm" rel="noopener" target="_blank">BUF</a></td><td class="left " data-stat="game_result" csk="2" >W 32-30</td><td class="left " data-append-csv="GonzZa00" data-stat="player" ><a href="https://www.pro-football-reference.com/players/G/GonzZa00.htm" rel="noopener" target="_blank">Zane Gonzalez</a></td><td class="right " data-stat="distance" >23</td><td class="right " data-stat="is_good" >Y</td><td class="right " data-stat="is_blocked" >N</td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >14</th><td class="left " data-stat="game_date" ><a href="https://www.pro-football-reference.com/boxscores/202011150crd.htm" rel="noopener" target="_blank">2020-11-15</a></td><td class="left " data-stat="team" ><a href="https://www.pro-football-reference.com/teams/crd/2020.htm" rel="noopener" target="_blank">ARI</a></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left " data-stat="opp" ><a href="https://www.pro-football-reference.com/teams/buf/2020.htm" rel="noopener" target="_blank">BUF</a></td><td class="left " data-stat="game_result" csk="2" >W 32-30</td><td class="left " data-append-csv="GonzZa00" data-stat="player" ><a href="https://www.pro-football-reference.com/players/G/GonzZa00.htm" rel="noopener" target="_blank">Zane Gonzalez</a></td><td class="right " data-stat="distance" >45</td><td class="right " data-stat="is_good" >Y</td><td class="right " data-stat="is_blocked" >N</td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >15</th><td class="left " data-stat="game_date" ><a href="https://www.pro-football-reference.com/boxscores/202011150crd.htm" rel="noopener" target="_blank">2020-11-15</a></td><td class="left " data-stat="team" ><a href="https://www.pro-football-reference.com/teams/crd/2020.htm" rel="noopener" target="_blank">ARI</a></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left " data-stat="opp" ><a href="https://www.pro-football-reference.com/teams/buf/2020.htm" rel="noopener" target="_blank">BUF</a></td><td class="left " data-stat="game_result" csk="2" >W 32-30</td><td class="left " data-append-csv="GonzZa00" data-stat="player" ><a href="https://www.pro-football-reference.com/players/G/GonzZa00.htm" rel="noopener" target="_blank">Zane Gonzalez</a></td><td class="right " data-stat="distance" >21</td><td class="right " data-stat="is_good" >Y</td><td class="right " data-stat="is_blocked" >N</td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >16</th><td class="left " data-stat="game_date" ><a href="https://www.pro-football-reference.com/boxscores/202011080crd.htm" rel="noopener" target="_blank">2020-11-08</a></td><td class="left " data-stat="team" ><a href="https://www.pro-football-reference.com/teams/crd/2020.htm" rel="noopener" target="_blank">ARI</a></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left " data-stat="opp" ><a href="https://www.pro-football-reference.com/teams/mia/2020.htm" rel="noopener" target="_blank">MIA</a></td><td class="left " data-stat="game_result" csk="-3" >L 31-34</td><td class="left " data-append-csv="GonzZa00" data-stat="player" ><a href="https://www.pro-football-reference.com/players/G/GonzZa00.htm" rel="noopener" target="_blank">Zane Gonzalez</a></td><td class="right " data-stat="distance" >37</td><td class="right " data-stat="is_good" >Y</td><td class="right " data-stat="is_blocked" >N</td></tr>
+<tr style="background-color: #eee;" ><th scope="row" class="right " data-stat="ranker" >17</th><td class="left " data-stat="game_date" ><a href="https://www.pro-football-reference.com/boxscores/202011080crd.htm" rel="noopener" target="_blank">2020-11-08</a></td><td class="left " data-stat="team" ><a href="https://www.pro-football-reference.com/teams/crd/2020.htm" rel="noopener" target="_blank">ARI</a></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left " data-stat="opp" ><a href="https://www.pro-football-reference.com/teams/mia/2020.htm" rel="noopener" target="_blank">MIA</a></td><td class="left " data-stat="game_result" csk="-3" >L 31-34</td><td class="left " data-append-csv="GonzZa00" data-stat="player" ><a href="https://www.pro-football-reference.com/players/G/GonzZa00.htm" rel="noopener" target="_blank">Zane Gonzalez</a></td><td class="right " data-stat="distance" >49</td><td class="right " data-stat="is_good" >N</td><td class="right " data-stat="is_blocked" >N</td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >18</th><td class="left " data-stat="game_date" ><a href="https://www.pro-football-reference.com/boxscores/202010250crd.htm" rel="noopener" target="_blank">2020-10-25</a></td><td class="left " data-stat="team" ><a href="https://www.pro-football-reference.com/teams/crd/2020.htm" rel="noopener" target="_blank">ARI</a></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left " data-stat="opp" ><a href="https://www.pro-football-reference.com/teams/sea/2020.htm" rel="noopener" target="_blank">SEA</a></td><td class="left " data-stat="game_result" csk="3" >W 37-34</td><td class="left " data-append-csv="GonzZa00" data-stat="player" ><a href="https://www.pro-football-reference.com/players/G/GonzZa00.htm" rel="noopener" target="_blank">Zane Gonzalez</a></td><td class="right " data-stat="distance" >44</td><td class="right " data-stat="is_good" >Y</td><td class="right " data-stat="is_blocked" >N</td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >19</th><td class="left " data-stat="game_date" ><a href="https://www.pro-football-reference.com/boxscores/202010250crd.htm" rel="noopener" target="_blank">2020-10-25</a></td><td class="left " data-stat="team" ><a href="https://www.pro-football-reference.com/teams/crd/2020.htm" rel="noopener" target="_blank">ARI</a></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left " data-stat="opp" ><a href="https://www.pro-football-reference.com/teams/sea/2020.htm" rel="noopener" target="_blank">SEA</a></td><td class="left " data-stat="game_result" csk="3" >W 37-34</td><td class="left " data-append-csv="GonzZa00" data-stat="player" ><a href="https://www.pro-football-reference.com/players/G/GonzZa00.htm" rel="noopener" target="_blank">Zane Gonzalez</a></td><td class="right " data-stat="distance" >49</td><td class="right " data-stat="is_good" >Y</td><td class="right " data-stat="is_blocked" >N</td></tr>
+<tr ><th scope="row" class="right " data-stat="ranker" >20</th><td class="left " data-stat="game_date" ><a href="https://www.pro-football-reference.com/boxscores/202010250crd.htm" rel="noopener" target="_blank">2020-10-25</a></td><td class="left " data-stat="team" ><a href="https://www.pro-football-reference.com/teams/crd/2020.htm" rel="noopener" target="_blank">ARI</a></td><td class="right iz" data-stat="at_or_vs" ></td><td class="left " data-stat="opp" ><a href="https://www.pro-football-reference.com/teams/sea/2020.htm" rel="noopener" target="_blank">SEA</a></td><td class="left " data-stat="game_result" csk="3" >W 37-34</td><td class="left " data-append-csv="GonzZa00" data-stat="player" ><a href="https://www.pro-football-reference.com/players/G/GonzZa00.htm" rel="noopener" target="_blank">Zane Gonzalez</a></td><td class="right " data-stat="distance" >48</td><td class="right " data-stat="is_good" >Y</td><td class="right " data-stat="is_blocked" >N</td></tr>
+
+</table>
+
+
+</div>
+-->
+<div class="placeholder"></div>
+
+</div>
+</div>
+</div>
+
+		
+	</div>
+</div>
+</form>
+
+   
+
+		<div class="callout">
+If you utilize material unique to a Sports Reference
+site for a tweet, an article, or for research for a
+broadcast or podcast, please strongly consider citing this site as the
+source for the material. It would be greatly appreciated and would
+help us continue to produce this material.
+</div>
+
+	</div>
+
+
+
+</div><!-- div#content -->
+
+
+<div id="footer" role="contentinfo">
+	<div id="footer_header">
+		 <ul class="bullets-inline"><li class="user logged_in">Welcome <span class="username"></span>&nbsp;&#183;&nbsp;<a href="https://stathead.com/profile/?utm_source=web&amp;utm_medium=stathead&amp;utm_campaign=sr-nav-bar-top-account">Your Account</a></li>
+<li class="user logged_in"><a class="logout" onclick="if(!this.href.match('redirect_uri')){this.href += '&redirect_uri='+escape(document.location.href)}" href="https://stathead.com/profile/?do=logout">Logout</a></li>
+<li class="user not_logged_in"><a class="login" onclick="if(!this.href.match('redirect_uri')){this.href += '?redirect_uri='+escape(document.location.href)}" href="https://stathead.com/users/login.cgi">Login</a></li>
+<li class="user not_logged_in"><a href="https://stathead.com/users/signup.cgi">Create Account</a></li>
+</ul>
+		 <div class="breadcrumbs">You are here: <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/football/"><span itemprop="name">Football Stathead</span></a> <meta itemprop="position" content="1" /></span> &gt; <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/football/fg_finder.cgi"><span itemprop="name">Field Goal Finder</span></a> <meta itemprop="position" content="2" /></span> &gt; <strong>Query Results</strong></div>
+	</div><!-- div#footer_header -->
+
+	<div id="footer_general">
+		<div id="site_menu" role="navigation" aria-label="complete site index">
+			
+			
+<div class="section_heading" id="site_menu_sh">
+  <span class="section_anchor" id="site_menu_link" data-label="Full Site Menu"></span><h2>Full Site Menu</h2>    <div class="section_heading_text">
+      <ul><li><a data-scroll href="#header">Return to Top</a></li>
+      </ul>
+    </div>
+    		
+</div>
+			
+				<script id="profitwell-js" data-pw-auth="66999f39e3012cc196652000a615fd27"> (function(i,s,o,g,r,a,m){i[o]=i[o]||function(){(i[o].q=i[o].q||[]).push(arguments)}; a=s.createElement(g);m=s.getElementsByTagName(g)[0];a.async=1;a.src=r+'?auth='+s.getElementById(o+'-js').getAttribute('data-pw-auth');m.parentNode.insertBefore(a,m);})(window,document,'profitwell','script','https://public.profitwell.com/js/profitwell.js'); sr_utilities_js_loader.push(function() { var c = vjs_readCookie(sr_auth_cookie); if (c) { var user = c.split(/::/); profitwell('start', { 'user_id': user[3] }); } }); </script>
+<ul>
+<li>
+	<a href="https://www.stathead.com/baseball/">Baseball Stathead</a>
+	<div><strong>Season and Career Tools</strong>: <a href="/baseball/season_finder.cgi?type=b">Player Batting</a>, <a href="/baseball/season_finder.cgi?type=p">Player Pitching</a>, <a href="/baseball/season_finder.cgi?type=b&class=team">Team Batting</a>, <a href="/baseball/season_finder.cgi?type=p&class=team">Team Pitching</a></div>
+	<div><strong>Game Tools</strong>: <a href="/baseball/game_finder.cgi?type=b">Player Batting</a>, <a href="/baseball/game_finder.cgi?type=p">Player Pitching</a>, <a href="/baseball/game_finder.cgi?type=b&class=team">Team Batting</a>, <a href="/baseball/game_finder.cgi?type=p&class=team">Team Pitching</a></div>
+	<div><strong>Split Tools</strong>: <a href="/baseball/split_finder.cgi?type=b">Player Batting</a>, <a href="/baseball/split_finder.cgi?type=p">Player Pitching</a>, <a href="/baseball/split_finder.cgi?type=b&class=team">Team Batting</a>, <a href="/baseball/split_finder.cgi?type=p&class=team">Team Pitching</a></div>
+	<div><strong>Streak Tools</strong>: <a href="/baseball/streak_finder.cgi?type=b">Player Batting</a>, <a href="/baseball/streak_finder.cgi?type=p">Player Pitching</a>, <a href="/baseball/streak_finder.cgi?type=b&class=team">Team Batting</a>, <a href="/baseball/streak_finder.cgi?type=p&class=team">Team Pitching</a></div>
+	<div><strong>Event Tools</strong>: <a href="/baseball/event_finder.cgi?type=b">Batting by Team</a>, <a href="/baseball/event_finder.cgi?type=p">Pitching by Team</a>, <a href="/baseball/event_finder.cgi?type=b&as=1">All-Star Batting</a>, <a href="/baseball/event_finder.cgi?type=p&as=1">All-Star Pitching</a>, <a href="/baseball/event_finder.cgi?type=b&post=1">Postseason Batting</a>, <a href="/baseball/event_finder.cgi?type=p&post=1">Postseason Pitching</a>
+	<div><a href="/baseball/">All Tools</a></div>
+</li>
+<li>
+	<a href="https://www.stathead.com/hockey/">Hockey Stathead</a>
+	<div><strong>Season and Career Tools</strong>: <a href="/hockey/psl_finder.cgi">Player</a>, <a href="/hockey/ppbp_finder.cgi">Player Advanced</a>, <a href="/hockey/tpbp_finder.cgi">Team Advanced</a></div>
+	<div><strong>Game Tools</strong>: <a href="/hockey/pgl_finder.cgi">Player</a>, <a href="/hockey/tgl_finder.cgi">Team</a></div>
+	<div><strong>Streak Tools</strong>: <a href="/hockey/tstreak_finder.cgi">Team</a></div>
+	<div><strong>Other Tools</strong>: <a href="/hockey/goal_finder.cgi">Player Goal Finder</a>, <a href="/hockey/pcomp_finder.cgi">Player Comparison</a>, <a href="/hockey/draft_finder.cgi">Draft Finder</a></div>
+	<div><a href="/hockey/">All Tools</a></div>
+</li>
+<li>
+	<a href="https://www.stathead.com/basketball/">Pro Basketball Stathead</a>
+	<div><strong>Season and Career Tools</strong>: <a href="/basketball/psl_finder.cgi">Player</a>, <a href="/basketball/tsl_finder.cgi">Team</a></div>
+	<div><strong>Game Tools</strong>: <a href="/basketball/pgl_finder.cgi">Player</a>, <a href="/basketball/tgl_finder.cgi">Team</a></div>
+	<div><strong>Streak Tools</strong>: <a href="/basketball/pstreak_finder.cgi">Player</a>, <a href="/basketball/tstreak_finder.cgi">Team</a></div>
+	<div><strong>Other Tools</strong>: <a href="/basketball/pcm_finder.cgi">Player Comparison</a>, <a href="/basketball/draft_finder.cgi">Draft Finder</a></div>
+	<div><a href="/basketball/">All Tools</a></div>
+</li>
+<li>
+	<a href="https://www.stathead.com/football/">Pro Football Stathead</a>
+	<div><strong>Season and Career Tools</strong>: <a href="/football/psl_finder.cgi">Player</a>, <a href="/football/record_finder.cgi">Team Records</a></div>
+	<div><strong>Game Tools</strong>: <a href="/football/pgl_finder.cgi">Player</a>, <a href="/football/tgl_finder.cgi">Team</a></div>
+	<div><strong>Split Tools</strong>: <a href="/football/player_split_finder.cgi">Player</a>, <a href="/football/split_finder.cgi">Team</a></div>
+	<div><strong>Streak Tools</strong>: <a href="/football/player_streak_finder.cgi">Player</a>, <a href="/football/team_streak_finder.cgi">Team</a></div>
+	<div><strong>Other Tools</strong>: <a href="/football/pcm_finder.cgi">Player Comparison</a>, <a href="/football/draft_finder.cgi">Draft Finder</a></div>
+	<div><a href="/football/">All Tools</a></div>
+</li>
+<!--
+<li><a href="https://www.stathead.com/college/">CBB Stathead</a></li>
+<li><a href="https://www.stathead.com/college/">CFB Stathead</a></li> 
+-->
+<li><a href="https://www.sports-reference.com/billing.html">Billing Policies</a></li> 
+<li><a href="/termsofuse.html">Terms of Service</a></li> 
+</ul>
+
+			
+		</div><!-- div#site_menu -->
+		<div>
+			<div id="social" class="icon_group noload">
+	
+<div class="section_heading" id="_sh">
+  <span class="section_anchor" id="_link" data-label="We're Social...for Statheads" data-no-inpage="1"></span><h2>We're Social...for Statheads</h2>		
+</div>
+	<a href="tel://888-512-8907" data-tip="Call us on Telephone" data-label="Telephone" class="poptip"><svg class="icon phone"><use xlink:href="#ic-phone"></use></svg></a>
+	<a href="//www.sports-reference.com/blog/" data-tip="The Sports Reference Blog" data-label="Our Blog" class="poptip"><svg class="icon wordpress"><use xlink:href="#ic-wordpress"></use></svg></a>
+	<a href="https://www.sports-reference.com/blog/feed/" data-tip="Our Blog's RSS Feed" data-label="RSS Feed" class="poptip"><svg class="icon rss"><use xlink:href="#ic-rss"></use></svg></a>
+		<a href="https://www.facebook.com/Pro.Football.Reference" data-tip="Stathead.com at Facebook" data-label="Facebook" class="poptip"><svg class="icon facebook"><use xlink:href="#ic-facebook"></use></svg></a>
+		<a href="https://twitter.com/@stathead" data-tip="Stathead.com at Twitter" data-label="Twitter" class="poptip"><svg class="icon twitter"><use xlink:href="#ic-twitter"></use></svg></a>
+	
+	<a href="https://reddit.com/r/SportsReference" data-tip="Reddit/r/SportsReference" data-label="Reddit/r/SR" class="poptip"><svg class="icon reddit"><use xlink:href="#ic-reddit"></use></svg></a>
+	<a href="https://www.youtube.com/user/sportsreference" data-tip="YouTube/SportsReference" data-label="YouTube" class="poptip"><svg class="icon youtube"><use xlink:href="#ic-youtube"></use></svg></a>
+	<a href="https://www.linkedin.com/company/sports-reference-llc" data-tip="Follow SR on LinkedIn" data-label="LinkedIn" class="poptip"><svg class="icon linkedin"><use xlink:href="#ic-linkedin"></use></svg></a>
+	<a href="https://www.paypal.me/sportsref" data-tip="Send us money via PayPal" data-label="PayPal" class="poptip"><svg class="icon paypal"><use xlink:href="#ic-paypal"></use></svg></a>
+
+<p>Every <a href="https://www.sports-reference.com/blog/sports-reference-social-media/">Sports Reference Social Media Account</a></p>
+<p><strong>Site Last Updated:</strong> Wednesday, February 10,  9:01AM
+</p>
+<p><a href="#" onclick="FreshworksWidget('open'); return false;" class="button alt">Question, Comment, Feedback, or Correction?</a></p>
+
+<p><a style="background-color:#8e4496; color: #fff;" href="https://stathead.com/?&utm_medium=sr&utm_source=stathead&utm_campaign=site-footer" class="button alt">Are you a Stathead, too? Subscribe to our Free Newsletter</a></p>
+
+<p><a style="background-color:#155ca9; color: #fff;" href="https://www.sports-reference.com/this-month.html?&utm_medium=sr&utm_source=stathead&utm_campaign=site-footer-twisr" class="button alt">This Month in Sports Reference<br><em>Find out when we add a feature or make a change</em></a></p>
+
+<p><a href="https://www.sports-reference.com/blog/ways-sports-reference-can-help-your-website/?utm_medium=sr&utm_source=stathead&utm_campaign=site-footer-ways-help">Do you have a sports website? Or write about sports? We have tools and resources that can help you use sports data.  Find out more.</a></p>
+
+
+</div><!-- div#social -->
+
+			<div id="tips_tricks">
+   
+<div class="section_heading" id="tips_sh">
+  <span class="section_anchor" id="tips_link" data-label="FAQs, Tip &amp; Tricks" data-no-inpage="1"></span><h2>FAQs, Tip &amp; Tricks</h2>		
+</div>
+   <ul>
+<li>Learn about the <a href="https://www.pro-football-reference.com/blog/index37a8.html">Approximate Value Formula</a></li>
+<li>Details on the Pro Football Reference <a href="https://www.pro-football-reference.com/about/win_prob.htm">Win Probability</a></li>
+
+
+           <li><a href="//www.sports-reference.com/blog/category/tips-and-tricks/">Tips and Tricks from our Blog.</a></li>
+	   <li><a href="https://www.sports-reference.com/blog/category/stathead-tutorial-series/">Watch our How-To Videos to Become a Stathead</a></li>
+	   <li><a href="//stathead.com/">Subscribe to Stathead and get access to more data than you can imagine</a></li>
+   </ul>
+</div><!-- div#tips_tricks -->
+
+			<div id="credits">
+				<p>All logos are the trademark &amp; property of their owners and not Sports Reference LLC.  We present them here for purely educational purposes.
+				<a href="https://www.sports-reference.com/blog/2016/06/redesign-team-and-league-logos-courtesy-sportslogos-net/">Our reasoning for presenting offensive logos.</a></p>
+				<p>
+					
+					Logos were compiled by the amazing <a href="http://sportslogos.net/">SportsLogos.net.</a>
+				</p>
+				
+<div class="notice">
+<p>Data Provided By
+	<a href="https://www.sportradar.com/" rel="nofollow"><img alt="SportRadar" border=0 width=275 src="https://d2p3bygnnzw9w3.cloudfront.net/req/202102032/images/klecko/sportradar.png"  style="background-color:#666; padding:.5em; border-radius:.25em"></a>
+	the official stats partner of the NFL.</p>
+	
+	<p>Pro-Football-Reference utilizes <strong>Official NFL data</strong> for current NFL seasons.</p>
+	
+</div>
+
+     <p>Copyright &copy; 2000-2021 <a href="//www.sports-reference.com/">Sports Reference LLC</a>. All rights reserved.</p>
+
+<p>Most data provided by <a href="http://www.247baseball.com/">24-7 Baseball, creators of the <a href="https://www.amazon.com/dp/1402752504/">ESPN Pro Football Encyclopedia</a>.</p>
+
+			</div><!-- div#credits -->
+		</div>
+	</div>
+
+	<ul id="site_dirs" class="notranslate bullets-inline">
+	<li><a href="https://www.sports-reference.com/"><svg height="15px" width="20px"><use xlink:href="#ic-sr-pennant"></use></svg> Sports Reference</a></li>
+	<li><a href="https://www.baseball-reference.com/">Baseball</a></li>
+	<li><a href="https://www.pro-football-reference.com/">Football</a> <a href="https://www.sports-reference.com/cfb/">(college)</a></li>
+	<li><a href="https://www.basketball-reference.com/">Basketball</a> <a href="https://www.sports-reference.com/cbb/">(college)</a></li>
+	<li><a href="https://www.hockey-reference.com/">Hockey</a></li>
+
+
+	
+	
+	
+	<li><a href="https://fbref.com/en/">Soccer</a></li>
+
+	<li><a href="https://www.sports-reference.com/blog/">Blog</a></li>
+
+    <li class="current"><a href="https://stathead.com/?utm_source=web&amp;utm_medium=stathead&amp;utm_campaign=sr-nav-bar-top-link">Stathead</a></li>
+    <li><a href="https://widgets.sports-reference.com/">Widgets</a></li>
+
+
+</ul>
+
+	<div id="about"><a href="//www.sports-reference.com/about.html">About</a> &bull; <a href="//www.sports-reference.com/privacy.html">Privacy Statement</a> &bull; <a href="//www.stathead.com/termsofuse.html">Conditions &amp; Terms of Service</a> &bull; <a href="//www.sports-reference.com/advertise.html">Advertise With Us</a> &bull; <a href="//www.sports-reference.com/data_use.html">Use of Data</a></div><!-- div#about -->
+</div><!-- div#footer -->
+
+</div><!-- div#wrap -->
+
+
+
+<!-- Google Analytics --><script> var sr_cookie = vjs_readCookie('stathead_user') || ''; var sr_cookie_split = sr_cookie.split("::"); var sr_session_key = (sr_cookie_split.length > 1)?sr_cookie_split[2]:''; var sr_ad_free_key = "xx"; var sr_site_id = "stathead"; var sr_is_subscriber = (sr_ad_free_key && sr_session_key.vjs_isMatch(new RegExp(sr_ad_free_key + "$"))) || sr_session_key.vjs_isMatch(/1$/) || (sr_site_id === 'stathead' && sr_session_key.vjs_isMatch(/[0-7]$/)); var sr_is_user = sr_cookie !== null && sr_cookie !== ''; var sr_seen_modal = vjs_readCookie('modal_ad') !== null; var sr_device = 'unk'; if (Modernizr.phone) { sr_device = 'phone'; } else if (Modernizr.tablet) { sr_device = 'tablet'; } else if (Modernizr.laptop) { sr_device = 'laptop'; } else if (Modernizr.desktop) { sr_device = 'desktop'; } var sr_stathead_site = vjs_readCookie('stathead_site') || ''; var sr_stathead_type = vjs_readCookie('stathead_type') || ''; (function(i,s,o,g,r,a,m){ i['GoogleAnalyticsObject']=r; i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date(); a=s.createElement(o),m=s.getElementsByTagName(o)[0]; a.async=1; a.src=g; m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-1890630-24', 'auto'); ga('require', 'linkid', 'linkid.js'); ga('require', 'ecommerce', 'ecommerce.js'); ga('require', 'displayfeatures'); ga('set', 'dimension1', sr_is_subscriber); ga('set', 'dimension2', sr_is_user); /* no longer collecting is_modern */ ga('set', 'dimension3', 'null'); ga('set', 'dimension4', sr_stathead_type); ga('set', 'dimension5', sr_stathead_site); ga('set', 'metric1', Modernizr.viewport_width); ga('send', 'pageview'); /* all sr-sites together */ ga('create', 'UA-1890630-9', 'auto', {'name': 'sr_tracker', 'allowLinker': true }); ga('sr_tracker.require', 'displayfeatures'); ga('sr_tracker.set', 'dimension1',sr_site_id); ga('sr_tracker.set', 'dimension2',sr_is_subscriber); ga('sr_tracker.set', 'dimension3',sr_is_user); ga('sr_tracker.set', 'dimension4',sr_seen_modal); ga('sr_tracker.set', 'dimension5',sr_device); /* no longer collecting is_modern */ ga('sr_tracker.set', 'dimension6','null'); ga('sr_tracker.set', 'metric1',Modernizr.viewport_width); /* note that this requires the Assets/AdBlockTest.tt2 to be included above. ga('sr_tracker.set', 'dimension8',(typeof sr_test == 'undefined')?'no-test':( sr_test ? 'non-blocking':'blocking')); */ ga('sr_tracker.send', 'pageview'); /* cribbed from: http://www.axllent.org/docs/view/track-outbound-links-with-analytics-js/ */ function _gaLt(event) { if (!ga.hasOwnProperty("loaded") || ga.loaded != true) { return; } var el = event.srcElement || event.target; /* if a link has been clicked */ if (el && el.href) { var link = el.href; /* Only if it is an external link */ if (link.indexOf(location.host) == -1 && !link.match(/^javascript\:/i)) { /* Is target set and not _(self|parent|top)? */ var target = (el.target && !el.target.match(/^_(self|parent|top)/i)) ? el.target : false; /* If target opens a new window then just track */ if (el.target && !el.target.match(/^_(self|parent|top)/i)) { ga("send", "event", "Outgoing Links", link, document.location.pathname + document.location.search); } }; } } window.addEventListener ? window.addEventListener("load", function() { document.body.addEventListener("click", _gaLt, !1)}, !1) : window.attachEvent && window.attachEvent("onload", function() { document.body.attachEvent("onclick", _gaLt) }); </script><!-- End Google Analytics -->
+
+
+<script>
+var fd_sr_site_id="stathead";window.fwSettings={widget_id:66000002075},function(){if("function"!=typeof window.FreshworksWidget){var e=function(){e.q.push(arguments)};e.q=[],window.FreshworksWidget=e}}();var script=document.createElement("script");switch(script.src="https://widget.freshworks.com/widgets/66000002075.js",script.type="text/javascript",script.async=!0,script.defer=!0,document.head.appendChild(script),fd_sr_site_id){case"br":fd_site_name="Baseball Reference";break;case"bbr":fd_site_name="Basketball Reference";break;case"pfr":fd_site_name="Pro Football Reference";break;case"hr":fd_site_name="Hockey Reference";break;case"fbref":fd_site_name="FBRef";break;case"cfb":fd_site_name="College Football Reference";break;case"cbb":fd_site_name="College Basketball Reference";break;case"sr":fd_site_name="Sports Reference";break;case"blog":fd_site_name="Blog";break;case"stathead":fd_site_name="Stathead";break;default:fd_site_name="Other"}var stathead_user="";try{stathead_user=vjs_readCookie("stathead_user").split("::").shift()}catch{}FreshworksWidget("prefill","ticketForm",{custom_fields:{cf_site_external:fd_site_name,cf_page:window.location.href,cf_stathead_user_id:stathead_user}}),FreshworksWidget("hide","launcher"),(Modernizr.desktop||Modernizr.laptop)&&"stathead"===fd_sr_site_id&&FreshworksWidget("show","launcher");
+</script>
+
+
+</body>
+<!-- SR -->
+</html>
+
+
