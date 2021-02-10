@@ -50,6 +50,10 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -194,7 +198,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="markets-2.html"><a href="markets-2.html#solutions-1"><i class="fa fa-check"></i><b>7.2</b> Solutions</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="risk.html"><a href="risk.html"><i class="fa fa-check"></i><b>8</b> Risk</a><ul>
-<li class="chapter" data-level="8.1" data-path="risk.html"><a href="risk.html#questions"><i class="fa fa-check"></i><b>8.1</b> Questions</a></li>
+<li class="chapter" data-level="8.1" data-path="risk.html"><a href="risk.html#questions"><i class="fa fa-check"></i><b>8.1</b> Questions</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="risk.html"><a href="risk.html#solutions-2"><i class="fa fa-check"></i><b>8.1.1</b> Solutions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html"><i class="fa fa-check"></i><b>9</b> Bayes’ rule</a><ul>
+<li class="chapter" data-level="9.1" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#instructions"><i class="fa fa-check"></i><b>9.1</b> Instructions</a></li>
+<li class="chapter" data-level="9.2" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#data-description"><i class="fa fa-check"></i><b>9.2</b> Data Description</a></li>
+<li class="chapter" data-level="9.3" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#questions-1"><i class="fa fa-check"></i><b>9.3</b> Questions</a></li>
 </ul></li>
 </ul>
 
@@ -267,28 +278,28 @@ y^*&amp;=\frac{40n+(n-1)x}{2n-1}
 \end{aligned}
 \]</span></p>
 <p>So getting these into plots</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="guessing-game.html#cb15-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb15-2"><a href="guessing-game.html#cb15-2"></a><span class="kw">library</span>(tidyr)</span>
-<span id="cb15-3"><a href="guessing-game.html#cb15-3"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb15-4"><a href="guessing-game.html#cb15-4"></a></span>
-<span id="cb15-5"><a href="guessing-game.html#cb15-5"></a>x&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>)</span>
-<span id="cb15-6"><a href="guessing-game.html#cb15-6"></a>n&lt;-<span class="dv">4</span></span>
-<span id="cb15-7"><a href="guessing-game.html#cb15-7"></a>y&lt;-(n<span class="dv">-1</span>)<span class="op">*</span>x<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>n<span class="dv">-1</span>)</span>
-<span id="cb15-8"><a href="guessing-game.html#cb15-8"></a>PlotThis&lt;-<span class="kw">data.frame</span>(x,y)</span>
-<span id="cb15-9"><a href="guessing-game.html#cb15-9"></a>PlotThis<span class="op">$</span>Part&lt;-<span class="st">&quot;1&quot;</span></span>
-<span id="cb15-10"><a href="guessing-game.html#cb15-10"></a>tmp&lt;-PlotThis</span>
-<span id="cb15-11"><a href="guessing-game.html#cb15-11"></a>tmp<span class="op">$</span>y&lt;-(<span class="dv">40</span><span class="op">*</span>n<span class="op">+</span>(n<span class="dv">-1</span>)<span class="op">*</span>x)<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>n<span class="dv">-1</span>)</span>
-<span id="cb15-12"><a href="guessing-game.html#cb15-12"></a>tmp<span class="op">$</span>Part&lt;-<span class="st">&quot;2&quot;</span></span>
-<span id="cb15-13"><a href="guessing-game.html#cb15-13"></a></span>
-<span id="cb15-14"><a href="guessing-game.html#cb15-14"></a>PlotThis&lt;-<span class="kw">rbind</span>(PlotThis,tmp)</span>
-<span id="cb15-15"><a href="guessing-game.html#cb15-15"></a>plt1&lt;-(<span class="kw">ggplot</span>(PlotThis,<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y,<span class="dt">linetype=</span>Part))</span>
-<span id="cb15-16"><a href="guessing-game.html#cb15-16"></a>  <span class="op">+</span><span class="kw">geom_line</span>()</span>
-<span id="cb15-17"><a href="guessing-game.html#cb15-17"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
-<span id="cb15-18"><a href="guessing-game.html#cb15-18"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Others&#39; choice&quot;</span>)</span>
-<span id="cb15-19"><a href="guessing-game.html#cb15-19"></a>  <span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Best response&quot;</span>)</span>
-<span id="cb15-20"><a href="guessing-game.html#cb15-20"></a>)</span>
-<span id="cb15-21"><a href="guessing-game.html#cb15-21"></a>plt1</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="guessing-game.html#cb20-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb20-2"><a href="guessing-game.html#cb20-2"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb20-3"><a href="guessing-game.html#cb20-3"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb20-4"><a href="guessing-game.html#cb20-4"></a></span>
+<span id="cb20-5"><a href="guessing-game.html#cb20-5"></a>x&lt;-<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>)</span>
+<span id="cb20-6"><a href="guessing-game.html#cb20-6"></a>n&lt;-<span class="dv">4</span></span>
+<span id="cb20-7"><a href="guessing-game.html#cb20-7"></a>y&lt;-(n<span class="dv">-1</span>)<span class="op">*</span>x<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>n<span class="dv">-1</span>)</span>
+<span id="cb20-8"><a href="guessing-game.html#cb20-8"></a>PlotThis&lt;-<span class="kw">data.frame</span>(x,y)</span>
+<span id="cb20-9"><a href="guessing-game.html#cb20-9"></a>PlotThis<span class="op">$</span>Part&lt;-<span class="st">&quot;1&quot;</span></span>
+<span id="cb20-10"><a href="guessing-game.html#cb20-10"></a>tmp&lt;-PlotThis</span>
+<span id="cb20-11"><a href="guessing-game.html#cb20-11"></a>tmp<span class="op">$</span>y&lt;-(<span class="dv">40</span><span class="op">*</span>n<span class="op">+</span>(n<span class="dv">-1</span>)<span class="op">*</span>x)<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>n<span class="dv">-1</span>)</span>
+<span id="cb20-12"><a href="guessing-game.html#cb20-12"></a>tmp<span class="op">$</span>Part&lt;-<span class="st">&quot;2&quot;</span></span>
+<span id="cb20-13"><a href="guessing-game.html#cb20-13"></a></span>
+<span id="cb20-14"><a href="guessing-game.html#cb20-14"></a>PlotThis&lt;-<span class="kw">rbind</span>(PlotThis,tmp)</span>
+<span id="cb20-15"><a href="guessing-game.html#cb20-15"></a>plt1&lt;-(<span class="kw">ggplot</span>(PlotThis,<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y,<span class="dt">linetype=</span>Part))</span>
+<span id="cb20-16"><a href="guessing-game.html#cb20-16"></a>  <span class="op">+</span><span class="kw">geom_line</span>()</span>
+<span id="cb20-17"><a href="guessing-game.html#cb20-17"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb20-18"><a href="guessing-game.html#cb20-18"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Others&#39; choice&quot;</span>)</span>
+<span id="cb20-19"><a href="guessing-game.html#cb20-19"></a>  <span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Best response&quot;</span>)</span>
+<span id="cb20-20"><a href="guessing-game.html#cb20-20"></a>)</span>
+<span id="cb20-21"><a href="guessing-game.html#cb20-21"></a>plt1</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 </div>
 <div id="nash-equilibrium" class="section level4">
 <h4><span class="header-section-number">6.2.1.2</span> 2 - Nash equilibrium</h4>
@@ -309,10 +320,10 @@ x=40
 \end{aligned}
 \]</span>
 Graphically, we are looking for an intersection of our best response curves with the <span class="math inline">\(45^\circ\)</span> line, (i.e. <span class="math inline">\(x=y\)</span>):</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="guessing-game.html#cb16-1"></a>plt2&lt;-(plt1</span>
-<span id="cb16-2"><a href="guessing-game.html#cb16-2"></a>       <span class="op">+</span><span class="kw">geom_abline</span>(<span class="dt">slope=</span><span class="dv">1</span>,<span class="dt">intercept=</span><span class="dv">0</span>,<span class="dt">color=</span><span class="st">&quot;red&quot;</span>))</span>
-<span id="cb16-3"><a href="guessing-game.html#cb16-3"></a>plt2</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="guessing-game.html#cb21-1"></a>plt2&lt;-(plt1</span>
+<span id="cb21-2"><a href="guessing-game.html#cb21-2"></a>       <span class="op">+</span><span class="kw">geom_abline</span>(<span class="dt">slope=</span><span class="dv">1</span>,<span class="dt">intercept=</span><span class="dv">0</span>,<span class="dt">color=</span><span class="st">&quot;red&quot;</span>))</span>
+<span id="cb21-3"><a href="guessing-game.html#cb21-3"></a>plt2</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 </div>
 <div id="group-size" class="section level4">
 <h4><span class="header-section-number">6.2.1.3</span> 3 - Group size</h4>
@@ -321,38 +332,38 @@ Graphically, we are looking for an intersection of our best response curves with
 <div id="data" class="section level4">
 <h4><span class="header-section-number">6.2.1.4</span> 4 - Data</h4>
 <p>This plot is overkill, I’m not expecrting you to have something with box plots and loess smoothing. You can see the data’s means in the middle lines of the box plots.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="guessing-game.html#cb17-1"></a><span class="kw">library</span>(readxl)</span>
-<span id="cb17-2"><a href="guessing-game.html#cb17-2"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb17-3"><a href="guessing-game.html#cb17-3"></a>T1&lt;-<span class="kw">data.frame</span>(<span class="kw">read_excel</span>(<span class="st">&quot;PS01-GuessingGame.xlsx&quot;</span>,<span class="dt">sheet=</span><span class="st">&quot;Treatment1&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="kw">c</span>(<span class="st">&quot;Round&quot;</span>,<span class="st">&quot;Guess&quot;</span>))</span>
-<span id="cb17-4"><a href="guessing-game.html#cb17-4"></a>T2&lt;-<span class="kw">data.frame</span>(<span class="kw">read_excel</span>(<span class="st">&quot;PS01-GuessingGame.xlsx&quot;</span>,<span class="dt">sheet=</span><span class="st">&quot;Treatment 2&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="kw">c</span>(<span class="st">&quot;Round&quot;</span>,<span class="st">&quot;Guess&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Round=</span>Round<span class="op">+</span><span class="dv">10</span>) </span>
-<span id="cb17-5"><a href="guessing-game.html#cb17-5"></a></span>
-<span id="cb17-6"><a href="guessing-game.html#cb17-6"></a>T1<span class="op">$</span>Part &lt;-<span class="dv">1</span></span>
-<span id="cb17-7"><a href="guessing-game.html#cb17-7"></a>T2<span class="op">$</span>Part&lt;-<span class="dv">2</span></span>
-<span id="cb17-8"><a href="guessing-game.html#cb17-8"></a></span>
-<span id="cb17-9"><a href="guessing-game.html#cb17-9"></a>D&lt;-<span class="kw">rbind</span>(T1,T2) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
-<span id="cb17-10"><a href="guessing-game.html#cb17-10"></a>                      <span class="dt">Round=</span><span class="kw">as.factor</span>(Round),</span>
-<span id="cb17-11"><a href="guessing-game.html#cb17-11"></a>                      <span class="dt">Guess=</span><span class="kw">as.numeric</span>(Guess)</span>
-<span id="cb17-12"><a href="guessing-game.html#cb17-12"></a>                      </span>
-<span id="cb17-13"><a href="guessing-game.html#cb17-13"></a>  )</span>
-<span id="cb17-14"><a href="guessing-game.html#cb17-14"></a></span>
-<span id="cb17-15"><a href="guessing-game.html#cb17-15"></a></span>
-<span id="cb17-16"><a href="guessing-game.html#cb17-16"></a>Round&lt;-<span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>)</span>
-<span id="cb17-17"><a href="guessing-game.html#cb17-17"></a>Part&lt;-<span class="kw">paste</span>(<span class="dv">1</span><span class="op">+</span>(Round<span class="op">&gt;=</span><span class="dv">6</span>))</span>
-<span id="cb17-18"><a href="guessing-game.html#cb17-18"></a>MeanChoice&lt;-<span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">30</span>,<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">48</span>,<span class="dv">40</span>)</span>
-<span id="cb17-19"><a href="guessing-game.html#cb17-19"></a>Nash&lt;-(Round<span class="op">&gt;=</span><span class="dv">6</span>)<span class="op">*</span><span class="dv">40</span></span>
-<span id="cb17-20"><a href="guessing-game.html#cb17-20"></a></span>
-<span id="cb17-21"><a href="guessing-game.html#cb17-21"></a>plt3&lt;-(</span>
-<span id="cb17-22"><a href="guessing-game.html#cb17-22"></a>  <span class="kw">ggplot</span>(D,<span class="kw">aes</span>(<span class="dt">x=</span>Round,<span class="dt">y=</span>Guess))</span>
-<span id="cb17-23"><a href="guessing-game.html#cb17-23"></a>  <span class="op">+</span><span class="kw">geom_smooth</span>(<span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x, <span class="dt">method=</span><span class="st">&quot;loess&quot;</span>,<span class="kw">aes</span>(<span class="dt">group=</span>Part,<span class="dt">color=</span><span class="st">&quot;Data&quot;</span>))</span>
-<span id="cb17-24"><a href="guessing-game.html#cb17-24"></a>  <span class="op">+</span><span class="kw">geom_boxplot</span>(<span class="dt">alpha=</span><span class="fl">0.7</span>,<span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Data&quot;</span>))</span>
-<span id="cb17-25"><a href="guessing-game.html#cb17-25"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
-<span id="cb17-26"><a href="guessing-game.html#cb17-26"></a>  <span class="op">+</span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="fl">10.5</span>,<span class="dt">color=</span><span class="st">&quot;black&quot;</span>,<span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
-<span id="cb17-27"><a href="guessing-game.html#cb17-27"></a>  <span class="op">+</span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">1</span>,<span class="dt">y=</span><span class="dv">0</span>,<span class="dt">xend=</span><span class="dv">10</span>,<span class="dt">yend=</span><span class="dv">0</span>,<span class="dt">color=</span><span class="st">&quot;Nash&quot;</span>),<span class="dt">size=</span><span class="dv">2</span>)</span>
-<span id="cb17-28"><a href="guessing-game.html#cb17-28"></a>  <span class="op">+</span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">11</span>,<span class="dt">y=</span><span class="dv">40</span>,<span class="dt">xend=</span><span class="dv">15</span>,<span class="dt">yend=</span><span class="dv">40</span>,<span class="dt">color=</span><span class="st">&quot;Nash&quot;</span>),<span class="dt">size=</span><span class="dv">2</span>)</span>
-<span id="cb17-29"><a href="guessing-game.html#cb17-29"></a>  <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.title=</span><span class="kw">element_blank</span>())</span>
-<span id="cb17-30"><a href="guessing-game.html#cb17-30"></a>)</span>
-<span id="cb17-31"><a href="guessing-game.html#cb17-31"></a>plt3</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="guessing-game.html#cb22-1"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb22-2"><a href="guessing-game.html#cb22-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb22-3"><a href="guessing-game.html#cb22-3"></a>T1&lt;-<span class="kw">data.frame</span>(<span class="kw">read_excel</span>(<span class="st">&quot;PS01-GuessingGame.xlsx&quot;</span>,<span class="dt">sheet=</span><span class="st">&quot;Treatment1&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="kw">c</span>(<span class="st">&quot;Round&quot;</span>,<span class="st">&quot;Guess&quot;</span>))</span>
+<span id="cb22-4"><a href="guessing-game.html#cb22-4"></a>T2&lt;-<span class="kw">data.frame</span>(<span class="kw">read_excel</span>(<span class="st">&quot;PS01-GuessingGame.xlsx&quot;</span>,<span class="dt">sheet=</span><span class="st">&quot;Treatment 2&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="kw">c</span>(<span class="st">&quot;Round&quot;</span>,<span class="st">&quot;Guess&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Round=</span>Round<span class="op">+</span><span class="dv">10</span>) </span>
+<span id="cb22-5"><a href="guessing-game.html#cb22-5"></a></span>
+<span id="cb22-6"><a href="guessing-game.html#cb22-6"></a>T1<span class="op">$</span>Part &lt;-<span class="dv">1</span></span>
+<span id="cb22-7"><a href="guessing-game.html#cb22-7"></a>T2<span class="op">$</span>Part&lt;-<span class="dv">2</span></span>
+<span id="cb22-8"><a href="guessing-game.html#cb22-8"></a></span>
+<span id="cb22-9"><a href="guessing-game.html#cb22-9"></a>D&lt;-<span class="kw">rbind</span>(T1,T2) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
+<span id="cb22-10"><a href="guessing-game.html#cb22-10"></a>                      <span class="dt">Round=</span><span class="kw">as.factor</span>(Round),</span>
+<span id="cb22-11"><a href="guessing-game.html#cb22-11"></a>                      <span class="dt">Guess=</span><span class="kw">as.numeric</span>(Guess)</span>
+<span id="cb22-12"><a href="guessing-game.html#cb22-12"></a>                      </span>
+<span id="cb22-13"><a href="guessing-game.html#cb22-13"></a>  )</span>
+<span id="cb22-14"><a href="guessing-game.html#cb22-14"></a></span>
+<span id="cb22-15"><a href="guessing-game.html#cb22-15"></a></span>
+<span id="cb22-16"><a href="guessing-game.html#cb22-16"></a>Round&lt;-<span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>)</span>
+<span id="cb22-17"><a href="guessing-game.html#cb22-17"></a>Part&lt;-<span class="kw">paste</span>(<span class="dv">1</span><span class="op">+</span>(Round<span class="op">&gt;=</span><span class="dv">6</span>))</span>
+<span id="cb22-18"><a href="guessing-game.html#cb22-18"></a>MeanChoice&lt;-<span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">30</span>,<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">48</span>,<span class="dv">40</span>)</span>
+<span id="cb22-19"><a href="guessing-game.html#cb22-19"></a>Nash&lt;-(Round<span class="op">&gt;=</span><span class="dv">6</span>)<span class="op">*</span><span class="dv">40</span></span>
+<span id="cb22-20"><a href="guessing-game.html#cb22-20"></a></span>
+<span id="cb22-21"><a href="guessing-game.html#cb22-21"></a>plt3&lt;-(</span>
+<span id="cb22-22"><a href="guessing-game.html#cb22-22"></a>  <span class="kw">ggplot</span>(D,<span class="kw">aes</span>(<span class="dt">x=</span>Round,<span class="dt">y=</span>Guess))</span>
+<span id="cb22-23"><a href="guessing-game.html#cb22-23"></a>  <span class="op">+</span><span class="kw">geom_smooth</span>(<span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x, <span class="dt">method=</span><span class="st">&quot;loess&quot;</span>,<span class="kw">aes</span>(<span class="dt">group=</span>Part,<span class="dt">color=</span><span class="st">&quot;Data&quot;</span>))</span>
+<span id="cb22-24"><a href="guessing-game.html#cb22-24"></a>  <span class="op">+</span><span class="kw">geom_boxplot</span>(<span class="dt">alpha=</span><span class="fl">0.7</span>,<span class="kw">aes</span>(<span class="dt">color=</span><span class="st">&quot;Data&quot;</span>))</span>
+<span id="cb22-25"><a href="guessing-game.html#cb22-25"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb22-26"><a href="guessing-game.html#cb22-26"></a>  <span class="op">+</span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="fl">10.5</span>,<span class="dt">color=</span><span class="st">&quot;black&quot;</span>,<span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb22-27"><a href="guessing-game.html#cb22-27"></a>  <span class="op">+</span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">1</span>,<span class="dt">y=</span><span class="dv">0</span>,<span class="dt">xend=</span><span class="dv">10</span>,<span class="dt">yend=</span><span class="dv">0</span>,<span class="dt">color=</span><span class="st">&quot;Nash&quot;</span>),<span class="dt">size=</span><span class="dv">2</span>)</span>
+<span id="cb22-28"><a href="guessing-game.html#cb22-28"></a>  <span class="op">+</span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">11</span>,<span class="dt">y=</span><span class="dv">40</span>,<span class="dt">xend=</span><span class="dv">15</span>,<span class="dt">yend=</span><span class="dv">40</span>,<span class="dt">color=</span><span class="st">&quot;Nash&quot;</span>),<span class="dt">size=</span><span class="dv">2</span>)</span>
+<span id="cb22-29"><a href="guessing-game.html#cb22-29"></a>  <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.title=</span><span class="kw">element_blank</span>())</span>
+<span id="cb22-30"><a href="guessing-game.html#cb22-30"></a>)</span>
+<span id="cb22-31"><a href="guessing-game.html#cb22-31"></a>plt3</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 </div>
 <div id="comparison" class="section level4">
 <h4><span class="header-section-number">6.2.1.5</span> 5 - Comparison</h4>
@@ -361,6 +372,18 @@ Graphically, we are looking for an intersection of our best response curves with
 <div id="statistical-test-6260-students-only" class="section level4">
 <h4><span class="header-section-number">6.2.1.6</span> 6 - Statistical test (6260 students only)</h4>
 <p>Here I will use linear regression.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="guessing-game.html#cb23-1"></a><span class="kw">library</span>(stargazer)</span>
+<span id="cb23-2"><a href="guessing-game.html#cb23-2"></a><span class="kw">library</span>(sandwich)</span>
+<span id="cb23-3"><a href="guessing-game.html#cb23-3"></a>D&lt;-(D<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">InvRound =</span> <span class="dv">1</span><span class="op">/</span>(<span class="kw">as.numeric</span>(Round)<span class="op">-</span><span class="dv">10</span><span class="op">*</span>(Part<span class="op">==</span><span class="dv">2</span>)))</span>
+<span id="cb23-4"><a href="guessing-game.html#cb23-4"></a>     <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Trend1 =</span> InvRound<span class="op">*</span>(Part<span class="op">==</span><span class="dv">1</span>),<span class="dt">Trend2 =</span> InvRound<span class="op">*</span>(Part<span class="op">==</span><span class="dv">2</span>))   </span>
+<span id="cb23-5"><a href="guessing-game.html#cb23-5"></a>)</span>
+<span id="cb23-6"><a href="guessing-game.html#cb23-6"></a></span>
+<span id="cb23-7"><a href="guessing-game.html#cb23-7"></a></span>
+<span id="cb23-8"><a href="guessing-game.html#cb23-8"></a>R1&lt;-<span class="kw">lm</span>(Guess<span class="op">~</span><span class="st"> </span>(Part<span class="op">==</span><span class="dv">2</span>) ,<span class="dt">data=</span>D)</span>
+<span id="cb23-9"><a href="guessing-game.html#cb23-9"></a>se1&lt;-<span class="kw">sqrt</span>(<span class="kw">diag</span>(<span class="kw">vcovHC</span>(R1,<span class="dt">type=</span><span class="st">&quot;HC1&quot;</span>)))</span>
+<span id="cb23-10"><a href="guessing-game.html#cb23-10"></a>R2&lt;-<span class="kw">lm</span>(Guess <span class="op">~</span><span class="st"> </span>(Part<span class="op">==</span><span class="dv">2</span>)<span class="op">+</span>Trend1<span class="op">+</span>Trend2,<span class="dt">data=</span>D)</span>
+<span id="cb23-11"><a href="guessing-game.html#cb23-11"></a>se2&lt;-<span class="kw">sqrt</span>(<span class="kw">diag</span>(<span class="kw">vcovHC</span>(R2,<span class="dt">type=</span><span class="st">&quot;HC1&quot;</span>)))</span>
+<span id="cb23-12"><a href="guessing-game.html#cb23-12"></a><span class="kw">stargazer</span>(R1,R1,R2,<span class="dt">type=</span><span class="st">&quot;html&quot;</span>,<span class="dt">se=</span><span class="kw">list</span>(<span class="ot">NULL</span>,se1,se2))</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="4" style="border-bottom: 1px solid black">

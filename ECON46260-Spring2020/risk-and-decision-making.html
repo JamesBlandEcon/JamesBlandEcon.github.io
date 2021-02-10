@@ -50,6 +50,10 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -194,7 +198,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="markets-2.html"><a href="markets-2.html#solutions-1"><i class="fa fa-check"></i><b>7.2</b> Solutions</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="risk.html"><a href="risk.html"><i class="fa fa-check"></i><b>8</b> Risk</a><ul>
-<li class="chapter" data-level="8.1" data-path="risk.html"><a href="risk.html#questions"><i class="fa fa-check"></i><b>8.1</b> Questions</a></li>
+<li class="chapter" data-level="8.1" data-path="risk.html"><a href="risk.html#questions"><i class="fa fa-check"></i><b>8.1</b> Questions</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="risk.html"><a href="risk.html#solutions-2"><i class="fa fa-check"></i><b>8.1.1</b> Solutions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html"><i class="fa fa-check"></i><b>9</b> Bayes’ rule</a><ul>
+<li class="chapter" data-level="9.1" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#instructions"><i class="fa fa-check"></i><b>9.1</b> Instructions</a></li>
+<li class="chapter" data-level="9.2" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#data-description"><i class="fa fa-check"></i><b>9.2</b> Data Description</a></li>
+<li class="chapter" data-level="9.3" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#questions-1"><i class="fa fa-check"></i><b>9.3</b> Questions</a></li>
 </ul></li>
 </ul>
 
@@ -366,6 +377,15 @@ EU=\sum_{x\in\mathbb X} u(x)p_X(x)
 <h2><span class="header-section-number">3.7</span> Insurance with risk aversion</h2>
 <p>Assume <span class="math inline">\(u(x)=x^\alpha\)</span> (replace <span class="math inline">\(\alpha=0.5\)</span> for <span class="math inline">\(u(x)=\sqrt x\)</span> if it helps)</p>
 <p>Expected utility without insurance</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="risk-and-decision-making.html#cb15-1"></a>SumStr&lt;-<span class="kw">paste</span>(Without.Insurance,<span class="st">&quot;^</span><span class="ch">\\</span><span class="st">alpha&quot;</span>)</span>
+<span id="cb15-2"><a href="risk-and-decision-making.html#cb15-2"></a></span>
+<span id="cb15-3"><a href="risk-and-decision-making.html#cb15-3"></a>PrintThis&lt;-<span class="kw">c</span>(</span>
+<span id="cb15-4"><a href="risk-and-decision-making.html#cb15-4"></a>  <span class="st">&quot;$$</span><span class="ch">\\</span><span class="st">begin{aligned}&quot;</span>,</span>
+<span id="cb15-5"><a href="risk-and-decision-making.html#cb15-5"></a>  <span class="st">&quot;E(u(x))&amp;=</span><span class="ch">\\</span><span class="st">sum_{x</span><span class="ch">\\</span><span class="st">in</span><span class="ch">\\</span><span class="st">mathbb X} u(x) p_X(x) =</span><span class="ch">\\</span><span class="st">sum_{x</span><span class="ch">\\</span><span class="st">in</span><span class="ch">\\</span><span class="st">mathbb X} x^</span><span class="ch">\\</span><span class="st">alpha p_X(x) </span><span class="ch">\\\\</span><span class="st"> </span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb15-6"><a href="risk-and-decision-making.html#cb15-6"></a>  <span class="kw">paste</span>(<span class="st">&quot;&amp;=</span><span class="ch">\\</span><span class="st">frac16</span><span class="ch">\\</span><span class="st">left(&quot;</span>,<span class="kw">paste</span>(SumStr,<span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>),<span class="st">&quot;</span><span class="ch">\\</span><span class="st">right)&quot;</span>,<span class="dt">collapse=</span><span class="st">&quot;&quot;</span>),</span>
+<span id="cb15-7"><a href="risk-and-decision-making.html#cb15-7"></a>  <span class="st">&quot;</span><span class="ch">\\</span><span class="st">end{aligned}$$&quot;</span></span>
+<span id="cb15-8"><a href="risk-and-decision-making.html#cb15-8"></a>)</span>
+<span id="cb15-9"><a href="risk-and-decision-making.html#cb15-9"></a><span class="kw">cat</span>(PrintThis)</span></code></pre></div>
 <p><span class="math display">\[\begin{aligned} E(u(x))&amp;=\sum_{x\in\mathbb X} u(x) p_X(x) =\sum_{x\in\mathbb X} x^\alpha p_X(x) \\ 
  &amp;=\frac16\left( 30000 ^\alpha+29900 ^\alpha+29200 ^\alpha+27300 ^\alpha+23600 ^\alpha+17500 ^\alpha \right) \end{aligned}\]</span>
 For <span class="math inline">\(\alpha=0.5\)</span>, this becomes 161.4</p>
@@ -374,11 +394,22 @@ For <span class="math inline">\(\alpha=0.5\)</span>, this becomes 161.4</p>
 E(u(30000-P))=(30000-P)^\alpha
 \]</span></p>
 <p>So you should buy insurance if and only if:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="risk-and-decision-making.html#cb16-1"></a>SumStr&lt;-<span class="kw">paste</span>(Without.Insurance,<span class="st">&quot;^</span><span class="ch">\\</span><span class="st">alpha&quot;</span>)</span>
+<span id="cb16-2"><a href="risk-and-decision-making.html#cb16-2"></a></span>
+<span id="cb16-3"><a href="risk-and-decision-making.html#cb16-3"></a>PrintThis&lt;-<span class="kw">c</span>(</span>
+<span id="cb16-4"><a href="risk-and-decision-making.html#cb16-4"></a>  <span class="st">&quot;$$</span><span class="ch">\\</span><span class="st">begin{aligned}&quot;</span>,</span>
+<span id="cb16-5"><a href="risk-and-decision-making.html#cb16-5"></a>  <span class="st">&quot;(30000-P)^</span><span class="ch">\\</span><span class="st">alpha &amp;</span><span class="ch">\\</span><span class="st">geq&quot;</span>,</span>
+<span id="cb16-6"><a href="risk-and-decision-making.html#cb16-6"></a>  <span class="kw">paste</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">frac16</span><span class="ch">\\</span><span class="st">left(&quot;</span>,<span class="kw">paste</span>(SumStr,<span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>),<span class="st">&quot;</span><span class="ch">\\</span><span class="st">right)&quot;</span>,<span class="dt">collapse=</span><span class="st">&quot;&quot;</span>),</span>
+<span id="cb16-7"><a href="risk-and-decision-making.html#cb16-7"></a>  <span class="st">&quot;</span><span class="ch">\\\\</span><span class="st">&quot;</span>,</span>
+<span id="cb16-8"><a href="risk-and-decision-making.html#cb16-8"></a>  <span class="kw">paste</span>(<span class="st">&quot;P&amp;</span><span class="ch">\\</span><span class="st">leq 30000-</span><span class="ch">\\</span><span class="st">left(</span><span class="ch">\\</span><span class="st">frac16</span><span class="ch">\\</span><span class="st">left(&quot;</span>,<span class="kw">paste</span>(SumStr,<span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>),<span class="st">&quot;</span><span class="ch">\\</span><span class="st">right)</span><span class="ch">\\</span><span class="st">right)^{</span><span class="ch">\\</span><span class="st">frac1</span><span class="ch">\\</span><span class="st">alpha}&quot;</span>,<span class="dt">collapse=</span><span class="st">&quot;&quot;</span>),</span>
+<span id="cb16-9"><a href="risk-and-decision-making.html#cb16-9"></a>  <span class="st">&quot;</span><span class="ch">\\</span><span class="st">end{aligned}$$&quot;</span></span>
+<span id="cb16-10"><a href="risk-and-decision-making.html#cb16-10"></a>)</span>
+<span id="cb16-11"><a href="risk-and-decision-making.html#cb16-11"></a><span class="kw">cat</span>(PrintThis)</span></code></pre></div>
 <p><span class="math display">\[\begin{aligned} (30000-P)^\alpha &amp;\geq \frac16\left( 30000 ^\alpha+29900 ^\alpha+29200 ^\alpha+27300 ^\alpha+23600 ^\alpha+17500 ^\alpha \right) \\ P&amp;\leq 30000-\left(\frac16\left( 30000 ^\alpha+29900 ^\alpha+29200 ^\alpha+27300 ^\alpha+23600 ^\alpha+17500 ^\alpha \right)\right)^{\frac1\alpha} \end{aligned}\]</span></p>
 </div>
 <div id="insurance-with-risk-aversion---graphically" class="section level2">
 <h2><span class="header-section-number">3.8</span> Insurance with risk aversion - graphically</h2>
-<p><img src="index_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <style>
 .forceBreak { -webkit-column-break-after: always; break-after: column; }
 </style>
