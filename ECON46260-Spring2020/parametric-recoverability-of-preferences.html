@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Reading: Which is the fair sex? | ECON 4-6260 Behavioral Economics</title>
-  <meta name="description" content="5 Reading: Which is the fair sex? | ECON 4-6260 Behavioral Economics" />
+  <title>6 Parametric recoverability of preferences | ECON 4-6260 Behavioral Economics</title>
+  <meta name="description" content="6 Parametric recoverability of preferences | ECON 4-6260 Behavioral Economics" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Reading: Which is the fair sex? | ECON 4-6260 Behavioral Economics" />
+  <meta property="og:title" content="6 Parametric recoverability of preferences | ECON 4-6260 Behavioral Economics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Reading: Which is the fair sex? | ECON 4-6260 Behavioral Economics" />
+  <meta name="twitter:title" content="6 Parametric recoverability of preferences | ECON 4-6260 Behavioral Economics" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="masters-only-content-econ-6260.html"/>
-<link rel="next" href="parametric-recoverability-of-preferences.html"/>
+<link rel="prev" href="reading-which-is-the-fair-sex.html"/>
+<link rel="next" href="problem-sets.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -230,33 +230,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="reading-which-is-the-fair-sex" class="section level1">
-<h1><span class="header-section-number">5</span> Reading: Which is the fair sex?</h1>
+<div id="parametric-recoverability-of-preferences" class="section level1">
+<h1><span class="header-section-number">6</span> Parametric recoverability of preferences</h1>
 <blockquote>
-<p>Andreoni, James, and Lise Vesterlund. “Which is the fair sex? Gender differences in altruism.” The Quarterly Journal of Economics 116, no. 1 (2001): 293-312.</p>
+<p>Halevy, Yoram, Dotan Persitz, and Lanny Zrill. “Parametric recoverability of preferences.” Journal of Political Economy 126, no. 4 (2018): 1558-1593.</p>
 </blockquote>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="reading-which-is-the-fair-sex.html#cb19-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb19-2"><a href="reading-which-is-the-fair-sex.html#cb19-2"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb19-3"><a href="reading-which-is-the-fair-sex.html#cb19-3"></a><span class="kw">library</span>(tidyr)</span>
-<span id="cb19-4"><a href="reading-which-is-the-fair-sex.html#cb19-4"></a></span>
-<span id="cb19-5"><a href="reading-which-is-the-fair-sex.html#cb19-5"></a>params&lt;-<span class="kw">data.frame</span>((<span class="kw">read.csv</span>(<span class="st">&quot;AV2001parameters.csv&quot;</span>)))</span>
-<span id="cb19-6"><a href="reading-which-is-the-fair-sex.html#cb19-6"></a>D&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;AV2001choices.csv&quot;</span>)</span>
-<span id="cb19-7"><a href="reading-which-is-the-fair-sex.html#cb19-7"></a></span>
-<span id="cb19-8"><a href="reading-which-is-the-fair-sex.html#cb19-8"></a>D<span class="op">$</span>id&lt;-D<span class="op">$</span>X</span>
-<span id="cb19-9"><a href="reading-which-is-the-fair-sex.html#cb19-9"></a></span>
-<span id="cb19-10"><a href="reading-which-is-the-fair-sex.html#cb19-10"></a>Keep&lt;-(<span class="kw">data.frame</span>(D)</span>
-<span id="cb19-11"><a href="reading-which-is-the-fair-sex.html#cb19-11"></a>        <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(Decision,keep,keep1<span class="op">:</span>keep8)</span>
-<span id="cb19-12"><a href="reading-which-is-the-fair-sex.html#cb19-12"></a>        <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Decision=</span>(<span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;keep&quot;</span>, <span class="st">&quot;&quot;</span>, Decision)))</span>
-<span id="cb19-13"><a href="reading-which-is-the-fair-sex.html#cb19-13"></a>                             )</span>
-<span id="cb19-14"><a href="reading-which-is-the-fair-sex.html#cb19-14"></a>)</span>
-<span id="cb19-15"><a href="reading-which-is-the-fair-sex.html#cb19-15"></a></span>
-<span id="cb19-16"><a href="reading-which-is-the-fair-sex.html#cb19-16"></a></span>
-<span id="cb19-17"><a href="reading-which-is-the-fair-sex.html#cb19-17"></a>knitr<span class="op">::</span><span class="kw">kable</span>((params))</span></code></pre></div>
+<div id="experiment-design" class="section level2">
+<h2><span class="header-section-number">6.1</span> Experiment design</h2>
+<ol style="list-style-type: decimal">
+<li>Subjects made decisions that were similar to Anderoni &amp; Vesterlund (2001): (close to) continuous, consumer’s problem. 22 choices. Used these to estimate preferences 2 different ways. <span class="math inline">\(\hat\theta_i^{SS}\)</span> (sum of squares, nonlinear least squares) <span class="math inline">\(\hat\theta^{MM}\)</span> (money metric).</li>
+<li>Subjects get 9 binary choices, which are designed to separate out <span class="math inline">\(\hat\theta^{SS}\)</span> and <span class="math inline">\(\hat\theta^{MM}\)</span></li>
+</ol>
+</div>
+<div id="example-using-av2001s-data" class="section level2">
+<h2><span class="header-section-number">6.2</span> Example using AV2001’s data</h2>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="parametric-recoverability-of-preferences.html#cb22-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb22-2"><a href="parametric-recoverability-of-preferences.html#cb22-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb22-3"><a href="parametric-recoverability-of-preferences.html#cb22-3"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb22-4"><a href="parametric-recoverability-of-preferences.html#cb22-4"></a></span>
+<span id="cb22-5"><a href="parametric-recoverability-of-preferences.html#cb22-5"></a></span>
+<span id="cb22-6"><a href="parametric-recoverability-of-preferences.html#cb22-6"></a>params&lt;-<span class="kw">data.frame</span>((<span class="kw">read.csv</span>(<span class="st">&quot;AV2001parameters.csv&quot;</span>)))</span>
+<span id="cb22-7"><a href="parametric-recoverability-of-preferences.html#cb22-7"></a><span class="kw">colnames</span>(params)[<span class="dv">1</span>]&lt;-<span class="st">&quot;Decision&quot;</span></span>
+<span id="cb22-8"><a href="parametric-recoverability-of-preferences.html#cb22-8"></a></span>
+<span id="cb22-9"><a href="parametric-recoverability-of-preferences.html#cb22-9"></a>D&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;AV2001choices.csv&quot;</span>)</span>
+<span id="cb22-10"><a href="parametric-recoverability-of-preferences.html#cb22-10"></a></span>
+<span id="cb22-11"><a href="parametric-recoverability-of-preferences.html#cb22-11"></a>D<span class="op">$</span>id&lt;-D<span class="op">$</span>X</span>
+<span id="cb22-12"><a href="parametric-recoverability-of-preferences.html#cb22-12"></a></span>
+<span id="cb22-13"><a href="parametric-recoverability-of-preferences.html#cb22-13"></a>Keep&lt;-(<span class="kw">data.frame</span>(D)</span>
+<span id="cb22-14"><a href="parametric-recoverability-of-preferences.html#cb22-14"></a>        <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(Decision,keep,keep1<span class="op">:</span>keep8)</span>
+<span id="cb22-15"><a href="parametric-recoverability-of-preferences.html#cb22-15"></a>        <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Decision=</span>(<span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;keep&quot;</span>, <span class="st">&quot;&quot;</span>, Decision)))</span>
+<span id="cb22-16"><a href="parametric-recoverability-of-preferences.html#cb22-16"></a>                             )</span>
+<span id="cb22-17"><a href="parametric-recoverability-of-preferences.html#cb22-17"></a>       <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(params,<span class="dt">by=</span><span class="st">&quot;Decision&quot;</span>)</span>
+<span id="cb22-18"><a href="parametric-recoverability-of-preferences.html#cb22-18"></a>       <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
+<span id="cb22-19"><a href="parametric-recoverability-of-preferences.html#cb22-19"></a>         <span class="dt">fraction_kept =</span> keep<span class="op">/</span>income,</span>
+<span id="cb22-20"><a href="parametric-recoverability-of-preferences.html#cb22-20"></a>         <span class="dt">fraction_passed =</span> (income<span class="op">-</span>keep)<span class="op">/</span>income,</span>
+<span id="cb22-21"><a href="parametric-recoverability-of-preferences.html#cb22-21"></a>       )</span>
+<span id="cb22-22"><a href="parametric-recoverability-of-preferences.html#cb22-22"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="parametric-recoverability-of-preferences.html#cb23-1"></a>Keep <span class="op">%&gt;%</span><span class="st"> </span>head <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>() </span></code></pre></div>
 <table>
 <thead>
 <tr>
 <th style="text-align:right;">
 X
+</th>
+<th style="text-align:right;">
+female
+</th>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:right;">
+Decision
+</th>
+<th style="text-align:right;">
+keep
 </th>
 <th style="text-align:right;">
 income
@@ -267,6 +294,12 @@ pSelf
 <th style="text-align:right;">
 pOther
 </th>
+<th style="text-align:right;">
+fraction_kept
+</th>
+<th style="text-align:right;">
+fraction_passed
+</th>
 </tr>
 </thead>
 <tbody>
@@ -275,6 +308,18 @@ pOther
 1
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
 40
 </td>
 <td style="text-align:right;">
@@ -283,19 +328,43 @@ pOther
 <td style="text-align:right;">
 1
 </td>
+<td style="text-align:right;">
+0.25
+</td>
+<td style="text-align:right;">
+0.75
+</td>
 </tr>
 <tr>
 <td style="text-align:right;">
 2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
 </td>
 <td style="text-align:right;">
 40
 </td>
 <td style="text-align:right;">
-1
+40
 </td>
 <td style="text-align:right;">
 3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+0.00
 </td>
 </tr>
 <tr>
@@ -303,13 +372,31 @@ pOther
 3
 </td>
 <td style="text-align:right;">
-60
+1
 </td>
 <td style="text-align:right;">
-2
+3
 </td>
 <td style="text-align:right;">
 1
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+0.00
 </td>
 </tr>
 <tr>
@@ -317,13 +404,31 @@ pOther
 4
 </td>
 <td style="text-align:right;">
-60
+0
+</td>
+<td style="text-align:right;">
+4
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-2
+40
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+0.00
 </td>
 </tr>
 <tr>
@@ -331,13 +436,31 @@ pOther
 5
 </td>
 <td style="text-align:right;">
-75
+1
 </td>
 <td style="text-align:right;">
-2
+5
 </td>
 <td style="text-align:right;">
 1
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:right;">
+0.50
 </td>
 </tr>
 <tr>
@@ -345,181 +468,234 @@ pOther
 6
 </td>
 <td style="text-align:right;">
-75
+0
+</td>
+<td style="text-align:right;">
+6
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-7
+38
 </td>
 <td style="text-align:right;">
-60
+40
+</td>
+<td style="text-align:right;">
+3
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-8
+0.95
 </td>
 <td style="text-align:right;">
-100
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
+0.05
 </td>
 </tr>
 </tbody>
 </table>
-<div id="plot-the-budget-sets" class="section level2">
-<h2><span class="header-section-number">5.1</span> plot the budget sets</h2>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="reading-which-is-the-fair-sex.html#cb20-1"></a>params&lt;-(params</span>
-<span id="cb20-2"><a href="reading-which-is-the-fair-sex.html#cb20-2"></a>         <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
-<span id="cb20-3"><a href="reading-which-is-the-fair-sex.html#cb20-3"></a>           <span class="dt">maxSelf=</span>income<span class="op">/</span>pSelf,</span>
-<span id="cb20-4"><a href="reading-which-is-the-fair-sex.html#cb20-4"></a>           <span class="dt">maxOther=</span>income<span class="op">/</span>pOther</span>
-<span id="cb20-5"><a href="reading-which-is-the-fair-sex.html#cb20-5"></a>         )</span>
-<span id="cb20-6"><a href="reading-which-is-the-fair-sex.html#cb20-6"></a>         )</span>
-<span id="cb20-7"><a href="reading-which-is-the-fair-sex.html#cb20-7"></a></span>
-<span id="cb20-8"><a href="reading-which-is-the-fair-sex.html#cb20-8"></a>(<span class="kw">ggplot</span>(params,<span class="kw">aes</span>(<span class="dt">color=</span><span class="kw">as.factor</span>(X)))</span>
-<span id="cb20-9"><a href="reading-which-is-the-fair-sex.html#cb20-9"></a>  <span class="op">+</span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">y=</span>(income<span class="op">/</span>pSelf),<span class="dt">x=</span><span class="dv">0</span>,<span class="dt">yend=</span><span class="dv">0</span>,<span class="dt">xend=</span>(income<span class="op">/</span>pOther)),<span class="dt">size=</span><span class="dv">1</span>)</span>
-<span id="cb20-10"><a href="reading-which-is-the-fair-sex.html#cb20-10"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
-<span id="cb20-11"><a href="reading-which-is-the-fair-sex.html#cb20-11"></a>  <span class="op">+</span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="dv">0</span>)</span>
-<span id="cb20-12"><a href="reading-which-is-the-fair-sex.html#cb20-12"></a>  <span class="op">+</span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="dv">0</span>)</span>
-<span id="cb20-13"><a href="reading-which-is-the-fair-sex.html#cb20-13"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;other&#39;s income&quot;</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;self&#39;s income&quot;</span>)</span>
-<span id="cb20-14"><a href="reading-which-is-the-fair-sex.html#cb20-14"></a>  <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>)</span>
-<span id="cb20-15"><a href="reading-which-is-the-fair-sex.html#cb20-15"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
-</div>
-<div id="classification-into-3-types-of-subject" class="section level2">
-<h2><span class="header-section-number">5.2</span> Classification into 3 types of subject</h2>
+<p><strong>Model</strong>: Assume subjects have Cobb-Douglas preferences:</p>
+<p><span class="math display">\[
+U(s,o)=s^\alpha o^{1-\alpha}
+\]</span></p>
+<p>Define SSR as the error in both the self- and the other-direction, in terms of the fraction of tokens.</p>
 <p><span class="math display">\[
 \begin{aligned}
-\text{selfish: } u(x,y)&amp;=x\\
-\text{perfect substitutes: } u(x,y) &amp;= x + \alpha y\\
-\text{perfect complements: } u(x,y) &amp;=\min\{x,\alpha y\}
+\max\{s^\alpha o^{1-\alpha}\}&amp;\quad s.t.\ 1=\frac{s}{p^s}+\frac{o}{p^o}\\
+\max\{\alpha\log s +(1-\alpha)\log o\}&amp;\quad s.t.\ 1=\frac{s}{p^s}+\frac{o}{p^o}\\
+\max\{\alpha \log s+(1-\alpha)\log(p^o-s/p^s)\}\\
+\max\{\alpha\log(k/p^s)+(1-\alpha)\log((1-k)/p^o)\}\\
+\max\{\alpha\log(k)-\alpha\log p^s+(1-\alpha)\log((1-k))-(1-\alpha)\log p^o\}\\
+\max\{\alpha\log(k)+(1-\alpha)\log(1-k)\}\\
 \end{aligned}
 \]</span></p>
-<p>We will just set <span class="math inline">\(\alpha =1\)</span></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="reading-which-is-the-fair-sex.html#cb21-1"></a>params&lt;-params <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">selfish=</span><span class="op">-</span><span class="dv">1</span>,<span class="dt">PC=</span><span class="op">-</span><span class="dv">1</span>,<span class="dt">PS=</span><span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb21-2"><a href="reading-which-is-the-fair-sex.html#cb21-2"></a></span>
-<span id="cb21-3"><a href="reading-which-is-the-fair-sex.html#cb21-3"></a><span class="cf">for</span> (xx <span class="cf">in</span> <span class="kw">unique</span>(params<span class="op">$</span>X)) {</span>
-<span id="cb21-4"><a href="reading-which-is-the-fair-sex.html#cb21-4"></a>  </span>
-<span id="cb21-5"><a href="reading-which-is-the-fair-sex.html#cb21-5"></a>  d&lt;-params <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(X<span class="op">==</span>xx)</span>
-<span id="cb21-6"><a href="reading-which-is-the-fair-sex.html#cb21-6"></a>  pass&lt;-<span class="dv">0</span><span class="op">:</span>d<span class="op">$</span>income</span>
-<span id="cb21-7"><a href="reading-which-is-the-fair-sex.html#cb21-7"></a>  KeepGrid&lt;-d<span class="op">$</span>income<span class="op">-</span>pass</span>
-<span id="cb21-8"><a href="reading-which-is-the-fair-sex.html#cb21-8"></a>  </span>
-<span id="cb21-9"><a href="reading-which-is-the-fair-sex.html#cb21-9"></a>  self&lt;-(d<span class="op">$</span>income<span class="op">-</span>pass)<span class="op">/</span>d<span class="op">$</span>pSelf</span>
-<span id="cb21-10"><a href="reading-which-is-the-fair-sex.html#cb21-10"></a>  other&lt;-pass<span class="op">/</span>d<span class="op">$</span>pOther</span>
-<span id="cb21-11"><a href="reading-which-is-the-fair-sex.html#cb21-11"></a>  </span>
-<span id="cb21-12"><a href="reading-which-is-the-fair-sex.html#cb21-12"></a>  Payoffselfish&lt;-self</span>
-<span id="cb21-13"><a href="reading-which-is-the-fair-sex.html#cb21-13"></a>  Selfish&lt;-KeepGrid[<span class="kw">which.max</span>(Payoffselfish)]</span>
-<span id="cb21-14"><a href="reading-which-is-the-fair-sex.html#cb21-14"></a>  </span>
-<span id="cb21-15"><a href="reading-which-is-the-fair-sex.html#cb21-15"></a>  PayoffPS&lt;-self <span class="op">+</span><span class="st"> </span>other</span>
-<span id="cb21-16"><a href="reading-which-is-the-fair-sex.html#cb21-16"></a>  PS&lt;-KeepGrid[<span class="kw">which.max</span>(PayoffPS)]</span>
-<span id="cb21-17"><a href="reading-which-is-the-fair-sex.html#cb21-17"></a>  </span>
-<span id="cb21-18"><a href="reading-which-is-the-fair-sex.html#cb21-18"></a>  PayoffPC&lt;-self<span class="op">*</span>(self<span class="op">&lt;=</span>other)<span class="op">+</span>other<span class="op">*</span>(self<span class="op">&gt;</span>other)</span>
-<span id="cb21-19"><a href="reading-which-is-the-fair-sex.html#cb21-19"></a>  PC&lt;-KeepGrid[<span class="kw">which.max</span>(PayoffPC)]</span>
-<span id="cb21-20"><a href="reading-which-is-the-fair-sex.html#cb21-20"></a>  </span>
-<span id="cb21-21"><a href="reading-which-is-the-fair-sex.html#cb21-21"></a>  params[xx,]<span class="op">$</span>selfish&lt;-Selfish</span>
-<span id="cb21-22"><a href="reading-which-is-the-fair-sex.html#cb21-22"></a>  params[xx,]<span class="op">$</span>PS&lt;-PS</span>
-<span id="cb21-23"><a href="reading-which-is-the-fair-sex.html#cb21-23"></a>  params[xx,]<span class="op">$</span>PC&lt;-PC</span>
-<span id="cb21-24"><a href="reading-which-is-the-fair-sex.html#cb21-24"></a>  </span>
-<span id="cb21-25"><a href="reading-which-is-the-fair-sex.html#cb21-25"></a>  </span>
-<span id="cb21-26"><a href="reading-which-is-the-fair-sex.html#cb21-26"></a>  </span>
-<span id="cb21-27"><a href="reading-which-is-the-fair-sex.html#cb21-27"></a>}</span>
-<span id="cb21-28"><a href="reading-which-is-the-fair-sex.html#cb21-28"></a></span>
-<span id="cb21-29"><a href="reading-which-is-the-fair-sex.html#cb21-29"></a></span>
-<span id="cb21-30"><a href="reading-which-is-the-fair-sex.html#cb21-30"></a>SSR&lt;-<span class="st"> </span>(Keep  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(params <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Decision=</span>X) ,<span class="dt">by=</span><span class="st">&quot;Decision&quot;</span>)</span>
-<span id="cb21-31"><a href="reading-which-is-the-fair-sex.html#cb21-31"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">resid2_selfish=</span>(selfish<span class="op">-</span>keep)<span class="op">^</span><span class="dv">2</span>,</span>
-<span id="cb21-32"><a href="reading-which-is-the-fair-sex.html#cb21-32"></a>             <span class="dt">resid2_PC=</span>(PC<span class="op">-</span>keep)<span class="op">^</span><span class="dv">2</span>,</span>
-<span id="cb21-33"><a href="reading-which-is-the-fair-sex.html#cb21-33"></a>             <span class="dt">resid2_PS=</span>(PS<span class="op">-</span>keep)<span class="op">^</span><span class="dv">2</span>,</span>
-<span id="cb21-34"><a href="reading-which-is-the-fair-sex.html#cb21-34"></a>             )</span>
-<span id="cb21-35"><a href="reading-which-is-the-fair-sex.html#cb21-35"></a> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(id)</span>
-<span id="cb21-36"><a href="reading-which-is-the-fair-sex.html#cb21-36"></a> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">SSR_selfish=</span><span class="kw">sum</span>(resid2_selfish),</span>
-<span id="cb21-37"><a href="reading-which-is-the-fair-sex.html#cb21-37"></a>               <span class="dt">SSR_PC=</span><span class="kw">sum</span>(resid2_PC),</span>
-<span id="cb21-38"><a href="reading-which-is-the-fair-sex.html#cb21-38"></a>               <span class="dt">SSR_PS=</span><span class="kw">sum</span>(resid2_PS))</span>
-<span id="cb21-39"><a href="reading-which-is-the-fair-sex.html#cb21-39"></a>)</span>
-<span id="cb21-40"><a href="reading-which-is-the-fair-sex.html#cb21-40"></a></span>
-<span id="cb21-41"><a href="reading-which-is-the-fair-sex.html#cb21-41"></a>TypeList&lt;-<span class="kw">c</span>(<span class="st">&quot;Selfish&quot;</span>,<span class="st">&quot;PC&quot;</span>,<span class="st">&quot;PS&quot;</span>)</span>
-<span id="cb21-42"><a href="reading-which-is-the-fair-sex.html#cb21-42"></a></span>
-<span id="cb21-43"><a href="reading-which-is-the-fair-sex.html#cb21-43"></a>SSR<span class="op">$</span>type&lt;-TypeList[<span class="kw">apply</span>(SSR <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(SSR_selfish,SSR_PC,SSR_PS),<span class="dv">1</span>,<span class="dt">FUN=</span>which.min)]</span>
-<span id="cb21-44"><a href="reading-which-is-the-fair-sex.html#cb21-44"></a>SSR&lt;-(SSR <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Perfect =</span> (SSR_selfish<span class="op">*</span>SSR_PC<span class="op">*</span>SSR_PS)<span class="op">==</span><span class="dv">0</span>)</span>
-<span id="cb21-45"><a href="reading-which-is-the-fair-sex.html#cb21-45"></a> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(type,Perfect)</span>
-<span id="cb21-46"><a href="reading-which-is-the-fair-sex.html#cb21-46"></a> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">count =</span> <span class="kw">n</span>())</span>
-<span id="cb21-47"><a href="reading-which-is-the-fair-sex.html#cb21-47"></a>)</span>
-<span id="cb21-48"><a href="reading-which-is-the-fair-sex.html#cb21-48"></a></span>
-<span id="cb21-49"><a href="reading-which-is-the-fair-sex.html#cb21-49"></a></span>
-<span id="cb21-50"><a href="reading-which-is-the-fair-sex.html#cb21-50"></a>knitr<span class="op">::</span><span class="kw">kable</span>(SSR)</span></code></pre></div>
+<p>First-order condition:
+<span class="math display">\[
+\begin{aligned}
+0=&amp;\frac{\alpha}{k^*}-\frac{1-\alpha}{1-k^*}\\
+(1-k^*)\alpha&amp;=k^*(1-\alpha)\\
+k^*&amp;=\alpha 
+\end{aligned}
+\]</span>
+So if we define SSR as:
+<span class="math display">\[
+\begin{aligned}
+SSR(\alpha)&amp;=\sum_{t=1}^T\left((\alpha-k_t)^2+(1-\alpha-(1-k_t))^2\right)\\
+&amp;=\sum_{t=1}^T\left((\alpha-k_t)^2+(1-\alpha-1+k_t)^2\right)\\
+\text{FOC: } 0&amp;=\sum_{t=1}^T\left(-2(\hat\alpha-k_t)+2(1-\hat\alpha-1+k_t)\right)\\
+&amp;=2T\left(-\hat\alpha+\bar k+1-\hat\alpha-1+\bar k\right)\\
+&amp;=2T(2\bar k -2\hat\alpha)\\
+\hat\alpha^{SS}&amp;=\bar k
+\end{aligned}
+\]</span>
+i.e. <span class="math inline">\(\hat\alpha^{SS}=\)</span>average fraction kept.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="parametric-recoverability-of-preferences.html#cb24-1"></a><span class="kw">library</span>(latex2exp)</span>
+<span id="cb24-2"><a href="parametric-recoverability-of-preferences.html#cb24-2"></a></span>
+<span id="cb24-3"><a href="parametric-recoverability-of-preferences.html#cb24-3"></a>ESTIMATES&lt;-(Keep</span>
+<span id="cb24-4"><a href="parametric-recoverability-of-preferences.html#cb24-4"></a>            <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(id)</span>
+<span id="cb24-5"><a href="parametric-recoverability-of-preferences.html#cb24-5"></a>            <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">ahatSS =</span> <span class="kw">mean</span>(fraction_kept))</span>
+<span id="cb24-6"><a href="parametric-recoverability-of-preferences.html#cb24-6"></a>  </span>
+<span id="cb24-7"><a href="parametric-recoverability-of-preferences.html#cb24-7"></a>)</span>
+<span id="cb24-8"><a href="parametric-recoverability-of-preferences.html#cb24-8"></a></span>
+<span id="cb24-9"><a href="parametric-recoverability-of-preferences.html#cb24-9"></a>(</span>
+<span id="cb24-10"><a href="parametric-recoverability-of-preferences.html#cb24-10"></a>  <span class="kw">ggplot</span>(ESTIMATES)</span>
+<span id="cb24-11"><a href="parametric-recoverability-of-preferences.html#cb24-11"></a>  <span class="op">+</span><span class="kw">stat_ecdf</span>(<span class="kw">aes</span>(<span class="dt">x=</span>ahatSS,<span class="dt">color=</span><span class="st">&quot;SS estimate&quot;</span>))</span>
+<span id="cb24-12"><a href="parametric-recoverability-of-preferences.html#cb24-12"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb24-13"><a href="parametric-recoverability-of-preferences.html#cb24-13"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Estimate&quot;</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Empirical cumulative density&quot;</span>)</span>
+<span id="cb24-14"><a href="parametric-recoverability-of-preferences.html#cb24-14"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+</div>
+<div id="for-this-paper" class="section level2">
+<h2><span class="header-section-number">6.3</span> For this paper</h2>
+<p>Data available here.: <a href="https://raw.githubusercontent.com/persitzd/RP-Toolkit/master/Data%20Files/Data_HPZ_2018.csv" class="uri">https://raw.githubusercontent.com/persitzd/RP-Toolkit/master/Data%20Files/Data_HPZ_2018.csv</a></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="parametric-recoverability-of-preferences.html#cb25-1"></a>D&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;Data_HPZ_2018.csv&quot;</span>)</span>
+<span id="cb25-2"><a href="parametric-recoverability-of-preferences.html#cb25-2"></a></span>
+<span id="cb25-3"><a href="parametric-recoverability-of-preferences.html#cb25-3"></a>D <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr>
-<th style="text-align:left;">
-type
-</th>
-<th style="text-align:left;">
-Perfect
+<th style="text-align:right;">
+X201
 </th>
 <th style="text-align:right;">
-count
+X1
+</th>
+<th style="text-align:right;">
+X70.2
+</th>
+<th style="text-align:right;">
+X10.4
+</th>
+<th style="text-align:right;">
+X100
+</th>
+<th style="text-align:right;">
+X34.92
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
-PC
-</td>
-<td style="text-align:left;">
-FALSE
+<td style="text-align:right;">
+201
 </td>
 <td style="text-align:right;">
-75
+2
+</td>
+<td style="text-align:right;">
+10.0
+</td>
+<td style="text-align:right;">
+40.0
+</td>
+<td style="text-align:right;">
+20.00
+</td>
+<td style="text-align:right;">
+80.00
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-PC
-</td>
-<td style="text-align:left;">
-TRUE
+<td style="text-align:right;">
+201
 </td>
 <td style="text-align:right;">
-1
+3
+</td>
+<td style="text-align:right;">
+30.0
+</td>
+<td style="text-align:right;">
+30.0
+</td>
+<td style="text-align:right;">
+61.57
+</td>
+<td style="text-align:right;">
+58.50
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Selfish
-</td>
-<td style="text-align:left;">
-FALSE
+<td style="text-align:right;">
+201
 </td>
 <td style="text-align:right;">
-35
+4
+</td>
+<td style="text-align:right;">
+69.6
+</td>
+<td style="text-align:right;">
+19.8
+</td>
+<td style="text-align:right;">
+98.67
+</td>
+<td style="text-align:right;">
+67.26
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
-Selfish
-</td>
-<td style="text-align:left;">
-TRUE
+<td style="text-align:right;">
+201
 </td>
 <td style="text-align:right;">
-31
+5
+</td>
+<td style="text-align:right;">
+40.0
+</td>
+<td style="text-align:right;">
+40.0
+</td>
+<td style="text-align:right;">
+80.00
+</td>
+<td style="text-align:right;">
+80.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+201
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+60.0
+</td>
+<td style="text-align:right;">
+10.0
+</td>
+<td style="text-align:right;">
+100.00
+</td>
+<td style="text-align:right;">
+25.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+201
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+30.0
+</td>
+<td style="text-align:right;">
+30.0
+</td>
+<td style="text-align:right;">
+60.00
+</td>
+<td style="text-align:right;">
+60.00
 </td>
 </tr>
 </tbody>
@@ -531,8 +707,8 @@ TRUE
           </div>
         </div>
       </div>
-<a href="masters-only-content-econ-6260.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="parametric-recoverability-of-preferences.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="reading-which-is-the-fair-sex.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="problem-sets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
