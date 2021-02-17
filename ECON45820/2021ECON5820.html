@@ -737,49 +737,9 @@ Estimates&lt;-(D
                                    lhat = EUHat(p,q,y)[2])
             )</code></pre>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<pre class="r"><code>Estimates %&gt;% head() %&gt;% knitr::kable()</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="right">id</th>
-<th align="right">rhat</th>
-<th align="right">lhat</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="right">0.0000000</td>
-<td align="right">3.003994e+08</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="right">0.2502562</td>
-<td align="right">9.530581e+00</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="right">0.2054655</td>
-<td align="right">1.947219e+01</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="right">0.5890477</td>
-<td align="right">1.358862e+00</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="right">0.1885824</td>
-<td align="right">1.706799e+01</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="right">1.2885509</td>
-<td align="right">4.906140e-02</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code>library(latex2exp)
+<pre class="r"><code>#Estimates %&gt;% head() %&gt;% knitr::kable()
+
+library(latex2exp)
 (
   ggplot(Estimates,aes(x=rhat,y=lhat))+geom_point()
   +theme_bw()

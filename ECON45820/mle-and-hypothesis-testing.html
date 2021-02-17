@@ -50,6 +50,8 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -141,7 +143,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="limited-dependent-variable-models.html"><a href="limited-dependent-variable-models.html#maximizing-a-function"><i class="fa fa-check"></i><b>1.5</b> Maximizing a function</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="mle-and-hypothesis-testing.html"><a href="mle-and-hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> MLE and hypothesis testing</a></li>
+<li class="chapter" data-level="2" data-path="mle-and-hypothesis-testing.html"><a href="mle-and-hypothesis-testing.html"><i class="fa fa-check"></i><b>2</b> MLE and hypothesis testing</a><ul>
+<li class="chapter" data-level="2.1" data-path="mle-and-hypothesis-testing.html"><a href="mle-and-hypothesis-testing.html#nfl-season"><i class="fa fa-check"></i><b>2.1</b> 2020 NFL season</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="mle-and-hypothesis-testing.html"><a href="mle-and-hypothesis-testing.html#some-standard-models-for-making-predictions"><i class="fa fa-check"></i><b>2.1.1</b> Some standard models for making predictions:</a></li>
+<li class="chapter" data-level="2.1.2" data-path="mle-and-hypothesis-testing.html"><a href="mle-and-hypothesis-testing.html#a-geometry-based-alternative"><i class="fa fa-check"></i><b>2.1.2</b> A geometry-based alternative</a></li>
+<li class="chapter" data-level="2.1.3" data-path="mle-and-hypothesis-testing.html"><a href="mle-and-hypothesis-testing.html#evaluating-the-models"><i class="fa fa-check"></i><b>2.1.3</b> Evaluating the models</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="time-series-prediction-and-forecasting.html"><a href="time-series-prediction-and-forecasting.html"><i class="fa fa-check"></i><b>3</b> Time series, prediction, and forecasting</a><ul>
 <li class="chapter" data-level="3.1" data-path="time-series-prediction-and-forecasting.html"><a href="time-series-prediction-and-forecasting.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
 <li class="chapter" data-level="3.2" data-path="time-series-prediction-and-forecasting.html"><a href="time-series-prediction-and-forecasting.html#notation"><i class="fa fa-check"></i><b>3.2</b> Notation</a></li>
@@ -154,7 +162,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#example-dataset"><i class="fa fa-check"></i><b>4.1</b> Example dataset</a></li>
 <li class="chapter" data-level="4.2" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#risk-neutral"><i class="fa fa-check"></i><b>4.2</b> Risk neutral</a></li>
 <li class="chapter" data-level="4.3" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#estimate-a-lambda_i-for-every-subject-split-by-id"><i class="fa fa-check"></i><b>4.3</b> Estimate a <span class="math inline">\(\lambda_i\)</span> for every subject (split by ID)</a></li>
-<li class="chapter" data-level="4.4" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#to-do"><i class="fa fa-check"></i><b>4.4</b> To do</a></li>
+<li class="chapter" data-level="4.4" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#adding-in-risk-aversion"><i class="fa fa-check"></i><b>4.4</b> Adding in risk aversion</a></li>
+<li class="chapter" data-level="4.5" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#certainty-equivalents"><i class="fa fa-check"></i><b>4.5</b> Certainty equivalents:</a></li>
 </ul></li>
 </ul>
 
@@ -177,135 +186,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">2</span> MLE and hypothesis testing</h1>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="mle-and-hypothesis-testing.html#cb31-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>()) </span>
 <span id="cb31-2"><a href="mle-and-hypothesis-testing.html#cb31-2"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb31-3"><a href="mle-and-hypothesis-testing.html#cb31-3"></a></span>
-<span id="cb31-4"><a href="mle-and-hypothesis-testing.html#cb31-4"></a>D&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;Data/NFLFieldGoals1920scrape.csv&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">data.frame</span>()</span>
-<span id="cb31-5"><a href="mle-and-hypothesis-testing.html#cb31-5"></a></span>
-<span id="cb31-6"><a href="mle-and-hypothesis-testing.html#cb31-6"></a>D <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th align="right">X</th>
-<th align="right">Rk</th>
-<th align="left">Date</th>
-<th align="left">Tm</th>
-<th align="left">Opp</th>
-<th align="left">Result</th>
-<th align="left">Player</th>
-<th align="right">Dist</th>
-<th align="left">Good.</th>
-<th align="left">Blk.</th>
-<th align="right">Y</th>
-<th align="right">B</th>
-<th align="right">year</th>
-<th align="right">month</th>
-<th align="right">season</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="left">2019-12-29</td>
-<td align="left">ARI</td>
-<td align="left">LAR</td>
-<td align="left">L 24-31</td>
-<td align="left">Zane Gonzalez</td>
-<td align="right">31</td>
-<td align="left">Y</td>
-<td align="left">N</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">2019</td>
-<td align="right">12</td>
-<td align="right">2019</td>
-</tr>
-<tr class="even">
-<td align="right">3</td>
-<td align="right">2</td>
-<td align="left">2019-12-22</td>
-<td align="left">ARI</td>
-<td align="left">SEA</td>
-<td align="left">W 27-13</td>
-<td align="left">Zane Gonzalez</td>
-<td align="right">46</td>
-<td align="left">Y</td>
-<td align="left">N</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">2019</td>
-<td align="right">12</td>
-<td align="right">2019</td>
-</tr>
-<tr class="odd">
-<td align="right">4</td>
-<td align="right">3</td>
-<td align="left">2019-12-22</td>
-<td align="left">ARI</td>
-<td align="left">SEA</td>
-<td align="left">W 27-13</td>
-<td align="left">Zane Gonzalez</td>
-<td align="right">22</td>
-<td align="left">Y</td>
-<td align="left">N</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">2019</td>
-<td align="right">12</td>
-<td align="right">2019</td>
-</tr>
-<tr class="even">
-<td align="right">5</td>
-<td align="right">4</td>
-<td align="left">2019-12-22</td>
-<td align="left">ARI</td>
-<td align="left">SEA</td>
-<td align="left">W 27-13</td>
-<td align="left">Zane Gonzalez</td>
-<td align="right">45</td>
-<td align="left">N</td>
-<td align="left">Y</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">2019</td>
-<td align="right">12</td>
-<td align="right">2019</td>
-</tr>
-<tr class="odd">
-<td align="right">6</td>
-<td align="right">5</td>
-<td align="left">2019-12-15</td>
-<td align="left">ARI</td>
-<td align="left">CLE</td>
-<td align="left">W 38-24</td>
-<td align="left">Zane Gonzalez</td>
-<td align="right">21</td>
-<td align="left">Y</td>
-<td align="left">N</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">2019</td>
-<td align="right">12</td>
-<td align="right">2019</td>
-</tr>
-<tr class="even">
-<td align="right">7</td>
-<td align="right">6</td>
-<td align="left">2019-12-08</td>
-<td align="left">ARI</td>
-<td align="left">PIT</td>
-<td align="left">L 17-23</td>
-<td align="left">Zane Gonzalez</td>
-<td align="right">30</td>
-<td align="left">Y</td>
-<td align="left">N</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">2019</td>
-<td align="right">12</td>
-<td align="right">2019</td>
-</tr>
-</tbody>
-</table>
+<span id="cb31-3"><a href="mle-and-hypothesis-testing.html#cb31-3"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb31-4"><a href="mle-and-hypothesis-testing.html#cb31-4"></a></span>
+<span id="cb31-5"><a href="mle-and-hypothesis-testing.html#cb31-5"></a>D&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;Data/NFLFieldGoals1920scrape.csv&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">data.frame</span>()</span>
+<span id="cb31-6"><a href="mle-and-hypothesis-testing.html#cb31-6"></a></span>
+<span id="cb31-7"><a href="mle-and-hypothesis-testing.html#cb31-7"></a><span class="co">#D %&gt;% head() %&gt;% knitr::kable()</span></span></code></pre></div>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="mle-and-hypothesis-testing.html#cb32-1"></a><span class="kw">library</span>(ggplot2)</span>
 <span id="cb32-2"><a href="mle-and-hypothesis-testing.html#cb32-2"></a></span>
 <span id="cb32-3"><a href="mle-and-hypothesis-testing.html#cb32-3"></a>D&lt;-(D</span>
@@ -316,7 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb32-8"><a href="mle-and-hypothesis-testing.html#cb32-8"></a>  <span class="kw">ggplot</span>(D,<span class="kw">aes</span>(<span class="dt">x=</span>Dist,<span class="dt">y=</span>Y))</span>
 <span id="cb32-9"><a href="mle-and-hypothesis-testing.html#cb32-9"></a>  <span class="op">+</span><span class="kw">geom_point</span>()</span>
 <span id="cb32-10"><a href="mle-and-hypothesis-testing.html#cb32-10"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>Not so useful</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="mle-and-hypothesis-testing.html#cb33-1"></a>DSummary&lt;-(D</span>
 <span id="cb33-2"><a href="mle-and-hypothesis-testing.html#cb33-2"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Dist)</span>
@@ -334,7 +219,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb33-14"><a href="mle-and-hypothesis-testing.html#cb33-14"></a>  <span class="op">+</span><span class="kw">stat_ecdf</span>(<span class="dt">data=</span>D,<span class="kw">aes</span>(<span class="dt">x=</span>Dist))</span>
 <span id="cb33-15"><a href="mle-and-hypothesis-testing.html#cb33-15"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
 <span id="cb33-16"><a href="mle-and-hypothesis-testing.html#cb33-16"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="mle-and-hypothesis-testing.html#cb34-1"></a><span class="kw">library</span>(stargazer)</span>
 <span id="cb34-2"><a href="mle-and-hypothesis-testing.html#cb34-2"></a>m1&lt;-<span class="kw">glm</span>(<span class="dt">data=</span>D,Y<span class="op">~</span><span class="dv">1</span>,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>))</span>
 <span id="cb34-3"><a href="mle-and-hypothesis-testing.html#cb34-3"></a>m2&lt;-<span class="kw">glm</span>(<span class="dt">data=</span>D,Y<span class="op">~</span>Dist,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>))</span>
@@ -603,6 +488,1288 @@ H_0:\ \Pr(Y=1)=\Phi(\beta_0+\beta_1D),\quad H_A:\ \Pr(Y=1\mid D) =\Phi(\beta_0+\
 <pre><code>## &#39;log Lik.&#39; 4.842615 (df=3)</code></pre>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="mle-and-hypothesis-testing.html#cb45-1"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Critical Value&quot;</span>,<span class="kw">qchisq</span>(<span class="fl">0.95</span>,<span class="dv">1</span>)))</span></code></pre></div>
 <pre><code>## [1] &quot;Critical Value 3.84145882069412&quot;</code></pre>
+<div id="nfl-season" class="section level2">
+<h2><span class="header-section-number">2.1</span> 2020 NFL season</h2>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="mle-and-hypothesis-testing.html#cb47-1"></a><span class="co"># source: http://nflsavant.com/about.php</span></span>
+<span id="cb47-2"><a href="mle-and-hypothesis-testing.html#cb47-2"></a><span class="kw">library</span>(kableExtra)</span>
+<span id="cb47-3"><a href="mle-and-hypothesis-testing.html#cb47-3"></a></span>
+<span id="cb47-4"><a href="mle-and-hypothesis-testing.html#cb47-4"></a>D2020&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;Data/pbp-2020.csv&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">data.frame</span>()</span>
+<span id="cb47-5"><a href="mle-and-hypothesis-testing.html#cb47-5"></a></span>
+<span id="cb47-6"><a href="mle-and-hypothesis-testing.html#cb47-6"></a><span class="kw">print</span>(<span class="kw">colnames</span>(D2020))</span></code></pre></div>
+<pre><code>##  [1] &quot;GameId&quot;                         &quot;GameDate&quot;                      
+##  [3] &quot;Quarter&quot;                        &quot;Minute&quot;                        
+##  [5] &quot;Second&quot;                         &quot;OffenseTeam&quot;                   
+##  [7] &quot;DefenseTeam&quot;                    &quot;Down&quot;                          
+##  [9] &quot;ToGo&quot;                           &quot;YardLine&quot;                      
+## [11] &quot;X&quot;                              &quot;SeriesFirstDown&quot;               
+## [13] &quot;X.1&quot;                            &quot;NextScore&quot;                     
+## [15] &quot;Description&quot;                    &quot;TeamWin&quot;                       
+## [17] &quot;X.2&quot;                            &quot;X.3&quot;                           
+## [19] &quot;SeasonYear&quot;                     &quot;Yards&quot;                         
+## [21] &quot;Formation&quot;                      &quot;PlayType&quot;                      
+## [23] &quot;IsRush&quot;                         &quot;IsPass&quot;                        
+## [25] &quot;IsIncomplete&quot;                   &quot;IsTouchdown&quot;                   
+## [27] &quot;PassType&quot;                       &quot;IsSack&quot;                        
+## [29] &quot;IsChallenge&quot;                    &quot;IsChallengeReversed&quot;           
+## [31] &quot;Challenger&quot;                     &quot;IsMeasurement&quot;                 
+## [33] &quot;IsInterception&quot;                 &quot;IsFumble&quot;                      
+## [35] &quot;IsPenalty&quot;                      &quot;IsTwoPointConversion&quot;          
+## [37] &quot;IsTwoPointConversionSuccessful&quot; &quot;RushDirection&quot;                 
+## [39] &quot;YardLineFixed&quot;                  &quot;YardLineDirection&quot;             
+## [41] &quot;IsPenaltyAccepted&quot;              &quot;PenaltyTeam&quot;                   
+## [43] &quot;IsNoPlay&quot;                       &quot;PenaltyType&quot;                   
+## [45] &quot;PenaltyYards&quot;</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="mle-and-hypothesis-testing.html#cb49-1"></a>FG2020&lt;-D2020 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="st">&quot;YARD FIELD GOAL&quot;</span>,Description))</span>
+<span id="cb49-2"><a href="mle-and-hypothesis-testing.html#cb49-2"></a></span>
+<span id="cb49-3"><a href="mle-and-hypothesis-testing.html#cb49-3"></a><span class="kw">dim</span>(FG2020)</span></code></pre></div>
+<pre><code>## [1] 970  45</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="mle-and-hypothesis-testing.html#cb51-1"></a><span class="co">#kbl(head(FG2020 %&gt;% select(Description)))</span></span></code></pre></div>
+<p>Note that the description for these takes the form:</p>
+<blockquote>
+<p>“XXX-<strong>F.Lastname</strong> <strong>dd</strong> YARD FIELD GOAL <strong>RESULT</strong>, <strong>WHY NOT GOOD</strong>, OTHER INFO”</p>
+</blockquote>
+<p>Let’s see if we can pull these quantities out:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="mle-and-hypothesis-testing.html#cb52-1"></a><span class="kw">library</span>(stringr)</span>
+<span id="cb52-2"><a href="mle-and-hypothesis-testing.html#cb52-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb52-3"><a href="mle-and-hypothesis-testing.html#cb52-3"></a>FG2020&lt;-(FG2020</span>
+<span id="cb52-4"><a href="mle-and-hypothesis-testing.html#cb52-4"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
+<span id="cb52-5"><a href="mle-and-hypothesis-testing.html#cb52-5"></a>    <span class="dt">name =</span> <span class="kw">str_match</span>(Description, <span class="st">&quot;-</span><span class="ch">\\</span><span class="st">s*(.*?)</span><span class="ch">\\</span><span class="st">s* &quot;</span>)[,<span class="dv">2</span>],</span>
+<span id="cb52-6"><a href="mle-and-hypothesis-testing.html#cb52-6"></a>    <span class="dt">distance =</span> <span class="kw">as.numeric</span>(<span class="kw">str_split</span>(Description,<span class="dt">pattern=</span><span class="st">&quot; &quot;</span>,<span class="dt">simplify=</span><span class="ot">TRUE</span>)[,<span class="dv">3</span>]),</span>
+<span id="cb52-7"><a href="mle-and-hypothesis-testing.html#cb52-7"></a>    <span class="dt">good=</span><span class="kw">as.integer</span>(<span class="kw">grepl</span>(<span class="st">&quot;IS GOOD,&quot;</span>,Description))</span>
+<span id="cb52-8"><a href="mle-and-hypothesis-testing.html#cb52-8"></a>)</span>
+<span id="cb52-9"><a href="mle-and-hypothesis-testing.html#cb52-9"></a>)</span>
+<span id="cb52-10"><a href="mle-and-hypothesis-testing.html#cb52-10"></a></span>
+<span id="cb52-11"><a href="mle-and-hypothesis-testing.html#cb52-11"></a>FG2020[,<span class="kw">c</span>(<span class="st">&quot;name&quot;</span>,<span class="st">&quot;distance&quot;</span>,<span class="st">&quot;good&quot;</span>)] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kbl</span>()   </span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:right;">
+distance
+</th>
+<th style="text-align:right;">
+good
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+B.MCMANUS
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+G.GANO
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+B.MCMANUS
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D.CARLSON
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+B.MCMANUS
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R.BLANKENSHIP
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="mle-and-hypothesis-testing.html#cb53-1"></a>FG2020Sum&lt;-(FG2020</span>
+<span id="cb53-2"><a href="mle-and-hypothesis-testing.html#cb53-2"></a>            <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(distance)</span>
+<span id="cb53-3"><a href="mle-and-hypothesis-testing.html#cb53-3"></a>            <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(</span>
+<span id="cb53-4"><a href="mle-and-hypothesis-testing.html#cb53-4"></a>              <span class="dt">Pr=</span><span class="kw">mean</span>(good),</span>
+<span id="cb53-5"><a href="mle-and-hypothesis-testing.html#cb53-5"></a>              <span class="dt">n =</span> <span class="kw">n</span>()</span>
+<span id="cb53-6"><a href="mle-and-hypothesis-testing.html#cb53-6"></a>            )</span>
+<span id="cb53-7"><a href="mle-and-hypothesis-testing.html#cb53-7"></a>  </span>
+<span id="cb53-8"><a href="mle-and-hypothesis-testing.html#cb53-8"></a>)</span>
+<span id="cb53-9"><a href="mle-and-hypothesis-testing.html#cb53-9"></a></span>
+<span id="cb53-10"><a href="mle-and-hypothesis-testing.html#cb53-10"></a>(</span>
+<span id="cb53-11"><a href="mle-and-hypothesis-testing.html#cb53-11"></a>  <span class="kw">ggplot</span>()</span>
+<span id="cb53-12"><a href="mle-and-hypothesis-testing.html#cb53-12"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb53-13"><a href="mle-and-hypothesis-testing.html#cb53-13"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Distance to goal (yards)&quot;</span>)</span>
+<span id="cb53-14"><a href="mle-and-hypothesis-testing.html#cb53-14"></a>  <span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Fraction good&quot;</span>)</span>
+<span id="cb53-15"><a href="mle-and-hypothesis-testing.html#cb53-15"></a>  <span class="op">+</span><span class="kw">geom_point</span>(<span class="dt">data=</span>FG2020Sum,<span class="kw">aes</span>(<span class="dt">x=</span>distance,<span class="dt">y=</span>Pr,<span class="dt">size=</span>n,<span class="dt">color=</span><span class="st">&quot;Data&quot;</span>),<span class="dt">alpha=</span><span class="fl">0.7</span>)</span>
+<span id="cb53-16"><a href="mle-and-hypothesis-testing.html#cb53-16"></a>  <span class="op">+</span><span class="kw">geom_smooth</span>(<span class="dt">data=</span>FG2020,<span class="kw">aes</span>(<span class="dt">x=</span>distance,<span class="dt">y=</span>good,<span class="dt">color=</span><span class="st">&quot;Probit&quot;</span>),<span class="dt">method=</span><span class="st">&quot;glm&quot;</span>, <span class="dt">method.args=</span><span class="kw">list</span>(<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>)))</span>
+<span id="cb53-17"><a href="mle-and-hypothesis-testing.html#cb53-17"></a>  <span class="op">+</span><span class="kw">geom_smooth</span>(<span class="dt">data=</span>FG2020,<span class="kw">aes</span>(<span class="dt">x=</span>distance,<span class="dt">y=</span>good,<span class="dt">color=</span><span class="st">&quot;Logit&quot;</span>),<span class="dt">method=</span><span class="st">&quot;glm&quot;</span>, <span class="dt">method.args=</span><span class="kw">list</span>(<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;logit&quot;</span>)))</span>
+<span id="cb53-18"><a href="mle-and-hypothesis-testing.html#cb53-18"></a>  <span class="op">+</span><span class="kw">geom_smooth</span>(<span class="dt">data=</span>FG2020,<span class="kw">aes</span>(<span class="dt">x=</span>distance,<span class="dt">y=</span>good,<span class="dt">color=</span><span class="st">&quot;LPM&quot;</span>),<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>)</span>
+<span id="cb53-19"><a href="mle-and-hypothesis-testing.html#cb53-19"></a>  <span class="op">+</span><span class="kw">stat_ecdf</span>(<span class="dt">data=</span>FG2020,<span class="kw">aes</span>(<span class="dt">x=</span>distance,<span class="dt">color=</span><span class="st">&quot;ecdf(distance)&quot;</span>))</span>
+<span id="cb53-20"><a href="mle-and-hypothesis-testing.html#cb53-20"></a>  </span>
+<span id="cb53-21"><a href="mle-and-hypothesis-testing.html#cb53-21"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<div id="some-standard-models-for-making-predictions" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Some standard models for making predictions:</h3>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="mle-and-hypothesis-testing.html#cb54-1"></a>Probit2020&lt;-<span class="kw">glm</span>(<span class="dt">data=</span>FG2020,good <span class="op">~</span><span class="st"> </span>distance,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb54-2"><a href="mle-and-hypothesis-testing.html#cb54-2"></a>Logit2020&lt;-<span class="kw">glm</span>(<span class="dt">data=</span>FG2020,good <span class="op">~</span><span class="st"> </span>distance,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;logit&quot;</span>))</span>
+<span id="cb54-3"><a href="mle-and-hypothesis-testing.html#cb54-3"></a>LPM2020&lt;-<span class="kw">lm</span>(<span class="dt">data=</span>FG2020,good <span class="op">~</span><span class="st"> </span>distance)</span>
+<span id="cb54-4"><a href="mle-and-hypothesis-testing.html#cb54-4"></a></span>
+<span id="cb54-5"><a href="mle-and-hypothesis-testing.html#cb54-5"></a><span class="kw">stargazer</span>(Probit2020,Logit2020,LPM2020,<span class="dt">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+good
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>probit</em>
+</td>
+<td>
+<em>logistic</em>
+</td>
+<td>
+<em>OLS</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+distance
+</td>
+<td>
+-0.058<sup>***</sup>
+</td>
+<td>
+-0.108<sup>***</sup>
+</td>
+<td>
+-0.012<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.006)
+</td>
+<td>
+(0.011)
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+3.442<sup>***</sup>
+</td>
+<td>
+6.233<sup>***</sup>
+</td>
+<td>
+1.309<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.259)
+</td>
+<td>
+(0.511)
+</td>
+<td>
+(0.043)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+970
+</td>
+<td>
+970
+</td>
+<td>
+970
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+0.117
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+0.116
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+-364.363
+</td>
+<td>
+-364.033
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+732.726
+</td>
+<td>
+732.067
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+0.345 (df = 968)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+128.774<sup>***</sup> (df = 1; 968)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</div>
+<div id="a-geometry-based-alternative" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> A geometry-based alternative</h3>
+<p>A player makes a field goal attempt <span class="math inline">\(x\)</span> yards from the goal (my data). The goal posts are <span class="math inline">\(d\)</span> yards apart (given), and the crossbar is <span class="math inline">\(h\)</span> yards above the ground (I attempted to use this too, but there are not enough long shots to identify the parameters for this model, see Appendix II).
+<img src="index_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><span class="math display">\[
+\begin{aligned}
+x&amp;=y\cos\theta\\
+d/2&amp;=y\sin\theta\\
+y^2&amp;=x^2+(d/2)^2\\
+x&amp;=\sqrt{x^2+(d/2)^2}\cos\theta\\
+\cos\theta&amp;=\frac{x}{\sqrt{x^2+(d/2)^2}}\\
+\theta&amp;=\cos^{-1}\left(\frac{x}{\sqrt{x^2+(d/2)^2}}\right)
+\end{aligned}
+\]</span>
+Assume that the kick is made with angle error <span class="math inline">\(\epsilon\sim N(0,\sigma^2)\)</span>:
+<span class="math display">\[
+\begin{aligned}
+\Pr(\text{good}\mid x)&amp;=\Pr\left(|\epsilon|&lt;\theta\right)\\
+&amp;=\Pr(-\theta&lt;\epsilon&lt;\theta)\\
+&amp;=\Pr(-\frac{\theta}{\sigma}&lt;z&lt;\frac{\theta}{\sigma})\\
+&amp;=2(0.5-\Phi(-\theta/\sigma))
+\end{aligned}
+\]</span></p>
+<p>Log-likelihood:
+<span class="math display">\[
+\begin{aligned}
+\mathcal L(\sigma)&amp;=\sum_{i=1}^N\log\Pr(\text{good}_i\mid x_i)\\
+&amp;=\sum_{i=1}^N\left[\log(2)+\log(0.5-\Phi(-\theta/\sigma))\right]
+\end{aligned}
+\]</span></p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="mle-and-hypothesis-testing.html#cb55-1"></a><span class="co">#18 feet 6 inches</span></span>
+<span id="cb55-2"><a href="mle-and-hypothesis-testing.html#cb55-2"></a>d&lt;-(<span class="dv">18</span><span class="op">+</span><span class="dv">6</span><span class="op">/</span><span class="dv">12</span>)<span class="op">/</span><span class="dv">3</span> <span class="co"># distance in yards</span></span>
+<span id="cb55-3"><a href="mle-and-hypothesis-testing.html#cb55-3"></a></span>
+<span id="cb55-4"><a href="mle-and-hypothesis-testing.html#cb55-4"></a>FG2020&lt;-FG2020 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">angle =</span> <span class="kw">acos</span>(distance<span class="op">/</span><span class="kw">sqrt</span>(distance<span class="op">^</span><span class="dv">2</span><span class="op">+</span>(d<span class="op">/</span><span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span>)))</span>
+<span id="cb55-5"><a href="mle-and-hypothesis-testing.html#cb55-5"></a></span>
+<span id="cb55-6"><a href="mle-and-hypothesis-testing.html#cb55-6"></a></span>
+<span id="cb55-7"><a href="mle-and-hypothesis-testing.html#cb55-7"></a><span class="kw">head</span>(FG2020[,<span class="kw">c</span>(<span class="st">&quot;name&quot;</span>,<span class="st">&quot;distance&quot;</span>,<span class="st">&quot;good&quot;</span>,<span class="st">&quot;angle&quot;</span>)]) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kbl</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:right;">
+distance
+</th>
+<th style="text-align:right;">
+good
+</th>
+<th style="text-align:right;">
+angle
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+B.MCMANUS
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0592255
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+G.GANO
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0991363
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+B.MCMANUS
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0550040
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D.CARLSON
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0931639
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+B.MCMANUS
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.1392445
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R.BLANKENSHIP
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0550040
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="mle-and-hypothesis-testing.html#cb56-1"></a><span class="co">## Likelihood function</span></span>
+<span id="cb56-2"><a href="mle-and-hypothesis-testing.html#cb56-2"></a></span>
+<span id="cb56-3"><a href="mle-and-hypothesis-testing.html#cb56-3"></a>angle&lt;-FG2020<span class="op">$</span>angle</span>
+<span id="cb56-4"><a href="mle-and-hypothesis-testing.html#cb56-4"></a>good&lt;-<span class="dv">1</span><span class="op">*</span>FG2020<span class="op">$</span>good</span>
+<span id="cb56-5"><a href="mle-and-hypothesis-testing.html#cb56-5"></a>II&lt;-angle<span class="op">==</span>angle</span>
+<span id="cb56-6"><a href="mle-and-hypothesis-testing.html#cb56-6"></a></span>
+<span id="cb56-7"><a href="mle-and-hypothesis-testing.html#cb56-7"></a>good </span></code></pre></div>
+<pre><code>##   [1] 1 1 0 1 1 0 1 1 1 1 0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1
+##  [38] 0 1 1 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 1 1 0 1 1
+##  [75] 1 1 1 0 0 0 0 1 1 1 1 1 1 1 0 1 1 1 1 1 0 1 1 1 0 1 0 1 1 1 1 0 1 1 1 0 1
+## [112] 1 1 0 1 1 0 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1 0 1 1 0 1 1 1 0
+## [149] 1 1 1 1 0 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [186] 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 1
+## [223] 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1
+## [260] 0 1 1 1 1 0 1 1 1 1 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 0 1 1 1 0 1
+## [297] 1 1 0 1 0 1 0 1 1 1 0 1 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 1
+## [334] 1 1 1 1 0 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [371] 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 1 1
+## [408] 0 1 1 1 0 1 0 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 1
+## [445] 1 0 1 1 1 1 0 1 1 1 0 0 0 0 1 1 0 0 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 0 1 0 1
+## [482] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 0 1 1
+## [519] 1 1 0 0 1 1 1 1 0 1 1 1 1 1 0 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1
+## [556] 0 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 0 1 1 1 1 0 1 1 1 1 1 1 1 1 0
+## [593] 0 0 1 1 1 1 1 0 0 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 1 0 0 1 1 1 0 1 1 1 1 1 0
+## [630] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1
+## [667] 1 1 0 1 1 1 1 1 1 1 1 1 1 1 0 0 0 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1
+## [704] 1 0 1 1 0 1 1 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 1 1 1 0 1 1
+## [741] 1 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 1 1
+## [778] 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0
+## [815] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [852] 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1
+## [889] 0 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 0 1 1 0 1 1 1 0 1 1 0 1 1 1 1 1 1 1 1 1
+## [926] 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 0 1 1 1 1 1 1 1 0 0 1 1 0 1 1 1 1 1 1 1 1 1
+## [963] 1 0 1 1 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="mle-and-hypothesis-testing.html#cb58-1"></a>LL&lt;-<span class="cf">function</span>(s,II) {</span>
+<span id="cb58-2"><a href="mle-and-hypothesis-testing.html#cb58-2"></a>  PrGood&lt;-<span class="dv">2</span><span class="op">*</span>(<span class="fl">0.5</span><span class="op">-</span><span class="kw">pnorm</span>(<span class="op">-</span>angle<span class="op">/</span>s))</span>
+<span id="cb58-3"><a href="mle-and-hypothesis-testing.html#cb58-3"></a>  l&lt;-good<span class="op">*</span><span class="kw">log</span>(PrGood)<span class="op">+</span>(<span class="dv">1</span><span class="op">-</span>good)<span class="op">*</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">-</span>PrGood)</span>
+<span id="cb58-4"><a href="mle-and-hypothesis-testing.html#cb58-4"></a>  </span>
+<span id="cb58-5"><a href="mle-and-hypothesis-testing.html#cb58-5"></a>  <span class="op">-</span><span class="kw">sum</span>(l[II])</span>
+<span id="cb58-6"><a href="mle-and-hypothesis-testing.html#cb58-6"></a>}</span>
+<span id="cb58-7"><a href="mle-and-hypothesis-testing.html#cb58-7"></a></span>
+<span id="cb58-8"><a href="mle-and-hypothesis-testing.html#cb58-8"></a></span>
+<span id="cb58-9"><a href="mle-and-hypothesis-testing.html#cb58-9"></a></span>
+<span id="cb58-10"><a href="mle-and-hypothesis-testing.html#cb58-10"></a>sgrid&lt;-<span class="kw">seq</span>(<span class="fl">0.001</span>,<span class="fl">0.1</span>,<span class="dt">length=</span><span class="dv">100</span>)</span>
+<span id="cb58-11"><a href="mle-and-hypothesis-testing.html#cb58-11"></a>likefun=<span class="kw">c</span>()</span>
+<span id="cb58-12"><a href="mle-and-hypothesis-testing.html#cb58-12"></a><span class="cf">for</span> (ss <span class="cf">in</span> sgrid) {</span>
+<span id="cb58-13"><a href="mle-and-hypothesis-testing.html#cb58-13"></a>  likefun&lt;-<span class="kw">c</span>(likefun,<span class="kw">LL</span>(ss,II))</span>
+<span id="cb58-14"><a href="mle-and-hypothesis-testing.html#cb58-14"></a>}</span>
+<span id="cb58-15"><a href="mle-and-hypothesis-testing.html#cb58-15"></a></span>
+<span id="cb58-16"><a href="mle-and-hypothesis-testing.html#cb58-16"></a>dplot&lt;-<span class="kw">data.frame</span>(sgrid,likefun)</span>
+<span id="cb58-17"><a href="mle-and-hypothesis-testing.html#cb58-17"></a></span>
+<span id="cb58-18"><a href="mle-and-hypothesis-testing.html#cb58-18"></a><span class="kw">ggplot</span>(dplot,<span class="kw">aes</span>(<span class="dt">x=</span>sgrid,<span class="dt">y=</span>likefun))<span class="op">+</span><span class="kw">geom_line</span>()<span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;sigma (angle error)&quot;</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;negative log-likeihood&quot;</span>)<span class="op">+</span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="mle-and-hypothesis-testing.html#cb59-1"></a>maxlike &lt;-<span class="st"> </span><span class="cf">function</span>(II) {</span>
+<span id="cb59-2"><a href="mle-and-hypothesis-testing.html#cb59-2"></a>  objfun&lt;-<span class="cf">function</span>(x) {<span class="kw">LL</span>(x,II)}</span>
+<span id="cb59-3"><a href="mle-and-hypothesis-testing.html#cb59-3"></a>  <span class="kw">optim</span>(<span class="fl">0.05</span>,objfun)<span class="op">$</span>par</span>
+<span id="cb59-4"><a href="mle-and-hypothesis-testing.html#cb59-4"></a>}</span>
+<span id="cb59-5"><a href="mle-and-hypothesis-testing.html#cb59-5"></a>sigmaHat&lt;-<span class="kw">maxlike</span>(II)</span>
+<span id="cb59-6"><a href="mle-and-hypothesis-testing.html#cb59-6"></a>PrHat&lt;-<span class="dv">2</span><span class="op">*</span>(<span class="fl">0.5</span><span class="op">-</span><span class="kw">pnorm</span>(<span class="op">-</span>angle<span class="op">/</span>sigmaHat))</span>
+<span id="cb59-7"><a href="mle-and-hypothesis-testing.html#cb59-7"></a>FG2020<span class="op">$</span>PrHat&lt;-PrHat</span>
+<span id="cb59-8"><a href="mle-and-hypothesis-testing.html#cb59-8"></a></span>
+<span id="cb59-9"><a href="mle-and-hypothesis-testing.html#cb59-9"></a>(</span>
+<span id="cb59-10"><a href="mle-and-hypothesis-testing.html#cb59-10"></a>  <span class="kw">ggplot</span>()</span>
+<span id="cb59-11"><a href="mle-and-hypothesis-testing.html#cb59-11"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb59-12"><a href="mle-and-hypothesis-testing.html#cb59-12"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Distance to goal (yards)&quot;</span>)</span>
+<span id="cb59-13"><a href="mle-and-hypothesis-testing.html#cb59-13"></a>  <span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Fraction good&quot;</span>)</span>
+<span id="cb59-14"><a href="mle-and-hypothesis-testing.html#cb59-14"></a>  <span class="op">+</span><span class="kw">geom_point</span>(<span class="dt">data=</span>FG2020Sum,<span class="kw">aes</span>(<span class="dt">x=</span>distance,<span class="dt">y=</span>Pr,<span class="dt">size=</span>n,<span class="dt">color=</span><span class="st">&quot;Data&quot;</span>),<span class="dt">alpha=</span><span class="fl">0.7</span>)</span>
+<span id="cb59-15"><a href="mle-and-hypothesis-testing.html#cb59-15"></a>  <span class="op">+</span><span class="kw">geom_smooth</span>(<span class="dt">data=</span>FG2020,<span class="kw">aes</span>(<span class="dt">x=</span>distance,<span class="dt">y=</span>good,<span class="dt">color=</span><span class="st">&quot;Probit&quot;</span>),<span class="dt">method=</span><span class="st">&quot;glm&quot;</span>, <span class="dt">method.args=</span><span class="kw">list</span>(<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>)))</span>
+<span id="cb59-16"><a href="mle-and-hypothesis-testing.html#cb59-16"></a>  <span class="co">#+geom_smooth(data=FG2020,aes(x=distance,y=good,color=&quot;Logit&quot;),method=&quot;glm&quot;, method.args=list(family=binomial(link=&quot;logit&quot;)))</span></span>
+<span id="cb59-17"><a href="mle-and-hypothesis-testing.html#cb59-17"></a>  <span class="co">#+geom_smooth(data=FG2020,aes(x=distance,y=good,color=&quot;LPM&quot;),method=&quot;lm&quot;)</span></span>
+<span id="cb59-18"><a href="mle-and-hypothesis-testing.html#cb59-18"></a>  <span class="op">+</span><span class="kw">geom_line</span>(<span class="dt">data=</span>FG2020,<span class="kw">aes</span>(<span class="dt">x=</span>distance,<span class="dt">y=</span>PrHat,<span class="dt">color=</span><span class="st">&quot;geometry&quot;</span>))</span>
+<span id="cb59-19"><a href="mle-and-hypothesis-testing.html#cb59-19"></a>  <span class="op">+</span><span class="kw">stat_ecdf</span>(<span class="dt">data=</span>FG2020,<span class="kw">aes</span>(<span class="dt">x=</span>distance,<span class="dt">color=</span><span class="st">&quot;ecdf(distance)&quot;</span>))</span>
+<span id="cb59-20"><a href="mle-and-hypothesis-testing.html#cb59-20"></a>  </span>
+<span id="cb59-21"><a href="mle-and-hypothesis-testing.html#cb59-21"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>player rankings:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="mle-and-hypothesis-testing.html#cb60-1"></a>SigmaHatPlayer&lt;-<span class="kw">c</span>()</span>
+<span id="cb60-2"><a href="mle-and-hypothesis-testing.html#cb60-2"></a>Player&lt;-<span class="kw">c</span>()</span>
+<span id="cb60-3"><a href="mle-and-hypothesis-testing.html#cb60-3"></a><span class="cf">for</span> (nn <span class="cf">in</span> <span class="kw">unique</span>(FG2020<span class="op">$</span>name)) {</span>
+<span id="cb60-4"><a href="mle-and-hypothesis-testing.html#cb60-4"></a>  II&lt;-FG2020<span class="op">$</span>name<span class="op">==</span>nn</span>
+<span id="cb60-5"><a href="mle-and-hypothesis-testing.html#cb60-5"></a>  SigmaHatPlayer&lt;-<span class="kw">c</span>(SigmaHatPlayer,<span class="kw">maxlike</span>(II))</span>
+<span id="cb60-6"><a href="mle-and-hypothesis-testing.html#cb60-6"></a>  Player&lt;-<span class="kw">c</span>(Player,nn)</span>
+<span id="cb60-7"><a href="mle-and-hypothesis-testing.html#cb60-7"></a>}</span>
+<span id="cb60-8"><a href="mle-and-hypothesis-testing.html#cb60-8"></a>DPlayer&lt;-<span class="kw">data.frame</span>(Player,SigmaHatPlayer)</span>
+<span id="cb60-9"><a href="mle-and-hypothesis-testing.html#cb60-9"></a></span>
+<span id="cb60-10"><a href="mle-and-hypothesis-testing.html#cb60-10"></a><span class="kw">kbl</span>(DPlayer[<span class="kw">order</span>(DPlayer<span class="op">$</span>SigmaHatPlayer),])</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Player
+</th>
+<th style="text-align:right;">
+SigmaHatPlayer
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+T.VIZCAINO
+</td>
+<td style="text-align:right;">
+1.125000e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+41
+</td>
+<td style="text-align:left;">
+J.LAMBO
+</td>
+<td style="text-align:right;">
+1.223020e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+27
+</td>
+<td style="text-align:left;">
+M.WRIGHT
+</td>
+<td style="text-align:right;">
+1.265620e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+J.MYERS
+</td>
+<td style="text-align:right;">
+1.357790e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+46
+</td>
+<td style="text-align:left;">
+E.FRY
+</td>
+<td style="text-align:right;">
+1.750000e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+G.GANO
+</td>
+<td style="text-align:right;">
+3.156740e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:left;">
+J.SANDERS
+</td>
+<td style="text-align:right;">
+4.072270e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+21
+</td>
+<td style="text-align:left;">
+C.SANTOS
+</td>
+<td style="text-align:right;">
+4.148930e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+18
+</td>
+<td style="text-align:left;">
+N.FOLK
+</td>
+<td style="text-align:right;">
+4.158200e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+24
+</td>
+<td style="text-align:left;">
+M.CROSBY
+</td>
+<td style="text-align:right;">
+4.233890e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:left;">
+Y.KOO
+</td>
+<td style="text-align:right;">
+4.388180e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+23
+</td>
+<td style="text-align:left;">
+H.BUTKER
+</td>
+<td style="text-align:right;">
+4.490720e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+39
+</td>
+<td style="text-align:left;">
+C.BOSWELL
+</td>
+<td style="text-align:right;">
+4.535160e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+D.CARLSON
+</td>
+<td style="text-align:right;">
+4.579100e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+28
+</td>
+<td style="text-align:left;">
+J.TUCKER
+</td>
+<td style="text-align:right;">
+4.596190e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+R.SUCCOP
+</td>
+<td style="text-align:right;">
+4.804200e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+B.MCMANUS
+</td>
+<td style="text-align:right;">
+4.896480e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+K.FAIRBAIRN
+</td>
+<td style="text-align:right;">
+5.015620e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+M.GAY
+</td>
+<td style="text-align:right;">
+5.131350e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+20
+</td>
+<td style="text-align:left;">
+G.ZUERLEIN
+</td>
+<td style="text-align:right;">
+5.168950e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35
+</td>
+<td style="text-align:left;">
+C.MCLAUGHLIN
+</td>
+<td style="text-align:right;">
+5.185550e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+C.PARKEY
+</td>
+<td style="text-align:right;">
+5.429690e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+R.BLANKENSHIP
+</td>
+<td style="text-align:right;">
+5.527340e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+22
+</td>
+<td style="text-align:left;">
+R.GOULD
+</td>
+<td style="text-align:right;">
+5.562500e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+D.HOPKINS
+</td>
+<td style="text-align:right;">
+5.839360e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+42
+</td>
+<td style="text-align:left;">
+S.FICKEN
+</td>
+<td style="text-align:right;">
+5.884770e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17
+</td>
+<td style="text-align:left;">
+T.BASS
+</td>
+<td style="text-align:right;">
+5.937500e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+37
+</td>
+<td style="text-align:left;">
+M.PRATER
+</td>
+<td style="text-align:right;">
+5.963870e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+31
+</td>
+<td style="text-align:left;">
+R.BULLOCK
+</td>
+<td style="text-align:right;">
+5.980470e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+33
+</td>
+<td style="text-align:left;">
+W.LUTZ
+</td>
+<td style="text-align:right;">
+6.092770e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+36
+</td>
+<td style="text-align:left;">
+Z.GONZALEZ
+</td>
+<td style="text-align:right;">
+6.326170e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+26
+</td>
+<td style="text-align:left;">
+J.SLYE
+</td>
+<td style="text-align:right;">
+6.382810e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+M.NUGENT
+</td>
+<td style="text-align:right;">
+6.424800e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25
+</td>
+<td style="text-align:left;">
+A.ROSAS
+</td>
+<td style="text-align:right;">
+6.647460e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+29
+</td>
+<td style="text-align:left;">
+M.BADGLEY
+</td>
+<td style="text-align:right;">
+6.690430e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+S.SLOMAN
+</td>
+<td style="text-align:right;">
+7.112300e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+16
+</td>
+<td style="text-align:left;">
+A.SEIBERT
+</td>
+<td style="text-align:right;">
+7.333980e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+38
+</td>
+<td style="text-align:left;">
+S.GOSTKOWSKI
+</td>
+<td style="text-align:right;">
+7.548830e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+30
+</td>
+<td style="text-align:left;">
+J.ELLIOTT
+</td>
+<td style="text-align:right;">
+7.642580e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+D.BAILEY
+</td>
+<td style="text-align:right;">
+7.988280e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+40
+</td>
+<td style="text-align:left;">
+K.FORBATH
+</td>
+<td style="text-align:right;">
+9.033200e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+34
+</td>
+<td style="text-align:left;">
+S.CASTILLO
+</td>
+<td style="text-align:right;">
+9.185550e-02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+44
+</td>
+<td style="text-align:left;">
+J.BROWN
+</td>
+<td style="text-align:right;">
+1.432422e-01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+19
+</td>
+<td style="text-align:left;">
+T.RUSSOLINO
+</td>
+<td style="text-align:right;">
+2.684355e+06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+43
+</td>
+<td style="text-align:left;">
+J.GILLAN
+</td>
+<td style="text-align:right;">
+2.684355e+06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45
+</td>
+<td style="text-align:left;">
+S.HAUSCHKA
+</td>
+<td style="text-align:right;">
+2.684355e+06
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="evaluating-the-models" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Evaluating the models</h3>
+<p>Method: <span class="math inline">\(k\)</span>-fold cross-validation (a generalization of leave-one-out cross-validation)</p>
+<ol style="list-style-type: decimal">
+<li>Slice the data into <span class="math inline">\(k\)</span> groups “folds”</li>
+<li>For each fold <span class="math inline">\(j\)</span>, estimate model excluding fold <span class="math inline">\(j\)</span>, and assess how well this model predicts data in that fold.</li>
+<li>“take the average of these”</li>
+</ol>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="mle-and-hypothesis-testing.html#cb61-1"></a>nobs&lt;-<span class="kw">dim</span>(FG2020)[<span class="dv">1</span>]</span>
+<span id="cb61-2"><a href="mle-and-hypothesis-testing.html#cb61-2"></a><span class="kw">print</span>(nobs)</span></code></pre></div>
+<pre><code>## [1] 970</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="mle-and-hypothesis-testing.html#cb63-1"></a>k&lt;-<span class="dv">20</span></span>
+<span id="cb63-2"><a href="mle-and-hypothesis-testing.html#cb63-2"></a>Fold&lt;-purrr<span class="op">::</span><span class="kw">rdunif</span>(nobs, <span class="dv">1</span>,k)</span>
+<span id="cb63-3"><a href="mle-and-hypothesis-testing.html#cb63-3"></a></span>
+<span id="cb63-4"><a href="mle-and-hypothesis-testing.html#cb63-4"></a>FG2020<span class="op">$</span>fold&lt;-Fold</span>
+<span id="cb63-5"><a href="mle-and-hypothesis-testing.html#cb63-5"></a></span>
+<span id="cb63-6"><a href="mle-and-hypothesis-testing.html#cb63-6"></a>GEOMETRY&lt;-<span class="st"> </span><span class="dv">-1</span><span class="op">*</span>angle</span>
+<span id="cb63-7"><a href="mle-and-hypothesis-testing.html#cb63-7"></a>PROBIT&lt;-<span class="st"> </span><span class="dv">-1</span><span class="op">*</span>angle</span>
+<span id="cb63-8"><a href="mle-and-hypothesis-testing.html#cb63-8"></a></span>
+<span id="cb63-9"><a href="mle-and-hypothesis-testing.html#cb63-9"></a><span class="cf">for</span> (jj <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>k) {</span>
+<span id="cb63-10"><a href="mle-and-hypothesis-testing.html#cb63-10"></a>  sigmaHat&lt;-<span class="kw">maxlike</span>(Fold<span class="op">!=</span>jj)</span>
+<span id="cb63-11"><a href="mle-and-hypothesis-testing.html#cb63-11"></a>  </span>
+<span id="cb63-12"><a href="mle-and-hypothesis-testing.html#cb63-12"></a>  Pr&lt;-<span class="st">  </span><span class="dv">2</span><span class="op">*</span>(<span class="fl">0.5</span><span class="op">-</span><span class="kw">pnorm</span>(<span class="op">-</span>angle[Fold<span class="op">==</span>jj]<span class="op">/</span>sigmaHat))</span>
+<span id="cb63-13"><a href="mle-and-hypothesis-testing.html#cb63-13"></a>  </span>
+<span id="cb63-14"><a href="mle-and-hypothesis-testing.html#cb63-14"></a>  GEOMETRY[Fold<span class="op">==</span>jj]&lt;-Pr</span>
+<span id="cb63-15"><a href="mle-and-hypothesis-testing.html#cb63-15"></a>  </span>
+<span id="cb63-16"><a href="mle-and-hypothesis-testing.html#cb63-16"></a>  probit&lt;-<span class="kw">glm</span>(<span class="dt">data=</span>FG2020[Fold<span class="op">!=</span>jj,] ,good<span class="op">~</span>distance,<span class="dt">family=</span><span class="kw">binomial</span>(<span class="dt">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb63-17"><a href="mle-and-hypothesis-testing.html#cb63-17"></a>  </span>
+<span id="cb63-18"><a href="mle-and-hypothesis-testing.html#cb63-18"></a>  </span>
+<span id="cb63-19"><a href="mle-and-hypothesis-testing.html#cb63-19"></a>  Pr&lt;-<span class="kw">pnorm</span>(probit<span class="op">$</span>coef[<span class="dv">1</span>]<span class="op">+</span>FG2020[Fold<span class="op">==</span>jj,<span class="st">&quot;distance&quot;</span>]<span class="op">*</span>probit<span class="op">$</span>coef[<span class="dv">2</span>])</span>
+<span id="cb63-20"><a href="mle-and-hypothesis-testing.html#cb63-20"></a>  PROBIT[Fold<span class="op">==</span>jj]&lt;-Pr</span>
+<span id="cb63-21"><a href="mle-and-hypothesis-testing.html#cb63-21"></a></span>
+<span id="cb63-22"><a href="mle-and-hypothesis-testing.html#cb63-22"></a>  </span>
+<span id="cb63-23"><a href="mle-and-hypothesis-testing.html#cb63-23"></a>  </span>
+<span id="cb63-24"><a href="mle-and-hypothesis-testing.html#cb63-24"></a>}</span>
+<span id="cb63-25"><a href="mle-and-hypothesis-testing.html#cb63-25"></a></span>
+<span id="cb63-26"><a href="mle-and-hypothesis-testing.html#cb63-26"></a><span class="co">#print(probit)</span></span>
+<span id="cb63-27"><a href="mle-and-hypothesis-testing.html#cb63-27"></a></span>
+<span id="cb63-28"><a href="mle-and-hypothesis-testing.html#cb63-28"></a>FG2020&lt;-<span class="kw">data.frame</span>(FG2020 ,GEOMETRY,PROBIT)</span>
+<span id="cb63-29"><a href="mle-and-hypothesis-testing.html#cb63-29"></a></span>
+<span id="cb63-30"><a href="mle-and-hypothesis-testing.html#cb63-30"></a>(</span>
+<span id="cb63-31"><a href="mle-and-hypothesis-testing.html#cb63-31"></a>  <span class="kw">ggplot</span>(<span class="dt">data=</span>FG2020)</span>
+<span id="cb63-32"><a href="mle-and-hypothesis-testing.html#cb63-32"></a>  <span class="op">+</span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>distance,<span class="dt">y=</span>GEOMETRY,<span class="dt">color=</span><span class="st">&quot;geometry&quot;</span>))</span>
+<span id="cb63-33"><a href="mle-and-hypothesis-testing.html#cb63-33"></a>  <span class="op">+</span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>distance,<span class="dt">y=</span>PROBIT,<span class="dt">color=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb63-34"><a href="mle-and-hypothesis-testing.html#cb63-34"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb63-35"><a href="mle-and-hypothesis-testing.html#cb63-35"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="mle-and-hypothesis-testing.html#cb64-1"></a>FG2020calibration &lt;-(</span>
+<span id="cb64-2"><a href="mle-and-hypothesis-testing.html#cb64-2"></a>  FG2020</span>
+<span id="cb64-3"><a href="mle-and-hypothesis-testing.html#cb64-3"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(distance)</span>
+<span id="cb64-4"><a href="mle-and-hypothesis-testing.html#cb64-4"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
+<span id="cb64-5"><a href="mle-and-hypothesis-testing.html#cb64-5"></a>    <span class="dt">Geometry =</span> <span class="kw">mean</span>(GEOMETRY),</span>
+<span id="cb64-6"><a href="mle-and-hypothesis-testing.html#cb64-6"></a>    <span class="dt">Probit =</span> <span class="kw">mean</span>(PROBIT),</span>
+<span id="cb64-7"><a href="mle-and-hypothesis-testing.html#cb64-7"></a>    <span class="dt">Actual =</span> <span class="kw">mean</span>(good),</span>
+<span id="cb64-8"><a href="mle-and-hypothesis-testing.html#cb64-8"></a>    <span class="dt">n  =</span> <span class="kw">n</span>()</span>
+<span id="cb64-9"><a href="mle-and-hypothesis-testing.html#cb64-9"></a>  )</span>
+<span id="cb64-10"><a href="mle-and-hypothesis-testing.html#cb64-10"></a>)</span>
+<span id="cb64-11"><a href="mle-and-hypothesis-testing.html#cb64-11"></a></span>
+<span id="cb64-12"><a href="mle-and-hypothesis-testing.html#cb64-12"></a>(</span>
+<span id="cb64-13"><a href="mle-and-hypothesis-testing.html#cb64-13"></a>  <span class="kw">ggplot</span>(<span class="dt">data=</span>FG2020calibration)</span>
+<span id="cb64-14"><a href="mle-and-hypothesis-testing.html#cb64-14"></a>  <span class="op">+</span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Geometry,<span class="dt">y=</span>Actual,<span class="dt">size=</span>n,<span class="dt">color=</span><span class="st">&quot;Geometry&quot;</span>),<span class="dt">alpha=</span><span class="fl">0.2</span>)</span>
+<span id="cb64-15"><a href="mle-and-hypothesis-testing.html#cb64-15"></a>  <span class="op">+</span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Probit,<span class="dt">y=</span>Actual,<span class="dt">size=</span>n,<span class="dt">color=</span><span class="st">&quot;Probit&quot;</span>),<span class="dt">alpha=</span><span class="fl">0.2</span>)</span>
+<span id="cb64-16"><a href="mle-and-hypothesis-testing.html#cb64-16"></a>  </span>
+<span id="cb64-17"><a href="mle-and-hypothesis-testing.html#cb64-17"></a>  <span class="op">+</span><span class="kw">geom_smooth</span>(<span class="dt">data=</span>FG2020,<span class="kw">aes</span>(<span class="dt">x=</span>GEOMETRY,<span class="dt">y=</span>good,<span class="dt">color=</span><span class="st">&quot;Geometry&quot;</span>),<span class="dt">method=</span><span class="st">&quot;loess&quot;</span>)</span>
+<span id="cb64-18"><a href="mle-and-hypothesis-testing.html#cb64-18"></a>  <span class="op">+</span><span class="kw">geom_smooth</span>(<span class="dt">data=</span>FG2020,<span class="kw">aes</span>(<span class="dt">x=</span>PROBIT,<span class="dt">y=</span>good,<span class="dt">color=</span><span class="st">&quot;Probit&quot;</span>),<span class="dt">method=</span><span class="st">&quot;loess&quot;</span>)</span>
+<span id="cb64-19"><a href="mle-and-hypothesis-testing.html#cb64-19"></a>  </span>
+<span id="cb64-20"><a href="mle-and-hypothesis-testing.html#cb64-20"></a>  <span class="op">+</span><span class="kw">geom_abline</span>(<span class="dt">slope=</span><span class="dv">1</span>,<span class="dt">intercept=</span><span class="dv">0</span>)</span>
+<span id="cb64-21"><a href="mle-and-hypothesis-testing.html#cb64-21"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Prediction&quot;</span>)</span>
+<span id="cb64-22"><a href="mle-and-hypothesis-testing.html#cb64-22"></a>  <span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Actual&quot;</span>)</span>
+<span id="cb64-23"><a href="mle-and-hypothesis-testing.html#cb64-23"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb64-24"><a href="mle-and-hypothesis-testing.html#cb64-24"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
+<p>From here, we need to aggregate these predictions into some measure of how “bad” our models fit the data. E.g.:</p>
+<ul>
+<li><p>Mean squared prediction error
+<span class="math display">\[
+MSPE=\frac{1}{N}\sum_{i=1}^N(y_i-\hat y_i)^2
+\]</span></p></li>
+<li><p>Out-of sample (negative) likelihood:
+<span class="math display">\[
+-\frac{1}{N}\sum_{i=1}^N\left[y_i\log(\hat\theta_i)+(1-y_i)\log(1-\hat\theta_i)\right]
+\]</span></p></li>
+</ul>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="mle-and-hypothesis-testing.html#cb65-1"></a>(FG2020</span>
+<span id="cb65-2"><a href="mle-and-hypothesis-testing.html#cb65-2"></a> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>()</span>
+<span id="cb65-3"><a href="mle-and-hypothesis-testing.html#cb65-3"></a> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">MSPE_probit =</span> <span class="kw">mean</span>((PROBIT<span class="op">-</span>good)<span class="op">^</span><span class="dv">2</span>),</span>
+<span id="cb65-4"><a href="mle-and-hypothesis-testing.html#cb65-4"></a>              <span class="dt">MSPE_geometry =</span> <span class="kw">mean</span>((GEOMETRY<span class="op">-</span>good)<span class="op">^</span><span class="dv">2</span>),</span>
+<span id="cb65-5"><a href="mle-and-hypothesis-testing.html#cb65-5"></a>              <span class="dt">L_probit =</span> <span class="op">-</span><span class="kw">mean</span>(good<span class="op">*</span><span class="kw">log</span>(PROBIT)<span class="op">+</span>(<span class="dv">1</span><span class="op">-</span>good)<span class="op">*</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">-</span>PROBIT)),</span>
+<span id="cb65-6"><a href="mle-and-hypothesis-testing.html#cb65-6"></a>              <span class="dt">L_geometry =</span> <span class="op">-</span><span class="kw">mean</span>(good<span class="op">*</span><span class="kw">log</span>(GEOMETRY)<span class="op">+</span>(<span class="dv">1</span><span class="op">-</span>good)<span class="op">*</span><span class="kw">log</span>(<span class="dv">1</span><span class="op">-</span>GEOMETRY)),</span>
+<span id="cb65-7"><a href="mle-and-hypothesis-testing.html#cb65-7"></a> )</span>
+<span id="cb65-8"><a href="mle-and-hypothesis-testing.html#cb65-8"></a></span>
+<span id="cb65-9"><a href="mle-and-hypothesis-testing.html#cb65-9"></a> </span>
+<span id="cb65-10"><a href="mle-and-hypothesis-testing.html#cb65-10"></a>   </span>
+<span id="cb65-11"><a href="mle-and-hypothesis-testing.html#cb65-11"></a>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</span></code></pre></div>
+<table>
+<tbody>
+<tr>
+<td style="text-align:left;">
+MSPE_probit
+</td>
+<td style="text-align:right;">
+0.1168495
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MSPE_geometry
+</td>
+<td style="text-align:right;">
+0.1194254
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+L_probit
+</td>
+<td style="text-align:right;">
+0.3781136
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+L_geometry
+</td>
+<td style="text-align:right;">
+0.3835788
+</td>
+</tr>
+</tbody>
+</table>
+<p>See video by Jim Savage here: <a href="https://www.youtube.com/watch?v=XX1IWVVpZ7A" class="uri">https://www.youtube.com/watch?v=XX1IWVVpZ7A</a></p>
+</div>
+</div>
 </div>
             </section>
 
