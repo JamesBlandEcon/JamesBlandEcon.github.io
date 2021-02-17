@@ -182,6 +182,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="bayes-rule.html"><a href="bayes-rule.html#more-generally"><i class="fa fa-check"></i><b>4.4</b> More generally</a></li>
 <li class="chapter" data-level="4.5" data-path="bayes-rule.html"><a href="bayes-rule.html#example-from-ps3---i"><i class="fa fa-check"></i><b>4.5</b> Example from PS3 - I</a></li>
 <li class="chapter" data-level="4.6" data-path="bayes-rule.html"><a href="bayes-rule.html#example-ii"><i class="fa fa-check"></i><b>4.6</b> Example, II</a></li>
+<li class="chapter" data-level="4.7" data-path="bayes-rule.html"><a href="bayes-rule.html#example-iii"><i class="fa fa-check"></i><b>4.7</b> Example, III</a></li>
+<li class="chapter" data-level="4.8" data-path="bayes-rule.html"><a href="bayes-rule.html#example-iv"><i class="fa fa-check"></i><b>4.8</b> Example, IV</a></li>
+<li class="chapter" data-level="4.9" data-path="bayes-rule.html"><a href="bayes-rule.html#example-v"><i class="fa fa-check"></i><b>4.9</b> Example, V</a></li>
+<li class="chapter" data-level="4.10" data-path="bayes-rule.html"><a href="bayes-rule.html#example-vi"><i class="fa fa-check"></i><b>4.10</b> Example, VI</a></li>
+<li class="chapter" data-level="4.11" data-path="bayes-rule.html"><a href="bayes-rule.html#example-vii"><i class="fa fa-check"></i><b>4.11</b> Example, VII</a></li>
+<li class="chapter" data-level="4.12" data-path="bayes-rule.html"><a href="bayes-rule.html#example-viii"><i class="fa fa-check"></i><b>4.12</b> Example, VIII</a></li>
+<li class="chapter" data-level="4.13" data-path="bayes-rule.html"><a href="bayes-rule.html#example-ix"><i class="fa fa-check"></i><b>4.13</b> Example, IX</a></li>
+<li class="chapter" data-level="4.14" data-path="bayes-rule.html"><a href="bayes-rule.html#example-x"><i class="fa fa-check"></i><b>4.14</b> Example, X</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="masters-only-content-econ-6260.html"><a href="masters-only-content-econ-6260.html"><i class="fa fa-check"></i>Masters-only content (ECON 6260)</a></li>
 <li class="chapter" data-level="5" data-path="reading-which-is-the-fair-sex.html"><a href="reading-which-is-the-fair-sex.html"><i class="fa fa-check"></i><b>5</b> Reading: Which is the fair sex?</a><ul>
@@ -212,6 +220,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#instructions"><i class="fa fa-check"></i><b>10.1</b> Instructions</a></li>
 <li class="chapter" data-level="10.2" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#data-description"><i class="fa fa-check"></i><b>10.2</b> Data Description</a></li>
 <li class="chapter" data-level="10.3" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#questions-1"><i class="fa fa-check"></i><b>10.3</b> Questions</a></li>
+<li class="chapter" data-level="10.4" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#solutions-3"><i class="fa fa-check"></i><b>10.4</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="search.html"><a href="search.html"><i class="fa fa-check"></i><b>11</b> Search</a><ul>
+<li class="chapter" data-level="11.1" data-path="search.html"><a href="search.html#instructions-1"><i class="fa fa-check"></i><b>11.1</b> Instructions</a></li>
+<li class="chapter" data-level="11.2" data-path="search.html"><a href="search.html#questions-2"><i class="fa fa-check"></i><b>11.2</b> Questions</a></li>
 </ul></li>
 </ul>
 
@@ -256,26 +269,26 @@ Produce a plot with the expected value of each choice on the horizontal axis, an
 </div>
 <div id="solutions-2" class="section level2">
 <h2><span class="header-section-number">9.2</span> Solutions</h2>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="risk.html#cb43-1"></a><span class="kw">library</span>(tidyr)</span>
-<span id="cb43-2"><a href="risk.html#cb43-2"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb43-3"><a href="risk.html#cb43-3"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb43-4"><a href="risk.html#cb43-4"></a><span class="co"># load the data</span></span>
-<span id="cb43-5"><a href="risk.html#cb43-5"></a>D&lt;-<span class="kw">data.frame</span>(<span class="kw">read.csv</span>(<span class="st">&quot;PS03Data.csv&quot;</span>))</span>
-<span id="cb43-6"><a href="risk.html#cb43-6"></a>P&lt;-<span class="kw">data.frame</span>(<span class="kw">read.csv</span>(<span class="st">&quot;PS03Parameters.csv&quot;</span>))</span>
-<span id="cb43-7"><a href="risk.html#cb43-7"></a></span>
-<span id="cb43-8"><a href="risk.html#cb43-8"></a>r&lt;-<span class="fl">0.2</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="risk.html#cb46-1"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb46-2"><a href="risk.html#cb46-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb46-3"><a href="risk.html#cb46-3"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb46-4"><a href="risk.html#cb46-4"></a><span class="co"># load the data</span></span>
+<span id="cb46-5"><a href="risk.html#cb46-5"></a>D&lt;-<span class="kw">data.frame</span>(<span class="kw">read.csv</span>(<span class="st">&quot;PS03Data.csv&quot;</span>))</span>
+<span id="cb46-6"><a href="risk.html#cb46-6"></a>P&lt;-<span class="kw">data.frame</span>(<span class="kw">read.csv</span>(<span class="st">&quot;PS03Parameters.csv&quot;</span>))</span>
+<span id="cb46-7"><a href="risk.html#cb46-7"></a></span>
+<span id="cb46-8"><a href="risk.html#cb46-8"></a>r&lt;-<span class="fl">0.2</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Calculate the expected value of each option, and the expected utility of each option, assuming that everyone have utility function <span class="math inline">\(u(x)=x^{0.2}\)</span></li>
 </ol>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="risk.html#cb44-1"></a>P&lt;-(P</span>
-<span id="cb44-2"><a href="risk.html#cb44-2"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
-<span id="cb44-3"><a href="risk.html#cb44-3"></a>    <span class="dt">EVA =</span> Aprob1<span class="op">*</span>Aprize1 <span class="op">+</span><span class="st"> </span>Aprob2<span class="op">*</span>Aprize2 <span class="op">+</span><span class="st"> </span>Aprob3<span class="op">*</span>Aprize3,</span>
-<span id="cb44-4"><a href="risk.html#cb44-4"></a>    <span class="dt">EVB =</span> Bprob1<span class="op">*</span>Bprize1 <span class="op">+</span><span class="st"> </span>Bprob2<span class="op">*</span>Bprize2 <span class="op">+</span><span class="st"> </span>Bprob3<span class="op">*</span>Bprize3,</span>
-<span id="cb44-5"><a href="risk.html#cb44-5"></a>    <span class="dt">EUA =</span> Aprob1<span class="op">*</span>Aprize1<span class="op">^</span>r <span class="op">+</span><span class="st"> </span>Aprob2<span class="op">*</span>Aprize2<span class="op">^</span>r <span class="op">+</span><span class="st"> </span>Aprob3<span class="op">*</span>Aprize3<span class="op">^</span>r,</span>
-<span id="cb44-6"><a href="risk.html#cb44-6"></a>    <span class="dt">EUB =</span> Bprob1<span class="op">*</span>Bprize1<span class="op">^</span>r <span class="op">+</span><span class="st"> </span>Bprob2<span class="op">*</span>Bprize2<span class="op">^</span>r <span class="op">+</span><span class="st"> </span>Bprob3<span class="op">*</span>Bprize3<span class="op">^</span>r)</span>
-<span id="cb44-7"><a href="risk.html#cb44-7"></a>)</span>
-<span id="cb44-8"><a href="risk.html#cb44-8"></a></span>
-<span id="cb44-9"><a href="risk.html#cb44-9"></a>knitr<span class="op">::</span><span class="kw">kable</span>(P <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Problem.Number,EVA,EVB,EUA,EUB))</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="risk.html#cb47-1"></a>P&lt;-(P</span>
+<span id="cb47-2"><a href="risk.html#cb47-2"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
+<span id="cb47-3"><a href="risk.html#cb47-3"></a>    <span class="dt">EVA =</span> Aprob1<span class="op">*</span>Aprize1 <span class="op">+</span><span class="st"> </span>Aprob2<span class="op">*</span>Aprize2 <span class="op">+</span><span class="st"> </span>Aprob3<span class="op">*</span>Aprize3,</span>
+<span id="cb47-4"><a href="risk.html#cb47-4"></a>    <span class="dt">EVB =</span> Bprob1<span class="op">*</span>Bprize1 <span class="op">+</span><span class="st"> </span>Bprob2<span class="op">*</span>Bprize2 <span class="op">+</span><span class="st"> </span>Bprob3<span class="op">*</span>Bprize3,</span>
+<span id="cb47-5"><a href="risk.html#cb47-5"></a>    <span class="dt">EUA =</span> Aprob1<span class="op">*</span>Aprize1<span class="op">^</span>r <span class="op">+</span><span class="st"> </span>Aprob2<span class="op">*</span>Aprize2<span class="op">^</span>r <span class="op">+</span><span class="st"> </span>Aprob3<span class="op">*</span>Aprize3<span class="op">^</span>r,</span>
+<span id="cb47-6"><a href="risk.html#cb47-6"></a>    <span class="dt">EUB =</span> Bprob1<span class="op">*</span>Bprize1<span class="op">^</span>r <span class="op">+</span><span class="st"> </span>Bprob2<span class="op">*</span>Bprize2<span class="op">^</span>r <span class="op">+</span><span class="st"> </span>Bprob3<span class="op">*</span>Bprize3<span class="op">^</span>r)</span>
+<span id="cb47-7"><a href="risk.html#cb47-7"></a>)</span>
+<span id="cb47-8"><a href="risk.html#cb47-8"></a></span>
+<span id="cb47-9"><a href="risk.html#cb47-9"></a>knitr<span class="op">::</span><span class="kw">kable</span>(P <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Problem.Number,EVA,EVB,EUA,EUB))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -484,9 +497,9 @@ C&amp;=\left(0.5\times 0^{r}+0.5\times 1^{r}\right)^{1/r}\\
 and so <span class="math inline">\(0.5^{1/0.2}=0.5^5\approx\$0.031\)</span>
 Produce a plot with the expected value of each choice on the horizontal axis, and the certainty equivalent of each choice on the vertical axis. Incluse a <span class="math inline">\(45^\circ\)</span> line (i.e. plot <span class="math inline">\(y=x\)</span>), and explain the relationship between this line and the points that you have plot.</li>
 </ol>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="risk.html#cb45-1"></a>P&lt;-P <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">CEA =</span> EUA<span class="op">^</span>{<span class="dv">1</span><span class="op">/</span>r},<span class="dt">CEB =</span> EUB<span class="op">^</span>{<span class="dv">1</span><span class="op">/</span>r})</span>
-<span id="cb45-2"><a href="risk.html#cb45-2"></a></span>
-<span id="cb45-3"><a href="risk.html#cb45-3"></a>knitr<span class="op">::</span><span class="kw">kable</span>(P <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Problem.Number,CEA,CEB))</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="risk.html#cb48-1"></a>P&lt;-P <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">CEA =</span> EUA<span class="op">^</span>{<span class="dv">1</span><span class="op">/</span>r},<span class="dt">CEB =</span> EUB<span class="op">^</span>{<span class="dv">1</span><span class="op">/</span>r})</span>
+<span id="cb48-2"><a href="risk.html#cb48-2"></a></span>
+<span id="cb48-3"><a href="risk.html#cb48-3"></a>knitr<span class="op">::</span><span class="kw">kable</span>(P <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Problem.Number,CEA,CEB))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -614,46 +627,46 @@ CEB
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="risk.html#cb46-1"></a>PlotThis&lt;-P <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Problem.Number,EVA,CEA)</span>
-<span id="cb46-2"><a href="risk.html#cb46-2"></a><span class="kw">colnames</span>(PlotThis)&lt;-<span class="kw">c</span>(<span class="st">&quot;Problem.Number&quot;</span>,<span class="st">&quot;EV&quot;</span>,<span class="st">&quot;CE&quot;</span>)</span>
-<span id="cb46-3"><a href="risk.html#cb46-3"></a>PlotThis<span class="op">$</span>choice=<span class="st">&quot;a&quot;</span></span>
-<span id="cb46-4"><a href="risk.html#cb46-4"></a></span>
-<span id="cb46-5"><a href="risk.html#cb46-5"></a>tmp&lt;-P <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Problem.Number,EVB,CEB)</span>
-<span id="cb46-6"><a href="risk.html#cb46-6"></a><span class="kw">colnames</span>(tmp)&lt;-<span class="kw">c</span>(<span class="st">&quot;Problem.Number&quot;</span>,<span class="st">&quot;EV&quot;</span>,<span class="st">&quot;CE&quot;</span>)</span>
-<span id="cb46-7"><a href="risk.html#cb46-7"></a>tmp<span class="op">$</span>choice=<span class="st">&quot;b&quot;</span></span>
-<span id="cb46-8"><a href="risk.html#cb46-8"></a></span>
-<span id="cb46-9"><a href="risk.html#cb46-9"></a>PlotThis&lt;-<span class="kw">rbind</span>(PlotThis,tmp) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">choice=</span><span class="kw">paste0</span>(choice,Problem.Number))</span>
-<span id="cb46-10"><a href="risk.html#cb46-10"></a></span>
-<span id="cb46-11"><a href="risk.html#cb46-11"></a>(</span>
-<span id="cb46-12"><a href="risk.html#cb46-12"></a>  <span class="kw">ggplot</span>(PlotThis,<span class="kw">aes</span>(<span class="dt">x=</span>EV,<span class="dt">y=</span>CE,<span class="dt">label=</span>choice))</span>
-<span id="cb46-13"><a href="risk.html#cb46-13"></a>  <span class="op">+</span><span class="kw">geom_text</span>()</span>
-<span id="cb46-14"><a href="risk.html#cb46-14"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
-<span id="cb46-15"><a href="risk.html#cb46-15"></a>  <span class="op">+</span><span class="kw">geom_abline</span>(<span class="dt">intercept=</span><span class="dv">0</span>,<span class="dt">slope=</span><span class="dv">1</span>,<span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</span>
-<span id="cb46-16"><a href="risk.html#cb46-16"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Expected value ($)&quot;</span>)</span>
-<span id="cb46-17"><a href="risk.html#cb46-17"></a>  <span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Certainty equivalent ($)&quot;</span>)</span>
-<span id="cb46-18"><a href="risk.html#cb46-18"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="risk.html#cb49-1"></a>PlotThis&lt;-P <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Problem.Number,EVA,CEA)</span>
+<span id="cb49-2"><a href="risk.html#cb49-2"></a><span class="kw">colnames</span>(PlotThis)&lt;-<span class="kw">c</span>(<span class="st">&quot;Problem.Number&quot;</span>,<span class="st">&quot;EV&quot;</span>,<span class="st">&quot;CE&quot;</span>)</span>
+<span id="cb49-3"><a href="risk.html#cb49-3"></a>PlotThis<span class="op">$</span>choice=<span class="st">&quot;a&quot;</span></span>
+<span id="cb49-4"><a href="risk.html#cb49-4"></a></span>
+<span id="cb49-5"><a href="risk.html#cb49-5"></a>tmp&lt;-P <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Problem.Number,EVB,CEB)</span>
+<span id="cb49-6"><a href="risk.html#cb49-6"></a><span class="kw">colnames</span>(tmp)&lt;-<span class="kw">c</span>(<span class="st">&quot;Problem.Number&quot;</span>,<span class="st">&quot;EV&quot;</span>,<span class="st">&quot;CE&quot;</span>)</span>
+<span id="cb49-7"><a href="risk.html#cb49-7"></a>tmp<span class="op">$</span>choice=<span class="st">&quot;b&quot;</span></span>
+<span id="cb49-8"><a href="risk.html#cb49-8"></a></span>
+<span id="cb49-9"><a href="risk.html#cb49-9"></a>PlotThis&lt;-<span class="kw">rbind</span>(PlotThis,tmp) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">choice=</span><span class="kw">paste0</span>(choice,Problem.Number))</span>
+<span id="cb49-10"><a href="risk.html#cb49-10"></a></span>
+<span id="cb49-11"><a href="risk.html#cb49-11"></a>(</span>
+<span id="cb49-12"><a href="risk.html#cb49-12"></a>  <span class="kw">ggplot</span>(PlotThis,<span class="kw">aes</span>(<span class="dt">x=</span>EV,<span class="dt">y=</span>CE,<span class="dt">label=</span>choice))</span>
+<span id="cb49-13"><a href="risk.html#cb49-13"></a>  <span class="op">+</span><span class="kw">geom_text</span>()</span>
+<span id="cb49-14"><a href="risk.html#cb49-14"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb49-15"><a href="risk.html#cb49-15"></a>  <span class="op">+</span><span class="kw">geom_abline</span>(<span class="dt">intercept=</span><span class="dv">0</span>,<span class="dt">slope=</span><span class="dv">1</span>,<span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb49-16"><a href="risk.html#cb49-16"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Expected value ($)&quot;</span>)</span>
+<span id="cb49-17"><a href="risk.html#cb49-17"></a>  <span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Certainty equivalent ($)&quot;</span>)</span>
+<span id="cb49-18"><a href="risk.html#cb49-18"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <p>All of the points are below the <span class="math inline">\(45^\circ\)</span> line. This is because we are modeling risk-averse preferences. That is if you are risk-averse, you would prefer the expected value to the lottery, so the certainty equivalent must necessarily be lower.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>On a separate graph, plot the expected value of choice a (horizontal axis) against the expected value of choice b (vertical axis). Also plot the certainty equivalents. Add a <span class="math inline">\(45^\circ\)</span> line. What does a point being above (or to the right of) this line mean?</li>
 </ol>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="risk.html#cb47-1"></a>(</span>
-<span id="cb47-2"><a href="risk.html#cb47-2"></a>  <span class="kw">ggplot</span>(<span class="dt">data=</span>P)</span>
-<span id="cb47-3"><a href="risk.html#cb47-3"></a>  <span class="op">+</span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span>CEA,<span class="dt">y=</span>CEB,<span class="dt">label=</span><span class="kw">paste</span>(Problem.Number),<span class="dt">color=</span><span class="st">&quot;Certainty Equivalent&quot;</span>))</span>
-<span id="cb47-4"><a href="risk.html#cb47-4"></a>  <span class="op">+</span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span>EVA,<span class="dt">y=</span>EVB,<span class="dt">label=</span><span class="kw">paste</span>(Problem.Number),<span class="dt">color=</span><span class="st">&quot;Expected Value&quot;</span>))</span>
-<span id="cb47-5"><a href="risk.html#cb47-5"></a>  <span class="op">+</span><span class="kw">geom_abline</span>(<span class="dt">intercept=</span><span class="dv">0</span>,<span class="dt">slope=</span><span class="dv">1</span>)</span>
-<span id="cb47-6"><a href="risk.html#cb47-6"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
-<span id="cb47-7"><a href="risk.html#cb47-7"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Choice a ($)&quot;</span>)</span>
-<span id="cb47-8"><a href="risk.html#cb47-8"></a>  <span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Choice b ($)&quot;</span>)</span>
-<span id="cb47-9"><a href="risk.html#cb47-9"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="risk.html#cb50-1"></a>(</span>
+<span id="cb50-2"><a href="risk.html#cb50-2"></a>  <span class="kw">ggplot</span>(<span class="dt">data=</span>P)</span>
+<span id="cb50-3"><a href="risk.html#cb50-3"></a>  <span class="op">+</span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span>CEA,<span class="dt">y=</span>CEB,<span class="dt">label=</span><span class="kw">paste</span>(Problem.Number),<span class="dt">color=</span><span class="st">&quot;Certainty Equivalent&quot;</span>))</span>
+<span id="cb50-4"><a href="risk.html#cb50-4"></a>  <span class="op">+</span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span>EVA,<span class="dt">y=</span>EVB,<span class="dt">label=</span><span class="kw">paste</span>(Problem.Number),<span class="dt">color=</span><span class="st">&quot;Expected Value&quot;</span>))</span>
+<span id="cb50-5"><a href="risk.html#cb50-5"></a>  <span class="op">+</span><span class="kw">geom_abline</span>(<span class="dt">intercept=</span><span class="dv">0</span>,<span class="dt">slope=</span><span class="dv">1</span>)</span>
+<span id="cb50-6"><a href="risk.html#cb50-6"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb50-7"><a href="risk.html#cb50-7"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Choice a ($)&quot;</span>)</span>
+<span id="cb50-8"><a href="risk.html#cb50-8"></a>  <span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Choice b ($)&quot;</span>)</span>
+<span id="cb50-9"><a href="risk.html#cb50-9"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 <p>4u. (undergrad students only) For each participant in the experiment, determine whether there decisions look more like maximizing <span class="math inline">\(E(X)\)</span> or <span class="math inline">\(E(u(x))\)</span>. Report the fraction of subjects for each type. This is a deliberately vague question. <em>Hint:</em> Start by thinking about the predictions for each of these models.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="risk.html#cb48-1"></a><span class="co"># Determine the predictions</span></span>
-<span id="cb48-2"><a href="risk.html#cb48-2"></a>P&lt;-(P</span>
-<span id="cb48-3"><a href="risk.html#cb48-3"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">EV_ChooseA =</span> <span class="dv">1</span><span class="op">*</span>(EVA<span class="op">&gt;=</span>EVB),<span class="dt">EU_ChooseA =</span> <span class="dv">1</span><span class="op">*</span>(EUA<span class="op">&gt;=</span>EUB))</span>
-<span id="cb48-4"><a href="risk.html#cb48-4"></a>)</span>
-<span id="cb48-5"><a href="risk.html#cb48-5"></a></span>
-<span id="cb48-6"><a href="risk.html#cb48-6"></a>knitr<span class="op">::</span><span class="kw">kable</span>(P <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Problem.Number,EV_ChooseA,EU_ChooseA))</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="risk.html#cb51-1"></a><span class="co"># Determine the predictions</span></span>
+<span id="cb51-2"><a href="risk.html#cb51-2"></a>P&lt;-(P</span>
+<span id="cb51-3"><a href="risk.html#cb51-3"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">EV_ChooseA =</span> <span class="dv">1</span><span class="op">*</span>(EVA<span class="op">&gt;=</span>EVB),<span class="dt">EU_ChooseA =</span> <span class="dv">1</span><span class="op">*</span>(EUA<span class="op">&gt;=</span>EUB))</span>
+<span id="cb51-4"><a href="risk.html#cb51-4"></a>)</span>
+<span id="cb51-5"><a href="risk.html#cb51-5"></a></span>
+<span id="cb51-6"><a href="risk.html#cb51-6"></a>knitr<span class="op">::</span><span class="kw">kable</span>(P <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Problem.Number,EV_ChooseA,EU_ChooseA))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -781,21 +794,21 @@ EU_ChooseA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="risk.html#cb49-1"></a><span class="co">## Merge the predictions into the data</span></span>
-<span id="cb49-2"><a href="risk.html#cb49-2"></a></span>
-<span id="cb49-3"><a href="risk.html#cb49-3"></a>D&lt;-(D <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(P,<span class="dt">by=</span><span class="st">&quot;Problem.Number&quot;</span>)</span>
-<span id="cb49-4"><a href="risk.html#cb49-4"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">ChoseA =</span> <span class="dv">1</span><span class="op">*</span>(Decision<span class="op">==</span><span class="st">&quot;a&quot;</span>))</span>
-<span id="cb49-5"><a href="risk.html#cb49-5"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="risk.html#cb52-1"></a><span class="co">## Merge the predictions into the data</span></span>
+<span id="cb52-2"><a href="risk.html#cb52-2"></a></span>
+<span id="cb52-3"><a href="risk.html#cb52-3"></a>D&lt;-(D <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(P,<span class="dt">by=</span><span class="st">&quot;Problem.Number&quot;</span>)</span>
+<span id="cb52-4"><a href="risk.html#cb52-4"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">ChoseA =</span> <span class="dv">1</span><span class="op">*</span>(Decision<span class="op">==</span><span class="st">&quot;a&quot;</span>))</span>
+<span id="cb52-5"><a href="risk.html#cb52-5"></a>)</span></code></pre></div>
 <p>Here I will use a similarity index: I will evaluate the fraction of decisions a subject made that was consistent with each prediction.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="risk.html#cb50-1"></a>Tab&lt;-(D <span class="op">%&gt;%</span><span class="kw">group_by</span>(ID)</span>
-<span id="cb50-2"><a href="risk.html#cb50-2"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(</span>
-<span id="cb50-3"><a href="risk.html#cb50-3"></a>    <span class="dt">fracEV=</span><span class="kw">mean</span>(<span class="dv">1</span><span class="op">*</span>(ChoseA<span class="op">==</span>EV_ChooseA)),</span>
-<span id="cb50-4"><a href="risk.html#cb50-4"></a>    <span class="dt">fracEU=</span><span class="kw">mean</span>(<span class="dv">1</span><span class="op">*</span>(ChoseA<span class="op">==</span>EU_ChooseA))</span>
-<span id="cb50-5"><a href="risk.html#cb50-5"></a>  )</span>
-<span id="cb50-6"><a href="risk.html#cb50-6"></a> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">EUtype=</span>(fracEV<span class="op">&lt;=</span>fracEU))</span>
-<span id="cb50-7"><a href="risk.html#cb50-7"></a>)</span>
-<span id="cb50-8"><a href="risk.html#cb50-8"></a></span>
-<span id="cb50-9"><a href="risk.html#cb50-9"></a>knitr<span class="op">::</span><span class="kw">kable</span>(Tab)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="risk.html#cb53-1"></a>Tab&lt;-(D <span class="op">%&gt;%</span><span class="kw">group_by</span>(ID)</span>
+<span id="cb53-2"><a href="risk.html#cb53-2"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(</span>
+<span id="cb53-3"><a href="risk.html#cb53-3"></a>    <span class="dt">fracEV=</span><span class="kw">mean</span>(<span class="dv">1</span><span class="op">*</span>(ChoseA<span class="op">==</span>EV_ChooseA)),</span>
+<span id="cb53-4"><a href="risk.html#cb53-4"></a>    <span class="dt">fracEU=</span><span class="kw">mean</span>(<span class="dv">1</span><span class="op">*</span>(ChoseA<span class="op">==</span>EU_ChooseA))</span>
+<span id="cb53-5"><a href="risk.html#cb53-5"></a>  )</span>
+<span id="cb53-6"><a href="risk.html#cb53-6"></a> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">EUtype=</span>(fracEV<span class="op">&lt;=</span>fracEU))</span>
+<span id="cb53-7"><a href="risk.html#cb53-7"></a>)</span>
+<span id="cb53-8"><a href="risk.html#cb53-8"></a></span>
+<span id="cb53-9"><a href="risk.html#cb53-9"></a>knitr<span class="op">::</span><span class="kw">kable</span>(Tab)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -958,54 +971,54 @@ TRUE
 </table>
 <p>Which means that 40% of you behaved more like expected value-maximizers compared to expected utility-maximizers with utility function <span class="math inline">\(u(x)=x^{0.2}\)</span>.</p>
 <p>4m. (masters students only) Estimate <span class="math inline">\(r\)</span> for all participants in the experiment, where <span class="math inline">\(r\)</span> is the parameter in the utility function <span class="math inline">\(u(x)=x^r\)</span>. Consider values for <span class="math inline">\(r\)</span> in the range <span class="math inline">\((0.1,1.5)\)</span></p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="risk.html#cb51-1"></a>rgrid&lt;-<span class="kw">seq</span>(<span class="fl">0.1</span>,<span class="fl">1.5</span>,<span class="dt">length=</span><span class="dv">100</span>)</span>
-<span id="cb51-2"><a href="risk.html#cb51-2"></a></span>
-<span id="cb51-3"><a href="risk.html#cb51-3"></a>pltData&lt;-<span class="kw">data.frame</span>()</span>
-<span id="cb51-4"><a href="risk.html#cb51-4"></a></span>
-<span id="cb51-5"><a href="risk.html#cb51-5"></a><span class="cf">for</span> (rr <span class="cf">in</span> rgrid) {</span>
-<span id="cb51-6"><a href="risk.html#cb51-6"></a>  <span class="co"># predictions</span></span>
-<span id="cb51-7"><a href="risk.html#cb51-7"></a>  Pr&lt;-(P</span>
-<span id="cb51-8"><a href="risk.html#cb51-8"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
-<span id="cb51-9"><a href="risk.html#cb51-9"></a>    <span class="dt">EUA =</span> Aprob1<span class="op">*</span>Aprize1<span class="op">^</span>rr <span class="op">+</span><span class="st"> </span>Aprob2<span class="op">*</span>Aprize2<span class="op">^</span>rr <span class="op">+</span><span class="st"> </span>Aprob3<span class="op">*</span>Aprize3<span class="op">^</span>rr,</span>
-<span id="cb51-10"><a href="risk.html#cb51-10"></a>    <span class="dt">EUB =</span> Bprob1<span class="op">*</span>Bprize1<span class="op">^</span>rr <span class="op">+</span><span class="st"> </span>Bprob2<span class="op">*</span>Bprize2<span class="op">^</span>rr <span class="op">+</span><span class="st"> </span>Bprob3<span class="op">*</span>Bprize3<span class="op">^</span>rr)</span>
-<span id="cb51-11"><a href="risk.html#cb51-11"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">prediction=</span>(<span class="dv">1</span><span class="op">*</span>EUA<span class="op">&gt;=</span>EUB))</span>
-<span id="cb51-12"><a href="risk.html#cb51-12"></a>)</span>
-<span id="cb51-13"><a href="risk.html#cb51-13"></a>  </span>
-<span id="cb51-14"><a href="risk.html#cb51-14"></a></span>
-<span id="cb51-15"><a href="risk.html#cb51-15"></a>  </span>
-<span id="cb51-16"><a href="risk.html#cb51-16"></a> Dr&lt;-<span class="st"> </span>(D <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ID,ChoseA,Problem.Number)</span>
-<span id="cb51-17"><a href="risk.html#cb51-17"></a>         <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(Pr,<span class="dt">by=</span><span class="st">&quot;Problem.Number&quot;</span>)</span>
-<span id="cb51-18"><a href="risk.html#cb51-18"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(ID)</span>
-<span id="cb51-19"><a href="risk.html#cb51-19"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">frac=</span><span class="kw">mean</span>(<span class="dv">1</span><span class="op">*</span>(ChoseA<span class="op">==</span>prediction)))</span>
-<span id="cb51-20"><a href="risk.html#cb51-20"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">r=</span>rr)</span>
-<span id="cb51-21"><a href="risk.html#cb51-21"></a> )</span>
-<span id="cb51-22"><a href="risk.html#cb51-22"></a> </span>
-<span id="cb51-23"><a href="risk.html#cb51-23"></a>  pltData&lt;-<span class="kw">rbind</span>(pltData,Dr)</span>
-<span id="cb51-24"><a href="risk.html#cb51-24"></a>}</span>
-<span id="cb51-25"><a href="risk.html#cb51-25"></a></span>
-<span id="cb51-26"><a href="risk.html#cb51-26"></a>GroupAverage&lt;-pltData <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(r) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">frac=</span><span class="kw">mean</span>(frac))</span>
-<span id="cb51-27"><a href="risk.html#cb51-27"></a></span>
-<span id="cb51-28"><a href="risk.html#cb51-28"></a>(<span class="kw">ggplot</span>(pltData,<span class="kw">aes</span>(<span class="dt">x=</span>r,<span class="dt">y=</span>frac,<span class="dt">color=</span><span class="kw">as.factor</span>(ID)))</span>
-<span id="cb51-29"><a href="risk.html#cb51-29"></a>  <span class="op">+</span><span class="kw">geom_line</span>()</span>
-<span id="cb51-30"><a href="risk.html#cb51-30"></a>  <span class="op">+</span><span class="kw">geom_line</span>(<span class="dt">data=</span>GroupAverage,<span class="kw">aes</span>(<span class="dt">x=</span>r,<span class="dt">y=</span>frac),<span class="dt">color=</span><span class="st">&quot;black&quot;</span>,<span class="dt">size=</span><span class="dv">2</span>)</span>
-<span id="cb51-31"><a href="risk.html#cb51-31"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
-<span id="cb51-32"><a href="risk.html#cb51-32"></a>  <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>)</span>
-<span id="cb51-33"><a href="risk.html#cb51-33"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;r&quot;</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Fraction of decisions consistent with r&quot;</span>)</span>
-<span id="cb51-34"><a href="risk.html#cb51-34"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-59-1.png" width="672" />
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="risk.html#cb54-1"></a>rgrid&lt;-<span class="kw">seq</span>(<span class="fl">0.1</span>,<span class="fl">1.5</span>,<span class="dt">length=</span><span class="dv">100</span>)</span>
+<span id="cb54-2"><a href="risk.html#cb54-2"></a></span>
+<span id="cb54-3"><a href="risk.html#cb54-3"></a>pltData&lt;-<span class="kw">data.frame</span>()</span>
+<span id="cb54-4"><a href="risk.html#cb54-4"></a></span>
+<span id="cb54-5"><a href="risk.html#cb54-5"></a><span class="cf">for</span> (rr <span class="cf">in</span> rgrid) {</span>
+<span id="cb54-6"><a href="risk.html#cb54-6"></a>  <span class="co"># predictions</span></span>
+<span id="cb54-7"><a href="risk.html#cb54-7"></a>  Pr&lt;-(P</span>
+<span id="cb54-8"><a href="risk.html#cb54-8"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
+<span id="cb54-9"><a href="risk.html#cb54-9"></a>    <span class="dt">EUA =</span> Aprob1<span class="op">*</span>Aprize1<span class="op">^</span>rr <span class="op">+</span><span class="st"> </span>Aprob2<span class="op">*</span>Aprize2<span class="op">^</span>rr <span class="op">+</span><span class="st"> </span>Aprob3<span class="op">*</span>Aprize3<span class="op">^</span>rr,</span>
+<span id="cb54-10"><a href="risk.html#cb54-10"></a>    <span class="dt">EUB =</span> Bprob1<span class="op">*</span>Bprize1<span class="op">^</span>rr <span class="op">+</span><span class="st"> </span>Bprob2<span class="op">*</span>Bprize2<span class="op">^</span>rr <span class="op">+</span><span class="st"> </span>Bprob3<span class="op">*</span>Bprize3<span class="op">^</span>rr)</span>
+<span id="cb54-11"><a href="risk.html#cb54-11"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">prediction=</span>(<span class="dv">1</span><span class="op">*</span>EUA<span class="op">&gt;=</span>EUB))</span>
+<span id="cb54-12"><a href="risk.html#cb54-12"></a>)</span>
+<span id="cb54-13"><a href="risk.html#cb54-13"></a>  </span>
+<span id="cb54-14"><a href="risk.html#cb54-14"></a></span>
+<span id="cb54-15"><a href="risk.html#cb54-15"></a>  </span>
+<span id="cb54-16"><a href="risk.html#cb54-16"></a> Dr&lt;-<span class="st"> </span>(D <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ID,ChoseA,Problem.Number)</span>
+<span id="cb54-17"><a href="risk.html#cb54-17"></a>         <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(Pr,<span class="dt">by=</span><span class="st">&quot;Problem.Number&quot;</span>)</span>
+<span id="cb54-18"><a href="risk.html#cb54-18"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(ID)</span>
+<span id="cb54-19"><a href="risk.html#cb54-19"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">frac=</span><span class="kw">mean</span>(<span class="dv">1</span><span class="op">*</span>(ChoseA<span class="op">==</span>prediction)))</span>
+<span id="cb54-20"><a href="risk.html#cb54-20"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">r=</span>rr)</span>
+<span id="cb54-21"><a href="risk.html#cb54-21"></a> )</span>
+<span id="cb54-22"><a href="risk.html#cb54-22"></a> </span>
+<span id="cb54-23"><a href="risk.html#cb54-23"></a>  pltData&lt;-<span class="kw">rbind</span>(pltData,Dr)</span>
+<span id="cb54-24"><a href="risk.html#cb54-24"></a>}</span>
+<span id="cb54-25"><a href="risk.html#cb54-25"></a></span>
+<span id="cb54-26"><a href="risk.html#cb54-26"></a>GroupAverage&lt;-pltData <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(r) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">frac=</span><span class="kw">mean</span>(frac))</span>
+<span id="cb54-27"><a href="risk.html#cb54-27"></a></span>
+<span id="cb54-28"><a href="risk.html#cb54-28"></a>(<span class="kw">ggplot</span>(pltData,<span class="kw">aes</span>(<span class="dt">x=</span>r,<span class="dt">y=</span>frac,<span class="dt">color=</span><span class="kw">as.factor</span>(ID)))</span>
+<span id="cb54-29"><a href="risk.html#cb54-29"></a>  <span class="op">+</span><span class="kw">geom_line</span>()</span>
+<span id="cb54-30"><a href="risk.html#cb54-30"></a>  <span class="op">+</span><span class="kw">geom_line</span>(<span class="dt">data=</span>GroupAverage,<span class="kw">aes</span>(<span class="dt">x=</span>r,<span class="dt">y=</span>frac),<span class="dt">color=</span><span class="st">&quot;black&quot;</span>,<span class="dt">size=</span><span class="dv">2</span>)</span>
+<span id="cb54-31"><a href="risk.html#cb54-31"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb54-32"><a href="risk.html#cb54-32"></a>  <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>)</span>
+<span id="cb54-33"><a href="risk.html#cb54-33"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;r&quot;</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Fraction of decisions consistent with r&quot;</span>)</span>
+<span id="cb54-34"><a href="risk.html#cb54-34"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-63-1.png" width="672" />
 Here the black line shows the average for the entire group, and each line shows the fraction of decisions consistent with <span class="math inline">\(r\)</span> for each participant.</p>
 <p>Note that we can only pin <span class="math inline">\(r\)</span> down to a range, so I am going to report the interval of <span class="math inline">\(r\)</span> that returns this maximum fraction:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="risk.html#cb52-1"></a>d&lt;-(pltData </span>
-<span id="cb52-2"><a href="risk.html#cb52-2"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(ID)</span>
-<span id="cb52-3"><a href="risk.html#cb52-3"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(frac<span class="op">==</span><span class="kw">max</span>(frac))</span>
-<span id="cb52-4"><a href="risk.html#cb52-4"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">rmin =</span> <span class="kw">min</span>(r),<span class="dt">rmax=</span><span class="kw">max</span>(r))</span>
-<span id="cb52-5"><a href="risk.html#cb52-5"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ID,rmin,rmax)</span>
-<span id="cb52-6"><a href="risk.html#cb52-6"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
-<span id="cb52-7"><a href="risk.html#cb52-7"></a>      </span>
-<span id="cb52-8"><a href="risk.html#cb52-8"></a>  )</span>
-<span id="cb52-9"><a href="risk.html#cb52-9"></a></span>
-<span id="cb52-10"><a href="risk.html#cb52-10"></a>  </span>
-<span id="cb52-11"><a href="risk.html#cb52-11"></a>knitr<span class="op">::</span><span class="kw">kable</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="risk.html#cb55-1"></a>d&lt;-(pltData </span>
+<span id="cb55-2"><a href="risk.html#cb55-2"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(ID)</span>
+<span id="cb55-3"><a href="risk.html#cb55-3"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(frac<span class="op">==</span><span class="kw">max</span>(frac))</span>
+<span id="cb55-4"><a href="risk.html#cb55-4"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">rmin =</span> <span class="kw">min</span>(r),<span class="dt">rmax=</span><span class="kw">max</span>(r))</span>
+<span id="cb55-5"><a href="risk.html#cb55-5"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ID,rmin,rmax)</span>
+<span id="cb55-6"><a href="risk.html#cb55-6"></a>      <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>)</span>
+<span id="cb55-7"><a href="risk.html#cb55-7"></a>      </span>
+<span id="cb55-8"><a href="risk.html#cb55-8"></a>  )</span>
+<span id="cb55-9"><a href="risk.html#cb55-9"></a></span>
+<span id="cb55-10"><a href="risk.html#cb55-10"></a>  </span>
+<span id="cb55-11"><a href="risk.html#cb55-11"></a>knitr<span class="op">::</span><span class="kw">kable</span>(d)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1133,14 +1146,14 @@ rmax
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="risk.html#cb53-1"></a>(</span>
-<span id="cb53-2"><a href="risk.html#cb53-2"></a>  <span class="kw">ggplot</span>()</span>
-<span id="cb53-3"><a href="risk.html#cb53-3"></a>  <span class="op">+</span><span class="kw">stat_ecdf</span>(<span class="dt">data=</span>d,<span class="kw">aes</span>(<span class="dt">x=</span>rmin,<span class="dt">color=</span><span class="st">&quot;r - minimum&quot;</span>))</span>
-<span id="cb53-4"><a href="risk.html#cb53-4"></a>  <span class="op">+</span><span class="kw">stat_ecdf</span>(<span class="dt">data=</span>d,<span class="kw">aes</span>(<span class="dt">x=</span>rmax,<span class="dt">color=</span><span class="st">&quot;r - maximum&quot;</span>))</span>
-<span id="cb53-5"><a href="risk.html#cb53-5"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
-<span id="cb53-6"><a href="risk.html#cb53-6"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;r&quot;</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Fraction more risk averse than r&quot;</span>)</span>
-<span id="cb53-7"><a href="risk.html#cb53-7"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="risk.html#cb56-1"></a>(</span>
+<span id="cb56-2"><a href="risk.html#cb56-2"></a>  <span class="kw">ggplot</span>()</span>
+<span id="cb56-3"><a href="risk.html#cb56-3"></a>  <span class="op">+</span><span class="kw">stat_ecdf</span>(<span class="dt">data=</span>d,<span class="kw">aes</span>(<span class="dt">x=</span>rmin,<span class="dt">color=</span><span class="st">&quot;r - minimum&quot;</span>))</span>
+<span id="cb56-4"><a href="risk.html#cb56-4"></a>  <span class="op">+</span><span class="kw">stat_ecdf</span>(<span class="dt">data=</span>d,<span class="kw">aes</span>(<span class="dt">x=</span>rmax,<span class="dt">color=</span><span class="st">&quot;r - maximum&quot;</span>))</span>
+<span id="cb56-5"><a href="risk.html#cb56-5"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb56-6"><a href="risk.html#cb56-6"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;r&quot;</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Fraction more risk averse than r&quot;</span>)</span>
+<span id="cb56-7"><a href="risk.html#cb56-7"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
 </div>
 </div>
             </section>

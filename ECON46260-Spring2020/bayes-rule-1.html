@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="risk.html"/>
-
+<link rel="next" href="search.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -182,6 +182,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="bayes-rule.html"><a href="bayes-rule.html#more-generally"><i class="fa fa-check"></i><b>4.4</b> More generally</a></li>
 <li class="chapter" data-level="4.5" data-path="bayes-rule.html"><a href="bayes-rule.html#example-from-ps3---i"><i class="fa fa-check"></i><b>4.5</b> Example from PS3 - I</a></li>
 <li class="chapter" data-level="4.6" data-path="bayes-rule.html"><a href="bayes-rule.html#example-ii"><i class="fa fa-check"></i><b>4.6</b> Example, II</a></li>
+<li class="chapter" data-level="4.7" data-path="bayes-rule.html"><a href="bayes-rule.html#example-iii"><i class="fa fa-check"></i><b>4.7</b> Example, III</a></li>
+<li class="chapter" data-level="4.8" data-path="bayes-rule.html"><a href="bayes-rule.html#example-iv"><i class="fa fa-check"></i><b>4.8</b> Example, IV</a></li>
+<li class="chapter" data-level="4.9" data-path="bayes-rule.html"><a href="bayes-rule.html#example-v"><i class="fa fa-check"></i><b>4.9</b> Example, V</a></li>
+<li class="chapter" data-level="4.10" data-path="bayes-rule.html"><a href="bayes-rule.html#example-vi"><i class="fa fa-check"></i><b>4.10</b> Example, VI</a></li>
+<li class="chapter" data-level="4.11" data-path="bayes-rule.html"><a href="bayes-rule.html#example-vii"><i class="fa fa-check"></i><b>4.11</b> Example, VII</a></li>
+<li class="chapter" data-level="4.12" data-path="bayes-rule.html"><a href="bayes-rule.html#example-viii"><i class="fa fa-check"></i><b>4.12</b> Example, VIII</a></li>
+<li class="chapter" data-level="4.13" data-path="bayes-rule.html"><a href="bayes-rule.html#example-ix"><i class="fa fa-check"></i><b>4.13</b> Example, IX</a></li>
+<li class="chapter" data-level="4.14" data-path="bayes-rule.html"><a href="bayes-rule.html#example-x"><i class="fa fa-check"></i><b>4.14</b> Example, X</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="masters-only-content-econ-6260.html"><a href="masters-only-content-econ-6260.html"><i class="fa fa-check"></i>Masters-only content (ECON 6260)</a></li>
 <li class="chapter" data-level="5" data-path="reading-which-is-the-fair-sex.html"><a href="reading-which-is-the-fair-sex.html"><i class="fa fa-check"></i><b>5</b> Reading: Which is the fair sex?</a><ul>
@@ -212,6 +220,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#instructions"><i class="fa fa-check"></i><b>10.1</b> Instructions</a></li>
 <li class="chapter" data-level="10.2" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#data-description"><i class="fa fa-check"></i><b>10.2</b> Data Description</a></li>
 <li class="chapter" data-level="10.3" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#questions-1"><i class="fa fa-check"></i><b>10.3</b> Questions</a></li>
+<li class="chapter" data-level="10.4" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#solutions-3"><i class="fa fa-check"></i><b>10.4</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="search.html"><a href="search.html"><i class="fa fa-check"></i><b>11</b> Search</a><ul>
+<li class="chapter" data-level="11.1" data-path="search.html"><a href="search.html#instructions-1"><i class="fa fa-check"></i><b>11.1</b> Instructions</a></li>
+<li class="chapter" data-level="11.2" data-path="search.html"><a href="search.html#questions-2"><i class="fa fa-check"></i><b>11.2</b> Questions</a></li>
 </ul></li>
 </ul>
 
@@ -280,15 +293,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Payment Method: After you have submitted your “chances in 100” for event Red, you will be informed about which event was actually observed. You will earn more money to the extent to which your decision indicated higher chances in 100 for the event that turned out to be the one that occured. Your earnings for the round will be between a high payoff of $10.00 (if you indicate 100 chances in 100 for the observed event), and a low payoff of $0.00 (if you indicate 0 chances in 100 for the observed event.)</li>
 <li>Payoff Table: Please look at the payoff table below. The top row on the left side indicates that if you report 0 chances in 100 for Red, you will earn $0.00 if the event is Red and $10.00 if the event is Blue. Conversely, the bottom row on the right indicates that if your report 100 chances in 100 for the Red event, you will earn $10.00 if the event is Red and $0.00 if the event is Blue.</li>
 </ul>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="bayes-rule-1.html#cb54-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb54-2"><a href="bayes-rule-1.html#cb54-2"></a><span class="kw">library</span>(readxl)</span>
-<span id="cb54-3"><a href="bayes-rule-1.html#cb54-3"></a><span class="kw">library</span>(kableExtra)</span>
-<span id="cb54-4"><a href="bayes-rule-1.html#cb54-4"></a>P2&lt;-(<span class="kw">read_excel</span>(<span class="st">&quot;PS04Part2.xlsx&quot;</span>)[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">7</span>)]</span>
-<span id="cb54-5"><a href="bayes-rule-1.html#cb54-5"></a> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">data.frame</span>()</span>
-<span id="cb54-6"><a href="bayes-rule-1.html#cb54-6"></a>)</span>
-<span id="cb54-7"><a href="bayes-rule-1.html#cb54-7"></a><span class="kw">colnames</span>(P2)&lt;-<span class="kw">c</span>(<span class="st">&quot;ReportedChoice&quot;</span>,<span class="st">&quot;RedPayoff&quot;</span>,<span class="st">&quot;BluePayoff&quot;</span>)</span>
-<span id="cb54-8"><a href="bayes-rule-1.html#cb54-8"></a></span>
-<span id="cb54-9"><a href="bayes-rule-1.html#cb54-9"></a><span class="kw">kbl</span>(<span class="kw">head</span>(P2))  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="bayes-rule-1.html#cb57-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb57-2"><a href="bayes-rule-1.html#cb57-2"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb57-3"><a href="bayes-rule-1.html#cb57-3"></a><span class="kw">library</span>(kableExtra)</span>
+<span id="cb57-4"><a href="bayes-rule-1.html#cb57-4"></a>P2&lt;-(<span class="kw">read_excel</span>(<span class="st">&quot;PS04Part2.xlsx&quot;</span>)[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">7</span>)]</span>
+<span id="cb57-5"><a href="bayes-rule-1.html#cb57-5"></a> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">data.frame</span>()</span>
+<span id="cb57-6"><a href="bayes-rule-1.html#cb57-6"></a>)</span>
+<span id="cb57-7"><a href="bayes-rule-1.html#cb57-7"></a><span class="kw">colnames</span>(P2)&lt;-<span class="kw">c</span>(<span class="st">&quot;ReportedChoice&quot;</span>,<span class="st">&quot;RedPayoff&quot;</span>,<span class="st">&quot;BluePayoff&quot;</span>)</span>
+<span id="cb57-8"><a href="bayes-rule-1.html#cb57-8"></a></span>
+<span id="cb57-9"><a href="bayes-rule-1.html#cb57-9"></a><span class="kw">kbl</span>(<span class="kw">head</span>(P2))  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> T)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -372,7 +385,7 @@ BluePayoff
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="bayes-rule-1.html#cb55-1"></a><span class="kw">write.csv</span>(P2,<span class="st">&quot;PS04Part2Payoffs.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="bayes-rule-1.html#cb58-1"></a><span class="kw">write.csv</span>(P2,<span class="st">&quot;PS04Part2Payoffs.csv&quot;</span>)</span></code></pre></div>
 <p><em>This table is also available to you in PS04Part2Payoffs.csv, so I have omitted a lot of it here</em></p>
 <ul>
 <li>Payoff Formula: The payoffs in the table are constructed by starting with a base amount $10.00 and subtracting a penalty that depends on how much probability you assign to the event, Red or Blue, that is NOT observed. (This penalty is 10 times the square of the probability assigned to the event that was NOT observed.) In any case, the calculations are done for you in the table.</li>
@@ -385,20 +398,20 @@ BluePayoff
 <li>“CutoffLimit” is the cutoff limit for each subject, determining the probability of a red event</li>
 <li>“PreviousAverage” is equal to the average number of red events a person saw in their previous rounds of that part. That is, they have seen (Round−1)(PreviousAverage) red events, and (Round−1)(1−PreviousAverage) blue events.</li>
 </ul>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="bayes-rule-1.html#cb56-1"></a>D&lt;-(<span class="kw">read_excel</span>(<span class="st">&quot;2021PS04Bayes.xlsx&quot;</span>, <span class="dt">sheet =</span> <span class="st">&quot;Sheet1&quot;</span>)</span>
-<span id="cb56-2"><a href="bayes-rule-1.html#cb56-2"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">data.frame</span>()</span>
-<span id="cb56-3"><a href="bayes-rule-1.html#cb56-3"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Round,ID,Actual.Prediction,Theoretical.Prediction,Previous.Avg.,Earnings)</span>
-<span id="cb56-4"><a href="bayes-rule-1.html#cb56-4"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Actual.Prediction=</span>Actual.Prediction<span class="dv">-1</span>)</span>
-<span id="cb56-5"><a href="bayes-rule-1.html#cb56-5"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">Prediction =</span> Actual.Prediction,</span>
-<span id="cb56-6"><a href="bayes-rule-1.html#cb56-6"></a>               <span class="dt">CutoffLimit =</span> Theoretical.Prediction,</span>
-<span id="cb56-7"><a href="bayes-rule-1.html#cb56-7"></a>               <span class="dt">PreviousAverage =</span> Previous.Avg.)</span>
-<span id="cb56-8"><a href="bayes-rule-1.html#cb56-8"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">PreviousAverage =</span> <span class="kw">as.numeric</span>(PreviousAverage),</span>
-<span id="cb56-9"><a href="bayes-rule-1.html#cb56-9"></a>               <span class="dt">Part =</span> <span class="kw">ifelse</span>(Round<span class="op">&lt;=</span><span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">2</span>),</span>
-<span id="cb56-10"><a href="bayes-rule-1.html#cb56-10"></a>               <span class="dt">Event =</span> <span class="kw">ifelse</span>(Earnings<span class="op">==</span><span class="fl">0.2</span>,Prediction,<span class="dv">1</span><span class="op">-</span>Prediction))</span>
-<span id="cb56-11"><a href="bayes-rule-1.html#cb56-11"></a>    </span>
-<span id="cb56-12"><a href="bayes-rule-1.html#cb56-12"></a>)</span>
-<span id="cb56-13"><a href="bayes-rule-1.html#cb56-13"></a></span>
-<span id="cb56-14"><a href="bayes-rule-1.html#cb56-14"></a><span class="kw">kbl</span>(D[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>,])  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="bayes-rule-1.html#cb59-1"></a>D&lt;-(<span class="kw">read_excel</span>(<span class="st">&quot;2021PS04Bayes.xlsx&quot;</span>, <span class="dt">sheet =</span> <span class="st">&quot;Sheet1&quot;</span>)</span>
+<span id="cb59-2"><a href="bayes-rule-1.html#cb59-2"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">data.frame</span>()</span>
+<span id="cb59-3"><a href="bayes-rule-1.html#cb59-3"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Round,ID,Actual.Prediction,Theoretical.Prediction,Previous.Avg.,Earnings)</span>
+<span id="cb59-4"><a href="bayes-rule-1.html#cb59-4"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Actual.Prediction=</span>Actual.Prediction<span class="dv">-1</span>)</span>
+<span id="cb59-5"><a href="bayes-rule-1.html#cb59-5"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">Prediction =</span> Actual.Prediction,</span>
+<span id="cb59-6"><a href="bayes-rule-1.html#cb59-6"></a>               <span class="dt">CutoffLimit =</span> Theoretical.Prediction,</span>
+<span id="cb59-7"><a href="bayes-rule-1.html#cb59-7"></a>               <span class="dt">PreviousAverage =</span> Previous.Avg.)</span>
+<span id="cb59-8"><a href="bayes-rule-1.html#cb59-8"></a>    <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">PreviousAverage =</span> <span class="kw">as.numeric</span>(PreviousAverage),</span>
+<span id="cb59-9"><a href="bayes-rule-1.html#cb59-9"></a>               <span class="dt">Part =</span> <span class="kw">ifelse</span>(Round<span class="op">&lt;=</span><span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">2</span>),</span>
+<span id="cb59-10"><a href="bayes-rule-1.html#cb59-10"></a>               <span class="dt">Event =</span> <span class="kw">ifelse</span>(Earnings<span class="op">==</span><span class="fl">0.2</span>,Prediction,<span class="dv">1</span><span class="op">-</span>Prediction))</span>
+<span id="cb59-11"><a href="bayes-rule-1.html#cb59-11"></a>    </span>
+<span id="cb59-12"><a href="bayes-rule-1.html#cb59-12"></a>)</span>
+<span id="cb59-13"><a href="bayes-rule-1.html#cb59-13"></a></span>
+<span id="cb59-14"><a href="bayes-rule-1.html#cb59-14"></a><span class="kw">kbl</span>(D[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>,])  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> T)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -821,7 +834,7 @@ NA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="bayes-rule-1.html#cb57-1"></a><span class="kw">write.csv</span>(D,<span class="st">&quot;PS04Beliefs2021.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="bayes-rule-1.html#cb60-1"></a><span class="kw">write.csv</span>(D,<span class="st">&quot;PS04Beliefs2021.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="questions-1" class="section level2">
 <h2><span class="header-section-number">10.3</span> Questions</h2>
@@ -837,10 +850,10 @@ How do your beliefs about cutoff <span class="math inline">\(C\)</span> change a
 <li><p>Plot what Bayes’ rule says your belief should be, i.e. <span class="math inline">\(p(c\mid r,b)\)</span> after the end of each round, if these are the events drawn in each round:
 each round:</p></li>
 </ol>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="bayes-rule-1.html#cb58-1"></a><span class="kw">set.seed</span>(<span class="dv">4242</span>)</span>
-<span id="cb58-2"><a href="bayes-rule-1.html#cb58-2"></a>Event&lt;-<span class="kw">ifelse</span>(<span class="kw">runif</span>(<span class="dv">5</span>)<span class="op">&lt;=</span><span class="fl">0.4</span>,<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb58-3"><a href="bayes-rule-1.html#cb58-3"></a>Round&lt;-<span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
-<span id="cb58-4"><a href="bayes-rule-1.html#cb58-4"></a><span class="kw">cbind</span>(Round,Event) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="bayes-rule-1.html#cb61-1"></a><span class="kw">set.seed</span>(<span class="dv">4242</span>)</span>
+<span id="cb61-2"><a href="bayes-rule-1.html#cb61-2"></a>Event&lt;-<span class="kw">ifelse</span>(<span class="kw">runif</span>(<span class="dv">5</span>)<span class="op">&lt;=</span><span class="fl">0.4</span>,<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb61-3"><a href="bayes-rule-1.html#cb61-3"></a>Round&lt;-<span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
+<span id="cb61-4"><a href="bayes-rule-1.html#cb61-4"></a><span class="kw">cbind</span>(Round,Event) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> F)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -903,14 +916,1499 @@ Add vertical lines at 10%, 30%, and 60%. What does it mean that the vertical lin
 <li><p>(Masters students only) For data in Part 1 only, test whether or not Bayes’ rule beliefs affect decisions.</p></li>
 </ol>
 </div>
+<div id="solutions-3" class="section level2">
+<h2><span class="header-section-number">10.4</span> Solutions</h2>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="bayes-rule-1.html#cb62-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb62-2"><a href="bayes-rule-1.html#cb62-2"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb62-3"><a href="bayes-rule-1.html#cb62-3"></a><span class="kw">library</span>(kableExtra)</span>
+<span id="cb62-4"><a href="bayes-rule-1.html#cb62-4"></a>P2&lt;-(<span class="kw">read_excel</span>(<span class="st">&quot;PS04Part2.xlsx&quot;</span>)[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">7</span>)]</span>
+<span id="cb62-5"><a href="bayes-rule-1.html#cb62-5"></a> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">data.frame</span>()</span>
+<span id="cb62-6"><a href="bayes-rule-1.html#cb62-6"></a>)</span>
+<span id="cb62-7"><a href="bayes-rule-1.html#cb62-7"></a><span class="kw">colnames</span>(P2)&lt;-<span class="kw">c</span>(<span class="st">&quot;ReportedChoice&quot;</span>,<span class="st">&quot;RedPayoff&quot;</span>,<span class="st">&quot;BluePayoff&quot;</span>)</span>
+<span id="cb62-8"><a href="bayes-rule-1.html#cb62-8"></a></span>
+<span id="cb62-9"><a href="bayes-rule-1.html#cb62-9"></a><span class="kw">kbl</span>(<span class="kw">head</span>(P2))  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> T)</span></code></pre></div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+ReportedChoice
+</th>
+<th style="text-align:right;">
+RedPayoff
+</th>
+<th style="text-align:right;">
+BluePayoff
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+10.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+<td style="text-align:right;">
+10.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.40
+</td>
+<td style="text-align:right;">
+10.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.59
+</td>
+<td style="text-align:right;">
+9.99
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.78
+</td>
+<td style="text-align:right;">
+9.98
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.97
+</td>
+<td style="text-align:right;">
+9.98
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="bayes-rule-1.html#cb63-1"></a><span class="kw">write.csv</span>(P2,<span class="st">&quot;PS04Part2Payoffs.csv&quot;</span>)</span></code></pre></div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+Round
+</th>
+<th style="text-align:right;">
+ID
+</th>
+<th style="text-align:right;">
+Prediction
+</th>
+<th style="text-align:right;">
+CutoffLimit
+</th>
+<th style="text-align:right;">
+PreviousAverage
+</th>
+<th style="text-align:right;">
+Earnings
+</th>
+<th style="text-align:right;">
+Part
+</th>
+<th style="text-align:right;">
+Event
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(x\)</span> is the cutoff limit, and a red event occurrs whenever the 1st (100-sided) die throw, what is the probability of drawing a red event? What is the prbability of drawing a blue event?</li>
+</ol>
+<p><strong>Solution</strong>
+The probability of drawing a single red event is <span class="math inline">\(x/100\)</span>, and the probability of a single blue event is <span class="math inline">\(1-x/100\)</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>What is the probability of observing <span class="math inline">\(r\)</span> red draws and <span class="math inline">\(b\)</span> blue draws, given that the cutoff limit is <span class="math inline">\(x\)</span>. That is, compute <span class="math inline">\(p(r,b \mid x)\)</span>, assuming that each draw is independent.</li>
+</ol>
+<p><strong>Solution</strong>
+Since the events are independent, we can multiply the probabilities together, so:
+<span class="math display">\[
+p(r,b\mid x) = (x/100)^r(1-x/100)^b
+\]</span>
+This calculation assumes that the ordering is important (i.e. <span class="math inline">\(\{r,b,b,b\}\)</span> is different to <span class="math inline">\(\{b,b,r,b\}\)</span>). Alternatively, if you assumed that the ordering is not important, you would have:
+<span class="math display">\[
+p(r,b\mid x)=\begin{pmatrix}r+b\\ r\end{pmatrix}(x/100)^r(1-x/100)^b
+\]</span>
+You will get the same answers in the following questions no matter which one use use (because the binomial coefficient cancels out
+).</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Suppose that before beginning part 1 of the experiment, you believe that the that each integer between 1 and 100 (inclusive) is the cutoff limit <span class="math inline">\(C\)</span> is equally likely. That is, the probability mass function is:
+<span class="math display">\[
+\Pr(C=x)=p_C(x)=\begin{cases}\frac{1}{100}&amp;\text{ if }x=1, 2, 3, \ldots ,100\\
+0&amp;\text{otherwise}\end{cases}
+\]</span>
+How do your beliefs about cutoff <span class="math inline">\(C\)</span> change after observing <span class="math inline">\(r\)</span> red events and <span class="math inline">\(b\)</span> blue events? In this part, don’t substitute in particular values of <span class="math inline">\(c\)</span>, <span class="math inline">\(r\)</span>, and <span class="math inline">\(b\)</span>. Your final answer should be a function of these three quantities.</li>
+</ol>
+<p><strong>Solution</strong> Applying Bayes’ rule:
+<span class="math display">\[
+\begin{aligned}
+p(c\mid r,b)&amp;=\frac{p(r,b\mid c)p(c)}{p(r,b)}
+\end{aligned}
+\]</span>
+Note that we have already worked out <span class="math inline">\(p(r,b\mid c)=(c/100)^r(1-c/100)^b\)</span>, and <span class="math inline">\(p(c)=1/100\)</span> is given.
+The denominator is difficult to evaluate on its own, but we know that it is not a function of <span class="math inline">\(c\)</span>, and that each side should sum to 1. Therefore:
+<span class="math display">\[
+\begin{aligned}
+1=\sum_{c=1}^{100}p(c\mid r,b)&amp;=\sum_{c=1}^{100}\frac{p(r,b\mid c)p(c)}{p(r,b)}\\
+&amp;=\frac{1}{p(r,b)}\sum_{c=1}^{100}p(r,b\mid c)p(c)\\
+p(r,b)&amp;=\sum_{c=1}^{100}\left(\frac{c}{100}\right)^r\left(1-\frac{c}{100}\right)^b \frac{1}{100}
+\end{aligned}
+\]</span>
+Therefore we can write:
+<span class="math display">\[
+p(c\mid r,b)=\frac{\left(\frac{c}{100}\right)^r\left(1-\frac{c}{100}\right)^b \frac{1}{100}}{\sum_{c=1}^{100}\left(\frac{c}{100}\right)^r\left(1-\frac{c}{100}\right)^b \frac{1}{100}}=\frac{\left(\frac{c}{100}\right)^r\left(1-\frac{c}{100}\right)^b }{\sum_{c=1}^{100}\left(\frac{c}{100}\right)^r\left(1-\frac{c}{100}\right)^b}
+\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Plot what Bayes’ rule says your belief should be, i.e. <span class="math inline">\(p(c\mid r,b)\)</span> after the end of each round, if these are the events drawn in each round:
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Round
+</th>
+<th style="text-align:left;">
+Event
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+blue
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+red
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+red
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+blue
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+blue
+</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+<p><strong>Solution</strong></p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="bayes-rule-1.html#cb64-1"></a>C&lt;-<span class="dv">1</span><span class="op">:</span><span class="dv">100</span> <span class="co"># states of the world</span></span>
+<span id="cb64-2"><a href="bayes-rule-1.html#cb64-2"></a>Red&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>) <span class="co"># count of signals seen afetr each round</span></span>
+<span id="cb64-3"><a href="bayes-rule-1.html#cb64-3"></a>Blue&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb64-4"><a href="bayes-rule-1.html#cb64-4"></a>PltThis&lt;-<span class="kw">data.frame</span>()</span>
+<span id="cb64-5"><a href="bayes-rule-1.html#cb64-5"></a><span class="cf">for</span> (ii <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</span>
+<span id="cb64-6"><a href="bayes-rule-1.html#cb64-6"></a>  Numerator&lt;-(C<span class="op">/</span><span class="dv">100</span>)<span class="op">^</span>Red[ii]<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C<span class="op">/</span><span class="dv">100</span>)<span class="op">^</span>Blue[ii]</span>
+<span id="cb64-7"><a href="bayes-rule-1.html#cb64-7"></a>  Beliefs&lt;-Numerator<span class="op">/</span><span class="kw">sum</span>(Numerator)</span>
+<span id="cb64-8"><a href="bayes-rule-1.html#cb64-8"></a>  tmp&lt;-<span class="kw">data.frame</span>(C,Beliefs)</span>
+<span id="cb64-9"><a href="bayes-rule-1.html#cb64-9"></a>  tmp<span class="op">$</span>Round&lt;-<span class="kw">paste</span>(ii,<span class="st">&quot; - &quot;</span>,Red[ii],<span class="st">&quot;red, &quot;</span>,Blue[ii],<span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb64-10"><a href="bayes-rule-1.html#cb64-10"></a>  PltThis&lt;-<span class="kw">rbind</span>(PltThis,tmp)</span>
+<span id="cb64-11"><a href="bayes-rule-1.html#cb64-11"></a>}</span>
+<span id="cb64-12"><a href="bayes-rule-1.html#cb64-12"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb64-13"><a href="bayes-rule-1.html#cb64-13"></a>(</span>
+<span id="cb64-14"><a href="bayes-rule-1.html#cb64-14"></a>  <span class="kw">ggplot</span>(PltThis,<span class="kw">aes</span>(<span class="dt">x=</span>C,<span class="dt">y=</span>Beliefs,<span class="dt">group=</span>Round,<span class="dt">color=</span>Round))</span>
+<span id="cb64-15"><a href="bayes-rule-1.html#cb64-15"></a>  <span class="op">+</span><span class="kw">geom_line</span>()</span>
+<span id="cb64-16"><a href="bayes-rule-1.html#cb64-16"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb64-17"><a href="bayes-rule-1.html#cb64-17"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>For Part 1, plot the fraction of “red” predictions (vertical axis) in first five rounds, and the last five rounds of this part (vertical axis axis). Split by the cutoff limit. For Part 2 (on a separate graph), plot the average prediction for the first and final 5 rounds. Comment on these plots.</li>
+</ol>
+<p><strong>Solution</strong></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="bayes-rule-1.html#cb65-1"></a>PlotThis1&lt;-(</span>
+<span id="cb65-2"><a href="bayes-rule-1.html#cb65-2"></a>  D <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">FirstFive =</span> (Round<span class="op">&lt;=</span><span class="dv">5</span>) <span class="op">|</span><span class="st"> </span>(Round<span class="op">&lt;=</span><span class="dv">15</span> <span class="op">&amp;</span><span class="st"> </span>Part<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb65-3"><a href="bayes-rule-1.html#cb65-3"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Prediction<span class="op">&gt;=</span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(CutoffLimit,FirstFive,Part)<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">meanchoice=</span><span class="kw">mean</span>(Prediction<span class="op">*</span><span class="dv">100</span><span class="op">^</span>(Part<span class="op">==</span><span class="dv">1</span>)),</span>
+<span id="cb65-4"><a href="bayes-rule-1.html#cb65-4"></a>          <span class="dt">sd =</span> <span class="kw">sd</span>(Prediction<span class="op">*</span><span class="dv">100</span><span class="op">^</span>(Part<span class="op">==</span><span class="dv">1</span>))<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">n</span>()))</span>
+<span id="cb65-5"><a href="bayes-rule-1.html#cb65-5"></a>)</span>
+<span id="cb65-6"><a href="bayes-rule-1.html#cb65-6"></a></span>
+<span id="cb65-7"><a href="bayes-rule-1.html#cb65-7"></a></span>
+<span id="cb65-8"><a href="bayes-rule-1.html#cb65-8"></a>(</span>
+<span id="cb65-9"><a href="bayes-rule-1.html#cb65-9"></a>  <span class="kw">ggplot</span>(PlotThis1,<span class="kw">aes</span>(<span class="dt">y=</span>meanchoice,<span class="dt">x=</span>CutoffLimit<span class="op">+</span><span class="dv">2-4</span><span class="op">*</span>FirstFive,<span class="dt">color=</span>FirstFive,<span class="dt">ymin=</span>meanchoice<span class="op">-</span>sd,<span class="dt">ymax=</span>meanchoice<span class="op">+</span>sd))</span>
+<span id="cb65-10"><a href="bayes-rule-1.html#cb65-10"></a>  <span class="op">+</span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="dv">2</span>)</span>
+<span id="cb65-11"><a href="bayes-rule-1.html#cb65-11"></a>  <span class="op">+</span><span class="kw">geom_errorbar</span>(<span class="dt">width=</span><span class="dv">1</span>)</span>
+<span id="cb65-12"><a href="bayes-rule-1.html#cb65-12"></a>  <span class="op">+</span><span class="kw">facet_wrap</span>(<span class="op">~</span>Part)</span>
+<span id="cb65-13"><a href="bayes-rule-1.html#cb65-13"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Cutoff limit&quot;</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Mean choice (%)&quot;</span>)</span>
+<span id="cb65-14"><a href="bayes-rule-1.html#cb65-14"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p>For Part 1, people were less likely to choose the red signal in the final five rounds of Part 1. This is what we would expect from theory: Since all cutoffs are less than 50, the best choice if we knew <span class="math inline">\(C\)</span> for sure is “blue”. This doesn’t happen cor the <span class="math inline">\(C=40\)</span> group. While we would expect this decrease <em>on average</em> for all of the groups, the <span class="math inline">\(C=40\)</span> group faces the noisiest signal, so after 10 rounds it is not particularly unlikely that their draws point them in the other direction.</p>
+<p>This trend was also present in Part 2 for the <span class="math inline">\(C=10\)</span> and <span class="math inline">\(C=40\)</span> groups.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>(masters only): Plot the expected value (vertical axes) of reporting probability <span class="math inline">\(p\)</span> (i.e. <span class="math inline">\(p\)</span> is “ReportedChoice”) in Part 2 (horizontal axis), for a person who believes that the probability of a red event is 10%, 30%, and 60%. Also plot the expected utility of reporting <span class="math inline">\(p\)</span> for a person with utility function <span class="math inline">\(u(x)=4\sqrt x\)</span>
+Add vertical lines at 10%, 30%, and 60%. What does it mean that the vertical lines intersect with the curves at their highest points?</li>
+</ol>
+<p><strong>Solution</strong></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="bayes-rule-1.html#cb66-1"></a>Beliefs &lt;-<span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">60</span>)</span>
+<span id="cb66-2"><a href="bayes-rule-1.html#cb66-2"></a></span>
+<span id="cb66-3"><a href="bayes-rule-1.html#cb66-3"></a>PlotThis&lt;-<span class="kw">data.frame</span>()</span>
+<span id="cb66-4"><a href="bayes-rule-1.html#cb66-4"></a><span class="cf">for</span> (bb <span class="cf">in</span> Beliefs) {</span>
+<span id="cb66-5"><a href="bayes-rule-1.html#cb66-5"></a>  PlotThis&lt;-(P2</span>
+<span id="cb66-6"><a href="bayes-rule-1.html#cb66-6"></a>        <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">EV =</span> (bb<span class="op">/</span><span class="dv">100</span><span class="op">*</span>RedPayoff <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">-</span>bb<span class="op">/</span><span class="dv">100</span>)<span class="op">*</span>BluePayoff),</span>
+<span id="cb66-7"><a href="bayes-rule-1.html#cb66-7"></a>                   <span class="dt">Beliefs=</span><span class="kw">paste0</span>(bb,<span class="st">&quot;%&quot;</span>),<span class="dt">type =</span> <span class="st">&quot;u(x)=x&quot;</span>) </span>
+<span id="cb66-8"><a href="bayes-rule-1.html#cb66-8"></a>        <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rbind</span>(PlotThis)</span>
+<span id="cb66-9"><a href="bayes-rule-1.html#cb66-9"></a>        )</span>
+<span id="cb66-10"><a href="bayes-rule-1.html#cb66-10"></a>  PlotThis&lt;-(P2</span>
+<span id="cb66-11"><a href="bayes-rule-1.html#cb66-11"></a>        <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">EV =</span> (bb<span class="op">/</span><span class="dv">100</span><span class="op">*</span><span class="dv">4</span><span class="op">*</span><span class="kw">sqrt</span>(RedPayoff) <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">-</span>bb<span class="op">/</span><span class="dv">100</span>)<span class="op">*</span><span class="dv">4</span><span class="op">*</span><span class="kw">sqrt</span>(BluePayoff)),</span>
+<span id="cb66-12"><a href="bayes-rule-1.html#cb66-12"></a>                   <span class="dt">Beliefs=</span><span class="kw">paste0</span>(bb,<span class="st">&quot;%&quot;</span>),<span class="dt">type =</span> <span class="st">&quot;u(x)=4x^0.5&quot;</span>) </span>
+<span id="cb66-13"><a href="bayes-rule-1.html#cb66-13"></a>        <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rbind</span>(PlotThis)</span>
+<span id="cb66-14"><a href="bayes-rule-1.html#cb66-14"></a>        )</span>
+<span id="cb66-15"><a href="bayes-rule-1.html#cb66-15"></a>}</span>
+<span id="cb66-16"><a href="bayes-rule-1.html#cb66-16"></a></span>
+<span id="cb66-17"><a href="bayes-rule-1.html#cb66-17"></a>(</span>
+<span id="cb66-18"><a href="bayes-rule-1.html#cb66-18"></a>  <span class="kw">ggplot</span>(PlotThis,<span class="kw">aes</span>(<span class="dt">x=</span>ReportedChoice,<span class="dt">y=</span>EV,<span class="dt">color=</span>Beliefs,<span class="dt">linetype=</span>type))</span>
+<span id="cb66-19"><a href="bayes-rule-1.html#cb66-19"></a>  <span class="op">+</span><span class="kw">geom_path</span>(<span class="dt">size=</span><span class="dv">1</span>)</span>
+<span id="cb66-20"><a href="bayes-rule-1.html#cb66-20"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Reported choice (%)&quot;</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Expected value ($)</span><span class="ch">\n</span><span class="st"> Expected utility&quot;</span>)<span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb66-21"><a href="bayes-rule-1.html#cb66-21"></a>  <span class="op">+</span><span class="kw">geom_vline</span>(<span class="dt">data=</span><span class="kw">data.frame</span>(Beliefs),<span class="kw">aes</span>(<span class="dt">xintercept=</span>Beliefs,<span class="dt">color=</span><span class="kw">paste0</span>(Beliefs,<span class="st">&quot;%&quot;</span>)),<span class="dt">linetype=</span><span class="st">&quot;dotted&quot;</span>,<span class="dt">size=</span><span class="dv">1</span>)</span>
+<span id="cb66-22"><a href="bayes-rule-1.html#cb66-22"></a>  <span class="op">+</span><span class="kw">ylim</span>(<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">13</span>))</span>
+<span id="cb66-23"><a href="bayes-rule-1.html#cb66-23"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<ol start="7" style="list-style-type: decimal">
+<li>For Part 2 only, calculate the beliefs about <span class="math inline">\(C\)</span> that each person <em>should</em> have at the start of each round. Plot these (horizontal axis) against stated beliefs (“Prediction”) (vertical axis). Include a <span class="math inline">\(45^\circ\)</span> line and comment on how well theoretical beliefs predict stated beliefs.</li>
+</ol>
+<p><strong>Solution</strong></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="bayes-rule-1.html#cb67-1"></a>C&lt;-<span class="dv">1</span><span class="op">:</span><span class="dv">100</span></span>
+<span id="cb67-2"><a href="bayes-rule-1.html#cb67-2"></a>MeanBeliefs&lt;-<span class="cf">function</span>(r,b) {</span>
+<span id="cb67-3"><a href="bayes-rule-1.html#cb67-3"></a>  p =<span class="st"> </span>(C<span class="op">/</span><span class="dv">100</span>)<span class="op">^</span>r<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C<span class="op">/</span><span class="dv">100</span>)<span class="op">^</span>b<span class="op">/</span><span class="kw">sum</span>((C<span class="op">/</span><span class="dv">100</span>)<span class="op">^</span>r<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C<span class="op">/</span><span class="dv">100</span>)<span class="op">^</span>b)</span>
+<span id="cb67-4"><a href="bayes-rule-1.html#cb67-4"></a>  </span>
+<span id="cb67-5"><a href="bayes-rule-1.html#cb67-5"></a>  <span class="kw">sum</span>(C<span class="op">*</span>p)</span>
+<span id="cb67-6"><a href="bayes-rule-1.html#cb67-6"></a>}</span>
+<span id="cb67-7"><a href="bayes-rule-1.html#cb67-7"></a></span>
+<span id="cb67-8"><a href="bayes-rule-1.html#cb67-8"></a></span>
+<span id="cb67-9"><a href="bayes-rule-1.html#cb67-9"></a>D2 &lt;-(D </span>
+<span id="cb67-10"><a href="bayes-rule-1.html#cb67-10"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Red =</span> <span class="kw">round</span>(<span class="kw">ifelse</span>(<span class="kw">is.na</span>(PreviousAverage),<span class="dv">0</span>,(Round<span class="dv">-1</span>)<span class="op">*</span>(PreviousAverage))),</span>
+<span id="cb67-11"><a href="bayes-rule-1.html#cb67-11"></a>             <span class="dt">Blue =</span> <span class="kw">round</span>(<span class="kw">ifelse</span>(<span class="kw">is.na</span>(PreviousAverage),<span class="dv">0</span>,(Round<span class="dv">-1</span>)<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>PreviousAverage)))</span>
+<span id="cb67-12"><a href="bayes-rule-1.html#cb67-12"></a>               )</span>
+<span id="cb67-13"><a href="bayes-rule-1.html#cb67-13"></a>  </span>
+<span id="cb67-14"><a href="bayes-rule-1.html#cb67-14"></a>) </span>
+<span id="cb67-15"><a href="bayes-rule-1.html#cb67-15"></a></span>
+<span id="cb67-16"><a href="bayes-rule-1.html#cb67-16"></a>D2<span class="op">$</span>mb&lt;-<span class="st"> </span><span class="dv">-1</span></span>
+<span id="cb67-17"><a href="bayes-rule-1.html#cb67-17"></a><span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(D2<span class="op">$</span>mb)) {</span>
+<span id="cb67-18"><a href="bayes-rule-1.html#cb67-18"></a>  D2<span class="op">$</span>mb[rr]&lt;-<span class="kw">MeanBeliefs</span>(D2<span class="op">$</span>Red[rr],D2<span class="op">$</span>Blue[rr])</span>
+<span id="cb67-19"><a href="bayes-rule-1.html#cb67-19"></a>}</span>
+<span id="cb67-20"><a href="bayes-rule-1.html#cb67-20"></a></span>
+<span id="cb67-21"><a href="bayes-rule-1.html#cb67-21"></a>D2<span class="op">$</span>CL&lt;-<span class="kw">paste</span>(<span class="st">&quot;Pr(Red) =&quot;</span>,D2<span class="op">$</span>CutoffLimit,<span class="st">&quot;%&quot;</span>)</span>
+<span id="cb67-22"><a href="bayes-rule-1.html#cb67-22"></a></span>
+<span id="cb67-23"><a href="bayes-rule-1.html#cb67-23"></a></span>
+<span id="cb67-24"><a href="bayes-rule-1.html#cb67-24"></a><span class="kw">library</span>(pmdplyr)</span>
+<span id="cb67-25"><a href="bayes-rule-1.html#cb67-25"></a></span>
+<span id="cb67-26"><a href="bayes-rule-1.html#cb67-26"></a>(</span>
+<span id="cb67-27"><a href="bayes-rule-1.html#cb67-27"></a>  <span class="kw">ggplot</span>(D2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Part<span class="op">==</span><span class="dv">2</span>))</span>
+<span id="cb67-28"><a href="bayes-rule-1.html#cb67-28"></a>  <span class="op">+</span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>mb,<span class="dt">y=</span>Prediction,<span class="dt">color=</span><span class="st">&quot;Bayes&#39; rule beliefs&quot;</span>))</span>
+<span id="cb67-29"><a href="bayes-rule-1.html#cb67-29"></a>  <span class="op">+</span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>PreviousAverage<span class="op">*</span><span class="dv">100</span>,<span class="dt">y=</span>Prediction,<span class="dt">color=</span><span class="st">&quot;Previous average beliefs&quot;</span>))</span>
+<span id="cb67-30"><a href="bayes-rule-1.html#cb67-30"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb67-31"><a href="bayes-rule-1.html#cb67-31"></a>  <span class="op">+</span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="kw">paste</span>(<span class="st">&quot;ID = &quot;</span>,ID))</span>
+<span id="cb67-32"><a href="bayes-rule-1.html#cb67-32"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Beliefs (%)&quot;</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Prediction (%)&quot;</span>)</span>
+<span id="cb67-33"><a href="bayes-rule-1.html#cb67-33"></a>  <span class="op">+</span><span class="kw">geom_abline</span>(<span class="dt">slope=</span><span class="dv">1</span>,<span class="dt">intercept=</span><span class="dv">0</span>)</span>
+<span id="cb67-34"><a href="bayes-rule-1.html#cb67-34"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<p><em>I kind of went overboard on this one. What I was expecting was all of the red dots, on just one single plot.</em></p>
+<p>If people have Bayesian beliefs, and they are reporting correctly, then all of the dots would be on the <span class="math inline">\(45^\circ\)</span> line. It does not look like this is the case for most participants.</p>
+<ol start="8" style="list-style-type: decimal">
+<li>(Masters students only) For data in Part 1 only, test whether or not Bayes’ rule beliefs affect decisions.</li>
+</ol>
+<p><strong>Solution</strong></p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="bayes-rule-1.html#cb68-1"></a><span class="kw">library</span>(stargazer)</span>
+<span id="cb68-2"><a href="bayes-rule-1.html#cb68-2"></a><span class="kw">library</span>(pmdplyr)</span>
+<span id="cb68-3"><a href="bayes-rule-1.html#cb68-3"></a><span class="kw">library</span>(lmtest)</span>
+<span id="cb68-4"><a href="bayes-rule-1.html#cb68-4"></a></span>
+<span id="cb68-5"><a href="bayes-rule-1.html#cb68-5"></a></span>
+<span id="cb68-6"><a href="bayes-rule-1.html#cb68-6"></a>D1&lt;-(D2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Part<span class="op">==</span><span class="dv">1</span>) </span>
+<span id="cb68-7"><a href="bayes-rule-1.html#cb68-7"></a>  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">L1Event =</span> <span class="kw">tlag</span>(Event,<span class="dt">.i=</span>ID,<span class="dt">.t=</span>Round,<span class="dt">.n=</span><span class="dv">1</span>),<span class="dt">L2Event =</span> <span class="kw">tlag</span>(Event,<span class="dt">.i=</span>ID,<span class="dt">.t=</span>Round,<span class="dt">.n=</span><span class="dv">2</span>))</span>
+<span id="cb68-8"><a href="bayes-rule-1.html#cb68-8"></a>)</span>
+<span id="cb68-9"><a href="bayes-rule-1.html#cb68-9"></a></span>
+<span id="cb68-10"><a href="bayes-rule-1.html#cb68-10"></a>model1&lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="dt">formula =</span> Prediction <span class="op">~</span><span class="st"> </span>mb, <span class="dt">data =</span> D1, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb68-11"><a href="bayes-rule-1.html#cb68-11"></a>model2&lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="dt">formula =</span> Prediction <span class="op">~</span><span class="st"> </span>mb<span class="op">+</span>L1Event, <span class="dt">data =</span> D1, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb68-12"><a href="bayes-rule-1.html#cb68-12"></a>model3&lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="dt">formula =</span> Prediction <span class="op">~</span><span class="st"> </span>L1Event, <span class="dt">data =</span> D1, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb68-13"><a href="bayes-rule-1.html#cb68-13"></a>model4&lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="dt">formula =</span> Prediction <span class="op">~</span><span class="st"> </span>L1Event<span class="op">+</span>L2Event, <span class="dt">data =</span> D1, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb68-14"><a href="bayes-rule-1.html#cb68-14"></a></span>
+<span id="cb68-15"><a href="bayes-rule-1.html#cb68-15"></a><span class="co"># clustered standard errors</span></span>
+<span id="cb68-16"><a href="bayes-rule-1.html#cb68-16"></a>c1&lt;-(<span class="kw">coef</span>(<span class="kw">summary</span>(model1,<span class="dt">cluster=</span><span class="st">&quot;ID&quot;</span>))[,<span class="dv">2</span>])</span>
+<span id="cb68-17"><a href="bayes-rule-1.html#cb68-17"></a>c2&lt;-(<span class="kw">coef</span>(<span class="kw">summary</span>(model2,<span class="dt">cluster=</span><span class="st">&quot;ID&quot;</span>))[,<span class="dv">2</span>])</span>
+<span id="cb68-18"><a href="bayes-rule-1.html#cb68-18"></a>c3&lt;-(<span class="kw">coef</span>(<span class="kw">summary</span>(model3,<span class="dt">cluster=</span><span class="st">&quot;ID&quot;</span>))[,<span class="dv">2</span>])</span>
+<span id="cb68-19"><a href="bayes-rule-1.html#cb68-19"></a>c4&lt;-(<span class="kw">coef</span>(<span class="kw">summary</span>(model4,<span class="dt">cluster=</span><span class="st">&quot;ID&quot;</span>))[,<span class="dv">2</span>])</span>
+<span id="cb68-20"><a href="bayes-rule-1.html#cb68-20"></a></span>
+<span id="cb68-21"><a href="bayes-rule-1.html#cb68-21"></a></span>
+<span id="cb68-22"><a href="bayes-rule-1.html#cb68-22"></a><span class="kw">kbl</span>((D1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Round<span class="op">==</span><span class="dv">2</span>)))</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Round
+</th>
+<th style="text-align:right;">
+ID
+</th>
+<th style="text-align:right;">
+Prediction
+</th>
+<th style="text-align:right;">
+CutoffLimit
+</th>
+<th style="text-align:right;">
+PreviousAverage
+</th>
+<th style="text-align:right;">
+Earnings
+</th>
+<th style="text-align:right;">
+Part
+</th>
+<th style="text-align:right;">
+Event
+</th>
+<th style="text-align:right;">
+Red
+</th>
+<th style="text-align:right;">
+Blue
+</th>
+<th style="text-align:right;">
+mb
+</th>
+<th style="text-align:left;">
+CL
+</th>
+<th style="text-align:right;">
+L1Event
+</th>
+<th style="text-align:right;">
+L2Event
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+33.66667
+</td>
+<td style="text-align:left;">
+Pr(Red) = 20 %
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+67.00000
+</td>
+<td style="text-align:left;">
+Pr(Red) = 40 %
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+33.66667
+</td>
+<td style="text-align:left;">
+Pr(Red) = 10 %
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+33.66667
+</td>
+<td style="text-align:left;">
+Pr(Red) = 20 %
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+33.66667
+</td>
+<td style="text-align:left;">
+Pr(Red) = 40 %
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+33.66667
+</td>
+<td style="text-align:left;">
+Pr(Red) = 10 %
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+67.00000
+</td>
+<td style="text-align:left;">
+Pr(Red) = 20 %
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+33.66667
+</td>
+<td style="text-align:left;">
+Pr(Red) = 40 %
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+33.66667
+</td>
+<td style="text-align:left;">
+Pr(Red) = 10 %
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="bayes-rule-1.html#cb69-1"></a><span class="kw">stargazer</span>(model1,model2,model3,model4,<span class="dt">se=</span><span class="kw">list</span>(c1,c2,c3,c4),<span class="dt">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="5" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Prediction
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+</tr>
+<tr>
+<td colspan="5" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+mb
+</td>
+<td>
+0.013
+</td>
+<td>
+0.006
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.017)
+</td>
+<td>
+(0.021)
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+L1Event
+</td>
+<td>
+</td>
+<td>
+0.606
+</td>
+<td>
+0.704
+</td>
+<td>
+0.495
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.653)
+</td>
+<td>
+(0.543)
+</td>
+<td>
+(0.605)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+L2Event
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+0.912
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.616)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-1.497<sup>**</sup>
+</td>
+<td>
+-1.419<sup>**</sup>
+</td>
+<td>
+-1.264<sup>***</sup>
+</td>
+<td>
+-1.507<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.620)
+</td>
+<td>
+(0.658)
+</td>
+<td>
+(0.314)
+</td>
+<td>
+(0.375)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="5" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+90
+</td>
+<td>
+81
+</td>
+<td>
+81
+</td>
+<td>
+72
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+-50.861
+</td>
+<td>
+-45.497
+</td>
+<td>
+-45.533
+</td>
+<td>
+-38.712
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+105.723
+</td>
+<td>
+96.994
+</td>
+<td>
+95.067
+</td>
+<td>
+83.424
+</td>
+</tr>
+<tr>
+<td colspan="5" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="4" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="risk.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="risk.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="search.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -182,6 +182,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="bayes-rule.html"><a href="bayes-rule.html#more-generally"><i class="fa fa-check"></i><b>4.4</b> More generally</a></li>
 <li class="chapter" data-level="4.5" data-path="bayes-rule.html"><a href="bayes-rule.html#example-from-ps3---i"><i class="fa fa-check"></i><b>4.5</b> Example from PS3 - I</a></li>
 <li class="chapter" data-level="4.6" data-path="bayes-rule.html"><a href="bayes-rule.html#example-ii"><i class="fa fa-check"></i><b>4.6</b> Example, II</a></li>
+<li class="chapter" data-level="4.7" data-path="bayes-rule.html"><a href="bayes-rule.html#example-iii"><i class="fa fa-check"></i><b>4.7</b> Example, III</a></li>
+<li class="chapter" data-level="4.8" data-path="bayes-rule.html"><a href="bayes-rule.html#example-iv"><i class="fa fa-check"></i><b>4.8</b> Example, IV</a></li>
+<li class="chapter" data-level="4.9" data-path="bayes-rule.html"><a href="bayes-rule.html#example-v"><i class="fa fa-check"></i><b>4.9</b> Example, V</a></li>
+<li class="chapter" data-level="4.10" data-path="bayes-rule.html"><a href="bayes-rule.html#example-vi"><i class="fa fa-check"></i><b>4.10</b> Example, VI</a></li>
+<li class="chapter" data-level="4.11" data-path="bayes-rule.html"><a href="bayes-rule.html#example-vii"><i class="fa fa-check"></i><b>4.11</b> Example, VII</a></li>
+<li class="chapter" data-level="4.12" data-path="bayes-rule.html"><a href="bayes-rule.html#example-viii"><i class="fa fa-check"></i><b>4.12</b> Example, VIII</a></li>
+<li class="chapter" data-level="4.13" data-path="bayes-rule.html"><a href="bayes-rule.html#example-ix"><i class="fa fa-check"></i><b>4.13</b> Example, IX</a></li>
+<li class="chapter" data-level="4.14" data-path="bayes-rule.html"><a href="bayes-rule.html#example-x"><i class="fa fa-check"></i><b>4.14</b> Example, X</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="masters-only-content-econ-6260.html"><a href="masters-only-content-econ-6260.html"><i class="fa fa-check"></i>Masters-only content (ECON 6260)</a></li>
 <li class="chapter" data-level="5" data-path="reading-which-is-the-fair-sex.html"><a href="reading-which-is-the-fair-sex.html"><i class="fa fa-check"></i><b>5</b> Reading: Which is the fair sex?</a><ul>
@@ -212,6 +220,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#instructions"><i class="fa fa-check"></i><b>10.1</b> Instructions</a></li>
 <li class="chapter" data-level="10.2" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#data-description"><i class="fa fa-check"></i><b>10.2</b> Data Description</a></li>
 <li class="chapter" data-level="10.3" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#questions-1"><i class="fa fa-check"></i><b>10.3</b> Questions</a></li>
+<li class="chapter" data-level="10.4" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#solutions-3"><i class="fa fa-check"></i><b>10.4</b> Solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="search.html"><a href="search.html"><i class="fa fa-check"></i><b>11</b> Search</a><ul>
+<li class="chapter" data-level="11.1" data-path="search.html"><a href="search.html#instructions-1"><i class="fa fa-check"></i><b>11.1</b> Instructions</a></li>
+<li class="chapter" data-level="11.2" data-path="search.html"><a href="search.html#questions-2"><i class="fa fa-check"></i><b>11.2</b> Questions</a></li>
 </ul></li>
 </ul>
 
@@ -244,29 +257,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="example-using-av2001s-data" class="section level2">
 <h2><span class="header-section-number">6.2</span> Example using AV2001’s data</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="parametric-recoverability-of-preferences.html#cb22-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb22-2"><a href="parametric-recoverability-of-preferences.html#cb22-2"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb22-3"><a href="parametric-recoverability-of-preferences.html#cb22-3"></a><span class="kw">library</span>(tidyr)</span>
-<span id="cb22-4"><a href="parametric-recoverability-of-preferences.html#cb22-4"></a></span>
-<span id="cb22-5"><a href="parametric-recoverability-of-preferences.html#cb22-5"></a></span>
-<span id="cb22-6"><a href="parametric-recoverability-of-preferences.html#cb22-6"></a>params&lt;-<span class="kw">data.frame</span>((<span class="kw">read.csv</span>(<span class="st">&quot;AV2001parameters.csv&quot;</span>)))</span>
-<span id="cb22-7"><a href="parametric-recoverability-of-preferences.html#cb22-7"></a><span class="kw">colnames</span>(params)[<span class="dv">1</span>]&lt;-<span class="st">&quot;Decision&quot;</span></span>
-<span id="cb22-8"><a href="parametric-recoverability-of-preferences.html#cb22-8"></a></span>
-<span id="cb22-9"><a href="parametric-recoverability-of-preferences.html#cb22-9"></a>D&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;AV2001choices.csv&quot;</span>)</span>
-<span id="cb22-10"><a href="parametric-recoverability-of-preferences.html#cb22-10"></a></span>
-<span id="cb22-11"><a href="parametric-recoverability-of-preferences.html#cb22-11"></a>D<span class="op">$</span>id&lt;-D<span class="op">$</span>X</span>
-<span id="cb22-12"><a href="parametric-recoverability-of-preferences.html#cb22-12"></a></span>
-<span id="cb22-13"><a href="parametric-recoverability-of-preferences.html#cb22-13"></a>Keep&lt;-(<span class="kw">data.frame</span>(D)</span>
-<span id="cb22-14"><a href="parametric-recoverability-of-preferences.html#cb22-14"></a>        <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(Decision,keep,keep1<span class="op">:</span>keep8)</span>
-<span id="cb22-15"><a href="parametric-recoverability-of-preferences.html#cb22-15"></a>        <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Decision=</span>(<span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;keep&quot;</span>, <span class="st">&quot;&quot;</span>, Decision)))</span>
-<span id="cb22-16"><a href="parametric-recoverability-of-preferences.html#cb22-16"></a>                             )</span>
-<span id="cb22-17"><a href="parametric-recoverability-of-preferences.html#cb22-17"></a>       <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(params,<span class="dt">by=</span><span class="st">&quot;Decision&quot;</span>)</span>
-<span id="cb22-18"><a href="parametric-recoverability-of-preferences.html#cb22-18"></a>       <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
-<span id="cb22-19"><a href="parametric-recoverability-of-preferences.html#cb22-19"></a>         <span class="dt">fraction_kept =</span> keep<span class="op">/</span>income,</span>
-<span id="cb22-20"><a href="parametric-recoverability-of-preferences.html#cb22-20"></a>         <span class="dt">fraction_passed =</span> (income<span class="op">-</span>keep)<span class="op">/</span>income,</span>
-<span id="cb22-21"><a href="parametric-recoverability-of-preferences.html#cb22-21"></a>       )</span>
-<span id="cb22-22"><a href="parametric-recoverability-of-preferences.html#cb22-22"></a>)</span></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="parametric-recoverability-of-preferences.html#cb23-1"></a>Keep <span class="op">%&gt;%</span><span class="st"> </span>head <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="parametric-recoverability-of-preferences.html#cb25-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb25-2"><a href="parametric-recoverability-of-preferences.html#cb25-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb25-3"><a href="parametric-recoverability-of-preferences.html#cb25-3"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb25-4"><a href="parametric-recoverability-of-preferences.html#cb25-4"></a></span>
+<span id="cb25-5"><a href="parametric-recoverability-of-preferences.html#cb25-5"></a></span>
+<span id="cb25-6"><a href="parametric-recoverability-of-preferences.html#cb25-6"></a>params&lt;-<span class="kw">data.frame</span>((<span class="kw">read.csv</span>(<span class="st">&quot;AV2001parameters.csv&quot;</span>)))</span>
+<span id="cb25-7"><a href="parametric-recoverability-of-preferences.html#cb25-7"></a><span class="kw">colnames</span>(params)[<span class="dv">1</span>]&lt;-<span class="st">&quot;Decision&quot;</span></span>
+<span id="cb25-8"><a href="parametric-recoverability-of-preferences.html#cb25-8"></a></span>
+<span id="cb25-9"><a href="parametric-recoverability-of-preferences.html#cb25-9"></a>D&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;AV2001choices.csv&quot;</span>)</span>
+<span id="cb25-10"><a href="parametric-recoverability-of-preferences.html#cb25-10"></a></span>
+<span id="cb25-11"><a href="parametric-recoverability-of-preferences.html#cb25-11"></a>D<span class="op">$</span>id&lt;-D<span class="op">$</span>X</span>
+<span id="cb25-12"><a href="parametric-recoverability-of-preferences.html#cb25-12"></a></span>
+<span id="cb25-13"><a href="parametric-recoverability-of-preferences.html#cb25-13"></a>Keep&lt;-(<span class="kw">data.frame</span>(D)</span>
+<span id="cb25-14"><a href="parametric-recoverability-of-preferences.html#cb25-14"></a>        <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(Decision,keep,keep1<span class="op">:</span>keep8)</span>
+<span id="cb25-15"><a href="parametric-recoverability-of-preferences.html#cb25-15"></a>        <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Decision=</span>(<span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;keep&quot;</span>, <span class="st">&quot;&quot;</span>, Decision)))</span>
+<span id="cb25-16"><a href="parametric-recoverability-of-preferences.html#cb25-16"></a>                             )</span>
+<span id="cb25-17"><a href="parametric-recoverability-of-preferences.html#cb25-17"></a>       <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(params,<span class="dt">by=</span><span class="st">&quot;Decision&quot;</span>)</span>
+<span id="cb25-18"><a href="parametric-recoverability-of-preferences.html#cb25-18"></a>       <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
+<span id="cb25-19"><a href="parametric-recoverability-of-preferences.html#cb25-19"></a>         <span class="dt">fraction_kept =</span> keep<span class="op">/</span>income,</span>
+<span id="cb25-20"><a href="parametric-recoverability-of-preferences.html#cb25-20"></a>         <span class="dt">fraction_passed =</span> (income<span class="op">-</span>keep)<span class="op">/</span>income,</span>
+<span id="cb25-21"><a href="parametric-recoverability-of-preferences.html#cb25-21"></a>       )</span>
+<span id="cb25-22"><a href="parametric-recoverability-of-preferences.html#cb25-22"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="parametric-recoverability-of-preferences.html#cb26-1"></a>Keep <span class="op">%&gt;%</span><span class="st"> </span>head <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>() </span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -532,28 +545,28 @@ SSR(\alpha)&amp;=\sum_{t=1}^T\left((\alpha-k_t)^2+(1-\alpha-(1-k_t))^2\right)\\
 \end{aligned}
 \]</span>
 i.e. <span class="math inline">\(\hat\alpha^{SS}=\)</span>average fraction kept.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="parametric-recoverability-of-preferences.html#cb24-1"></a><span class="kw">library</span>(latex2exp)</span>
-<span id="cb24-2"><a href="parametric-recoverability-of-preferences.html#cb24-2"></a></span>
-<span id="cb24-3"><a href="parametric-recoverability-of-preferences.html#cb24-3"></a>ESTIMATES&lt;-(Keep</span>
-<span id="cb24-4"><a href="parametric-recoverability-of-preferences.html#cb24-4"></a>            <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(id)</span>
-<span id="cb24-5"><a href="parametric-recoverability-of-preferences.html#cb24-5"></a>            <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">ahatSS =</span> <span class="kw">mean</span>(fraction_kept))</span>
-<span id="cb24-6"><a href="parametric-recoverability-of-preferences.html#cb24-6"></a>  </span>
-<span id="cb24-7"><a href="parametric-recoverability-of-preferences.html#cb24-7"></a>)</span>
-<span id="cb24-8"><a href="parametric-recoverability-of-preferences.html#cb24-8"></a></span>
-<span id="cb24-9"><a href="parametric-recoverability-of-preferences.html#cb24-9"></a>(</span>
-<span id="cb24-10"><a href="parametric-recoverability-of-preferences.html#cb24-10"></a>  <span class="kw">ggplot</span>(ESTIMATES)</span>
-<span id="cb24-11"><a href="parametric-recoverability-of-preferences.html#cb24-11"></a>  <span class="op">+</span><span class="kw">stat_ecdf</span>(<span class="kw">aes</span>(<span class="dt">x=</span>ahatSS,<span class="dt">color=</span><span class="st">&quot;SS estimate&quot;</span>))</span>
-<span id="cb24-12"><a href="parametric-recoverability-of-preferences.html#cb24-12"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
-<span id="cb24-13"><a href="parametric-recoverability-of-preferences.html#cb24-13"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Estimate&quot;</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Empirical cumulative density&quot;</span>)</span>
-<span id="cb24-14"><a href="parametric-recoverability-of-preferences.html#cb24-14"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="parametric-recoverability-of-preferences.html#cb27-1"></a><span class="kw">library</span>(latex2exp)</span>
+<span id="cb27-2"><a href="parametric-recoverability-of-preferences.html#cb27-2"></a></span>
+<span id="cb27-3"><a href="parametric-recoverability-of-preferences.html#cb27-3"></a>ESTIMATES&lt;-(Keep</span>
+<span id="cb27-4"><a href="parametric-recoverability-of-preferences.html#cb27-4"></a>            <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(id)</span>
+<span id="cb27-5"><a href="parametric-recoverability-of-preferences.html#cb27-5"></a>            <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">ahatSS =</span> <span class="kw">mean</span>(fraction_kept))</span>
+<span id="cb27-6"><a href="parametric-recoverability-of-preferences.html#cb27-6"></a>  </span>
+<span id="cb27-7"><a href="parametric-recoverability-of-preferences.html#cb27-7"></a>)</span>
+<span id="cb27-8"><a href="parametric-recoverability-of-preferences.html#cb27-8"></a></span>
+<span id="cb27-9"><a href="parametric-recoverability-of-preferences.html#cb27-9"></a>(</span>
+<span id="cb27-10"><a href="parametric-recoverability-of-preferences.html#cb27-10"></a>  <span class="kw">ggplot</span>(ESTIMATES)</span>
+<span id="cb27-11"><a href="parametric-recoverability-of-preferences.html#cb27-11"></a>  <span class="op">+</span><span class="kw">stat_ecdf</span>(<span class="kw">aes</span>(<span class="dt">x=</span>ahatSS,<span class="dt">color=</span><span class="st">&quot;SS estimate&quot;</span>))</span>
+<span id="cb27-12"><a href="parametric-recoverability-of-preferences.html#cb27-12"></a>  <span class="op">+</span><span class="kw">theme_bw</span>()</span>
+<span id="cb27-13"><a href="parametric-recoverability-of-preferences.html#cb27-13"></a>  <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Estimate&quot;</span>)<span class="op">+</span><span class="kw">ylab</span>(<span class="st">&quot;Empirical cumulative density&quot;</span>)</span>
+<span id="cb27-14"><a href="parametric-recoverability-of-preferences.html#cb27-14"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
 </div>
 <div id="for-this-paper" class="section level2">
 <h2><span class="header-section-number">6.3</span> For this paper</h2>
 <p>Data available here.: <a href="https://raw.githubusercontent.com/persitzd/RP-Toolkit/master/Data%20Files/Data_HPZ_2018.csv" class="uri">https://raw.githubusercontent.com/persitzd/RP-Toolkit/master/Data%20Files/Data_HPZ_2018.csv</a></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="parametric-recoverability-of-preferences.html#cb25-1"></a>D&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;Data_HPZ_2018.csv&quot;</span>)</span>
-<span id="cb25-2"><a href="parametric-recoverability-of-preferences.html#cb25-2"></a></span>
-<span id="cb25-3"><a href="parametric-recoverability-of-preferences.html#cb25-3"></a>D <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="parametric-recoverability-of-preferences.html#cb28-1"></a>D&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;Data_HPZ_2018.csv&quot;</span>)</span>
+<span id="cb28-2"><a href="parametric-recoverability-of-preferences.html#cb28-2"></a></span>
+<span id="cb28-3"><a href="parametric-recoverability-of-preferences.html#cb28-3"></a>D <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr>
