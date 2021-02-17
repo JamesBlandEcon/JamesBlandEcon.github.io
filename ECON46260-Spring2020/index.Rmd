@@ -1,0 +1,71 @@
+---
+title: "ECON 4-6260 Behavioral Economics"
+author: "James Bland"
+date: "Spring 2021"
+output: bookdown::gitbook
+---
+
+```{r, include=FALSE}
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message=FALSE,cache=TRUE)
+
+#rmarkdown::render("index.Rmd",output_dir="C:/Users/jbland/Documents/JamesBlandEcon.github.io/ECON46260-Spring2020")
+```
+
+# Common content (both ECON 4260 and ECON 6260) {-}
+
+```{r,child=c("Slides/CH01-Introduction.Rmd")}
+
+```
+
+```{r,child=c("Slides/CH02-Markets.Rmd")}
+
+```
+
+```{r,child=c("Slides/CH03-RiskAndDecisionMaking.Rmd")}
+
+```
+
+```{r,child=c("Slides/CH05-BayesRule.Rmd")}
+
+```
+
+# Masters-only content (ECON 6260) {-}
+
+
+
+```{r,child=c("Masters/AV2001.Rmd")}
+
+```
+
+```{r,child=c("Masters/ParametricRecoverability.Rmd")}
+
+```
+
+
+
+# Problem sets {-}
+
+```{r,child=c("../ProblemSets/PS01-GuessingGame.Rmd")}
+```
+
+```{r,child=c("../ProblemSets/SOLUTIONS-PS01-GuessingGame.Rmd")}
+```
+
+```{r,child=c("../ProblemSets/PS02-Markets.Rmd")}
+```
+
+```{r,child=c("../ProblemSets/PS02-Markets-SOLUTIONS.Rmd")}
+```
+
+```{r,child=c("../ProblemSets/PS03-Risk.Rmd")}
+```
+
+```{r,child=c("../ProblemSets/PS03-Risk-SOLUTIONS.Rmd")}
+```
+
+```{r,child=c("../ProblemSets/PS04-Bayes.Rmd","../ProblemSets/PS04-Bayes-SOLUTIONS.Rmd")}
+```
+
+```{r,child=c("../ProblemSets/PS05-Search.Rmd")}
+```
