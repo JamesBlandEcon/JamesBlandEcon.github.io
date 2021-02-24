@@ -30,8 +30,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="bayes-rule.html"/>
+<link rel="prev" href="anomalies-with-decision-making-under-risk.html"/>
 <link rel="next" href="reading-which-is-the-fair-sex.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,7 +50,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
@@ -57,18 +57,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -88,7 +88,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,7 +134,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="common-content-both-econ-4260-and-econ-6260.html"><a href="common-content-both-econ-4260-and-econ-6260.html"><i class="fa fa-check"></i>Common content (both ECON 4260 and ECON 6260)</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#boring-stuff-first-expectation-for-class"><i class="fa fa-check"></i><b>1.1</b> Boring stuff first: Expectation for class</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-will-we-be-studying"><i class="fa fa-check"></i><b>1.2</b> What will we be studying?</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#doing-economic-research-without-experiments"><i class="fa fa-check"></i><b>1.3</b> Doing economic research without experiments</a></li>
@@ -152,7 +153,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.15" data-path="introduction.html"><a href="introduction.html#a-roadmap-for-this-course"><i class="fa fa-check"></i><b>1.15</b> A roadmap for this course</a></li>
 <li class="chapter" data-level="1.16" data-path="introduction.html"><a href="introduction.html#outline-of-topics-covered-not-necessarily-in-order"><i class="fa fa-check"></i><b>1.16</b> Outline of topics covered (not necessarily in order)</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="markets.html"><a href="markets.html"><i class="fa fa-check"></i><b>2</b> Markets</a><ul>
+<li class="chapter" data-level="2" data-path="markets.html"><a href="markets.html"><i class="fa fa-check"></i><b>2</b> Markets</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="markets.html"><a href="markets.html#markets-1"><i class="fa fa-check"></i><b>2.1</b> Markets</a></li>
 <li class="chapter" data-level="2.2" data-path="markets.html"><a href="markets.html#an-experiment"><i class="fa fa-check"></i><b>2.2</b> An experiment</a></li>
 <li class="chapter" data-level="2.3" data-path="markets.html"><a href="markets.html#induced-value-theory"><i class="fa fa-check"></i><b>2.3</b> Induced value theory</a></li>
@@ -165,7 +167,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.10" data-path="markets.html"><a href="markets.html#comparative-static-predictions"><i class="fa fa-check"></i><b>2.10</b> Comparative static predictions</a></li>
 <li class="chapter" data-level="2.11" data-path="markets.html"><a href="markets.html#other-take-aways"><i class="fa fa-check"></i><b>2.11</b> Other take-aways</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="risk-and-decision-making.html"><a href="risk-and-decision-making.html"><i class="fa fa-check"></i><b>3</b> Risk and decision-making</a><ul>
+<li class="chapter" data-level="3" data-path="risk-and-decision-making.html"><a href="risk-and-decision-making.html"><i class="fa fa-check"></i><b>3</b> Risk and decision-making</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="risk-and-decision-making.html"><a href="risk-and-decision-making.html#risk-and-uncertainty"><i class="fa fa-check"></i><b>3.1</b> Risk and uncertainty</a></li>
 <li class="chapter" data-level="3.2" data-path="risk-and-decision-making.html"><a href="risk-and-decision-making.html#example-insurance"><i class="fa fa-check"></i><b>3.2</b> Example: Insurance</a></li>
 <li class="chapter" data-level="3.3" data-path="risk-and-decision-making.html"><a href="risk-and-decision-making.html#expected-value"><i class="fa fa-check"></i><b>3.3</b> Expected value</a></li>
@@ -175,7 +178,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="risk-and-decision-making.html"><a href="risk-and-decision-making.html#insurance-with-risk-aversion"><i class="fa fa-check"></i><b>3.7</b> Insurance with risk aversion</a></li>
 <li class="chapter" data-level="3.8" data-path="risk-and-decision-making.html"><a href="risk-and-decision-making.html#insurance-with-risk-aversion---graphically"><i class="fa fa-check"></i><b>3.8</b> Insurance with risk aversion - graphically</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="bayes-rule.html"><a href="bayes-rule.html"><i class="fa fa-check"></i><b>4</b> Bayes’ rule</a><ul>
+<li class="chapter" data-level="4" data-path="bayes-rule.html"><a href="bayes-rule.html"><i class="fa fa-check"></i><b>4</b> Bayes’ rule</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="bayes-rule.html"><a href="bayes-rule.html#in-comparison-to-chapter-3-risk"><i class="fa fa-check"></i><b>4.1</b> In comparison to Chapter 3 (risk)</a></li>
 <li class="chapter" data-level="4.2" data-path="bayes-rule.html"><a href="bayes-rule.html#conditional-probability"><i class="fa fa-check"></i><b>4.2</b> Conditional probability</a></li>
 <li class="chapter" data-level="4.3" data-path="bayes-rule.html"><a href="bayes-rule.html#example"><i class="fa fa-check"></i><b>4.3</b> Example</a></li>
@@ -191,40 +195,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.13" data-path="bayes-rule.html"><a href="bayes-rule.html#example-ix"><i class="fa fa-check"></i><b>4.13</b> Example, IX</a></li>
 <li class="chapter" data-level="4.14" data-path="bayes-rule.html"><a href="bayes-rule.html#example-x"><i class="fa fa-check"></i><b>4.14</b> Example, X</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="anomalies-with-decision-making-under-risk.html"><a href="anomalies-with-decision-making-under-risk.html"><i class="fa fa-check"></i><b>5</b> Anomalies with decision-making under risk</a></li>
 <li class="chapter" data-level="" data-path="masters-only-content-econ-6260.html"><a href="masters-only-content-econ-6260.html"><i class="fa fa-check"></i>Masters-only content (ECON 6260)</a></li>
-<li class="chapter" data-level="5" data-path="reading-which-is-the-fair-sex.html"><a href="reading-which-is-the-fair-sex.html"><i class="fa fa-check"></i><b>5</b> Reading: Which is the fair sex?</a><ul>
-<li class="chapter" data-level="5.1" data-path="reading-which-is-the-fair-sex.html"><a href="reading-which-is-the-fair-sex.html#plot-the-budget-sets"><i class="fa fa-check"></i><b>5.1</b> plot the budget sets</a></li>
-<li class="chapter" data-level="5.2" data-path="reading-which-is-the-fair-sex.html"><a href="reading-which-is-the-fair-sex.html#classification-into-3-types-of-subject"><i class="fa fa-check"></i><b>5.2</b> Classification into 3 types of subject</a></li>
+<li class="chapter" data-level="6" data-path="reading-which-is-the-fair-sex.html"><a href="reading-which-is-the-fair-sex.html"><i class="fa fa-check"></i><b>6</b> Reading: Which is the fair sex?</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="reading-which-is-the-fair-sex.html"><a href="reading-which-is-the-fair-sex.html#plot-the-budget-sets"><i class="fa fa-check"></i><b>6.1</b> plot the budget sets</a></li>
+<li class="chapter" data-level="6.2" data-path="reading-which-is-the-fair-sex.html"><a href="reading-which-is-the-fair-sex.html#classification-into-3-types-of-subject"><i class="fa fa-check"></i><b>6.2</b> Classification into 3 types of subject</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="parametric-recoverability-of-preferences.html"><a href="parametric-recoverability-of-preferences.html"><i class="fa fa-check"></i><b>6</b> Parametric recoverability of preferences</a><ul>
-<li class="chapter" data-level="6.1" data-path="parametric-recoverability-of-preferences.html"><a href="parametric-recoverability-of-preferences.html#experiment-design"><i class="fa fa-check"></i><b>6.1</b> Experiment design</a></li>
-<li class="chapter" data-level="6.2" data-path="parametric-recoverability-of-preferences.html"><a href="parametric-recoverability-of-preferences.html#example-using-av2001s-data"><i class="fa fa-check"></i><b>6.2</b> Example using AV2001’s data</a></li>
-<li class="chapter" data-level="6.3" data-path="parametric-recoverability-of-preferences.html"><a href="parametric-recoverability-of-preferences.html#for-this-paper"><i class="fa fa-check"></i><b>6.3</b> For this paper</a></li>
+<li class="chapter" data-level="7" data-path="parametric-recoverability-of-preferences.html"><a href="parametric-recoverability-of-preferences.html"><i class="fa fa-check"></i><b>7</b> Parametric recoverability of preferences</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="parametric-recoverability-of-preferences.html"><a href="parametric-recoverability-of-preferences.html#experiment-design"><i class="fa fa-check"></i><b>7.1</b> Experiment design</a></li>
+<li class="chapter" data-level="7.2" data-path="parametric-recoverability-of-preferences.html"><a href="parametric-recoverability-of-preferences.html#the-money-metric"><i class="fa fa-check"></i><b>7.2</b> The “money metric”</a></li>
+<li class="chapter" data-level="7.3" data-path="parametric-recoverability-of-preferences.html"><a href="parametric-recoverability-of-preferences.html#example-using-av2001s-data"><i class="fa fa-check"></i><b>7.3</b> Example using AV2001’s data</a></li>
+<li class="chapter" data-level="7.4" data-path="parametric-recoverability-of-preferences.html"><a href="parametric-recoverability-of-preferences.html#for-this-paper"><i class="fa fa-check"></i><b>7.4</b> For this paper</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="problem-sets.html"><a href="problem-sets.html"><i class="fa fa-check"></i>Problem sets</a></li>
-<li class="chapter" data-level="7" data-path="guessing-game.html"><a href="guessing-game.html"><i class="fa fa-check"></i><b>7</b> Guessing Game</a><ul>
-<li class="chapter" data-level="7.1" data-path="guessing-game.html"><a href="guessing-game.html#a-description-of-what-happened"><i class="fa fa-check"></i><b>7.1</b> A description of what happened</a></li>
-<li class="chapter" data-level="7.2" data-path="guessing-game.html"><a href="guessing-game.html#your-homework-assignment"><i class="fa fa-check"></i><b>7.2</b> Your homework assignment</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="guessing-game.html"><a href="guessing-game.html#solutions"><i class="fa fa-check"></i><b>7.2.1</b> Solutions</a></li>
+<li class="chapter" data-level="8" data-path="guessing-game.html"><a href="guessing-game.html"><i class="fa fa-check"></i><b>8</b> Guessing Game</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="guessing-game.html"><a href="guessing-game.html#a-description-of-what-happened"><i class="fa fa-check"></i><b>8.1</b> A description of what happened</a></li>
+<li class="chapter" data-level="8.2" data-path="guessing-game.html"><a href="guessing-game.html#your-homework-assignment"><i class="fa fa-check"></i><b>8.2</b> Your homework assignment</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="guessing-game.html"><a href="guessing-game.html#solutions"><i class="fa fa-check"></i><b>8.2.1</b> Solutions</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="markets-2.html"><a href="markets-2.html"><i class="fa fa-check"></i><b>8</b> Markets</a><ul>
-<li class="chapter" data-level="8.1" data-path="markets-2.html"><a href="markets-2.html#your-homework-assignment-1"><i class="fa fa-check"></i><b>8.1</b> Your homework assignment</a></li>
-<li class="chapter" data-level="8.2" data-path="markets-2.html"><a href="markets-2.html#solutions-1"><i class="fa fa-check"></i><b>8.2</b> Solutions</a></li>
+<li class="chapter" data-level="9" data-path="markets-2.html"><a href="markets-2.html"><i class="fa fa-check"></i><b>9</b> Markets</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="markets-2.html"><a href="markets-2.html#your-homework-assignment-1"><i class="fa fa-check"></i><b>9.1</b> Your homework assignment</a></li>
+<li class="chapter" data-level="9.2" data-path="markets-2.html"><a href="markets-2.html#solutions-1"><i class="fa fa-check"></i><b>9.2</b> Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="risk.html"><a href="risk.html"><i class="fa fa-check"></i><b>9</b> Risk</a><ul>
-<li class="chapter" data-level="9.1" data-path="risk.html"><a href="risk.html#questions"><i class="fa fa-check"></i><b>9.1</b> Questions</a></li>
-<li class="chapter" data-level="9.2" data-path="risk.html"><a href="risk.html#solutions-2"><i class="fa fa-check"></i><b>9.2</b> Solutions</a></li>
+<li class="chapter" data-level="10" data-path="risk.html"><a href="risk.html"><i class="fa fa-check"></i><b>10</b> Risk</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="risk.html"><a href="risk.html#questions"><i class="fa fa-check"></i><b>10.1</b> Questions</a></li>
+<li class="chapter" data-level="10.2" data-path="risk.html"><a href="risk.html#solutions-2"><i class="fa fa-check"></i><b>10.2</b> Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html"><i class="fa fa-check"></i><b>10</b> Bayes’ rule</a><ul>
-<li class="chapter" data-level="10.1" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#instructions"><i class="fa fa-check"></i><b>10.1</b> Instructions</a></li>
-<li class="chapter" data-level="10.2" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#data-description"><i class="fa fa-check"></i><b>10.2</b> Data Description</a></li>
-<li class="chapter" data-level="10.3" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#questions-1"><i class="fa fa-check"></i><b>10.3</b> Questions</a></li>
-<li class="chapter" data-level="10.4" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#solutions-3"><i class="fa fa-check"></i><b>10.4</b> Solutions</a></li>
+<li class="chapter" data-level="11" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html"><i class="fa fa-check"></i><b>11</b> Bayes’ rule</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#instructions"><i class="fa fa-check"></i><b>11.1</b> Instructions</a></li>
+<li class="chapter" data-level="11.2" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#data-description"><i class="fa fa-check"></i><b>11.2</b> Data Description</a></li>
+<li class="chapter" data-level="11.3" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#questions-1"><i class="fa fa-check"></i><b>11.3</b> Questions</a></li>
+<li class="chapter" data-level="11.4" data-path="bayes-rule-1.html"><a href="bayes-rule-1.html#solutions-3"><i class="fa fa-check"></i><b>11.4</b> Solutions</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="search.html"><a href="search.html"><i class="fa fa-check"></i><b>11</b> Search</a><ul>
-<li class="chapter" data-level="11.1" data-path="search.html"><a href="search.html#instructions-1"><i class="fa fa-check"></i><b>11.1</b> Instructions</a></li>
-<li class="chapter" data-level="11.2" data-path="search.html"><a href="search.html#questions-2"><i class="fa fa-check"></i><b>11.2</b> Questions</a></li>
+<li class="chapter" data-level="12" data-path="search.html"><a href="search.html"><i class="fa fa-check"></i><b>12</b> Search</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="search.html"><a href="search.html#instructions-1"><i class="fa fa-check"></i><b>12.1</b> Instructions</a></li>
+<li class="chapter" data-level="12.2" data-path="search.html"><a href="search.html#questions-2"><i class="fa fa-check"></i><b>12.2</b> Questions</a></li>
+<li class="chapter" data-level="12.3" data-path="search.html"><a href="search.html#solutions-4"><i class="fa fa-check"></i><b>12.3</b> Solutions</a></li>
 </ul></li>
 </ul>
 
@@ -251,7 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="bayes-rule.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="anomalies-with-decision-making-under-risk.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="reading-which-is-the-fair-sex.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
