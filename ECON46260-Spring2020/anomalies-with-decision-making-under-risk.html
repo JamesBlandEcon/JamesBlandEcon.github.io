@@ -241,6 +241,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.2" data-path="search.html"><a href="search.html#questions-2"><i class="fa fa-check"></i><b>12.2</b> Questions</a></li>
 <li class="chapter" data-level="12.3" data-path="search.html"><a href="search.html#solutions-4"><i class="fa fa-check"></i><b>12.3</b> Solutions</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="exams.html"><a href="exams.html"><i class="fa fa-check"></i>Exams</a></li>
+<li class="chapter" data-level="13" data-path="midterm-exam.html"><a href="midterm-exam.html"><i class="fa fa-check"></i><b>13</b> Midterm Exam</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-1"><i class="fa fa-check"></i><b>13.1</b> Experiment 1</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="midterm-exam.html"><a href="midterm-exam.html#instructions-2"><i class="fa fa-check"></i><b>13.1.1</b> Instructions</a></li>
+<li class="chapter" data-level="13.1.2" data-path="midterm-exam.html"><a href="midterm-exam.html#questions-3"><i class="fa fa-check"></i><b>13.1.2</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-2"><i class="fa fa-check"></i><b>13.2</b> Experiment 2</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="midterm-exam.html"><a href="midterm-exam.html#instructions-3"><i class="fa fa-check"></i><b>13.2.1</b> Instructions</a></li>
+<li class="chapter" data-level="13.2.2" data-path="midterm-exam.html"><a href="midterm-exam.html#data-1"><i class="fa fa-check"></i><b>13.2.2</b> Data</a></li>
+<li class="chapter" data-level="13.2.3" data-path="midterm-exam.html"><a href="midterm-exam.html#questions-4"><i class="fa fa-check"></i><b>13.2.3</b> Questions</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -618,85 +633,11 @@ Decision (iii): Chose between:
 <span class="math display">\[
 \max_{y\in[0,100]}\left\{0.25(200-2y+2\chi y)^r+0.5(200-2y+\chi y)^r+0.25(200-2y)^r\right\}
 \]</span></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="anomalies-with-decision-making-under-risk.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb22-2"><a href="anomalies-with-decision-making-under-risk.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb22-3"><a href="anomalies-with-decision-making-under-risk.html#cb22-3" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>)</span>
-<span id="cb22-4"><a href="anomalies-with-decision-making-under-risk.html#cb22-4" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="fl">0.1</span>,<span class="fl">1.1</span>,<span class="at">length=</span><span class="dv">101</span>)</span>
-<span id="cb22-5"><a href="anomalies-with-decision-making-under-risk.html#cb22-5" aria-hidden="true" tabindex="-1"></a>chi1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">2.25</span>,<span class="fl">2.75</span>,<span class="fl">3.50</span>,<span class="fl">5.50</span>)</span>
-<span id="cb22-6"><a href="anomalies-with-decision-making-under-risk.html#cb22-6" aria-hidden="true" tabindex="-1"></a>chi2<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">2.2</span>,<span class="fl">2.5</span>,<span class="fl">3.0</span>,<span class="fl">4.0</span>)</span>
-<span id="cb22-7"><a href="anomalies-with-decision-making-under-risk.html#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="anomalies-with-decision-making-under-risk.html#cb22-8" aria-hidden="true" tabindex="-1"></a>ymax<span class="ot">&lt;-</span><span class="cf">function</span>(c,r) {</span>
-<span id="cb22-9"><a href="anomalies-with-decision-making-under-risk.html#cb22-9" aria-hidden="true" tabindex="-1"></a>  U <span class="ot">&lt;-</span> <span class="fl">0.5</span><span class="sc">*</span>(<span class="dv">100</span><span class="sc">-</span>y<span class="sc">+</span>c<span class="sc">*</span>y)<span class="sc">^</span>r<span class="fl">+0.5</span><span class="sc">*</span>(<span class="dv">100</span><span class="sc">-</span>y)<span class="sc">^</span>r</span>
-<span id="cb22-10"><a href="anomalies-with-decision-making-under-risk.html#cb22-10" aria-hidden="true" tabindex="-1"></a>  y[<span class="fu">which.max</span>(U)]</span>
-<span id="cb22-11"><a href="anomalies-with-decision-making-under-risk.html#cb22-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb22-12"><a href="anomalies-with-decision-making-under-risk.html#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-13"><a href="anomalies-with-decision-making-under-risk.html#cb22-13" aria-hidden="true" tabindex="-1"></a>ymaxB<span class="ot">&lt;-</span><span class="cf">function</span>(c,r) {</span>
-<span id="cb22-14"><a href="anomalies-with-decision-making-under-risk.html#cb22-14" aria-hidden="true" tabindex="-1"></a>  U <span class="ot">&lt;-</span> <span class="fl">0.25</span><span class="sc">*</span>(<span class="dv">200-2</span><span class="sc">*</span>y<span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>c<span class="sc">*</span>y)<span class="sc">^</span>r<span class="fl">+0.5</span><span class="sc">*</span>(<span class="dv">200-2</span><span class="sc">*</span>y<span class="sc">+</span>c<span class="sc">*</span>y)<span class="sc">^</span>r<span class="fl">+0.25</span><span class="sc">*</span>(<span class="dv">200-2</span><span class="sc">*</span>y)<span class="sc">^</span>r</span>
-<span id="cb22-15"><a href="anomalies-with-decision-making-under-risk.html#cb22-15" aria-hidden="true" tabindex="-1"></a>  y[<span class="fu">which.max</span>(U)]</span>
-<span id="cb22-16"><a href="anomalies-with-decision-making-under-risk.html#cb22-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb22-17"><a href="anomalies-with-decision-making-under-risk.html#cb22-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-18"><a href="anomalies-with-decision-making-under-risk.html#cb22-18" aria-hidden="true" tabindex="-1"></a>pltData<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb22-19"><a href="anomalies-with-decision-making-under-risk.html#cb22-19" aria-hidden="true" tabindex="-1"></a>ym<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
-<span id="cb22-20"><a href="anomalies-with-decision-making-under-risk.html#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (cc <span class="cf">in</span> chi1) {</span>
-<span id="cb22-21"><a href="anomalies-with-decision-making-under-risk.html#cb22-21" aria-hidden="true" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span>(<span class="fu">data.frame</span>(r))</span>
-<span id="cb22-22"><a href="anomalies-with-decision-making-under-risk.html#cb22-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(r)) {</span>
-<span id="cb22-23"><a href="anomalies-with-decision-making-under-risk.html#cb22-23" aria-hidden="true" tabindex="-1"></a>    ym[rr]<span class="ot">&lt;-</span><span class="fu">ymax</span>(cc,r[rr])</span>
-<span id="cb22-24"><a href="anomalies-with-decision-making-under-risk.html#cb22-24" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb22-25"><a href="anomalies-with-decision-making-under-risk.html#cb22-25" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-26"><a href="anomalies-with-decision-making-under-risk.html#cb22-26" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>y<span class="ot">&lt;-</span>ym</span>
-<span id="cb22-27"><a href="anomalies-with-decision-making-under-risk.html#cb22-27" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>chi<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">&quot;\u03C7 =&quot;</span>,cc)</span>
-<span id="cb22-28"><a href="anomalies-with-decision-making-under-risk.html#cb22-28" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>Part<span class="ot">&lt;-</span><span class="dv">1</span></span>
-<span id="cb22-29"><a href="anomalies-with-decision-making-under-risk.html#cb22-29" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>type<span class="ot">&lt;-</span><span class="st">&quot;Both&quot;</span></span>
-<span id="cb22-30"><a href="anomalies-with-decision-making-under-risk.html#cb22-30" aria-hidden="true" tabindex="-1"></a>  pltData<span class="ot">&lt;-</span><span class="fu">rbind</span>(pltData,tmp)</span>
-<span id="cb22-31"><a href="anomalies-with-decision-making-under-risk.html#cb22-31" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb22-32"><a href="anomalies-with-decision-making-under-risk.html#cb22-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-33"><a href="anomalies-with-decision-making-under-risk.html#cb22-33" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (cc <span class="cf">in</span> chi2) {</span>
-<span id="cb22-34"><a href="anomalies-with-decision-making-under-risk.html#cb22-34" aria-hidden="true" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span>(<span class="fu">data.frame</span>(r))</span>
-<span id="cb22-35"><a href="anomalies-with-decision-making-under-risk.html#cb22-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(r)) {</span>
-<span id="cb22-36"><a href="anomalies-with-decision-making-under-risk.html#cb22-36" aria-hidden="true" tabindex="-1"></a>    ym[rr]<span class="ot">&lt;-</span><span class="fu">ymax</span>(cc,r[rr])</span>
-<span id="cb22-37"><a href="anomalies-with-decision-making-under-risk.html#cb22-37" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb22-38"><a href="anomalies-with-decision-making-under-risk.html#cb22-38" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>y<span class="ot">&lt;-</span>ym</span>
-<span id="cb22-39"><a href="anomalies-with-decision-making-under-risk.html#cb22-39" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>chi<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">&quot;\u03C7 =&quot;</span>,cc)</span>
-<span id="cb22-40"><a href="anomalies-with-decision-making-under-risk.html#cb22-40" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>type<span class="ot">&lt;-</span><span class="st">&quot;narrow&quot;</span></span>
-<span id="cb22-41"><a href="anomalies-with-decision-making-under-risk.html#cb22-41" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>Part<span class="ot">&lt;-</span><span class="dv">2</span></span>
-<span id="cb22-42"><a href="anomalies-with-decision-making-under-risk.html#cb22-42" aria-hidden="true" tabindex="-1"></a>  pltData<span class="ot">&lt;-</span><span class="fu">rbind</span>(pltData,tmp)</span>
-<span id="cb22-43"><a href="anomalies-with-decision-making-under-risk.html#cb22-43" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb22-44"><a href="anomalies-with-decision-making-under-risk.html#cb22-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-45"><a href="anomalies-with-decision-making-under-risk.html#cb22-45" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (cc <span class="cf">in</span> chi2) {</span>
-<span id="cb22-46"><a href="anomalies-with-decision-making-under-risk.html#cb22-46" aria-hidden="true" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span>(<span class="fu">data.frame</span>(r))</span>
-<span id="cb22-47"><a href="anomalies-with-decision-making-under-risk.html#cb22-47" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(r)) {</span>
-<span id="cb22-48"><a href="anomalies-with-decision-making-under-risk.html#cb22-48" aria-hidden="true" tabindex="-1"></a>    ym[rr]<span class="ot">&lt;-</span><span class="fu">ymaxB</span>(cc,r[rr])</span>
-<span id="cb22-49"><a href="anomalies-with-decision-making-under-risk.html#cb22-49" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb22-50"><a href="anomalies-with-decision-making-under-risk.html#cb22-50" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>y<span class="ot">&lt;-</span>ym</span>
-<span id="cb22-51"><a href="anomalies-with-decision-making-under-risk.html#cb22-51" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>chi<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">&quot;\u03C7 =&quot;</span>,cc)</span>
-<span id="cb22-52"><a href="anomalies-with-decision-making-under-risk.html#cb22-52" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>type<span class="ot">&lt;-</span><span class="st">&quot;broad&quot;</span></span>
-<span id="cb22-53"><a href="anomalies-with-decision-making-under-risk.html#cb22-53" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>Part<span class="ot">&lt;-</span><span class="dv">2</span></span>
-<span id="cb22-54"><a href="anomalies-with-decision-making-under-risk.html#cb22-54" aria-hidden="true" tabindex="-1"></a>  pltData<span class="ot">&lt;-</span><span class="fu">rbind</span>(pltData,tmp)</span>
-<span id="cb22-55"><a href="anomalies-with-decision-making-under-risk.html#cb22-55" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb22-56"><a href="anomalies-with-decision-making-under-risk.html#cb22-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-57"><a href="anomalies-with-decision-making-under-risk.html#cb22-57" aria-hidden="true" tabindex="-1"></a>plt1<span class="ot">&lt;-</span>(</span>
-<span id="cb22-58"><a href="anomalies-with-decision-making-under-risk.html#cb22-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(pltData <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Part<span class="sc">==</span><span class="dv">1</span>),<span class="fu">aes</span>(<span class="at">x=</span>r,<span class="at">y=</span>y,<span class="at">color=</span>chi))</span>
-<span id="cb22-59"><a href="anomalies-with-decision-making-under-risk.html#cb22-59" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Predictions in Part 1&quot;</span>)</span>
-<span id="cb22-60"><a href="anomalies-with-decision-making-under-risk.html#cb22-60" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
-<span id="cb22-61"><a href="anomalies-with-decision-making-under-risk.html#cb22-61" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb22-62"><a href="anomalies-with-decision-making-under-risk.html#cb22-62" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-63"><a href="anomalies-with-decision-making-under-risk.html#cb22-63" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb22-64"><a href="anomalies-with-decision-making-under-risk.html#cb22-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-65"><a href="anomalies-with-decision-making-under-risk.html#cb22-65" aria-hidden="true" tabindex="-1"></a>plt2<span class="ot">&lt;-</span>(</span>
-<span id="cb22-66"><a href="anomalies-with-decision-making-under-risk.html#cb22-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(pltData <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Part<span class="sc">==</span><span class="dv">2</span>),<span class="fu">aes</span>(<span class="at">x=</span>r,<span class="at">y=</span>y,<span class="at">color=</span>chi,<span class="at">linetype=</span>type))</span>
-<span id="cb22-67"><a href="anomalies-with-decision-making-under-risk.html#cb22-67" aria-hidden="true" tabindex="-1"></a>   <span class="sc">+</span><span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Predictions in Part 2&quot;</span>)</span>
-<span id="cb22-68"><a href="anomalies-with-decision-making-under-risk.html#cb22-68" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
-<span id="cb22-69"><a href="anomalies-with-decision-making-under-risk.html#cb22-69" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb22-70"><a href="anomalies-with-decision-making-under-risk.html#cb22-70" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-71"><a href="anomalies-with-decision-making-under-risk.html#cb22-71" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <hr />
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="anomalies-with-decision-making-under-risk.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plt1)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
-<hr />
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="anomalies-with-decision-making-under-risk.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plt2)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 <hr />
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="anomalies-with-decision-making-under-risk.html#cb25-1" aria-hidden="true" tabindex="-1"></a>LotteryData <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="at">size=</span><span class="dv">30</span>) <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<hr />
 <table>
 <thead>
 <tr>
@@ -1230,6 +1171,283 @@ Part 2
 </tr>
 </tbody>
 </table>
+</div>
+<div id="narrow-bracketing-and-self-control" class="section level2 unlisted unnumbered">
+<h2>Narrow bracketing and self control</h2>
+<p>Suppose that you want to walk an average of 10,000 steps per day. Over the course of a week, your body does not care when you get those steps. You are human, and so you are lazy, so if you are not walking, you have an outside option of playing video games. Over the course of the week, your utility from walking for <span class="math inline">\(S\)</span> minutes and playing <span class="math inline">\(V\)</span> minutes of video games is <span class="math inline">\(U(S,V)\)</span>. Your long-term self wants to maximize this. However your short-term self on any day wants to maximize <span class="math inline">\(w(s,v)\)</span>. Suppose that you have time <span class="math inline">\(t\)</span> available each day for walking or playing video games. Your budget constraint each day is:</p>
+<ol style="list-style-type: decimal">
+<li>Budget constraint</li>
+<li>Optimal solution for the whole week</li>
+<li>“Lazy” solution for each day</li>
+<li>Setting a weekly step goal</li>
+<li>Setting a daily step goal</li>
+</ol>
+</div>
+<div id="probability-weighting" class="section level2 unlisted unnumbered">
+<h2>Probability weighting</h2>
+<p><span class="math display">\[
+\text{Expected utility} = \sum_{k=1}^Kp_ku(x_k)
+\]</span></p>
+<p>Up to this point, all of the departures from expected utility theory we have discussed are about how people treat <em>monetary payoffs</em>. We will now investigate a few departures in how people treat <em>probabilities</em>.</p>
+</div>
+<div id="estimating-risk-preference-using-many-binary-decisions" class="section level2 unlisted unnumbered">
+<h2>Estimating risk preference using many binary decisions</h2>
+<p>A common setup:</p>
+<ul>
+<li>Four fixed prizes: <span class="math inline">\(\{x_1,x_2,x_3,x_4\}\)</span></li>
+<li>Many choices between two lotteries characterized by probabilities of these prizes:</li>
+</ul>
+<p><span class="math display">\[
+q \text{ lottery: } \{q_1,q_2,q_3,q_4\},\quad p\text{ lottery: } \{p_1,p_2,p_3,p_4\}
+\]</span></p>
+<p>Examples:</p>
+<blockquote>
+<p>Hey, John D., and Chris Orme. “Investigating generalizations of expected utility theory using experimental data.” Econometrica: Journal of the Econometric Society (1994): 1291-1326.</p>
+</blockquote>
+<blockquote>
+<p>Hey, John D. “Does repetition improve consistency?.” Experimental economics 4, no. 1 (2001): 5-54.</p>
+</blockquote>
+<blockquote>
+<p>Harrison, Glenn W., and E. Elisabet Rutström. “Expected utility theory and prospect theory: One wedding and a decent funeral.” Experimental economics 12, no. 2 (2009): 133.</p>
+</blockquote>
+<hr />
+<ul>
+<li>Four fixed prizes: <span class="math inline">\(\{x_1,x_2,x_3,x_4\}\)</span></li>
+<li>Many choices between two lotteries characterized by probabilities of these prizes:</li>
+</ul>
+<p><span class="math display">\[
+q \text{ lottery: } \{q_1,q_2,q_3,q_4\},\quad p\text{ lottery: } \{p_1,p_2,p_3,p_4\}
+\]</span>
+<span class="math display">\[
+EU_i^q=\sum_{k=1}^4q_ku_i(x_k),\quad EU_i^p=\sum_{k=1}^4p_ku_i(x_k)
+\]</span></p>
+<p>If the prizes are fixed, but the probabilities are changing, perhaps we are learning a lot more about how people treat probabilities, than how they treat prizes.</p>
+</div>
+<div id="what-do-data-from-these-experiments-look-like" class="section level2 unlisted unnumbered">
+<h2>What do data from these experiments look like?</h2>
+<blockquote>
+<p>Hey, John D. “Does repetition improve consistency?.” Experimental economics 4, no. 1 (2001): 5-54.</p>
+</blockquote>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="anomalies-with-decision-making-under-risk.html#cb15-1" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Hey2001.csv&quot;</span>)</span>
+<span id="cb15-2"><a href="anomalies-with-decision-making-under-risk.html#cb15-2" aria-hidden="true" tabindex="-1"></a>D <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="st">&quot;simple&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="right">t</th>
+<th align="right">q1</th>
+<th align="right">q2</th>
+<th align="right">q3</th>
+<th align="right">q4</th>
+<th align="right">p1</th>
+<th align="right">p2</th>
+<th align="right">p3</th>
+<th align="right">p4</th>
+<th align="right">y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.875</td>
+<td align="right">0.125</td>
+<td align="right">0</td>
+<td align="right">0.125</td>
+<td align="right">0.000</td>
+<td align="right">0.875</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.875</td>
+<td align="right">0.125</td>
+<td align="right">0</td>
+<td align="right">0.125</td>
+<td align="right">0.000</td>
+<td align="right">0.875</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.875</td>
+<td align="right">0.125</td>
+<td align="right">0</td>
+<td align="right">0.125</td>
+<td align="right">0.500</td>
+<td align="right">0.375</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.875</td>
+<td align="right">0.125</td>
+<td align="right">0</td>
+<td align="right">0.375</td>
+<td align="right">0.000</td>
+<td align="right">0.625</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.875</td>
+<td align="right">0.125</td>
+<td align="right">0</td>
+<td align="right">0.375</td>
+<td align="right">0.125</td>
+<td align="right">0.500</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.875</td>
+<td align="right">0.125</td>
+<td align="right">0</td>
+<td align="right">0.375</td>
+<td align="right">0.250</td>
+<td align="right">0.375</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><span class="math inline">\(y=1\)</span> if the <span class="math inline">\(q\)</span>-lottery is chosen</li>
+<li>Prizes: <span class="math inline">\(\{0,50,100,150\}\)</span> GBP</li>
+</ul>
+<hr />
+<p><strong>EU preferences:</strong> Assume <span class="math inline">\(u_i(x)=x^{r_i}\)</span>.</p>
+<ul>
+<li>Given <span class="math inline">\(r_i\)</span>, we can predict all 500 (!) choices person <span class="math inline">\(i\)</span> made in the experiment.</li>
+<li>Which <span class="math inline">\(r_i\)</span> makes the predictions that best match the data?</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="anomalies-with-decision-making-under-risk.html#cb16-1" aria-hidden="true" tabindex="-1"></a>rgrid<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="fl">0.01</span>,<span class="fl">1.10</span>,<span class="at">length=</span><span class="dv">100</span>)</span>
+<span id="cb16-2"><a href="anomalies-with-decision-making-under-risk.html#cb16-2" aria-hidden="true" tabindex="-1"></a>prizes<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">150</span>)</span>
+<span id="cb16-3"><a href="anomalies-with-decision-making-under-risk.html#cb16-3" aria-hidden="true" tabindex="-1"></a>u<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb16-4"><a href="anomalies-with-decision-making-under-risk.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(rgrid)) {</span>
+<span id="cb16-5"><a href="anomalies-with-decision-making-under-risk.html#cb16-5" aria-hidden="true" tabindex="-1"></a>  u<span class="ot">&lt;-</span><span class="fu">rbind</span>(u,prizes<span class="sc">^</span>rgrid[rr])</span>
+<span id="cb16-6"><a href="anomalies-with-decision-making-under-risk.html#cb16-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-7"><a href="anomalies-with-decision-making-under-risk.html#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="anomalies-with-decision-making-under-risk.html#cb16-8" aria-hidden="true" tabindex="-1"></a>EU_r <span class="ot">&lt;-</span><span class="cf">function</span>(D) {</span>
+<span id="cb16-9"><a href="anomalies-with-decision-making-under-risk.html#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="anomalies-with-decision-making-under-risk.html#cb16-10" aria-hidden="true" tabindex="-1"></a>  p<span class="ot">&lt;-</span> D <span class="sc">%&gt;%</span> <span class="fu">select</span>(p1<span class="sc">:</span>p4) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span>
+<span id="cb16-11"><a href="anomalies-with-decision-making-under-risk.html#cb16-11" aria-hidden="true" tabindex="-1"></a>  q<span class="ot">&lt;-</span> D <span class="sc">%&gt;%</span> <span class="fu">select</span>(q1<span class="sc">:</span>q4) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span>
+<span id="cb16-12"><a href="anomalies-with-decision-making-under-risk.html#cb16-12" aria-hidden="true" tabindex="-1"></a>  y<span class="ot">&lt;-</span> D <span class="sc">%&gt;%</span> <span class="fu">select</span>(y) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span>
+<span id="cb16-13"><a href="anomalies-with-decision-making-under-risk.html#cb16-13" aria-hidden="true" tabindex="-1"></a>  EUq<span class="ot">&lt;-</span>q <span class="sc">%*%</span> <span class="fu">t</span>(<span class="fu">as.matrix</span>(u))</span>
+<span id="cb16-14"><a href="anomalies-with-decision-making-under-risk.html#cb16-14" aria-hidden="true" tabindex="-1"></a>  EUp<span class="ot">&lt;-</span>p <span class="sc">%*%</span> <span class="fu">t</span>(<span class="fu">as.matrix</span>(u))</span>
+<span id="cb16-15"><a href="anomalies-with-decision-making-under-risk.html#cb16-15" aria-hidden="true" tabindex="-1"></a>  ChooseQ<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">*</span>(EUq<span class="sc">&gt;</span>EUp)</span>
+<span id="cb16-16"><a href="anomalies-with-decision-making-under-risk.html#cb16-16" aria-hidden="true" tabindex="-1"></a>  NumPredicted<span class="ot">&lt;-</span> <span class="fu">colSums</span>(ChooseQ <span class="sc">==</span> ( y <span class="sc">%*%</span> <span class="fu">matrix</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="fu">length</span>(rgrid))))</span>
+<span id="cb16-17"><a href="anomalies-with-decision-making-under-risk.html#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(rgrid[<span class="fu">which.max</span>(NumPredicted)])</span>
+<span id="cb16-18"><a href="anomalies-with-decision-making-under-risk.html#cb16-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-19"><a href="anomalies-with-decision-making-under-risk.html#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="fu">EU_r</span>(D)</span></code></pre></div>
+<pre><code>## [1] 0.3292929</code></pre>
+<hr />
+<p><strong>For each person</strong></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="anomalies-with-decision-making-under-risk.html#cb18-1" aria-hidden="true" tabindex="-1"></a>idList<span class="ot">&lt;-</span><span class="fu">unique</span>(D<span class="sc">$</span>id)</span>
+<span id="cb18-2"><a href="anomalies-with-decision-making-under-risk.html#cb18-2" aria-hidden="true" tabindex="-1"></a>r_EU<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb18-3"><a href="anomalies-with-decision-making-under-risk.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (ii <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(idList)) {r_EU[ii] <span class="ot">&lt;-</span><span class="fu">EU_r</span>(D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(id <span class="sc">==</span>idList[ii]))}</span>
+<span id="cb18-4"><a href="anomalies-with-decision-making-under-risk.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">tibble</span>(r_EU),<span class="fu">aes</span>(<span class="at">x=</span>r_EU))<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">10</span>)<span class="sc">+</span><span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;r&quot;</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+</div>
+<div id="probability-weighting-1" class="section level2 unlisted unnumbered">
+<h2>Probability weighting</h2>
+<p><span class="math display">\[
+\text{Expected utility} = \sum_{k=1}^Kp_ku(x_k)
+\]</span></p>
+<p>What if utility is not linear in probabilities:</p>
+<p><img src="index_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<hr />
+<p><strong>People still respond to probabilities, but the response is not linear</strong></p>
+<p>Simple example (just 2 outcomes):
+<span class="math display">\[
+\begin{aligned}
+p &amp; =\Pr(\text{bad outcome})\\
+w(p)&amp;=\frac{p^\gamma}{(p^\gamma+(1-p)^\gamma)^{1/\gamma}}\\
+\gamma = 1&amp;\implies w(p)=p\\
+\gamma&lt;1&amp;\implies \text{I under-weight likely outcomes, and over-weight unlikely outcomes}\\
+\gamma&gt;1&amp;\implies \text{I over-weight likely outcomes, and under-weight unlikely outcomes}
+\end{aligned}
+\]</span></p>
+<hr />
+<p><strong>More thean 2 outcomes</strong></p>
+<ul>
+<li>Add up probabilities from worst to best (cumulative probability) <span class="math inline">\(\to c\)</span></li>
+<li>Calculate <span class="math inline">\(w(c)\)</span> for these cumulative probabilities.</li>
+<li>Behave as if the probabilities are the differences between these weights.</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+c_k&amp;=\sum_{j=1}^kp_k\\
+w_k(c)&amp;=\frac{c_k^\gamma}{(c_k^\gamma+(1-c_k)^\gamma)^{1/\gamma}}\\
+U&amp;=\sum_{k=1}^K\left[w(c_k)-w(c_{k-1})\right]u_i(x_k)
+\end{aligned}
+\]</span></p>
+<p><strong>Rank-dependent expected utility</strong></p>
+<ul>
+<li>(regular) expected utility is a special case (<span class="math inline">\(\gamma=1\)</span>)</li>
+<li>Still a weighted sum of utilities of money, but weighting is different (implies that more money is still better)</li>
+<li>If the probability of the best prize increases, I will still be happier</li>
+</ul>
+<hr />
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="anomalies-with-decision-making-under-risk.html#cb19-1" aria-hidden="true" tabindex="-1"></a>rgrid<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="fl">0.01</span>,<span class="fl">1.10</span>,<span class="at">length=</span><span class="dv">101</span>)</span>
+<span id="cb19-2"><a href="anomalies-with-decision-making-under-risk.html#cb19-2" aria-hidden="true" tabindex="-1"></a>ggrid<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="fl">0.3</span>,<span class="dv">2</span>,<span class="at">length=</span><span class="dv">101</span>)</span>
+<span id="cb19-3"><a href="anomalies-with-decision-making-under-risk.html#cb19-3" aria-hidden="true" tabindex="-1"></a>prizes<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">150</span>)</span>
+<span id="cb19-4"><a href="anomalies-with-decision-making-under-risk.html#cb19-4" aria-hidden="true" tabindex="-1"></a>u<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb19-5"><a href="anomalies-with-decision-making-under-risk.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(rgrid)) {</span>
+<span id="cb19-6"><a href="anomalies-with-decision-making-under-risk.html#cb19-6" aria-hidden="true" tabindex="-1"></a>  u<span class="ot">&lt;-</span><span class="fu">rbind</span>(u,prizes<span class="sc">^</span>rgrid[rr])</span>
+<span id="cb19-7"><a href="anomalies-with-decision-making-under-risk.html#cb19-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-8"><a href="anomalies-with-decision-making-under-risk.html#cb19-8" aria-hidden="true" tabindex="-1"></a>RDEU_rg <span class="ot">&lt;-</span><span class="cf">function</span>(D) {</span>
+<span id="cb19-9"><a href="anomalies-with-decision-making-under-risk.html#cb19-9" aria-hidden="true" tabindex="-1"></a>  p<span class="ot">&lt;-</span> D <span class="sc">%&gt;%</span> <span class="fu">select</span>(p1<span class="sc">:</span>p4) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span>
+<span id="cb19-10"><a href="anomalies-with-decision-making-under-risk.html#cb19-10" aria-hidden="true" tabindex="-1"></a>  q<span class="ot">&lt;-</span> D <span class="sc">%&gt;%</span> <span class="fu">select</span>(q1<span class="sc">:</span>q4) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span>
+<span id="cb19-11"><a href="anomalies-with-decision-making-under-risk.html#cb19-11" aria-hidden="true" tabindex="-1"></a>  y<span class="ot">&lt;-</span> D <span class="sc">%&gt;%</span> <span class="fu">select</span>(y) <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span>
+<span id="cb19-12"><a href="anomalies-with-decision-making-under-risk.html#cb19-12" aria-hidden="true" tabindex="-1"></a>  cp<span class="ot">&lt;-</span><span class="fu">t</span>(<span class="fu">apply</span>(p,<span class="dv">1</span>,<span class="at">FUN=</span>cumsum))</span>
+<span id="cb19-13"><a href="anomalies-with-decision-making-under-risk.html#cb19-13" aria-hidden="true" tabindex="-1"></a>  cq<span class="ot">&lt;-</span><span class="fu">t</span>(<span class="fu">apply</span>(q,<span class="dv">1</span>,<span class="at">FUN=</span>cumsum))</span>
+<span id="cb19-14"><a href="anomalies-with-decision-making-under-risk.html#cb19-14" aria-hidden="true" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
+<span id="cb19-15"><a href="anomalies-with-decision-making-under-risk.html#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (gg <span class="cf">in</span> ggrid) {</span>
+<span id="cb19-16"><a href="anomalies-with-decision-making-under-risk.html#cb19-16" aria-hidden="true" tabindex="-1"></a>      wp<span class="ot">&lt;-</span>cp<span class="sc">^</span>gg<span class="sc">/</span>(cp<span class="sc">^</span>gg<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>cp<span class="sc">^</span>gg))<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span>gg)</span>
+<span id="cb19-17"><a href="anomalies-with-decision-making-under-risk.html#cb19-17" aria-hidden="true" tabindex="-1"></a>      wq<span class="ot">&lt;-</span>cq<span class="sc">^</span>gg<span class="sc">/</span>(cq<span class="sc">^</span>gg<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>cq<span class="sc">^</span>gg))<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span>gg)</span>
+<span id="cb19-18"><a href="anomalies-with-decision-making-under-risk.html#cb19-18" aria-hidden="true" tabindex="-1"></a>      dwp<span class="ot">&lt;-</span>wp</span>
+<span id="cb19-19"><a href="anomalies-with-decision-making-under-risk.html#cb19-19" aria-hidden="true" tabindex="-1"></a>      dwq<span class="ot">&lt;-</span>wq</span>
+<span id="cb19-20"><a href="anomalies-with-decision-making-under-risk.html#cb19-20" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (kk <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) {</span>
+<span id="cb19-21"><a href="anomalies-with-decision-making-under-risk.html#cb19-21" aria-hidden="true" tabindex="-1"></a>        dwp[,kk]<span class="ot">&lt;-</span>wp[,kk]<span class="sc">-</span>wp[,kk<span class="dv">-1</span>]</span>
+<span id="cb19-22"><a href="anomalies-with-decision-making-under-risk.html#cb19-22" aria-hidden="true" tabindex="-1"></a>        dwq[,kk]<span class="ot">&lt;-</span>wq[,kk]<span class="sc">-</span>wq[,kk<span class="dv">-1</span>]</span>
+<span id="cb19-23"><a href="anomalies-with-decision-making-under-risk.html#cb19-23" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb19-24"><a href="anomalies-with-decision-making-under-risk.html#cb19-24" aria-hidden="true" tabindex="-1"></a>      ChooseQ<span class="ot">&lt;-</span>((dwq<span class="sc">-</span>dwp) <span class="sc">%*%</span> <span class="fu">t</span>(<span class="fu">as.matrix</span>(u)))<span class="sc">&gt;</span><span class="dv">0</span></span>
+<span id="cb19-25"><a href="anomalies-with-decision-making-under-risk.html#cb19-25" aria-hidden="true" tabindex="-1"></a>      fracPredicted<span class="ot">&lt;-</span><span class="fu">colMeans</span>(ChooseQ <span class="sc">==</span> (y <span class="sc">%*%</span> <span class="fu">matrix</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="fu">length</span>(rgrid))))</span>
+<span id="cb19-26"><a href="anomalies-with-decision-making-under-risk.html#cb19-26" aria-hidden="true" tabindex="-1"></a>      tmp<span class="ot">&lt;-</span><span class="fu">tibble</span>(rgrid,fracPredicted) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">gamma=</span>gg) <span class="sc">%&gt;%</span> <span class="fu">rbind</span>(tmp)</span>
+<span id="cb19-27"><a href="anomalies-with-decision-making-under-risk.html#cb19-27" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb19-28"><a href="anomalies-with-decision-making-under-risk.html#cb19-28" aria-hidden="true" tabindex="-1"></a>  tmp[<span class="fu">which.max</span>(tmp<span class="sc">$</span>fracPredicted),]</span>
+<span id="cb19-29"><a href="anomalies-with-decision-making-under-risk.html#cb19-29" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<p>Using all data at once:</p>
+<pre><code>## # A tibble: 1 x 3
+##   rgrid fracPredicted gamma
+##   &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;
+## 1 0.326         0.849  0.98</code></pre>
+<p>Each person individually:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="anomalies-with-decision-making-under-risk.html#cb21-1" aria-hidden="true" tabindex="-1"></a>idList<span class="ot">&lt;-</span><span class="fu">unique</span>(D<span class="sc">$</span>id)</span>
+<span id="cb21-2"><a href="anomalies-with-decision-making-under-risk.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(latex2exp)</span>
+<span id="cb21-3"><a href="anomalies-with-decision-making-under-risk.html#cb21-3" aria-hidden="true" tabindex="-1"></a>rg_RDEU<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
+<span id="cb21-4"><a href="anomalies-with-decision-making-under-risk.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (ii <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(idList)) {rg_RDEU <span class="ot">&lt;-</span><span class="fu">RDEU_rg</span>(D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(id <span class="sc">==</span>idList[ii])) <span class="sc">%&gt;%</span> <span class="fu">rbind</span>(rg_RDEU)}</span>
+<span id="cb21-5"><a href="anomalies-with-decision-making-under-risk.html#cb21-5" aria-hidden="true" tabindex="-1"></a>plt<span class="ot">&lt;-</span><span class="fu">ggplot</span>(rg_RDEU,<span class="fu">aes</span>(<span class="at">x=</span>rgrid,<span class="at">y=</span>gamma,<span class="at">size=</span>fracPredicted))<span class="sc">+</span><span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.5</span>)<span class="sc">+</span><span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">TeX</span>(<span class="st">&quot;$r$&quot;</span>))<span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">TeX</span>(<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">gamma$&quot;</span>))<span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">1</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)<span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">1</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+<hr />
+<p><img src="index_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
 </div>
 </div>
             </section>

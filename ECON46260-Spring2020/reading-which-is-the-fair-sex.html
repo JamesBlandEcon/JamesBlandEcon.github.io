@@ -241,6 +241,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.2" data-path="search.html"><a href="search.html#questions-2"><i class="fa fa-check"></i><b>12.2</b> Questions</a></li>
 <li class="chapter" data-level="12.3" data-path="search.html"><a href="search.html#solutions-4"><i class="fa fa-check"></i><b>12.3</b> Solutions</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="exams.html"><a href="exams.html"><i class="fa fa-check"></i>Exams</a></li>
+<li class="chapter" data-level="13" data-path="midterm-exam.html"><a href="midterm-exam.html"><i class="fa fa-check"></i><b>13</b> Midterm Exam</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-1"><i class="fa fa-check"></i><b>13.1</b> Experiment 1</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="midterm-exam.html"><a href="midterm-exam.html#instructions-2"><i class="fa fa-check"></i><b>13.1.1</b> Instructions</a></li>
+<li class="chapter" data-level="13.1.2" data-path="midterm-exam.html"><a href="midterm-exam.html#questions-3"><i class="fa fa-check"></i><b>13.1.2</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-2"><i class="fa fa-check"></i><b>13.2</b> Experiment 2</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="midterm-exam.html"><a href="midterm-exam.html#instructions-3"><i class="fa fa-check"></i><b>13.2.1</b> Instructions</a></li>
+<li class="chapter" data-level="13.2.2" data-path="midterm-exam.html"><a href="midterm-exam.html#data-1"><i class="fa fa-check"></i><b>13.2.2</b> Data</a></li>
+<li class="chapter" data-level="13.2.3" data-path="midterm-exam.html"><a href="midterm-exam.html#questions-4"><i class="fa fa-check"></i><b>13.2.3</b> Questions</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -263,23 +278,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Andreoni, James, and Lise Vesterlund. “Which is the fair sex? Gender differences in altruism.” The Quarterly Journal of Economics 116, no. 1 (2001): 293-312.</p>
 </blockquote>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="reading-which-is-the-fair-sex.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb26-2"><a href="reading-which-is-the-fair-sex.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb26-3"><a href="reading-which-is-the-fair-sex.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb26-4"><a href="reading-which-is-the-fair-sex.html#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="reading-which-is-the-fair-sex.html#cb26-5" aria-hidden="true" tabindex="-1"></a>params<span class="ot">&lt;-</span><span class="fu">data.frame</span>((<span class="fu">read.csv</span>(<span class="st">&quot;AV2001parameters.csv&quot;</span>)))</span>
-<span id="cb26-6"><a href="reading-which-is-the-fair-sex.html#cb26-6" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;AV2001choices.csv&quot;</span>)</span>
-<span id="cb26-7"><a href="reading-which-is-the-fair-sex.html#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-8"><a href="reading-which-is-the-fair-sex.html#cb26-8" aria-hidden="true" tabindex="-1"></a>D<span class="sc">$</span>id<span class="ot">&lt;-</span>D<span class="sc">$</span>X</span>
-<span id="cb26-9"><a href="reading-which-is-the-fair-sex.html#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-10"><a href="reading-which-is-the-fair-sex.html#cb26-10" aria-hidden="true" tabindex="-1"></a>Keep<span class="ot">&lt;-</span>(<span class="fu">data.frame</span>(D)</span>
-<span id="cb26-11"><a href="reading-which-is-the-fair-sex.html#cb26-11" aria-hidden="true" tabindex="-1"></a>        <span class="sc">%&gt;%</span> <span class="fu">gather</span>(Decision,keep,keep1<span class="sc">:</span>keep8)</span>
-<span id="cb26-12"><a href="reading-which-is-the-fair-sex.html#cb26-12" aria-hidden="true" tabindex="-1"></a>        <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Decision=</span>(<span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">&quot;keep&quot;</span>, <span class="st">&quot;&quot;</span>, Decision)))</span>
-<span id="cb26-13"><a href="reading-which-is-the-fair-sex.html#cb26-13" aria-hidden="true" tabindex="-1"></a>                             )</span>
-<span id="cb26-14"><a href="reading-which-is-the-fair-sex.html#cb26-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb26-15"><a href="reading-which-is-the-fair-sex.html#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-16"><a href="reading-which-is-the-fair-sex.html#cb26-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-17"><a href="reading-which-is-the-fair-sex.html#cb26-17" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>((params))</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="reading-which-is-the-fair-sex.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb22-2"><a href="reading-which-is-the-fair-sex.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb22-3"><a href="reading-which-is-the-fair-sex.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb22-4"><a href="reading-which-is-the-fair-sex.html#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="reading-which-is-the-fair-sex.html#cb22-5" aria-hidden="true" tabindex="-1"></a>params<span class="ot">&lt;-</span><span class="fu">data.frame</span>((<span class="fu">read.csv</span>(<span class="st">&quot;AV2001parameters.csv&quot;</span>)))</span>
+<span id="cb22-6"><a href="reading-which-is-the-fair-sex.html#cb22-6" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;AV2001choices.csv&quot;</span>)</span>
+<span id="cb22-7"><a href="reading-which-is-the-fair-sex.html#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="reading-which-is-the-fair-sex.html#cb22-8" aria-hidden="true" tabindex="-1"></a>D<span class="sc">$</span>id<span class="ot">&lt;-</span>D<span class="sc">$</span>X</span>
+<span id="cb22-9"><a href="reading-which-is-the-fair-sex.html#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="reading-which-is-the-fair-sex.html#cb22-10" aria-hidden="true" tabindex="-1"></a>Keep<span class="ot">&lt;-</span>(<span class="fu">data.frame</span>(D)</span>
+<span id="cb22-11"><a href="reading-which-is-the-fair-sex.html#cb22-11" aria-hidden="true" tabindex="-1"></a>        <span class="sc">%&gt;%</span> <span class="fu">gather</span>(Decision,keep,keep1<span class="sc">:</span>keep8)</span>
+<span id="cb22-12"><a href="reading-which-is-the-fair-sex.html#cb22-12" aria-hidden="true" tabindex="-1"></a>        <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Decision=</span>(<span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">&quot;keep&quot;</span>, <span class="st">&quot;&quot;</span>, Decision)))</span>
+<span id="cb22-13"><a href="reading-which-is-the-fair-sex.html#cb22-13" aria-hidden="true" tabindex="-1"></a>                             )</span>
+<span id="cb22-14"><a href="reading-which-is-the-fair-sex.html#cb22-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-15"><a href="reading-which-is-the-fair-sex.html#cb22-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-16"><a href="reading-which-is-the-fair-sex.html#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-17"><a href="reading-which-is-the-fair-sex.html#cb22-17" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>((params))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -414,22 +429,22 @@ pOther
 </table>
 <div id="plot-the-budget-sets" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> plot the budget sets</h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="reading-which-is-the-fair-sex.html#cb27-1" aria-hidden="true" tabindex="-1"></a>params<span class="ot">&lt;-</span>(params</span>
-<span id="cb27-2"><a href="reading-which-is-the-fair-sex.html#cb27-2" aria-hidden="true" tabindex="-1"></a>         <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
-<span id="cb27-3"><a href="reading-which-is-the-fair-sex.html#cb27-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">maxSelf=</span>income<span class="sc">/</span>pSelf,</span>
-<span id="cb27-4"><a href="reading-which-is-the-fair-sex.html#cb27-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">maxOther=</span>income<span class="sc">/</span>pOther</span>
-<span id="cb27-5"><a href="reading-which-is-the-fair-sex.html#cb27-5" aria-hidden="true" tabindex="-1"></a>         )</span>
-<span id="cb27-6"><a href="reading-which-is-the-fair-sex.html#cb27-6" aria-hidden="true" tabindex="-1"></a>         )</span>
-<span id="cb27-7"><a href="reading-which-is-the-fair-sex.html#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="reading-which-is-the-fair-sex.html#cb27-8" aria-hidden="true" tabindex="-1"></a>(<span class="fu">ggplot</span>(params,<span class="fu">aes</span>(<span class="at">color=</span><span class="fu">as.factor</span>(X)))</span>
-<span id="cb27-9"><a href="reading-which-is-the-fair-sex.html#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">y=</span>(income<span class="sc">/</span>pSelf),<span class="at">x=</span><span class="dv">0</span>,<span class="at">yend=</span><span class="dv">0</span>,<span class="at">xend=</span>(income<span class="sc">/</span>pOther)),<span class="at">size=</span><span class="dv">1</span>)</span>
-<span id="cb27-10"><a href="reading-which-is-the-fair-sex.html#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb27-11"><a href="reading-which-is-the-fair-sex.html#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>)</span>
-<span id="cb27-12"><a href="reading-which-is-the-fair-sex.html#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>)</span>
-<span id="cb27-13"><a href="reading-which-is-the-fair-sex.html#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;other&#39;s income&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;self&#39;s income&quot;</span>)</span>
-<span id="cb27-14"><a href="reading-which-is-the-fair-sex.html#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)</span>
-<span id="cb27-15"><a href="reading-which-is-the-fair-sex.html#cb27-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="reading-which-is-the-fair-sex.html#cb23-1" aria-hidden="true" tabindex="-1"></a>params<span class="ot">&lt;-</span>(params</span>
+<span id="cb23-2"><a href="reading-which-is-the-fair-sex.html#cb23-2" aria-hidden="true" tabindex="-1"></a>         <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb23-3"><a href="reading-which-is-the-fair-sex.html#cb23-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">maxSelf=</span>income<span class="sc">/</span>pSelf,</span>
+<span id="cb23-4"><a href="reading-which-is-the-fair-sex.html#cb23-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">maxOther=</span>income<span class="sc">/</span>pOther</span>
+<span id="cb23-5"><a href="reading-which-is-the-fair-sex.html#cb23-5" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb23-6"><a href="reading-which-is-the-fair-sex.html#cb23-6" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb23-7"><a href="reading-which-is-the-fair-sex.html#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="reading-which-is-the-fair-sex.html#cb23-8" aria-hidden="true" tabindex="-1"></a>(<span class="fu">ggplot</span>(params,<span class="fu">aes</span>(<span class="at">color=</span><span class="fu">as.factor</span>(X)))</span>
+<span id="cb23-9"><a href="reading-which-is-the-fair-sex.html#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">y=</span>(income<span class="sc">/</span>pSelf),<span class="at">x=</span><span class="dv">0</span>,<span class="at">yend=</span><span class="dv">0</span>,<span class="at">xend=</span>(income<span class="sc">/</span>pOther)),<span class="at">size=</span><span class="dv">1</span>)</span>
+<span id="cb23-10"><a href="reading-which-is-the-fair-sex.html#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb23-11"><a href="reading-which-is-the-fair-sex.html#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>)</span>
+<span id="cb23-12"><a href="reading-which-is-the-fair-sex.html#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>)</span>
+<span id="cb23-13"><a href="reading-which-is-the-fair-sex.html#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;other&#39;s income&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;self&#39;s income&quot;</span>)</span>
+<span id="cb23-14"><a href="reading-which-is-the-fair-sex.html#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)</span>
+<span id="cb23-15"><a href="reading-which-is-the-fair-sex.html#cb23-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 </div>
 <div id="classification-into-3-types-of-subject" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Classification into 3 types of subject</h2>
@@ -441,56 +456,56 @@ pOther
 \end{aligned}
 \]</span></p>
 <p>We will just set <span class="math inline">\(\alpha =1\)</span></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="reading-which-is-the-fair-sex.html#cb28-1" aria-hidden="true" tabindex="-1"></a>params<span class="ot">&lt;-</span>params <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">selfish=</span><span class="sc">-</span><span class="dv">1</span>,<span class="at">PC=</span><span class="sc">-</span><span class="dv">1</span>,<span class="at">PS=</span><span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb28-2"><a href="reading-which-is-the-fair-sex.html#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="reading-which-is-the-fair-sex.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (xx <span class="cf">in</span> <span class="fu">unique</span>(params<span class="sc">$</span>X)) {</span>
-<span id="cb28-4"><a href="reading-which-is-the-fair-sex.html#cb28-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-5"><a href="reading-which-is-the-fair-sex.html#cb28-5" aria-hidden="true" tabindex="-1"></a>  d<span class="ot">&lt;-</span>params <span class="sc">%&gt;%</span> <span class="fu">filter</span>(X<span class="sc">==</span>xx)</span>
-<span id="cb28-6"><a href="reading-which-is-the-fair-sex.html#cb28-6" aria-hidden="true" tabindex="-1"></a>  pass<span class="ot">&lt;-</span><span class="dv">0</span><span class="sc">:</span>d<span class="sc">$</span>income</span>
-<span id="cb28-7"><a href="reading-which-is-the-fair-sex.html#cb28-7" aria-hidden="true" tabindex="-1"></a>  KeepGrid<span class="ot">&lt;-</span>d<span class="sc">$</span>income<span class="sc">-</span>pass</span>
-<span id="cb28-8"><a href="reading-which-is-the-fair-sex.html#cb28-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-9"><a href="reading-which-is-the-fair-sex.html#cb28-9" aria-hidden="true" tabindex="-1"></a>  self<span class="ot">&lt;-</span>(d<span class="sc">$</span>income<span class="sc">-</span>pass)<span class="sc">/</span>d<span class="sc">$</span>pSelf</span>
-<span id="cb28-10"><a href="reading-which-is-the-fair-sex.html#cb28-10" aria-hidden="true" tabindex="-1"></a>  other<span class="ot">&lt;-</span>pass<span class="sc">/</span>d<span class="sc">$</span>pOther</span>
-<span id="cb28-11"><a href="reading-which-is-the-fair-sex.html#cb28-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-12"><a href="reading-which-is-the-fair-sex.html#cb28-12" aria-hidden="true" tabindex="-1"></a>  Payoffselfish<span class="ot">&lt;-</span>self</span>
-<span id="cb28-13"><a href="reading-which-is-the-fair-sex.html#cb28-13" aria-hidden="true" tabindex="-1"></a>  Selfish<span class="ot">&lt;-</span>KeepGrid[<span class="fu">which.max</span>(Payoffselfish)]</span>
-<span id="cb28-14"><a href="reading-which-is-the-fair-sex.html#cb28-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-15"><a href="reading-which-is-the-fair-sex.html#cb28-15" aria-hidden="true" tabindex="-1"></a>  PayoffPS<span class="ot">&lt;-</span>self <span class="sc">+</span> other</span>
-<span id="cb28-16"><a href="reading-which-is-the-fair-sex.html#cb28-16" aria-hidden="true" tabindex="-1"></a>  PS<span class="ot">&lt;-</span>KeepGrid[<span class="fu">which.max</span>(PayoffPS)]</span>
-<span id="cb28-17"><a href="reading-which-is-the-fair-sex.html#cb28-17" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-18"><a href="reading-which-is-the-fair-sex.html#cb28-18" aria-hidden="true" tabindex="-1"></a>  PayoffPC<span class="ot">&lt;-</span>self<span class="sc">*</span>(self<span class="sc">&lt;=</span>other)<span class="sc">+</span>other<span class="sc">*</span>(self<span class="sc">&gt;</span>other)</span>
-<span id="cb28-19"><a href="reading-which-is-the-fair-sex.html#cb28-19" aria-hidden="true" tabindex="-1"></a>  PC<span class="ot">&lt;-</span>KeepGrid[<span class="fu">which.max</span>(PayoffPC)]</span>
-<span id="cb28-20"><a href="reading-which-is-the-fair-sex.html#cb28-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-21"><a href="reading-which-is-the-fair-sex.html#cb28-21" aria-hidden="true" tabindex="-1"></a>  params[xx,]<span class="sc">$</span>selfish<span class="ot">&lt;-</span>Selfish</span>
-<span id="cb28-22"><a href="reading-which-is-the-fair-sex.html#cb28-22" aria-hidden="true" tabindex="-1"></a>  params[xx,]<span class="sc">$</span>PS<span class="ot">&lt;-</span>PS</span>
-<span id="cb28-23"><a href="reading-which-is-the-fair-sex.html#cb28-23" aria-hidden="true" tabindex="-1"></a>  params[xx,]<span class="sc">$</span>PC<span class="ot">&lt;-</span>PC</span>
-<span id="cb28-24"><a href="reading-which-is-the-fair-sex.html#cb28-24" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-25"><a href="reading-which-is-the-fair-sex.html#cb28-25" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-26"><a href="reading-which-is-the-fair-sex.html#cb28-26" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-27"><a href="reading-which-is-the-fair-sex.html#cb28-27" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb28-28"><a href="reading-which-is-the-fair-sex.html#cb28-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-29"><a href="reading-which-is-the-fair-sex.html#cb28-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-30"><a href="reading-which-is-the-fair-sex.html#cb28-30" aria-hidden="true" tabindex="-1"></a>SSR<span class="ot">&lt;-</span> (Keep  <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(params <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Decision=</span>X) ,<span class="at">by=</span><span class="st">&quot;Decision&quot;</span>)</span>
-<span id="cb28-31"><a href="reading-which-is-the-fair-sex.html#cb28-31" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">resid2_selfish=</span>(selfish<span class="sc">-</span>keep)<span class="sc">^</span><span class="dv">2</span>,</span>
-<span id="cb28-32"><a href="reading-which-is-the-fair-sex.html#cb28-32" aria-hidden="true" tabindex="-1"></a>             <span class="at">resid2_PC=</span>(PC<span class="sc">-</span>keep)<span class="sc">^</span><span class="dv">2</span>,</span>
-<span id="cb28-33"><a href="reading-which-is-the-fair-sex.html#cb28-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">resid2_PS=</span>(PS<span class="sc">-</span>keep)<span class="sc">^</span><span class="dv">2</span>,</span>
-<span id="cb28-34"><a href="reading-which-is-the-fair-sex.html#cb28-34" aria-hidden="true" tabindex="-1"></a>             )</span>
-<span id="cb28-35"><a href="reading-which-is-the-fair-sex.html#cb28-35" aria-hidden="true" tabindex="-1"></a> <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id)</span>
-<span id="cb28-36"><a href="reading-which-is-the-fair-sex.html#cb28-36" aria-hidden="true" tabindex="-1"></a> <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">SSR_selfish=</span><span class="fu">sum</span>(resid2_selfish),</span>
-<span id="cb28-37"><a href="reading-which-is-the-fair-sex.html#cb28-37" aria-hidden="true" tabindex="-1"></a>               <span class="at">SSR_PC=</span><span class="fu">sum</span>(resid2_PC),</span>
-<span id="cb28-38"><a href="reading-which-is-the-fair-sex.html#cb28-38" aria-hidden="true" tabindex="-1"></a>               <span class="at">SSR_PS=</span><span class="fu">sum</span>(resid2_PS))</span>
-<span id="cb28-39"><a href="reading-which-is-the-fair-sex.html#cb28-39" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb28-40"><a href="reading-which-is-the-fair-sex.html#cb28-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-41"><a href="reading-which-is-the-fair-sex.html#cb28-41" aria-hidden="true" tabindex="-1"></a>TypeList<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Selfish&quot;</span>,<span class="st">&quot;PC&quot;</span>,<span class="st">&quot;PS&quot;</span>)</span>
-<span id="cb28-42"><a href="reading-which-is-the-fair-sex.html#cb28-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-43"><a href="reading-which-is-the-fair-sex.html#cb28-43" aria-hidden="true" tabindex="-1"></a>SSR<span class="sc">$</span>type<span class="ot">&lt;-</span>TypeList[<span class="fu">apply</span>(SSR <span class="sc">%&gt;%</span> <span class="fu">select</span>(SSR_selfish,SSR_PC,SSR_PS),<span class="dv">1</span>,<span class="at">FUN=</span>which.min)]</span>
-<span id="cb28-44"><a href="reading-which-is-the-fair-sex.html#cb28-44" aria-hidden="true" tabindex="-1"></a>SSR<span class="ot">&lt;-</span>(SSR <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Perfect =</span> (SSR_selfish<span class="sc">*</span>SSR_PC<span class="sc">*</span>SSR_PS)<span class="sc">==</span><span class="dv">0</span>)</span>
-<span id="cb28-45"><a href="reading-which-is-the-fair-sex.html#cb28-45" aria-hidden="true" tabindex="-1"></a> <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(type,Perfect)</span>
-<span id="cb28-46"><a href="reading-which-is-the-fair-sex.html#cb28-46" aria-hidden="true" tabindex="-1"></a> <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span>
-<span id="cb28-47"><a href="reading-which-is-the-fair-sex.html#cb28-47" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb28-48"><a href="reading-which-is-the-fair-sex.html#cb28-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-49"><a href="reading-which-is-the-fair-sex.html#cb28-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-50"><a href="reading-which-is-the-fair-sex.html#cb28-50" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(SSR)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="reading-which-is-the-fair-sex.html#cb24-1" aria-hidden="true" tabindex="-1"></a>params<span class="ot">&lt;-</span>params <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">selfish=</span><span class="sc">-</span><span class="dv">1</span>,<span class="at">PC=</span><span class="sc">-</span><span class="dv">1</span>,<span class="at">PS=</span><span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb24-2"><a href="reading-which-is-the-fair-sex.html#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="reading-which-is-the-fair-sex.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (xx <span class="cf">in</span> <span class="fu">unique</span>(params<span class="sc">$</span>X)) {</span>
+<span id="cb24-4"><a href="reading-which-is-the-fair-sex.html#cb24-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-5"><a href="reading-which-is-the-fair-sex.html#cb24-5" aria-hidden="true" tabindex="-1"></a>  d<span class="ot">&lt;-</span>params <span class="sc">%&gt;%</span> <span class="fu">filter</span>(X<span class="sc">==</span>xx)</span>
+<span id="cb24-6"><a href="reading-which-is-the-fair-sex.html#cb24-6" aria-hidden="true" tabindex="-1"></a>  pass<span class="ot">&lt;-</span><span class="dv">0</span><span class="sc">:</span>d<span class="sc">$</span>income</span>
+<span id="cb24-7"><a href="reading-which-is-the-fair-sex.html#cb24-7" aria-hidden="true" tabindex="-1"></a>  KeepGrid<span class="ot">&lt;-</span>d<span class="sc">$</span>income<span class="sc">-</span>pass</span>
+<span id="cb24-8"><a href="reading-which-is-the-fair-sex.html#cb24-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-9"><a href="reading-which-is-the-fair-sex.html#cb24-9" aria-hidden="true" tabindex="-1"></a>  self<span class="ot">&lt;-</span>(d<span class="sc">$</span>income<span class="sc">-</span>pass)<span class="sc">/</span>d<span class="sc">$</span>pSelf</span>
+<span id="cb24-10"><a href="reading-which-is-the-fair-sex.html#cb24-10" aria-hidden="true" tabindex="-1"></a>  other<span class="ot">&lt;-</span>pass<span class="sc">/</span>d<span class="sc">$</span>pOther</span>
+<span id="cb24-11"><a href="reading-which-is-the-fair-sex.html#cb24-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-12"><a href="reading-which-is-the-fair-sex.html#cb24-12" aria-hidden="true" tabindex="-1"></a>  Payoffselfish<span class="ot">&lt;-</span>self</span>
+<span id="cb24-13"><a href="reading-which-is-the-fair-sex.html#cb24-13" aria-hidden="true" tabindex="-1"></a>  Selfish<span class="ot">&lt;-</span>KeepGrid[<span class="fu">which.max</span>(Payoffselfish)]</span>
+<span id="cb24-14"><a href="reading-which-is-the-fair-sex.html#cb24-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-15"><a href="reading-which-is-the-fair-sex.html#cb24-15" aria-hidden="true" tabindex="-1"></a>  PayoffPS<span class="ot">&lt;-</span>self <span class="sc">+</span> other</span>
+<span id="cb24-16"><a href="reading-which-is-the-fair-sex.html#cb24-16" aria-hidden="true" tabindex="-1"></a>  PS<span class="ot">&lt;-</span>KeepGrid[<span class="fu">which.max</span>(PayoffPS)]</span>
+<span id="cb24-17"><a href="reading-which-is-the-fair-sex.html#cb24-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-18"><a href="reading-which-is-the-fair-sex.html#cb24-18" aria-hidden="true" tabindex="-1"></a>  PayoffPC<span class="ot">&lt;-</span>self<span class="sc">*</span>(self<span class="sc">&lt;=</span>other)<span class="sc">+</span>other<span class="sc">*</span>(self<span class="sc">&gt;</span>other)</span>
+<span id="cb24-19"><a href="reading-which-is-the-fair-sex.html#cb24-19" aria-hidden="true" tabindex="-1"></a>  PC<span class="ot">&lt;-</span>KeepGrid[<span class="fu">which.max</span>(PayoffPC)]</span>
+<span id="cb24-20"><a href="reading-which-is-the-fair-sex.html#cb24-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-21"><a href="reading-which-is-the-fair-sex.html#cb24-21" aria-hidden="true" tabindex="-1"></a>  params[xx,]<span class="sc">$</span>selfish<span class="ot">&lt;-</span>Selfish</span>
+<span id="cb24-22"><a href="reading-which-is-the-fair-sex.html#cb24-22" aria-hidden="true" tabindex="-1"></a>  params[xx,]<span class="sc">$</span>PS<span class="ot">&lt;-</span>PS</span>
+<span id="cb24-23"><a href="reading-which-is-the-fair-sex.html#cb24-23" aria-hidden="true" tabindex="-1"></a>  params[xx,]<span class="sc">$</span>PC<span class="ot">&lt;-</span>PC</span>
+<span id="cb24-24"><a href="reading-which-is-the-fair-sex.html#cb24-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-25"><a href="reading-which-is-the-fair-sex.html#cb24-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-26"><a href="reading-which-is-the-fair-sex.html#cb24-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-27"><a href="reading-which-is-the-fair-sex.html#cb24-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-28"><a href="reading-which-is-the-fair-sex.html#cb24-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-29"><a href="reading-which-is-the-fair-sex.html#cb24-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-30"><a href="reading-which-is-the-fair-sex.html#cb24-30" aria-hidden="true" tabindex="-1"></a>SSR<span class="ot">&lt;-</span> (Keep  <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(params <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Decision=</span>X) ,<span class="at">by=</span><span class="st">&quot;Decision&quot;</span>)</span>
+<span id="cb24-31"><a href="reading-which-is-the-fair-sex.html#cb24-31" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">resid2_selfish=</span>(selfish<span class="sc">-</span>keep)<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb24-32"><a href="reading-which-is-the-fair-sex.html#cb24-32" aria-hidden="true" tabindex="-1"></a>             <span class="at">resid2_PC=</span>(PC<span class="sc">-</span>keep)<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb24-33"><a href="reading-which-is-the-fair-sex.html#cb24-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">resid2_PS=</span>(PS<span class="sc">-</span>keep)<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb24-34"><a href="reading-which-is-the-fair-sex.html#cb24-34" aria-hidden="true" tabindex="-1"></a>             )</span>
+<span id="cb24-35"><a href="reading-which-is-the-fair-sex.html#cb24-35" aria-hidden="true" tabindex="-1"></a> <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id)</span>
+<span id="cb24-36"><a href="reading-which-is-the-fair-sex.html#cb24-36" aria-hidden="true" tabindex="-1"></a> <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">SSR_selfish=</span><span class="fu">sum</span>(resid2_selfish),</span>
+<span id="cb24-37"><a href="reading-which-is-the-fair-sex.html#cb24-37" aria-hidden="true" tabindex="-1"></a>               <span class="at">SSR_PC=</span><span class="fu">sum</span>(resid2_PC),</span>
+<span id="cb24-38"><a href="reading-which-is-the-fair-sex.html#cb24-38" aria-hidden="true" tabindex="-1"></a>               <span class="at">SSR_PS=</span><span class="fu">sum</span>(resid2_PS))</span>
+<span id="cb24-39"><a href="reading-which-is-the-fair-sex.html#cb24-39" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-40"><a href="reading-which-is-the-fair-sex.html#cb24-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-41"><a href="reading-which-is-the-fair-sex.html#cb24-41" aria-hidden="true" tabindex="-1"></a>TypeList<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Selfish&quot;</span>,<span class="st">&quot;PC&quot;</span>,<span class="st">&quot;PS&quot;</span>)</span>
+<span id="cb24-42"><a href="reading-which-is-the-fair-sex.html#cb24-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-43"><a href="reading-which-is-the-fair-sex.html#cb24-43" aria-hidden="true" tabindex="-1"></a>SSR<span class="sc">$</span>type<span class="ot">&lt;-</span>TypeList[<span class="fu">apply</span>(SSR <span class="sc">%&gt;%</span> <span class="fu">select</span>(SSR_selfish,SSR_PC,SSR_PS),<span class="dv">1</span>,<span class="at">FUN=</span>which.min)]</span>
+<span id="cb24-44"><a href="reading-which-is-the-fair-sex.html#cb24-44" aria-hidden="true" tabindex="-1"></a>SSR<span class="ot">&lt;-</span>(SSR <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Perfect =</span> (SSR_selfish<span class="sc">*</span>SSR_PC<span class="sc">*</span>SSR_PS)<span class="sc">==</span><span class="dv">0</span>)</span>
+<span id="cb24-45"><a href="reading-which-is-the-fair-sex.html#cb24-45" aria-hidden="true" tabindex="-1"></a> <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(type,Perfect)</span>
+<span id="cb24-46"><a href="reading-which-is-the-fair-sex.html#cb24-46" aria-hidden="true" tabindex="-1"></a> <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span>
+<span id="cb24-47"><a href="reading-which-is-the-fair-sex.html#cb24-47" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-48"><a href="reading-which-is-the-fair-sex.html#cb24-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-49"><a href="reading-which-is-the-fair-sex.html#cb24-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-50"><a href="reading-which-is-the-fair-sex.html#cb24-50" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(SSR)</span></code></pre></div>
 <table>
 <thead>
 <tr>
