@@ -1,0 +1,50 @@
+
+
+# Directed Acyclic Graphs
+
+I strongly recommend [Paul Hünermund's notes](https://p-hunermund.com/teaching/), and [Scott Cunningham's *Causal inference: the mixtape*](https://www.scunning.com/mixtape.html)
+
+```{r,warning=FALSE,message=FALSE}
+library(tidyverse)
+library(dagitty)
+```
+
+```{r}
+g<-dagitty("
+ dag {
+ eX->X ->Y
+ e ->Y<-eY
+ e->X
+ }          
+"
+)
+plot(g)
+print(paths(g,"X","Y"))
+```
+
+## Collider bias
+```{r}
+g<-dagitty("
+ dag {
+ talent->actor
+ looks->actor
+ }          
+"
+)
+plot(g)
+print(paths(g,"looks","talent"))
+
+# Simulation
+set.seed(42)
+talent<-rnorm(1000)
+looks<-rnorm(1000)
+job<-ifelse((talent+looks)>rnorm(1000),"Actor","Not actor")
+
+(
+        ggplot()
+        +geom_point(data=data.frame(talent,looks,job),aes(x=looks,y=talent,color=job,group=job))
+        +geom_smooth(data=data.frame(talent,looks,job),aes(x=looks,y=talent,color=job,group=job),method="lm")
+        +geom_smooth(data=data.frame(talent,looks,job),aes(x=looks,y=talent,color="pooled"),method="lm")
+)
+
+```

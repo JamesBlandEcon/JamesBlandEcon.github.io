@@ -1,0 +1,58 @@
+---
+title: "Example of RMarkdown"
+author: "Dr. James Bland"
+date: "2/12/2021"
+output: html_document
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## A heading
+
+
+### A sub-heading
+
+```{r}
+library(ggplot2)
+library(dplyr)
+z<-rnorm(300)
+z<- data.frame(z)
+ggplot(data=z,aes(x=z))+stat_density()
+```
+
+### All math is in LaTeX
+
+$$
+\phi(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp(-(x-\mu)^2/\sigma^2)
+$$
+
+An equation in text $\pi=3$
+
+### You can call objects from code to render in text
+
+like this: `r mean(z$z)`
+
+
+```{r}
+x<-runif(1000)
+y<-x+rnorm(1000)
+
+d<-data.frame(y,x)
+
+head(d)
+
+print(data=d,lm(y~x))
+
+```
+
+```{r,results="asis"}
+library(stargazer)
+m1<-lm(y~x)
+m2<-lm(y~1)
+
+stargazer(m1,m2,type="html")
+
+
+```

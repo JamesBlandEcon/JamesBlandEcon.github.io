@@ -1,0 +1,430 @@
+
+
+# Time series, prediction, and forecasting
+
+For most of this section, we will draw from material in Bailey's *Real Econometrics*, Chapter 14 of my supplementary material, and:
+
+> Hyndman, R.J., & Athanasopoulos, G. (2018) [Forecasting: principles and practice](https://otexts.com/fpp2/), 2nd edition, OTexts: Melbourne, Australia.
+
+
+## Introduction
+
+Up to this point we have almost exclusively focused on estimating causal effects. While we will by no means ignore this altogether in this section, we will also have an added focus on prediction and forecasting. That is, since we have data on more than one time period, it is natural that we may want to make a prediction about something that happens *after* our sample is collected. As a motivating example, consider the following data on time series from the [US Energy Information Administration website](https://www.eia.gov/dnav/pet/pet_pri_gnd_dcus_nus_w.htm)
+
+```{r,message=F,cache=F}
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+
+D<-(read.csv("Data/Weekly_Retail_Gasoline_and_Diesel_Prices.csv",skip=6)
+  %>% data.frame()   
+)
+colnames(D)<-c("Week","Price")
+
+D<-D %>% mutate(Week = mdy(Week)) %>% arrange(Week) %>% mutate(Month=month(Week))
+
+Dts<-ts(D,start=1995,frequency=52)
+
+knitr::kable(head(D))
+
+(
+  ggplot(D,aes(x=Week,y=Price))
+  +geom_line()
+  +xlab("Date (recorded weekly)")+ylab("Price (US$/gallon)")
+  +theme_bw()
+)
+
+```
+
+
+## Notation
+
+$$
+Y_t = \text{our outcome variable measured in time period }t
+$$
+$$
+Y_{t-1} = Y \text{ from one time period ago (1-period lag)}
+$$
+E.g. in linear regression:
+$$
+\begin{aligned}
+Y_t&= \beta_0+\beta_1Y_{t-1}+\epsilon_t\\
+E[Y_t\mid Y_{t-1}]&=\beta_0+\beta_1Y_{t-1}
+\end{aligned}
+$$
+
+$$
+Y_{t+1}=Y \text{ one time period into the future (1-period forward or lead)}
+$$
+
+## Building blocks
+
+**Autoregrssive model**
+
+$$
+Y_t=\beta_0+\sum_{l=1}^L\beta_lY_{t-l}+\epsilon_t\quad\text{AR(L)}
+$$
+
+e.g.:
+If $\beta_l=\frac1L$ (and $\beta_0=0$), then this is a moving-average forecast.
+
+**Moving average model**
+$$
+Y_t=\beta_0+\sum_{l=1}^L\gamma_l\epsilon_{t-l}+\epsilon_t \quad\text{MA(L)}
+$$
+**Autorgresive moving average model**
+$$
+Y_t=\beta_0+\sum_{l=1}^{L_1}\beta_lY_{t-l}+\sum_{l=1}^{L_2}\gamma_l\epsilon_{t-l}+\epsilon_t\quad \text{ARMA}(L_1,L_2)
+$$
+
+
+## Diagnostics
+
+### ACF and PACF
+
+**Autocorrelation function**
+$$
+R(\tau)=\frac{E[(Y_t-\mu)(Y_{t-\tau}-\mu)]}{V(Y_t)}
+$$
+
+For an AR process:
+$$
+\begin{align}
+Y_t&=\beta_0+\sum_{l=1}^L\beta_lY_{t-l}+\epsilon_t
+\end{align}
+$$
+
+1. Assume stationarity - $E(Y_t)$ does not depend on $t$
+$$
+\begin{align}
+E[Y_t]&=E\left[\beta_0+\sum_{l=1}^L\beta_lY_{t-l}+\epsilon_t\right]\\
+&=\beta_0+\sum_{l=1}^L\beta_lE[Y_{t-l}]+E[\epsilon_t]\\
+&=\beta_0+\sum_{l=1}^L\beta_lE[Y_{t}]+\underbrace{E[\epsilon_t]}_{=0}\quad\text{imposed stationarity here}\\
+&=\beta_0+E[Y_{t}]\sum_{l=1}^L\beta_l\\
+E[Y_t]\left(1-\sum_{l=1}^L\beta_l\right)&=\beta_0\\
+E[Y_t]&=\frac{\beta_0}{1-\sum_{l=1}^L\beta_l}
+\end{align}
+$$
+Simplifying for AR(1):
+$$
+E[Y_{t}]=\frac{\beta_0}{1-\beta_1}
+$$
+Problem if $|\beta_1|\geq 1$:
+E.g.:
+
+$$
+\begin{align}
+Y_t&=\beta_1Y_{t-1}+\epsilon_t\quad |\beta_1|>1\\
+E[Y_{t}\mid Y_{t-1}]&=\beta_1Y_{t-1}\\
+E[E[Y_{t}\mid Y_{t-1}]]&=E[\beta_1Y_{t-1}]\\
+E[Y_t]&=\beta_1E[Y_{t-1}]
+\end{align}
+$$
+
+2. Calculate covariance (assume $\beta_0=0\implies \mu=0$)
+
+$$
+\begin{aligned}
+E[(Y_t-\mu)(Y_{t-\tau}-\mu)]&=E[Y_tY_{t-\tau}]\\
+&=E\left[\left(\sum_{l=1}^L\beta_lY_{t-l}+\epsilon_t\right)Y_{t-\tau}\right]\\
+&=E\left[Y_{t-\tau}\sum_{l=1}^L\beta_lY_{t-l}+Y_{t-\tau}\epsilon_t\right]\\
+&=\sum_{l=1}^L\beta_lE[Y_{t-\tau}Y_{t-l}]+\underbrace{E[Y_{t-\tau}\epsilon_t]}_{=0}\\
+&=\sum_{l=1}^L\beta_lE[Y_{t-\tau}Y_{t-l}]\\
+&=\sum_{l=1}^L\beta_l\mathrm{cov}(Y_{t-\tau},Y_{t-l})
+\end{aligned}
+$$
+$$
+\begin{align}
+Y_0&=y_0\quad\text{(given)}\\
+Y_1&=\beta_1y_0+\epsilon_1\\
+Y_2&=\beta_1(\beta_1y_0+\epsilon_1)+\epsilon_2\\
+Y_3&=\beta_1\overbrace{(\beta_1\underbrace{(\beta_1y_0+\epsilon_1)}_{Y_1}+\epsilon_2)}^{Y_2}+\epsilon_3\\
+Y_t&=y_0\beta_1^t+ \sum_{l=0}^{t}\beta_1^{l}\epsilon_{t-l}
+\end{align}
+$$
+
+## Autocorrelated errors
+
+AR(1) errors:
+
+$$
+\begin{aligned}
+Y_{t}&=\beta_0+\beta_1X_t+\epsilon_t\\
+\epsilon_t&=\rho\epsilon_{t-1}+\nu_t,\quad \nu_t \sim \text{independent}
+\end{aligned}
+$$
+
+Goal: eliminate $\epsilon_t$:
+$$
+\begin{aligned}
+\rho Y_{t-1}&=\rho\beta_0+\rho\beta_1X_{t-1}+\rho\epsilon_{t-1}\\
+Y_t-\rho Y_{t-1}&=\beta_0+\beta_1X_t+\epsilon_t-\rho\beta_0-\rho\beta_1X_{t-1}-\rho\epsilon_{t-1}\\
+&=(1-\rho)\beta_0+\beta_1(X_t-\rho X_{t-1})+(\epsilon_t-\rho\epsilon_{t-1})\\
+\epsilon_t-\rho\epsilon_{t-1}&=\rho\epsilon_{t-1}+\nu_t-\rho\epsilon_{t-1}=\nu_t\\
+Y_t-\rho Y_{t-1}&=(1-\rho)\beta_0+\beta_1(X_t-\rho X_{t-1})+\nu_t
+\end{aligned}
+$$
+
+Sample dataset
+```{r}
+library(ggplot2)
+rho<-0.2
+
+FakeData<-function(rho,b1,n) {
+  nu<-rnorm(n)
+  X<-rnorm(n)
+  eps<-c(nu[1])
+  for (tt in 2:n) {
+    eps[tt]<-rho*eps[tt-1]+nu[tt]
+  }
+  Y<-b1*X+eps
+  t<-1:n
+  data.frame(t,nu,eps,Y,X)
+}
+
+D<-FakeData(0.7,1,200)
+(
+  ggplot(D,aes(y=Y,x=t))
+  +geom_line()
+  +theme_bw()
+)
+
+```
+
+```{r,results="asis"}
+library(stargazer)
+library(orcutt)
+library(timeSeries)
+library(tidyr)
+library(dplyr)
+
+# Bivariate OLS
+lm1<-lm(data=D,Y~X)
+
+# rho-transform
+lm2<-cochrane.orcutt(lm1)
+
+# estimate rho-transform without using orcutt package
+resid<-lm1$residuals
+t<-1:length(resid)
+residuals<-(data.frame(t,resid)
+            %>% mutate(lagResid = lag(resid,k=1))           
+)
+lm3<-lm(data=residuals,resid~lagResid)
+rhoHat<-lm3$coefficients["lagResid"]
+D<-(D
+  %>% mutate(Ytilde = Y-rhoHat*lag(Y,k=1),
+              Xtilde = X-rhoHat*lag(X,k=1))
+)
+
+lm4<-lm(data=D,Ytilde ~ Xtilde)
+
+
+
+
+stargazer(lm1,lm2,lm3,lm4,type="html")
+
+```
+
+```{r,cache=F}
+SimSize<-1000
+
+SIMULATION<-data.frame()
+
+for (ss in 1:SimSize) {
+  FD<-FakeData(0.9,0,1000)
+  lm1<-lm(data=FD,Y~X)
+  
+  d<-data.frame(summary(lm1)$coefficients)
+  d$method<-"OLS"
+  d$coefficient<-rownames(d)
+  SIMULATION<-d %>% rbind(SIMULATION)
+  
+  lm2<-cochrane.orcutt(lm1)
+  
+  d<-data.frame(summary(lm2)$coefficients)
+  d$method<-"rho-transform"
+  d$coefficient<-rownames(d)
+  SIMULATION<-d %>% rbind(SIMULATION)
+  
+}
+
+SIMULATION %>% head() %>% knitr::kable()
+```
+
+$$H_0: \ \beta_1=0,\quad H_A: \beta_1\neq 1$$
+```{r,cache=F}
+SIMULATION %>% group_by(coefficient,method) %>% summarize(rejectProb = mean(1*(Pr...t..<0.05)))  %>% knitr::kable()
+
+```
+```
+
+## Dynamic models
+
+$$ Y_t=\beta_0+\gamma Y_{t-1}+\beta_1 X_t+\epsilon_t$$
+
+```{r}
+
+FakeData<-function(b,g) {
+  X<-rnorm(1000)
+  E<-0.1*rnorm(1000)
+
+  Y<-0
+  for (tt in 2:length(X)) {
+    Y[tt]<-b*X[tt]+g*Y[tt-1]+E[tt]
+  }
+  t<-1:length(X)
+  data.frame(X,Y,t)
+}
+
+d<-FakeData(1,0.5)
+(ggplot(d,aes(x=X,y=Y)))+geom_smooth(method="lm")+geom_point()
+
+(ggplot(d,aes(y=Y,x=t)))+geom_line()
+
+```
+
+Effect of $X_t$ on $Y_{t+k}$:
+$$
+\begin{aligned}
+t:&\ \beta_1\\
+t+1:&\ \beta_1\gamma\\
+t+k:&\ \beta_1\gamma^{k}
+\end{aligned}
+$$
+Effect on *all* $Y$ in the future added up:
+$$
+\beta_1(1+\gamma+\gamma^2+\gamma^3+\ldots)=\frac{\beta}{1-\gamma}
+$$
+```{r,cache=F}
+Estimates<-function(b,g){
+  data<-FakeData(b,g)
+  model1<-lm(data,formula = Y ~ X)
+  model2<-lm(data,formula = Y ~ X+lag(Y,1))
+  
+  c(model1$coefficients["X"],model2$coefficients["X"])
+}
+Simulation<-data.frame()
+for (ss in 1:1000) {
+ 
+  Simulation<-  data.frame(Estimates(1,0.5),c("linear","linear and lag")) %>% data.frame( ) %>% rbind(Simulation)
+}
+colnames(Simulation)<-c("b1","model")
+
+(ggplot(Simulation,aes(x=b1,color=model)))+geom_density()
+
+Simulation %>% group_by(model) %>% summarize(mean = mean(b1),
+                                             sdSimulation = sd(b1)/sqrt(n()),
+  RMSE = sqrt(mean((b1-1)^2))) %>% knitr::kable()
+
+```
+
+for the standard deviation of simulation
+$$
+\hat\beta_1\sim iid \ E[\hat\beta_1]=\mu, \ V[\hat\beta_1]=\sigma^2\\
+\frac{\sqrt{s}(\frac{1}{S}\sum_{s=1}^S\hat\beta_{1,s}-E[\hat\beta_1])}{\sigma}\xrightarrow[]{d}N(0,1)\\
+V\left[\frac{1}{S}\sum_{s=1}^S\hat\beta_{1,s}\right]\approx\sigma^2/s
+$$
+
+## A brief digression into collider bias
+
+Model: Actors must be at least one of (1) good looking, and (2) a good actor.
+```{r}
+Ability<-rnorm(1000)
+Looks<-rnorm(1000)
+Actor = (Ability+Looks)>rnorm(1000)
+d<-data.frame(Ability,Looks,Actor)
+
+ggplot()+geom_point(data=d,aes(x=Looks,Ability,color=Actor))+geom_abline(slope=-1,intercept=0)+geom_smooth(data=d,aes(x=Looks,Ability),method="lm")
+
+m1<-lm(data=d,Ability~Looks)
+m2<-lm(data=d,Ability~Looks+Actor)
+
+stargazer(m1,m2,type="text")
+
+```
+```{r}
+
+d_dm<-d %>% group_by(Actor) %>% mutate(Looks = Looks-mean(Looks),Ability = Ability-mean(Ability))
+
+ggplot(d_dm,aes(x=Looks,Ability,color=Actor))+geom_point()+geom_abline(slope=-1,intercept=0)+geom_smooth(method="lm")
+```
+
+$$\begin{aligned}
+\text{Ability}  &\xrightarrow[]{}\text{Actor}\\
+\text{Looks}  &\xrightarrow[]{}\text{Actor}\\
+&\quad\text{we want to estimate:}\\
+\text{Ability}&\xrightarrow[]{}\text{Looks}
+\end{aligned}
+$$
+
+**If $Y_{t-1}$ *shouldn't* be on the RHS**
+
+Real model
+$$
+Y_t=\beta_1X_t+\epsilon_t, \quad X_t=\rho X_{t-1}+\nu_t
+$$
+Estimated model:
+$$
+y_t=\gamma Y_{t-1}+\beta_1X_t+\epsilon_t
+$$
+
+$$\begin{aligned}
+X_t &\xrightarrow[]{}Y_t\\
+X_{t-1} &\xrightarrow[]{}X_t\\
+X_{t}&\xrightarrow[]{}X_{t+1}\xrightarrow[]{}Y_{t+1}\\
+&\quad\text{we want to estimate:}\\
+Y_{t-1}\xleftarrow[]{}X_{t-1}\xrightarrow[]{}X_{t}
+\end{aligned}
+$$
+```{r,cache=F}
+FakeData<-function(b,g) {
+  E<-0.1*rnorm(100)
+
+X<-0
+  for (tt in 2:length(E)) {
+    X[tt]<-g*X[tt-1]+0.1*rnorm(1)
+  }
+  t<-1:length(X)
+  Y<-b*X+E
+  data.frame(X,Y,t)
+}
+Estimates<-function(b,g){
+  data<-FakeData(b,g)
+  model1<-lm(data,formula = Y ~ X)
+  model2<-lm(data,formula = Y ~ X+lag(Y,1))
+  model3<-lm(data,formula = Y ~ lag(Y,1))
+  
+  c(model1$coefficients["X"],model2$coefficients["X"],model3$coefficients["lag(Y, 1)"])
+}
+
+Simulation<-data.frame()
+
+for (ss in 1:1000) {
+ 
+  Simulation<-  data.frame(Estimates(1,0.9),c("Y~X","Y~X+lag(Y)","Y~lag(Y)")) %>% data.frame( ) %>% rbind(Simulation)
+}
+colnames(Simulation)<-c("b1","model")
+
+```
+
+```{r}
+(ggplot(Simulation,aes(x=b1,color=model)))+geom_density()
+
+Simulation %>% group_by(model) %>% summarize(mean = mean(b1),
+                                             sdSimulation = sd(b1)/sqrt(n())) %>% knitr::kable()
+
+```
+Real data:
+
+```{r}
+# Documentation here: https://vincentarelbundock.github.io/Rdatasets/doc/ggplot2/txhousing.html
+
+Sales<-read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/ggplot2/txhousing.csv")
+head(Sales) %>% knitr::kable()
+
+(ggplot(Sales,aes(x=date,y=volume,group=city))+geom_line()+theme_bw())+scale_y_continuous(trans="log10")
+
+(ggplot(Sales,aes(y=sales,x=listings)))+geom_jitter(alpha=0.5)+theme_bw()+scale_x_continuous(trans="log10")+scale_y_continuous(trans="log10")
+```

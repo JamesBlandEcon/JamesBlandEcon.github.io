@@ -1,0 +1,7 @@
+base
+ggplot2
+kableExtra
+dplyr
+tidyr
+stargazer
+stringr

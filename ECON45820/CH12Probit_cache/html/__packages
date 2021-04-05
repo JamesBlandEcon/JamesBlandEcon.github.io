@@ -1,0 +1,10 @@
+base
+ggplot2
+dplyr
+stargazer
+sandwich
+zoo
+lmtest
+MASS
+betareg
+mfx

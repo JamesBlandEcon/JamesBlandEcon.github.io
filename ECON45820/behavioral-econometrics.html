@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="time-series-prediction-and-forecasting.html"/>
-<link rel="next" href="midterm-exam.html"/>
+<link rel="next" href="directed-acyclic-graphs.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -179,15 +179,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#hierarchical-model"><i class="fa fa-check"></i><b>4.6</b> Hierarchical model</a></li>
 <li class="chapter" data-level="4.7" data-path="behavioral-econometrics.html"><a href="behavioral-econometrics.html#further-reading"><i class="fa fa-check"></i><b>4.7</b> Further reading</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="midterm-exam.html"><a href="midterm-exam.html"><i class="fa fa-check"></i><b>5</b> Midterm Exam</a>
+<li class="chapter" data-level="5" data-path="directed-acyclic-graphs.html"><a href="directed-acyclic-graphs.html"><i class="fa fa-check"></i><b>5</b> Directed Acyclic Graphs</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="midterm-exam.html"><a href="midterm-exam.html#a-few-plots-and-manipualtions-of-the-data-that-might-be-helpful"><i class="fa fa-check"></i><b>5.1</b> A few plots and manipualtions of the data that might be helpful</a></li>
-<li class="chapter" data-level="5.2" data-path="midterm-exam.html"><a href="midterm-exam.html#question-1"><i class="fa fa-check"></i><b>5.2</b> Question 1</a></li>
-<li class="chapter" data-level="5.3" data-path="midterm-exam.html"><a href="midterm-exam.html#question-2"><i class="fa fa-check"></i><b>5.3</b> Question 2</a></li>
-<li class="chapter" data-level="5.4" data-path="midterm-exam.html"><a href="midterm-exam.html#what-i-am-looking-for"><i class="fa fa-check"></i><b>5.4</b> What I am looking for</a></li>
-<li class="chapter" data-level="5.5" data-path="midterm-exam.html"><a href="midterm-exam.html#rules-for-exam-and-forecasting-competition"><i class="fa fa-check"></i><b>5.5</b> Rules for exam and forecasting competition</a></li>
-<li class="chapter" data-level="5.6" data-path="midterm-exam.html"><a href="midterm-exam.html#useful-resources"><i class="fa fa-check"></i><b>5.6</b> Useful resources</a></li>
-<li class="chapter" data-level="5.7" data-path="midterm-exam.html"><a href="midterm-exam.html#submitting-your-forecast-for-the-forecasting-competition"><i class="fa fa-check"></i><b>5.7</b> Submitting your forecast for the forecasting competition</a></li>
+<li class="chapter" data-level="5.1" data-path="directed-acyclic-graphs.html"><a href="directed-acyclic-graphs.html#collider-bias"><i class="fa fa-check"></i><b>5.1</b> Collider bias</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="stochastic-dominance.html"><a href="stochastic-dominance.html"><i class="fa fa-check"></i><b>6</b> Stochastic dominance</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="stochastic-dominance.html"><a href="stochastic-dominance.html#first-order-stochastic-dominance"><i class="fa fa-check"></i><b>6.1</b> First-order stochastic dominance</a></li>
+<li class="chapter" data-level="6.2" data-path="stochastic-dominance.html"><a href="stochastic-dominance.html#second-order-stochastic-dominance"><i class="fa fa-check"></i><b>6.2</b> Second-order stochastic dominance</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="midterm-exam.html"><a href="midterm-exam.html"><i class="fa fa-check"></i><b>7</b> Midterm Exam</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="midterm-exam.html"><a href="midterm-exam.html#a-few-plots-and-manipualtions-of-the-data-that-might-be-helpful"><i class="fa fa-check"></i><b>7.1</b> A few plots and manipualtions of the data that might be helpful</a></li>
+<li class="chapter" data-level="7.2" data-path="midterm-exam.html"><a href="midterm-exam.html#question-1"><i class="fa fa-check"></i><b>7.2</b> Question 1</a></li>
+<li class="chapter" data-level="7.3" data-path="midterm-exam.html"><a href="midterm-exam.html#question-2"><i class="fa fa-check"></i><b>7.3</b> Question 2</a></li>
+<li class="chapter" data-level="7.4" data-path="midterm-exam.html"><a href="midterm-exam.html#what-i-am-looking-for"><i class="fa fa-check"></i><b>7.4</b> What I am looking for</a></li>
+<li class="chapter" data-level="7.5" data-path="midterm-exam.html"><a href="midterm-exam.html#rules-for-exam-and-forecasting-competition"><i class="fa fa-check"></i><b>7.5</b> Rules for exam and forecasting competition</a></li>
+<li class="chapter" data-level="7.6" data-path="midterm-exam.html"><a href="midterm-exam.html#useful-resources"><i class="fa fa-check"></i><b>7.6</b> Useful resources</a></li>
 </ul></li>
 </ul>
 
@@ -618,7 +626,7 @@ lhat
 <span id="cb104-2"><a href="behavioral-econometrics.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(LambdaHatEstimates,<span class="fu">aes</span>(<span class="at">x=</span>lhat))</span>
 <span id="cb104-3"><a href="behavioral-econometrics.html#cb104-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_ecdf</span>()</span>
 <span id="cb104-4"><a href="behavioral-econometrics.html#cb104-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 <p>In context:
 <span class="math display">\[
 \Pr(\text{chooses y to max DEV})=(1+\exp(-\lambda |\mathrm{DEV}|)^{-1}
@@ -753,14 +761,14 @@ lhat
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="behavioral-econometrics.html#cb106-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb106-2"><a href="behavioral-econometrics.html#cb106-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(LambdaHatEstimates,<span class="fu">aes</span>(<span class="at">x=</span>PrHat))<span class="sc">+</span><span class="fu">stat_ecdf</span>()</span>
 <span id="cb106-3"><a href="behavioral-econometrics.html#cb106-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="behavioral-econometrics.html#cb107-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb107-2"><a href="behavioral-econometrics.html#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span>
 <span id="cb107-3"><a href="behavioral-econometrics.html#cb107-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_ecdf</span>(<span class="at">data=</span>LambdaHatEstimates,<span class="fu">aes</span>(<span class="at">x=</span>EVloss,<span class="at">color=</span><span class="st">&quot;Estimated expected loss&quot;</span>))</span>
 <span id="cb107-4"><a href="behavioral-econometrics.html#cb107-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_ecdf</span>(<span class="at">data=</span>D,<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">abs</span>(DEV),<span class="at">color=</span><span class="st">&quot;Theoretical max&quot;</span>))</span>
 <span id="cb107-5"><a href="behavioral-econometrics.html#cb107-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Expected loss relative to EV-maximizing (pounds)&quot;</span>)</span>
 <span id="cb107-6"><a href="behavioral-econometrics.html#cb107-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-58-2.png" width="672" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-62-2.png" width="672" /></p>
 </div>
 <div id="adding-in-risk-aversion" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Adding in risk aversion</h2>
@@ -820,7 +828,7 @@ DEU(u,p,q)&amp;=(q-p)^\top u(x)
 <span id="cb108-43"><a href="behavioral-econometrics.html#cb108-43" aria-hidden="true" tabindex="-1"></a>   <span class="sc">+</span><span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">exp</span>(<span class="dv">10</span>)))</span>
 <span id="cb108-44"><a href="behavioral-econometrics.html#cb108-44" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>)</span>
 <span id="cb108-45"><a href="behavioral-econometrics.html#cb108-45" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
 </div>
 <div id="certainty-equivalents" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Certainty equivalents:</h2>
@@ -900,7 +908,7 @@ CE(\text{expt})=u^{-1}\left(EU(\text{expt})\right)
         </div>
       </div>
 <a href="time-series-prediction-and-forecasting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="midterm-exam.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="directed-acyclic-graphs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

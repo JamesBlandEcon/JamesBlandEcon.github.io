@@ -1,0 +1,71 @@
+---
+title: "Econometrics II Notes 20201"
+author: "James Bland"
+date: "Spring 2021"
+output:
+  bookdown::gitbook: default
+---
+
+```{r, include=FALSE}
+library(ggplot2)
+library(kableExtra)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(orcutt)
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message=FALSE,cache=TRUE)
+```
+
+# {-}
+
+```{r,child=c("CH12Probit.Rmd")}
+
+```
+
+```{r,include=F}
+invisible(lapply(paste0('package:', names(sessionInfo()$otherPkgs)), detach, character.only=TRUE, unload=TRUE))
+```
+
+```{r,child=c("ProbitMore.Rmd")}
+
+```
+
+```{r,include=F}
+invisible(lapply(paste0('package:', names(sessionInfo()$otherPkgs)), detach, character.only=TRUE, unload=TRUE))
+```
+
+```{r,child=c("TimeSeries.Rmd")}
+
+```
+
+```{r,include=F}
+invisible(lapply(paste0('package:', names(sessionInfo()$otherPkgs)), detach, character.only=TRUE, unload=TRUE))
+```
+
+```{r,child="2021ECON5820.Rmd"}
+```
+
+```{r,include=F}
+invisible(lapply(paste0('package:', names(sessionInfo()$otherPkgs)), detach, character.only=TRUE, unload=TRUE))
+```
+
+```{r,child="DAGs.Rmd"}
+```
+
+```{r,include=F}
+invisible(lapply(paste0('package:', names(sessionInfo()$otherPkgs)), detach, character.only=TRUE, unload=TRUE))
+```
+
+```{r,child="Stochasticdominance.Rmd"}
+```
+
+```{r,include=F}
+invisible(lapply(paste0('package:', names(sessionInfo()$otherPkgs)), detach, character.only=TRUE, unload=TRUE))
+```
+
+```{r,child="2021_Midterm.Rmd"}
+```
+
+```{r,include=F}
+invisible(lapply(paste0('package:', names(sessionInfo()$otherPkgs)), detach, character.only=TRUE, unload=TRUE))
+```

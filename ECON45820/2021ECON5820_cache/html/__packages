@@ -1,0 +1,12 @@
+base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
+foreign
+ggplot2
+dplyr
+tidyr
+latex2exp

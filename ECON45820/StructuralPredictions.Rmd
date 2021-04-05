@@ -1,0 +1,191 @@
+
+
+# Predictions using structural models.
+
+As an example, I will be using data from my paper:
+
+ > Bland, James R. "[How many games are we playing? An experimental analysis of choice bracketing in games.](https://www.sciencedirect.com/science/article/pii/S2214804318303616?casa_token=-ItMAh0cDKsAAAAA:cgpnKmEY-aQis2gPnx0rz9FDbgUerQueArmhIDniBWh_fPqUknlt05jvbiQe1ufNBfU9SPwD6-Q)" Journal of Behavioral and Experimental Economics 80 (2019): 80-91.
+
+
+## Lottery task 
+
+**Part 1**
+
+You have 100 tokens. You can invest some/all/none of it in a lottery. It will pay you $\chi$ times the amount you invested with probability 50%, zero otherwise.
+
+
+$$
+\text{payment}=\begin{cases}
+100-y&\text{ if not successful}\\
+100-y+\chi y&\text{otherwise}
+\end{cases}
+$$
+**Part 2**
+
+The same as Part 1, except that there were two independent lotteries.
+
+**Goal:** Use Part 1 data to predict what will happen in Part 2 
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(kableExtra)
+library(stringr)
+D<- (read.csv("Data/HowManyGames.csv")
+  %>% filter(Period==20)     
+  %>% select(uid,contains("chi"),contains("invest"))
+  %>% mutate(ID = as.integer(as.factor(paste(uid))))
+)
+
+
+
+chi1<-c(2.25,2.75,2.35,5.50)
+chi2<-c(2.2,2.5,3.0,4.0)
+
+Part1<-(D 
+        %>% dplyr::select(ID,contains("invest1"))
+        %>% gather(x,invest,invest1_1:invest1_4)
+        %>% mutate(instance = as.integer(str_sub(x,-1,-1)),
+                   Part = "Part 1")
+        %>% select(ID,invest,instance,Part)
+        %>% mutate(chi = chi1[instance])
+)
+
+
+Part2<-(D 
+        %>% select(ID,contains("invest2"))
+        %>% mutate(
+          invest2_1=round(0.5*(invest2_1_1+invest2_2_1)),
+          invest2_2=round(0.5*(invest2_1_2+invest2_2_2)),
+          invest2_3=round(0.5*(invest2_1_3+invest2_2_3)),
+          invest2_4=round(0.5*(invest2_1_4+invest2_2_4)),
+          
+          )
+        %>% gather(x,invest,invest2_1:invest2_4)
+        %>% mutate(instance = as.integer(str_sub(x,-1,-1)),
+                   Part = "Part 2"
+         )
+        %>% select(ID,invest,instance,Part)
+        %>% mutate(chi = chi2[instance])
+        
+)
+
+LotteryData<-rbind(Part1,Part2)
+print(LotteryData %>% sample_n(size=15))
+
+```
+
+```{r}
+
+
+(
+  ggplot(LotteryData,aes(x=invest,color=as.factor(instance)))
+  +stat_ecdf()
+  +facet_wrap(~Part)
+  +theme_bw()
+  +xlab("tokens invested")
+  +ylab("ecdf")
+  
+)
+
+```
+
+## Model for Part 1:
+
+$$
+\begin{aligned}
+u_i(x)&=x^{r_i}\\
+p(Y_i=y)&\propto \exp(\lambda_i E[u(X)\mid y])\\
+\log r_i&\sim N(\mu_r,\sigma_r^2)\\
+\log\lambda_i&\sim N(\mu_\lambda,\sigma_\lambda^2)
+\end{aligned}
+$$
+$$
+\begin{aligned}
+E[u(X)\mid y]&=0.5(100-y+\chi y)^r+0.5(100-y)^r\\
+p(Y_i=y)&=\frac{\exp(\lambda_i E[u(X)\mid y])}{\sum_k\exp(\lambda_i E[u(X)\mid k])}
+\end{aligned}
+$$
+Priors:
+
+$$
+\begin{aligned}
+\mu_r&\sim N(\log(0.3),1)\\
+\mu_\lambda&\sim N(\log(0.01),1)\\
+\sigma_r&\sim N(\log(0.1),1)\\
+\sigma_\lambda&\sim N(\log(0.1),1)\\
+\end{aligned}
+$$
+
+
+```{r,eval=F,cache=F}
+getwd()
+library(rstan)
+#options(mc.cores = parallel::detectCores())
+options(mc.cores = 2)
+rstan_options(auto_write = TRUE)
+
+
+  #int<lower=0> N; // number of observations
+  #int<lower=0> n; // number of participants
+  #int invest[N];
+  #vector[N] chi;
+  #vector[N] Part;
+  #vector[N] UseData;
+  #int<lower=1> ID[N];
+  #real priorR[4];
+  #real priorL[4];
+UseInvest<-Part1$invest+1
+UseInvest[UseInvest==101]<-100
+
+
+InvestGrid<-seq(0,100,length=11)
+investL<-floor(Part1$invest/10)+1 
+investR<-ceiling(Part1$invest/10)+1
+investFrac<-(Part1$invest-InvestGrid[investL])/10
+d<-list(
+  N = dim(Part1)[1], 
+  n = length(unique(Part1$ID)),
+  investL = investL,
+  investR = investR,
+  investFrac=investFrac,
+  nInvestGrid=length(InvestGrid),
+  InvestGrid = InvestGrid,
+  chi = Part1$chi,
+  Part=1+1*(Part1$Part=="Part 1"),
+  UseData=as.vector(matrix(1,dim(Part1)[1],1)),
+  ID=Part1$ID,
+  priorR=c(log(0.3),0.5,log(0.1),0.5),
+  priorL=c(log(0.1),0.5)
+)   
+  
+Fit<-stan("Bracketing.stan",data=d,control = list(adapt_delta = 0.999,max_treedepth=10))
+saveRDS(Fit,"StructuralPredictions.rds")
+```
+
+
+```{r}
+Fit<-readRDS("StructuralPredictions.rds")
+print(Fit)
+```
+## Models for Part 2
+
+**Narrow bracketing**: I ignore the first lottery when making my decision in the 2nd, and so on. The same decision problem as Part 1:
+
+$$
+\begin{aligned}
+E[u(X)\mid y]&=0.5(100-y+\chi y)^r+0.5(100-y)^r
+\end{aligned}
+$$
+**Broad bracketing**: I add up the prizes from both lotteries (what the "rational" model says you should do).
+
+$$
+\begin{aligned}
+E[u(X_1+X_2)\mid y]&=0.25(200-2y+2\chi y)^r+0.5(200-2y+\chi y)^r+0.25(200-2y)^r
+\end{aligned}
+$$
+
+
+
+

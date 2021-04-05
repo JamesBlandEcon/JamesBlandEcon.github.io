@@ -1,0 +1,191 @@
+---
+title: "Midterm exam, Spring 2021"
+author: "ECON4/5820 Econometrics Models I"
+date: "Due Monday 2021-03-22"
+output: html_document
+---
+# Midterm Exam
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Your task is to forecast electricity demand in California. To do this, we are going to use the [U.S. Energy Information Administration](https://www.eia.gov/) open data [source](https://www.eia.gov/opendata/) that records hourly electricity demand. To do this, you will need to do the following:
+
+1. Register for an API key here: (https://www.eia.gov/opendata/). This took me under 10 minutes.
+2. Make sure you have the following libraries installed in *R*:
+    + *tidyr*
+    + *dplyr*
+    + *jsonlite*
+    + *lubridate*
+3. Run the following script:
+```{r,eval=F}
+key<-"YOUR-KEY-HERE"
+library(tidyr)
+library(dplyr)
+library(jsonlite)
+library(lubridate)
+
+urlCategories<-paste0("http://api.eia.gov/category/?api_key=",key,"&category_id=3390016")
+Regions <- ( urlCategories
+      %>% readLines() 
+      %>% jsonlite::fromJSON()
+)
+RegionList<-Regions$category$childcategories
+print(RegionList)
+
+# Just California
+url<-paste0("http://api.eia.gov/category/?api_key=",key,"&category_id=3390291")
+
+RegionData<-url %>% readLines %>% jsonlite::fromJSON()
+RegionList<-RegionData$category$childseries
+DownloadThese<-grepl("UTC",RegionList$name,fixed=TRUE)
+
+CAElectricityData<-tibble()
+for (ii in 1:length(DownloadThese)) {
+  if (DownloadThese[ii]) {
+    url<-paste0("http://api.eia.gov/series/?api_key=",key,"&series_id=",RegionList$series_id[ii])
+    D<-(url %>% readLines %>% jsonlite::fromJSON())
+    tmp<-D[["series"]][["data"]][[1]] %>% data.frame()
+    colnames(tmp)<-c("Time","Value")
+    tmp$region<-D$series$name
+    
+    CAElectricityData<-rbind(CAElectricityData,tmp)
+  }
+    
+}
+
+CAElectricityData <- CAElectricityData %>% mutate(Time = as_datetime(ymd_h(substr(Time,1,11))))
+
+write.csv(CAElectricityData,"20201S/CAElectricityData.csv")
+```
+
+You can then load the data and clean it up a bit as follows:
+```{r,message=F,warning=F}
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(stringr)
+D<-(read.csv("CAElectricityData.csv") %>% data.frame()
+)
+r<-strsplit(D$region,", ") %>% unlist() %>% matrix(ncol=3,byrow=TRUE)
+D$region<-r[,2]
+D$Time<-D$Time %>% as_datetime()
+D %>% sample_n(15) %>% knitr::kable()
+```
+Each column is as follows:
+
+* X is the row number (not particularly useful)
+* Time is the time period for this row, measured in UTC (local time is tricky because of daylight saving).
+* Value is the demand for electricity in MWh
+* region is the region in California.
+
+## A few plots and manipualtions of the data that might be helpful
+
+```{r,warning=F}
+
+(ggplot(D,aes(x=Time,y=Value,color=region))
++geom_line(alpha=0.5)
++theme_bw()
++scale_y_continuous(trans="log10")
+)
+```
+
+Going from a long (each row is a time-region pair) to wide (each row shows all regions for a time period):
+
+```{r}
+
+Uregion<-unique(D$region)
+print(Uregion)
+RegionLabels<-c("PGE","SCE","SDGE","VEA")
+D$RLabel<-""
+for (rr in 1:length(Uregion)) {
+ D[D$region==Uregion[rr],"RLabel"]<-RegionLabels[rr]
+}
+
+
+DWide<-(D
+        %>% dplyr::select(Time,Value,RLabel)
+        %>% pivot_wider(names_from=RLabel,values_from=Value)
+        %>% data.frame()
+)
+
+DWide %>% sample_n(15) %>% knitr::kable()
+
+```
+
+
+```{r,eval=T}
+
+(
+  ggplot(DWide,aes(x=PGE,y=SCE,color=Time))
+    +geom_point(size=0.4,alpha=0.5)
+    +geom_smooth()
+  +geom_abline(intercept=0,slope=1)
+  +scale_x_continuous(trans="log10")
+  +scale_y_continuous(trans="log10")
+  +theme_bw()
+)
+  
+
+```
+
+
+## Question 1
+
+Produce a forecast for total electricity demand in the four regions, at 1200 local (California) time on the due date of this exam. Tailor your forecast to this incentive structure:
+
+> You will be paid $5 if your forecast has the smallest mean squared error out of all submissions.
+
+You must estimate at least one model with each of the following:
+
+* A lag
+* A control for hour of the day
+* A time trend
+
+That is, if $\{\hat y_{i}\}_{i=1}^{i=4}$ are your forecasts, and$\{ y_{i}\}_{i=1}^{i=4}$ are the actual realizations of these variables, then this prize will go to the person with the smallest value of:
+$$
+\sum_{i=1}^4(\hat y_{i}- y_{i})^2
+$$
+
+## Question 2
+
+Produce a forecast for which region out of *Pacific Gas and Electric* and *Southern California Edison* will have the greatest demand for each hour between 1200 local (California) time on the due date of this exam, and 1100 local time the next day (inclusive). Tailor your forecast to this incentive structure:
+
+> Each of the 24 time periods will be randomly allocated to a student, so that each student has an equal number of time periods. For every time period that you were selected for, if you predict correctly, you will be paid $0.50.
+
+
+## What I am looking for
+
+For each question, I will am looking for
+
+1. At least three models estimated
+2. An explanation of why you chose these models
+3. A explanation of which model you selected, and how you selected it, with reference to the incentive structures.
+4. Your forecasts, an expression of uncertainty for your forecasts, and a short description of how you selected your models and calculated the expression of uncertainty. 
+
+
+## Rules for exam and forecasting competition
+
+1. You may use any static resource available to you, including, but not limited to textbooks, online content, and so on. 
+2. You may not communicate with anyone about these questions. This includes talking to students, friends, professors (except Dr. Bland) about the exam, emails, and posting on discussion boards (although feel free to read them).
+3. Your forecasts should not use any data other than the data scraped into CAElectricityData.csv. If the incentives were stronger, I would be importing data on electricity prices/futures, weather forecasts and weather data, and so on. This rule is here to burn that bridge: just focus on this dataset.
+4. If you have any questions about anything to do with this exam and/or the forecasting competition, please communicate them to Dr. Bland. He will post the question and his answer on Blackboard so that all students can see them.
+5. Grades for the exam will benot be a function of your success, or lack thereof, in the forecasting competition. You are not "competing" for an A. You are competing for cash. There are plenty of As to go around for good work!
+6. Dr. Bland will transfer your winnings from the forecasting competition electronlically, through your choice of bank transfer, Venmo, Amazon gift card, or any other form of payment that is mutually acceptable.
+7. You may send me a forecasting script to Dr. Bland at any time to verify that it is returning the forecasts in the right format. He will send you back the two output csv files, and a comment about their format.
+8. You may use different models, or the same model, for forecasting in Questions 1 and 2.
+9. Dr. Bland will not be a competitor in the forecasting competition, but he will make his own forecasts.
+
+
+## Useful resources
+
+* [Rstudio cheat sheets](https://rstudio.com/resources/cheatsheets/), especially for the *lubridate* package.
+* [Forecasting: Principles and Practice (2nd ed)](https://otexts.com/fpp2/), by Rob J Hyndman and George Athanasopoulos
+
+
+
+
+
+

@@ -1,0 +1,578 @@
+
+
+# MLE and hypothesis testing
+
+```{r,include=FALSE}
+library(ggplot2)
+library(kableExtra)
+library(dplyr)
+library(tidyr)
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message=FALSE,cache=TRUE)
+```
+
+
+
+```{r}
+rm(list=ls()) 
+library(dplyr)
+knitr::opts_chunk$set(cache = TRUE)
+
+D<-read.csv("Data/NFLFieldGoals1920scrape.csv") %>% data.frame()
+
+#D %>% head() %>% knitr::kable()
+
+```
+
+```{r}
+library(ggplot2)
+
+D<-(D
+ %>% mutate(Y=1*(Good.=="Y"))   
+)
+
+(
+  ggplot(D,aes(x=Dist,y=Y))
+  +geom_point()
+)
+```
+
+Not so useful
+
+```{r}
+DSummary<-(D
+  %>% group_by(Dist)
+  %>% summarize(
+    Y = mean(Y),
+    n = n()
+  )
+)
+
+(
+  ggplot(DSummary)
+  +geom_point(alpha=0.7,aes(x=Dist,y=Y,size=n))
+  +geom_smooth(data=D,aes(x=Dist,y=Y,color="probit-linear"),method="glm", method.args=list(family=binomial(link="probit")),size=1,formula = "y~x")
+  +geom_smooth(data=D,aes(x=Dist,y=Y,color="probit-quadratic"),method="glm", method.args=list(family=binomial(link="probit")),size=1,formula = "y~x+I(x^2)")
+  +stat_ecdf(data=D,aes(x=Dist))
+  +theme_bw()
+)
+```
+
+```{r,results="asis"}
+library(stargazer)
+m1<-glm(data=D,Y~1,family=binomial(link="probit"))
+m2<-glm(data=D,Y~Dist,family=binomial(link="probit"))
+m3<-glm(data=D,Y~Dist+ I(Dist^2),family=binomial(link="probit"))
+
+
+stargazer(m1,m2,m3,type="html")
+```
+
+Likelihood ratio test:
+$$
+H_0: \ \text{distance does not affect accuracy},\quad H_A:\ \text{distance  affects accuracy}\\
+H_0:\ \beta_\text{Dist}=0,\quad \beta_\text{Dist}\neq0
+$$
+
+In general:
+$$
+2(LL_U-LL_R)\xrightarrow[]{d}\chi^2(r)
+$$
+where $r$ is the number of restrictions $H_0$ imposes. Note that if $X\sim N(0,1)$ then $X^2\sim \chi^2(1)$, and in general $\sum_{k=1}^K X^2_k \sim \chi^2(K)$ 
+
+1. Compare models 1 and 2:
+$$
+H_0:\ \Pr(Y=1)=\Phi(\beta_0),\quad H_A:\ \Pr(Y=1\mid D) =\Phi(\beta_0+\beta_1D)
+$$
+```{r}
+LLU<-logLik(m2)
+LLR<-logLik(m1)
+
+LR <- 2*(LLU-LLR)
+
+print(LR)
+
+print(paste("Critical Value",qchisq(0.95,1)))
+```
+
+
+2. Compare models 1 and 3:
+$$
+H_0:\ \Pr(Y=1)=\Phi(\beta_0),\quad H_A:\ \Pr(Y=1\mid D) =\Phi(\beta_0+\beta_1D+\beta_2D^2)
+$$
+```{r}
+LLU<-logLik(m3)
+LLR<-logLik(m1)
+
+LR <- 2*(LLU-LLR)
+
+print(LR)
+
+print(paste("Critical Value",qchisq(0.95,2)))
+```
+
+
+3. Compare models 2 and 3:
+$$
+H_0:\ \Pr(Y=1)=\Phi(\beta_0+\beta_1D),\quad H_A:\ \Pr(Y=1\mid D) =\Phi(\beta_0+\beta_1D+\beta_2D^2)
+$$
+```{r}
+LLU<-logLik(m3)
+LLR<-logLik(m2)
+
+LR <- 2*(LLU-LLR)
+
+print(LR)
+
+print(paste("Critical Value",qchisq(0.95,1)))
+```
+
+## 2020 NFL season
+
+```{r}
+# source: http://nflsavant.com/about.php
+library(kableExtra)
+
+D2020<-read.csv("Data/pbp-2020.csv") %>% data.frame()
+
+print(colnames(D2020))
+
+FG2020<-D2020 %>% filter(grepl("YARD FIELD GOAL",Description))
+
+dim(FG2020)
+
+#kbl(head(FG2020 %>% select(Description)))
+
+```
+
+Note that the description for these takes the form: 
+
+> "XXX-**F.Lastname** **dd** YARD FIELD GOAL **RESULT**, **WHY NOT GOOD**, OTHER INFO"
+
+Let's see if we can pull these quantities out:
+```{r}
+library(stringr)
+library(dplyr)
+FG2020<-(FG2020
+  %>% mutate(
+    name = str_match(Description, "-\\s*(.*?)\\s* ")[,2],
+    distance = as.numeric(str_split(Description,pattern=" ",simplify=TRUE)[,3]),
+    good=as.integer(grepl("IS GOOD,",Description))
+)
+)
+
+FG2020[,c("name","distance","good")] %>% head() %>% kbl()   
+
+FG2020Sum<-(FG2020
+            %>% group_by(distance)
+            %>% summarize(
+              Pr=mean(good),
+              n = n()
+            )
+  
+)
+
+(
+  ggplot()
+  +theme_bw()
+  +xlab("Distance to goal (yards)")
+  +ylab("Fraction good")
+  +geom_point(data=FG2020Sum,aes(x=distance,y=Pr,size=n,color="Data"),alpha=0.7)
+  +geom_smooth(data=FG2020,aes(x=distance,y=good,color="Probit"),method="glm", method.args=list(family=binomial(link="probit")))
+  +geom_smooth(data=FG2020,aes(x=distance,y=good,color="Logit"),method="glm", method.args=list(family=binomial(link="logit")))
+  +geom_smooth(data=FG2020,aes(x=distance,y=good,color="LPM"),method="lm")
+  +stat_ecdf(data=FG2020,aes(x=distance,color="ecdf(distance)"))
+  
+)
+```
+
+### Some standard models for making predictions:
+```{r,results="asis"}
+Probit2020<-glm(data=FG2020,good ~ distance,family=binomial(link="probit"))
+Logit2020<-glm(data=FG2020,good ~ distance,family=binomial(link="logit"))
+LPM2020<-lm(data=FG2020,good ~ distance)
+
+stargazer(Probit2020,Logit2020,LPM2020,type="html")
+```
+
+### A geometry-based alternative
+
+A player makes a field goal attempt $x$ yards from the goal (my data). The goal posts are $d$ yards apart (given), and the crossbar is $h$ yards above the ground (I attempted to use this too, but there are not enough long shots to identify the parameters for this model, see Appendix II).
+```{r, echo=FALSE}
+xmax<-10
+plt<-ggplot()+theme_bw()+ylim(-1,1)+xlim(-1,xmax)
+plt<-plt+geom_segment(aes(x=0,y=-1,xend=0,yend=1))
+plt<-plt+geom_segment(aes(x=0,y=1,xend=10,yend=0))
+plt<-plt+geom_segment(aes(x=0,y=-1,xend=10,yend=0))
+plt<-plt+geom_segment(aes(x=0,y=0,xend=10,yend=0),linetype="longdash")
+plt<-plt+geom_text(aes(x=8,y=0.1,label="\U03b8"))
+plt<-plt+geom_text(aes(x=5,y=0.05,label="x"))
+plt<-plt+geom_text(aes(x=5,y=0.6,label="y"))
+plt<-plt+geom_text(aes(x=-0.2,y=0,label="d"))
+plt<-plt+theme(axis.line=element_blank(),axis.text.x=element_blank(),
+          axis.text.y=element_blank(),axis.ticks=element_blank(),
+          axis.title.x=element_blank(),
+          axis.title.y=element_blank(),legend.position="none",
+          panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),
+          panel.grid.minor=element_blank(),plot.background=element_blank())
+plt
+
+```
+
+$$
+\begin{aligned}
+x&=y\cos\theta\\
+d/2&=y\sin\theta\\
+y^2&=x^2+(d/2)^2\\
+x&=\sqrt{x^2+(d/2)^2}\cos\theta\\
+\cos\theta&=\frac{x}{\sqrt{x^2+(d/2)^2}}\\
+\theta&=\cos^{-1}\left(\frac{x}{\sqrt{x^2+(d/2)^2}}\right)
+\end{aligned}
+$$
+Assume that the kick is made with angle error $\epsilon\sim N(0,\sigma^2)$:
+$$
+\begin{aligned}
+\Pr(\text{good}\mid x)&=\Pr\left(|\epsilon|<\theta\right)\\
+&=\Pr(-\theta<\epsilon<\theta)\\
+&=\Pr(-\frac{\theta}{\sigma}<z<\frac{\theta}{\sigma})\\
+&=2(0.5-\Phi(-\theta/\sigma))
+\end{aligned}
+$$
+
+Log-likelihood:
+$$
+\begin{aligned}
+\mathcal L(\sigma)&=\sum_{i=1}^N\log\Pr(\text{good}_i\mid x_i)\\
+&=\sum_{i=1}^N\left[\log(2)+\log(0.5-\Phi(-\theta/\sigma))\right]
+\end{aligned}
+$$
+
+```{r}
+#18 feet 6 inches
+d<-(18+6/12)/3 # distance in yards
+
+FG2020<-FG2020 %>% mutate(angle = acos(distance/sqrt(distance^2+(d/2)^2)))
+
+
+head(FG2020[,c("name","distance","good","angle")]) %>% kbl()
+
+## Likelihood function
+
+angle<-FG2020$angle
+good<-1*FG2020$good
+II<-angle==angle
+
+good 
+LL<-function(s,II) {
+  PrGood<-2*(0.5-pnorm(-angle/s))
+  l<-good*log(PrGood)+(1-good)*log(1-PrGood)
+  
+  -sum(l[II])
+}
+
+
+
+sgrid<-seq(0.001,0.1,length=100)
+likefun=c()
+for (ss in sgrid) {
+  likefun<-c(likefun,LL(ss,II))
+}
+
+dplot<-data.frame(sgrid,likefun)
+
+ggplot(dplot,aes(x=sgrid,y=likefun))+geom_line()+xlab("sigma (angle error)")+ylab("negative log-likeihood")+theme_bw()
+
+```
+
+```{r}
+maxlike <- function(II) {
+  objfun<-function(x) {LL(x,II)}
+  optim(0.05,objfun)$par
+}
+sigmaHat<-maxlike(II)
+PrHat<-2*(0.5-pnorm(-angle/sigmaHat))
+FG2020$PrHat<-PrHat
+
+(
+  ggplot()
+  +theme_bw()
+  +xlab("Distance to goal (yards)")
+  +ylab("Fraction good")
+  +geom_point(data=FG2020Sum,aes(x=distance,y=Pr,size=n,color="Data"),alpha=0.7)
+  +geom_smooth(data=FG2020,aes(x=distance,y=good,color="Probit"),method="glm", method.args=list(family=binomial(link="probit")))
+  #+geom_smooth(data=FG2020,aes(x=distance,y=good,color="Logit"),method="glm", method.args=list(family=binomial(link="logit")))
+  #+geom_smooth(data=FG2020,aes(x=distance,y=good,color="LPM"),method="lm")
+  +geom_line(data=FG2020,aes(x=distance,y=PrHat,color="geometry"))
+  +stat_ecdf(data=FG2020,aes(x=distance,color="ecdf(distance)"))
+  
+)
+
+```
+
+player rankings:
+
+```{r,warning=F,mssage=F}
+SigmaHatPlayer<-c()
+Player<-c()
+for (nn in unique(FG2020$name)) {
+  II<-FG2020$name==nn
+  SigmaHatPlayer<-c(SigmaHatPlayer,maxlike(II))
+  Player<-c(Player,nn)
+}
+DPlayer<-data.frame(Player,SigmaHatPlayer)
+
+kbl(DPlayer[order(DPlayer$SigmaHatPlayer),])
+```
+
+### Evaluating the models
+
+Method: $k$-fold cross-validation (a generalization of leave-one-out cross-validation)
+
+1. Slice the data into $k$ groups "folds"
+2. For each fold $j$, estimate model excluding fold $j$, and assess how well this model predicts data in that fold.
+3. "take the average of these"
+
+```{r,warning=FALSE}
+nobs<-dim(FG2020)[1]
+print(nobs)
+k<-20
+Fold<-purrr::rdunif(nobs, 1,k)
+
+FG2020$fold<-Fold
+
+GEOMETRY<- -1*angle
+PROBIT<- -1*angle
+
+for (jj in 1:k) {
+  sigmaHat<-maxlike(Fold!=jj)
+  
+  Pr<-  2*(0.5-pnorm(-angle[Fold==jj]/sigmaHat))
+  
+  GEOMETRY[Fold==jj]<-Pr
+  
+  probit<-glm(data=FG2020[Fold!=jj,] ,good~distance,family=binomial(link="probit"))
+  
+  
+  Pr<-pnorm(probit$coef[1]+FG2020[Fold==jj,"distance"]*probit$coef[2])
+  PROBIT[Fold==jj]<-Pr
+
+  
+  
+}
+
+#print(probit)
+
+FG2020<-data.frame(FG2020 ,GEOMETRY,PROBIT)
+
+(
+  ggplot(data=FG2020)
+  +geom_point(aes(x=distance,y=GEOMETRY,color="geometry"))
+  +geom_point(aes(x=distance,y=PROBIT,color="probit"))
+  +theme_bw()
+)
+
+FG2020calibration <-(
+  FG2020
+  %>% group_by(distance)
+  %>% mutate(
+    Geometry = mean(GEOMETRY),
+    Probit = mean(PROBIT),
+    Actual = mean(good),
+    n  = n()
+  )
+)
+
+(
+  ggplot(data=FG2020calibration)
+  +geom_point(aes(x=Geometry,y=Actual,size=n,color="Geometry"),alpha=0.2)
+  +geom_point(aes(x=Probit,y=Actual,size=n,color="Probit"),alpha=0.2)
+  
+  +geom_smooth(data=FG2020,aes(x=GEOMETRY,y=good,color="Geometry"),method="loess")
+  +geom_smooth(data=FG2020,aes(x=PROBIT,y=good,color="Probit"),method="loess")
+  
+  +geom_abline(slope=1,intercept=0)
+  +xlab("Prediction")
+  +ylab("Actual")
+  +theme_bw()
+)
+
+```
+
+From here, we need to aggregate these predictions into some measure of how "bad" our models fit the data. E.g.:
+
+* Mean squared prediction error
+$$
+MSPE=\frac{1}{N}\sum_{i=1}^N(y_i-\hat y_i)^2
+$$
+
+* Out-of sample (negative)  likelihood:
+$$
+-\frac{1}{N}\sum_{i=1}^N\left[y_i\log(\hat\theta_i)+(1-y_i)\log(1-\hat\theta_i)\right]
+$$
+
+```{r}
+
+(FG2020
+ %>% group_by()
+ %>% summarize(MSPE_probit = mean((PROBIT-good)^2),
+              MSPE_geometry = mean((GEOMETRY-good)^2),
+              L_probit = -mean(good*log(PROBIT)+(1-good)*log(1-PROBIT)),
+              L_geometry = -mean(good*log(GEOMETRY)+(1-good)*log(1-GEOMETRY)),
+ )
+
+ 
+   
+) %>% t() %>% knitr::kable()
+
+```
+
+See video by Jim Savage here: https://www.youtube.com/watch?v=XX1IWVVpZ7A
+
+### A digression
+
+Model:
+$$
+\begin{aligned}
+Y_i&=\beta_0+\beta_1X_i+\epsilon_i\\
+\hat y=\widehat{E[Y\mid X]}&=\hat\beta_0+\hat \beta_1 X\\
+V(\hat y\mid X)&=V(\hat\beta_0+\hat \beta_1 X \mid X)\\
+&=V(\hat\beta_0)+X^2V(\hat\beta_1)+X\mathrm{cov}(\hat\beta_0,\hat\beta_1)
+\end{aligned}
+$$
+
+This is an expression for our uncertainty about $E[Y\mid X]$, but what we want here, is an expression of our uncertainty in the $Y$ we are trying to predict.
+
+What we really want to evaluate is:
+
+$$
+\begin{aligned}
+V(\hat y -Y\mid X)&=V(Y-\hat\beta_0-\hat\beta_1X \mid X)\\
+&=V(\beta_0+\beta_1X+\epsilon-\hat\beta_0-\hat\beta_1X \mid X)
+\end{aligned}
+$$
+If we assume that the error $\epsilon$ in the thing we are trying to forecast is independent of all errors in our data:
+
+$$
+\begin{aligned}
+V(\hat y -Y\mid X)&=V(\epsilon\mid X)+V(\hat\beta_0+\hat\beta_1 X\mid X)
+\end{aligned}
+$$
+Two parts to this:
+
+1. $V(\epsilon\mid X)$ uncertainty about the residual
+2. $V(\hat\beta_0+\hat\beta_1 X\mid X)$ our uncertainty about the parameters in the model.
+
+$V(\hat\beta_0+\hat\beta_1 X\mid X)\to 0$ as $N\to\infty$ if the model is correctly specified. $V(\epsilon\mid X)$ will remain a constant (and so will dominate in larger samples).
+
+One approach is to estimate $V(\epsilon)$:
+$$
+\hat\sigma^2=\frac{1}{N}\sum_{i=1}^N\left(Y_i-\hat y_i\right)^2\quad \text{(all within-sample)}
+$$
+
+An alternative is to use cross-validation to determine the uncertainty in our forecast.
+
+1. Estimate the model $k$ times, just like we would for $k$-fold cross-validation.
+2. For each fold, calculate $Y_i-\hat y$, now an out-of sample forecast error.
+$$
+  Y_i-\hat y_{i}^{-i}=Y_i-\underbrace{\hat\beta_0-\hat \beta_1}_{\text{does not use observation }i}  X_i
+$$
+
+### An example
+
+```{r,results="asis"}
+Galton<-read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/HistData/GaltonFamilies.csv") %>% data.frame()
+
+model<-lm(data=Galton,childHeight~father+mother+(gender=="female"))
+
+stargazer(model,type="html")
+
+```
+
+```{r}
+
+FamilyList<-unique(Galton$family)
+
+Galton$Forecast<- -1
+
+for (ff in 1:length(FamilyList)) {
+  Estimation<- Galton %>% filter(family!=FamilyList[ff])
+  model_f<-lm(data=Estimation,childHeight~father+mother+(gender=="female"))
+  
+  B<-model_f$coefficients
+  Forecast<-B[1]+B[2]*Galton$father+B[3]*Galton$mother+B[4]*(Galton$gender=="female")
+  
+  II<-Galton$family==FamilyList[ff]
+  
+  Galton$Forecast[II]<-Forecast[II]
+  
+}
+
+(
+  ggplot(data=Galton,aes(x=Forecast,y=childHeight,color=gender))
+  +geom_point()
+  +geom_abline(slope=1,intercept=0)
+  +geom_smooth(method="lm")
+  +theme_bw()
+)
+
+Galton$Fitted<-model$fitted.values
+
+```
+
+```{r}
+
+Galton <-(Galton
+          %>% mutate(ForecastError = Forecast-childHeight)         
+)
+
+Galton %>% summarize(ForecastVariance = mean((ForecastError)^2),
+                    ForecastSD = sqrt(mean((ForecastError)^2)))
+
+(
+  ggplot()
+  +geom_density(data=Galton,aes(x=ForecastError,color="Out of sample"))
+  +geom_density(data=Galton,aes(x=(Fitted-childHeight),color="Within sample"))
+)
+
+
+```
+
+### Back to field goals
+
+```{r}
+
+FG2020<-rbind(FG2020,GEOMETRY,PROBIT)
+
+FG2020PredictionError<-(FG2020
+  %>% group_by(distance)
+  %>% summarize(GEOMETRY = GEOMETRY,
+                PROBIT = PROBIT,
+                good=mean(good),
+                n = n())
+)
+
+
+
+
+(
+  ggplot()
+  +geom_density(data=FG2020PredictionError,aes(x=GEOMETRY-good,color="geometry"))
+  +geom_density(data=FG2020PredictionError,aes(x=PROBIT-good,color="probit"))
+)
+
+
+(
+  ggplot(data=FG2020PredictionError,aes(x=GEOMETRY-good,y=PROBIT-good,size=n,color=distance))
+  +geom_point()
+  +theme_bw()
+  +xlab("Geometry prediction error")
+  +ylab("Probit prediction error")
+  +geom_abline(slope=1,intercept=0)
+  
+)
+
+
+
+```
+
+
+
