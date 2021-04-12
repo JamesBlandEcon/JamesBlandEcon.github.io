@@ -30,6 +30,14 @@ knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message=FALSE,cache=TRUE)
 
 ```
 
+```{r,child=c("Slides/CH04RiskAnomalies.Rmd")}
+
+```
+
+```{r,child=c("Slides/CH-08-GameTheory.Rmd")}
+
+```
+
 # Masters-only content (ECON 6260) {-}
 
 
@@ -39,6 +47,10 @@ knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message=FALSE,cache=TRUE)
 ```
 
 ```{r,child=c("Masters/ParametricRecoverability.Rmd")}
+
+```
+
+```{r,child=c("Masters/PenaltyKicks.Rmd")}
 
 ```
 
@@ -67,5 +79,19 @@ knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message=FALSE,cache=TRUE)
 ```{r,child=c("../ProblemSets/PS04-Bayes.Rmd","../ProblemSets/PS04-Bayes-SOLUTIONS.Rmd")}
 ```
 
-```{r,child=c("../ProblemSets/PS05-Search.Rmd")}
+```{r,child=c("../ProblemSets/PS05-Search.Rmd","../ProblemSets/PS05-Search-SOLUTIONS.Rmd")}
+```
+
+```{r,child=c("../ProblemSets/PS06-2x2games.Rmd","../ProblemSets/PS06-2x2games-SOLUTIONS.Rmd")}
+```
+
+```{r,child="../ProblemSets/PS07-AsymmetricRPS.Rmd"}
+```
+
+# Exams {-}
+
+```{r,child=c("../Exams/2021Midterm.Rmd")}
+```
+
+```{r,child=c("../Exams/2021MidtermSOLUTIONS.Rmd")}
 ```
