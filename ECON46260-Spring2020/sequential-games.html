@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Bayes’ rule | ECON 4-6260 Behavioral Economics</title>
-  <meta name="description" content="4 Bayes’ rule | ECON 4-6260 Behavioral Economics" />
+  <title>17 Sequential games | ECON 4-6260 Behavioral Economics</title>
+  <meta name="description" content="17 Sequential games | ECON 4-6260 Behavioral Economics" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Bayes’ rule | ECON 4-6260 Behavioral Economics" />
+  <meta property="og:title" content="17 Sequential games | ECON 4-6260 Behavioral Economics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Bayes’ rule | ECON 4-6260 Behavioral Economics" />
+  <meta name="twitter:title" content="17 Sequential games | ECON 4-6260 Behavioral Economics" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="risk-and-decision-making.html"/>
-<link rel="next" href="anomalies-with-decision-making-under-risk.html"/>
+<link rel="prev" href="asymmetric-rock-paper-scissors.html"/>
+<link rel="next" href="exams.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -305,512 +305,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bayes-rule" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Bayes’ rule</h1>
-<p><span class="math display">\[
-\Pr(A \mid B)=\frac{\Pr(B \mid A)\Pr(A)}{\Pr(B)}
-\]</span></p>
-<div id="in-comparison-to-chapter-3-risk" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> In comparison to Chapter 3 (risk)</h2>
-<p><strong>Risk:</strong></p>
-<ul>
-<li>I know the probabilities of events. I make my decisions bases on:
-<ul>
-<li>These probabilities</li>
-<li>My preferences over events</li>
-</ul></li>
-<li>Core model for decision-making with risk:
-<ul>
-<li>Expected Utility Theory</li>
-<li>Maximize <span class="math inline">\(E[u(X)]\)</span></li>
-</ul></li>
-</ul>
-<p><strong>Beliefs:</strong></p>
-<ul>
-<li>How do we get those probabilities?</li>
-<li>If I receive new information, how should I change my beliefs?</li>
-<li>Do people actually do this?</li>
-</ul>
+<div id="sequential-games" class="section level1" number="17">
+<h1><span class="header-section-number">17</span> Sequential games</h1>
+<div id="instructions-and-information-about-the-game" class="section level2" number="17.1">
+<h2><span class="header-section-number">17.1</span> Instructions and information about the game</h2>
+<p>The following Figure shows the two games that you played in the classroom experiment.</p>
+<p><img src="PS08PayoffTables.PNG" /></p>
+<p><strong>Instructions</strong></p>
+<p>Rounds and Matchings: The experiment consists of a number of rounds. Note: In each round, you will be matched with another person selected at random from the other participants. There will be a new random rematching each round. The number of rounds in this part of the experiment is: 8.</p>
+<p>Interdependence: Your earnings are determined by the decisions that you and the other person make.</p>
+<p>Roles: In each pair of people, one person will be designated as the “row” player and the other will be the “column” player. You will be a column player (or) row player in all rounds.</p>
+<p>Decisions: On the next page, you will see a table of payoffs. There are 2 rows in the table and 2 columns. The row player will begin by choosing a row, and this decision will be communicated to the column player, who will then choose a column for that row. The intersection of the row selected by one person and the column selected by the other will determine the earnings for each person (details to follow).</p>
+<p>Your Decision: The Row Player will begin by selecting one of the rows in a table like that shown below. Please click on one of the rows so that you can see how this process will work. After one of the rows is selected, press the submit button to see the resulting display that the Column player would have as a result of the row decision. In each cell of the table, the Row player’s payoff is shown in blue and the Column player’s payoff is shown in red.</p>
+<p>To Continue: Please click on one of the rows and then press the Submit button.</p>
+<p>Your Decision: Now the Column player would see the relevant part of the table determined by the Row player’s decision. In each cell of the relevant part, the Row player’s payoff is shown in blue and the Column player’s payoff is shown in red. The parts of the table that are not relevant are shown in gray. Feel free to use the back arrow on the browser to go back and try a different Row decision.</p>
+<p>To Continue: Please press one of the column decision buttons to go to the next page.</p>
+<p>Results: In the example that you constructed, the Row decision was S, and the Column decision was A. The combination of these two decisions determines a unique cell in the table, which results in earnings of $0.70 for the Row player and $0.60 for the Column player. Of course, if you had selected a different pair of decisions in your example, the earnings in this example may have been different. In the rounds that follow, one person in each pair will begin by making the Row decision, and then the other player will choose a column from the relevant part of the table.</p>
+<p>Matchings: At the beginning of each round, there will be a new random pairing of all participants, so the person who you are matched with in one round may not be the same person you will be matched with in the subsequent round. Matchings are random, and you are no more likely to be matched with one person than with another.</p>
+<p>Sequence of Decisions: The Row player will make the initial decision in each round. This decision determines the relevant part of the payoff table, from which the column player will choose one of the available column decisions.</p>
+<p>Earnings: Each person’s earnings are determined by the combination of Row and Column decisions. You begin with a fixed payment of $0.00, and earnings will be added to this amount (losses, if the game has negative payoffs, will be subtracted). Your total earnings will be displayed in a cumulative earnings column on the page that follows.</p>
+<p>Rounds: There will be 8 rounds in this part of the experiment, with random rematchings at the beginning of each.</p>
 </div>
-<div id="conditional-probability" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Conditional probability</h2>
-<blockquote>
-<p>What is the probability of an event, <strong>given that I know another event has happened</strong>?</p>
-</blockquote>
-<ul>
-<li>What is the probability that I slip on the sidewalk given that …
-<ul>
-<li>It is snowing?</li>
-<li>It is not snowing?</li>
-<li>It is snowing, and the temperature is below <span class="math inline">\(10^\circ\mathrm F\)</span>?</li>
-</ul></li>
-<li>What is the probability that I get an exam question on Bayes’ rule, given that …
-<ul>
-<li>Dr. B only spends fifteen minutes discussing it in class</li>
-<li>Dr. B spends three classes discussing it</li>
-<li>Dr. B says “There will be a question on the exam on Bayes’ rule”</li>
-</ul></li>
-</ul>
-</div>
-<div id="example" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Example</h2>
-<ul>
-<li>I roll a 6-sided die, and tell you that it is an odd number.
-<ul>
-<li>What is the probability that I have rolled a 3?</li>
-<li>What is the probability that it is a number less than or equal to 3?</li>
-</ul></li>
-</ul>
-<p>… working on doc cam</p>
-<p>We would notate these probabilities like this:
-<span class="math display">\[
-\Pr(X=3 \mid X \text{ is odd}),\quad \Pr(X=3 \mid X \leq 3)
-\]</span></p>
-</div>
-<div id="more-generally" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> More generally</h2>
-<p><span class="math display">\[
-\begin{aligned}
-\Pr(A \cap B)&amp;=\Pr(A \mid B) \Pr(B)\\
-\Pr(\text{events A and B are both true})&amp;=\Pr(\text{event A is true given that B is true})\Pr(\text{B is true})
-\end{aligned}
-\]</span></p>
-<p>And we can swap the label of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, so:
-<span class="math display">\[
-\begin{aligned}
-\Pr(B \cap A) &amp;=\Pr(B \mid A)\Pr(A)
-\end{aligned}
-\]</span></p>
-<p>But the LHS of both of these expressions are the same event <span class="math inline">\((A\cap B)=(B\cap A)\)</span>, so
-<span class="math display">\[
-\begin{aligned}
-\Pr(A \cap B) &amp;=\Pr(A\mid B)\Pr(B)=\Pr(B\mid A)\Pr(A)=\Pr(B \cap A)
-\end{aligned}
-\]</span>
-Dividing both sides of the middle equality by <span class="math inline">\(\Pr(B)\)</span>:
-<span class="math display">\[
-\Pr(A\mid B)=\frac{\Pr(B\mid A)\Pr(A)}{\Pr(B)}
-\]</span></p>
-</div>
-<div id="example-from-ps3---i" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Example from PS3 - I</h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="bayes-rule.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb17-2"><a href="bayes-rule.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb17-3"><a href="bayes-rule.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb17-4"><a href="bayes-rule.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load the data</span></span>
-<span id="cb17-5"><a href="bayes-rule.html#cb17-5" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">read.csv</span>(<span class="st">&quot;../../ProblemSets/PS03Data.csv&quot;</span>))</span>
-<span id="cb17-6"><a href="bayes-rule.html#cb17-6" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">read.csv</span>(<span class="st">&quot;../../ProblemSets/PS03Parameters.csv&quot;</span>))</span>
-<span id="cb17-7"><a href="bayes-rule.html#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-8"><a href="bayes-rule.html#cb17-8" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fl">0.2</span></span>
-<span id="cb17-9"><a href="bayes-rule.html#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="bayes-rule.html#cb17-10" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span>(P </span>
-<span id="cb17-11"><a href="bayes-rule.html#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
-<span id="cb17-12"><a href="bayes-rule.html#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">EVA =</span> Aprob1<span class="sc">*</span>Aprize1 <span class="sc">+</span> Aprob2<span class="sc">*</span>Aprize2 <span class="sc">+</span> Aprob3<span class="sc">*</span>Aprize3,</span>
-<span id="cb17-13"><a href="bayes-rule.html#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">EVB =</span> Bprob1<span class="sc">*</span>Bprize1 <span class="sc">+</span> Bprob2<span class="sc">*</span>Bprize2 <span class="sc">+</span> Bprob3<span class="sc">*</span>Bprize3,</span>
-<span id="cb17-14"><a href="bayes-rule.html#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">EUA =</span> Aprob1<span class="sc">*</span>Aprize1<span class="sc">^</span>r <span class="sc">+</span> Aprob2<span class="sc">*</span>Aprize2<span class="sc">^</span>r <span class="sc">+</span> Aprob3<span class="sc">*</span>Aprize3<span class="sc">^</span>r,</span>
-<span id="cb17-15"><a href="bayes-rule.html#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">EUB =</span> Bprob1<span class="sc">*</span>Bprize1<span class="sc">^</span>r <span class="sc">+</span> Bprob2<span class="sc">*</span>Bprize2<span class="sc">^</span>r <span class="sc">+</span> Bprob3<span class="sc">*</span>Bprize3<span class="sc">^</span>r)</span>
-<span id="cb17-16"><a href="bayes-rule.html#cb17-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb17-17"><a href="bayes-rule.html#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-18"><a href="bayes-rule.html#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-19"><a href="bayes-rule.html#cb17-19" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span>(P</span>
-<span id="cb17-20"><a href="bayes-rule.html#cb17-20" aria-hidden="true" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">EV_ChooseA =</span> <span class="dv">1</span><span class="sc">*</span>(EVA<span class="sc">&gt;=</span>EVB),<span class="at">EU_ChooseA =</span> <span class="dv">1</span><span class="sc">*</span>(EUA<span class="sc">&gt;=</span>EUB))</span>
-<span id="cb17-21"><a href="bayes-rule.html#cb17-21" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb17-22"><a href="bayes-rule.html#cb17-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-23"><a href="bayes-rule.html#cb17-23" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>(D <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(P,<span class="at">by=</span><span class="st">&quot;Problem.Number&quot;</span>)</span>
-<span id="cb17-24"><a href="bayes-rule.html#cb17-24" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ChoseA =</span> <span class="dv">1</span><span class="sc">*</span>(Decision<span class="sc">==</span><span class="st">&quot;a&quot;</span>))</span>
-<span id="cb17-25"><a href="bayes-rule.html#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Round<span class="sc">&lt;=</span><span class="dv">10</span>)</span>
-<span id="cb17-26"><a href="bayes-rule.html#cb17-26" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb17-27"><a href="bayes-rule.html#cb17-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-28"><a href="bayes-rule.html#cb17-28" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(D <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID,EV_ChooseA,EU_ChooseA,ChoseA)))</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:right;">
-ID
-</th>
-<th style="text-align:right;">
-EV_ChooseA
-</th>
-<th style="text-align:right;">
-EU_ChooseA
-</th>
-<th style="text-align:right;">
-ChoseA
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="example-ii" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> Example, II</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="bayes-rule.html#cb18-1" aria-hidden="true" tabindex="-1"></a>DSum<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">ChooseEV =</span> <span class="fu">sum</span>(ChoseA<span class="sc">==</span>EV_ChooseA),</span>
-<span id="cb18-2"><a href="bayes-rule.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">ChooseEU =</span> <span class="fu">sum</span>(ChoseA<span class="sc">==</span>EU_ChooseA),</span>
-<span id="cb18-3"><a href="bayes-rule.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">Count=</span><span class="fu">n</span>())</span>
-<span id="cb18-4"><a href="bayes-rule.html#cb18-4" aria-hidden="true" tabindex="-1"></a>                                       </span>
-<span id="cb18-5"><a href="bayes-rule.html#cb18-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(DSum)</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:right;">
-ID
-</th>
-<th style="text-align:right;">
-ChooseEV
-</th>
-<th style="text-align:right;">
-ChooseEU
-</th>
-<th style="text-align:right;">
-Count
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-10
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-10
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-10
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-10
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-10
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-10
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-10
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-10
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-10
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="example-iii" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> Example, III</h2>
-<p>Suppose that we have the following model for decisions:</p>
-<p><span class="math display">\[
-\begin{aligned}
-p(\text{ChooseEV}=1\mid \theta,\tau=\text{EV})&amp;=\theta\\
-p(\text{ChooseEU}=1\mid \theta,\tau=\text{EU})&amp;=\theta\\
-p(\tau=\text{EV})&amp;=\rho\\
-\end{aligned}
-\]</span>
-We can write the likelihood, conditional on each type, as (assuming each decision is independent):
-<span class="math display">\[
-p(y_i\mid \tau,\theta,\rho)=\theta^{y_{i,\tau}}(1-\theta)^{n-y_{i,\tau}}
-\]</span>
-And so the overall likelihood for an individual subject is:
-<span class="math display">\[
-p(y_i\mid \theta,\rho)=\rho \theta^{n_i^{EV}}(1-\theta)^{n_i-n_i^{EV}}+(1-\rho) \theta^{n_i^{EU}}(1-\theta)^{n_i-n_i^{EU}}
-\]</span></p>
-</div>
-<div id="example-iv" class="section level2" number="4.8">
-<h2><span class="header-section-number">4.8</span> Example, IV</h2>
-<p>If we assume that each subjects’ choices are independent, then the likelihood of observing all of the data in the experiment is:</p>
-<p><span class="math display">\[
-\begin{aligned}
-p(y\mid \theta,\rho)&amp;\prod_{i=1}^Np(y_i\mid \theta,\rho)\\
-&amp;=\prod_{i=1}^N\left(\rho \theta^{n_i^{EV}}(1-\theta)^{n_i-n_i^{EV}}+(1-\rho) \theta^{n_i^{EU}}(1-\theta)^{n_i-n_i^{EU}}\right)
-\end{aligned}
-\]</span>
-where <span class="math inline">\(\prod_{i=1}^Nx_i=x_1\times x_2\times x_3\times\ldots\times x_N\)</span></p>
-<p>In words: if we knew the fraction of EU types <span class="math inline">\(\rho\)</span>, and the probability of making a mistake <span class="math inline">\(\theta\)</span>, then the probability that we observed our data <span class="math inline">\(y\)</span> is <span class="math inline">\(p(y\mid \theta,\rho)\)</span>.</p>
-</div>
-<div id="example-v" class="section level2" number="4.9">
-<h2><span class="header-section-number">4.9</span> Example, V</h2>
-<p>We have <span class="math inline">\(p(y\mid \theta,\rho)\)</span>, but want to construct beliefs about <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\rho\)</span>. Applying Bayes’ rule:</p>
-<p><span class="math display">\[
-\begin{aligned}
-p(A\mid B)&amp;=\frac{p(B\mid A)p(A)}{p(B)}\\
-\text{substitute: } A&amp;=(\rho,\theta), B=y\\
-p(\rho,\theta\mid y)&amp;=\frac{p(y\mid\rho,\theta)p(\rho,\theta)}{p(y)}\\
-&amp;=\frac{p(\rho,\theta)}{p(y)}\prod_{i=1}^N\left(\rho \theta^{n_i^{EV}}(1-\theta)^{n_i-n_i^{EV}}+(1-\rho) \theta^{n_i^{EU}}(1-\theta)^{n_i-n_i^{EU}}\right)
-\end{aligned}
-\]</span>
-Note that since <span class="math inline">\(p(y)\)</span> is not a function of <span class="math inline">\(\theta\)</span> or <span class="math inline">\(\rho\)</span>, we can write:
-<span class="math display">\[
-p(\theta,\rho\mid y)\propto p(\theta,\rho)\prod_{i=1}^N\left(\rho \theta^{n_i^{EV}}(1-\theta)^{n_i-n_i^{EV}}+(1-\rho) \theta^{n_i^{EU}}(1-\theta)^{n_i-n_i^{EU}}\right)
-\]</span></p>
-</div>
-<div id="example-vi" class="section level2" number="4.10">
-<h2><span class="header-section-number">4.10</span> Example, VI</h2>
-<p><span class="math display">\[
-p(\theta,\rho\mid y)\propto p(\theta,\rho)\prod_{i=1}^N\left(\rho \theta^{n_i^{EV}}(1-\theta)^{n_i-n_i^{EV}}+(1-\rho) \theta^{n_i^{EU}}(1-\theta)^{n_i-n_i^{EU}}\right)
-\]</span>
-All that is left is to specify priors. Let’s make our life easy:</p>
-<ul>
-<li>Assume that my beliefs about <span class="math inline">\(\rho\)</span> and <span class="math inline">\(\theta\)</span> are independent. That is, before observing the experiment, <span class="math inline">\(p(\rho\mid\theta)=p(\rho)\)</span>, and <span class="math inline">\(p(\theta\mid\rho)=p(\theta)\)</span></li>
-<li><span class="math inline">\(\rho\)</span>: Fraction of EV types. Must be a number between 0 and 1. Assume that any real number in this interval is equally likely.</li>
-<li><span class="math inline">\(\theta\)</span>: Probability that a subject chooses the action that their type specifies. Again this is a probability, so it must be between 0 and 1. However, since this is the probability of following their type’s action, it makes sense that <span class="math inline">\(\theta&gt;0.5\)</span></li>
-</ul>
-<p><span class="math display">\[
-\begin{aligned}
-p(\theta,\rho)&amp;=p(\theta)p(\rho)=\begin{cases}\frac{1}{2}&amp;\text{ if } 0.5&lt;\theta&lt;1 \text{ and } 0&lt;\rho&lt;1\\
-0&amp;\text{ otherwise}
-\end{cases}
-\end{aligned}
-\]</span></p>
-</div>
-<div id="example-vii" class="section level2" number="4.11">
-<h2><span class="header-section-number">4.11</span> Example, VII</h2>
-<p>Putting this all together:</p>
-<p><span class="math display">\[
-p(\theta,\rho\mid y)\propto
-\frac{1}{2}\prod_{i=1}^N\left(\rho \theta^{n_i^{EV}}(1-\theta)^{n_i-n_i^{EV}}+(1-\rho) \theta^{n_i^{EU}}(1-\theta)^{n_i-n_i^{EU}}\right)
-\]</span></p>
-<p>for <span class="math inline">\(0.5&lt;\theta&lt;1\)</span> and <span class="math inline">\(0&lt;\rho&lt;1\)</span>, zero otherwise.</p>
-<p>This is a much easier problem for my computer than for me.</p>
-</div>
-<div id="example-viii" class="section level2" number="4.12">
-<h2><span class="header-section-number">4.12</span> Example, VIII</h2>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="bayes-rule.html#cb19-1" aria-hidden="true" tabindex="-1"></a>pgrid<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(<span class="fu">seq</span>(<span class="fl">0.01</span>,<span class="fl">0.99</span>,<span class="fl">0.01</span>))</span>
-<span id="cb19-2"><a href="bayes-rule.html#cb19-2" aria-hidden="true" tabindex="-1"></a>tgrid<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(<span class="fu">seq</span>(<span class="fl">0.51</span>,<span class="fl">0.99</span>,<span class="fl">0.01</span>))</span>
-<span id="cb19-3"><a href="bayes-rule.html#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="bayes-rule.html#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="bayes-rule.html#cb19-5" aria-hidden="true" tabindex="-1"></a>THETA<span class="ot">&lt;-</span>tgrid <span class="sc">%*%</span> (<span class="fu">matrix</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="fu">dim</span>(pgrid)[<span class="dv">1</span>]))</span>
-<span id="cb19-6"><a href="bayes-rule.html#cb19-6" aria-hidden="true" tabindex="-1"></a>RHO<span class="ot">&lt;-</span><span class="fu">t</span>(pgrid <span class="sc">%*%</span> (<span class="fu">matrix</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="fu">dim</span>(tgrid)[<span class="dv">1</span>])))</span>
-<span id="cb19-7"><a href="bayes-rule.html#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="bayes-rule.html#cb19-8" aria-hidden="true" tabindex="-1"></a>LogLikelihood<span class="ot">&lt;-</span><span class="dv">0</span><span class="sc">*</span>THETA</span>
-<span id="cb19-9"><a href="bayes-rule.html#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-10"><a href="bayes-rule.html#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (ii <span class="cf">in</span> DSum<span class="sc">$</span>ID) {</span>
-<span id="cb19-11"><a href="bayes-rule.html#cb19-11" aria-hidden="true" tabindex="-1"></a>II<span class="ot">&lt;-</span>DSum<span class="sc">$</span>ID<span class="sc">==</span>ii</span>
-<span id="cb19-12"><a href="bayes-rule.html#cb19-12" aria-hidden="true" tabindex="-1"></a>LogLikelihood<span class="ot">&lt;-</span>LogLikelihood<span class="sc">+</span><span class="fu">log</span>(</span>
-<span id="cb19-13"><a href="bayes-rule.html#cb19-13" aria-hidden="true" tabindex="-1"></a>     RHO<span class="sc">*</span>(THETA<span class="sc">^</span>DSum[II,]<span class="sc">$</span>ChooseEV)<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>THETA)<span class="sc">^</span>(DSum[II,]<span class="sc">$</span>Count<span class="sc">-</span>DSum[II,]<span class="sc">$</span>ChooseEV)</span>
-<span id="cb19-14"><a href="bayes-rule.html#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>RHO)<span class="sc">*</span>THETA<span class="sc">^</span>DSum[II,]<span class="sc">$</span>ChooseEU<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>THETA)<span class="sc">^</span>(DSum[II,]<span class="sc">$</span>Count<span class="sc">-</span>DSum[II,]<span class="sc">$</span>ChooseEU)</span>
-<span id="cb19-15"><a href="bayes-rule.html#cb19-15" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb19-16"><a href="bayes-rule.html#cb19-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb19-17"><a href="bayes-rule.html#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-18"><a href="bayes-rule.html#cb19-18" aria-hidden="true" tabindex="-1"></a>Posterior<span class="ot">&lt;-</span><span class="fu">exp</span>(LogLikelihood)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">exp</span>(LogLikelihood))</span></code></pre></div>
-</div>
-<div id="example-ix" class="section level2" number="4.13">
-<h2><span class="header-section-number">4.13</span> Example, IX</h2>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="bayes-rule.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(latex2exp) </span>
-<span id="cb20-2"><a href="bayes-rule.html#cb20-2" aria-hidden="true" tabindex="-1"></a>theta<span class="ot">&lt;-</span><span class="fu">as.vector</span>(THETA)</span>
-<span id="cb20-3"><a href="bayes-rule.html#cb20-3" aria-hidden="true" tabindex="-1"></a>rho<span class="ot">&lt;-</span><span class="fu">as.vector</span>(RHO)</span>
-<span id="cb20-4"><a href="bayes-rule.html#cb20-4" aria-hidden="true" tabindex="-1"></a>Post<span class="ot">&lt;-</span><span class="fu">as.vector</span>(Posterior) </span>
-<span id="cb20-5"><a href="bayes-rule.html#cb20-5" aria-hidden="true" tabindex="-1"></a>plotthis<span class="ot">&lt;-</span><span class="fu">data.frame</span>(theta,rho,Post)</span>
-<span id="cb20-6"><a href="bayes-rule.html#cb20-6" aria-hidden="true" tabindex="-1"></a>plt<span class="ot">&lt;-</span>(</span>
-<span id="cb20-7"><a href="bayes-rule.html#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(plotthis,<span class="fu">aes</span>(<span class="at">x=</span>theta,<span class="at">y=</span>rho,<span class="at">fill=</span>Post))<span class="sc">+</span><span class="fu">geom_tile</span>()</span>
-<span id="cb20-8"><a href="bayes-rule.html#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">TeX</span>(<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">theta$&quot;</span>))<span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">TeX</span>(<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">rho$&quot;</span>))</span>
-<span id="cb20-9"><a href="bayes-rule.html#cb20-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-</div>
-<div id="example-x" class="section level2" number="4.14">
-<h2><span class="header-section-number">4.14</span> Example, X</h2>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="bayes-rule.html#cb21-1" aria-hidden="true" tabindex="-1"></a>plt </span></code></pre></div>
-<p><img src="index_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
-<style>
-.forceBreak { -webkit-column-break-after: always; break-after: column; }
-</style>
+<div id="questions-5" class="section level2" number="17.2">
+<h2><span class="header-section-number">17.2</span> Questions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Write out the payoff matrices for each treatment (i.e. as you have done in the previous two problem sets) and find any pure-strategy Nash equilibria.</p></li>
+<li><p>Solve both games using backward induction (i.e. find the subgame perfect Nash equilibrium). Which pure-strategy Nash equilibrium does this condition rule out, and why is it ruled out?</p></li>
+<li><p>If every person played according to subgame-perfect Nash equilibrium, would there be any difference between the two treatments? Do we {} observe a difference? If your answer to the last two questions in this part are different, what do you think is going on? (and welcome to Behavioral Game Theory) Discuss your answers with respect to what the theory says Player 1 will do, and also what the theory says Player 2 should do.</p></li>
+<li><p>(6260 students only) Suppose that instead of playing their subgame=perfect Nash equilibrium strategy, Player 2 randomized, choosing <span class="math inline">\(N\)</span> with probability <span class="math inline">\(q\)</span>. What <span class="math inline">\(q\)</span> makes Player 1 indifferent between choosing <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span>? If <span class="math inline">\(q\)</span> was equal to the empirical frequency of player 2s who chose <span class="math inline">\(N\)</span>, do the data look like player 1s are best responding to this?</p></li>
+</ol>
 </div>
 </div>
             </section>
@@ -818,8 +341,8 @@ p(\theta,\rho\mid y)\propto
           </div>
         </div>
       </div>
-<a href="risk-and-decision-making.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="anomalies-with-decision-making-under-risk.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="asymmetric-rock-paper-scissors.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exams.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
