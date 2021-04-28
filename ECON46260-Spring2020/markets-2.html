@@ -267,6 +267,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="17.1" data-path="sequential-games.html"><a href="sequential-games.html#instructions-and-information-about-the-game"><i class="fa fa-check"></i><b>17.1</b> Instructions and information about the game</a></li>
 <li class="chapter" data-level="17.2" data-path="sequential-games.html"><a href="sequential-games.html#questions-5"><i class="fa fa-check"></i><b>17.2</b> Questions</a></li>
+<li class="chapter" data-level="17.3" data-path="sequential-games.html"><a href="sequential-games.html#solutions-7"><i class="fa fa-check"></i><b>17.3</b> Solutions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="exams.html"><a href="exams.html"><i class="fa fa-check"></i>Exams</a></li>
 <li class="chapter" data-level="18" data-path="midterm-exam.html"><a href="midterm-exam.html"><i class="fa fa-check"></i><b>18</b> Midterm Exam</a>
@@ -282,7 +283,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.2.2" data-path="midterm-exam.html"><a href="midterm-exam.html#data-1"><i class="fa fa-check"></i><b>18.2.2</b> Data</a></li>
 <li class="chapter" data-level="18.2.3" data-path="midterm-exam.html"><a href="midterm-exam.html#questions-7"><i class="fa fa-check"></i><b>18.2.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="midterm-exam.html"><a href="midterm-exam.html#solutions-7"><i class="fa fa-check"></i><b>18.3</b> Solutions</a>
+<li class="chapter" data-level="18.3" data-path="midterm-exam.html"><a href="midterm-exam.html#solutions-8"><i class="fa fa-check"></i><b>18.3</b> Solutions</a>
 <ul>
 <li class="chapter" data-level="18.3.1" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-2-1"><i class="fa fa-check"></i><b>18.3.1</b> Experiment 2</a></li>
 <li class="chapter" data-level="18.3.2" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-2-2"><i class="fa fa-check"></i><b>18.3.2</b> Experiment 2</a></li>
@@ -321,18 +322,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="solutions-1" class="section level2" number="11.2">
 <h2><span class="header-section-number">11.2</span> Solutions</h2>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="markets-2.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb39-2"><a href="markets-2.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb39-3"><a href="markets-2.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb39-4"><a href="markets-2.html#cb39-4" aria-hidden="true" tabindex="-1"></a>DRaw<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">read.csv</span>(<span class="st">&quot;PS02data.csv&quot;</span>))</span>
-<span id="cb39-5"><a href="markets-2.html#cb39-5" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>(DRaw</span>
-<span id="cb39-6"><a href="markets-2.html#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">mutate_all</span>(<span class="at">.funs =</span>as.numeric)</span>
-<span id="cb39-7"><a href="markets-2.html#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Part =</span> <span class="dv">1</span><span class="sc">+</span>(Round<span class="sc">&gt;=</span><span class="dv">6</span>))</span>
-<span id="cb39-8"><a href="markets-2.html#cb39-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb39-9"><a href="markets-2.html#cb39-9" aria-hidden="true" tabindex="-1"></a>D<span class="sc">$</span>Status<span class="ot">&lt;-</span><span class="fu">as.factor</span>(DRaw<span class="sc">$</span>Status)</span>
-<span id="cb39-10"><a href="markets-2.html#cb39-10" aria-hidden="true" tabindex="-1"></a>D<span class="sc">$</span>Role<span class="ot">&lt;-</span><span class="st">&quot;Buyer&quot;</span></span>
-<span id="cb39-11"><a href="markets-2.html#cb39-11" aria-hidden="true" tabindex="-1"></a>D<span class="sc">$</span>Role[<span class="fu">is.na</span>(D<span class="sc">$</span>Value)]<span class="ot">&lt;-</span><span class="st">&quot;Seller&quot;</span></span>
-<span id="cb39-12"><a href="markets-2.html#cb39-12" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(D))</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="markets-2.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb89-2"><a href="markets-2.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb89-3"><a href="markets-2.html#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb89-4"><a href="markets-2.html#cb89-4" aria-hidden="true" tabindex="-1"></a>DRaw<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">read.csv</span>(<span class="st">&quot;PS02data.csv&quot;</span>))</span>
+<span id="cb89-5"><a href="markets-2.html#cb89-5" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>(DRaw</span>
+<span id="cb89-6"><a href="markets-2.html#cb89-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">mutate_all</span>(<span class="at">.funs =</span>as.numeric)</span>
+<span id="cb89-7"><a href="markets-2.html#cb89-7" aria-hidden="true" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Part =</span> <span class="dv">1</span><span class="sc">+</span>(Round<span class="sc">&gt;=</span><span class="dv">6</span>))</span>
+<span id="cb89-8"><a href="markets-2.html#cb89-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb89-9"><a href="markets-2.html#cb89-9" aria-hidden="true" tabindex="-1"></a>D<span class="sc">$</span>Status<span class="ot">&lt;-</span><span class="fu">as.factor</span>(DRaw<span class="sc">$</span>Status)</span>
+<span id="cb89-10"><a href="markets-2.html#cb89-10" aria-hidden="true" tabindex="-1"></a>D<span class="sc">$</span>Role<span class="ot">&lt;-</span><span class="st">&quot;Buyer&quot;</span></span>
+<span id="cb89-11"><a href="markets-2.html#cb89-11" aria-hidden="true" tabindex="-1"></a>D<span class="sc">$</span>Role[<span class="fu">is.na</span>(D<span class="sc">$</span>Value)]<span class="ot">&lt;-</span><span class="st">&quot;Seller&quot;</span></span>
+<span id="cb89-12"><a href="markets-2.html#cb89-12" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(D))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -668,73 +669,73 @@ Buyer
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="markets-2.html#cb40-1" aria-hidden="true" tabindex="-1"></a>Parameters<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">read.csv</span>(<span class="st">&quot;PS02Parameters.csv&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="markets-2.html#cb90-1" aria-hidden="true" tabindex="-1"></a>Parameters<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">read.csv</span>(<span class="st">&quot;PS02Parameters.csv&quot;</span>))</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li><p>What could have happened in the market between Parts 1 and 2? Tell me one thing the government could have done to make this change, and one thing that could have happened not involving the market.</p></li>
 <li><p>Draw the supply and demand curves for both parts of the experiment. Label equilibrium price and quantity</p></li>
 </ol>
 <p><strong>Solution</strong>: Here I will do questions 1 &amp; 2 together, as it helps to have the supply and demand diagram to work out what happened.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="markets-2.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract values and costs from rounds 1 and 6</span></span>
-<span id="cb41-2"><a href="markets-2.html#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="markets-2.html#cb41-3" aria-hidden="true" tabindex="-1"></a>SupplyDemand<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb41-4"><a href="markets-2.html#cb41-4" aria-hidden="true" tabindex="-1"></a>EQ<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb41-5"><a href="markets-2.html#cb41-5" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(Parameters<span class="sc">$</span>v, <span class="at">na.rm=</span>T)<span class="sc">+</span><span class="dv">1</span>,<span class="fl">0.01</span>)</span>
-<span id="cb41-6"><a href="markets-2.html#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-7"><a href="markets-2.html#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) { </span>
-<span id="cb41-8"><a href="markets-2.html#cb41-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb41-9"><a href="markets-2.html#cb41-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># supply and demand functions</span></span>
-<span id="cb41-10"><a href="markets-2.html#cb41-10" aria-hidden="true" tabindex="-1"></a>  Qd<span class="ot">&lt;-</span><span class="cf">function</span>(p,r) {</span>
-<span id="cb41-11"><a href="markets-2.html#cb41-11" aria-hidden="true" tabindex="-1"></a>    v<span class="ot">&lt;-</span>Parameters <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Part<span class="sc">==</span>r) <span class="sc">%&gt;%</span> <span class="fu">select</span>(v) </span>
-<span id="cb41-12"><a href="markets-2.html#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(v<span class="sc">&gt;=</span>p,<span class="at">na.rm=</span>T)</span>
-<span id="cb41-13"><a href="markets-2.html#cb41-13" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb41-14"><a href="markets-2.html#cb41-14" aria-hidden="true" tabindex="-1"></a>  Qs<span class="ot">&lt;-</span><span class="cf">function</span>(p,r) {</span>
-<span id="cb41-15"><a href="markets-2.html#cb41-15" aria-hidden="true" tabindex="-1"></a>    c<span class="ot">&lt;-</span>Parameters  <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Part<span class="sc">==</span>r) <span class="sc">%&gt;%</span> <span class="fu">select</span>(c)</span>
-<span id="cb41-16"><a href="markets-2.html#cb41-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(c<span class="sc">&lt;=</span>p,<span class="at">na.rm=</span>T)</span>
-<span id="cb41-17"><a href="markets-2.html#cb41-17" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb41-18"><a href="markets-2.html#cb41-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb41-19"><a href="markets-2.html#cb41-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-20"><a href="markets-2.html#cb41-20" aria-hidden="true" tabindex="-1"></a>  Q<span class="ot">&lt;-</span><span class="fu">apply</span>(<span class="fu">as.matrix</span>(P),<span class="dv">1</span>,<span class="at">FUN =</span> {<span class="cf">function</span>(p) <span class="fu">Qs</span>(p,rr)})</span>
-<span id="cb41-21"><a href="markets-2.html#cb41-21" aria-hidden="true" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span><span class="fu">data.frame</span>(P,Q)</span>
-<span id="cb41-22"><a href="markets-2.html#cb41-22" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>type<span class="ot">=</span><span class="st">&quot;Supply&quot;</span></span>
-<span id="cb41-23"><a href="markets-2.html#cb41-23" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>Part <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">&quot;Part&quot;</span>,rr)</span>
-<span id="cb41-24"><a href="markets-2.html#cb41-24" aria-hidden="true" tabindex="-1"></a>  SupplyDemand<span class="ot">&lt;-</span><span class="fu">rbind</span>(SupplyDemand,tmp)</span>
-<span id="cb41-25"><a href="markets-2.html#cb41-25" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb41-26"><a href="markets-2.html#cb41-26" aria-hidden="true" tabindex="-1"></a>  ExcessDemand<span class="ot">&lt;-</span>Q</span>
-<span id="cb41-27"><a href="markets-2.html#cb41-27" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb41-28"><a href="markets-2.html#cb41-28" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb41-29"><a href="markets-2.html#cb41-29" aria-hidden="true" tabindex="-1"></a>  Q<span class="ot">&lt;-</span><span class="fu">apply</span>(<span class="fu">as.matrix</span>(P),<span class="dv">1</span>,<span class="at">FUN =</span> {<span class="cf">function</span>(p) <span class="fu">Qd</span>(p,rr)})</span>
-<span id="cb41-30"><a href="markets-2.html#cb41-30" aria-hidden="true" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span><span class="fu">data.frame</span>(P,Q)</span>
-<span id="cb41-31"><a href="markets-2.html#cb41-31" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>type<span class="ot">=</span><span class="st">&quot;Demand&quot;</span></span>
-<span id="cb41-32"><a href="markets-2.html#cb41-32" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>Part <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">&quot;Part&quot;</span>,rr)</span>
-<span id="cb41-33"><a href="markets-2.html#cb41-33" aria-hidden="true" tabindex="-1"></a>  SupplyDemand<span class="ot">&lt;-</span><span class="fu">rbind</span>(SupplyDemand,tmp)</span>
-<span id="cb41-34"><a href="markets-2.html#cb41-34" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb41-35"><a href="markets-2.html#cb41-35" aria-hidden="true" tabindex="-1"></a>  ExcessDemand<span class="ot">&lt;-</span> <span class="sc">-</span>(ExcessDemand<span class="sc">-</span>Q)</span>
-<span id="cb41-36"><a href="markets-2.html#cb41-36" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb41-37"><a href="markets-2.html#cb41-37" aria-hidden="true" tabindex="-1"></a>  ii<span class="ot">&lt;-</span><span class="fu">sum</span>(<span class="dv">1</span><span class="sc">*!</span>(ExcessDemand<span class="sc">&lt;=</span><span class="dv">0</span>))</span>
-<span id="cb41-38"><a href="markets-2.html#cb41-38" aria-hidden="true" tabindex="-1"></a>  Peq<span class="ot">&lt;-</span><span class="fu">round</span>(P[ii]) <span class="co"># I know there is an integer solution</span></span>
-<span id="cb41-39"><a href="markets-2.html#cb41-39" aria-hidden="true" tabindex="-1"></a>  Qeq<span class="ot">&lt;-</span>Q[ii]</span>
-<span id="cb41-40"><a href="markets-2.html#cb41-40" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb41-41"><a href="markets-2.html#cb41-41" aria-hidden="true" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span><span class="fu">data.frame</span>(Peq,Qeq)</span>
-<span id="cb41-42"><a href="markets-2.html#cb41-42" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>Part<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">&quot;Part&quot;</span>,rr)</span>
-<span id="cb41-43"><a href="markets-2.html#cb41-43" aria-hidden="true" tabindex="-1"></a>  EQ<span class="ot">&lt;-</span><span class="fu">rbind</span>(EQ,tmp) </span>
-<span id="cb41-44"><a href="markets-2.html#cb41-44" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="markets-2.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(EQ)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="markets-2.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract values and costs from rounds 1 and 6</span></span>
+<span id="cb91-2"><a href="markets-2.html#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-3"><a href="markets-2.html#cb91-3" aria-hidden="true" tabindex="-1"></a>SupplyDemand<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb91-4"><a href="markets-2.html#cb91-4" aria-hidden="true" tabindex="-1"></a>EQ<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb91-5"><a href="markets-2.html#cb91-5" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(Parameters<span class="sc">$</span>v, <span class="at">na.rm=</span>T)<span class="sc">+</span><span class="dv">1</span>,<span class="fl">0.01</span>)</span>
+<span id="cb91-6"><a href="markets-2.html#cb91-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-7"><a href="markets-2.html#cb91-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) { </span>
+<span id="cb91-8"><a href="markets-2.html#cb91-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb91-9"><a href="markets-2.html#cb91-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># supply and demand functions</span></span>
+<span id="cb91-10"><a href="markets-2.html#cb91-10" aria-hidden="true" tabindex="-1"></a>  Qd<span class="ot">&lt;-</span><span class="cf">function</span>(p,r) {</span>
+<span id="cb91-11"><a href="markets-2.html#cb91-11" aria-hidden="true" tabindex="-1"></a>    v<span class="ot">&lt;-</span>Parameters <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Part<span class="sc">==</span>r) <span class="sc">%&gt;%</span> <span class="fu">select</span>(v) </span>
+<span id="cb91-12"><a href="markets-2.html#cb91-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(v<span class="sc">&gt;=</span>p,<span class="at">na.rm=</span>T)</span>
+<span id="cb91-13"><a href="markets-2.html#cb91-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb91-14"><a href="markets-2.html#cb91-14" aria-hidden="true" tabindex="-1"></a>  Qs<span class="ot">&lt;-</span><span class="cf">function</span>(p,r) {</span>
+<span id="cb91-15"><a href="markets-2.html#cb91-15" aria-hidden="true" tabindex="-1"></a>    c<span class="ot">&lt;-</span>Parameters  <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Part<span class="sc">==</span>r) <span class="sc">%&gt;%</span> <span class="fu">select</span>(c)</span>
+<span id="cb91-16"><a href="markets-2.html#cb91-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(c<span class="sc">&lt;=</span>p,<span class="at">na.rm=</span>T)</span>
+<span id="cb91-17"><a href="markets-2.html#cb91-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb91-18"><a href="markets-2.html#cb91-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb91-19"><a href="markets-2.html#cb91-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-20"><a href="markets-2.html#cb91-20" aria-hidden="true" tabindex="-1"></a>  Q<span class="ot">&lt;-</span><span class="fu">apply</span>(<span class="fu">as.matrix</span>(P),<span class="dv">1</span>,<span class="at">FUN =</span> {<span class="cf">function</span>(p) <span class="fu">Qs</span>(p,rr)})</span>
+<span id="cb91-21"><a href="markets-2.html#cb91-21" aria-hidden="true" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span><span class="fu">data.frame</span>(P,Q)</span>
+<span id="cb91-22"><a href="markets-2.html#cb91-22" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>type<span class="ot">=</span><span class="st">&quot;Supply&quot;</span></span>
+<span id="cb91-23"><a href="markets-2.html#cb91-23" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>Part <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">&quot;Part&quot;</span>,rr)</span>
+<span id="cb91-24"><a href="markets-2.html#cb91-24" aria-hidden="true" tabindex="-1"></a>  SupplyDemand<span class="ot">&lt;-</span><span class="fu">rbind</span>(SupplyDemand,tmp)</span>
+<span id="cb91-25"><a href="markets-2.html#cb91-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb91-26"><a href="markets-2.html#cb91-26" aria-hidden="true" tabindex="-1"></a>  ExcessDemand<span class="ot">&lt;-</span>Q</span>
+<span id="cb91-27"><a href="markets-2.html#cb91-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb91-28"><a href="markets-2.html#cb91-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb91-29"><a href="markets-2.html#cb91-29" aria-hidden="true" tabindex="-1"></a>  Q<span class="ot">&lt;-</span><span class="fu">apply</span>(<span class="fu">as.matrix</span>(P),<span class="dv">1</span>,<span class="at">FUN =</span> {<span class="cf">function</span>(p) <span class="fu">Qd</span>(p,rr)})</span>
+<span id="cb91-30"><a href="markets-2.html#cb91-30" aria-hidden="true" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span><span class="fu">data.frame</span>(P,Q)</span>
+<span id="cb91-31"><a href="markets-2.html#cb91-31" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>type<span class="ot">=</span><span class="st">&quot;Demand&quot;</span></span>
+<span id="cb91-32"><a href="markets-2.html#cb91-32" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>Part <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">&quot;Part&quot;</span>,rr)</span>
+<span id="cb91-33"><a href="markets-2.html#cb91-33" aria-hidden="true" tabindex="-1"></a>  SupplyDemand<span class="ot">&lt;-</span><span class="fu">rbind</span>(SupplyDemand,tmp)</span>
+<span id="cb91-34"><a href="markets-2.html#cb91-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb91-35"><a href="markets-2.html#cb91-35" aria-hidden="true" tabindex="-1"></a>  ExcessDemand<span class="ot">&lt;-</span> <span class="sc">-</span>(ExcessDemand<span class="sc">-</span>Q)</span>
+<span id="cb91-36"><a href="markets-2.html#cb91-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb91-37"><a href="markets-2.html#cb91-37" aria-hidden="true" tabindex="-1"></a>  ii<span class="ot">&lt;-</span><span class="fu">sum</span>(<span class="dv">1</span><span class="sc">*!</span>(ExcessDemand<span class="sc">&lt;=</span><span class="dv">0</span>))</span>
+<span id="cb91-38"><a href="markets-2.html#cb91-38" aria-hidden="true" tabindex="-1"></a>  Peq<span class="ot">&lt;-</span><span class="fu">round</span>(P[ii]) <span class="co"># I know there is an integer solution</span></span>
+<span id="cb91-39"><a href="markets-2.html#cb91-39" aria-hidden="true" tabindex="-1"></a>  Qeq<span class="ot">&lt;-</span>Q[ii]</span>
+<span id="cb91-40"><a href="markets-2.html#cb91-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb91-41"><a href="markets-2.html#cb91-41" aria-hidden="true" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span><span class="fu">data.frame</span>(Peq,Qeq)</span>
+<span id="cb91-42"><a href="markets-2.html#cb91-42" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>Part<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">&quot;Part&quot;</span>,rr)</span>
+<span id="cb91-43"><a href="markets-2.html#cb91-43" aria-hidden="true" tabindex="-1"></a>  EQ<span class="ot">&lt;-</span><span class="fu">rbind</span>(EQ,tmp) </span>
+<span id="cb91-44"><a href="markets-2.html#cb91-44" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="markets-2.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(EQ)</span></code></pre></div>
 <pre><code>##   Peq Qeq   Part
 ## 1   5  20 Part 1
 ## 2   6  16 Part 2</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="markets-2.html#cb44-1" aria-hidden="true" tabindex="-1"></a>EQ<span class="sc">$</span>type<span class="ot">&lt;-</span><span class="st">&quot;Equilibrium&quot;</span></span>
-<span id="cb44-2"><a href="markets-2.html#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-3"><a href="markets-2.html#cb44-3" aria-hidden="true" tabindex="-1"></a>plt<span class="ot">&lt;-</span>(</span>
-<span id="cb44-4"><a href="markets-2.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(SupplyDemand,<span class="fu">aes</span>(<span class="at">x=</span>Q,<span class="at">y=</span>P,<span class="at">color=</span>type,<span class="at">group=</span><span class="fu">paste</span>(type,Part),<span class="at">linetype=</span>Part))</span>
-<span id="cb44-5"><a href="markets-2.html#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="at">size=</span><span class="dv">1</span>,<span class="at">alpha=</span><span class="fl">0.8</span>)</span>
-<span id="cb44-6"><a href="markets-2.html#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb44-7"><a href="markets-2.html#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Quantity&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Price ($)&quot;</span>)</span>
-<span id="cb44-8"><a href="markets-2.html#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">data=</span>EQ,<span class="fu">aes</span>(<span class="at">xintercept=</span>Qeq),<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb44-9"><a href="markets-2.html#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">data=</span>EQ,<span class="fu">aes</span>(<span class="at">yintercept=</span>Peq),<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>)</span>
-<span id="cb44-10"><a href="markets-2.html#cb44-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span>EQ,<span class="fu">aes</span>(<span class="at">x=</span>Qeq,<span class="at">y=</span>Peq),<span class="at">size=</span><span class="dv">4</span>)</span>
-<span id="cb44-11"><a href="markets-2.html#cb44-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#+theme(legend.position=&quot;none&quot;)</span></span>
-<span id="cb44-12"><a href="markets-2.html#cb44-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb44-13"><a href="markets-2.html#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plt)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="markets-2.html#cb94-1" aria-hidden="true" tabindex="-1"></a>EQ<span class="sc">$</span>type<span class="ot">&lt;-</span><span class="st">&quot;Equilibrium&quot;</span></span>
+<span id="cb94-2"><a href="markets-2.html#cb94-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-3"><a href="markets-2.html#cb94-3" aria-hidden="true" tabindex="-1"></a>plt<span class="ot">&lt;-</span>(</span>
+<span id="cb94-4"><a href="markets-2.html#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(SupplyDemand,<span class="fu">aes</span>(<span class="at">x=</span>Q,<span class="at">y=</span>P,<span class="at">color=</span>type,<span class="at">group=</span><span class="fu">paste</span>(type,Part),<span class="at">linetype=</span>Part))</span>
+<span id="cb94-5"><a href="markets-2.html#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="at">size=</span><span class="dv">1</span>,<span class="at">alpha=</span><span class="fl">0.8</span>)</span>
+<span id="cb94-6"><a href="markets-2.html#cb94-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb94-7"><a href="markets-2.html#cb94-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Quantity&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Price ($)&quot;</span>)</span>
+<span id="cb94-8"><a href="markets-2.html#cb94-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">data=</span>EQ,<span class="fu">aes</span>(<span class="at">xintercept=</span>Qeq),<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>)</span>
+<span id="cb94-9"><a href="markets-2.html#cb94-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">data=</span>EQ,<span class="fu">aes</span>(<span class="at">yintercept=</span>Peq),<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>)</span>
+<span id="cb94-10"><a href="markets-2.html#cb94-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span>EQ,<span class="fu">aes</span>(<span class="at">x=</span>Qeq,<span class="at">y=</span>Peq),<span class="at">size=</span><span class="dv">4</span>)</span>
+<span id="cb94-11"><a href="markets-2.html#cb94-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#+theme(legend.position=&quot;none&quot;)</span></span>
+<span id="cb94-12"><a href="markets-2.html#cb94-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb94-13"><a href="markets-2.html#cb94-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plt)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
 <p>From the above Figure, we can see that supply has shifted to the left (or up, by $2). Two possible causes of this could be:</p>
 <ul>
@@ -746,62 +747,62 @@ Buyer
 (this is a deliberately vague question, I am asking you to think about how to communicate the results of this experiment graphically)</li>
 </ol>
 <p><strong>Solution</strong></p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="markets-2.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(latex2exp)</span>
-<span id="cb45-2"><a href="markets-2.html#cb45-2" aria-hidden="true" tabindex="-1"></a>NewRound<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
-<span id="cb45-3"><a href="markets-2.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
-<span id="cb45-4"><a href="markets-2.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  NewRound[rr]<span class="ot">&lt;-</span> <span class="fu">max</span>((D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Round<span class="sc">==</span>rr ))<span class="sc">$</span>Record)<span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb45-5"><a href="markets-2.html#cb45-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb45-6"><a href="markets-2.html#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-7"><a href="markets-2.html#cb45-7" aria-hidden="true" tabindex="-1"></a>Summary<span class="ot">&lt;-</span>(D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Record<span class="sc">&gt;=</span><span class="dv">450</span> <span class="sc">&amp;</span> Status<span class="sc">==</span><span class="st">&quot;t&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Round)</span>
-<span id="cb45-8"><a href="markets-2.html#cb45-8" aria-hidden="true" tabindex="-1"></a>                <span class="sc">%&gt;%</span>  <span class="fu">summarize</span>(</span>
-<span id="cb45-9"><a href="markets-2.html#cb45-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">m=</span><span class="fu">mean</span>(Bid,<span class="at">na.rm=</span>T),</span>
-<span id="cb45-10"><a href="markets-2.html#cb45-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">s=</span><span class="fu">sd</span>(Bid,<span class="at">na.rm=</span>T))</span>
-<span id="cb45-11"><a href="markets-2.html#cb45-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb45-12"><a href="markets-2.html#cb45-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-13"><a href="markets-2.html#cb45-13" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span> D <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(Summary,<span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;Round&quot;</span>))</span>
-<span id="cb45-14"><a href="markets-2.html#cb45-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-15"><a href="markets-2.html#cb45-15" aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb45-16"><a href="markets-2.html#cb45-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Status<span class="sc">==</span><span class="st">&quot;t&quot;</span>),<span class="fu">aes</span>(<span class="at">x=</span>Record))</span>
-<span id="cb45-17"><a href="markets-2.html#cb45-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>Bid,<span class="at">color=</span><span class="st">&quot;data&quot;</span>))</span>
-<span id="cb45-18"><a href="markets-2.html#cb45-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">#+geom_line(aes(y=Bid,color=&quot;data&quot;))</span></span>
-<span id="cb45-19"><a href="markets-2.html#cb45-19" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb45-20"><a href="markets-2.html#cb45-20" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Record,<span class="at">y=</span>m,<span class="at">group=</span>Round,<span class="at">color=</span><span class="st">&quot;mean&quot;</span>))</span>
-<span id="cb45-21"><a href="markets-2.html#cb45-21" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span>Record,<span class="at">ymax=</span>(m<span class="sc">+</span>s),<span class="at">ymin=</span>(m<span class="sc">-</span>s),<span class="at">fill=</span><span class="st">&quot;\U00B1 1 sd&quot;</span>),<span class="at">alpha=</span><span class="fl">0.1</span>)</span>
-<span id="cb45-22"><a href="markets-2.html#cb45-22" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span>NewRound)</span>
-<span id="cb45-23"><a href="markets-2.html#cb45-23" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">11</span>))</span>
-<span id="cb45-24"><a href="markets-2.html#cb45-24" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Record,<span class="at">y=</span>EQ<span class="sc">$</span>Peq[Part],<span class="at">group=</span>Part,<span class="at">color=</span><span class="st">&quot;Equilibrium&quot;</span>))</span>
-<span id="cb45-25"><a href="markets-2.html#cb45-25" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Traded price ($)&quot;</span>)</span>
-<span id="cb45-26"><a href="markets-2.html#cb45-26" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Record number&quot;</span>)</span>
-<span id="cb45-27"><a href="markets-2.html#cb45-27" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">10</span>))<span class="sc">+</span><span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">500</span>,<span class="dv">1100</span>))</span>
-<span id="cb45-28"><a href="markets-2.html#cb45-28" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb45-29"><a href="markets-2.html#cb45-29" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb45-30"><a href="markets-2.html#cb45-30" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="markets-2.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(latex2exp)</span>
+<span id="cb95-2"><a href="markets-2.html#cb95-2" aria-hidden="true" tabindex="-1"></a>NewRound<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb95-3"><a href="markets-2.html#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb95-4"><a href="markets-2.html#cb95-4" aria-hidden="true" tabindex="-1"></a>  NewRound[rr]<span class="ot">&lt;-</span> <span class="fu">max</span>((D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Round<span class="sc">==</span>rr ))<span class="sc">$</span>Record)<span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb95-5"><a href="markets-2.html#cb95-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb95-6"><a href="markets-2.html#cb95-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-7"><a href="markets-2.html#cb95-7" aria-hidden="true" tabindex="-1"></a>Summary<span class="ot">&lt;-</span>(D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Record<span class="sc">&gt;=</span><span class="dv">450</span> <span class="sc">&amp;</span> Status<span class="sc">==</span><span class="st">&quot;t&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Round)</span>
+<span id="cb95-8"><a href="markets-2.html#cb95-8" aria-hidden="true" tabindex="-1"></a>                <span class="sc">%&gt;%</span>  <span class="fu">summarize</span>(</span>
+<span id="cb95-9"><a href="markets-2.html#cb95-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">m=</span><span class="fu">mean</span>(Bid,<span class="at">na.rm=</span>T),</span>
+<span id="cb95-10"><a href="markets-2.html#cb95-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">s=</span><span class="fu">sd</span>(Bid,<span class="at">na.rm=</span>T))</span>
+<span id="cb95-11"><a href="markets-2.html#cb95-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb95-12"><a href="markets-2.html#cb95-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-13"><a href="markets-2.html#cb95-13" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span> D <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(Summary,<span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;Round&quot;</span>))</span>
+<span id="cb95-14"><a href="markets-2.html#cb95-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-15"><a href="markets-2.html#cb95-15" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb95-16"><a href="markets-2.html#cb95-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Status<span class="sc">==</span><span class="st">&quot;t&quot;</span>),<span class="fu">aes</span>(<span class="at">x=</span>Record))</span>
+<span id="cb95-17"><a href="markets-2.html#cb95-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>Bid,<span class="at">color=</span><span class="st">&quot;data&quot;</span>))</span>
+<span id="cb95-18"><a href="markets-2.html#cb95-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">#+geom_line(aes(y=Bid,color=&quot;data&quot;))</span></span>
+<span id="cb95-19"><a href="markets-2.html#cb95-19" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb95-20"><a href="markets-2.html#cb95-20" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Record,<span class="at">y=</span>m,<span class="at">group=</span>Round,<span class="at">color=</span><span class="st">&quot;mean&quot;</span>))</span>
+<span id="cb95-21"><a href="markets-2.html#cb95-21" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span>Record,<span class="at">ymax=</span>(m<span class="sc">+</span>s),<span class="at">ymin=</span>(m<span class="sc">-</span>s),<span class="at">fill=</span><span class="st">&quot;\U00B1 1 sd&quot;</span>),<span class="at">alpha=</span><span class="fl">0.1</span>)</span>
+<span id="cb95-22"><a href="markets-2.html#cb95-22" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span>NewRound)</span>
+<span id="cb95-23"><a href="markets-2.html#cb95-23" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">11</span>))</span>
+<span id="cb95-24"><a href="markets-2.html#cb95-24" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Record,<span class="at">y=</span>EQ<span class="sc">$</span>Peq[Part],<span class="at">group=</span>Part,<span class="at">color=</span><span class="st">&quot;Equilibrium&quot;</span>))</span>
+<span id="cb95-25"><a href="markets-2.html#cb95-25" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Traded price ($)&quot;</span>)</span>
+<span id="cb95-26"><a href="markets-2.html#cb95-26" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Record number&quot;</span>)</span>
+<span id="cb95-27"><a href="markets-2.html#cb95-27" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">10</span>))<span class="sc">+</span><span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">500</span>,<span class="dv">1100</span>))</span>
+<span id="cb95-28"><a href="markets-2.html#cb95-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb95-29"><a href="markets-2.html#cb95-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb95-30"><a href="markets-2.html#cb95-30" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Compute the predicted producer, consumer, and total surplus in both parts. Compare these to the actual consumer, producer, and total surplus from the experiment (dividing this up by round).</li>
 </ol>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="markets-2.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Surplus for each part</span></span>
-<span id="cb46-2"><a href="markets-2.html#cb46-2" aria-hidden="true" tabindex="-1"></a>Parameters<span class="ot">&lt;-</span>(Parameters</span>
-<span id="cb46-3"><a href="markets-2.html#cb46-3" aria-hidden="true" tabindex="-1"></a>             <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">EQ_CS =</span> v<span class="sc">-</span>EQ<span class="sc">$</span>Peq[Part],</span>
-<span id="cb46-4"><a href="markets-2.html#cb46-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">EQ_PS =</span> EQ<span class="sc">$</span>Peq[Part]<span class="sc">-</span>c)</span>
-<span id="cb46-5"><a href="markets-2.html#cb46-5" aria-hidden="true" tabindex="-1"></a>                            </span>
-<span id="cb46-6"><a href="markets-2.html#cb46-6" aria-hidden="true" tabindex="-1"></a>             <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">EQ_CS =</span> EQ_CS<span class="sc">*</span>(EQ_CS<span class="sc">&gt;=</span><span class="dv">0</span>),</span>
-<span id="cb46-7"><a href="markets-2.html#cb46-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">EQ_PS =</span> EQ_PS<span class="sc">*</span>(EQ_PS<span class="sc">&gt;=</span><span class="dv">0</span>)</span>
-<span id="cb46-8"><a href="markets-2.html#cb46-8" aria-hidden="true" tabindex="-1"></a>                        )</span>
-<span id="cb46-9"><a href="markets-2.html#cb46-9" aria-hidden="true" tabindex="-1"></a>             </span>
-<span id="cb46-10"><a href="markets-2.html#cb46-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb46-11"><a href="markets-2.html#cb46-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb46-12"><a href="markets-2.html#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-13"><a href="markets-2.html#cb46-13" aria-hidden="true" tabindex="-1"></a>Surplus<span class="ot">&lt;-</span>(</span>
-<span id="cb46-14"><a href="markets-2.html#cb46-14" aria-hidden="true" tabindex="-1"></a>  Parameters </span>
-<span id="cb46-15"><a href="markets-2.html#cb46-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Part) </span>
-<span id="cb46-16"><a href="markets-2.html#cb46-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">CS =</span> <span class="fu">sum</span>(EQ_CS,<span class="at">na.rm=</span>T),<span class="at">PS =</span> <span class="fu">sum</span>(EQ_PS,<span class="at">na.rm=</span>T)) </span>
-<span id="cb46-17"><a href="markets-2.html#cb46-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">TS =</span> CS<span class="sc">+</span>PS)</span>
-<span id="cb46-18"><a href="markets-2.html#cb46-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb46-19"><a href="markets-2.html#cb46-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb46-20"><a href="markets-2.html#cb46-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb46-21"><a href="markets-2.html#cb46-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-22"><a href="markets-2.html#cb46-22" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(Surplus)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="markets-2.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Surplus for each part</span></span>
+<span id="cb96-2"><a href="markets-2.html#cb96-2" aria-hidden="true" tabindex="-1"></a>Parameters<span class="ot">&lt;-</span>(Parameters</span>
+<span id="cb96-3"><a href="markets-2.html#cb96-3" aria-hidden="true" tabindex="-1"></a>             <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">EQ_CS =</span> v<span class="sc">-</span>EQ<span class="sc">$</span>Peq[Part],</span>
+<span id="cb96-4"><a href="markets-2.html#cb96-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">EQ_PS =</span> EQ<span class="sc">$</span>Peq[Part]<span class="sc">-</span>c)</span>
+<span id="cb96-5"><a href="markets-2.html#cb96-5" aria-hidden="true" tabindex="-1"></a>                            </span>
+<span id="cb96-6"><a href="markets-2.html#cb96-6" aria-hidden="true" tabindex="-1"></a>             <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">EQ_CS =</span> EQ_CS<span class="sc">*</span>(EQ_CS<span class="sc">&gt;=</span><span class="dv">0</span>),</span>
+<span id="cb96-7"><a href="markets-2.html#cb96-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">EQ_PS =</span> EQ_PS<span class="sc">*</span>(EQ_PS<span class="sc">&gt;=</span><span class="dv">0</span>)</span>
+<span id="cb96-8"><a href="markets-2.html#cb96-8" aria-hidden="true" tabindex="-1"></a>                        )</span>
+<span id="cb96-9"><a href="markets-2.html#cb96-9" aria-hidden="true" tabindex="-1"></a>             </span>
+<span id="cb96-10"><a href="markets-2.html#cb96-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-11"><a href="markets-2.html#cb96-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb96-12"><a href="markets-2.html#cb96-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-13"><a href="markets-2.html#cb96-13" aria-hidden="true" tabindex="-1"></a>Surplus<span class="ot">&lt;-</span>(</span>
+<span id="cb96-14"><a href="markets-2.html#cb96-14" aria-hidden="true" tabindex="-1"></a>  Parameters </span>
+<span id="cb96-15"><a href="markets-2.html#cb96-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Part) </span>
+<span id="cb96-16"><a href="markets-2.html#cb96-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">CS =</span> <span class="fu">sum</span>(EQ_CS,<span class="at">na.rm=</span>T),<span class="at">PS =</span> <span class="fu">sum</span>(EQ_PS,<span class="at">na.rm=</span>T)) </span>
+<span id="cb96-17"><a href="markets-2.html#cb96-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">TS =</span> CS<span class="sc">+</span>PS)</span>
+<span id="cb96-18"><a href="markets-2.html#cb96-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb96-19"><a href="markets-2.html#cb96-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-20"><a href="markets-2.html#cb96-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb96-21"><a href="markets-2.html#cb96-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-22"><a href="markets-2.html#cb96-22" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(Surplus)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -850,24 +851,24 @@ TS
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="markets-2.html#cb47-1" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span> (D</span>
-<span id="cb47-2"><a href="markets-2.html#cb47-2" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Status<span class="sc">==</span><span class="st">&quot;t&quot;</span>)</span>
-<span id="cb47-3"><a href="markets-2.html#cb47-3" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Round)</span>
-<span id="cb47-4"><a href="markets-2.html#cb47-4" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">CumlativeSurplus =</span> <span class="fu">cumsum</span>(Earnings))</span>
-<span id="cb47-5"><a href="markets-2.html#cb47-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb47-6"><a href="markets-2.html#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-7"><a href="markets-2.html#cb47-7" aria-hidden="true" tabindex="-1"></a>(<span class="fu">ggplot</span>(D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Status<span class="sc">==</span><span class="st">&quot;t&quot;</span>))</span>
-<span id="cb47-8"><a href="markets-2.html#cb47-8" aria-hidden="true" tabindex="-1"></a>        <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Record,<span class="at">y=</span>CumlativeSurplus,<span class="at">group=</span>Round,<span class="at">color=</span><span class="st">&quot;Data&quot;</span>))</span>
-<span id="cb47-9"><a href="markets-2.html#cb47-9" aria-hidden="true" tabindex="-1"></a>        <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb47-10"><a href="markets-2.html#cb47-10" aria-hidden="true" tabindex="-1"></a>        <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span>NewRound)</span>
-<span id="cb47-11"><a href="markets-2.html#cb47-11" aria-hidden="true" tabindex="-1"></a>        <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Record,<span class="at">y=</span>Surplus<span class="sc">$</span>TS[Part],<span class="at">group=</span>Part,<span class="at">color=</span><span class="st">&quot;Equilibrium&quot;</span>))</span>
-<span id="cb47-12"><a href="markets-2.html#cb47-12" aria-hidden="true" tabindex="-1"></a>        <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Cumulative surplus&quot;</span>)</span>
-<span id="cb47-13"><a href="markets-2.html#cb47-13" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="markets-2.html#cb97-1" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span> (D</span>
+<span id="cb97-2"><a href="markets-2.html#cb97-2" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Status<span class="sc">==</span><span class="st">&quot;t&quot;</span>)</span>
+<span id="cb97-3"><a href="markets-2.html#cb97-3" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Round)</span>
+<span id="cb97-4"><a href="markets-2.html#cb97-4" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">CumlativeSurplus =</span> <span class="fu">cumsum</span>(Earnings))</span>
+<span id="cb97-5"><a href="markets-2.html#cb97-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb97-6"><a href="markets-2.html#cb97-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-7"><a href="markets-2.html#cb97-7" aria-hidden="true" tabindex="-1"></a>(<span class="fu">ggplot</span>(D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Status<span class="sc">==</span><span class="st">&quot;t&quot;</span>))</span>
+<span id="cb97-8"><a href="markets-2.html#cb97-8" aria-hidden="true" tabindex="-1"></a>        <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Record,<span class="at">y=</span>CumlativeSurplus,<span class="at">group=</span>Round,<span class="at">color=</span><span class="st">&quot;Data&quot;</span>))</span>
+<span id="cb97-9"><a href="markets-2.html#cb97-9" aria-hidden="true" tabindex="-1"></a>        <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb97-10"><a href="markets-2.html#cb97-10" aria-hidden="true" tabindex="-1"></a>        <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span>NewRound)</span>
+<span id="cb97-11"><a href="markets-2.html#cb97-11" aria-hidden="true" tabindex="-1"></a>        <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Record,<span class="at">y=</span>Surplus<span class="sc">$</span>TS[Part],<span class="at">group=</span>Part,<span class="at">color=</span><span class="st">&quot;Equilibrium&quot;</span>))</span>
+<span id="cb97-12"><a href="markets-2.html#cb97-12" aria-hidden="true" tabindex="-1"></a>        <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Cumulative surplus&quot;</span>)</span>
+<span id="cb97-13"><a href="markets-2.html#cb97-13" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="markets-2.html#cb48-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb48-2"><a href="markets-2.html#cb48-2" aria-hidden="true" tabindex="-1"></a>D <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Round,Part)</span>
-<span id="cb48-3"><a href="markets-2.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">FracSurplus =</span> <span class="fu">max</span>(CumlativeSurplus<span class="sc">/</span>Surplus<span class="sc">$</span>TS[Part],<span class="at">na.rm=</span>T))</span>
-<span id="cb48-4"><a href="markets-2.html#cb48-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="markets-2.html#cb98-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb98-2"><a href="markets-2.html#cb98-2" aria-hidden="true" tabindex="-1"></a>D <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Round,Part)</span>
+<span id="cb98-3"><a href="markets-2.html#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">FracSurplus =</span> <span class="fu">max</span>(CumlativeSurplus<span class="sc">/</span>Surplus<span class="sc">$</span>TS[Part],<span class="at">na.rm=</span>T))</span>
+<span id="cb98-4"><a href="markets-2.html#cb98-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -988,48 +989,48 @@ FracSurplus
 <li>Write a short paragraph telling me your main findings. When needed, make reference to the three plots you made.</li>
 </ol>
 <p><strong>Solution</strong> We studied a market experiment in which buyers and sellers traded a fictitious good. In the second part of the experiment, the supply curve shifted up by $2 (see first Figure). In general, traded prices were above the equilibrium, but they moved up on average in the second part:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="markets-2.html#cb49-1" aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb49-2"><a href="markets-2.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Status<span class="sc">==</span><span class="st">&quot;t&quot;</span>),<span class="fu">aes</span>(<span class="at">x=</span>Market_Price,<span class="at">color=</span><span class="fu">paste</span>(<span class="st">&quot;Part&quot;</span>,Part),<span class="at">linetype=</span><span class="st">&quot;Data&quot;</span>))</span>
-<span id="cb49-3"><a href="markets-2.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">stat_ecdf</span>()</span>
-<span id="cb49-4"><a href="markets-2.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">data=</span>EQ,<span class="fu">aes</span>(<span class="at">xintercept=</span>Peq,<span class="at">color=</span>Part,<span class="at">linetype=</span><span class="st">&quot;Equilibrium&quot;</span>))</span>
-<span id="cb49-5"><a href="markets-2.html#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb49-6"><a href="markets-2.html#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;p&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">TeX</span>(<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">Pr(</span><span class="sc">\\</span><span class="st">mathrm{Trade Price}) </span><span class="sc">\\</span><span class="st">leq p$&quot;</span>))</span>
-<span id="cb49-7"><a href="markets-2.html#cb49-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-8"><a href="markets-2.html#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-9"><a href="markets-2.html#cb49-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="markets-2.html#cb99-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb99-2"><a href="markets-2.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Status<span class="sc">==</span><span class="st">&quot;t&quot;</span>),<span class="fu">aes</span>(<span class="at">x=</span>Market_Price,<span class="at">color=</span><span class="fu">paste</span>(<span class="st">&quot;Part&quot;</span>,Part),<span class="at">linetype=</span><span class="st">&quot;Data&quot;</span>))</span>
+<span id="cb99-3"><a href="markets-2.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">stat_ecdf</span>()</span>
+<span id="cb99-4"><a href="markets-2.html#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">data=</span>EQ,<span class="fu">aes</span>(<span class="at">xintercept=</span>Peq,<span class="at">color=</span>Part,<span class="at">linetype=</span><span class="st">&quot;Equilibrium&quot;</span>))</span>
+<span id="cb99-5"><a href="markets-2.html#cb99-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb99-6"><a href="markets-2.html#cb99-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;p&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">TeX</span>(<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">Pr(</span><span class="sc">\\</span><span class="st">mathrm{Trade Price}) </span><span class="sc">\\</span><span class="st">leq p$&quot;</span>))</span>
+<span id="cb99-7"><a href="markets-2.html#cb99-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-8"><a href="markets-2.html#cb99-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-9"><a href="markets-2.html#cb99-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>(6260 students only) The model also makes predictions about how many items each seller will sell, and how many items each buyer will buy. Comment on how well the theory is predicting these individual-level quantities (Again, this is another deliberately vague question. I am looking to see how you approach this problem)</li>
 </ol>
 <p><strong>Solution</strong></p>
 <p>First, let’s make a list of how many items each buyer and seller should trade in equilibrium</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="markets-2.html#cb50-1" aria-hidden="true" tabindex="-1"></a>Parameters<span class="ot">&lt;-</span>(Parameters</span>
-<span id="cb50-2"><a href="markets-2.html#cb50-2" aria-hidden="true" tabindex="-1"></a>             <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ShouldBuy =</span> v<span class="sc">&gt;=</span> EQ<span class="sc">$</span>Peq[Part],</span>
-<span id="cb50-3"><a href="markets-2.html#cb50-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">ShouldSell =</span> c<span class="sc">&lt;=</span> EQ<span class="sc">$</span>Peq[Part])</span>
-<span id="cb50-4"><a href="markets-2.html#cb50-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb50-5"><a href="markets-2.html#cb50-5" aria-hidden="true" tabindex="-1"></a>EQQdemand<span class="ot">&lt;-</span>Parameters <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(idBuyer,Part) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">qEQ =</span> <span class="fu">sum</span>(<span class="dv">1</span><span class="sc">*</span>ShouldBuy)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID=</span>idBuyer,<span class="at">Role=</span><span class="st">&quot;Buyer&quot;</span>) </span>
-<span id="cb50-6"><a href="markets-2.html#cb50-6" aria-hidden="true" tabindex="-1"></a>EQQsupply<span class="ot">&lt;-</span>Parameters <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(idSeller,Part) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">qEQ =</span> <span class="fu">sum</span>(<span class="dv">1</span><span class="sc">*</span>ShouldSell)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID=</span>idSeller,<span class="at">Role=</span><span class="st">&quot;Seller&quot;</span>) </span>
-<span id="cb50-7"><a href="markets-2.html#cb50-7" aria-hidden="true" tabindex="-1"></a>EQindividual<span class="ot">&lt;-</span><span class="fu">rbind</span>(EQQdemand,EQQsupply)[,<span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;Part&quot;</span>,<span class="st">&quot;qEQ&quot;</span>,<span class="st">&quot;Role&quot;</span>)] </span>
-<span id="cb50-8"><a href="markets-2.html#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="co">#knitr::kable((EQindividual))</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="markets-2.html#cb100-1" aria-hidden="true" tabindex="-1"></a>Parameters<span class="ot">&lt;-</span>(Parameters</span>
+<span id="cb100-2"><a href="markets-2.html#cb100-2" aria-hidden="true" tabindex="-1"></a>             <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ShouldBuy =</span> v<span class="sc">&gt;=</span> EQ<span class="sc">$</span>Peq[Part],</span>
+<span id="cb100-3"><a href="markets-2.html#cb100-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">ShouldSell =</span> c<span class="sc">&lt;=</span> EQ<span class="sc">$</span>Peq[Part])</span>
+<span id="cb100-4"><a href="markets-2.html#cb100-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb100-5"><a href="markets-2.html#cb100-5" aria-hidden="true" tabindex="-1"></a>EQQdemand<span class="ot">&lt;-</span>Parameters <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(idBuyer,Part) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">qEQ =</span> <span class="fu">sum</span>(<span class="dv">1</span><span class="sc">*</span>ShouldBuy)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID=</span>idBuyer,<span class="at">Role=</span><span class="st">&quot;Buyer&quot;</span>) </span>
+<span id="cb100-6"><a href="markets-2.html#cb100-6" aria-hidden="true" tabindex="-1"></a>EQQsupply<span class="ot">&lt;-</span>Parameters <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(idSeller,Part) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">qEQ =</span> <span class="fu">sum</span>(<span class="dv">1</span><span class="sc">*</span>ShouldSell)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID=</span>idSeller,<span class="at">Role=</span><span class="st">&quot;Seller&quot;</span>) </span>
+<span id="cb100-7"><a href="markets-2.html#cb100-7" aria-hidden="true" tabindex="-1"></a>EQindividual<span class="ot">&lt;-</span><span class="fu">rbind</span>(EQQdemand,EQQsupply)[,<span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;Part&quot;</span>,<span class="st">&quot;qEQ&quot;</span>,<span class="st">&quot;Role&quot;</span>)] </span>
+<span id="cb100-8"><a href="markets-2.html#cb100-8" aria-hidden="true" tabindex="-1"></a><span class="co">#knitr::kable((EQindividual))</span></span></code></pre></div>
 <p>Now, let’s work out what these were empirically:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="markets-2.html#cb51-1" aria-hidden="true" tabindex="-1"></a>TradeCounts<span class="ot">&lt;-</span>(D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Status<span class="sc">==</span><span class="st">&quot;t&quot;</span>)</span>
-<span id="cb51-2"><a href="markets-2.html#cb51-2" aria-hidden="true" tabindex="-1"></a>              <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Round,Part,ID,Role)</span>
-<span id="cb51-3"><a href="markets-2.html#cb51-3" aria-hidden="true" tabindex="-1"></a>              <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">ntrades=</span><span class="fu">n</span>())</span>
-<span id="cb51-4"><a href="markets-2.html#cb51-4" aria-hidden="true" tabindex="-1"></a>              <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(EQindividual,<span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;Part&quot;</span>,<span class="st">&quot;Role&quot;</span>))</span>
-<span id="cb51-5"><a href="markets-2.html#cb51-5" aria-hidden="true" tabindex="-1"></a>              <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Part,qEQ,Round)</span>
-<span id="cb51-6"><a href="markets-2.html#cb51-6" aria-hidden="true" tabindex="-1"></a>              <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mtrades=</span><span class="fu">mean</span>(ntrades,<span class="at">na.rm=</span>T,<span class="at">sdtrades=</span><span class="fu">sd</span>(ntrades)))</span>
-<span id="cb51-7"><a href="markets-2.html#cb51-7" aria-hidden="true" tabindex="-1"></a>              )</span>
-<span id="cb51-8"><a href="markets-2.html#cb51-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-9"><a href="markets-2.html#cb51-9" aria-hidden="true" tabindex="-1"></a>(<span class="fu">ggplot</span>(<span class="at">data=</span>TradeCounts,<span class="fu">aes</span>(<span class="at">x=</span>Round,<span class="at">y=</span>mtrades,<span class="at">color=</span><span class="fu">paste</span>(qEQ)))</span>
-<span id="cb51-10"><a href="markets-2.html#cb51-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">linetype=</span><span class="st">&quot;Data&quot;</span>),<span class="at">size=</span><span class="dv">1</span>)</span>
-<span id="cb51-11"><a href="markets-2.html#cb51-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="dv">1</span>,<span class="at">color=</span><span class="st">&quot;1&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;Equilibrium&quot;</span>))</span>
-<span id="cb51-12"><a href="markets-2.html#cb51-12" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="dv">2</span>,<span class="at">color=</span><span class="st">&quot;2&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;Equilibrium&quot;</span>))</span>
-<span id="cb51-13"><a href="markets-2.html#cb51-13" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="dv">3</span>,<span class="at">color=</span><span class="st">&quot;3&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;Equilibrium&quot;</span>))</span>
-<span id="cb51-14"><a href="markets-2.html#cb51-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">5.5</span>),<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
-<span id="cb51-15"><a href="markets-2.html#cb51-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">4</span>))</span>
-<span id="cb51-16"><a href="markets-2.html#cb51-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Mean number of trades&quot;</span>)</span>
-<span id="cb51-17"><a href="markets-2.html#cb51-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb51-18"><a href="markets-2.html#cb51-18" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="markets-2.html#cb101-1" aria-hidden="true" tabindex="-1"></a>TradeCounts<span class="ot">&lt;-</span>(D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Status<span class="sc">==</span><span class="st">&quot;t&quot;</span>)</span>
+<span id="cb101-2"><a href="markets-2.html#cb101-2" aria-hidden="true" tabindex="-1"></a>              <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Round,Part,ID,Role)</span>
+<span id="cb101-3"><a href="markets-2.html#cb101-3" aria-hidden="true" tabindex="-1"></a>              <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">ntrades=</span><span class="fu">n</span>())</span>
+<span id="cb101-4"><a href="markets-2.html#cb101-4" aria-hidden="true" tabindex="-1"></a>              <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(EQindividual,<span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>,<span class="st">&quot;Part&quot;</span>,<span class="st">&quot;Role&quot;</span>))</span>
+<span id="cb101-5"><a href="markets-2.html#cb101-5" aria-hidden="true" tabindex="-1"></a>              <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Part,qEQ,Round)</span>
+<span id="cb101-6"><a href="markets-2.html#cb101-6" aria-hidden="true" tabindex="-1"></a>              <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mtrades=</span><span class="fu">mean</span>(ntrades,<span class="at">na.rm=</span>T,<span class="at">sdtrades=</span><span class="fu">sd</span>(ntrades)))</span>
+<span id="cb101-7"><a href="markets-2.html#cb101-7" aria-hidden="true" tabindex="-1"></a>              )</span>
+<span id="cb101-8"><a href="markets-2.html#cb101-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-9"><a href="markets-2.html#cb101-9" aria-hidden="true" tabindex="-1"></a>(<span class="fu">ggplot</span>(<span class="at">data=</span>TradeCounts,<span class="fu">aes</span>(<span class="at">x=</span>Round,<span class="at">y=</span>mtrades,<span class="at">color=</span><span class="fu">paste</span>(qEQ)))</span>
+<span id="cb101-10"><a href="markets-2.html#cb101-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">linetype=</span><span class="st">&quot;Data&quot;</span>),<span class="at">size=</span><span class="dv">1</span>)</span>
+<span id="cb101-11"><a href="markets-2.html#cb101-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="dv">1</span>,<span class="at">color=</span><span class="st">&quot;1&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;Equilibrium&quot;</span>))</span>
+<span id="cb101-12"><a href="markets-2.html#cb101-12" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="dv">2</span>,<span class="at">color=</span><span class="st">&quot;2&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;Equilibrium&quot;</span>))</span>
+<span id="cb101-13"><a href="markets-2.html#cb101-13" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="dv">3</span>,<span class="at">color=</span><span class="st">&quot;3&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;Equilibrium&quot;</span>))</span>
+<span id="cb101-14"><a href="markets-2.html#cb101-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fl">5.5</span>),<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb101-15"><a href="markets-2.html#cb101-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">4</span>))</span>
+<span id="cb101-16"><a href="markets-2.html#cb101-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Mean number of trades&quot;</span>)</span>
+<span id="cb101-17"><a href="markets-2.html#cb101-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb101-18"><a href="markets-2.html#cb101-18" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
 <p>The theory is not predicting the number of items each player will trade well. For example, in the first part of the experiment, the players who should make 2 trades on average trade more than those who should trade two.</p>
 </div>

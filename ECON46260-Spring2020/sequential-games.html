@@ -267,6 +267,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="17.1" data-path="sequential-games.html"><a href="sequential-games.html#instructions-and-information-about-the-game"><i class="fa fa-check"></i><b>17.1</b> Instructions and information about the game</a></li>
 <li class="chapter" data-level="17.2" data-path="sequential-games.html"><a href="sequential-games.html#questions-5"><i class="fa fa-check"></i><b>17.2</b> Questions</a></li>
+<li class="chapter" data-level="17.3" data-path="sequential-games.html"><a href="sequential-games.html#solutions-7"><i class="fa fa-check"></i><b>17.3</b> Solutions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="exams.html"><a href="exams.html"><i class="fa fa-check"></i>Exams</a></li>
 <li class="chapter" data-level="18" data-path="midterm-exam.html"><a href="midterm-exam.html"><i class="fa fa-check"></i><b>18</b> Midterm Exam</a>
@@ -282,7 +283,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.2.2" data-path="midterm-exam.html"><a href="midterm-exam.html#data-1"><i class="fa fa-check"></i><b>18.2.2</b> Data</a></li>
 <li class="chapter" data-level="18.2.3" data-path="midterm-exam.html"><a href="midterm-exam.html#questions-7"><i class="fa fa-check"></i><b>18.2.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="midterm-exam.html"><a href="midterm-exam.html#solutions-7"><i class="fa fa-check"></i><b>18.3</b> Solutions</a>
+<li class="chapter" data-level="18.3" data-path="midterm-exam.html"><a href="midterm-exam.html#solutions-8"><i class="fa fa-check"></i><b>18.3</b> Solutions</a>
 <ul>
 <li class="chapter" data-level="18.3.1" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-2-1"><i class="fa fa-check"></i><b>18.3.1</b> Experiment 2</a></li>
 <li class="chapter" data-level="18.3.2" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-2-2"><i class="fa fa-check"></i><b>18.3.2</b> Experiment 2</a></li>
@@ -334,6 +335,481 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>If every person played according to subgame-perfect Nash equilibrium, would there be any difference between the two treatments? Do we {} observe a difference? If your answer to the last two questions in this part are different, what do you think is going on? (and welcome to Behavioral Game Theory) Discuss your answers with respect to what the theory says Player 1 will do, and also what the theory says Player 2 should do.</p></li>
 <li><p>(6260 students only) Suppose that instead of playing their subgame=perfect Nash equilibrium strategy, Player 2 randomized, choosing <span class="math inline">\(N\)</span> with probability <span class="math inline">\(q\)</span>. What <span class="math inline">\(q\)</span> makes Player 1 indifferent between choosing <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span>? If <span class="math inline">\(q\)</span> was equal to the empirical frequency of player 2s who chose <span class="math inline">\(N\)</span>, do the data look like player 1s are best responding to this?</p></li>
 </ol>
+</div>
+<div id="solutions-7" class="section level2" number="17.3">
+<h2><span class="header-section-number">17.3</span> Solutions</h2>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="sequential-games.html#cb150-1" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;2021PS08.csv&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">tibble</span>()</span>
+<span id="cb150-2"><a href="sequential-games.html#cb150-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-3"><a href="sequential-games.html#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="co">#D %&gt;% head() %&gt;% knitr::kable()</span></span>
+<span id="cb150-4"><a href="sequential-games.html#cb150-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-5"><a href="sequential-games.html#cb150-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">colnames</span>(D))</span></code></pre></div>
+<pre><code>## [1] &quot;X&quot;                   &quot;Round&quot;               &quot;ID&quot;                 
+## [4] &quot;Role..1.row.&quot;        &quot;Decision&quot;            &quot;OtherID&quot;            
+## [7] &quot;Other_Decision&quot;      &quot;Earnings&quot;            &quot;Cumulative_earnings&quot;</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="sequential-games.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sumary table:</span></span>
+<span id="cb152-2"><a href="sequential-games.html#cb152-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-3"><a href="sequential-games.html#cb152-3" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">player=</span><span class="fu">ifelse</span>(Role..<span class="fl">1.</span>row.<span class="sc">==</span><span class="dv">1</span>,<span class="st">&quot;Row&quot;</span>,<span class="st">&quot;Column&quot;</span>),</span>
+<span id="cb152-4"><a href="sequential-games.html#cb152-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">action =</span> <span class="fu">ifelse</span>(player<span class="sc">==</span><span class="st">&quot;Row&quot;</span>, <span class="fu">ifelse</span>(Decision<span class="sc">==</span><span class="dv">1</span>,<span class="st">&quot;S&quot;</span>,<span class="st">&quot;R&quot;</span>),</span>
+<span id="cb152-5"><a href="sequential-games.html#cb152-5" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">ifelse</span>(Other_Decision<span class="sc">==</span><span class="dv">1</span>,<span class="st">&quot;A&quot;</span>,</span>
+<span id="cb152-6"><a href="sequential-games.html#cb152-6" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">ifelse</span>(Decision<span class="sc">==</span><span class="dv">1</span>,<span class="st">&quot;P&quot;</span>,<span class="st">&quot;N&quot;</span>))</span>
+<span id="cb152-7"><a href="sequential-games.html#cb152-7" aria-hidden="true" tabindex="-1"></a>                                ),</span>
+<span id="cb152-8"><a href="sequential-games.html#cb152-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">part =</span> <span class="fu">ifelse</span>(Round<span class="sc">&lt;=</span><span class="dv">8</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb152-9"><a href="sequential-games.html#cb152-9" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb152-10"><a href="sequential-games.html#cb152-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-11"><a href="sequential-games.html#cb152-11" aria-hidden="true" tabindex="-1"></a>Dsummary<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(player,action,part) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(part,player,action)</span>
+<span id="cb152-12"><a href="sequential-games.html#cb152-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-13"><a href="sequential-games.html#cb152-13" aria-hidden="true" tabindex="-1"></a>Dsummary<span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)</span></code></pre></div>
+<table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+player
+</th>
+<th style="text-align:left;">
+action
+</th>
+<th style="text-align:right;">
+part
+</th>
+<th style="text-align:right;">
+count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Column
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column
+</td>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Row
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Row
+</td>
+<td style="text-align:left;">
+S
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column
+</td>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column
+</td>
+<td style="text-align:left;">
+P
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Row
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Row
+</td>
+<td style="text-align:left;">
+S
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li>Write out the payoff matrices for each treatment (i.e. as you have done in the previous two problem sets) and find any pure-strategy Nash equilibria.</li>
+</ol>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="sequential-games.html#cb153-1" aria-hidden="true" tabindex="-1"></a>G1<span class="ot">&lt;-</span><span class="fu">rbind</span>(</span>
+<span id="cb153-2"><a href="sequential-games.html#cb153-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&quot;**0.7**, **0.6**&quot;</span>,<span class="st">&quot;0.7, **0.6**&quot;</span>),</span>
+<span id="cb153-3"><a href="sequential-games.html#cb153-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&quot;0.6, 0.1&quot;</span>,<span class="st">&quot;**0.9, 0.5**&quot;</span>)</span>
+<span id="cb153-4"><a href="sequential-games.html#cb153-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb153-5"><a href="sequential-games.html#cb153-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(G1)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;A/P&quot;</span>,<span class="st">&quot;A/N&quot;</span>)</span>
+<span id="cb153-6"><a href="sequential-games.html#cb153-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(G1)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;S&quot;</span>,<span class="st">&quot;R&quot;</span>)</span>
+<span id="cb153-7"><a href="sequential-games.html#cb153-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-8"><a href="sequential-games.html#cb153-8" aria-hidden="true" tabindex="-1"></a>G1 <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)</span></code></pre></div>
+<table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+A/P
+</th>
+<th style="text-align:left;">
+A/N
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+S
+</td>
+<td style="text-align:left;">
+<strong>0.7</strong>, <strong>0.6</strong>
+</td>
+<td style="text-align:left;">
+0.7, <strong>0.6</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:left;">
+0.6, 0.1
+</td>
+<td style="text-align:left;">
+<strong>0.9, 0.5</strong>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="sequential-games.html#cb154-1" aria-hidden="true" tabindex="-1"></a>G2<span class="ot">&lt;-</span><span class="fu">rbind</span>(</span>
+<span id="cb154-2"><a href="sequential-games.html#cb154-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&quot;**0.7**, **0.6**&quot;</span>,<span class="st">&quot;0.7, **0.6**&quot;</span>),</span>
+<span id="cb154-3"><a href="sequential-games.html#cb154-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&quot;0.6, 0.48&quot;</span>,<span class="st">&quot;**0.9, 0.5**&quot;</span>)</span>
+<span id="cb154-4"><a href="sequential-games.html#cb154-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb154-5"><a href="sequential-games.html#cb154-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(G2)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;A/P&quot;</span>,<span class="st">&quot;A/N&quot;</span>)</span>
+<span id="cb154-6"><a href="sequential-games.html#cb154-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(G2)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;S&quot;</span>,<span class="st">&quot;R&quot;</span>)</span>
+<span id="cb154-7"><a href="sequential-games.html#cb154-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-8"><a href="sequential-games.html#cb154-8" aria-hidden="true" tabindex="-1"></a>G2 <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)</span></code></pre></div>
+<table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+A/P
+</th>
+<th style="text-align:left;">
+A/N
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+S
+</td>
+<td style="text-align:left;">
+<strong>0.7</strong>, <strong>0.6</strong>
+</td>
+<td style="text-align:left;">
+0.7, <strong>0.6</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:left;">
+0.6, 0.48
+</td>
+<td style="text-align:left;">
+<strong>0.9, 0.5</strong>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The pure-strategy Nash equilibria in both games are <span class="math inline">\((S,A/P)\)</span> and <span class="math inline">\((R,A/N)\)</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Solve both games using backward induction (i.e. find the subgame perfect Nash equilibrium). Which pure-strategy Nash equilibrium does this condition rule out, and why is it ruled out?</li>
+</ol>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="sequential-games.html#cb155-1" aria-hidden="true" tabindex="-1"></a>nodes<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">y=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="sc">-</span><span class="dv">1</span>),<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;C&quot;</span>))</span>
+<span id="cb155-2"><a href="sequential-games.html#cb155-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-3"><a href="sequential-games.html#cb155-3" aria-hidden="true" tabindex="-1"></a>payoffs<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="fl">1.1</span>,<span class="fl">2.1</span>,<span class="fl">2.1</span>),</span>
+<span id="cb155-4"><a href="sequential-games.html#cb155-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">y=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">1.5</span>),</span>
+<span id="cb155-5"><a href="sequential-games.html#cb155-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;(0.70, 0.60)&quot;</span>,<span class="st">&quot;(0.60, 0.10)&quot;</span>,<span class="st">&quot;(0.90, 0.50)&quot;</span>))</span>
+<span id="cb155-6"><a href="sequential-games.html#cb155-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-7"><a href="sequential-games.html#cb155-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-8"><a href="sequential-games.html#cb155-8" aria-hidden="true" tabindex="-1"></a>edges<span class="ot">=</span><span class="fu">tibble</span>(</span>
+<span id="cb155-9"><a href="sequential-games.html#cb155-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">x=</span><span class="fu">c</span>(<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">1.1</span>,<span class="fl">1.1</span>),</span>
+<span id="cb155-10"><a href="sequential-games.html#cb155-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">xend=</span><span class="fu">c</span>(<span class="fl">0.9</span>,<span class="fl">0.9</span>,<span class="fl">1.9</span>,<span class="fl">1.9</span>),</span>
+<span id="cb155-11"><a href="sequential-games.html#cb155-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">y=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>),</span>
+<span id="cb155-12"><a href="sequential-games.html#cb155-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">yend=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="fl">1.5</span>,<span class="sc">-</span><span class="fl">0.5</span>)</span>
+<span id="cb155-13"><a href="sequential-games.html#cb155-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb155-14"><a href="sequential-games.html#cb155-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb155-15"><a href="sequential-games.html#cb155-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-16"><a href="sequential-games.html#cb155-16" aria-hidden="true" tabindex="-1"></a>actions<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">1.5</span>,<span class="fl">1.5</span>),</span>
+<span id="cb155-17"><a href="sequential-games.html#cb155-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">y=</span><span class="fu">c</span>(<span class="fl">0.6</span>,<span class="sc">-</span><span class="fl">0.6</span>,<span class="sc">-</span><span class="fl">0.6</span>,<span class="sc">-</span><span class="fl">1.5</span>),</span>
+<span id="cb155-18"><a href="sequential-games.html#cb155-18" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;S&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;P&quot;</span>,<span class="st">&quot;N&quot;</span>)</span>
+<span id="cb155-19"><a href="sequential-games.html#cb155-19" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb155-20"><a href="sequential-games.html#cb155-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-21"><a href="sequential-games.html#cb155-21" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb155-22"><a href="sequential-games.html#cb155-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span>
+<span id="cb155-23"><a href="sequential-games.html#cb155-23" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_text</span>(<span class="at">data=</span>nodes,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y,<span class="at">label=</span>labels))</span>
+<span id="cb155-24"><a href="sequential-games.html#cb155-24" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_text</span>(<span class="at">data=</span>actions,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y,<span class="at">label=</span>labels))</span>
+<span id="cb155-25"><a href="sequential-games.html#cb155-25" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_text</span>(<span class="at">data=</span>payoffs,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y,<span class="at">label=</span>labels),<span class="at">color=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb155-26"><a href="sequential-games.html#cb155-26" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_segment</span>(<span class="at">data=</span>edges,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y,<span class="at">xend=</span>xend,<span class="at">yend=</span>yend),<span class="at">arrow=</span><span class="fu">arrow</span>(<span class="at">length=</span><span class="fu">unit</span>(<span class="fl">0.03</span>,<span class="st">&quot;npc&quot;</span>)))</span>
+<span id="cb155-27"><a href="sequential-games.html#cb155-27" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">2.3</span>))</span>
+<span id="cb155-28"><a href="sequential-games.html#cb155-28" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb155-29"><a href="sequential-games.html#cb155-29" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb155-30"><a href="sequential-games.html#cb155-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb155-31"><a href="sequential-games.html#cb155-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb155-32"><a href="sequential-games.html#cb155-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb155-33"><a href="sequential-games.html#cb155-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb155-34"><a href="sequential-games.html#cb155-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_blank</span>()) </span>
+<span id="cb155-35"><a href="sequential-games.html#cb155-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-36"><a href="sequential-games.html#cb155-36" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-169-1.png" width="672" /></p>
+<p>We start at the final subgames first. For the node where the column player makes a decision teir payoff in Game 1 (Game 2) is $0.10 ($0.48) if they choose <span class="math inline">\(P\)</span>, and $0.50 if they choose <span class="math inline">\(N\)</span>. <span class="math inline">\(N\)</span> is better than <span class="math inline">\(P\)</span> for both games, so the column player must play <span class="math inline">\(N\)</span> in SPNE in both games. Knowing this, the row player knows that they will earn $0.70 if they choose <span class="math inline">\(S\)</span>, and $0.90 if they choose <span class="math inline">\(R\)</span>, so they will choose <span class="math inline">\(R\)</span>. The SPNE is therefore <span class="math inline">\((R, A,N)\)</span>. This rules out the <span class="math inline">\((S,A/P)\)</span> equilibrium we found in question 1.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>If every person played according to subgame-perfect Nash equilibrium, would there be any difference between the two treatments? Do we <em>actually</em> observe a difference? If your answer to the last two questions in this part are different, what do you think is going on? (and welcome to Behavioral Game Theory) Discuss your answers with respect to what the theory says Player 1 will do, and also what the theory says Player 2 should do.</li>
+</ol>
+<p>SPNE predicts that we would observe no difference in play between the games. However, this is what we observe:</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="sequential-games.html#cb156-1" aria-hidden="true" tabindex="-1"></a>Dsummary <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)</span></code></pre></div>
+<table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+player
+</th>
+<th style="text-align:left;">
+action
+</th>
+<th style="text-align:right;">
+part
+</th>
+<th style="text-align:right;">
+count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Column
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column
+</td>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Row
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Row
+</td>
+<td style="text-align:left;">
+S
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column
+</td>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column
+</td>
+<td style="text-align:left;">
+P
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Row
+</td>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Row
+</td>
+<td style="text-align:left;">
+S
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>In Game 1, the row player chooses <span class="math inline">\(R\)</span> <span class="math inline">\(13/(13+11)\approx 54\%\)</span> of the time. Following choice <span class="math inline">\(R\)</span>, the column player chooses <span class="math inline">\(N\)</span> <span class="math inline">\(100\%\)</span> of the time.</li>
+<li>In Game 2, the row player chooses <span class="math inline">\(R\)</span> <span class="math inline">\(13/(13+11)\approx 54\%\)</span> of the time. Following choice <span class="math inline">\(R\)</span>, the column player chooses <span class="math inline">\(N\)</span> <span class="math inline">\(1/(1+12)\approx 8\%\)</span> of the time.</li>
+</ul>
+<p>However the payoff difference for the column player in Part 2 is much lower. Human column players may be annoyed that the row player chose an action (<span class="math inline">\(R\)</span>) that reduced their payoff, and in Part 2 it is much less costly to punish them for it.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>(6260 students only) Suppose that instead of playing their subgame=perfect Nash equilibrium strategy, Player 2 randomized, choosing <span class="math inline">\(N\)</span> with probability <span class="math inline">\(q\)</span>. What <span class="math inline">\(q\)</span> makes Player 1 indifferent between choosing <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span>? If <span class="math inline">\(q\)</span> was equal to the empirical frequency of player 2s who chose <span class="math inline">\(N\)</span>, do the data look like player 1s are best responding to this?</li>
+</ol>
+<p>It is optimal for the row player to choose <span class="math inline">\(R\)</span> when:</p>
+<p><span class="math display">\[
+\begin{aligned}
+0.7&amp;\leq 0.9p_N+0.6(1-p_N)\\
+0.1&amp;\leq 0.3p_N\\
+p_N\geq \frac{1}{3}
+\end{aligned}
+\]</span>
+This inequality was true in the data for Game 1 but not Game 2. We did not see any difference in row player behavior between the games.</p>
 </div>
 </div>
             </section>

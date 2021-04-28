@@ -267,6 +267,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="17.1" data-path="sequential-games.html"><a href="sequential-games.html#instructions-and-information-about-the-game"><i class="fa fa-check"></i><b>17.1</b> Instructions and information about the game</a></li>
 <li class="chapter" data-level="17.2" data-path="sequential-games.html"><a href="sequential-games.html#questions-5"><i class="fa fa-check"></i><b>17.2</b> Questions</a></li>
+<li class="chapter" data-level="17.3" data-path="sequential-games.html"><a href="sequential-games.html#solutions-7"><i class="fa fa-check"></i><b>17.3</b> Solutions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="exams.html"><a href="exams.html"><i class="fa fa-check"></i>Exams</a></li>
 <li class="chapter" data-level="18" data-path="midterm-exam.html"><a href="midterm-exam.html"><i class="fa fa-check"></i><b>18</b> Midterm Exam</a>
@@ -282,7 +283,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.2.2" data-path="midterm-exam.html"><a href="midterm-exam.html#data-1"><i class="fa fa-check"></i><b>18.2.2</b> Data</a></li>
 <li class="chapter" data-level="18.2.3" data-path="midterm-exam.html"><a href="midterm-exam.html#questions-7"><i class="fa fa-check"></i><b>18.2.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="midterm-exam.html"><a href="midterm-exam.html#solutions-7"><i class="fa fa-check"></i><b>18.3</b> Solutions</a>
+<li class="chapter" data-level="18.3" data-path="midterm-exam.html"><a href="midterm-exam.html#solutions-8"><i class="fa fa-check"></i><b>18.3</b> Solutions</a>
 <ul>
 <li class="chapter" data-level="18.3.1" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-2-1"><i class="fa fa-check"></i><b>18.3.1</b> Experiment 2</a></li>
 <li class="chapter" data-level="18.3.2" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-2-2"><i class="fa fa-check"></i><b>18.3.2</b> Experiment 2</a></li>
@@ -438,31 +439,31 @@ p(X\leq v-c)&amp;=1-p(X&gt;v-c)=\frac{v-c-\underline x}{\overline x-\underline x
 \end{aligned}
 \]</span>
 Where <span class="math inline">\(\underline x=0\)</span> and <span class="math inline">\(\overline x=0.9\)</span> are the minimum and maximum of the random values.</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="search.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb76-2"><a href="search.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb76-3"><a href="search.html#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb76-4"><a href="search.html#cb76-4" aria-hidden="true" tabindex="-1"></a>c<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.2</span>)</span>
-<span id="cb76-5"><a href="search.html#cb76-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-6"><a href="search.html#cb76-6" aria-hidden="true" tabindex="-1"></a>xmax<span class="ot">&lt;-</span><span class="fl">0.9</span></span>
-<span id="cb76-7"><a href="search.html#cb76-7" aria-hidden="true" tabindex="-1"></a>xmin<span class="ot">&lt;-</span><span class="dv">0</span></span>
-<span id="cb76-8"><a href="search.html#cb76-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-9"><a href="search.html#cb76-9" aria-hidden="true" tabindex="-1"></a>v<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">length=</span><span class="dv">101</span>)</span>
-<span id="cb76-10"><a href="search.html#cb76-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-11"><a href="search.html#cb76-11" aria-hidden="true" tabindex="-1"></a>PlotThis<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb76-12"><a href="search.html#cb76-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (cc <span class="cf">in</span> c) {</span>
-<span id="cb76-13"><a href="search.html#cb76-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb76-14"><a href="search.html#cb76-14" aria-hidden="true" tabindex="-1"></a>      PlotThis<span class="ot">&lt;-</span><span class="fu">data.frame</span>(v)  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PrXlv=</span>(v<span class="sc">-</span>cc<span class="sc">-</span>xmin)<span class="sc">/</span>(xmax<span class="sc">-</span>xmin), <span class="co"># Pr(X&lt;=(v-c))</span></span>
-<span id="cb76-15"><a href="search.html#cb76-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">EXconditional=</span><span class="fl">0.5</span><span class="sc">*</span>(xmax<span class="sc">+</span>v<span class="sc">-</span>cc),</span>
-<span id="cb76-16"><a href="search.html#cb76-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">EV =</span> EXconditional<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>PrXlv)<span class="sc">+</span>(v<span class="sc">-</span>cc)<span class="sc">*</span>PrXlv,</span>
-<span id="cb76-17"><a href="search.html#cb76-17" aria-hidden="true" tabindex="-1"></a>                  <span class="at">c=</span><span class="fu">paste</span>(<span class="st">&quot;c =&quot;</span>,cc),<span class="at">cost=</span>cc) <span class="sc">%&gt;%</span> <span class="fu">rbind</span>(PlotThis)</span>
-<span id="cb76-18"><a href="search.html#cb76-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb76-19"><a href="search.html#cb76-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-20"><a href="search.html#cb76-20" aria-hidden="true" tabindex="-1"></a>(<span class="fu">ggplot</span>()</span>
-<span id="cb76-21"><a href="search.html#cb76-21" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="at">data=</span>PlotThis,<span class="fu">aes</span>(<span class="at">x=</span>v,<span class="at">y=</span>EV,<span class="at">color=</span>c,<span class="at">linetype=</span><span class="st">&quot;search cost&quot;</span>))</span>
-<span id="cb76-22"><a href="search.html#cb76-22" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_linetype_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;dotted&quot;</span>,<span class="st">&quot;solid&quot;</span>))</span>
-<span id="cb76-23"><a href="search.html#cb76-23" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb76-24"><a href="search.html#cb76-24" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="fu">aes</span>(<span class="at">slope=</span><span class="dv">1</span>,<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="st">&quot;45\u00B0 line&quot;</span>))</span>
-<span id="cb76-25"><a href="search.html#cb76-25" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="search.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb126-2"><a href="search.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb126-3"><a href="search.html#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb126-4"><a href="search.html#cb126-4" aria-hidden="true" tabindex="-1"></a>c<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.2</span>)</span>
+<span id="cb126-5"><a href="search.html#cb126-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-6"><a href="search.html#cb126-6" aria-hidden="true" tabindex="-1"></a>xmax<span class="ot">&lt;-</span><span class="fl">0.9</span></span>
+<span id="cb126-7"><a href="search.html#cb126-7" aria-hidden="true" tabindex="-1"></a>xmin<span class="ot">&lt;-</span><span class="dv">0</span></span>
+<span id="cb126-8"><a href="search.html#cb126-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-9"><a href="search.html#cb126-9" aria-hidden="true" tabindex="-1"></a>v<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">length=</span><span class="dv">101</span>)</span>
+<span id="cb126-10"><a href="search.html#cb126-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-11"><a href="search.html#cb126-11" aria-hidden="true" tabindex="-1"></a>PlotThis<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb126-12"><a href="search.html#cb126-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (cc <span class="cf">in</span> c) {</span>
+<span id="cb126-13"><a href="search.html#cb126-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb126-14"><a href="search.html#cb126-14" aria-hidden="true" tabindex="-1"></a>      PlotThis<span class="ot">&lt;-</span><span class="fu">data.frame</span>(v)  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PrXlv=</span>(v<span class="sc">-</span>cc<span class="sc">-</span>xmin)<span class="sc">/</span>(xmax<span class="sc">-</span>xmin), <span class="co"># Pr(X&lt;=(v-c))</span></span>
+<span id="cb126-15"><a href="search.html#cb126-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">EXconditional=</span><span class="fl">0.5</span><span class="sc">*</span>(xmax<span class="sc">+</span>v<span class="sc">-</span>cc),</span>
+<span id="cb126-16"><a href="search.html#cb126-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">EV =</span> EXconditional<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>PrXlv)<span class="sc">+</span>(v<span class="sc">-</span>cc)<span class="sc">*</span>PrXlv,</span>
+<span id="cb126-17"><a href="search.html#cb126-17" aria-hidden="true" tabindex="-1"></a>                  <span class="at">c=</span><span class="fu">paste</span>(<span class="st">&quot;c =&quot;</span>,cc),<span class="at">cost=</span>cc) <span class="sc">%&gt;%</span> <span class="fu">rbind</span>(PlotThis)</span>
+<span id="cb126-18"><a href="search.html#cb126-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb126-19"><a href="search.html#cb126-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-20"><a href="search.html#cb126-20" aria-hidden="true" tabindex="-1"></a>(<span class="fu">ggplot</span>()</span>
+<span id="cb126-21"><a href="search.html#cb126-21" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="at">data=</span>PlotThis,<span class="fu">aes</span>(<span class="at">x=</span>v,<span class="at">y=</span>EV,<span class="at">color=</span>c,<span class="at">linetype=</span><span class="st">&quot;search cost&quot;</span>))</span>
+<span id="cb126-22"><a href="search.html#cb126-22" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_linetype_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;dotted&quot;</span>,<span class="st">&quot;solid&quot;</span>))</span>
+<span id="cb126-23"><a href="search.html#cb126-23" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb126-24"><a href="search.html#cb126-24" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="fu">aes</span>(<span class="at">slope=</span><span class="dv">1</span>,<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="st">&quot;45\u00B0 line&quot;</span>))</span>
+<span id="cb126-25"><a href="search.html#cb126-25" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Let <span class="math inline">\(x^*\)</span> be the optimal stopping rule. That is, I stop searching if and only if <span class="math inline">\(x\geq x^*\)</span>. Write an expression for <span class="math inline">\(x^*\)</span>. What are the model’s predictions for each part?
@@ -476,8 +477,8 @@ x^*&amp;=\text{expected value of searching}=v-c\\
 \end{aligned}
 \]</span>
 So the model predicts that you should stop searching if and only if:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="search.html#cb77-1" aria-hidden="true" tabindex="-1"></a>Predictions<span class="ot">&lt;-</span>PlotThis <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">d=</span><span class="fu">abs</span>(EV<span class="sc">-</span>v)) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cost) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">v=</span>v[<span class="fu">which.min</span>(d)]) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">StoppingX=</span>v<span class="sc">-</span>cost)</span>
-<span id="cb77-2"><a href="search.html#cb77-2" aria-hidden="true" tabindex="-1"></a>Predictions <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="search.html#cb127-1" aria-hidden="true" tabindex="-1"></a>Predictions<span class="ot">&lt;-</span>PlotThis <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">d=</span><span class="fu">abs</span>(EV<span class="sc">-</span>v)) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cost) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">v=</span>v[<span class="fu">which.min</span>(d)]) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">StoppingX=</span>v<span class="sc">-</span>cost)</span>
+<span id="cb127-2"><a href="search.html#cb127-2" aria-hidden="true" tabindex="-1"></a>Predictions <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>))</span></code></pre></div>
 <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -525,8 +526,8 @@ StoppingX
 <li>The model’s predictions for both parts (these should be vertical lines)</li>
 <li><strong>Masters students only</strong> A fitted curve through these points.</li>
 </ul>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="search.html#cb78-1" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;PS05dataSearch.csv&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Part =</span> <span class="fu">paste</span>(<span class="st">&quot;Part&quot;</span>,<span class="dv">1</span><span class="sc">+</span>(Round<span class="sc">&gt;</span><span class="dv">10</span>))) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Round,ID,Draw.Number,Draw,Highest.Draw,Part,Decision) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Accept =</span> <span class="dv">1</span><span class="sc">*</span>(Decision<span class="sc">==</span><span class="st">&quot;a&quot;</span>))</span>
-<span id="cb78-2"><a href="search.html#cb78-2" aria-hidden="true" tabindex="-1"></a>D <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="search.html#cb128-1" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;PS05dataSearch.csv&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Part =</span> <span class="fu">paste</span>(<span class="st">&quot;Part&quot;</span>,<span class="dv">1</span><span class="sc">+</span>(Round<span class="sc">&gt;</span><span class="dv">10</span>))) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Round,ID,Draw.Number,Draw,Highest.Draw,Part,Decision) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Accept =</span> <span class="dv">1</span><span class="sc">*</span>(Decision<span class="sc">==</span><span class="st">&quot;a&quot;</span>))</span>
+<span id="cb128-2"><a href="search.html#cb128-2" aria-hidden="true" tabindex="-1"></a>D <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>))</span></code></pre></div>
 <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -715,19 +716,19 @@ a
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="search.html#cb79-1" aria-hidden="true" tabindex="-1"></a>plt<span class="ot">&lt;-</span>(</span>
-<span id="cb79-2"><a href="search.html#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>D,<span class="fu">aes</span>(<span class="at">x=</span>Draw,<span class="at">y=</span>Accept,<span class="at">color=</span>Part,<span class="at">group=</span>Part)) </span>
-<span id="cb79-3"><a href="search.html#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;glm&quot;</span>,<span class="at">method.args=</span><span class="fu">list</span>(<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>))</span>
-<span id="cb79-4"><a href="search.html#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_summary_bin</span>(<span class="at">bins=</span><span class="dv">10</span>)</span>
-<span id="cb79-5"><a href="search.html#cb79-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span>Predictions<span class="sc">$</span>StoppingX[<span class="dv">1</span>],<span class="at">color=</span><span class="st">&quot;Part 1&quot;</span>),<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
-<span id="cb79-6"><a href="search.html#cb79-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span>Predictions<span class="sc">$</span>StoppingX[<span class="dv">2</span>],<span class="at">color=</span><span class="st">&quot;Part 2&quot;</span>),<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
-<span id="cb79-7"><a href="search.html#cb79-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb79-8"><a href="search.html#cb79-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb79-9"><a href="search.html#cb79-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb79-10"><a href="search.html#cb79-10" aria-hidden="true" tabindex="-1"></a>plt</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="search.html#cb129-1" aria-hidden="true" tabindex="-1"></a>plt<span class="ot">&lt;-</span>(</span>
+<span id="cb129-2"><a href="search.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>D,<span class="fu">aes</span>(<span class="at">x=</span>Draw,<span class="at">y=</span>Accept,<span class="at">color=</span>Part,<span class="at">group=</span>Part)) </span>
+<span id="cb129-3"><a href="search.html#cb129-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;glm&quot;</span>,<span class="at">method.args=</span><span class="fu">list</span>(<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>))</span>
+<span id="cb129-4"><a href="search.html#cb129-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_summary_bin</span>(<span class="at">bins=</span><span class="dv">10</span>)</span>
+<span id="cb129-5"><a href="search.html#cb129-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span>Predictions<span class="sc">$</span>StoppingX[<span class="dv">1</span>],<span class="at">color=</span><span class="st">&quot;Part 1&quot;</span>),<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb129-6"><a href="search.html#cb129-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span>Predictions<span class="sc">$</span>StoppingX[<span class="dv">2</span>],<span class="at">color=</span><span class="st">&quot;Part 2&quot;</span>),<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb129-7"><a href="search.html#cb129-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb129-8"><a href="search.html#cb129-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb129-9"><a href="search.html#cb129-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-10"><a href="search.html#cb129-10" aria-hidden="true" tabindex="-1"></a>plt</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
 <p>And for subjects individually (I didn’t ask for this). Note that at the individual level, it looks like some people have much sharper cutoffs.</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="search.html#cb80-1" aria-hidden="true" tabindex="-1"></a>plt<span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>ID)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="search.html#cb130-1" aria-hidden="true" tabindex="-1"></a>plt<span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>ID)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Using your plot from the previous question, describe any features of the data that the theory is predicting well, and any features that it is predicting badly.</li>
@@ -753,35 +754,35 @@ H_0:\ \text{People ignore sunk costs},\quad H_A:\ \text{People do not ignore sun
 </ul></li>
 </ol>
 <p><strong>Solution</strong> If subjects do not ignore sunk cost, then we would expect that the sunk costs of search would affect the acceptance rule. We could see this by looking at acceptance probabilities as a function of “Draw.Number”</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="search.html#cb81-1" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">DrawGroup=</span><span class="fu">ifelse</span>(Draw.Number<span class="sc">&lt;=</span><span class="dv">2</span>,<span class="fu">paste</span>(<span class="st">&quot;Draw &quot;</span>,Draw.Number),<span class="st">&quot;Draws 3+&quot;</span>))</span>
-<span id="cb81-2"><a href="search.html#cb81-2" aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb81-3"><a href="search.html#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>(D),<span class="fu">aes</span>(<span class="at">x=</span>Draw,<span class="at">y=</span>Accept,<span class="at">color=</span>DrawGroup))</span>
-<span id="cb81-4"><a href="search.html#cb81-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_summary_bin</span>(<span class="at">bins=</span><span class="dv">5</span>)</span>
-<span id="cb81-5"><a href="search.html#cb81-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>Part)</span>
-<span id="cb81-6"><a href="search.html#cb81-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb81-7"><a href="search.html#cb81-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;glm&quot;</span>,<span class="at">method.args=</span><span class="fu">list</span>(<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>))</span>
-<span id="cb81-8"><a href="search.html#cb81-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="search.html#cb131-1" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">DrawGroup=</span><span class="fu">ifelse</span>(Draw.Number<span class="sc">&lt;=</span><span class="dv">2</span>,<span class="fu">paste</span>(<span class="st">&quot;Draw &quot;</span>,Draw.Number),<span class="st">&quot;Draws 3+&quot;</span>))</span>
+<span id="cb131-2"><a href="search.html#cb131-2" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb131-3"><a href="search.html#cb131-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>(D),<span class="fu">aes</span>(<span class="at">x=</span>Draw,<span class="at">y=</span>Accept,<span class="at">color=</span>DrawGroup))</span>
+<span id="cb131-4"><a href="search.html#cb131-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_summary_bin</span>(<span class="at">bins=</span><span class="dv">5</span>)</span>
+<span id="cb131-5"><a href="search.html#cb131-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>Part)</span>
+<span id="cb131-6"><a href="search.html#cb131-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb131-7"><a href="search.html#cb131-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;glm&quot;</span>,<span class="at">method.args=</span><span class="fu">list</span>(<span class="at">family=</span><span class="st">&quot;binomial&quot;</span>))</span>
+<span id="cb131-8"><a href="search.html#cb131-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
 <p>It does not looks like there is a systematic relationship between draw number and acceptance probability: the acceptance probability gets flatter (i.e. less responsive to Draw).</p>
 <p>A formal test of this hypothesis could be to test whether draw number has a significant effect of acceptance probability:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="search.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
-<span id="cb82-2"><a href="search.html#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(miceadds)</span>
-<span id="cb82-3"><a href="search.html#cb82-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-4"><a href="search.html#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="co"># base model, H0 imposed: Acceptance rule does not change with draw number</span></span>
-<span id="cb82-5"><a href="search.html#cb82-5" aria-hidden="true" tabindex="-1"></a>logit1<span class="ot">&lt;-</span><span class="fu">glm</span>(<span class="at">data=</span>D,Accept<span class="sc">~</span>Draw<span class="sc">*</span><span class="fu">I</span>(Part))</span>
-<span id="cb82-6"><a href="search.html#cb82-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-7"><a href="search.html#cb82-7" aria-hidden="true" tabindex="-1"></a>se1<span class="ot">&lt;-</span><span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">glm.cluster</span>(<span class="at">data=</span>D,Accept<span class="sc">~</span>Draw<span class="sc">*</span><span class="fu">I</span>(Part),D<span class="sc">$</span>ID,<span class="at">family=</span><span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&quot;logit&quot;</span>))<span class="sc">$</span>vcov))</span>
-<span id="cb82-8"><a href="search.html#cb82-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-9"><a href="search.html#cb82-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Unrestricted model, H0 included, but HA allowed: Acceptance can be a function of draw number:</span></span>
-<span id="cb82-10"><a href="search.html#cb82-10" aria-hidden="true" tabindex="-1"></a>logit2<span class="ot">&lt;-</span><span class="fu">glm</span>(<span class="at">data=</span>D,Accept<span class="sc">~</span>Draw<span class="sc">*</span><span class="fu">I</span>(Part)<span class="sc">*</span>Draw.Number)</span>
-<span id="cb82-11"><a href="search.html#cb82-11" aria-hidden="true" tabindex="-1"></a>se2<span class="ot">&lt;-</span><span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">glm.cluster</span>(<span class="at">data=</span>D,Accept<span class="sc">~</span>Draw<span class="sc">*</span><span class="fu">I</span>(Part)<span class="sc">*</span>Draw.Number,D<span class="sc">$</span>ID,<span class="at">family=</span><span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&quot;logit&quot;</span>))<span class="sc">$</span>vcov))</span>
-<span id="cb82-12"><a href="search.html#cb82-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-13"><a href="search.html#cb82-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-14"><a href="search.html#cb82-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-15"><a href="search.html#cb82-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-16"><a href="search.html#cb82-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-17"><a href="search.html#cb82-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-18"><a href="search.html#cb82-18" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(logit1,logit2,<span class="at">type=</span><span class="st">&quot;html&quot;</span>,<span class="at">se=</span><span class="fu">list</span>(se1,se2))</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="search.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb132-2"><a href="search.html#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(miceadds)</span>
+<span id="cb132-3"><a href="search.html#cb132-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-4"><a href="search.html#cb132-4" aria-hidden="true" tabindex="-1"></a><span class="co"># base model, H0 imposed: Acceptance rule does not change with draw number</span></span>
+<span id="cb132-5"><a href="search.html#cb132-5" aria-hidden="true" tabindex="-1"></a>logit1<span class="ot">&lt;-</span><span class="fu">glm</span>(<span class="at">data=</span>D,Accept<span class="sc">~</span>Draw<span class="sc">*</span><span class="fu">I</span>(Part))</span>
+<span id="cb132-6"><a href="search.html#cb132-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-7"><a href="search.html#cb132-7" aria-hidden="true" tabindex="-1"></a>se1<span class="ot">&lt;-</span><span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">glm.cluster</span>(<span class="at">data=</span>D,Accept<span class="sc">~</span>Draw<span class="sc">*</span><span class="fu">I</span>(Part),D<span class="sc">$</span>ID,<span class="at">family=</span><span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&quot;logit&quot;</span>))<span class="sc">$</span>vcov))</span>
+<span id="cb132-8"><a href="search.html#cb132-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-9"><a href="search.html#cb132-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Unrestricted model, H0 included, but HA allowed: Acceptance can be a function of draw number:</span></span>
+<span id="cb132-10"><a href="search.html#cb132-10" aria-hidden="true" tabindex="-1"></a>logit2<span class="ot">&lt;-</span><span class="fu">glm</span>(<span class="at">data=</span>D,Accept<span class="sc">~</span>Draw<span class="sc">*</span><span class="fu">I</span>(Part)<span class="sc">*</span>Draw.Number)</span>
+<span id="cb132-11"><a href="search.html#cb132-11" aria-hidden="true" tabindex="-1"></a>se2<span class="ot">&lt;-</span><span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">glm.cluster</span>(<span class="at">data=</span>D,Accept<span class="sc">~</span>Draw<span class="sc">*</span><span class="fu">I</span>(Part)<span class="sc">*</span>Draw.Number,D<span class="sc">$</span>ID,<span class="at">family=</span><span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&quot;logit&quot;</span>))<span class="sc">$</span>vcov))</span>
+<span id="cb132-12"><a href="search.html#cb132-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-13"><a href="search.html#cb132-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-14"><a href="search.html#cb132-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-15"><a href="search.html#cb132-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-16"><a href="search.html#cb132-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-17"><a href="search.html#cb132-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-18"><a href="search.html#cb132-18" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(logit1,logit2,<span class="at">type=</span><span class="st">&quot;html&quot;</span>,<span class="at">se=</span><span class="fu">list</span>(se1,se2))</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="3" style="border-bottom: 1px solid black">
@@ -1099,15 +1100,15 @@ Akaike Inf. Crit.
 <p>The LR test would compare the likelihoods to a critical value from the <span class="math inline">\(\chi^2(3)\)</span> disribution (for <span class="math inline">\(\alpha=0.05\)</span> the critical value is
 7.8147279). The test statistic is <span class="math inline">\(2(-140.2563179--147.613971)=14.7153062\)</span>, so we would reject the null.</p>
 <p>However it is unreasonable to assume that each decision is independent. Clustering at the subject level (ID):</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="search.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimates</span></span>
-<span id="cb83-2"><a href="search.html#cb83-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">&lt;-</span>logit2<span class="sc">$</span>coefficients[<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>]</span>
-<span id="cb83-3"><a href="search.html#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="search.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimates</span></span>
+<span id="cb133-2"><a href="search.html#cb133-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">&lt;-</span>logit2<span class="sc">$</span>coefficients[<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>]</span>
+<span id="cb133-3"><a href="search.html#cb133-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(b)</span></code></pre></div>
 <pre><code>##               Draw:Draw.Number      I(Part)Part 2:Draw.Number 
 ##                   -0.066479374                    0.003247519 
 ## Draw:I(Part)Part 2:Draw.Number 
 ##                   -0.140502028</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="search.html#cb85-1" aria-hidden="true" tabindex="-1"></a>vcovMatrix<span class="ot">&lt;-</span><span class="fu">glm.cluster</span>(<span class="at">data=</span>D,Accept<span class="sc">~</span>Draw<span class="sc">*</span><span class="fu">I</span>(Part)<span class="sc">*</span>Draw.Number,D<span class="sc">$</span>ID,<span class="at">family=</span><span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&quot;logit&quot;</span>))<span class="sc">$</span>vcov[<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>,<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>]</span>
-<span id="cb85-2"><a href="search.html#cb85-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(vcovMatrix)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="search.html#cb135-1" aria-hidden="true" tabindex="-1"></a>vcovMatrix<span class="ot">&lt;-</span><span class="fu">glm.cluster</span>(<span class="at">data=</span>D,Accept<span class="sc">~</span>Draw<span class="sc">*</span><span class="fu">I</span>(Part)<span class="sc">*</span>Draw.Number,D<span class="sc">$</span>ID,<span class="at">family=</span><span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&quot;logit&quot;</span>))<span class="sc">$</span>vcov[<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>,<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>]</span>
+<span id="cb135-2"><a href="search.html#cb135-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(vcovMatrix)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1169,7 +1170,7 @@ Draw:I(Part)Part 2:Draw.Number
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="search.html#cb86-1" aria-hidden="true" tabindex="-1"></a>W<span class="ot">&lt;-</span><span class="fu">t</span>(b) <span class="sc">%*%</span> <span class="fu">solve</span>(vcovMatrix) <span class="sc">%*%</span> b</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="search.html#cb136-1" aria-hidden="true" tabindex="-1"></a>W<span class="ot">&lt;-</span><span class="fu">t</span>(b) <span class="sc">%*%</span> <span class="fu">solve</span>(vcovMatrix) <span class="sc">%*%</span> b</span></code></pre></div>
 <p>The Wald test statistic using the is 0.2277026, so we fail to reject the null. Note how clustered standard errors produce a much smaller test statistic. This is because they are more accurately reflecting the uncertainty in our estimates.</p>
 <ol start="7" style="list-style-type: decimal">
 <li>(bonus question). Suppose that risk-averse subjects have the following utility function:
@@ -1207,43 +1208,43 @@ v(\gamma)=\lim_{t\to\infty} v_t
 v_{t+1}=E\left[\max\left(-\exp(-\gamma X),v_t\exp(\gamma c)\right)\right]
 \]</span></p>
 <p>Solving numerically:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="search.html#cb87-1" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="fl">0.9</span>,<span class="at">length=</span><span class="dv">91</span>)</span>
-<span id="cb87-2"><a href="search.html#cb87-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-3"><a href="search.html#cb87-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-4"><a href="search.html#cb87-4" aria-hidden="true" tabindex="-1"></a> AcceptCutoff<span class="ot">&lt;-</span><span class="cf">function</span>(c,g) {</span>
-<span id="cb87-5"><a href="search.html#cb87-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-6"><a href="search.html#cb87-6" aria-hidden="true" tabindex="-1"></a>  v<span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">100</span></span>
-<span id="cb87-7"><a href="search.html#cb87-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (ii <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) {</span>
-<span id="cb87-8"><a href="search.html#cb87-8" aria-hidden="true" tabindex="-1"></a>    VX<span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">exp</span>(<span class="sc">-</span>g<span class="sc">*</span>X)</span>
-<span id="cb87-9"><a href="search.html#cb87-9" aria-hidden="true" tabindex="-1"></a>    VX[VX<span class="sc">&lt;</span>(v<span class="sc">*</span><span class="fu">exp</span>(g<span class="sc">*</span>c))]<span class="ot">&lt;-</span>v<span class="sc">*</span><span class="fu">exp</span>(g<span class="sc">*</span>c)</span>
-<span id="cb87-10"><a href="search.html#cb87-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb87-11"><a href="search.html#cb87-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print(abs(mean(VX)-v))</span></span>
-<span id="cb87-12"><a href="search.html#cb87-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb87-13"><a href="search.html#cb87-13" aria-hidden="true" tabindex="-1"></a>    v<span class="ot">&lt;-</span><span class="fu">mean</span>(VX)</span>
-<span id="cb87-14"><a href="search.html#cb87-14" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb87-15"><a href="search.html#cb87-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">min</span>(X[VX<span class="sc">&gt;=</span>v])</span>
-<span id="cb87-16"><a href="search.html#cb87-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb87-17"><a href="search.html#cb87-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-18"><a href="search.html#cb87-18" aria-hidden="true" tabindex="-1"></a>G<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="fl">0.01</span>,<span class="dv">10</span>,<span class="at">length=</span><span class="dv">101</span>)</span>
-<span id="cb87-19"><a href="search.html#cb87-19" aria-hidden="true" tabindex="-1"></a>c<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.2</span>)</span>
-<span id="cb87-20"><a href="search.html#cb87-20" aria-hidden="true" tabindex="-1"></a>DCutoff<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb87-21"><a href="search.html#cb87-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (cc <span class="cf">in</span> c) {</span>
-<span id="cb87-22"><a href="search.html#cb87-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (gg <span class="cf">in</span> G) {</span>
-<span id="cb87-23"><a href="search.html#cb87-23" aria-hidden="true" tabindex="-1"></a>  Cutoff<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
-<span id="cb87-24"><a href="search.html#cb87-24" aria-hidden="true" tabindex="-1"></a>  Cutoff<span class="ot">&lt;-</span><span class="fu">c</span>(Cutoff,<span class="fu">AcceptCutoff</span>(cc,gg))</span>
-<span id="cb87-25"><a href="search.html#cb87-25" aria-hidden="true" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span><span class="fu">data.frame</span>(Cutoff,G)</span>
-<span id="cb87-26"><a href="search.html#cb87-26" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>gamma<span class="ot">&lt;-</span>gg</span>
-<span id="cb87-27"><a href="search.html#cb87-27" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>c<span class="ot">=</span>cc</span>
-<span id="cb87-28"><a href="search.html#cb87-28" aria-hidden="true" tabindex="-1"></a>  DCutoff<span class="ot">&lt;-</span><span class="fu">rbind</span>(DCutoff,tmp)</span>
-<span id="cb87-29"><a href="search.html#cb87-29" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb87-30"><a href="search.html#cb87-30" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb87-31"><a href="search.html#cb87-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-32"><a href="search.html#cb87-32" aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb87-33"><a href="search.html#cb87-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(DCutoff,<span class="fu">aes</span>(<span class="at">x=</span>gamma,<span class="at">y=</span>Cutoff,<span class="at">color=</span><span class="fu">as.factor</span>(c),<span class="at">linetype=</span><span class="st">&quot;CARA&quot;</span>))</span>
-<span id="cb87-34"><a href="search.html#cb87-34" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
-<span id="cb87-35"><a href="search.html#cb87-35" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">data=</span>Predictions,<span class="fu">aes</span>(<span class="at">linetype=</span><span class="st">&quot;Risk neutral&quot;</span>,<span class="at">yintercept=</span>StoppingX,<span class="at">color=</span><span class="fu">as.factor</span>(cost)))</span>
-<span id="cb87-36"><a href="search.html#cb87-36" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb87-37"><a href="search.html#cb87-37" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="search.html#cb137-1" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="fl">0.9</span>,<span class="at">length=</span><span class="dv">91</span>)</span>
+<span id="cb137-2"><a href="search.html#cb137-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-3"><a href="search.html#cb137-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-4"><a href="search.html#cb137-4" aria-hidden="true" tabindex="-1"></a> AcceptCutoff<span class="ot">&lt;-</span><span class="cf">function</span>(c,g) {</span>
+<span id="cb137-5"><a href="search.html#cb137-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-6"><a href="search.html#cb137-6" aria-hidden="true" tabindex="-1"></a>  v<span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">100</span></span>
+<span id="cb137-7"><a href="search.html#cb137-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (ii <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) {</span>
+<span id="cb137-8"><a href="search.html#cb137-8" aria-hidden="true" tabindex="-1"></a>    VX<span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">exp</span>(<span class="sc">-</span>g<span class="sc">*</span>X)</span>
+<span id="cb137-9"><a href="search.html#cb137-9" aria-hidden="true" tabindex="-1"></a>    VX[VX<span class="sc">&lt;</span>(v<span class="sc">*</span><span class="fu">exp</span>(g<span class="sc">*</span>c))]<span class="ot">&lt;-</span>v<span class="sc">*</span><span class="fu">exp</span>(g<span class="sc">*</span>c)</span>
+<span id="cb137-10"><a href="search.html#cb137-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb137-11"><a href="search.html#cb137-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print(abs(mean(VX)-v))</span></span>
+<span id="cb137-12"><a href="search.html#cb137-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb137-13"><a href="search.html#cb137-13" aria-hidden="true" tabindex="-1"></a>    v<span class="ot">&lt;-</span><span class="fu">mean</span>(VX)</span>
+<span id="cb137-14"><a href="search.html#cb137-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb137-15"><a href="search.html#cb137-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">min</span>(X[VX<span class="sc">&gt;=</span>v])</span>
+<span id="cb137-16"><a href="search.html#cb137-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb137-17"><a href="search.html#cb137-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-18"><a href="search.html#cb137-18" aria-hidden="true" tabindex="-1"></a>G<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="fl">0.01</span>,<span class="dv">10</span>,<span class="at">length=</span><span class="dv">101</span>)</span>
+<span id="cb137-19"><a href="search.html#cb137-19" aria-hidden="true" tabindex="-1"></a>c<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.2</span>)</span>
+<span id="cb137-20"><a href="search.html#cb137-20" aria-hidden="true" tabindex="-1"></a>DCutoff<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb137-21"><a href="search.html#cb137-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (cc <span class="cf">in</span> c) {</span>
+<span id="cb137-22"><a href="search.html#cb137-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (gg <span class="cf">in</span> G) {</span>
+<span id="cb137-23"><a href="search.html#cb137-23" aria-hidden="true" tabindex="-1"></a>  Cutoff<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb137-24"><a href="search.html#cb137-24" aria-hidden="true" tabindex="-1"></a>  Cutoff<span class="ot">&lt;-</span><span class="fu">c</span>(Cutoff,<span class="fu">AcceptCutoff</span>(cc,gg))</span>
+<span id="cb137-25"><a href="search.html#cb137-25" aria-hidden="true" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span><span class="fu">data.frame</span>(Cutoff,G)</span>
+<span id="cb137-26"><a href="search.html#cb137-26" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>gamma<span class="ot">&lt;-</span>gg</span>
+<span id="cb137-27"><a href="search.html#cb137-27" aria-hidden="true" tabindex="-1"></a>  tmp<span class="sc">$</span>c<span class="ot">=</span>cc</span>
+<span id="cb137-28"><a href="search.html#cb137-28" aria-hidden="true" tabindex="-1"></a>  DCutoff<span class="ot">&lt;-</span><span class="fu">rbind</span>(DCutoff,tmp)</span>
+<span id="cb137-29"><a href="search.html#cb137-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb137-30"><a href="search.html#cb137-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb137-31"><a href="search.html#cb137-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-32"><a href="search.html#cb137-32" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb137-33"><a href="search.html#cb137-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(DCutoff,<span class="fu">aes</span>(<span class="at">x=</span>gamma,<span class="at">y=</span>Cutoff,<span class="at">color=</span><span class="fu">as.factor</span>(c),<span class="at">linetype=</span><span class="st">&quot;CARA&quot;</span>))</span>
+<span id="cb137-34"><a href="search.html#cb137-34" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb137-35"><a href="search.html#cb137-35" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">data=</span>Predictions,<span class="fu">aes</span>(<span class="at">linetype=</span><span class="st">&quot;Risk neutral&quot;</span>,<span class="at">yintercept=</span>StoppingX,<span class="at">color=</span><span class="fu">as.factor</span>(cost)))</span>
+<span id="cb137-36"><a href="search.html#cb137-36" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb137-37"><a href="search.html#cb137-37" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-139-1.png" width="672" /></p>
 <p>Note also that the person is indifferent if:
 <span class="math display">\[

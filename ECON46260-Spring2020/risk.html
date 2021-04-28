@@ -267,6 +267,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="17.1" data-path="sequential-games.html"><a href="sequential-games.html#instructions-and-information-about-the-game"><i class="fa fa-check"></i><b>17.1</b> Instructions and information about the game</a></li>
 <li class="chapter" data-level="17.2" data-path="sequential-games.html"><a href="sequential-games.html#questions-5"><i class="fa fa-check"></i><b>17.2</b> Questions</a></li>
+<li class="chapter" data-level="17.3" data-path="sequential-games.html"><a href="sequential-games.html#solutions-7"><i class="fa fa-check"></i><b>17.3</b> Solutions</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="exams.html"><a href="exams.html"><i class="fa fa-check"></i>Exams</a></li>
 <li class="chapter" data-level="18" data-path="midterm-exam.html"><a href="midterm-exam.html"><i class="fa fa-check"></i><b>18</b> Midterm Exam</a>
@@ -282,7 +283,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.2.2" data-path="midterm-exam.html"><a href="midterm-exam.html#data-1"><i class="fa fa-check"></i><b>18.2.2</b> Data</a></li>
 <li class="chapter" data-level="18.2.3" data-path="midterm-exam.html"><a href="midterm-exam.html#questions-7"><i class="fa fa-check"></i><b>18.2.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="18.3" data-path="midterm-exam.html"><a href="midterm-exam.html#solutions-7"><i class="fa fa-check"></i><b>18.3</b> Solutions</a>
+<li class="chapter" data-level="18.3" data-path="midterm-exam.html"><a href="midterm-exam.html#solutions-8"><i class="fa fa-check"></i><b>18.3</b> Solutions</a>
 <ul>
 <li class="chapter" data-level="18.3.1" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-2-1"><i class="fa fa-check"></i><b>18.3.1</b> Experiment 2</a></li>
 <li class="chapter" data-level="18.3.2" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-2-2"><i class="fa fa-check"></i><b>18.3.2</b> Experiment 2</a></li>
@@ -331,26 +332,26 @@ Produce a plot with the expected value of each choice on the horizontal axis, an
 </div>
 <div id="solutions-2" class="section level2" number="12.2">
 <h2><span class="header-section-number">12.2</span> Solutions</h2>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="risk.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb52-2"><a href="risk.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb52-3"><a href="risk.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb52-4"><a href="risk.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load the data</span></span>
-<span id="cb52-5"><a href="risk.html#cb52-5" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">read.csv</span>(<span class="st">&quot;PS03Data.csv&quot;</span>))</span>
-<span id="cb52-6"><a href="risk.html#cb52-6" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">read.csv</span>(<span class="st">&quot;PS03Parameters.csv&quot;</span>))</span>
-<span id="cb52-7"><a href="risk.html#cb52-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-8"><a href="risk.html#cb52-8" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fl">0.2</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="risk.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb102-2"><a href="risk.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb102-3"><a href="risk.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb102-4"><a href="risk.html#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load the data</span></span>
+<span id="cb102-5"><a href="risk.html#cb102-5" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">read.csv</span>(<span class="st">&quot;PS03Data.csv&quot;</span>))</span>
+<span id="cb102-6"><a href="risk.html#cb102-6" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">read.csv</span>(<span class="st">&quot;PS03Parameters.csv&quot;</span>))</span>
+<span id="cb102-7"><a href="risk.html#cb102-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-8"><a href="risk.html#cb102-8" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fl">0.2</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Calculate the expected value of each option, and the expected utility of each option, assuming that everyone have utility function <span class="math inline">\(u(x)=x^{0.2}\)</span></li>
 </ol>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="risk.html#cb53-1" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span>(P</span>
-<span id="cb53-2"><a href="risk.html#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
-<span id="cb53-3"><a href="risk.html#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">EVA =</span> Aprob1<span class="sc">*</span>Aprize1 <span class="sc">+</span> Aprob2<span class="sc">*</span>Aprize2 <span class="sc">+</span> Aprob3<span class="sc">*</span>Aprize3,</span>
-<span id="cb53-4"><a href="risk.html#cb53-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">EVB =</span> Bprob1<span class="sc">*</span>Bprize1 <span class="sc">+</span> Bprob2<span class="sc">*</span>Bprize2 <span class="sc">+</span> Bprob3<span class="sc">*</span>Bprize3,</span>
-<span id="cb53-5"><a href="risk.html#cb53-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">EUA =</span> Aprob1<span class="sc">*</span>Aprize1<span class="sc">^</span>r <span class="sc">+</span> Aprob2<span class="sc">*</span>Aprize2<span class="sc">^</span>r <span class="sc">+</span> Aprob3<span class="sc">*</span>Aprize3<span class="sc">^</span>r,</span>
-<span id="cb53-6"><a href="risk.html#cb53-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">EUB =</span> Bprob1<span class="sc">*</span>Bprize1<span class="sc">^</span>r <span class="sc">+</span> Bprob2<span class="sc">*</span>Bprize2<span class="sc">^</span>r <span class="sc">+</span> Bprob3<span class="sc">*</span>Bprize3<span class="sc">^</span>r)</span>
-<span id="cb53-7"><a href="risk.html#cb53-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb53-8"><a href="risk.html#cb53-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-9"><a href="risk.html#cb53-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(P <span class="sc">%&gt;%</span> <span class="fu">select</span>(Problem.Number,EVA,EVB,EUA,EUB))</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="risk.html#cb103-1" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span>(P</span>
+<span id="cb103-2"><a href="risk.html#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb103-3"><a href="risk.html#cb103-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">EVA =</span> Aprob1<span class="sc">*</span>Aprize1 <span class="sc">+</span> Aprob2<span class="sc">*</span>Aprize2 <span class="sc">+</span> Aprob3<span class="sc">*</span>Aprize3,</span>
+<span id="cb103-4"><a href="risk.html#cb103-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">EVB =</span> Bprob1<span class="sc">*</span>Bprize1 <span class="sc">+</span> Bprob2<span class="sc">*</span>Bprize2 <span class="sc">+</span> Bprob3<span class="sc">*</span>Bprize3,</span>
+<span id="cb103-5"><a href="risk.html#cb103-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">EUA =</span> Aprob1<span class="sc">*</span>Aprize1<span class="sc">^</span>r <span class="sc">+</span> Aprob2<span class="sc">*</span>Aprize2<span class="sc">^</span>r <span class="sc">+</span> Aprob3<span class="sc">*</span>Aprize3<span class="sc">^</span>r,</span>
+<span id="cb103-6"><a href="risk.html#cb103-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">EUB =</span> Bprob1<span class="sc">*</span>Bprize1<span class="sc">^</span>r <span class="sc">+</span> Bprob2<span class="sc">*</span>Bprize2<span class="sc">^</span>r <span class="sc">+</span> Bprob3<span class="sc">*</span>Bprize3<span class="sc">^</span>r)</span>
+<span id="cb103-7"><a href="risk.html#cb103-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb103-8"><a href="risk.html#cb103-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-9"><a href="risk.html#cb103-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(P <span class="sc">%&gt;%</span> <span class="fu">select</span>(Problem.Number,EVA,EVB,EUA,EUB))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -559,9 +560,9 @@ C&amp;=\left(0.5\times 0^{r}+0.5\times 1^{r}\right)^{1/r}\\
 and so <span class="math inline">\(0.5^{1/0.2}=0.5^5\approx\$0.031\)</span>
 Produce a plot with the expected value of each choice on the horizontal axis, and the certainty equivalent of each choice on the vertical axis. Incluse a <span class="math inline">\(45^\circ\)</span> line (i.e. plot <span class="math inline">\(y=x\)</span>), and explain the relationship between this line and the points that you have plot.</li>
 </ol>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="risk.html#cb54-1" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span>P <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">CEA =</span> EUA<span class="sc">^</span>{<span class="dv">1</span><span class="sc">/</span>r},<span class="at">CEB =</span> EUB<span class="sc">^</span>{<span class="dv">1</span><span class="sc">/</span>r})</span>
-<span id="cb54-2"><a href="risk.html#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-3"><a href="risk.html#cb54-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(P <span class="sc">%&gt;%</span> <span class="fu">select</span>(Problem.Number,CEA,CEB))</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="risk.html#cb104-1" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span>P <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">CEA =</span> EUA<span class="sc">^</span>{<span class="dv">1</span><span class="sc">/</span>r},<span class="at">CEB =</span> EUB<span class="sc">^</span>{<span class="dv">1</span><span class="sc">/</span>r})</span>
+<span id="cb104-2"><a href="risk.html#cb104-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-3"><a href="risk.html#cb104-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(P <span class="sc">%&gt;%</span> <span class="fu">select</span>(Problem.Number,CEA,CEB))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -689,46 +690,46 @@ CEB
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="risk.html#cb55-1" aria-hidden="true" tabindex="-1"></a>PlotThis<span class="ot">&lt;-</span>P <span class="sc">%&gt;%</span> <span class="fu">select</span>(Problem.Number,EVA,CEA)</span>
-<span id="cb55-2"><a href="risk.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(PlotThis)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Problem.Number&quot;</span>,<span class="st">&quot;EV&quot;</span>,<span class="st">&quot;CE&quot;</span>)</span>
-<span id="cb55-3"><a href="risk.html#cb55-3" aria-hidden="true" tabindex="-1"></a>PlotThis<span class="sc">$</span>choice<span class="ot">=</span><span class="st">&quot;a&quot;</span></span>
-<span id="cb55-4"><a href="risk.html#cb55-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-5"><a href="risk.html#cb55-5" aria-hidden="true" tabindex="-1"></a>tmp<span class="ot">&lt;-</span>P <span class="sc">%&gt;%</span> <span class="fu">select</span>(Problem.Number,EVB,CEB)</span>
-<span id="cb55-6"><a href="risk.html#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tmp)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Problem.Number&quot;</span>,<span class="st">&quot;EV&quot;</span>,<span class="st">&quot;CE&quot;</span>)</span>
-<span id="cb55-7"><a href="risk.html#cb55-7" aria-hidden="true" tabindex="-1"></a>tmp<span class="sc">$</span>choice<span class="ot">=</span><span class="st">&quot;b&quot;</span></span>
-<span id="cb55-8"><a href="risk.html#cb55-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-9"><a href="risk.html#cb55-9" aria-hidden="true" tabindex="-1"></a>PlotThis<span class="ot">&lt;-</span><span class="fu">rbind</span>(PlotThis,tmp) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">choice=</span><span class="fu">paste0</span>(choice,Problem.Number))</span>
-<span id="cb55-10"><a href="risk.html#cb55-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-11"><a href="risk.html#cb55-11" aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb55-12"><a href="risk.html#cb55-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(PlotThis,<span class="fu">aes</span>(<span class="at">x=</span>EV,<span class="at">y=</span>CE,<span class="at">label=</span>choice))</span>
-<span id="cb55-13"><a href="risk.html#cb55-13" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_text</span>()</span>
-<span id="cb55-14"><a href="risk.html#cb55-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb55-15"><a href="risk.html#cb55-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">slope=</span><span class="dv">1</span>,<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span>
-<span id="cb55-16"><a href="risk.html#cb55-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Expected value ($)&quot;</span>)</span>
-<span id="cb55-17"><a href="risk.html#cb55-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Certainty equivalent ($)&quot;</span>)</span>
-<span id="cb55-18"><a href="risk.html#cb55-18" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="risk.html#cb105-1" aria-hidden="true" tabindex="-1"></a>PlotThis<span class="ot">&lt;-</span>P <span class="sc">%&gt;%</span> <span class="fu">select</span>(Problem.Number,EVA,CEA)</span>
+<span id="cb105-2"><a href="risk.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(PlotThis)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Problem.Number&quot;</span>,<span class="st">&quot;EV&quot;</span>,<span class="st">&quot;CE&quot;</span>)</span>
+<span id="cb105-3"><a href="risk.html#cb105-3" aria-hidden="true" tabindex="-1"></a>PlotThis<span class="sc">$</span>choice<span class="ot">=</span><span class="st">&quot;a&quot;</span></span>
+<span id="cb105-4"><a href="risk.html#cb105-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-5"><a href="risk.html#cb105-5" aria-hidden="true" tabindex="-1"></a>tmp<span class="ot">&lt;-</span>P <span class="sc">%&gt;%</span> <span class="fu">select</span>(Problem.Number,EVB,CEB)</span>
+<span id="cb105-6"><a href="risk.html#cb105-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tmp)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Problem.Number&quot;</span>,<span class="st">&quot;EV&quot;</span>,<span class="st">&quot;CE&quot;</span>)</span>
+<span id="cb105-7"><a href="risk.html#cb105-7" aria-hidden="true" tabindex="-1"></a>tmp<span class="sc">$</span>choice<span class="ot">=</span><span class="st">&quot;b&quot;</span></span>
+<span id="cb105-8"><a href="risk.html#cb105-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-9"><a href="risk.html#cb105-9" aria-hidden="true" tabindex="-1"></a>PlotThis<span class="ot">&lt;-</span><span class="fu">rbind</span>(PlotThis,tmp) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">choice=</span><span class="fu">paste0</span>(choice,Problem.Number))</span>
+<span id="cb105-10"><a href="risk.html#cb105-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-11"><a href="risk.html#cb105-11" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb105-12"><a href="risk.html#cb105-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(PlotThis,<span class="fu">aes</span>(<span class="at">x=</span>EV,<span class="at">y=</span>CE,<span class="at">label=</span>choice))</span>
+<span id="cb105-13"><a href="risk.html#cb105-13" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_text</span>()</span>
+<span id="cb105-14"><a href="risk.html#cb105-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb105-15"><a href="risk.html#cb105-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">slope=</span><span class="dv">1</span>,<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb105-16"><a href="risk.html#cb105-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Expected value ($)&quot;</span>)</span>
+<span id="cb105-17"><a href="risk.html#cb105-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Certainty equivalent ($)&quot;</span>)</span>
+<span id="cb105-18"><a href="risk.html#cb105-18" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
 <p>All of the points are below the <span class="math inline">\(45^\circ\)</span> line. This is because we are modeling risk-averse preferences. That is if you are risk-averse, you would prefer the expected value to the lottery, so the certainty equivalent must necessarily be lower.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>On a separate graph, plot the expected value of choice a (horizontal axis) against the expected value of choice b (vertical axis). Also plot the certainty equivalents. Add a <span class="math inline">\(45^\circ\)</span> line. What does a point being above (or to the right of) this line mean?</li>
 </ol>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="risk.html#cb56-1" aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb56-2"><a href="risk.html#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>P)</span>
-<span id="cb56-3"><a href="risk.html#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span>CEA,<span class="at">y=</span>CEB,<span class="at">label=</span><span class="fu">paste</span>(Problem.Number),<span class="at">color=</span><span class="st">&quot;Certainty Equivalent&quot;</span>))</span>
-<span id="cb56-4"><a href="risk.html#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span>EVA,<span class="at">y=</span>EVB,<span class="at">label=</span><span class="fu">paste</span>(Problem.Number),<span class="at">color=</span><span class="st">&quot;Expected Value&quot;</span>))</span>
-<span id="cb56-5"><a href="risk.html#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">slope=</span><span class="dv">1</span>)</span>
-<span id="cb56-6"><a href="risk.html#cb56-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb56-7"><a href="risk.html#cb56-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Choice a ($)&quot;</span>)</span>
-<span id="cb56-8"><a href="risk.html#cb56-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Choice b ($)&quot;</span>)</span>
-<span id="cb56-9"><a href="risk.html#cb56-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="risk.html#cb106-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb106-2"><a href="risk.html#cb106-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>P)</span>
+<span id="cb106-3"><a href="risk.html#cb106-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span>CEA,<span class="at">y=</span>CEB,<span class="at">label=</span><span class="fu">paste</span>(Problem.Number),<span class="at">color=</span><span class="st">&quot;Certainty Equivalent&quot;</span>))</span>
+<span id="cb106-4"><a href="risk.html#cb106-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span>EVA,<span class="at">y=</span>EVB,<span class="at">label=</span><span class="fu">paste</span>(Problem.Number),<span class="at">color=</span><span class="st">&quot;Expected Value&quot;</span>))</span>
+<span id="cb106-5"><a href="risk.html#cb106-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">slope=</span><span class="dv">1</span>)</span>
+<span id="cb106-6"><a href="risk.html#cb106-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb106-7"><a href="risk.html#cb106-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Choice a ($)&quot;</span>)</span>
+<span id="cb106-8"><a href="risk.html#cb106-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Choice b ($)&quot;</span>)</span>
+<span id="cb106-9"><a href="risk.html#cb106-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
 <p>4u. (undergrad students only) For each participant in the experiment, determine whether there decisions look more like maximizing <span class="math inline">\(E(X)\)</span> or <span class="math inline">\(E(u(x))\)</span>. Report the fraction of subjects for each type. This is a deliberately vague question. <em>Hint:</em> Start by thinking about the predictions for each of these models.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="risk.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determine the predictions</span></span>
-<span id="cb57-2"><a href="risk.html#cb57-2" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span>(P</span>
-<span id="cb57-3"><a href="risk.html#cb57-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">EV_ChooseA =</span> <span class="dv">1</span><span class="sc">*</span>(EVA<span class="sc">&gt;=</span>EVB),<span class="at">EU_ChooseA =</span> <span class="dv">1</span><span class="sc">*</span>(EUA<span class="sc">&gt;=</span>EUB))</span>
-<span id="cb57-4"><a href="risk.html#cb57-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb57-5"><a href="risk.html#cb57-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-6"><a href="risk.html#cb57-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(P <span class="sc">%&gt;%</span> <span class="fu">select</span>(Problem.Number,EV_ChooseA,EU_ChooseA))</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="risk.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determine the predictions</span></span>
+<span id="cb107-2"><a href="risk.html#cb107-2" aria-hidden="true" tabindex="-1"></a>P<span class="ot">&lt;-</span>(P</span>
+<span id="cb107-3"><a href="risk.html#cb107-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">EV_ChooseA =</span> <span class="dv">1</span><span class="sc">*</span>(EVA<span class="sc">&gt;=</span>EVB),<span class="at">EU_ChooseA =</span> <span class="dv">1</span><span class="sc">*</span>(EUA<span class="sc">&gt;=</span>EUB))</span>
+<span id="cb107-4"><a href="risk.html#cb107-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb107-5"><a href="risk.html#cb107-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-6"><a href="risk.html#cb107-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(P <span class="sc">%&gt;%</span> <span class="fu">select</span>(Problem.Number,EV_ChooseA,EU_ChooseA))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -856,21 +857,21 @@ EU_ChooseA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="risk.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Merge the predictions into the data</span></span>
-<span id="cb58-2"><a href="risk.html#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-3"><a href="risk.html#cb58-3" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>(D <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(P,<span class="at">by=</span><span class="st">&quot;Problem.Number&quot;</span>)</span>
-<span id="cb58-4"><a href="risk.html#cb58-4" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ChoseA =</span> <span class="dv">1</span><span class="sc">*</span>(Decision<span class="sc">==</span><span class="st">&quot;a&quot;</span>))</span>
-<span id="cb58-5"><a href="risk.html#cb58-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="risk.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Merge the predictions into the data</span></span>
+<span id="cb108-2"><a href="risk.html#cb108-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-3"><a href="risk.html#cb108-3" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>(D <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(P,<span class="at">by=</span><span class="st">&quot;Problem.Number&quot;</span>)</span>
+<span id="cb108-4"><a href="risk.html#cb108-4" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ChoseA =</span> <span class="dv">1</span><span class="sc">*</span>(Decision<span class="sc">==</span><span class="st">&quot;a&quot;</span>))</span>
+<span id="cb108-5"><a href="risk.html#cb108-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Here I will use a similarity index: I will evaluate the fraction of decisions a subject made that was consistent with each prediction.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="risk.html#cb59-1" aria-hidden="true" tabindex="-1"></a>Tab<span class="ot">&lt;-</span>(D <span class="sc">%&gt;%</span><span class="fu">group_by</span>(ID)</span>
-<span id="cb59-2"><a href="risk.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(</span>
-<span id="cb59-3"><a href="risk.html#cb59-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">fracEV=</span><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">*</span>(ChoseA<span class="sc">==</span>EV_ChooseA)),</span>
-<span id="cb59-4"><a href="risk.html#cb59-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fracEU=</span><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">*</span>(ChoseA<span class="sc">==</span>EU_ChooseA))</span>
-<span id="cb59-5"><a href="risk.html#cb59-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb59-6"><a href="risk.html#cb59-6" aria-hidden="true" tabindex="-1"></a> <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">EUtype=</span>(fracEV<span class="sc">&lt;=</span>fracEU))</span>
-<span id="cb59-7"><a href="risk.html#cb59-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb59-8"><a href="risk.html#cb59-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-9"><a href="risk.html#cb59-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(Tab)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="risk.html#cb109-1" aria-hidden="true" tabindex="-1"></a>Tab<span class="ot">&lt;-</span>(D <span class="sc">%&gt;%</span><span class="fu">group_by</span>(ID)</span>
+<span id="cb109-2"><a href="risk.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(</span>
+<span id="cb109-3"><a href="risk.html#cb109-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">fracEV=</span><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">*</span>(ChoseA<span class="sc">==</span>EV_ChooseA)),</span>
+<span id="cb109-4"><a href="risk.html#cb109-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fracEU=</span><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">*</span>(ChoseA<span class="sc">==</span>EU_ChooseA))</span>
+<span id="cb109-5"><a href="risk.html#cb109-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb109-6"><a href="risk.html#cb109-6" aria-hidden="true" tabindex="-1"></a> <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">EUtype=</span>(fracEV<span class="sc">&lt;=</span>fracEU))</span>
+<span id="cb109-7"><a href="risk.html#cb109-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb109-8"><a href="risk.html#cb109-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-9"><a href="risk.html#cb109-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(Tab)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1033,54 +1034,54 @@ TRUE
 </table>
 <p>Which means that 40% of you behaved more like expected value-maximizers compared to expected utility-maximizers with utility function <span class="math inline">\(u(x)=x^{0.2}\)</span>.</p>
 <p>4m. (masters students only) Estimate <span class="math inline">\(r\)</span> for all participants in the experiment, where <span class="math inline">\(r\)</span> is the parameter in the utility function <span class="math inline">\(u(x)=x^r\)</span>. Consider values for <span class="math inline">\(r\)</span> in the range <span class="math inline">\((0.1,1.5)\)</span></p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="risk.html#cb60-1" aria-hidden="true" tabindex="-1"></a>rgrid<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="fl">0.1</span>,<span class="fl">1.5</span>,<span class="at">length=</span><span class="dv">100</span>)</span>
-<span id="cb60-2"><a href="risk.html#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-3"><a href="risk.html#cb60-3" aria-hidden="true" tabindex="-1"></a>pltData<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb60-4"><a href="risk.html#cb60-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-5"><a href="risk.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (rr <span class="cf">in</span> rgrid) {</span>
-<span id="cb60-6"><a href="risk.html#cb60-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># predictions</span></span>
-<span id="cb60-7"><a href="risk.html#cb60-7" aria-hidden="true" tabindex="-1"></a>  Pr<span class="ot">&lt;-</span>(P</span>
-<span id="cb60-8"><a href="risk.html#cb60-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
-<span id="cb60-9"><a href="risk.html#cb60-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">EUA =</span> Aprob1<span class="sc">*</span>Aprize1<span class="sc">^</span>rr <span class="sc">+</span> Aprob2<span class="sc">*</span>Aprize2<span class="sc">^</span>rr <span class="sc">+</span> Aprob3<span class="sc">*</span>Aprize3<span class="sc">^</span>rr,</span>
-<span id="cb60-10"><a href="risk.html#cb60-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">EUB =</span> Bprob1<span class="sc">*</span>Bprize1<span class="sc">^</span>rr <span class="sc">+</span> Bprob2<span class="sc">*</span>Bprize2<span class="sc">^</span>rr <span class="sc">+</span> Bprob3<span class="sc">*</span>Bprize3<span class="sc">^</span>rr)</span>
-<span id="cb60-11"><a href="risk.html#cb60-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">prediction=</span>(<span class="dv">1</span><span class="sc">*</span>EUA<span class="sc">&gt;=</span>EUB))</span>
-<span id="cb60-12"><a href="risk.html#cb60-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb60-13"><a href="risk.html#cb60-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb60-14"><a href="risk.html#cb60-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-15"><a href="risk.html#cb60-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb60-16"><a href="risk.html#cb60-16" aria-hidden="true" tabindex="-1"></a> Dr<span class="ot">&lt;-</span> (D <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID,ChoseA,Problem.Number)</span>
-<span id="cb60-17"><a href="risk.html#cb60-17" aria-hidden="true" tabindex="-1"></a>         <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(Pr,<span class="at">by=</span><span class="st">&quot;Problem.Number&quot;</span>)</span>
-<span id="cb60-18"><a href="risk.html#cb60-18" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(ID)</span>
-<span id="cb60-19"><a href="risk.html#cb60-19" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">frac=</span><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">*</span>(ChoseA<span class="sc">==</span>prediction)))</span>
-<span id="cb60-20"><a href="risk.html#cb60-20" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">r=</span>rr)</span>
-<span id="cb60-21"><a href="risk.html#cb60-21" aria-hidden="true" tabindex="-1"></a> )</span>
-<span id="cb60-22"><a href="risk.html#cb60-22" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb60-23"><a href="risk.html#cb60-23" aria-hidden="true" tabindex="-1"></a>  pltData<span class="ot">&lt;-</span><span class="fu">rbind</span>(pltData,Dr)</span>
-<span id="cb60-24"><a href="risk.html#cb60-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb60-25"><a href="risk.html#cb60-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-26"><a href="risk.html#cb60-26" aria-hidden="true" tabindex="-1"></a>GroupAverage<span class="ot">&lt;-</span>pltData <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(r) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">frac=</span><span class="fu">mean</span>(frac))</span>
-<span id="cb60-27"><a href="risk.html#cb60-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-28"><a href="risk.html#cb60-28" aria-hidden="true" tabindex="-1"></a>(<span class="fu">ggplot</span>(pltData,<span class="fu">aes</span>(<span class="at">x=</span>r,<span class="at">y=</span>frac,<span class="at">color=</span><span class="fu">as.factor</span>(ID)))</span>
-<span id="cb60-29"><a href="risk.html#cb60-29" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
-<span id="cb60-30"><a href="risk.html#cb60-30" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="at">data=</span>GroupAverage,<span class="fu">aes</span>(<span class="at">x=</span>r,<span class="at">y=</span>frac),<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">size=</span><span class="dv">2</span>)</span>
-<span id="cb60-31"><a href="risk.html#cb60-31" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb60-32"><a href="risk.html#cb60-32" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)</span>
-<span id="cb60-33"><a href="risk.html#cb60-33" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;r&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Fraction of decisions consistent with r&quot;</span>)</span>
-<span id="cb60-34"><a href="risk.html#cb60-34" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="risk.html#cb110-1" aria-hidden="true" tabindex="-1"></a>rgrid<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="fl">0.1</span>,<span class="fl">1.5</span>,<span class="at">length=</span><span class="dv">100</span>)</span>
+<span id="cb110-2"><a href="risk.html#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-3"><a href="risk.html#cb110-3" aria-hidden="true" tabindex="-1"></a>pltData<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb110-4"><a href="risk.html#cb110-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-5"><a href="risk.html#cb110-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (rr <span class="cf">in</span> rgrid) {</span>
+<span id="cb110-6"><a href="risk.html#cb110-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># predictions</span></span>
+<span id="cb110-7"><a href="risk.html#cb110-7" aria-hidden="true" tabindex="-1"></a>  Pr<span class="ot">&lt;-</span>(P</span>
+<span id="cb110-8"><a href="risk.html#cb110-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb110-9"><a href="risk.html#cb110-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">EUA =</span> Aprob1<span class="sc">*</span>Aprize1<span class="sc">^</span>rr <span class="sc">+</span> Aprob2<span class="sc">*</span>Aprize2<span class="sc">^</span>rr <span class="sc">+</span> Aprob3<span class="sc">*</span>Aprize3<span class="sc">^</span>rr,</span>
+<span id="cb110-10"><a href="risk.html#cb110-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">EUB =</span> Bprob1<span class="sc">*</span>Bprize1<span class="sc">^</span>rr <span class="sc">+</span> Bprob2<span class="sc">*</span>Bprize2<span class="sc">^</span>rr <span class="sc">+</span> Bprob3<span class="sc">*</span>Bprize3<span class="sc">^</span>rr)</span>
+<span id="cb110-11"><a href="risk.html#cb110-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">prediction=</span>(<span class="dv">1</span><span class="sc">*</span>EUA<span class="sc">&gt;=</span>EUB))</span>
+<span id="cb110-12"><a href="risk.html#cb110-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb110-13"><a href="risk.html#cb110-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb110-14"><a href="risk.html#cb110-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-15"><a href="risk.html#cb110-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb110-16"><a href="risk.html#cb110-16" aria-hidden="true" tabindex="-1"></a> Dr<span class="ot">&lt;-</span> (D <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID,ChoseA,Problem.Number)</span>
+<span id="cb110-17"><a href="risk.html#cb110-17" aria-hidden="true" tabindex="-1"></a>         <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(Pr,<span class="at">by=</span><span class="st">&quot;Problem.Number&quot;</span>)</span>
+<span id="cb110-18"><a href="risk.html#cb110-18" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(ID)</span>
+<span id="cb110-19"><a href="risk.html#cb110-19" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">frac=</span><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">*</span>(ChoseA<span class="sc">==</span>prediction)))</span>
+<span id="cb110-20"><a href="risk.html#cb110-20" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">r=</span>rr)</span>
+<span id="cb110-21"><a href="risk.html#cb110-21" aria-hidden="true" tabindex="-1"></a> )</span>
+<span id="cb110-22"><a href="risk.html#cb110-22" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb110-23"><a href="risk.html#cb110-23" aria-hidden="true" tabindex="-1"></a>  pltData<span class="ot">&lt;-</span><span class="fu">rbind</span>(pltData,Dr)</span>
+<span id="cb110-24"><a href="risk.html#cb110-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb110-25"><a href="risk.html#cb110-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-26"><a href="risk.html#cb110-26" aria-hidden="true" tabindex="-1"></a>GroupAverage<span class="ot">&lt;-</span>pltData <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(r) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">frac=</span><span class="fu">mean</span>(frac))</span>
+<span id="cb110-27"><a href="risk.html#cb110-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-28"><a href="risk.html#cb110-28" aria-hidden="true" tabindex="-1"></a>(<span class="fu">ggplot</span>(pltData,<span class="fu">aes</span>(<span class="at">x=</span>r,<span class="at">y=</span>frac,<span class="at">color=</span><span class="fu">as.factor</span>(ID)))</span>
+<span id="cb110-29"><a href="risk.html#cb110-29" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb110-30"><a href="risk.html#cb110-30" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="at">data=</span>GroupAverage,<span class="fu">aes</span>(<span class="at">x=</span>r,<span class="at">y=</span>frac),<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">size=</span><span class="dv">2</span>)</span>
+<span id="cb110-31"><a href="risk.html#cb110-31" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb110-32"><a href="risk.html#cb110-32" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)</span>
+<span id="cb110-33"><a href="risk.html#cb110-33" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;r&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Fraction of decisions consistent with r&quot;</span>)</span>
+<span id="cb110-34"><a href="risk.html#cb110-34" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-115-1.png" width="672" />
 Here the black line shows the average for the entire group, and each line shows the fraction of decisions consistent with <span class="math inline">\(r\)</span> for each participant.</p>
 <p>Note that we can only pin <span class="math inline">\(r\)</span> down to a range, so I am going to report the interval of <span class="math inline">\(r\)</span> that returns this maximum fraction:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="risk.html#cb61-1" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span>(pltData </span>
-<span id="cb61-2"><a href="risk.html#cb61-2" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(ID)</span>
-<span id="cb61-3"><a href="risk.html#cb61-3" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">filter</span>(frac<span class="sc">==</span><span class="fu">max</span>(frac))</span>
-<span id="cb61-4"><a href="risk.html#cb61-4" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">rmin =</span> <span class="fu">min</span>(r),<span class="at">rmax=</span><span class="fu">max</span>(r))</span>
-<span id="cb61-5"><a href="risk.html#cb61-5" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID,rmin,rmax)</span>
-<span id="cb61-6"><a href="risk.html#cb61-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span>
-<span id="cb61-7"><a href="risk.html#cb61-7" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb61-8"><a href="risk.html#cb61-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb61-9"><a href="risk.html#cb61-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-10"><a href="risk.html#cb61-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb61-11"><a href="risk.html#cb61-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="risk.html#cb111-1" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span>(pltData </span>
+<span id="cb111-2"><a href="risk.html#cb111-2" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(ID)</span>
+<span id="cb111-3"><a href="risk.html#cb111-3" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">filter</span>(frac<span class="sc">==</span><span class="fu">max</span>(frac))</span>
+<span id="cb111-4"><a href="risk.html#cb111-4" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">rmin =</span> <span class="fu">min</span>(r),<span class="at">rmax=</span><span class="fu">max</span>(r))</span>
+<span id="cb111-5"><a href="risk.html#cb111-5" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID,rmin,rmax)</span>
+<span id="cb111-6"><a href="risk.html#cb111-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb111-7"><a href="risk.html#cb111-7" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb111-8"><a href="risk.html#cb111-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb111-9"><a href="risk.html#cb111-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-10"><a href="risk.html#cb111-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb111-11"><a href="risk.html#cb111-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(d)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1208,13 +1209,13 @@ rmax
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="risk.html#cb62-1" aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb62-2"><a href="risk.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span>
-<span id="cb62-3"><a href="risk.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_ecdf</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>rmin,<span class="at">color=</span><span class="st">&quot;r - minimum&quot;</span>))</span>
-<span id="cb62-4"><a href="risk.html#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_ecdf</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>rmax,<span class="at">color=</span><span class="st">&quot;r - maximum&quot;</span>))</span>
-<span id="cb62-5"><a href="risk.html#cb62-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb62-6"><a href="risk.html#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;r&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Fraction more risk averse than r&quot;</span>)</span>
-<span id="cb62-7"><a href="risk.html#cb62-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="risk.html#cb112-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb112-2"><a href="risk.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span>
+<span id="cb112-3"><a href="risk.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_ecdf</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>rmin,<span class="at">color=</span><span class="st">&quot;r - minimum&quot;</span>))</span>
+<span id="cb112-4"><a href="risk.html#cb112-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_ecdf</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>rmax,<span class="at">color=</span><span class="st">&quot;r - maximum&quot;</span>))</span>
+<span id="cb112-5"><a href="risk.html#cb112-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb112-6"><a href="risk.html#cb112-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;r&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Fraction more risk averse than r&quot;</span>)</span>
+<span id="cb112-7"><a href="risk.html#cb112-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
 </div>
 </div>
