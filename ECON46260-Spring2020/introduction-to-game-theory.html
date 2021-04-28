@@ -289,6 +289,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.3.2" data-path="midterm-exam.html"><a href="midterm-exam.html#experiment-2-2"><i class="fa fa-check"></i><b>18.3.2</b> Experiment 2</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="19" data-path="final-exam.html"><a href="final-exam.html"><i class="fa fa-check"></i><b>19</b> Final exam</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="final-exam.html"><a href="final-exam.html#experiment-1---volunteers-dilemma"><i class="fa fa-check"></i><b>19.1</b> Experiment 1 - Volunteer’s Dilemma</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="final-exam.html"><a href="final-exam.html#instructions-6"><i class="fa fa-check"></i><b>19.1.1</b> Instructions</a></li>
+<li class="chapter" data-level="19.1.2" data-path="final-exam.html"><a href="final-exam.html#questions-8"><i class="fa fa-check"></i><b>19.1.2</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="final-exam.html"><a href="final-exam.html#experiment-2-centipede-game"><i class="fa fa-check"></i><b>19.2</b> Experiment 2 – Centipede game</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="final-exam.html"><a href="final-exam.html#instructions-7"><i class="fa fa-check"></i><b>19.2.1</b> Instructions</a></li>
+<li class="chapter" data-level="19.2.2" data-path="final-exam.html"><a href="final-exam.html#questions-9"><i class="fa fa-check"></i><b>19.2.2</b> Questions</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -329,11 +342,6 @@ with each possible combination of strategies.</p>
 <h2>Examples of payoff matrices</h2>
 <div style="display: flex;">
 <div>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="introduction-to-game-theory.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From Agner Table 1.4</span></span>
-<span id="cb36-2"><a href="introduction-to-game-theory.html#cb36-2" aria-hidden="true" tabindex="-1"></a>Game1<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;2, 2&quot;</span>, <span class="st">&quot;0, 0&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;0, 0&quot;</span>, <span class="st">&quot;1, 1&quot;</span>))</span>
-<span id="cb36-3"><a href="introduction-to-game-theory.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game1)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb36-4"><a href="introduction-to-game-theory.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game1)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb36-5"><a href="introduction-to-game-theory.html#cb36-5" aria-hidden="true" tabindex="-1"></a>Game1 <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">add_header_above</span>(<span class="at">header =</span> <span class="fu">c</span>(<span class="st">&quot;Game 1&quot;</span> <span class="ot">=</span> <span class="dv">3</span>))</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -379,10 +387,6 @@ Down
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="introduction-to-game-theory.html#cb37-1" aria-hidden="true" tabindex="-1"></a>Game2<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;5, 1&quot;</span>, <span class="st">&quot;2, 0&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;5, 1&quot;</span>, <span class="st">&quot;1, 2&quot;</span>))</span>
-<span id="cb37-2"><a href="introduction-to-game-theory.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game2)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb37-3"><a href="introduction-to-game-theory.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game2)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb37-4"><a href="introduction-to-game-theory.html#cb37-4" aria-hidden="true" tabindex="-1"></a>Game2 <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)<span class="sc">%&gt;%</span> <span class="fu">add_header_above</span>(<span class="at">header =</span> <span class="fu">c</span>(<span class="st">&quot;Game 2&quot;</span> <span class="ot">=</span> <span class="dv">3</span>))</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -428,10 +432,6 @@ Down
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="introduction-to-game-theory.html#cb38-1" aria-hidden="true" tabindex="-1"></a>Game<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;5, 5&quot;</span>, <span class="st">&quot;0, 6&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;6, 0&quot;</span>, <span class="st">&quot;2, 2&quot;</span>))</span>
-<span id="cb38-2"><a href="introduction-to-game-theory.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb38-3"><a href="introduction-to-game-theory.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb38-4"><a href="introduction-to-game-theory.html#cb38-4" aria-hidden="true" tabindex="-1"></a>Game <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)<span class="sc">%&gt;%</span> <span class="fu">add_header_above</span>(<span class="at">header =</span> <span class="fu">c</span>(<span class="st">&quot;Game 3&quot;</span> <span class="ot">=</span> <span class="dv">3</span>))</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -482,10 +482,6 @@ Down
 <p><span class="math inline">\(\quad\)</span></p>
 </div>
 <div>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="introduction-to-game-theory.html#cb39-1" aria-hidden="true" tabindex="-1"></a>Game<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;5, 5&quot;</span>, <span class="st">&quot;0, 2&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;2, 0&quot;</span>, <span class="st">&quot;2, 2&quot;</span>))</span>
-<span id="cb39-2"><a href="introduction-to-game-theory.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb39-3"><a href="introduction-to-game-theory.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb39-4"><a href="introduction-to-game-theory.html#cb39-4" aria-hidden="true" tabindex="-1"></a>Game <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)<span class="sc">%&gt;%</span> <span class="fu">add_header_above</span>(<span class="at">header =</span> <span class="fu">c</span>(<span class="st">&quot;Game 4&quot;</span> <span class="ot">=</span> <span class="dv">3</span>))</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -531,10 +527,6 @@ Down
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="introduction-to-game-theory.html#cb40-1" aria-hidden="true" tabindex="-1"></a>Game<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;2, 1&quot;</span>, <span class="st">&quot;0, 0&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;0, 0&quot;</span>, <span class="st">&quot;1, 2&quot;</span>))</span>
-<span id="cb40-2"><a href="introduction-to-game-theory.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb40-3"><a href="introduction-to-game-theory.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb40-4"><a href="introduction-to-game-theory.html#cb40-4" aria-hidden="true" tabindex="-1"></a>Game <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)  <span class="sc">%&gt;%</span> <span class="fu">add_header_above</span>(<span class="at">header =</span> <span class="fu">c</span>(<span class="st">&quot;Game 5&quot;</span> <span class="ot">=</span> <span class="dv">3</span>))</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -580,10 +572,6 @@ Down
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="introduction-to-game-theory.html#cb41-1" aria-hidden="true" tabindex="-1"></a>Game3<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;6, 2&quot;</span>, <span class="st">&quot;5, 1&quot;</span>,<span class="st">&quot;4, 3&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;3, 6&quot;</span>, <span class="st">&quot;8, 4&quot;</span>,<span class="st">&quot;2, 1&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;2, 8&quot;</span>,<span class="st">&quot;9, 6&quot;</span>, <span class="st">&quot;3, 0&quot;</span>))</span>
-<span id="cb41-2"><a href="introduction-to-game-theory.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game3)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;middle&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb41-3"><a href="introduction-to-game-theory.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game3)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Middle&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb41-4"><a href="introduction-to-game-theory.html#cb41-4" aria-hidden="true" tabindex="-1"></a>Game3 <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)  <span class="sc">%&gt;%</span> <span class="fu">add_header_above</span>(<span class="at">header =</span> <span class="fu">c</span>(<span class="st">&quot;Game 6&quot;</span> <span class="ot">=</span> <span class="dv">4</span>))</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -657,11 +645,6 @@ Down
 <p><span class="math inline">\(\quad\)</span></p>
 </div>
 <div>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="introduction-to-game-theory.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From Agner Table 1.4</span></span>
-<span id="cb42-2"><a href="introduction-to-game-theory.html#cb42-2" aria-hidden="true" tabindex="-1"></a>Game1<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;5, 2&quot;</span>, <span class="st">&quot;1, 1&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;1, 1&quot;</span>, <span class="st">&quot;2, 5&quot;</span>))</span>
-<span id="cb42-3"><a href="introduction-to-game-theory.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game1)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb42-4"><a href="introduction-to-game-theory.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game1)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb42-5"><a href="introduction-to-game-theory.html#cb42-5" aria-hidden="true" tabindex="-1"></a>Game1 <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">add_header_above</span>(<span class="at">header =</span> <span class="fu">c</span>(<span class="st">&quot;Game 7&quot;</span> <span class="ot">=</span> <span class="dv">3</span>))</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -707,10 +690,6 @@ Down
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="introduction-to-game-theory.html#cb43-1" aria-hidden="true" tabindex="-1"></a>Game2<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;4, 1&quot;</span>, <span class="st">&quot;2, 0&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;5, 1&quot;</span>, <span class="st">&quot;1, 2&quot;</span>))</span>
-<span id="cb43-2"><a href="introduction-to-game-theory.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game2)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb43-3"><a href="introduction-to-game-theory.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game2)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb43-4"><a href="introduction-to-game-theory.html#cb43-4" aria-hidden="true" tabindex="-1"></a>Game2 <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)<span class="sc">%&gt;%</span> <span class="fu">add_header_above</span>(<span class="at">header =</span> <span class="fu">c</span>(<span class="st">&quot;Game 8&quot;</span> <span class="ot">=</span> <span class="dv">3</span>))</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -756,10 +735,6 @@ Down
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="introduction-to-game-theory.html#cb44-1" aria-hidden="true" tabindex="-1"></a>Game<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;1, 1&quot;</span>, <span class="st">&quot;0, 0&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;0, 0&quot;</span>, <span class="st">&quot;0, 0&quot;</span>))</span>
-<span id="cb44-2"><a href="introduction-to-game-theory.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb44-3"><a href="introduction-to-game-theory.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb44-4"><a href="introduction-to-game-theory.html#cb44-4" aria-hidden="true" tabindex="-1"></a>Game <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)<span class="sc">%&gt;%</span> <span class="fu">add_header_above</span>(<span class="at">header =</span> <span class="fu">c</span>(<span class="st">&quot;Game 9&quot;</span> <span class="ot">=</span> <span class="dv">3</span>))</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -876,10 +851,6 @@ is, every game in which all players have a finite number of pure strategies has 
 <p>Sometimes the comparative statics of MSNE are counter-intuitive, and sometimes not:</p>
 <div style="display: flex;">
 <div>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="introduction-to-game-theory.html#cb45-1" aria-hidden="true" tabindex="-1"></a>Game<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;a, a&quot;</span>, <span class="st">&quot;0, 0&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;0, 0&quot;</span>, <span class="st">&quot;1, 1&quot;</span>))</span>
-<span id="cb45-2"><a href="introduction-to-game-theory.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb45-3"><a href="introduction-to-game-theory.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb45-4"><a href="introduction-to-game-theory.html#cb45-4" aria-hidden="true" tabindex="-1"></a>Game <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -923,10 +894,6 @@ Down
 <p><span class="math inline">\(\quad\quad\)</span></p>
 </div>
 <div>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="introduction-to-game-theory.html#cb46-1" aria-hidden="true" tabindex="-1"></a>Game<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;a, 1&quot;</span>, <span class="st">&quot;0, 0&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;0, 0&quot;</span>, <span class="st">&quot;1, a&quot;</span>))</span>
-<span id="cb46-2"><a href="introduction-to-game-theory.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb46-3"><a href="introduction-to-game-theory.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb46-4"><a href="introduction-to-game-theory.html#cb46-4" aria-hidden="true" tabindex="-1"></a>Game <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -970,10 +937,6 @@ Down
 <p><span class="math inline">\(\quad\quad\)</span></p>
 </div>
 <div>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="introduction-to-game-theory.html#cb47-1" aria-hidden="true" tabindex="-1"></a>Game<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;0, 0&quot;</span>, <span class="st">&quot;a, 1&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;1, a&quot;</span>, <span class="st">&quot;1, 1&quot;</span>))</span>
-<span id="cb47-2"><a href="introduction-to-game-theory.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb47-3"><a href="introduction-to-game-theory.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb47-4"><a href="introduction-to-game-theory.html#cb47-4" aria-hidden="true" tabindex="-1"></a>Game <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1017,10 +980,6 @@ Down
 <p><span class="math inline">\(\quad\quad\)</span></p>
 </div>
 <div>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="introduction-to-game-theory.html#cb48-1" aria-hidden="true" tabindex="-1"></a>Game<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="st">&quot;0, 0&quot;</span>, <span class="st">&quot;a, 1&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;1, a&quot;</span>, <span class="st">&quot;1, 1&quot;</span>))</span>
-<span id="cb48-2"><a href="introduction-to-game-theory.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;left&quot;</span>,<span class="st">&quot;right&quot;</span>)</span>
-<span id="cb48-3"><a href="introduction-to-game-theory.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Game)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Up&quot;</span>,<span class="st">&quot;Down&quot;</span>)</span>
-<span id="cb48-4"><a href="introduction-to-game-theory.html#cb48-4" aria-hidden="true" tabindex="-1"></a>Game <span class="sc">%&gt;%</span> <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>,<span class="at">htmltable_class=</span><span class="st">&quot;lightable-classic&quot;</span>)</span></code></pre></div>
 <table class=" lightable-classic" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
