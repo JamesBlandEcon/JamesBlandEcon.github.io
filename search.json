@@ -1,0 +1,13 @@
+{
+  "articles": [
+    {
+      "path": "index.html",
+      "title": "JamesBlandEcon",
+      "description": "Welcome to the website. I hope you enjoy it!\n",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-09-15T15:43:45-04:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}
