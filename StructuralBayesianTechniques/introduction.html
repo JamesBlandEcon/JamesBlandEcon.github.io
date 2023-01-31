@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Introduction | Structural Bayesian Techniques for Experimental and Behavioral Economics</title>
+  <meta name="description" content="1 Introduction | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Introduction | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Introduction | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2023-01-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="setting-the-stage.html"/>
+<link rel="next" href="getting-started-in-stan.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="section.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="setting-the-stage.html"><a href="setting-the-stage.html"><i class="fa fa-check"></i>Setting the stage</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-does-your-theory-say-about-your-data"><i class="fa fa-check"></i><b>1.1</b> What does your theory say about your data?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-do-your-data-say-about-your-theory"><i class="fa fa-check"></i><b>1.2</b> What do your data say about your theory?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-do-your-parameters-say-about-other-things"><i class="fa fa-check"></i><b>1.3</b> What do your parameters say about other things?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#what-does-your-expertise-say-about-your-parameters"><i class="fa fa-check"></i><b>1.4</b> What does your expertise say about your parameters?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>Stan</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#installation-in-r"><i class="fa fa-check"></i><b>2.1</b> Installation in <em>R</em></a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-anatomy-of-a-stan-program"><i class="fa fa-check"></i><b>2.2</b> The anatomy of a <em>Stan</em> program</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#data-block"><i class="fa fa-check"></i><b>2.2.1</b> Data block</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#transformed-data-block"><i class="fa fa-check"></i><b>2.2.2</b> Transformed data block</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#parameters-block"><i class="fa fa-check"></i><b>2.2.3</b> Parameters block</a></li>
+<li class="chapter" data-level="2.2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#model-block"><i class="fa fa-check"></i><b>2.2.4</b> Model block</a></li>
+<li class="chapter" data-level="2.2.5" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#generated-quantities-block"><i class="fa fa-check"></i><b>2.2.5</b> Generated quantities block</a></li>
+<li class="chapter" data-level="2.2.6" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-final-product"><i class="fa fa-check"></i><b>2.2.6</b> The final product</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#estimating-a-model"><i class="fa fa-check"></i><b>2.3</b> Estimating a model</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#looking-at-the-results"><i class="fa fa-check"></i><b>2.4</b> Looking at the results</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html"><i class="fa fa-check"></i><b>3</b> Probabilistic models of behavior</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#the-problem-with-deterministic-models"><i class="fa fa-check"></i><b>3.1</b> The problem with deterministic models</a></li>
+<li class="chapter" data-level="3.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#what-is-a-probabilistic-model"><i class="fa fa-check"></i><b>3.2</b> What <em>is</em> a probabilistic model?</a></li>
+<li class="chapter" data-level="3.3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#example-dataset-and-model"><i class="fa fa-check"></i><b>3.3</b> Example dataset and model</a></li>
+<li class="chapter" data-level="3.4" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#optimal-choice-plus-an-error"><i class="fa fa-check"></i><b>3.4</b> Optimal choice plus an error</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-1"><i class="fa fa-check"></i><b>3.4.1</b> Estimating a model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#utility-based-models"><i class="fa fa-check"></i><b>3.5</b> Utility-based models</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-2"><i class="fa fa-check"></i><b>3.5.1</b> Estimating a model</a></li>
+<li class="chapter" data-level="3.5.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#doing-something-with-the-estimates"><i class="fa fa-check"></i><b>3.5.2</b> Doing something with the estimates</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i>Applications</a></li>
+<li class="chapter" data-level="4" data-path="strategy-frequency-estimation.html"><a href="strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>4</b> Strategy Frequency Estimation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="strategy-frequency-estimation.html"><a href="strategy-frequency-estimation.html#basic-model-and-data"><i class="fa fa-check"></i><b>4.1</b> Basic model and data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="strategy-frequency-estimation.html"><a href="strategy-frequency-estimation.html#data-wrangling"><i class="fa fa-check"></i><b>4.1.1</b> Data wrangling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="outline-of-future-chapters.html"><a href="outline-of-future-chapters.html"><i class="fa fa-check"></i>Outline of future chapters</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Structural Bayesian Techniques for Experimental and Behavioral Economics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Introduction<a href="introduction.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-does-your-theory-say-about-your-data" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> What does your theory say about your data?<a href="introduction.html#what-does-your-theory-say-about-your-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you are reading this book, I can assume that you are interested in estimating an economic model of how people behave in a particular environment. But what does it mean to “estimate” an <em>economic</em> model? When we talk of estimating models, we usually mean <em>econometric</em> models. For example we might estimate the coefficients <span class="math inline">\(\beta\)</span> in a linear regression model:</p>
+<p><span class="math display">\[
+Y_i=\beta_0+\beta_1X_i+\epsilon_i
+\]</span></p>
+<p>From my perspective, this equation is a model for how (say) treatment conditions in an experiment <span class="math inline">\(X_i\)</span> influence choices made by the experiment’s participants <span class="math inline">\(Y_i\)</span>. The model assumes a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The <em>parameters</em> of this model <span class="math inline">\((\beta_0,\beta_1)^\top\)</span> describe the specific linear relationship that exists in the data, and our goal in linear regression is to estimate (and hopefully interpret) these parameters. While there are some special cases in which our theory will tell us that there should be a linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>,<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> this framework is woefully limiting relative to the rich set of economic models we might want to take to our data. Instead, we need a framework for translating our theoretical ideas about how our participants might behave into <em>probabilistic predictions</em> about what the data these participants generate will look like.</p>
+<p>To fix ideas, suppose that in our experiment, we elicit participants’ risk preferences using an investment task:</p>
+<blockquote>
+<p>You are endowed with 100 tokens, and can invest any amount of these tokens in a lottery. You have a chance of <span class="math inline">\(1/2\)</span> (50%) to win [<span class="math inline">\(X\)</span>] times the tokens you bet on the lottery, and a <span class="math inline">\(1/2\)</span> (50%) chance that these tokens are lost. (adapted from <span class="citation">Bland (<a href="#ref-Bland2019JMP" role="doc-biblioref">2019</a>)</span>)</p>
+</blockquote>
+<p>We have an <em>economic model</em>, expected utility maximization, that makes predictions in this environment. Specifically, let <span class="math inline">\(y^*\)</span> be the number of tokens that a participant chooses to invest, then they will choose <span class="math inline">\(y^*\)</span> such that:</p>
+<p><span class="math display">\[
+y^*=\arg\max_{y\in[0,100]}\left\{0.5 u(100-y)+0.5 u(100-y + Xy)\right\}
+\]</span></p>
+<p>where <span class="math inline">\(u(x)\)</span> is the participant’s utility function over certain amounts of money. We further make the simplifying assumption that this utility function takes on the constant relative risk-aversion functional form:</p>
+<p><span class="math display">\[
+u(x)=\frac{x^{1-r}}{1-r}
+\]</span></p>
+<p>From here, we can solve the maximization problem using the first-order condition (please bear with me, I like to show my working):</p>
+<p><span class="math display">\[
+\begin{aligned}
+\max_{y\in[0,100]}&amp;\left\{0.5 \frac{(100-y)^{1-r}}{1-r}+0.5 \frac{(100-y + Xy)^{1-r}}{1-r}\right\}\\
+0&amp;=-0.5(100-y^*)^{-r}+0.5(X-1)(100-y^*+Xy^*)^{-r}\\
+(100-y^*)^{-r}&amp;=(X-1)(100+(X-1)y^*)^{-r}\\
+y^*&amp;=\frac{100(1-(X-1)^{-1/r})}{(X-1)^{1-1/r}+1}
+\end{aligned}
+\]</span></p>
+<p>Which makes predictions that look like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="introduction.html#cb1-2" aria-hidden="true" tabindex="-1"></a>dplt1<span class="ot">&lt;-</span>(</span>
+<span id="cb1-3"><a href="introduction.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand.grid</span>(<span class="at">X=</span><span class="fu">seq</span>(<span class="fl">2.01</span>,<span class="dv">6</span>,<span class="at">length=</span><span class="dv">100</span>),<span class="at">r =</span> <span class="fu">c</span>(<span class="fl">0.2</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.8</span>))</span>
+<span id="cb1-4"><a href="introduction.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">y=</span><span class="dv">100</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>(X<span class="dv">-1</span>)<span class="sc">^</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span>r))<span class="sc">/</span>((X<span class="dv">-1</span>)<span class="sc">^</span>(<span class="dv">1-1</span><span class="sc">/</span>r)<span class="sc">+</span><span class="dv">1</span>),</span>
+<span id="cb1-5"><a href="introduction.html#cb1-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">r =</span> <span class="fu">paste</span>(<span class="st">&quot;r =&quot;</span>,r)</span>
+<span id="cb1-6"><a href="introduction.html#cb1-6" aria-hidden="true" tabindex="-1"></a>             )</span>
+<span id="cb1-7"><a href="introduction.html#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="introduction.html#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="introduction.html#cb1-9" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb1-10"><a href="introduction.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(dplt1,<span class="fu">aes</span>(<span class="at">x=</span>X,<span class="at">y=</span>y,<span class="at">color=</span>r))</span>
+<span id="cb1-11"><a href="introduction.html#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>()</span>
+<span id="cb1-12"><a href="introduction.html#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;X&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;y (optimal choice)&quot;</span>)</span>
+<span id="cb1-13"><a href="introduction.html#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb1-14"><a href="introduction.html#cb1-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-15"><a href="introduction.html#cb1-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="index_files/figure-html/unnamed-chunk-4-1.png" alt="Predictions from a model of expected utility maximization. $r$ is the parameter in the CRRA utility function $u(x)=\frac{x^{1-r}}{1-r}$" width="672" />
+<p class="caption">
+Figure 1.1: Predictions from a model of expected utility maximization. <span class="math inline">\(r\)</span> is the parameter in the CRRA utility function <span class="math inline">\(u(x)=\frac{x^{1-r}}{1-r}\)</span>
+</p>
+</div>
+<p>How would you go about estimating <span class="math inline">\(r\)</span>? The relationship certainly isn’t linear. The solution I will teach you in this book is to modify the model so that it makes <em>probabilistic</em> predictions, rather than the <em>deterministic</em> predictions made in the figure above. Firstly, this is useful because it means that we can write down a likelihood function. This permits us to estimate our model using the Bayesian techniques described in this book, or maximum likelihood techniques if that is your thing. If done right, this is also a <em>behaviorally plausible</em> extension of the model with deterministic choice: like ourselves, our experiments’ participants are not infallible, and so will choose something different to our model’s point prediction. Furthermore, and perhaps more importantly, it is heroic to assume that the deterministic model of choice we wrote down above is <em>exactly</em> what our participants are doing, so having a component of choice that is not explicitly accounted for in the model is probably a good idea.</p>
+<p>For this example, a probabilistic extension to the model could involve adding an error term to the end of our prediction:</p>
+<p><span class="math display">\[
+y=\frac{100(1-(X-1)^{-1/r})}{(X-1)^{1-1/r}+1}+\epsilon,\quad \epsilon\sim N(0,\sigma^2)
+\]</span></p>
+<p>Or perhaps specifying a logistic choice rule, where choices that yield greater utility are more likely to be made than choices that yield less utility:</p>
+<p><span class="math display">\[
+\Pr(y=k)=\frac{\exp\left(\lambda\left(0.5\frac{(100-k)^{1-r}}{1-r}+0.5\frac{(100+(X-1)k)^{1-r}}{1-r}\right)\right)}{\sum_{j=1}^{100}\exp\left(\lambda\left(0.5\frac{(100-j)^{1-r}}{1-r}+0.5\frac{(100+(X-1)j)^{1-r}}{1-r}\right)\right)}
+\]</span></p>
+<p>For example, the predictions using the logistic choice rule with <span class="math inline">\(\lambda=10\)</span> are now probability distributions:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction.html#cb2-1" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fl">0.4</span></span>
+<span id="cb2-2"><a href="introduction.html#cb2-2" aria-hidden="true" tabindex="-1"></a>lambda<span class="ot">&lt;-</span><span class="dv">10</span></span>
+<span id="cb2-3"><a href="introduction.html#cb2-3" aria-hidden="true" tabindex="-1"></a>dplt<span class="ot">&lt;-</span>(</span>
+<span id="cb2-4"><a href="introduction.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand.grid</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="fl">2.25</span>,<span class="fl">2.75</span>,<span class="fl">3.5</span>,<span class="fl">5.5</span>),<span class="at">y=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="at">length=</span><span class="dv">101</span>),<span class="at">r=</span><span class="fu">c</span>(<span class="fl">0.2</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.8</span>))</span>
+<span id="cb2-5"><a href="introduction.html#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">EU =</span> <span class="fl">0.5</span><span class="sc">*</span>(<span class="dv">100</span><span class="sc">-</span>y)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">+</span><span class="fl">0.5</span><span class="sc">*</span>(<span class="dv">100</span><span class="sc">+</span>y<span class="sc">*</span>(X<span class="dv">-1</span>))<span class="sc">^</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>r))</span>
+<span id="cb2-6"><a href="introduction.html#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(X,r)</span>
+<span id="cb2-7"><a href="introduction.html#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pr =</span> <span class="fu">exp</span>(lambda<span class="sc">*</span>(EU<span class="sc">-</span><span class="fu">max</span>(EU)))<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">exp</span>(lambda<span class="sc">*</span>(EU<span class="sc">-</span><span class="fu">max</span>(EU)))))</span>
+<span id="cb2-8"><a href="introduction.html#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">X=</span><span class="fu">paste</span>(<span class="st">&quot;X =&quot;</span>,X),</span>
+<span id="cb2-9"><a href="introduction.html#cb2-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">r=</span><span class="fu">paste</span>(<span class="st">&quot;r =&quot;</span>,r))</span>
+<span id="cb2-10"><a href="introduction.html#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="introduction.html#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="introduction.html#cb2-12" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb2-13"><a href="introduction.html#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(dplt,<span class="fu">aes</span>(<span class="at">x=</span>y,<span class="at">y=</span>pr))</span>
+<span id="cb2-14"><a href="introduction.html#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>()</span>
+<span id="cb2-15"><a href="introduction.html#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_grid</span>(r<span class="sc">~</span>X,<span class="at">scales=</span><span class="st">&quot;free&quot;</span>)</span>
+<span id="cb2-16"><a href="introduction.html#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb2-17"><a href="introduction.html#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Tokens invested&quot;</span>)</span>
+<span id="cb2-18"><a href="introduction.html#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;probability&quot;</span>)</span>
+<span id="cb2-19"><a href="introduction.html#cb2-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="index_files/figure-html/unnamed-chunk-5-1.png" alt="Probabilistic predictions for the investment task using a logistic choice rule" width="672" />
+<p class="caption">
+Figure 1.2: Probabilistic predictions for the investment task using a logistic choice rule
+</p>
+</div>
+<p>An added benefit of having a probabilistic model of behavior, even if we do not intend to estimate it, is that we can simulate data for our experiment. This can be useful both for experiment design, and for evaluating the sampling properties of our estimators. For example, suppose we wanted to see what the choices of a participant in this experiment would look like if they had <span class="math inline">\(r=0.4\)</span> and <span class="math inline">\(\lambda=10\)</span>. The process for simulating data is very similar to the process for constructing the probability distribution:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction.html#cb3-1" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fl">0.4</span></span>
+<span id="cb3-2"><a href="introduction.html#cb3-2" aria-hidden="true" tabindex="-1"></a>lambda<span class="ot">&lt;-</span><span class="dv">10</span></span>
+<span id="cb3-3"><a href="introduction.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb3-4"><a href="introduction.html#cb3-4" aria-hidden="true" tabindex="-1"></a>probDist<span class="ot">&lt;-</span>(</span>
+<span id="cb3-5"><a href="introduction.html#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand.grid</span>(<span class="at">y=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="at">length=</span><span class="dv">101</span>),</span>
+<span id="cb3-6"><a href="introduction.html#cb3-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">X =</span> <span class="fu">seq</span>(<span class="fl">2.5</span>,<span class="dv">6</span>,<span class="at">length=</span><span class="dv">30</span>)</span>
+<span id="cb3-7"><a href="introduction.html#cb3-7" aria-hidden="true" tabindex="-1"></a>              )</span>
+<span id="cb3-8"><a href="introduction.html#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">EU =</span> <span class="fl">0.5</span><span class="sc">*</span>(<span class="dv">100</span><span class="sc">-</span>y)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">+</span><span class="fl">0.5</span><span class="sc">*</span>(<span class="dv">100</span><span class="sc">+</span>y<span class="sc">*</span>(X<span class="dv">-1</span>))<span class="sc">^</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>r))</span>
+<span id="cb3-9"><a href="introduction.html#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(X)</span>
+<span id="cb3-10"><a href="introduction.html#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pr =</span> <span class="fu">exp</span>(lambda<span class="sc">*</span>(EU<span class="sc">-</span><span class="fu">max</span>(EU)))<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">exp</span>(lambda<span class="sc">*</span>(EU<span class="sc">-</span><span class="fu">max</span>(EU)))))</span>
+<span id="cb3-11"><a href="introduction.html#cb3-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-12"><a href="introduction.html#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="introduction.html#cb3-13" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
+<span id="cb3-14"><a href="introduction.html#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="introduction.html#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (xx <span class="cf">in</span> (probDist<span class="sc">$</span>X <span class="sc">%&gt;%</span> <span class="fu">unique</span>())) {</span>
+<span id="cb3-16"><a href="introduction.html#cb3-16" aria-hidden="true" tabindex="-1"></a>  d<span class="ot">&lt;-</span>probDist <span class="sc">%&gt;%</span> <span class="fu">filter</span>(X<span class="sc">==</span>xx)</span>
+<span id="cb3-17"><a href="introduction.html#cb3-17" aria-hidden="true" tabindex="-1"></a>  dataY<span class="ot">&lt;-</span><span class="fu">sample</span>(d<span class="sc">$</span>y,<span class="dv">1</span>,<span class="at">replace=</span><span class="cn">TRUE</span>,<span class="at">prob=</span>d<span class="sc">$</span>pr)</span>
+<span id="cb3-18"><a href="introduction.html#cb3-18" aria-hidden="true" tabindex="-1"></a>  data<span class="ot">&lt;-</span><span class="fu">rbind</span>(data,</span>
+<span id="cb3-19"><a href="introduction.html#cb3-19" aria-hidden="true" tabindex="-1"></a>              <span class="fu">tibble</span>(<span class="at">y=</span>dataY,<span class="at">X=</span>xx))</span>
+<span id="cb3-20"><a href="introduction.html#cb3-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-21"><a href="introduction.html#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="introduction.html#cb3-22" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb3-23"><a href="introduction.html#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span>
+<span id="cb3-24"><a href="introduction.html#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span>data,<span class="fu">aes</span>(<span class="at">x=</span>X,<span class="at">y=</span>y))</span>
+<span id="cb3-25"><a href="introduction.html#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="at">data=</span>dplt1,<span class="fu">aes</span>(<span class="at">x=</span>X,<span class="at">y=</span>y,<span class="at">color=</span>r))</span>
+<span id="cb3-26"><a href="introduction.html#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;X&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;y (choice)&quot;</span>)</span>
+<span id="cb3-27"><a href="introduction.html#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb3-28"><a href="introduction.html#cb3-28" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:IntroSimDist"></span>
+<img src="index_files/figure-html/IntroSimDist-1.png" alt="Some simulated data" width="672" />
+<p class="caption">
+Figure 1.3: Some simulated data
+</p>
+</div>
+<p>This kind of simulation exercise is immensely useful. Graphically, we can see that if we want to estimate <span class="math inline">\(r\)</span> using this model and experiment, we will be trying to find the curve in Figure <a href="introduction.html#fig:IntroSimDist">1.3</a> (or maybe one in between) that best matches the data. Our probabilistic model will do all of the work defining what “best” is in this case. From Figure <a href="introduction.html#fig:IntroSimDist">1.3</a>, we can see that our model will likely do a good job at distinguishing between <span class="math inline">\(r=0.2\)</span>, <span class="math inline">\(r=0.4\)</span>, and <span class="math inline">\(r=0.6\)</span>, but might have trouble if we want to resolve the uncertainty about <span class="math inline">\(r\)</span> to a finer resolution. Additionally, now that we have a simulated dataset with known parameters, we can see how well our model estimates these parameters (I do this in the next section). Finally, these predictions help us to understand the implications of the choice precision parameter <span class="math inline">\(\lambda\)</span> (e.g. how dispersed are data around their point predictions?), and identify treatment conditions (<span class="math inline">\(X\)</span>) that are going to be more (large <span class="math inline">\(X\)</span>) or less (small <span class="math inline">\(X\)</span>) informative about <span class="math inline">\(r\)</span>.</p>
+</div>
+<div id="what-do-your-data-say-about-your-theory" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> What do your data say about your theory?<a href="introduction.html#what-do-your-data-say-about-your-theory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>From here, it is not too much of a leap to code the model in <em>Stan</em>. True, we need to have a good think about what are appropriate priors, and so on, but hopefully you can see that once we have a probabilistic model written down, we can code it up in a similar way to how we derived it. Specifically, note how we specified the expected utility variable <code>EU</code>, then calculated the logistic choice probabilities (<code>softmax</code>).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="introduction.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Introduction_InvestmentTask.stan</span></span>
+<span id="cb4-2"><a href="introduction.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="introduction.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb4-4"><a href="introduction.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">In the data block, we tell Stan how to read in the data we will be passing</span></span>
+<span id="cb4-5"><a href="introduction.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">it from R.</span></span>
+<span id="cb4-6"><a href="introduction.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb4-7"><a href="introduction.html#cb4-7" aria-hidden="true" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb4-8"><a href="introduction.html#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> n<span class="op">;</span> <span class="co">// number of observations</span></span>
+<span id="cb4-9"><a href="introduction.html#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> ny<span class="op">;</span> <span class="co">// size of the choice set</span></span>
+<span id="cb4-10"><a href="introduction.html#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> y<span class="op">[</span>n<span class="op">];</span>   <span class="co">// choices made by participant</span></span>
+<span id="cb4-11"><a href="introduction.html#cb4-11" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> X<span class="op">;</span>   <span class="co">// multiplier for investment</span></span>
+<span id="cb4-12"><a href="introduction.html#cb4-12" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>ny<span class="op">]</span> ygrid<span class="op">;</span> <span class="co">// possible values of y (i.e. the choice set)</span></span>
+<span id="cb4-13"><a href="introduction.html#cb4-13" aria-hidden="true" tabindex="-1"></a>  real prior_r<span class="op">[</span><span class="dv">2</span><span class="op">];</span> <span class="co">// prior mean and sd for r</span></span>
+<span id="cb4-14"><a href="introduction.html#cb4-14" aria-hidden="true" tabindex="-1"></a>  real prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">];</span> <span class="co">// prior mean and sd for log(lambda)</span></span>
+<span id="cb4-15"><a href="introduction.html#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-16"><a href="introduction.html#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="introduction.html#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb4-18"><a href="introduction.html#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">In the prarameters block, we tell Stan what the model&#39;s parameters are, </span></span>
+<span id="cb4-19"><a href="introduction.html#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">and any restrictions we need to place on them. Here we need to restrict </span></span>
+<span id="cb4-20"><a href="introduction.html#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">lambda to be positive</span></span>
+<span id="cb4-21"><a href="introduction.html#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb4-22"><a href="introduction.html#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="introduction.html#cb4-23" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb4-24"><a href="introduction.html#cb4-24" aria-hidden="true" tabindex="-1"></a>   real r<span class="op">;</span> <span class="co">// parameter in CRRA utility function x^(1-r)/(1-r)</span></span>
+<span id="cb4-25"><a href="introduction.html#cb4-25" aria-hidden="true" tabindex="-1"></a>   real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span> <span class="co">// logit choice precision</span></span>
+<span id="cb4-26"><a href="introduction.html#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-27"><a href="introduction.html#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="introduction.html#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="introduction.html#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb4-30"><a href="introduction.html#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co">In the model block, we tell Stan how the data and priors contribute to the </span></span>
+<span id="cb4-31"><a href="introduction.html#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co">posterior density</span></span>
+<span id="cb4-32"><a href="introduction.html#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb4-33"><a href="introduction.html#cb4-33" aria-hidden="true" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb4-34"><a href="introduction.html#cb4-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-35"><a href="introduction.html#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*</span></span>
+<span id="cb4-36"><a href="introduction.html#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co">  In this loop, I go through each observation in the data, calculate the </span></span>
+<span id="cb4-37"><a href="introduction.html#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co">  expected utility of each possible choice in the choice set, then use this to</span></span>
+<span id="cb4-38"><a href="introduction.html#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co">  compute the implied probability distribution over actions for that observation.</span></span>
+<span id="cb4-39"><a href="introduction.html#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co">  I then take the (log) probability of the action that was actually taken and </span></span>
+<span id="cb4-40"><a href="introduction.html#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="co">  add it to the likelihood</span></span>
+<span id="cb4-41"><a href="introduction.html#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co">  */</span></span>
+<span id="cb4-42"><a href="introduction.html#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>n<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-43"><a href="introduction.html#cb4-43" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">[</span>ny<span class="op">]</span> EU<span class="op">;</span> <span class="co">// expected utility of choosing each action</span></span>
+<span id="cb4-44"><a href="introduction.html#cb4-44" aria-hidden="true" tabindex="-1"></a>    vector<span class="op">[</span>ny<span class="op">]</span> lpr<span class="op">;</span><span class="co">// (log) probability of choosing each action</span></span>
+<span id="cb4-45"><a href="introduction.html#cb4-45" aria-hidden="true" tabindex="-1"></a>    EU <span class="op">=</span> <span class="fl">0.5</span><span class="op">*</span>pow<span class="op">(</span><span class="dv">100</span><span class="op">-</span>ygrid<span class="op">,</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)+</span><span class="fl">0.5</span><span class="op">*</span>pow<span class="op">(</span><span class="dv">100</span><span class="op">+</span>ygrid<span class="op">*(</span>X<span class="op">[</span>ii<span class="op">]-</span><span class="dv">1</span><span class="op">),</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">);</span></span>
+<span id="cb4-46"><a href="introduction.html#cb4-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-47"><a href="introduction.html#cb4-47" aria-hidden="true" tabindex="-1"></a>    lpr <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>EU<span class="op">);</span></span>
+<span id="cb4-48"><a href="introduction.html#cb4-48" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-49"><a href="introduction.html#cb4-49" aria-hidden="true" tabindex="-1"></a>    <span class="co">/*</span></span>
+<span id="cb4-50"><a href="introduction.html#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="co">    increment the log-likelihood</span></span>
+<span id="cb4-51"><a href="introduction.html#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="co">    Stan&#39;s &quot;target&quot; is in log probability units.</span></span>
+<span id="cb4-52"><a href="introduction.html#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="co">    */</span></span>
+<span id="cb4-53"><a href="introduction.html#cb4-53" aria-hidden="true" tabindex="-1"></a>    target<span class="op">+=</span>lpr<span class="op">[</span>y<span class="op">[</span>ii<span class="op">]];</span></span>
+<span id="cb4-54"><a href="introduction.html#cb4-54" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-55"><a href="introduction.html#cb4-55" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-56"><a href="introduction.html#cb4-56" aria-hidden="true" tabindex="-1"></a>  <span class="co">// specify the priors for the parameters</span></span>
+<span id="cb4-57"><a href="introduction.html#cb4-57" aria-hidden="true" tabindex="-1"></a>  r <span class="op">~</span> normal<span class="op">(</span>prior_r<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_r<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb4-58"><a href="introduction.html#cb4-58" aria-hidden="true" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb4-59"><a href="introduction.html#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Finally, we go back to <em>R</em>, or any other programming language that will run <em>Stan</em>, and estimate the model. Here I am binning choices into increments of ten to make the computation faster.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb5-2"><a href="introduction.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-3"><a href="introduction.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>()) <span class="co"># Use all the cores</span></span>
+<span id="cb5-4"><a href="introduction.html#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="introduction.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a list of data that Stan can understand.</span></span>
+<span id="cb5-6"><a href="introduction.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Note here that I am rounding the data to the nearest 10 tokens. </span></span>
+<span id="cb5-7"><a href="introduction.html#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># This will speed up the computation a lot. </span></span>
+<span id="cb5-8"><a href="introduction.html#cb5-8" aria-hidden="true" tabindex="-1"></a>stanData<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="at">y=</span><span class="fu">round</span>(data<span class="sc">$</span>y<span class="sc">/</span><span class="dv">10</span>),</span>
+<span id="cb5-9"><a href="introduction.html#cb5-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">X=</span>data<span class="sc">$</span>X,</span>
+<span id="cb5-10"><a href="introduction.html#cb5-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">n=</span>data<span class="sc">$</span>y <span class="sc">%&gt;%</span> <span class="fu">length</span>(),</span>
+<span id="cb5-11"><a href="introduction.html#cb5-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">ygrid =</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">*</span><span class="dv">10</span>,<span class="at">ny=</span><span class="dv">10</span>,</span>
+<span id="cb5-12"><a href="introduction.html#cb5-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">prior_r =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.25</span>),</span>
+<span id="cb5-13"><a href="introduction.html#cb5-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">prior_lambda =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">10</span>),<span class="fl">0.5</span>))</span>
+<span id="cb5-14"><a href="introduction.html#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="introduction.html#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># This if statement isn&#39;t needed, but is there so I don&#39;t have to run Stan </span></span>
+<span id="cb5-16"><a href="introduction.html#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># every time I compile this book. </span></span>
+<span id="cb5-17"><a href="introduction.html#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">&quot;Outputs/Introduction/Introduction_InvestmentTask.rds&quot;</span>)) {</span>
+<span id="cb5-18"><a href="introduction.html#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fit the model in Stan</span></span>
+<span id="cb5-19"><a href="introduction.html#cb5-19" aria-hidden="true" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">stan</span>(<span class="st">&quot;Code/Introduction/Introduction_InvestmentTask.stan&quot;</span>,</span>
+<span id="cb5-20"><a href="introduction.html#cb5-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">data=</span>stanData,</span>
+<span id="cb5-21"><a href="introduction.html#cb5-21" aria-hidden="true" tabindex="-1"></a>            <span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb5-22"><a href="introduction.html#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Save the fitted model so I can access it later without having to run </span></span>
+<span id="cb5-23"><a href="introduction.html#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Stan again</span></span>
+<span id="cb5-24"><a href="introduction.html#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(Fit,<span class="at">file =</span> <span class="st">&quot;Outputs/Introduction/Introduction_InvestmentTask.rds&quot;</span>)</span>
+<span id="cb5-25"><a href="introduction.html#cb5-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-26"><a href="introduction.html#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the saved fitted model </span></span>
+<span id="cb5-27"><a href="introduction.html#cb5-27" aria-hidden="true" tabindex="-1"></a>Fit<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;Outputs/Introduction/Introduction_InvestmentTask.rds&quot;</span>)</span>
+<span id="cb5-28"><a href="introduction.html#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="introduction.html#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Display a summary of the estimates</span></span>
+<span id="cb5-30"><a href="introduction.html#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption=</span><span class="st">&quot;Summary of the estimated *Stan* model.&quot;</span>)</span></code></pre></div>
+<table style="width:100%;">
+<caption><span id="tab:unnamed-chunk-7">Table 1.1: </span>Summary of the estimated <em>Stan</em> model.</caption>
+<colgroup>
+<col width="6%" />
+<col width="10%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">mean</th>
+<th align="right">se_mean</th>
+<th align="right">sd</th>
+<th align="right">2.5%</th>
+<th align="right">25%</th>
+<th align="right">50%</th>
+<th align="right">75%</th>
+<th align="right">97.5%</th>
+<th align="right">n_eff</th>
+<th align="right">Rhat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">r</td>
+<td align="right">0.4016179</td>
+<td align="right">0.0006209</td>
+<td align="right">0.0296148</td>
+<td align="right">0.3452346</td>
+<td align="right">0.3821603</td>
+<td align="right">0.4001373</td>
+<td align="right">0.4201292</td>
+<td align="right">0.4648399</td>
+<td align="right">2275.104</td>
+<td align="right">1.000527</td>
+</tr>
+<tr class="even">
+<td align="left">lambda</td>
+<td align="right">13.9212988</td>
+<td align="right">0.1545285</td>
+<td align="right">6.8765712</td>
+<td align="right">5.1691723</td>
+<td align="right">9.1581407</td>
+<td align="right">12.4601175</td>
+<td align="right">16.9276570</td>
+<td align="right">32.0979915</td>
+<td align="right">1980.281</td>
+<td align="right">1.001878</td>
+</tr>
+<tr class="odd">
+<td align="left">lp__</td>
+<td align="right">10.9188066</td>
+<td align="right">0.0249628</td>
+<td align="right">1.0215956</td>
+<td align="right">8.2211494</td>
+<td align="right">10.5013606</td>
+<td align="right">11.2434075</td>
+<td align="right">11.6505298</td>
+<td align="right">11.9404140</td>
+<td align="right">1674.836</td>
+<td align="right">1.001430</td>
+</tr>
+</tbody>
+</table>
+<p>And that’s it! We have taken a model all the way from deriving predictions, expanding it to make probabilistic predictions, and finally to estimating the parameters in the model.</p>
+</div>
+<div id="what-do-your-parameters-say-about-other-things" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> What do your parameters say about other things?<a href="introduction.html#what-do-your-parameters-say-about-other-things" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s say that again: <strong>we estimated the parameters in the model</strong>!. We have a model that says that parameter <span class="math inline">\(r\)</span> is important, and here is everything we learned from it in our (simulated) experiment:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introduction.html#cb6-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb6-2"><a href="introduction.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">tibble</span>(<span class="at">r=</span><span class="fu">extract</span>(Fit)<span class="sc">$</span>r),<span class="fu">aes</span>(<span class="at">x=</span>r))</span>
+<span id="cb6-3"><a href="introduction.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_histogram</span>()</span>
+<span id="cb6-4"><a href="introduction.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb6-5"><a href="introduction.html#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="index_files/figure-html/unnamed-chunk-8-1.png" alt="The posterior distribution of CRRA parameter $r$" width="672" />
+<p class="caption">
+Figure 1.4: The posterior distribution of CRRA parameter <span class="math inline">\(r\)</span>
+</p>
+</div>
+<p>But we do not have to stop here. In fact, the benefits of a structural model really start to be recognized here. Not only do we have estimates of our parameter, but because this is an <em>economic</em> model as well as an econometric model, we can also use it to make out-of-sample predictions. That is, we can take the model beyond the confines of the experiment we used to estimate it, and derive its implications in other environments.</p>
+<p>For example, suppose that we were designing another experiment where this participant could choose between the following two lotteries:</p>
+<ol style="list-style-type: decimal">
+<li>$2.00 for sure</li>
+<li>A 70% chance of $2.50, and a 30% chance of $1.00.</li>
+</ol>
+<p>Our model tells us that they will prefer the risky Lottery 2 if and only if:</p>
+<p><span class="math display">\[
+0.7\frac{2.5^{1-r}}{1-r}+0.3\frac{1^{1-r}}{1-r}\geq \frac{2^{1-r}}{1-r}
+\]</span></p>
+<p>and since we have a posterior distribution of <span class="math inline">\(r\)</span>, we can compute a posterior probability of this event being true:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introduction.html#cb7-1" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fu">extract</span>(Fit)<span class="sc">$</span>r</span>
+<span id="cb7-2"><a href="introduction.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>((<span class="fl">0.7</span><span class="sc">*</span><span class="fl">2.5</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">+</span><span class="fl">0.3</span><span class="sc">*</span><span class="dv">1</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">-</span><span class="dv">2</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>r))<span class="sc">&gt;=</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 0.0665</code></pre>
+<p>In other words, it is unlikely that this participant will prefer the risky lottery over the certain outcome.</p>
+<p>Furthermore, one of the benefits of Bayesian estimation is that the posterior distribution of transformations of a model’s parameters can be accessed by simply transforming the model’s simulated posterior draws. That is, there are no pesky delta-method calculations to do if one wants to compute a nonlinear transformation of parameters. These show up in our models all the time. For example, we can use the model’s estimates to calculate the certainty equivalent of this risky lottery (i.e. the sure amount that makes the decision-maker indifferent to the risky lottery). Mathematically, we calculate:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{C^{1-r}}{1-r}&amp;=0.7\frac{2.5^{1-r}}{1-r}+0.3\frac{1^{1-r}}{1-r}\\
+C&amp;=\left(0.7\times 2.5^{1-r}+0.3\times 1^{1-r}\right)^\frac{1}{1-r}
+\end{aligned}
+\]</span>
+So our posterior distribution for <span class="math inline">\(C\)</span> is:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introduction.html#cb9-1" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span>(<span class="fu">tibble</span>(<span class="at">r=</span>r)</span>
+<span id="cb9-2"><a href="introduction.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">C =</span> (<span class="fl">0.7</span><span class="sc">*</span><span class="fl">2.5</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">+</span><span class="fl">0.3</span><span class="sc">*</span><span class="dv">1</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">-</span>r))<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>r)))   </span>
+<span id="cb9-3"><a href="introduction.html#cb9-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-4"><a href="introduction.html#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="introduction.html#cb9-5" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb9-6"><a href="introduction.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>C))</span>
+<span id="cb9-7"><a href="introduction.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_histogram</span>()</span>
+<span id="cb9-8"><a href="introduction.html#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb9-9"><a href="introduction.html#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Certainty equivalent&quot;</span>)</span>
+<span id="cb9-10"><a href="introduction.html#cb9-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-10"></span>
+<img src="index_files/figure-html/unnamed-chunk-10-1.png" alt="Posterior distribution of the certainty equivalent of the risky lottery" width="672" />
+<p class="caption">
+Figure 1.5: Posterior distribution of the certainty equivalent of the risky lottery
+</p>
+</div>
+<p>So we can be fairly sure that the certainty equivalent is about $2.</p>
+</div>
+<div id="what-does-your-expertise-say-about-your-parameters" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> What does your expertise say about your parameters?<a href="introduction.html#what-does-your-expertise-say-about-your-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Of course, before we do any of this, as experts in our field we will actually have a reasonably good idea about what might happen in our experiments. True, we are running an experiment because we don’t know <em>exactly</em> what will happen. But our understanding of the environment, based on past observations, will surely guide us in designing the experiment, and Bayesian statistics permits this understanding to also guide us in analyzing our data.</p>
+<p>We also use a probabilistic model to express our beliefs about our parameters. These are called <em>priors</em>. For example, in the model I estimated above, I stated that my belief for the risk-aversion parameter <span class="math inline">\(r\)</span> was:</p>
+<p><span class="math display">\[
+r\sim N(0.5,0.25^2)
+\]</span>
+This can be seen in the <em>R</em> code where I specify:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="introduction.html#cb10-1" aria-hidden="true" tabindex="-1"></a>prior_r <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.25</span>)</span></code></pre></div>
+<p>in the data I pass to <em>Stan</em>, and then in the <em>Stan</em> program where I specify the prior:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="introduction.html#cb11-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">~</span> normal<span class="op">(</span>prior_r<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_r<span class="op">[</span><span class="dv">2</span><span class="op">])</span></span></code></pre></div>
+<p>Our priors are going to serve (at least) two purposes. Firstly, in the design stage of an experiment, they are going to help us assess which experimental conditions are the most useful to take to our participants. Coupled with a likelihood, they also permit us to simulate data of our experiment that is consistent with our prior beliefs about what our data will look like. This is immensely beneficial even if we do not take a Bayesian model to our data: by having simulated data representative of our prior, we can adjust our experimental conditions so as to best answer our research questions. Furthermore, it provides us with an opportunity to test whether our econometric analysis will be well suited to analyzing the data that comes from our experiment.</p>
+<p>Secondly, in the estimation stage of your research workflow, your prior will help your model look for solutions to its data-fitting exercise that are economically plausible. Maximum likelihood estimates of models of choice under risk, for example, are known to be difficult to solve for some participants (see for example <span class="citation">Harrison and Ng (<a href="#ref-Harrison2016" role="doc-biblioref">2016</a>)</span>) because multiple maxima exist. A prior will re-weight the problem so that more emphasis is placed on parameter values that are ex-ante plausible (see for example <span class="citation">Gao, Harrison, and Tchernis (<a href="#ref-Gao2022" role="doc-biblioref">2022</a>)</span>, which uses the same dataset as <span class="citation">Harrison and Ng (<a href="#ref-Harrison2016" role="doc-biblioref">2016</a>)</span>).</p>
+<p>However priors can be a double-edged sword: while we want our model to estimate parameters that are economically plausible, we do not want our models to be so overly-informed by a prior that they hardly learn from the data. There is a gentle balancing act in choosing a suitable prior for our models that on the one hand incorporates our understanding of the problem as experts in the field, and on the other hand are not so informative that we might as well not collect data. The solution is <em>not</em> to try to be “as uninformative as possible”, as this will open up another can of worms (e.g. <span class="citation">Bland (<a href="#ref-Bland2023" role="doc-biblioref">2023</a>)</span>). Instead, we should be methodical about asking not just what our priors say about their parameters, but also what our priors say about <em>data</em>, and quantities of interest that we might want to estimate and report. As such, much of this book will follow ideas laid out in Michael Betancourt’s <a href="https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html"><em>Principled Bayesian Workflow</em></a> <span class="citation">(<a href="#ref-Betancourt2020" role="doc-biblioref">Betancourt 2020</a>)</span>. I believe that this process strikes a practical balance between priors being (i) something set in stone because they are exactly our beliefs about things, and (ii) something we must worry about at all costs because they will bias our estimates if they are too informative. As such, we will put our priors through the wringer before we collect our data, and this will be to our benefit. This scrutiny will provide us with a deeper understanding of our models and the kind of data we might get from our experiments.</p>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Betancourt2020" class="csl-entry">
+Betancourt, Michael. 2020. <span>“Towards a Principled Bayesian Workflow.”</span> <a href="https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html">https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html</a>.
+</div>
+<div id="ref-Bland2019JMP" class="csl-entry">
+Bland, James R. 2019. <span>“How Many Games Are We Playing? An Experimental Analysis of Choice Bracketing in Games.”</span> <em>Journal of Behavioral and Experimental Economics</em> 80: 80–91. <a href="https://doi.org/10.1016/j.socec.2019.03.011">https://doi.org/10.1016/j.socec.2019.03.011</a>.
+</div>
+<div id="ref-Bland2023" class="csl-entry">
+———. 2023. <span>“Bayesian Model Selection and Prior Calibration for Models of Behavior in Economic Experiments.”</span> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4334267">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4334267</a>.
+</div>
+<div id="ref-Gao2022" class="csl-entry">
+Gao, Xiaoxue Sherry, Glenn W Harrison, and Rusty Tchernis. 2022. <span>“Behavioral Welfare Economics and Risk Preferences: A Bayesian Approach.”</span> <em>Experimental Economics</em>, 1–31. <a href="https://doi.org/10.1007/s10683-022-09751-0">https://doi.org/10.1007/s10683-022-09751-0</a>.
+</div>
+<div id="ref-Harrison2016" class="csl-entry">
+Harrison, Glenn W, and Jia Min Ng. 2016. <span>“Evaluating the Expected Welfare Gain from Insurance.”</span> <em>Journal of Risk and Insurance</em> 83 (1): 91–120. <a href="https://doi.org/10.1111/jori.12142">https://doi.org/10.1111/jori.12142</a>.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>For example, for a private-value first-price auction with independent uniform values, the equilibrium bidding function will take the form <span class="math inline">\(\mathrm{bid}_i=\beta_0+\beta_1\mathrm{value}_i\)</span>.<a href="introduction.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="setting-the-stage.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getting-started-in-stan.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

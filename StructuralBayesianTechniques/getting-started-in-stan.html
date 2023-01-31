@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Getting started in Stan | Structural Bayesian Techniques for Experimental and Behavioral Economics</title>
+  <meta name="description" content="2 Getting started in Stan | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Getting started in Stan | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Getting started in Stan | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2023-01-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="probabilistic-models-of-behavior.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="section.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="setting-the-stage.html"><a href="setting-the-stage.html"><i class="fa fa-check"></i>Setting the stage</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-does-your-theory-say-about-your-data"><i class="fa fa-check"></i><b>1.1</b> What does your theory say about your data?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-do-your-data-say-about-your-theory"><i class="fa fa-check"></i><b>1.2</b> What do your data say about your theory?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-do-your-parameters-say-about-other-things"><i class="fa fa-check"></i><b>1.3</b> What do your parameters say about other things?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#what-does-your-expertise-say-about-your-parameters"><i class="fa fa-check"></i><b>1.4</b> What does your expertise say about your parameters?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>Stan</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#installation-in-r"><i class="fa fa-check"></i><b>2.1</b> Installation in <em>R</em></a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-anatomy-of-a-stan-program"><i class="fa fa-check"></i><b>2.2</b> The anatomy of a <em>Stan</em> program</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#data-block"><i class="fa fa-check"></i><b>2.2.1</b> Data block</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#transformed-data-block"><i class="fa fa-check"></i><b>2.2.2</b> Transformed data block</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#parameters-block"><i class="fa fa-check"></i><b>2.2.3</b> Parameters block</a></li>
+<li class="chapter" data-level="2.2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#model-block"><i class="fa fa-check"></i><b>2.2.4</b> Model block</a></li>
+<li class="chapter" data-level="2.2.5" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#generated-quantities-block"><i class="fa fa-check"></i><b>2.2.5</b> Generated quantities block</a></li>
+<li class="chapter" data-level="2.2.6" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-final-product"><i class="fa fa-check"></i><b>2.2.6</b> The final product</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#estimating-a-model"><i class="fa fa-check"></i><b>2.3</b> Estimating a model</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#looking-at-the-results"><i class="fa fa-check"></i><b>2.4</b> Looking at the results</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html"><i class="fa fa-check"></i><b>3</b> Probabilistic models of behavior</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#the-problem-with-deterministic-models"><i class="fa fa-check"></i><b>3.1</b> The problem with deterministic models</a></li>
+<li class="chapter" data-level="3.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#what-is-a-probabilistic-model"><i class="fa fa-check"></i><b>3.2</b> What <em>is</em> a probabilistic model?</a></li>
+<li class="chapter" data-level="3.3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#example-dataset-and-model"><i class="fa fa-check"></i><b>3.3</b> Example dataset and model</a></li>
+<li class="chapter" data-level="3.4" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#optimal-choice-plus-an-error"><i class="fa fa-check"></i><b>3.4</b> Optimal choice plus an error</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-1"><i class="fa fa-check"></i><b>3.4.1</b> Estimating a model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#utility-based-models"><i class="fa fa-check"></i><b>3.5</b> Utility-based models</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-2"><i class="fa fa-check"></i><b>3.5.1</b> Estimating a model</a></li>
+<li class="chapter" data-level="3.5.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#doing-something-with-the-estimates"><i class="fa fa-check"></i><b>3.5.2</b> Doing something with the estimates</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i>Applications</a></li>
+<li class="chapter" data-level="4" data-path="strategy-frequency-estimation.html"><a href="strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>4</b> Strategy Frequency Estimation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="strategy-frequency-estimation.html"><a href="strategy-frequency-estimation.html#basic-model-and-data"><i class="fa fa-check"></i><b>4.1</b> Basic model and data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="strategy-frequency-estimation.html"><a href="strategy-frequency-estimation.html#data-wrangling"><i class="fa fa-check"></i><b>4.1.1</b> Data wrangling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="outline-of-future-chapters.html"><a href="outline-of-future-chapters.html"><i class="fa fa-check"></i>Outline of future chapters</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Structural Bayesian Techniques for Experimental and Behavioral Economics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="getting-started-in-stan" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Getting started in <em>Stan</em><a href="getting-started-in-stan.html#getting-started-in-stan" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="installation-in-r" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Installation in <em>R</em><a href="getting-started-in-stan.html#installation-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here I am going to defer to people who have thought more about the process of installing the <em>RStan</em> library in <em>R</em>. Go here: <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started" class="uri">https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started</a>.</p>
+<p>At the time of writing (2023-0.1-27), you have the choice of installing the latest development version (2.26.x), or the latest released version (2.21.1, July 2020). I use the development version, as it has the capability of within-chain parallelization, which may speed things up if you have enough cores. I will strive to write code that does not rely on the development version, unless I am explicitly showing you how to parallelize something.</p>
+</div>
+<div id="the-anatomy-of-a-stan-program" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> The anatomy of a <em>Stan</em> program<a href="getting-started-in-stan.html#the-anatomy-of-a-stan-program" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section, I will walk you through the different components of a <em>Stan</em> program. <em>Stan</em> takes instructions from you in an organized way, based on which part of the model you are describing:</p>
+<ul>
+<li>In the <em>data block</em>, you provide a description of the data</li>
+<li>In the <em>parameters block</em>, you list the parameters in the model</li>
+<li>In the <em>model block</em>, you describe how the data and parameters are combined to compute the likelihood. You also declare the priors in the model block</li>
+</ul>
+<p>There is also the option to have the following blocks of code in a <em>Stan</em> program, although it is not necessary:</p>
+<ul>
+<li>In the <em>functions block</em>, you declare any user-defined functions</li>
+<li>In the <em>transformed data</em> block, you can transform data</li>
+<li>In the <em>transformed parameters</em> block, you can generate variables that are transformations of your parameters and data. As these transformed parameters are assumed to be needed in the model block, <em>Stan</em> has to compute derivatives with respect to these parameters.</li>
+<li>In the <em>generated quantities</em> block, you can ask <em>Stan</em> to compute anything using the simulated parameters from the posterior and the data. As these quantities do not show up in the model block, <em>Stan</em> does not need to compute derivatives of these.</li>
+</ul>
+<p>As an example, I will walk you through writing a <em>Stan</em> program for analyzing data from <span class="citation">Andreoni and Vesterlund (<a href="#ref-AV2001" role="doc-biblioref">2001</a>)</span>. You can load the data like this:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="getting-started-in-stan.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-2"><a href="getting-started-in-stan.html#cb12-2" aria-hidden="true" tabindex="-1"></a>AV2001choices<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/AV2001choices.csv&quot;</span>)</span>
+<span id="cb12-3"><a href="getting-started-in-stan.html#cb12-3" aria-hidden="true" tabindex="-1"></a>AV2001parameters<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/AV2001parameters.csv&quot;</span>)</span></code></pre></div>
+<p>In this experiment, participants were asked to allocate tokens between themselves and another participant. These tokens were then converted to cash at different rates. You can see how these budget sets were constructed using the <code>AV2001parameters</code> dataset:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="getting-started-in-stan.html#cb13-1" aria-hidden="true" tabindex="-1"></a>AV2001parameters <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">X</th>
+<th align="right">income</th>
+<th align="right">pSelf</th>
+<th align="right">pOther</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">40</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">40</td>
+<td align="right">1</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">60</td>
+<td align="right">2</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">60</td>
+<td align="right">1</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">75</td>
+<td align="right">2</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">75</td>
+<td align="right">1</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">60</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">100</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<p>where <code>income</code> is the number of tokens to be allocated, and <code>pSelf</code> and <code>pOther</code> are the price of converting a token into one experimental currency unit for oneself and the other participant, respectively. The other part of the dataset includes the choices made by participants:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="getting-started-in-stan.html#cb14-1" aria-hidden="true" tabindex="-1"></a>AV2001choices <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">X</th>
+<th align="right">female</th>
+<th align="right">keep1</th>
+<th align="right">keep2</th>
+<th align="right">keep3</th>
+<th align="right">keep4</th>
+<th align="right">keep5</th>
+<th align="right">keep6</th>
+<th align="right">keep7</th>
+<th align="right">keep8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="right">30</td>
+<td align="right">20</td>
+<td align="right">40</td>
+<td align="right">25</td>
+<td align="right">50</td>
+<td align="right">30</td>
+<td align="right">50</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">40</td>
+<td align="right">40</td>
+<td align="right">60</td>
+<td align="right">60</td>
+<td align="right">75</td>
+<td align="right">75</td>
+<td align="right">60</td>
+<td align="right">100</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">40</td>
+<td align="right">35</td>
+<td align="right">60</td>
+<td align="right">50</td>
+<td align="right">45</td>
+<td align="right">75</td>
+<td align="right">50</td>
+<td align="right">100</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">40</td>
+<td align="right">30</td>
+<td align="right">50</td>
+<td align="right">35</td>
+<td align="right">45</td>
+<td align="right">50</td>
+<td align="right">50</td>
+<td align="right">50</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">20</td>
+<td align="right">30</td>
+<td align="right">40</td>
+<td align="right">45</td>
+<td align="right">50</td>
+<td align="right">55</td>
+<td align="right">40</td>
+<td align="right">75</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">38</td>
+<td align="right">39</td>
+<td align="right">58</td>
+<td align="right">59</td>
+<td align="right">74</td>
+<td align="right">73</td>
+<td align="right">59</td>
+<td align="right">98</td>
+</tr>
+</tbody>
+</table>
+<p>where <code>keep1</code> is the number of tokens kept by the participant in the first budget set, <code>keep2</code> for the second budget set, and so on. Each row corresponds to a participant. For example, the first participant in their first decision decided to keep 10 tokens. This means that they would have earned <span class="math inline">\(10/3\)</span> experimental currency units for themself, and <span class="math inline">\((40-10)/1\)</span> experimental currency units for the other participant.</p>
+<p>For this example, suppose that we would like to estimate how the price of giving, <span class="math inline">\(p^\mathrm{Other}/p^\mathrm{Self}\)</span>,<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> affects whether the participant passes nothing to the other person at all. Specifically, let’s estimate the logit model:</p>
+<p><span class="math display">\[
+\text{kept everything}\ \mid\ \frac{p^\mathrm{Other}}{p^\mathrm{Self}}\sim \mathrm{Bernoulli}\left(\Lambda\left(\alpha+\beta \frac{p^\mathrm{Other}}{p^\mathrm{Self}}\right)\right)
+\]</span></p>
+<p>where <span class="math inline">\(\Lambda(x)=1/(1+\exp(-x))\)</span> is the inverse logit transformation. That is, we wish to estimate the parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. We will use the following priors for the model’s parameters, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha&amp;\sim N(0,0.25^2)\\
+\beta&amp;\sim N(0,0.25^2)
+\end{aligned}
+\]</span></p>
+<p>Also, since this is a nonlinear model, let’s also calculate a prediction of the probability that somebody will keep everything when the price of giving is one:</p>
+<p><span class="math display">\[
+\Pr\left(\text{kept anything}\ \mid\ \frac{p^\mathrm{Other}}{p^\mathrm{Self}}=1\right)=\Lambda(\alpha+\beta)
+\]</span></p>
+<div id="data-block" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Data block<a href="getting-started-in-stan.html#data-block" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First, we will provide a set of instructions for <em>Stan</em> to parse the data. In <em>RStan</em>, we first put our data into a named list format. This list must include not only the data, but also some information about the size of some variables we are passing <em>Stan</em>. We can also pass any other values, like our priors, into the data block. Here is what I came up with:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="getting-started-in-stan.html#cb15-1" aria-hidden="true" tabindex="-1"></a>dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb15-2"><a href="getting-started-in-stan.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Information from the parameters data file</span></span>
+<span id="cb15-3"><a href="getting-started-in-stan.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">income =</span> AV2001parameters<span class="sc">$</span>income,</span>
+<span id="cb15-4"><a href="getting-started-in-stan.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">pSelf  =</span> AV2001parameters<span class="sc">$</span>pSelf,</span>
+<span id="cb15-5"><a href="getting-started-in-stan.html#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pOther  =</span> AV2001parameters<span class="sc">$</span>pOther,</span>
+<span id="cb15-6"><a href="getting-started-in-stan.html#cb15-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-7"><a href="getting-started-in-stan.html#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># number of choices made by each participant</span></span>
+<span id="cb15-8"><a href="getting-started-in-stan.html#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">nChoices =</span> AV2001parameters<span class="sc">$</span>pOther <span class="sc">|&gt;</span> <span class="fu">length</span>(),</span>
+<span id="cb15-9"><a href="getting-started-in-stan.html#cb15-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-10"><a href="getting-started-in-stan.html#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># information from the choices data file</span></span>
+<span id="cb15-11"><a href="getting-started-in-stan.html#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">female =</span> AV2001choices<span class="sc">$</span>female,</span>
+<span id="cb15-12"><a href="getting-started-in-stan.html#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">keep =</span> AV2001choices <span class="sc">%&gt;%</span> <span class="fu">select</span>(keep1<span class="sc">:</span>keep8) <span class="sc">|&gt;</span> <span class="fu">as.matrix</span>(),</span>
+<span id="cb15-13"><a href="getting-started-in-stan.html#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> AV2001choices<span class="sc">$</span>female <span class="sc">%&gt;%</span> <span class="fu">length</span>(),</span>
+<span id="cb15-14"><a href="getting-started-in-stan.html#cb15-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-15"><a href="getting-started-in-stan.html#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Specify the priors</span></span>
+<span id="cb15-16"><a href="getting-started-in-stan.html#cb15-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-17"><a href="getting-started-in-stan.html#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">prior_alpha =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.25</span>),</span>
+<span id="cb15-18"><a href="getting-started-in-stan.html#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">prior_beta  =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.25</span>)</span>
+<span id="cb15-19"><a href="getting-started-in-stan.html#cb15-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Here are the instructions for <em>Stan</em> to read in these data:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb16-1"><a href="getting-started-in-stan.html#cb16-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb16-2"><a href="getting-started-in-stan.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> n<span class="op">;</span> <span class="co">// number of participants</span></span>
+<span id="cb16-3"><a href="getting-started-in-stan.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> nChoices<span class="op">;</span> <span class="co">// number of choices per participant</span></span>
+<span id="cb16-4"><a href="getting-started-in-stan.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-5"><a href="getting-started-in-stan.html#cb16-5" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>nChoices<span class="op">]</span> income<span class="op">;</span></span>
+<span id="cb16-6"><a href="getting-started-in-stan.html#cb16-6" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>nChoices<span class="op">]</span> pSelf<span class="op">;</span></span>
+<span id="cb16-7"><a href="getting-started-in-stan.html#cb16-7" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>nChoices<span class="op">]</span> pOther<span class="op">;</span></span>
+<span id="cb16-8"><a href="getting-started-in-stan.html#cb16-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-9"><a href="getting-started-in-stan.html#cb16-9" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> female<span class="op">;</span></span>
+<span id="cb16-10"><a href="getting-started-in-stan.html#cb16-10" aria-hidden="true" tabindex="-1"></a>  matrix<span class="op">[</span>n<span class="op">,</span>nChoices<span class="op">]</span> keep<span class="op">;</span></span>
+<span id="cb16-11"><a href="getting-started-in-stan.html#cb16-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-12"><a href="getting-started-in-stan.html#cb16-12" aria-hidden="true" tabindex="-1"></a>  real prior_alpha<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb16-13"><a href="getting-started-in-stan.html#cb16-13" aria-hidden="true" tabindex="-1"></a>  real prior_beta<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb16-14"><a href="getting-started-in-stan.html#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Note that we need to give <em>Stan</em> <em>a lot</em> of information about our data. Specifically, we need to declare the type of each variable. When we pass our list of data to <em>Stan</em>, it will then check that the variable we have passed to <em>Stan</em> matches the type that it is expecting to see. For example, here is an error I generated while writing this program that told me that it expected the variable <code>female</code> to be a vector with 8 elements, when in fact it received a vector of 142 elements. This was an error in my <em>Stan</em> file: I had mistakenly written <code>vector[nChoices] female;</code> instead of <code>vector[n] female;</code>.</p>
+<pre class="{,eval=f}"><code>Error in new_CppObject_xp(fields$.module, fields$.pointer, ...) : 
+  Exception: mismatch in dimension declared and found in context; processing stage=data initialization; variable name=female; position=0; dims declared=(8); dims found=(142) (in &#39;string&#39;, line 10, column 2 to column 26)</code></pre>
+<p>Here is another error it gave me, when I had forgotton to add the prior variables to the list of data:</p>
+<pre class="{,eval=f}"><code>Error in new_CppObject_xp(fields$.module, fields$.pointer, ...) : 
+  Exception: variable does not exist; processing stage=data initialization; variable name=prior_alpha; base type=double (in &#39;string&#39;, line 13, column 2 to column 22)</code></pre>
+<p>As with other programming languages, it is useful to get to know how to read error messages, and I will attempt to show some of the common ones to you as we work our way through some examples.</p>
+</div>
+<div id="transformed-data-block" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Transformed data block<a href="getting-started-in-stan.html#transformed-data-block" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the transformed data block, we can apply any function we like to the data we have loaded in the data block. For this application, note that we will need to transform our choice variable <code>kept</code> into our binary dependent variable, which I called <code>keptEverything</code>. I also took the vectors <code>pSelf</code> and <code>pOther</code> and generated the explanatory variable <code>priceOfGiving</code>. Here is how I did this in <em>Stan</em>:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb19-1"><a href="getting-started-in-stan.html#cb19-1" aria-hidden="true" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb19-2"><a href="getting-started-in-stan.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-3"><a href="getting-started-in-stan.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> keptEverything<span class="op">[</span>n<span class="op">,</span>nChoices<span class="op">];</span></span>
+<span id="cb19-4"><a href="getting-started-in-stan.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-5"><a href="getting-started-in-stan.html#cb19-5" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>nChoices<span class="op">]</span> priceOfGiving<span class="op">;</span></span>
+<span id="cb19-6"><a href="getting-started-in-stan.html#cb19-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-7"><a href="getting-started-in-stan.html#cb19-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-8"><a href="getting-started-in-stan.html#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// generated a data variable equal to the price of giving</span></span>
+<span id="cb19-9"><a href="getting-started-in-stan.html#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">// note that the . in ./ indicates an element-by-element operation</span></span>
+<span id="cb19-10"><a href="getting-started-in-stan.html#cb19-10" aria-hidden="true" tabindex="-1"></a>  priceOfGiving <span class="op">=</span> pOther <span class="op">./</span> pSelf<span class="op">;</span> </span>
+<span id="cb19-11"><a href="getting-started-in-stan.html#cb19-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-12"><a href="getting-started-in-stan.html#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Generate a data variable equal one if the participant kept everything</span></span>
+<span id="cb19-13"><a href="getting-started-in-stan.html#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">// and zero otherwise</span></span>
+<span id="cb19-14"><a href="getting-started-in-stan.html#cb19-14" aria-hidden="true" tabindex="-1"></a>  matrix<span class="op">[</span>n<span class="op">,</span>nChoices<span class="op">]</span> fractionKept<span class="op">;</span></span>
+<span id="cb19-15"><a href="getting-started-in-stan.html#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>n<span class="op">)</span>  <span class="op">{</span></span>
+<span id="cb19-16"><a href="getting-started-in-stan.html#cb19-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>cc in <span class="dv">1</span><span class="op">:</span>nChoices<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-17"><a href="getting-started-in-stan.html#cb19-17" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> <span class="op">(</span>keep<span class="op">[</span>ii<span class="op">,</span>cc<span class="op">]==</span>income<span class="op">[</span>cc<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb19-18"><a href="getting-started-in-stan.html#cb19-18" aria-hidden="true" tabindex="-1"></a>        keptEverything<span class="op">[</span>ii<span class="op">,</span>cc<span class="op">]</span> <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb19-19"><a href="getting-started-in-stan.html#cb19-19" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb19-20"><a href="getting-started-in-stan.html#cb19-20" aria-hidden="true" tabindex="-1"></a>        keptEverything<span class="op">[</span>ii<span class="op">,</span>cc<span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb19-21"><a href="getting-started-in-stan.html#cb19-21" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb19-22"><a href="getting-started-in-stan.html#cb19-22" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb19-23"><a href="getting-started-in-stan.html#cb19-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-24"><a href="getting-started-in-stan.html#cb19-24" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb19-25"><a href="getting-started-in-stan.html#cb19-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-26"><a href="getting-started-in-stan.html#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>For those of you familiar with programming languages that permit matrix representations, you may be cringing at this point because of my double <code>for</code> loop. Yes, this will slow things down a bit compared to a matrix representation (as I did with calculating the price of giving), but I do this only to make the program easier to read. We will get to vectorizing operations soon enough. Either way, as this is the data block, so it will only execute once. You should worry more about for loops in blocks that include parameters, as these will execute thousands of times to simulate the posterior.</p>
+</div>
+<div id="parameters-block" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Parameters block<a href="getting-started-in-stan.html#parameters-block" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Next, we come to the parameters block. In this block of code, we list our model’s parameters. Like the data block, we need to tell <em>Stan</em> the type of variable that our parameters are. Unlike the data block, though, these must all be continuous variables. Hence, you can a parameter as a <code>real</code>, <code>vector</code>, <code>matrix</code>, and so on, but you cannot have an <code>int</code> parameter.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb20-1"><a href="getting-started-in-stan.html#cb20-1" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb20-2"><a href="getting-started-in-stan.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-3"><a href="getting-started-in-stan.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// tell Stan what our parameters are</span></span>
+<span id="cb20-4"><a href="getting-started-in-stan.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  real alpha<span class="op">;</span></span>
+<span id="cb20-5"><a href="getting-started-in-stan.html#cb20-5" aria-hidden="true" tabindex="-1"></a>  real beta<span class="op">;</span></span>
+<span id="cb20-6"><a href="getting-started-in-stan.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</div>
+<div id="model-block" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Model block<a href="getting-started-in-stan.html#model-block" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is where the guts of your model goes. Here you are going to tell <em>Stan</em> how to compute the likelihood, and also what your priors are. Fortunately for us, <em>Stan</em> has a whole lot of in-built probability distributions, so we can take advantage of these to make our code more readable. They are also faster to evaluate in some cases.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb21-1"><a href="getting-started-in-stan.html#cb21-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb21-2"><a href="getting-started-in-stan.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-3"><a href="getting-started-in-stan.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*</span></span>
+<span id="cb21-4"><a href="getting-started-in-stan.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">  Increment the likelihood </span></span>
+<span id="cb21-5"><a href="getting-started-in-stan.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">  */</span></span>
+<span id="cb21-6"><a href="getting-started-in-stan.html#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>n<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-7"><a href="getting-started-in-stan.html#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>cc in <span class="dv">1</span><span class="op">:</span>nChoices<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-8"><a href="getting-started-in-stan.html#cb21-8" aria-hidden="true" tabindex="-1"></a>      keptEverything<span class="op">[</span>ii<span class="op">,</span>cc<span class="op">]</span> <span class="op">~</span> bernoulli_logit<span class="op">(</span>alpha<span class="op">+</span>beta<span class="op">*</span>priceOfGiving<span class="op">[</span>cc<span class="op">]);</span></span>
+<span id="cb21-9"><a href="getting-started-in-stan.html#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb21-10"><a href="getting-started-in-stan.html#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb21-11"><a href="getting-started-in-stan.html#cb21-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-12"><a href="getting-started-in-stan.html#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// specify the priors</span></span>
+<span id="cb21-13"><a href="getting-started-in-stan.html#cb21-13" aria-hidden="true" tabindex="-1"></a>  alpha <span class="op">~</span> normal<span class="op">(</span>prior_alpha<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_alpha<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb21-14"><a href="getting-started-in-stan.html#cb21-14" aria-hidden="true" tabindex="-1"></a>  beta  <span class="op">~</span> normal<span class="op">(</span>prior_beta<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_beta<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb21-15"><a href="getting-started-in-stan.html#cb21-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-16"><a href="getting-started-in-stan.html#cb21-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-17"><a href="getting-started-in-stan.html#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Note here that we are coding our model in almost exactly the same way as we stated it mathematically. In the first part of the block (the nasty double <code>for</code> loop that I will get rid of in later examples), we specify the distribution of our data <code>keptEverything</code>, and then below this (it doesn’t really matter in which order we do this) we state the prior.</p>
+</div>
+<div id="generated-quantities-block" class="section level3 hasAnchor" number="2.2.5">
+<h3><span class="header-section-number">2.2.5</span> Generated quantities block<a href="getting-started-in-stan.html#generated-quantities-block" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Finally, we can generate the prediction for the probability of keeping everything. This is done in a similar way to the generated data block, but <em>Stan</em> stores these values in the simulation output.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb22-1"><a href="getting-started-in-stan.html#cb22-1" aria-hidden="true" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
+<span id="cb22-2"><a href="getting-started-in-stan.html#cb22-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-3"><a href="getting-started-in-stan.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// prediction when the price of giving is one</span></span>
+<span id="cb22-4"><a href="getting-started-in-stan.html#cb22-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-5"><a href="getting-started-in-stan.html#cb22-5" aria-hidden="true" tabindex="-1"></a>  real predictionPrice1<span class="op">;</span></span>
+<span id="cb22-6"><a href="getting-started-in-stan.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-7"><a href="getting-started-in-stan.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  predictionPrice1 <span class="op">=</span> <span class="fl">1.0</span><span class="op">/(</span><span class="fl">1.0</span><span class="op">+</span>exp<span class="op">(-(</span>alpha<span class="op">+</span>beta<span class="op">)));</span></span>
+<span id="cb22-8"><a href="getting-started-in-stan.html#cb22-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-9"><a href="getting-started-in-stan.html#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</div>
+<div id="the-final-product" class="section level3 hasAnchor" number="2.2.6">
+<h3><span class="header-section-number">2.2.6</span> The final product<a href="getting-started-in-stan.html#the-final-product" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Putting everything together, this is what we have:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb23-1"><a href="getting-started-in-stan.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">// GettingStartedAV2001.stan</span></span>
+<span id="cb23-2"><a href="getting-started-in-stan.html#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="getting-started-in-stan.html#cb23-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb23-4"><a href="getting-started-in-stan.html#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> n<span class="op">;</span> <span class="co">// number of participants</span></span>
+<span id="cb23-5"><a href="getting-started-in-stan.html#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> nChoices<span class="op">;</span> <span class="co">// number of choices per participant</span></span>
+<span id="cb23-6"><a href="getting-started-in-stan.html#cb23-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-7"><a href="getting-started-in-stan.html#cb23-7" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>nChoices<span class="op">]</span> income<span class="op">;</span></span>
+<span id="cb23-8"><a href="getting-started-in-stan.html#cb23-8" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>nChoices<span class="op">]</span> pSelf<span class="op">;</span></span>
+<span id="cb23-9"><a href="getting-started-in-stan.html#cb23-9" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>nChoices<span class="op">]</span> pOther<span class="op">;</span></span>
+<span id="cb23-10"><a href="getting-started-in-stan.html#cb23-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-11"><a href="getting-started-in-stan.html#cb23-11" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> female<span class="op">;</span></span>
+<span id="cb23-12"><a href="getting-started-in-stan.html#cb23-12" aria-hidden="true" tabindex="-1"></a>  matrix<span class="op">[</span>n<span class="op">,</span>nChoices<span class="op">]</span> keep<span class="op">;</span></span>
+<span id="cb23-13"><a href="getting-started-in-stan.html#cb23-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-14"><a href="getting-started-in-stan.html#cb23-14" aria-hidden="true" tabindex="-1"></a>  real prior_alpha<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb23-15"><a href="getting-started-in-stan.html#cb23-15" aria-hidden="true" tabindex="-1"></a>  real prior_beta<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb23-16"><a href="getting-started-in-stan.html#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb23-17"><a href="getting-started-in-stan.html#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="getting-started-in-stan.html#cb23-18" aria-hidden="true" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb23-19"><a href="getting-started-in-stan.html#cb23-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-20"><a href="getting-started-in-stan.html#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> keptEverything<span class="op">[</span>n<span class="op">,</span>nChoices<span class="op">];</span></span>
+<span id="cb23-21"><a href="getting-started-in-stan.html#cb23-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-22"><a href="getting-started-in-stan.html#cb23-22" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>nChoices<span class="op">]</span> priceOfGiving<span class="op">;</span></span>
+<span id="cb23-23"><a href="getting-started-in-stan.html#cb23-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-24"><a href="getting-started-in-stan.html#cb23-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-25"><a href="getting-started-in-stan.html#cb23-25" aria-hidden="true" tabindex="-1"></a>  <span class="co">// generated a data variable equal to the price of giving</span></span>
+<span id="cb23-26"><a href="getting-started-in-stan.html#cb23-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// note that the . in ./ indicates an element-by-element operation</span></span>
+<span id="cb23-27"><a href="getting-started-in-stan.html#cb23-27" aria-hidden="true" tabindex="-1"></a>  priceOfGiving <span class="op">=</span> pOther <span class="op">./</span> pSelf<span class="op">;</span> </span>
+<span id="cb23-28"><a href="getting-started-in-stan.html#cb23-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-29"><a href="getting-started-in-stan.html#cb23-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Generate a data variable equal one if the participant kept everything</span></span>
+<span id="cb23-30"><a href="getting-started-in-stan.html#cb23-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">// and zero otherwise</span></span>
+<span id="cb23-31"><a href="getting-started-in-stan.html#cb23-31" aria-hidden="true" tabindex="-1"></a>  matrix<span class="op">[</span>n<span class="op">,</span>nChoices<span class="op">]</span> fractionKept<span class="op">;</span></span>
+<span id="cb23-32"><a href="getting-started-in-stan.html#cb23-32" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>n<span class="op">)</span>  <span class="op">{</span></span>
+<span id="cb23-33"><a href="getting-started-in-stan.html#cb23-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>cc in <span class="dv">1</span><span class="op">:</span>nChoices<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb23-34"><a href="getting-started-in-stan.html#cb23-34" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> <span class="op">(</span>keep<span class="op">[</span>ii<span class="op">,</span>cc<span class="op">]==</span>income<span class="op">[</span>cc<span class="op">])</span> <span class="op">{</span></span>
+<span id="cb23-35"><a href="getting-started-in-stan.html#cb23-35" aria-hidden="true" tabindex="-1"></a>        keptEverything<span class="op">[</span>ii<span class="op">,</span>cc<span class="op">]</span> <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb23-36"><a href="getting-started-in-stan.html#cb23-36" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb23-37"><a href="getting-started-in-stan.html#cb23-37" aria-hidden="true" tabindex="-1"></a>        keptEverything<span class="op">[</span>ii<span class="op">,</span>cc<span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb23-38"><a href="getting-started-in-stan.html#cb23-38" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb23-39"><a href="getting-started-in-stan.html#cb23-39" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb23-40"><a href="getting-started-in-stan.html#cb23-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb23-41"><a href="getting-started-in-stan.html#cb23-41" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb23-42"><a href="getting-started-in-stan.html#cb23-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-43"><a href="getting-started-in-stan.html#cb23-43" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb23-44"><a href="getting-started-in-stan.html#cb23-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-45"><a href="getting-started-in-stan.html#cb23-45" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb23-46"><a href="getting-started-in-stan.html#cb23-46" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-47"><a href="getting-started-in-stan.html#cb23-47" aria-hidden="true" tabindex="-1"></a>  <span class="co">// tell Stan what our parameters are</span></span>
+<span id="cb23-48"><a href="getting-started-in-stan.html#cb23-48" aria-hidden="true" tabindex="-1"></a>  real alpha<span class="op">;</span></span>
+<span id="cb23-49"><a href="getting-started-in-stan.html#cb23-49" aria-hidden="true" tabindex="-1"></a>  real beta<span class="op">;</span></span>
+<span id="cb23-50"><a href="getting-started-in-stan.html#cb23-50" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb23-51"><a href="getting-started-in-stan.html#cb23-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-52"><a href="getting-started-in-stan.html#cb23-52" aria-hidden="true" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb23-53"><a href="getting-started-in-stan.html#cb23-53" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-54"><a href="getting-started-in-stan.html#cb23-54" aria-hidden="true" tabindex="-1"></a>  <span class="co">/*</span></span>
+<span id="cb23-55"><a href="getting-started-in-stan.html#cb23-55" aria-hidden="true" tabindex="-1"></a><span class="co">  Increment the likelihood </span></span>
+<span id="cb23-56"><a href="getting-started-in-stan.html#cb23-56" aria-hidden="true" tabindex="-1"></a><span class="co">  */</span></span>
+<span id="cb23-57"><a href="getting-started-in-stan.html#cb23-57" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>n<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb23-58"><a href="getting-started-in-stan.html#cb23-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>cc in <span class="dv">1</span><span class="op">:</span>nChoices<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb23-59"><a href="getting-started-in-stan.html#cb23-59" aria-hidden="true" tabindex="-1"></a>      keptEverything<span class="op">[</span>ii<span class="op">,</span>cc<span class="op">]</span> <span class="op">~</span> bernoulli_logit<span class="op">(</span>alpha<span class="op">+</span>beta<span class="op">*</span>priceOfGiving<span class="op">[</span>cc<span class="op">]);</span></span>
+<span id="cb23-60"><a href="getting-started-in-stan.html#cb23-60" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb23-61"><a href="getting-started-in-stan.html#cb23-61" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb23-62"><a href="getting-started-in-stan.html#cb23-62" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-63"><a href="getting-started-in-stan.html#cb23-63" aria-hidden="true" tabindex="-1"></a>  <span class="co">// specify the priors</span></span>
+<span id="cb23-64"><a href="getting-started-in-stan.html#cb23-64" aria-hidden="true" tabindex="-1"></a>  alpha <span class="op">~</span> normal<span class="op">(</span>prior_alpha<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_alpha<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb23-65"><a href="getting-started-in-stan.html#cb23-65" aria-hidden="true" tabindex="-1"></a>  beta  <span class="op">~</span> normal<span class="op">(</span>prior_beta<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_beta<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb23-66"><a href="getting-started-in-stan.html#cb23-66" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-67"><a href="getting-started-in-stan.html#cb23-67" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-68"><a href="getting-started-in-stan.html#cb23-68" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb23-69"><a href="getting-started-in-stan.html#cb23-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-70"><a href="getting-started-in-stan.html#cb23-70" aria-hidden="true" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
+<span id="cb23-71"><a href="getting-started-in-stan.html#cb23-71" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-72"><a href="getting-started-in-stan.html#cb23-72" aria-hidden="true" tabindex="-1"></a>  <span class="co">// prediction when the price of giving is one</span></span>
+<span id="cb23-73"><a href="getting-started-in-stan.html#cb23-73" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-74"><a href="getting-started-in-stan.html#cb23-74" aria-hidden="true" tabindex="-1"></a>  real predictionPrice1<span class="op">;</span></span>
+<span id="cb23-75"><a href="getting-started-in-stan.html#cb23-75" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-76"><a href="getting-started-in-stan.html#cb23-76" aria-hidden="true" tabindex="-1"></a>  predictionPrice1 <span class="op">=</span> <span class="fl">1.0</span><span class="op">/(</span><span class="fl">1.0</span><span class="op">+</span>exp<span class="op">(-(</span>alpha<span class="op">+</span>beta<span class="op">)));</span></span>
+<span id="cb23-77"><a href="getting-started-in-stan.html#cb23-77" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-78"><a href="getting-started-in-stan.html#cb23-78" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Note that the blocks have to appear in a particular order, otherwise <em>Stan</em> will throw an error. The other optional blocks not used in this example are the transformed parameters block, where we can store intermediate values that are used later for calculating the likelihood, and the functions block, where we can write our own user-generated functions. I will introduce these in more detail later.</p>
+</div>
+</div>
+<div id="estimating-a-model" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Estimating a model<a href="getting-started-in-stan.html#estimating-a-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Once we have our <em>Stan</em> program, we can go back to <em>R</em> and estimate the thing. You do this by first loading the <code>rstan</code> library. I then set a couple of options. Here the <code>mc.cores</code> option tells <em>Stan</em> to use all the cores in my processor. As we are running more than one Monte Carlo chain, this will speed things up by almost a factor of the number of cores. I then select the <code>auto_write</code> option, which means that the compiled <em>Stan</em> file will be saved. If I use it again without editing it, we will not have to waste time compiling the model again.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="getting-started-in-stan.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb24-2"><a href="getting-started-in-stan.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb24-3"><a href="getting-started-in-stan.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb24-4"><a href="getting-started-in-stan.html#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="getting-started-in-stan.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This if statement checks to see if I have already estimated this model, and</span></span>
+<span id="cb24-6"><a href="getting-started-in-stan.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># only runs the program if the saved results are not there</span></span>
+<span id="cb24-7"><a href="getting-started-in-stan.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">&quot;Outputs/GettingStarted/GettingStartedAV2001.rds&quot;</span>)) {</span>
+<span id="cb24-8"><a href="getting-started-in-stan.html#cb24-8" aria-hidden="true" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">stan</span>(<span class="st">&quot;Code/GettingStarted/GettingStartedAV2001.stan&quot;</span>,</span>
+<span id="cb24-9"><a href="getting-started-in-stan.html#cb24-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb24-10"><a href="getting-started-in-stan.html#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Save the fitted model results</span></span>
+<span id="cb24-11"><a href="getting-started-in-stan.html#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(Fit,<span class="at">file =</span> <span class="st">&quot;Outputs/GettingStarted/GettingStartedAV2001.rds&quot;</span>)</span>
+<span id="cb24-12"><a href="getting-started-in-stan.html#cb24-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-13"><a href="getting-started-in-stan.html#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co"># load the fitted model results</span></span>
+<span id="cb24-14"><a href="getting-started-in-stan.html#cb24-14" aria-hidden="true" tabindex="-1"></a>Fit<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;Outputs/GettingStarted/GettingStartedAV2001.rds&quot;</span>)</span></code></pre></div>
+</div>
+<div id="looking-at-the-results" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Looking at the results<a href="getting-started-in-stan.html#looking-at-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are a few things we can do now that we have estimated our model. To begin with, we can get a summary table of the parameters and generated quantities like this:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="getting-started-in-stan.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="12%" />
+<col width="9%" />
+<col width="7%" />
+<col width="7%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="6%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">mean</th>
+<th align="right">se_mean</th>
+<th align="right">sd</th>
+<th align="right">2.5%</th>
+<th align="right">25%</th>
+<th align="right">50%</th>
+<th align="right">75%</th>
+<th align="right">97.5%</th>
+<th align="right">n_eff</th>
+<th align="right">Rhat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">alpha</td>
+<td align="right">0.0480923</td>
+<td align="right">0.0025922</td>
+<td align="right">0.0961676</td>
+<td align="right">-0.1442309</td>
+<td align="right">-0.0160319</td>
+<td align="right">0.0496628</td>
+<td align="right">0.1111312</td>
+<td align="right">0.2317288</td>
+<td align="right">1376.334</td>
+<td align="right">1.003172</td>
+</tr>
+<tr class="even">
+<td align="left">beta</td>
+<td align="right">-0.4592476</td>
+<td align="right">0.0017745</td>
+<td align="right">0.0670033</td>
+<td align="right">-0.5930898</td>
+<td align="right">-0.5040354</td>
+<td align="right">-0.4585798</td>
+<td align="right">-0.4149885</td>
+<td align="right">-0.3262137</td>
+<td align="right">1425.779</td>
+<td align="right">1.003456</td>
+</tr>
+<tr class="odd">
+<td align="left">predictionPrice1</td>
+<td align="right">0.3987266</td>
+<td align="right">0.0002827</td>
+<td align="right">0.0147165</td>
+<td align="right">0.3702469</td>
+<td align="right">0.3885788</td>
+<td align="right">0.3987644</td>
+<td align="right">0.4083643</td>
+<td align="right">0.4281109</td>
+<td align="right">2710.380</td>
+<td align="right">1.001968</td>
+</tr>
+<tr class="even">
+<td align="left">lp__</td>
+<td align="right">-729.5571665</td>
+<td align="right">0.0257897</td>
+<td align="right">0.9609770</td>
+<td align="right">-732.0547891</td>
+<td align="right">-729.9745210</td>
+<td align="right">-729.2676189</td>
+<td align="right">-728.8477195</td>
+<td align="right">-728.5925366</td>
+<td align="right">1388.465</td>
+<td align="right">1.002674</td>
+</tr>
+</tbody>
+</table>
+<p>In particular, note the negative coefficient on <span class="math inline">\(\beta\)</span>. We can interpret this as participants being less likely to give anything as the cost of giving increases. Good, that checks out.</p>
+<p>Furthermore, we can access the draws from the posterior distribution using the <code>extract</code> function:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="getting-started-in-stan.html#cb26-1" aria-hidden="true" tabindex="-1"></a>draws <span class="ot">&lt;-</span><span class="fu">extract</span>(Fit)</span>
+<span id="cb26-2"><a href="getting-started-in-stan.html#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="getting-started-in-stan.html#cb26-3" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb26-4"><a href="getting-started-in-stan.html#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span><span class="fu">tibble</span>(<span class="at">prediction =</span> draws<span class="sc">$</span>predictionPrice1),<span class="fu">aes</span>(<span class="at">x=</span>prediction))</span>
+<span id="cb26-5"><a href="getting-started-in-stan.html#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_histogram</span>()</span>
+<span id="cb26-6"><a href="getting-started-in-stan.html#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb26-7"><a href="getting-started-in-stan.html#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Fraction keeping everything when the price of giving is zero&quot;</span>)</span>
+<span id="cb26-8"><a href="getting-started-in-stan.html#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;posterior distribution (count of draws)&quot;</span>)</span>
+<span id="cb26-9"><a href="getting-started-in-stan.html#cb26-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-AV2001" class="csl-entry">
+Andreoni, James, and Lise Vesterlund. 2001. <span>“Which Is the Fair Sex? Gender Differences in Altruism.”</span> <em>The Quarterly Journal of Economics</em> 116 (1): 293–312. <a href="https://doi.org/10.1162/003355301556419">https://doi.org/10.1162/003355301556419</a>.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>That is, if I want the other participant to have one more experimental currency unit, I must pass them <span class="math inline">\(p^\mathrm{Other}\)</span> tokens, which means I have to give up <span class="math inline">\(p^\mathrm{Other}/p^\mathrm{Self}\)</span> experimental currency units for myself.<a href="getting-started-in-stan.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="probabilistic-models-of-behavior.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
