@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Hierarchical models | Structural Bayesian Techniques for Experimental and Behavioral Economics</title>
+  <meta name="description" content="5 Hierarchical models | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Hierarchical models | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Hierarchical models | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2023-02-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="representative-agent-and-participant-specific-models.html"/>
+<link rel="next" href="applications.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="section.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="setting-the-stage.html"><a href="setting-the-stage.html"><i class="fa fa-check"></i>Setting the stage</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-does-your-theory-say-about-your-data"><i class="fa fa-check"></i><b>1.1</b> What does your theory say about your data?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-do-your-data-say-about-your-theory"><i class="fa fa-check"></i><b>1.2</b> What do your data say about your theory?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-do-your-parameters-say-about-other-things"><i class="fa fa-check"></i><b>1.3</b> What do your parameters say about other things?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#what-does-your-expertise-say-about-your-parameters"><i class="fa fa-check"></i><b>1.4</b> What does your expertise say about your parameters?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>Stan</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#installation-in-r"><i class="fa fa-check"></i><b>2.1</b> Installation in <em>R</em></a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-anatomy-of-a-stan-program"><i class="fa fa-check"></i><b>2.2</b> The anatomy of a <em>Stan</em> program</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#data-block"><i class="fa fa-check"></i><b>2.2.1</b> Data block</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#transformed-data-block"><i class="fa fa-check"></i><b>2.2.2</b> Transformed data block</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#parameters-block"><i class="fa fa-check"></i><b>2.2.3</b> Parameters block</a></li>
+<li class="chapter" data-level="2.2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#model-block"><i class="fa fa-check"></i><b>2.2.4</b> Model block</a></li>
+<li class="chapter" data-level="2.2.5" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#generated-quantities-block"><i class="fa fa-check"></i><b>2.2.5</b> Generated quantities block</a></li>
+<li class="chapter" data-level="2.2.6" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-final-product"><i class="fa fa-check"></i><b>2.2.6</b> The final product</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#estimating-a-model"><i class="fa fa-check"></i><b>2.3</b> Estimating a model</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#looking-at-the-results"><i class="fa fa-check"></i><b>2.4</b> Looking at the results</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html"><i class="fa fa-check"></i><b>3</b> Probabilistic models of behavior</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#the-problem-with-deterministic-models"><i class="fa fa-check"></i><b>3.1</b> The problem with deterministic models</a></li>
+<li class="chapter" data-level="3.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#what-is-a-probabilistic-model"><i class="fa fa-check"></i><b>3.2</b> What <em>is</em> a probabilistic model?</a></li>
+<li class="chapter" data-level="3.3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#example-dataset-and-model"><i class="fa fa-check"></i><b>3.3</b> Example dataset and model</a></li>
+<li class="chapter" data-level="3.4" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#optimal-choice-plus-an-error"><i class="fa fa-check"></i><b>3.4</b> Optimal choice plus an error</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-1"><i class="fa fa-check"></i><b>3.4.1</b> Estimating a model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#utility-based-models"><i class="fa fa-check"></i><b>3.5</b> Utility-based models</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-2"><i class="fa fa-check"></i><b>3.5.1</b> Estimating a model</a></li>
+<li class="chapter" data-level="3.5.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#doing-something-with-the-estimates"><i class="fa fa-check"></i><b>3.5.2</b> Doing something with the estimates</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="building-blocks.html"><a href="building-blocks.html"><i class="fa fa-check"></i>Building blocks</a></li>
+<li class="chapter" data-level="4" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html"><i class="fa fa-check"></i><b>4</b> Representative agent and participant-specific models</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#participant-specific-models"><i class="fa fa-check"></i><b>4.1</b> Participant-specific models</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#example-data-and-economic-model"><i class="fa fa-check"></i><b>4.1.1</b> Example data and economic model</a></li>
+<li class="chapter" data-level="4.1.2" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#going-to-the-probabilistic-model"><i class="fa fa-check"></i><b>4.1.2</b> Going to the probabilistic model</a></li>
+<li class="chapter" data-level="4.1.3" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#a-short-side-quest-into-canned-estimation-techniques"><i class="fa fa-check"></i><b>4.1.3</b> A short side quest into canned estimation techniques</a></li>
+<li class="chapter" data-level="4.1.4" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#assigning-priors"><i class="fa fa-check"></i><b>4.1.4</b> Assigning priors</a></li>
+<li class="chapter" data-level="4.1.5" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#estimating-the-model-for-one-participant"><i class="fa fa-check"></i><b>4.1.5</b> Estimating the model for one participant</a></li>
+<li class="chapter" data-level="4.1.6" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#estimating-the-model-for-all-participants"><i class="fa fa-check"></i><b>4.1.6</b> Estimating the model for all participants</a></li>
+<li class="chapter" data-level="4.1.7" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#but-we-could-be-learning-more"><i class="fa fa-check"></i><b>4.1.7</b> But we could be learning more!</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#actual-representative-agent-models-pooled-models"><i class="fa fa-check"></i><b>4.2</b> Actual representative agent models (pooled models)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="hierarchical-models.html"><a href="hierarchical-models.html"><i class="fa fa-check"></i><b>5</b> Hierarchical models</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#a-random-sample-of-participants-walks-into-your-lab"><i class="fa fa-check"></i><b>5.1</b> A random sample of participants walks into your lab</a></li>
+<li class="chapter" data-level="5.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#the-anatomy-of-a-basic-hierarchical-model"><i class="fa fa-check"></i><b>5.2</b> The anatomy of a basic hierarchical model</a></li>
+<li class="chapter" data-level="5.3" data-path="hierarchical-models.html"><a href="hierarchical-models.html#accounting-for-unobserved-heterogeneity"><i class="fa fa-check"></i><b>5.3</b> Accounting for unobserved heterogeneity</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#the-last-time-you-will-integrate-the-likelihood-probably"><i class="fa fa-check"></i><b>5.3.1</b> The last time you will integrate the likelihood, probably</a></li>
+<li class="chapter" data-level="5.3.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#data-augmentation"><i class="fa fa-check"></i><b>5.3.2</b> Data augmentation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="hierarchical-models.html"><a href="hierarchical-models.html#a-multivariate-normal-hierarchical-model"><i class="fa fa-check"></i><b>5.4</b> A multivariate normal hierarchical model</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#decomposing-the-variance-covariance-matrix"><i class="fa fa-check"></i><b>5.4.1</b> Decomposing the variance-covariance matrix</a></li>
+<li class="chapter" data-level="5.4.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#transformed-parameters-and-normal-distributions"><i class="fa fa-check"></i><b>5.4.2</b> Transformed parameters and normal distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="hierarchical-models.html"><a href="hierarchical-models.html#example-again-with-bfs2019"><i class="fa fa-check"></i><b>5.5</b> Example: again with <span class="citation">Bruhin, Fehr, and Schunk (<span>2019</span>)</span></a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#no-correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>5.5.1</b> No correlation between individual-level parameters</a></li>
+<li class="chapter" data-level="5.5.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>5.5.2</b> Correlation between individual-level parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i>Applications</a></li>
+<li class="chapter" data-level="6" data-path="strategy-frequency-estimation.html"><a href="strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>6</b> Strategy Frequency Estimation</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="strategy-frequency-estimation.html"><a href="strategy-frequency-estimation.html#basic-model-and-data"><i class="fa fa-check"></i><b>6.1</b> Basic model and data</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="strategy-frequency-estimation.html"><a href="strategy-frequency-estimation.html#data-wrangling"><i class="fa fa-check"></i><b>6.1.1</b> Data wrangling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="outline-of-future-chapters.html"><a href="outline-of-future-chapters.html"><i class="fa fa-check"></i>Outline of future chapters</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Structural Bayesian Techniques for Experimental and Behavioral Economics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="hierarchical-models" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Hierarchical models<a href="hierarchical-models.html#hierarchical-models" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="a-random-sample-of-participants-walks-into-your-lab" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> A random sample of participants walks into your lab<a href="hierarchical-models.html#a-random-sample-of-participants-walks-into-your-lab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Suppose that your goal was to estimate a parameter <span class="math inline">\(\theta_i\)</span> for every participant in your experiment. In an ideal world, they would come into your laboratory with <span class="math inline">\(\theta_i\)</span> stamped to their face, and all you would have to do to know it perfectly would be to briefly look at them, pay them a small show-up fee, take note of their <span class="math inline">\(\theta_i\)</span>, and send them on their way. Such ideal participants are a pipe dream, but what we <em>can</em> do is ask them to make decisions <span class="math inline">\(y_i\)</span> that reveal to us something about their <span class="math inline">\(\theta_i\)</span>. If we have a probabilistic model that relates <span class="math inline">\(y_i\)</span> to <span class="math inline">\(\theta_i\)</span>, and we have a prior for <span class="math inline">\(\theta_i\)</span>, then we can learn about <span class="math inline">\(\theta_i\)</span>. But <span class="math inline">\(i\)</span> is not the only participant who comes to the lab. <span class="math inline">\(j\)</span>, <span class="math inline">\(k\)</span>, and <span class="math inline">\(l\)</span> do as well. In fact, we are fortunate enough to get <span class="math inline">\(n\)</span> of them! Is there anything we can learn about <span class="math inline">\(\theta_i\)</span> by studying the data from participants <span class="math inline">\(j\)</span>, <span class="math inline">\(k\)</span>, and <span class="math inline">\(l\)</span>? The answer to this is a definitive “yes”, if <span class="math inline">\(\theta_i\)</span>, <span class="math inline">\(\theta_j\)</span>, <span class="math inline">\(\theta_k\)</span>, and <span class="math inline">\(\theta_l\)</span> are all drawn from the same distribution. In economic experiments this is a reasonably good assumption, as participants are typically drawn from the same subject pool.</p>
+<p>So <em>how</em> do we learn about <span class="math inline">\(\theta_i\)</span> from <span class="math inline">\(j\)</span>’s decisions? We note that <span class="math inline">\(\theta_i\)</span> and <span class="math inline">\(\theta_j\)</span> are both draws from the same distribution, and so decisions <span class="math inline">\(y_j\)</span> are informative of not just <span class="math inline">\(\theta_j\)</span>, but the parameters governing this <em>population-level distribution</em>, call them <span class="math inline">\(\mathcal P\)</span>. That is, knowing <span class="math inline">\(\mathcal P\)</span> helps us learn about <span class="math inline">\(\mathcal P\)</span> because <span class="math inline">\(\mathcal P\)</span> is the prior we should have on <span class="math inline">\(\theta_i\)</span>, and <span class="math inline">\(y_j\)</span> tells us something about <span class="math inline">\(\theta_j\)</span>, which in turn tells us something about <span class="math inline">\(\mathcal P\)</span>. So even if we don’t care directly about <span class="math inline">\(\mathcal P\)</span>, <span class="math inline">\(j\)</span>’s decisions can help us learn about <span class="math inline">\(i\)</span>’s parameter, <em>if we let them</em>. Furthermore, learning about population-level parameters <span class="math inline">\(\mathcal P\)</span> might be more interesting to us as researches than whatever is going on at the individual level. These parameters allow us to extrapolate beyond the sample of participants we get, and make statements about our entire subject pool.</p>
+<p>This is where the benefits of Bayesian estimation really start to be realized!</p>
+<p>Up to this point we have focused solely on representative agent models and participant-specific models. All of this work has not been a waste, as these models are important stepping stones on the way to richer models, but it is these richer models that provide deeper insight into our data. In this chapter, we will be estimating <em>population-level parameters</em>. These are parameters that govern the distribution of (what are usually) our participants’ individual parameters. That is, if our economic model is about preferences, we will be estimating the <em>distribution</em> of preferences. This is an amazingly powerful tool.</p>
+<p>We will do this by assuming that our data follows a <em>hierarchical</em> structure. By that I mean that we will assume that we can partition our data into chunks, and maybe even that we can further partition these chunks into sub-chunks. We will then add some structure to how these chunks are related to each other, and estimate these relationships. What we get out of this is a quantification of the heterogeneity that exists between these chunks, and if we have more than one level (i.e. chunks and sub-chunks), the relative contribution to heterogeneity of each level.</p>
+</div>
+<div id="the-anatomy-of-a-basic-hierarchical-model" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> The anatomy of a basic hierarchical model<a href="hierarchical-models.html#the-anatomy-of-a-basic-hierarchical-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the previous chapter, we estimated a participant’s parameters using just the data generated by that participant. Specifically, we focused on just their own data <span class="math inline">\(y_i\)</span>, while ignoring the data produced by all our other participants <span class="math inline">\(y_{-i}\)</span>. Just like these participant-specific models, we will continue to have a probabilistic model for the participant’s behavior, which we will denote as the likelihood <span class="math inline">\(p(y_i\mid\theta_i)\)</span>. However now we will further specify a <em>distribution</em> for <span class="math inline">\(\theta_i\)</span>. That is, we will assume that each participant’s <span class="math inline">\(\theta_i\)</span> is an independent draw from the population of potential participants:</p>
+<p><span class="math display">\[
+\theta_i\sim iid G(\mathcal P)
+\]</span></p>
+<p>where <span class="math inline">\(G\)</span> is the family of distribution we have chosen to model how the <span class="math inline">\(\theta_i\)</span>s are generated, and <span class="math inline">\(\mathcal P\)</span> are the parameters in the distribution <span class="math inline">\(G\)</span>. For example, probably the most popular hierarchical specification assumes that <span class="math inline">\(\theta_i\)</span> are drawn from a multivariate normal distribution, so <span class="math inline">\(\mathcal P=(\mu,\Sigma)\)</span> are the mean vector and variance-covariance matrix of this distribution. I will discuss the multivariate normal hierarchical model in much more detail below.</p>
+<p>If we were lucky enough to just observe <span class="math inline">\(\theta_i\)</span>, then it would be a straightforward task estimating <span class="math inline">\(\mathcal P\)</span>. Instead though, we get data that are generated according to:</p>
+<p><span class="math display">\[
+y_i\sim g(\theta_i)
+\]</span>
+where <span class="math inline">\(g\)</span> is the family of distribution that we have chosen to model how our data <span class="math inline">\(y_i\)</span> are generated conditional on our participant’s parameter <span class="math inline">\(\theta_i\)</span>. Putting this together, we observe <span class="math inline">\(y_i\)</span>, which tells us something about <span class="math inline">\(\theta_i\)</span>, which tells us something about <span class="math inline">\(\mathcal P\)</span>.</p>
+<p>Note that all we need to simulate this data-generating process is to specify <span class="math inline">\(\mathcal P\)</span>. That is, we can:</p>
+<ol style="list-style-type: decimal">
+<li>Draw <span class="math inline">\(\theta_i\sim G(\mathcal P)\)</span>, then</li>
+<li>Draw <span class="math inline">\(y_i\sim g(\theta_i)\)</span></li>
+</ol>
+<p>Therefore, our likelihood for a participant’s data can be defined as follows:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(y_i,\theta_i\mid \mathcal P)&amp;=p(y_i\mid \theta_i,\mathcal P)p(\theta_i\mid \mathcal P)\\
+&amp;=p(y_i\mid\theta_i)p(\theta_i\mid\mathcal P)
+\end{aligned}
+\]</span></p>
+<p>where the second line follows if we assume that <span class="math inline">\(y_i\)</span> and <span class="math inline">\(\mathcal P\)</span> are independent conditional on <span class="math inline">\(\theta_i\)</span>. In plainer English: once we know <span class="math inline">\(\theta_i\)</span>, <span class="math inline">\(\mathcal P\)</span> will tell us no more information about <span class="math inline">\(y_i\)</span>. The power of this assumption is that it allows us to think separately about how our data are generated given the participant’s parameters, (i.e. <span class="math inline">\(p(y_i\mid\theta_i)\)</span>), and how participants are distributed across the population (i.e. <span class="math inline">\(p(\theta_i\mid\mathcal P)\)</span>).</p>
+<p>Conceptually, the hierarchical structure (a distribution for <span class="math inline">\(\theta_i\)</span>) is hopefully easy to grasp. However we have a practical problem: we still don’t know <span class="math inline">\(\theta_i\)</span>, so any expression that includes it cannot be feasibly used to evaluate our model’s likelihood. The next section will develop two techniques for doing this. The first, integrating the likelihood, is popular for Frequentist techniques, but may sometimes be useful in Bayesian applications too; and the second, data augmentation, is the typical Bayesian go-to for this problem, and lends itself especially to the Hamiltonian Monte Carlo of <em>Stan</em> <span class="citation">(<a href="#ref-Betancourt2015" role="doc-biblioref">Betancourt and Girolami 2015</a>)</span>.</p>
+</div>
+<div id="accounting-for-unobserved-heterogeneity" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Accounting for unobserved heterogeneity<a href="hierarchical-models.html#accounting-for-unobserved-heterogeneity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One of the hurdles I came accross when I started learning about hierarchical models was how to treat unobservable heterogeneity. For most of the models discussed in this book, this unobservable heterogeneity will mostly be in participant-specific parameters. This problem is not specific to Bayesian implementations of hierarchical models, but it is typically addressed differently depending on whether one adopts a Bayesian or Frequentist (maximum likelihood) approach. In both cases the models can make the same distributional assumptions about <span class="math inline">\(\theta\)</span>, but they are typically treated in very different ways.</p>
+<p>While maximum likelihood techniques typically integrate out the unobserved heterogeneity <span class="math inline">\(\theta\)</span> and just focus on estimating the population-level parameters <span class="math inline">\(\mathcal P\)</span>, the Bayesian implementation typically jointly estimates <span class="math inline">\(\theta\)</span> alongside <span class="math inline">\(\mathcal P\)</span>. I include an introduction to both techniques, as I believe they can both be useful tools that might be the best option to you in some cases.</p>
+<div id="the-last-time-you-will-integrate-the-likelihood-probably" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> The last time you will integrate the likelihood, probably<a href="hierarchical-models.html#the-last-time-you-will-integrate-the-likelihood-probably" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The typical maximum likelihood implementation of a hierarchical model uses maximum simulated likelihood to eliminate the participant-level parameters <span class="math inline">\(\theta\)</span> from the likelihood function. This technique in the context of economic experiments is discussed in Chapter 10 of <span class="citation">Moffatt (<a href="#ref-Moffatt2015" role="doc-biblioref">2015</a>)</span>, and is the implementation used in the hierarchical models estimated in, for example, <span class="citation">Conte, Hey, and Moffatt (<a href="#ref-Conte2011" role="doc-biblioref">2011</a>)</span>.</p>
+<p>The likelihood of observing data <span class="math inline">\(y_i\)</span> conditional on only population-level parameters <span class="math inline">\(\mathcal P\)</span> can be approximated as:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(y_i\mid \mathcal P)&amp;=\int_\Theta p(y_i,\theta\mid \mathcal P)\mathrm d\theta\\
+&amp;=\int_\Theta p(y_i\mid \theta,\mathcal P)p(\theta\mid\mathcal P)\mathrm d\theta\\
+&amp;=E_{\theta\mid\mathcal P}\left[p(y_i\mid\theta,\mathcal P)\right]\\
+&amp;\approx\frac{1}{S}\sum_{s=1}^S p(y_i\mid \theta^s,\mathcal P),\quad \text{with:}\ \theta^s\sim iid G(\mathcal P)
+\end{aligned}
+\]</span></p>
+<p>where the first equality follows because of the relationship between the marginal distribution <span class="math inline">\(y_i\mid \mathcal P\)</span> and the joint distribution <span class="math inline">\(y_i,\theta\mid \mathcal P\)</span>. The second inequality writes this joint distribution function as the product of a conditional and a marginal distribution.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> The third equality follows by recognizing that the expression in the second line is the expectation of <span class="math inline">\(p(y_i\mid \theta,\mathcal P)\)</span>, where <span class="math inline">\(\theta\mid\mathcal P\)</span> is the only random variable, and the approximation is a Monte Carlo integration of this expectation. This approximation can be made more efficient using Halton draws, which are discussed in Section 10.3 of <span class="citation">Moffatt (<a href="#ref-Moffatt2015" role="doc-biblioref">2015</a>)</span>.</p>
+<p>What all of this means is that you can approximate the likelihood of the entire dataset as:</p>
+<p><span class="math display">\[
+p(y\mid\mathcal P)=\prod_{i=1}^np(y_i\mid\mathcal P)
+\approx \prod_{i=1}^n\left(\frac{1}{S}\sum_{s=1}^Sp(y_i\mid \theta^s,\mathcal P)\right)
+\]</span>
+So the log-likelihood function, which is what we would pass to <em>Stan</em>, is approximated as:</p>
+<p><span class="math display">\[
+\log p(y\mid \mathcal P)\approx\sum_{i=1}^n\log\left(\frac1S\sum_{s=1}^Sp(y_i\mid \theta^s,\mathcal P)\right)
+\]</span></p>
+</div>
+<div id="data-augmentation" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Data augmentation<a href="hierarchical-models.html#data-augmentation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The other technique for accounting for unobserved heterogeneity is called “data augmentation”, and basically comes down to jointly estimating the participant-specific parameters alongside the population-level parameters. This means specifying a posterior distribution in the following form:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(\theta,\mathcal P\mid y)&amp;\propto p(y\mid \theta,\mathcal P)p(\theta,\mathcal P)\\
+&amp;=p(y\mid \theta,\mathcal P)p(\theta\mid\mathcal P)p(\mathcal P)
+\end{aligned}
+\]</span></p>
+<p>Note here the trade-off: we do not have to use Monte Carlo integration to approximate the likelihood (because we are jointly estimating <span class="math inline">\(\theta\)</span>), but we now have a whole lot more parameters to estimate! Specifically, while we do not have to evaluate each likelihood <span class="math inline">\(S\)</span> times for the Monte Carlo integration, we have to estimate all of the parameters in <span class="math inline">\(\theta\)</span>, not just <span class="math inline">\(\mathcal P\)</span>. As there will usually be at least one element in <span class="math inline">\(\theta\)</span> for every participant, this means that data augmentation can have us going from a few to many parameters very quickly.</p>
+<p>Our final product is the posterior draws of <span class="math inline">\(\mathcal P\)</span> <em>and</em> <span class="math inline">\(\theta\)</span>, so not only do we have estimates of the population quantities, we also have estimates of the participants’ parameters. These estimates are referred to as <em>shrinkage</em> estimates because compared to their participant-specific counterparts from the previous section, they will be “shrunk” or pulled towards the center of the population distribution implied by <span class="math inline">\(\mathcal P\)</span>. This is a feature, not a bug: by jointly estimating <span class="math inline">\(\mathcal P\)</span> alongside <span class="math inline">\(\theta\)</span>, we are allowing our data to decide for us what an appropriate prior for <span class="math inline">\(\theta\)</span> is. In particular, this prior is the distribution implied by <span class="math inline">\(\mathcal P\)</span>, which since it is informed by the data, will most likely be more informative than our prior for the participant-specific counterpart.</p>
+<p>The computational benefit of this method is that we only have to evaluate the likelihood once, instead of <span class="math inline">\(S\)</span> times if we were integrating it. My intuition for this, albeit only informed through a lot of trial and error trying both methods with both maximum likelihood and Bayesian techniques, is that these methods are common in their respective statistical philosophies for computational practicalities. Hamiltonian Monte Carlo, which is what <em>Stan</em> does, seems to scale well with the number of parameters in the model. Hence, adding a whole lot of participant-specific <span class="math inline">\(\theta\)</span>s to the bill of parameters that we need to estimate is not that much of an additional computational burden, especially when the <span class="math inline">\(\theta\)</span>s are well informed by the “prior” in the population distribution <span class="math inline">\(\mathcal P\)</span>. On the other hand, maximum likelihood does not scale so well with the number of parameters, and so Monte Carlo integration of the likelihood function will seriously cut down on the computational burden relative to data augmentation. This is not to say that there will not be times when you will want to integrate the likelihood for your Bayesian estimator. Rather, I would recommend trying data augmentation first, but if there are some pathologies in your likelihood function that make this difficult, integrating the likelihood might be something that you could try.</p>
+</div>
+</div>
+<div id="a-multivariate-normal-hierarchical-model" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> A multivariate normal hierarchical model<a href="hierarchical-models.html#a-multivariate-normal-hierarchical-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Although there are many distributional families that you might want to use to model the distribution of your individual parameters, the multivariate normal distribution is a great place to start, and will get you a long way. For this, we will assume that our individual-level parameters <span class="math inline">\(\theta_i\)</span> follow a multivariate normal distribution:</p>
+<p><span class="math display" id="eq:HierarchicalNormal">\[
+\theta_i\sim iid N(\mu,\Sigma) \tag{5.1}
+\]</span></p>
+<p>Where if <span class="math inline">\(\theta_i\)</span> is a <span class="math inline">\(k\times 1\)</span> vector of parameters specific to participant <span class="math inline">\(i\)</span>, then <span class="math inline">\(\mu\)</span> is a <span class="math inline">\(k\times 1\)</span> mean vector of means, so:</p>
+<p><span class="math display">\[
+\mu_j=E(\theta_{i,j})
+\]</span>
+and <span class="math inline">\(\Sigma\)</span> is a <span class="math inline">\(k\times k\)</span> variance-covariance matrix: the diagonal elements of <span class="math inline">\(\Sigma\)</span> therefore correspond to the variances of each element of <span class="math inline">\(\theta_i\)</span>, and the off-diagonal components tell us the covariances. This specification therefore permits correlation between the participants’ parameters.</p>
+<p>One thing you might be noticing about this specification (and the more general specification discussed above), is that the distribution in <a href="hierarchical-models.html#eq:HierarchicalNormal">(5.1)</a> almost looks like how we would specify a prior. This is certainly a helpful way to think about it: if we were instead estimating a participant-specific model using data from just that participant, <span class="math inline">\(\theta_i\sim N(\mu,\Sigma)\)</span> could exactly be our prior!<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> However instead of choosing <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\Sigma\)</span> to express our belief about <span class="math inline">\(\theta_i\)</span>, we are instead assigning priors to <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\Sigma\)</span>, then estimating these parameters. As such, instead of specifying priors for <span class="math inline">\(\theta_i\)</span>, as we did with the participant-specific estimation, we will be <em>estimating</em> what an appropriate prior for <span class="math inline">\(\theta_i\)</span> should be.</p>
+<div id="decomposing-the-variance-covariance-matrix" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Decomposing the variance-covariance matrix<a href="hierarchical-models.html#decomposing-the-variance-covariance-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>While it may be somewhat intuitive to assign a prior for a population mean parameter <span class="math inline">\(\mu\)</span>, I always find it difficult thinking about priors for variance-covariance matrices. For me, this is difficult because I don’t have good grasp of the implications of a prior for a matrix that must have some restrictions imposed on it (because it is a variance-covariance matrix). Fortunately, as documented in <a href="https://mc-stan.org/docs/stan-users-guide/multivariate-hierarchical-priors.html">Section 1.13 of the <em>Stan User’s Guide</em></a> <span class="citation">(<a href="#ref-StanUsersGuide" role="doc-biblioref">Stan Development Team 2022</a>)</span>, not only can we decompose this matrix into a vector of standard deviations, and a correlation matrix, two quantities I find <em>much</em> easier to think about, but we can assign priors to these quantities separately.</p>
+<p>Specifically, note that our variance-covariance matrix <span class="math inline">\(\Sigma\)</span> can be decomposed into a <span class="math inline">\(k\times 1\)</span> vector <span class="math inline">\(\tau\)</span> of standard deviations, and a <span class="math inline">\(k\times k\)</span> correlation matrix <span class="math inline">\(\Omega\)</span>:</p>
+<p><span class="math display">\[
+\Sigma = \mathrm{diag}(\tau)\Omega\mathrm{diag}(\tau)
+\]</span>
+I find this immensely useful, because it permits us to think about the prior for <span class="math inline">\(\Sigma\)</span> in two stages:</p>
+<ol style="list-style-type: decimal">
+<li>Choose priors for the elements of <span class="math inline">\(\tau\)</span> to reflect our belief about the amount of heterogeneity in each element of <span class="math inline">\(\theta_i\)</span>.</li>
+<li>Choose a prior for <span class="math inline">\(\Omega\)</span> to reflect our belief about how these parameters are correlated, without having to worry about the scale of these parameters.</li>
+</ol>
+<p>For the priors for <span class="math inline">\(\tau\)</span>, the <em>Stan User’s Guide</em> recommends a half Cauchy distribution. In the first example in this chapter, I discuss how we can use the cumulative density function of this distribution to work out how to assign appropriate priors.</p>
+<p>For the correlation matrix <span class="math inline">\(\Omega\)</span>, the <em>Stan User’s Guide</em> recommends an LKJ prior, which has the form:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Omega&amp;\sim \mathrm{LKJCorr}(\eta)
+\iff p(\Omega\mid\eta)\propto \mathrm{det}(\Omega)^{\eta-1}
+\end{aligned}
+\]</span>
+In order to investigate what this means for a correlation between two parameters, I wrote a <em>Stan</em> program to draw from this distribution, then varied the parameter <span class="math inline">\(\eta\)</span> and the matrix size <span class="math inline">\(k\)</span>:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb63-1"><a href="hierarchical-models.html#cb63-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-2"><a href="hierarchical-models.html#cb63-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb63-3"><a href="hierarchical-models.html#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> k<span class="op">;</span> <span class="co">// size of correlation matrix</span></span>
+<span id="cb63-4"><a href="hierarchical-models.html#cb63-4" aria-hidden="true" tabindex="-1"></a>  real prior_corr<span class="op">;</span> <span class="co">// lkj prior on correlation matrix</span></span>
+<span id="cb63-5"><a href="hierarchical-models.html#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb63-6"><a href="hierarchical-models.html#cb63-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-7"><a href="hierarchical-models.html#cb63-7" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb63-8"><a href="hierarchical-models.html#cb63-8" aria-hidden="true" tabindex="-1"></a>  corr_matrix<span class="op">[</span>k<span class="op">]</span> CORR<span class="op">;</span></span>
+<span id="cb63-9"><a href="hierarchical-models.html#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb63-10"><a href="hierarchical-models.html#cb63-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-11"><a href="hierarchical-models.html#cb63-11" aria-hidden="true" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb63-12"><a href="hierarchical-models.html#cb63-12" aria-hidden="true" tabindex="-1"></a>  CORR <span class="op">~</span> lkj_corr<span class="op">(</span>prior_corr<span class="op">);</span></span>
+<span id="cb63-13"><a href="hierarchical-models.html#cb63-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Then I simulated its distribution for a few values of <span class="math inline">\(k\)</span> and <span class="math inline">\(\eta\)</span>:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="hierarchical-models.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb64-2"><a href="hierarchical-models.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb64-3"><a href="hierarchical-models.html#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb64-4"><a href="hierarchical-models.html#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb64-5"><a href="hierarchical-models.html#cb64-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-6"><a href="hierarchical-models.html#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="co"># values to loop over  </span></span>
+<span id="cb64-7"><a href="hierarchical-models.html#cb64-7" aria-hidden="true" tabindex="-1"></a>K<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>) <span class="co"># correlation matrix size</span></span>
+<span id="cb64-8"><a href="hierarchical-models.html#cb64-8" aria-hidden="true" tabindex="-1"></a>PRIOR_CORR<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>) <span class="co"># lkj prior parameter</span></span>
+<span id="cb64-9"><a href="hierarchical-models.html#cb64-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-10"><a href="hierarchical-models.html#cb64-10" aria-hidden="true" tabindex="-1"></a>CorrSim<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
+<span id="cb64-11"><a href="hierarchical-models.html#cb64-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> K) {</span>
+<span id="cb64-12"><a href="hierarchical-models.html#cb64-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (prior_corr <span class="cf">in</span> PRIOR_CORR) {</span>
+<span id="cb64-13"><a href="hierarchical-models.html#cb64-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(k,prior_corr))</span>
+<span id="cb64-14"><a href="hierarchical-models.html#cb64-14" aria-hidden="true" tabindex="-1"></a>    dStan<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="at">k=</span>k,<span class="at">prior_corr=</span>prior_corr)</span>
+<span id="cb64-15"><a href="hierarchical-models.html#cb64-15" aria-hidden="true" tabindex="-1"></a>    Fit<span class="ot">&lt;-</span><span class="fu">stan</span>(<span class="st">&quot;Code/Hierarchical/lkj_corr.stan&quot;</span>,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb64-16"><a href="hierarchical-models.html#cb64-16" aria-hidden="true" tabindex="-1"></a>    tmp<span class="ot">&lt;-</span><span class="fu">tibble</span>(</span>
+<span id="cb64-17"><a href="hierarchical-models.html#cb64-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">prior_corr =</span> prior_corr,</span>
+<span id="cb64-18"><a href="hierarchical-models.html#cb64-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">k =</span> k,</span>
+<span id="cb64-19"><a href="hierarchical-models.html#cb64-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">corr =</span> <span class="fu">extract</span>(Fit)<span class="sc">$</span>CORR[,<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb64-20"><a href="hierarchical-models.html#cb64-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb64-21"><a href="hierarchical-models.html#cb64-21" aria-hidden="true" tabindex="-1"></a>    CorrSim<span class="ot">&lt;-</span><span class="fu">rbind</span>(CorrSim,tmp)</span>
+<span id="cb64-22"><a href="hierarchical-models.html#cb64-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb64-23"><a href="hierarchical-models.html#cb64-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb64-24"><a href="hierarchical-models.html#cb64-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb64-25"><a href="hierarchical-models.html#cb64-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-26"><a href="hierarchical-models.html#cb64-26" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(CorrSim,<span class="st">&quot;Outputs/Hierarchical/Hierarchica_lkj_corr.Rds&quot;</span>)</span></code></pre></div>
+<p>As the LKJ correlation distribution is symmetric, we only need to look at one of the correlations to get the picture, so here it is:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="hierarchical-models.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb65-2"><a href="hierarchical-models.html#cb65-2" aria-hidden="true" tabindex="-1"></a>corr<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;Outputs/Hierarchical/Hierarchica_lkj_corr.Rds&quot;</span>)</span>
+<span id="cb65-3"><a href="hierarchical-models.html#cb65-3" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb65-4"><a href="hierarchical-models.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(corr,<span class="fu">aes</span>(<span class="at">x=</span>corr))</span>
+<span id="cb65-5"><a href="hierarchical-models.html#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_density</span>(<span class="at">alpha=</span><span class="fl">0.7</span>)</span>
+<span id="cb65-6"><a href="hierarchical-models.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_grid</span>(<span class="fu">paste</span>(<span class="st">&quot;eta =&quot;</span>,prior_corr)<span class="sc">~</span><span class="fu">paste</span>(<span class="st">&quot;k =&quot;</span>,k))</span>
+<span id="cb65-7"><a href="hierarchical-models.html#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb65-8"><a href="hierarchical-models.html#cb65-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:HierarchicalLKJ"></span>
+<img src="index_files/figure-html/HierarchicalLKJ-1.png" alt="Simulated distributions of correlations from the LKJ distribution. $k$ is the matrix size, and $\eta$ is the parameter in the LKJ distribution." width="672" />
+<p class="caption">
+Figure 5.1: Simulated distributions of correlations from the LKJ distribution. <span class="math inline">\(k\)</span> is the matrix size, and <span class="math inline">\(\eta\)</span> is the parameter in the LKJ distribution.
+</p>
+</div>
+<p>Figure <a href="hierarchical-models.html#fig:HierarchicalLKJ">5.1</a> confirms main features of the LKH distribution, as outlined in Section 1.13 of the <em>Stan User’s Guide</em></p>
+<blockquote>
+<p>The basic behavior of the LKJ correlation distribution is similar to that of a beta distribution. For <span class="math inline">\(\eta=1\)</span>, the result is a uniform distribution. Despite being the identity over correlation matrices, the marginal distribution over the entries in that matrix (i.e., the correlations) is not uniform between -1 and 1. Rather, it concentrates around zero as the dimensionality increases due to the complex constraints. For <span class="math inline">\(\eta&gt;1\)</span>, the density increasingly concentrates mass around the unit matrix, i.e., favoring less correlation. For <span class="math inline">\(\eta&lt;1\)</span>, it increasingly concentrates mass in the other direction, i.e., favoring more correlation.</p>
+</blockquote>
+<p>That is, for small correlation matrices (say, <span class="math inline">\(k=2\)</span>), the distribution is more spread out, and the modes are more pronounced when <span class="math inline">\(\eta&lt;1\)</span>. Visually, it seems like the matrix size <span class="math inline">\(k\)</span> is less important for larger values of <span class="math inline">\(\eta\)</span>. All of this is to say, we probably want to choose an <span class="math inline">\(\eta&gt;1\)</span> (which is also recommended by the <em>Guide</em>), but we will also want to choose <span class="math inline">\(\eta\)</span> differently depending on the number of participant-level parameters <span class="math inline">\(k\)</span> we have in our model.</p>
+<p>Section 1.13 of the <em>Stan User’s Guide</em><a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> also suggests using Cholesky factorization to further decompose the correlation matrix <span class="math inline">\(\Omega\)</span>. That is, we can represent <span class="math inline">\(\Omega\)</span> as the outer product of a triangular matrix <span class="math inline">\(L_\Omega\)</span> with itself:</p>
+<p><span class="math display">\[
+\Omega = L_\Omega L_\Omega^\top
+\]</span></p>
+<p>This is particularly useful because we can then express our participant-level parameters as a linear combination of standard normal random variables:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\theta_i&amp;=\mu+\mathrm{diag}(\tau)L_\Omega z_i\\
+z_{i,j}&amp;\sim iid N(0,1)
+\end{aligned}
+\]</span></p>
+<p>This representation speeds up computation because evaluating the multivariate normal density and the LKJ prior both require factorization. By re-parameterizing the model in terms of the already factorized values, we avoid this factorization. This also permits writing the whole collection of individual parameters <span class="math inline">\(\theta=(\theta_1,\theta_2,\ldots,\theta_n)\)</span> as one big matrix operation involving the already factorized parameters, and standard normals (which are very fast to simulate):</p>
+<p><span class="math display">\[
+\begin{aligned}
+\theta&amp;=\mu 1_n^\top+\mathrm{diag}(\tau)L_\Omega z \\
+z_{j,i}&amp;\sim iidN(0,1)
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(z\)</span> is a <span class="math inline">\(k\times n\)</span> matrix of standard normals.</p>
+<p>All of these modifications might make your model less intuitive to read, but they will make it easier for <em>Stan</em> to simulate your posterior quickly and without errors. What we will end up with is a model whose actual parameters are <span class="math inline">\(\{\mu,\tau,L_\Omega,z\}\)</span> instead of <span class="math inline">\(\{\mu,\Sigma,\theta\}\)</span>, however we will always be able to generate the (hopefully) more interpretable parameters of <span class="math inline">\(\Sigma\)</span>, <span class="math inline">\(\Omega\)</span>, and <span class="math inline">\(\theta\)</span>, because there is a deterministic relationship between them.</p>
+</div>
+<div id="transformed-parameters-and-normal-distributions" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Transformed parameters and normal distributions<a href="hierarchical-models.html#transformed-parameters-and-normal-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>One restriction that applies when estimating a hierarchical model with a multivariate normal distribution of individual-level parameters is that these individual-level parameters must be able to take on any real number. This is not a problem for, say, the risk-aversion parameter <span class="math inline">\(r\)</span> in the CRRA utility function <span class="math inline">\(u_i(x)=\frac{x^{1-r_i}}{1-r_i}\)</span>, however there are many other cases where our models’ parameters must be resrticted to only a subset of the real number line. For these parameters, we are going to have to transform them before they enter the model. That is, instead of estimating (say) logit choice precision parameter <span class="math inline">\(\lambda\)</span>, which must be positive, we could estimate <span class="math inline">\(\log\lambda\)</span>, as <span class="math inline">\(\log(\cdot)\)</span> takes a positive real number, and maps it onto the real number line. Other times, our parameters need to be restricted to the unit interval. In these cases one can use the inverse logit (<span class="math inline">\(\log(x)-\log(1-x)\)</span>) or inverse normal cumulative density <span class="math inline">\(\Phi^{-1}(x)\)</span>.</p>
+</div>
+</div>
+<div id="example-again-with-bfs2019" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Example: again with <span class="citation">Bruhin, Fehr, and Schunk (<a href="#ref-BFS2019" role="doc-biblioref">2019</a>)</span><a href="hierarchical-models.html#example-again-with-bfs2019" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="hierarchical-models.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb66-2"><a href="hierarchical-models.html#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="hierarchical-models.html#cb66-3" aria-hidden="true" tabindex="-1"></a>d1<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp1.csv&quot;</span>)</span>
+<span id="cb66-4"><a href="hierarchical-models.html#cb66-4" aria-hidden="true" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">1</span>)</span>
+<span id="cb66-5"><a href="hierarchical-models.html#cb66-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb66-6"><a href="hierarchical-models.html#cb66-6" aria-hidden="true" tabindex="-1"></a>d2<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp2.csv&quot;</span>)</span>
+<span id="cb66-7"><a href="hierarchical-models.html#cb66-7" aria-hidden="true" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">2</span>)    </span>
+<span id="cb66-8"><a href="hierarchical-models.html#cb66-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb66-9"><a href="hierarchical-models.html#cb66-9" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>(<span class="fu">rbind</span>(d1,d2)</span>
+<span id="cb66-10"><a href="hierarchical-models.html#cb66-10" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Just use the dictator game data</span></span>
+<span id="cb66-11"><a href="hierarchical-models.html#cb66-11" aria-hidden="true" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">filter</span>(dg<span class="sc">==</span><span class="dv">1</span>)  </span>
+<span id="cb66-12"><a href="hierarchical-models.html#cb66-12" aria-hidden="true" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
+<span id="cb66-13"><a href="hierarchical-models.html#cb66-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">self_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,self_x,self_y),</span>
+<span id="cb66-14"><a href="hierarchical-models.html#cb66-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">other_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,other_x,other_y)</span>
+<span id="cb66-15"><a href="hierarchical-models.html#cb66-15" aria-hidden="true" tabindex="-1"></a>     )</span>
+<span id="cb66-16"><a href="hierarchical-models.html#cb66-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>I will begin with again analyzing the modified dictator game decisions in <span class="citation">Bruhin, Fehr, and Schunk (<a href="#ref-BFS2019" role="doc-biblioref">2019</a>)</span>, which I introduced in the previous chapter. Recall that in this experiment, 174 participants each made 78 pairwise choices over allocations of money between themself and another participant. As with the previous chapter, I will stick with the <span class="citation">Fehr and Schmidt (<a href="#ref-FS1999" role="doc-biblioref">1999</a>)</span> model of inequality-aversion as the deterministic economic model:</p>
+<p><span class="math display">\[
+U(\pi_1,\pi_2;\alpha_i,\beta_i)=\pi_1-\alpha_i\max\{\pi_2-\pi_1,0\}-\beta_i\max\{\pi_1-\pi_2\}
+\]</span>
+and the logistic choice model to make it a probabilistic model that permits a likelihood representation:</p>
+<p><span class="math display">\[
+X_{i,t}\mid \theta,\mu,\Sigma\sim\mathrm{Bernoulli}\left(\Lambda\left(\lambda_i\left(
+U(\pi^X_1,\pi^X_2;\alpha_i,\beta_i)-U(\pi^Y_1,\pi^Y_2;\alpha_i,\beta_i)
+\right)\right)\right)
+\]</span></p>
+<p>While this statement of the model is almost identical to how I made it in the previous chapter, there are some changes in notation that need to be noted. Firstly, I have explicitly put an <span class="math inline">\(i\)</span> subscript on the individual-level parameters <span class="math inline">\(\alpha_i\)</span>, <span class="math inline">\(\beta_i\)</span>, and <span class="math inline">\(\lambda_i\)</span>. This is to make it clear that each participant <span class="math inline">\(i\)</span> has their own parameters. For ease of notation here, I have lumped all of these parameters together into <span class="math inline">\(\theta\)</span>, so that we can talk about the population distribution more compactly. That is:</p>
+<p><span class="math display">\[
+\theta_i=\begin{pmatrix}\alpha_i&amp;\beta_i&amp;\log\lambda_i\end{pmatrix}^\top
+\]</span>
+where taking the log of <span class="math inline">\(\lambda\)</span> ensures that all elements of the (transformed) parameter vector <span class="math inline">\(\theta\)</span> can take on any real number. The above sampling statement also conditions on the population level parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\Sigma\)</span>, however we do not see any elements of these parameters on the right-hand side of the sampling statement. This is because it is assumed that <span class="math inline">\(\theta\)</span>, and in fact just <span class="math inline">\(\theta_i\)</span>, contains all of the information about the distribution of choices <span class="math inline">\(X_{i,t}\)</span> for participant <span class="math inline">\(i\)</span>. Put differently, once we know a participant’s parameters <span class="math inline">\(\theta_i\)</span>, the population distribution does not tell us anything more about the distribution of their choices.</p>
+<p>To fully specify the likelihood, we need to specify how the individual-level parameters <span class="math inline">\(\theta_i\)</span> are generated by the population-level parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\Sigma\)</span>. Let’s specify an independent multivariate normal distribution for <span class="math inline">\(\theta_i\)</span>:</p>
+<p><span class="math display">\[
+\theta_i\sim iid N(\mu,\Sigma)
+\]</span>
+where <span class="math inline">\(\mu\)</span> is the population mean of <span class="math inline">\(\theta_i\)</span> and <span class="math inline">\(\Sigma\)</span> is the population variance-covariance matrix of <span class="math inline">\(\theta_i\)</span>.</p>
+<p>At this point, note that if I told you the population level parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\Sigma\)</span>, then you would be able to simulate data from the experiment. Specifically, you would draw <span class="math inline">\(n\)</span> <span class="math inline">\(\theta_i\)</span>s from the multivariate normal, and then use these <span class="math inline">\(\theta_i\)</span>s to simulate the binary choices <span class="math inline">\(\{X_{i,t}\}_{i=1,t=1}^{n,T}\)</span>. This means we have all of the information needed to specify the likelihood. What remains is to choose priors for the population-level parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\Sigma\)</span>. As building up priors on variance-covariance matrices can be daunting if handled in one go, I will first take you through a model that assumes that the individual-level parameters are uncorrelated. Fortunately this for us, this is a really useful stepping stone for the correlated model, because <em>Stan</em> lets us decompose a variance-covariance matrix into a vector of standard deviations and a correlation matrix.</p>
+<div id="no-correlation-between-individual-level-parameters" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> No correlation between individual-level parameters<a href="hierarchical-models.html#no-correlation-between-individual-level-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose to begin with that our individual-level parameters are not correlated with each other. We can therefore re-write the hierarchical structure of the model as:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\theta_{i,\alpha}&amp;\sim iid N(\mu_\alpha,\tau_\alpha^2)\\
+\theta_{i,\beta}&amp;\sim iid N(\mu_\beta,\tau_\beta^2)\\
+\theta_{i,\lambda}&amp;\sim iid N(\mu_\lambda,\tau_\lambda^2)\\
+\end{aligned}
+\]</span></p>
+<div id="a-quick-prior-calibration" class="section level4 hasAnchor" number="5.5.1.1">
+<h4><span class="header-section-number">5.5.1.1</span> A quick prior calibration<a href="hierarchical-models.html#a-quick-prior-calibration" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Here it is appropriate to assign normal priors to the mean parameters, and half Cauchy priors (i.e. truncated to be positive only) to the standard deviations. As with the example using this dataset in the previous chapter, let’s start by selecting a prior for <span class="math inline">\(\lambda_i\)</span>. However this time, we need to specify priors for the parameters that govern the distribution of <span class="math inline">\(\lambda_i\)</span>. Here, I decided to use the following prior for <span class="math inline">\(\lambda\)</span> in the representative agent model:</p>
+<p><span class="math display">\[
+\log\lambda\sim N(-5.76,2.11^2)
+\]</span>
+It seems reasonable that we will want the prior mean of <span class="math inline">\(\mu_\lambda\)</span> to be in the same location, so this leaves us with working out an appropriate prior standard deviation for <span class="math inline">\(\mu_\lambda\)</span>.
+Recall that in this previous example, I used the model’s predicted probability for a selfish participant as a gauge for where the economically interesting values of <span class="math inline">\(\lambda\)</span> were. Again, we can then limit ourselves to looking at twelve different payoff differences:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="hierarchical-models.html#cb67-1" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span>(D</span>
+<span id="cb67-2"><a href="hierarchical-models.html#cb67-2" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">absDiff =</span> <span class="fu">abs</span>(self_x<span class="sc">-</span>self_y))</span>
+<span id="cb67-3"><a href="hierarchical-models.html#cb67-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">select</span>(absDiff)</span>
+<span id="cb67-4"><a href="hierarchical-models.html#cb67-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span>
+<span id="cb67-5"><a href="hierarchical-models.html#cb67-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb67-6"><a href="hierarchical-models.html#cb67-6" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>absDiff <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>##  [1] 140 200 380 240 120  80  40 280 180   0 160 360</code></pre>
+<p>As this problem will be a bit more complicated, I will just focus on the median value of these differences:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="hierarchical-models.html#cb69-1" aria-hidden="true" tabindex="-1"></a>(dMedian<span class="ot">&lt;-</span>d<span class="sc">$</span>absDiff <span class="sc">|&gt;</span> <span class="fu">median</span>())</span></code></pre></div>
+<pre><code>## [1] 170</code></pre>
+<p>Furthermore, since we are taking the log of <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(\exp(\mu_\lambda)\)</span> gives us the <em>median</em> of the distribution of the predicted choice probability. Figure <a href="hierarchical-models.html#fig:HierarchicalBFSCalibrateLambda">5.2</a> shows how the distribution of this choice probability, summarized by the median, 2.5th, 25th, 75th, and 97.5th percentiles, changes as we change the prior standard deviation of <span class="math inline">\(\mu_\lambda\)</span>. Here, we don’t want to set the prior standard deviation too small, because otherwise it would influence our posterior too much. On the the other hand, we don’t want to set it too large, either, because this could mean we are searching for solutions of our model in unlikely regions of the parameter space. For me, choosing a prior standard deviation of one find this happy middle ground. That is, I will go with:</p>
+<p><span class="math display">\[
+\mu_\lambda\sim N(-5.76,1^2)
+\]</span></p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="hierarchical-models.html#cb71-1" aria-hidden="true" tabindex="-1"></a>lambdaCheck<span class="ot">&lt;-</span>(</span>
+<span id="cb71-2"><a href="hierarchical-models.html#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">priorSD =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="at">length=</span><span class="dv">100</span>))</span>
+<span id="cb71-3"><a href="hierarchical-models.html#cb71-3" aria-hidden="true" tabindex="-1"></a>      <span class="sc">|&gt;</span> <span class="fu">mutate</span>( </span>
+<span id="cb71-4"><a href="hierarchical-models.html#cb71-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">PrMedian =</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">5.76</span>)<span class="sc">*</span>dMedian)),</span>
+<span id="cb71-5"><a href="hierarchical-models.html#cb71-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">Pr975    =</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">5.76</span><span class="sc">+</span>priorSD<span class="sc">*</span><span class="fl">1.96</span>)<span class="sc">*</span>dMedian)),</span>
+<span id="cb71-6"><a href="hierarchical-models.html#cb71-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">Pr025    =</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">5.76</span><span class="sc">-</span>priorSD<span class="sc">*</span><span class="fl">1.96</span>)<span class="sc">*</span>dMedian)),</span>
+<span id="cb71-7"><a href="hierarchical-models.html#cb71-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">Pr750    =</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">5.76</span><span class="sc">+</span>priorSD<span class="sc">*</span><span class="fl">0.67</span>)<span class="sc">*</span>dMedian)),</span>
+<span id="cb71-8"><a href="hierarchical-models.html#cb71-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">Pr250    =</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">5.76</span><span class="sc">-</span>priorSD<span class="sc">*</span><span class="fl">0.67</span>)<span class="sc">*</span>dMedian)),</span>
+<span id="cb71-9"><a href="hierarchical-models.html#cb71-9" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb71-10"><a href="hierarchical-models.html#cb71-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb71-11"><a href="hierarchical-models.html#cb71-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-12"><a href="hierarchical-models.html#cb71-12" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb71-13"><a href="hierarchical-models.html#cb71-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(lambdaCheck,<span class="fu">aes</span>(<span class="at">x=</span>priorSD,<span class="at">y=</span>PrMedian))</span>
+<span id="cb71-14"><a href="hierarchical-models.html#cb71-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>()</span>
+<span id="cb71-15"><a href="hierarchical-models.html#cb71-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymax=</span>Pr975,<span class="at">ymin=</span>Pr025),<span class="at">alpha=</span><span class="fl">0.2</span>)</span>
+<span id="cb71-16"><a href="hierarchical-models.html#cb71-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymax=</span>Pr750,<span class="at">ymin=</span>Pr250),<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
+<span id="cb71-17"><a href="hierarchical-models.html#cb71-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb71-18"><a href="hierarchical-models.html#cb71-18" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;median probability of choosing the option with the greatest utility&quot;</span>)</span>
+<span id="cb71-19"><a href="hierarchical-models.html#cb71-19" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;prior standard deviation of the population mean parameter for \u03bb&quot;</span>)</span>
+<span id="cb71-20"><a href="hierarchical-models.html#cb71-20" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:HierarchicalBFSCalibrateLambda"></span>
+<img src="index_files/figure-html/HierarchicalBFSCalibrateLambda-1.png" alt="A plot of the distribution of predicted choice probabilities that will help us calibrate the priors for choice precision." width="672" />
+<p class="caption">
+Figure 5.2: A plot of the distribution of predicted choice probabilities that will help us calibrate the priors for choice precision.
+</p>
+</div>
+<p>Figure <a href="hierarchical-models.html#fig:HierarchicalBFSCalibrateLambda">5.2</a> will also be helpful to us in choosing a prior for <span class="math inline">\(\tau_\lambda\)</span>, the standard deviation of <span class="math inline">\(\log\lambda_i\)</span>. Firstly, since I have limited myself to priors of the form:</p>
+<p><span class="math display">\[
+\tau_\lambda\sim \mathrm{Cauchy}^+(0,g)
+\]</span></p>
+<p>it is informative to know that the cumulative distribution function of <span class="math inline">\(\tau_\lambda\)</span> is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+F(x)&amp;=\frac{2}{\pi}\mathrm{arctan}\left(\frac{x}{g}\right)I(x\geq0)
+\end{aligned}
+\]</span>
+and so we can write the inverse cumulative density function as:</p>
+<p><span class="math display">\[
+F^{-1}(p)=g\tan \left(\frac{\pi p}{2}\right)
+\]</span></p>
+<p>so the 95th percentile of the distribution is <span class="math inline">\(F^{-1}(0.95)=g\tan(0.95\pi/2)\approx 12.7g\)</span>. Figure <a href="hierarchical-models.html#fig:HierarchicalBFSCalibrateLambda">5.2</a> shows us, if we fix <span class="math inline">\(\mu_\lambda\)</span> to its prior median of <span class="math inline">\(-5.76\)</span>, what the implications of different values of <span class="math inline">\(\tau_\lambda\)</span> are. That is, we can re-label the horizontal axis as “<span class="math inline">\(\tau_\lambda\)</span>”, and the vertical axis as “distribution of choice probabilities if <span class="math inline">\(\mu_\lambda=-5.76\)</span>”. Since for <span class="math inline">\(\tau_\lambda&gt;3\)</span> the interquartile range of the distribution of this choice probability (dark shaded region) takes up almost all of the vertical distance, these seem like unlikely values. Therefore I will calibrate the prior so <span class="math inline">\(\tau_\lambda=3\)</span> is the 95th percentile of its distribution. Therefore <span class="math inline">\(g=3/12.7\approx0.24\)</span>, so:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mu_\lambda&amp;\sim N(-5.76,1^2)\\
+\tau_\lambda&amp;\sim \mathrm{Cauchy}^+(0,0.24)
+\end{aligned}
+\]</span></p>
+<p>For the priors for the parameters governing the distributions of <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\beta_i\)</span>, I will keep them centered on zero. This means that I am looking to fill the blanks in the following distributions:</p>
+<p><span class="math display">\[
+\mu_\alpha\sim N(0,s^2),\quad \tau_\alpha\sim \mathrm{Cauchy}^+(0,g)
+\]</span>
+and similarly for <span class="math inline">\(\mu_\beta\)</span>, and <span class="math inline">\(\tau_\beta\)</span>. While in the representative agent model I calibrated the priors for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> so that 75% of the prior distribution was in the range <span class="math inline">\((-1,1)\)</span>, this would put too much mass outside this region for their population means: we should expect there to be less prior uncertainty in <span class="math inline">\(\mu_\alpha\)</span> than in <span class="math inline">\(\alpha\)</span>. This is because <span class="math inline">\(\mu_\alpha\)</span> is a measure of central tendency for <span class="math inline">\(\alpha_i\)</span>, and so it seems reasonable that prior to observing the data, we should be more certain about <span class="math inline">\(\mu_\alpha\)</span> than an individual <span class="math inline">\(\alpha_i\)</span>. Therefore, I will calibrate the priors for <span class="math inline">\(\mu_\alpha\)</span> and <span class="math inline">\(\mu_\beta\)</span> so that 99% of the probability mass is in this region, so <span class="math inline">\(s=2.58^{-1}\approx0.39\)</span>. For <span class="math inline">\(g\)</span>, a standard deviation of one seems large to me for both <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, because these parameters being greater than one means that the participant will place more weight on the other person’s earnings than their own. Choosing <span class="math inline">\(g=0.079\)</span> means that having <span class="math inline">\(\tau_\alpha&gt;1\)</span> will happen only 5% of the time in the prior. Therefore, all together my priors for this model are:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mu_\alpha&amp;\sim N(0,0.39^2),\quad \tau_\alpha\sim \mathrm{Cauchy}^+(0,0.79)\\
+\mu_\beta&amp;\sim N(0,0.39^2),\quad \tau_\beta\sim \mathrm{Cauchy}^+(0,0.79)\\
+\mu_\lambda&amp;\sim N(-5.76,1^2),\quad \tau_\lambda\sim\mathrm{Cauchy}^+(0,0.24)
+\end{aligned}
+\]</span></p>
+</div>
+<div id="implementation-and-estimation-in-stan" class="section level4 hasAnchor" number="5.5.1.2">
+<h4><span class="header-section-number">5.5.1.2</span> Implementation and estimation in <em>Stan</em><a href="hierarchical-models.html#implementation-and-estimation-in-stan" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>This is where all of the work we did in making the representative agent model comes in handy. Here is all we have to do:</p>
+<ol style="list-style-type: decimal">
+<li>Add in another data variable that keeps track of the participant id (i.e. the <span class="math inline">\(i\)</span> index)</li>
+<li>Change the prior data variables so that they are for priors over the population-level parameters</li>
+<li>Modify the existing parameters in the parameters block so that they are participant-specific</li>
+<li>Add in the new population-level parameters in the parameters block</li>
+<li>Specify the hierarchical structure in the model block</li>
+</ol>
+<p>This might seem like a lot, but it will be exactly the same every time we make a model hierarchical. Importantly, we barely have to modify any of the part of the code that does the individual-level likelihood parts. Here is what I came up with after unashamedly copying and pasting my representative agent model code into a new file:<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb72-1"><a href="hierarchical-models.html#cb72-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-2"><a href="hierarchical-models.html#cb72-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb72-3"><a href="hierarchical-models.html#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> n<span class="op">;</span> <span class="co">// number of observations</span></span>
+<span id="cb72-4"><a href="hierarchical-models.html#cb72-4" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> self_x<span class="op">;</span> <span class="co">// payoff to self with allocation x</span></span>
+<span id="cb72-5"><a href="hierarchical-models.html#cb72-5" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> other_x<span class="op">;</span> <span class="co">// payoff to other with allocation x</span></span>
+<span id="cb72-6"><a href="hierarchical-models.html#cb72-6" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> self_y<span class="op">;</span> <span class="co">// payoff to self with allocation y</span></span>
+<span id="cb72-7"><a href="hierarchical-models.html#cb72-7" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> other_y<span class="op">;</span> <span class="co">// payoff to other with allocation y</span></span>
+<span id="cb72-8"><a href="hierarchical-models.html#cb72-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> choice_x<span class="op">[</span>n<span class="op">];</span> <span class="co">// =1 iff allocation x is chosen</span></span>
+<span id="cb72-9"><a href="hierarchical-models.html#cb72-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-10"><a href="hierarchical-models.html#cb72-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* &lt;----- ADDITION: we need a variable to keep track of the participant ids</span></span>
+<span id="cb72-11"><a href="hierarchical-models.html#cb72-11" aria-hidden="true" tabindex="-1"></a><span class="co">  We also need an integer telling us how many participants we have</span></span>
+<span id="cb72-12"><a href="hierarchical-models.html#cb72-12" aria-hidden="true" tabindex="-1"></a><span class="co">  */</span></span>
+<span id="cb72-13"><a href="hierarchical-models.html#cb72-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> id<span class="op">[</span>n<span class="op">];</span></span>
+<span id="cb72-14"><a href="hierarchical-models.html#cb72-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> nParticipants<span class="op">;</span></span>
+<span id="cb72-15"><a href="hierarchical-models.html#cb72-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-16"><a href="hierarchical-models.html#cb72-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* &lt;---- DELETION: we now have priors over population-level parameters</span></span>
+<span id="cb72-17"><a href="hierarchical-models.html#cb72-17" aria-hidden="true" tabindex="-1"></a><span class="co">  real prior_lambda[2];</span></span>
+<span id="cb72-18"><a href="hierarchical-models.html#cb72-18" aria-hidden="true" tabindex="-1"></a><span class="co">  real prior_alpha[2];</span></span>
+<span id="cb72-19"><a href="hierarchical-models.html#cb72-19" aria-hidden="true" tabindex="-1"></a><span class="co">  real prior_beta[2];</span></span>
+<span id="cb72-20"><a href="hierarchical-models.html#cb72-20" aria-hidden="true" tabindex="-1"></a><span class="co">  */</span></span>
+<span id="cb72-21"><a href="hierarchical-models.html#cb72-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-22"><a href="hierarchical-models.html#cb72-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">// &lt;---- ADDITION: data specifying the priors;</span></span>
+<span id="cb72-23"><a href="hierarchical-models.html#cb72-23" aria-hidden="true" tabindex="-1"></a>  real prior_mu_alpha<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb72-24"><a href="hierarchical-models.html#cb72-24" aria-hidden="true" tabindex="-1"></a>  real prior_mu_beta<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb72-25"><a href="hierarchical-models.html#cb72-25" aria-hidden="true" tabindex="-1"></a>  real prior_mu_lambda<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb72-26"><a href="hierarchical-models.html#cb72-26" aria-hidden="true" tabindex="-1"></a>  real prior_tau_alpha<span class="op">;</span></span>
+<span id="cb72-27"><a href="hierarchical-models.html#cb72-27" aria-hidden="true" tabindex="-1"></a>  real prior_tau_beta<span class="op">;</span></span>
+<span id="cb72-28"><a href="hierarchical-models.html#cb72-28" aria-hidden="true" tabindex="-1"></a>  real prior_tau_lambda<span class="op">;</span></span>
+<span id="cb72-29"><a href="hierarchical-models.html#cb72-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-30"><a href="hierarchical-models.html#cb72-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb72-31"><a href="hierarchical-models.html#cb72-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-32"><a href="hierarchical-models.html#cb72-32" aria-hidden="true" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb72-33"><a href="hierarchical-models.html#cb72-33" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dX<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation x</span></span>
+<span id="cb72-34"><a href="hierarchical-models.html#cb72-34" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dY<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation y</span></span>
+<span id="cb72-35"><a href="hierarchical-models.html#cb72-35" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aX<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
+<span id="cb72-36"><a href="hierarchical-models.html#cb72-36" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aY<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
+<span id="cb72-37"><a href="hierarchical-models.html#cb72-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-38"><a href="hierarchical-models.html#cb72-38" aria-hidden="true" tabindex="-1"></a>  dX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_x<span class="op">-</span>self_x<span class="op">);</span></span>
+<span id="cb72-39"><a href="hierarchical-models.html#cb72-39" aria-hidden="true" tabindex="-1"></a>  dY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_y<span class="op">-</span>self_y<span class="op">);</span></span>
+<span id="cb72-40"><a href="hierarchical-models.html#cb72-40" aria-hidden="true" tabindex="-1"></a>  aX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_x<span class="op">-</span>other_x<span class="op">);</span></span>
+<span id="cb72-41"><a href="hierarchical-models.html#cb72-41" aria-hidden="true" tabindex="-1"></a>  aY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_y<span class="op">-</span>other_y<span class="op">);</span></span>
+<span id="cb72-42"><a href="hierarchical-models.html#cb72-42" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb72-43"><a href="hierarchical-models.html#cb72-43" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb72-44"><a href="hierarchical-models.html#cb72-44" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-45"><a href="hierarchical-models.html#cb72-45" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* &lt;--- MODIFICATION: the individual-level parameters are now vectors</span></span>
+<span id="cb72-46"><a href="hierarchical-models.html#cb72-46" aria-hidden="true" tabindex="-1"></a><span class="co">  */</span></span>
+<span id="cb72-47"><a href="hierarchical-models.html#cb72-47" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>nParticipants<span class="op">]</span> alpha<span class="op">;</span></span>
+<span id="cb72-48"><a href="hierarchical-models.html#cb72-48" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>nParticipants<span class="op">]</span> beta<span class="op">;</span></span>
+<span id="cb72-49"><a href="hierarchical-models.html#cb72-49" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;[</span>nParticipants<span class="op">]</span> lambda<span class="op">;</span></span>
+<span id="cb72-50"><a href="hierarchical-models.html#cb72-50" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-51"><a href="hierarchical-models.html#cb72-51" aria-hidden="true" tabindex="-1"></a>  <span class="co">// &lt;---- ADDITION: New population-level parameters</span></span>
+<span id="cb72-52"><a href="hierarchical-models.html#cb72-52" aria-hidden="true" tabindex="-1"></a>  real mu_alpha<span class="op">;</span></span>
+<span id="cb72-53"><a href="hierarchical-models.html#cb72-53" aria-hidden="true" tabindex="-1"></a>  real mu_beta<span class="op">;</span></span>
+<span id="cb72-54"><a href="hierarchical-models.html#cb72-54" aria-hidden="true" tabindex="-1"></a>  real mu_lambda<span class="op">;</span></span>
+<span id="cb72-55"><a href="hierarchical-models.html#cb72-55" aria-hidden="true" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> tau_alpha<span class="op">;</span></span>
+<span id="cb72-56"><a href="hierarchical-models.html#cb72-56" aria-hidden="true" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> tau_beta<span class="op">;</span></span>
+<span id="cb72-57"><a href="hierarchical-models.html#cb72-57" aria-hidden="true" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> tau_lambda<span class="op">;</span></span>
+<span id="cb72-58"><a href="hierarchical-models.html#cb72-58" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-59"><a href="hierarchical-models.html#cb72-59" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-60"><a href="hierarchical-models.html#cb72-60" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb72-61"><a href="hierarchical-models.html#cb72-61" aria-hidden="true" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb72-62"><a href="hierarchical-models.html#cb72-62" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-63"><a href="hierarchical-models.html#cb72-63" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Ux<span class="op">;</span> <span class="co">// utility of allocation x</span></span>
+<span id="cb72-64"><a href="hierarchical-models.html#cb72-64" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Uy<span class="op">;</span> <span class="co">// utility of allocation y</span></span>
+<span id="cb72-65"><a href="hierarchical-models.html#cb72-65" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-66"><a href="hierarchical-models.html#cb72-66" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* &lt;---- MODIFICATION: Since the individual level parameters are now vectors, </span></span>
+<span id="cb72-67"><a href="hierarchical-models.html#cb72-67" aria-hidden="true" tabindex="-1"></a><span class="co">  we need to adjust the utility equations so the right parameters are matched </span></span>
+<span id="cb72-68"><a href="hierarchical-models.html#cb72-68" aria-hidden="true" tabindex="-1"></a><span class="co">  with the right observations. This is where the new id variable comes in</span></span>
+<span id="cb72-69"><a href="hierarchical-models.html#cb72-69" aria-hidden="true" tabindex="-1"></a><span class="co">  */</span></span>
+<span id="cb72-70"><a href="hierarchical-models.html#cb72-70" aria-hidden="true" tabindex="-1"></a>  Ux <span class="op">=</span> self_x<span class="op">-</span>alpha<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> dX<span class="op">-</span>beta<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> aX<span class="op">;</span></span>
+<span id="cb72-71"><a href="hierarchical-models.html#cb72-71" aria-hidden="true" tabindex="-1"></a>  Uy <span class="op">=</span> self_y<span class="op">-</span>alpha<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> dY<span class="op">-</span>beta<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> aY<span class="op">;</span></span>
+<span id="cb72-72"><a href="hierarchical-models.html#cb72-72" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-73"><a href="hierarchical-models.html#cb72-73" aria-hidden="true" tabindex="-1"></a>  <span class="co">// &lt;---- Slight modification to the likelihood to bring in the id variable</span></span>
+<span id="cb72-74"><a href="hierarchical-models.html#cb72-74" aria-hidden="true" tabindex="-1"></a>  choice_x <span class="op">~</span> bernoulli_logit<span class="op">(</span>lambda<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> <span class="op">(</span>Ux<span class="op">-</span>Uy<span class="op">));</span></span>
+<span id="cb72-75"><a href="hierarchical-models.html#cb72-75" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-76"><a href="hierarchical-models.html#cb72-76" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* &lt;---- MODIFICATION: priors on individual level parameters are now </span></span>
+<span id="cb72-77"><a href="hierarchical-models.html#cb72-77" aria-hidden="true" tabindex="-1"></a><span class="co">  statements about their relationship with population level parameters</span></span>
+<span id="cb72-78"><a href="hierarchical-models.html#cb72-78" aria-hidden="true" tabindex="-1"></a><span class="co">  */</span></span>
+<span id="cb72-79"><a href="hierarchical-models.html#cb72-79" aria-hidden="true" tabindex="-1"></a>  alpha<span class="op">~</span>normal<span class="op">(</span>mu_alpha<span class="op">,</span>tau_alpha<span class="op">);</span></span>
+<span id="cb72-80"><a href="hierarchical-models.html#cb72-80" aria-hidden="true" tabindex="-1"></a>  beta <span class="op">~</span>normal<span class="op">(</span>mu_beta<span class="op">,</span>tau_beta<span class="op">);</span></span>
+<span id="cb72-81"><a href="hierarchical-models.html#cb72-81" aria-hidden="true" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>mu_lambda<span class="op">,</span>tau_lambda<span class="op">);</span></span>
+<span id="cb72-82"><a href="hierarchical-models.html#cb72-82" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-83"><a href="hierarchical-models.html#cb72-83" aria-hidden="true" tabindex="-1"></a>  <span class="co">// &lt;---- ADDITION: priors for population-level parameters</span></span>
+<span id="cb72-84"><a href="hierarchical-models.html#cb72-84" aria-hidden="true" tabindex="-1"></a>  mu_alpha <span class="op">~</span> normal<span class="op">(</span>prior_mu_alpha<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_mu_alpha<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb72-85"><a href="hierarchical-models.html#cb72-85" aria-hidden="true" tabindex="-1"></a>  mu_beta <span class="op">~</span> normal<span class="op">(</span>prior_mu_beta<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_mu_beta<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb72-86"><a href="hierarchical-models.html#cb72-86" aria-hidden="true" tabindex="-1"></a>  mu_lambda <span class="op">~</span> normal<span class="op">(</span>prior_mu_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_mu_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb72-87"><a href="hierarchical-models.html#cb72-87" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-88"><a href="hierarchical-models.html#cb72-88" aria-hidden="true" tabindex="-1"></a>  tau_alpha <span class="op">~</span> cauchy<span class="op">(</span><span class="dv">0</span><span class="op">,</span>prior_tau_alpha<span class="op">);</span></span>
+<span id="cb72-89"><a href="hierarchical-models.html#cb72-89" aria-hidden="true" tabindex="-1"></a>  tau_beta <span class="op">~</span> cauchy<span class="op">(</span><span class="dv">0</span><span class="op">,</span>prior_tau_beta<span class="op">);</span></span>
+<span id="cb72-90"><a href="hierarchical-models.html#cb72-90" aria-hidden="true" tabindex="-1"></a>  tau_lambda <span class="op">~</span> cauchy<span class="op">(</span><span class="dv">0</span><span class="op">,</span>prior_tau_lambda<span class="op">);</span></span>
+<span id="cb72-91"><a href="hierarchical-models.html#cb72-91" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb72-92"><a href="hierarchical-models.html#cb72-92" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>From here, we can pass the data to <em>Stan</em> and estimate the model:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="hierarchical-models.html#cb73-1" aria-hidden="true" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Hierarchical/Hierarchical_BFS2019&quot;</span></span>
+<span id="cb73-2"><a href="hierarchical-models.html#cb73-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-3"><a href="hierarchical-models.html#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the id variable</span></span>
+<span id="cb73-4"><a href="hierarchical-models.html#cb73-4" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span>(</span>
+<span id="cb73-5"><a href="hierarchical-models.html#cb73-5" aria-hidden="true" tabindex="-1"></a>  D</span>
+<span id="cb73-6"><a href="hierarchical-models.html#cb73-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">id =</span> sid <span class="sc">%&gt;%</span> <span class="fu">paste</span>() <span class="sc">%&gt;%</span> <span class="fu">as.factor</span>() <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>())</span>
+<span id="cb73-7"><a href="hierarchical-models.html#cb73-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb73-8"><a href="hierarchical-models.html#cb73-8" aria-hidden="true" tabindex="-1"></a><span class="co"># only run if I haven&#39;t estimated it yet</span></span>
+<span id="cb73-9"><a href="hierarchical-models.html#cb73-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">paste0</span>(<span class="st">&quot;Outputs/&quot;</span>,file,<span class="st">&quot;_independent.rds&quot;</span>))) {</span>
+<span id="cb73-10"><a href="hierarchical-models.html#cb73-10" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb73-11"><a href="hierarchical-models.html#cb73-11" aria-hidden="true" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb73-12"><a href="hierarchical-models.html#cb73-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">n=</span><span class="fu">dim</span>(D)[<span class="dv">1</span>],</span>
+<span id="cb73-13"><a href="hierarchical-models.html#cb73-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">self_x=</span>D<span class="sc">$</span>self_x,</span>
+<span id="cb73-14"><a href="hierarchical-models.html#cb73-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">other_x=</span>D<span class="sc">$</span>other_x,</span>
+<span id="cb73-15"><a href="hierarchical-models.html#cb73-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">self_y=</span>D<span class="sc">$</span>self_y,</span>
+<span id="cb73-16"><a href="hierarchical-models.html#cb73-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">other_y=</span>D<span class="sc">$</span>other_y,</span>
+<span id="cb73-17"><a href="hierarchical-models.html#cb73-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">choice_x=</span>D<span class="sc">$</span>choice_x,</span>
+<span id="cb73-18"><a href="hierarchical-models.html#cb73-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb73-19"><a href="hierarchical-models.html#cb73-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> D<span class="sc">$</span>id, </span>
+<span id="cb73-20"><a href="hierarchical-models.html#cb73-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">nParticipants =</span> D<span class="sc">$</span>id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>(),</span>
+<span id="cb73-21"><a href="hierarchical-models.html#cb73-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb73-22"><a href="hierarchical-models.html#cb73-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior_mu_alpha   =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb73-23"><a href="hierarchical-models.html#cb73-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior_mu_beta    =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb73-24"><a href="hierarchical-models.html#cb73-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior_mu_lambda  =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>),</span>
+<span id="cb73-25"><a href="hierarchical-models.html#cb73-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior_tau_alpha  =</span> <span class="fl">0.79</span>,</span>
+<span id="cb73-26"><a href="hierarchical-models.html#cb73-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior_tau_beta   =</span> <span class="fl">0.79</span>,</span>
+<span id="cb73-27"><a href="hierarchical-models.html#cb73-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior_tau_lambda =</span> <span class="fl">0.24</span></span>
+<span id="cb73-28"><a href="hierarchical-models.html#cb73-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb73-29"><a href="hierarchical-models.html#cb73-29" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb73-30"><a href="hierarchical-models.html#cb73-30" aria-hidden="true" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">stan</span>(<span class="fu">paste0</span>(<span class="st">&quot;Code/&quot;</span>,file,<span class="st">&quot;_independent.stan&quot;</span>),</span>
+<span id="cb73-31"><a href="hierarchical-models.html#cb73-31" aria-hidden="true" tabindex="-1"></a>            <span class="at">data=</span>dStan,</span>
+<span id="cb73-32"><a href="hierarchical-models.html#cb73-32" aria-hidden="true" tabindex="-1"></a>            <span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb73-33"><a href="hierarchical-models.html#cb73-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(Fit,<span class="fu">paste0</span>(<span class="st">&quot;Outputs/&quot;</span>,file,<span class="st">&quot;_independent.rds&quot;</span>))</span>
+<span id="cb73-34"><a href="hierarchical-models.html#cb73-34" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb73-35"><a href="hierarchical-models.html#cb73-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-36"><a href="hierarchical-models.html#cb73-36" aria-hidden="true" tabindex="-1"></a>Fit<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="fu">paste0</span>(<span class="st">&quot;Outputs/&quot;</span>,file,<span class="st">&quot;_independent.rds&quot;</span>))</span>
+<span id="cb73-37"><a href="hierarchical-models.html#cb73-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-38"><a href="hierarchical-models.html#cb73-38" aria-hidden="true" tabindex="-1"></a><span class="co"># rstan::summary(Fit)$summary |&gt; View()</span></span></code></pre></div>
+<p>Interestingly (to me at least), this one did not take as long as I expected (under ten minutes on my laptop). This is compared to about half an hour for the individual-specific estimations in the previous chapter. Think about this: even though we estimated <span class="math inline">\(3n\)</span> parameters in the individual-specific estimations, and <span class="math inline">\(3n+6\)</span> parameters just now, the second estimation was faster! While I don’t have a well-thought-out explanation for this, my intuition is that the population-level parameters are forming a much more informative “prior” over the individual-level parameters, so sampling the individual-level parameters is less burdensome for <em>Stan</em>.</p>
+<p>Anyway, we may as well look at the estimates. As we have so many individual-level parameters, I will just show a summary in Table <a href="hierarchical-models.html#tab:HierarchicalIndependent">5.1</a> for the population-level parameters:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="hierarchical-models.html#cb74-1" aria-hidden="true" tabindex="-1"></a>s<span class="ot">&lt;-</span>rstan<span class="sc">::</span><span class="fu">summary</span>(Fit)<span class="sc">$</span>summary</span>
+<span id="cb74-2"><a href="hierarchical-models.html#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-3"><a href="hierarchical-models.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="co"># identify the rows that contain the population-level parameters.</span></span>
+<span id="cb74-4"><a href="hierarchical-models.html#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="co"># These have row names that contain the character &quot;_&quot;</span></span>
+<span id="cb74-5"><a href="hierarchical-models.html#cb74-5" aria-hidden="true" tabindex="-1"></a>II<span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">&quot;_&quot;</span>,<span class="fu">rownames</span>(s))</span>
+<span id="cb74-6"><a href="hierarchical-models.html#cb74-6" aria-hidden="true" tabindex="-1"></a>s[II,] <span class="sc">|&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption=</span><span class="st">&quot;Population estimates of a model assuming a hierarchical independent distribution of individual-level parameters.&quot;</span>)</span></code></pre></div>
+<table>
+<caption><span id="tab:HierarchicalIndependent">Table 5.1: </span>Population estimates of a model assuming a hierarchical independent distribution of individual-level parameters.</caption>
+<colgroup>
+<col width="8%" />
+<col width="10%" />
+<col width="7%" />
+<col width="8%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="6%" />
+<col width="7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">mean</th>
+<th align="right">se_mean</th>
+<th align="right">sd</th>
+<th align="right">2.5%</th>
+<th align="right">25%</th>
+<th align="right">50%</th>
+<th align="right">75%</th>
+<th align="right">97.5%</th>
+<th align="right">n_eff</th>
+<th align="right">Rhat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">mu_alpha</td>
+<td align="right">-0.0299471</td>
+<td align="right">0.0002310</td>
+<td align="right">0.0144897</td>
+<td align="right">-0.0579685</td>
+<td align="right">-0.0398457</td>
+<td align="right">-0.0301734</td>
+<td align="right">-0.0202862</td>
+<td align="right">-0.0010588</td>
+<td align="right">3933.694</td>
+<td align="right">0.9994897</td>
+</tr>
+<tr class="even">
+<td align="left">mu_beta</td>
+<td align="right">0.2328233</td>
+<td align="right">0.0002484</td>
+<td align="right">0.0197600</td>
+<td align="right">0.1946268</td>
+<td align="right">0.2191426</td>
+<td align="right">0.2329795</td>
+<td align="right">0.2458299</td>
+<td align="right">0.2710317</td>
+<td align="right">6327.612</td>
+<td align="right">0.9991247</td>
+</tr>
+<tr class="odd">
+<td align="left">mu_lambda</td>
+<td align="right">-3.4978372</td>
+<td align="right">0.0012878</td>
+<td align="right">0.0720133</td>
+<td align="right">-3.6363200</td>
+<td align="right">-3.5458535</td>
+<td align="right">-3.4991667</td>
+<td align="right">-3.4503688</td>
+<td align="right">-3.3527293</td>
+<td align="right">3126.904</td>
+<td align="right">1.0014316</td>
+</tr>
+<tr class="even">
+<td align="left">tau_alpha</td>
+<td align="right">0.1654981</td>
+<td align="right">0.0003269</td>
+<td align="right">0.0148568</td>
+<td align="right">0.1384934</td>
+<td align="right">0.1550940</td>
+<td align="right">0.1650167</td>
+<td align="right">0.1752452</td>
+<td align="right">0.1959276</td>
+<td align="right">2065.354</td>
+<td align="right">1.0002466</td>
+</tr>
+<tr class="odd">
+<td align="left">tau_beta</td>
+<td align="right">0.2482626</td>
+<td align="right">0.0002560</td>
+<td align="right">0.0163315</td>
+<td align="right">0.2189854</td>
+<td align="right">0.2368284</td>
+<td align="right">0.2473067</td>
+<td align="right">0.2587884</td>
+<td align="right">0.2825178</td>
+<td align="right">4071.073</td>
+<td align="right">1.0009367</td>
+</tr>
+<tr class="even">
+<td align="left">tau_lambda</td>
+<td align="right">0.8289658</td>
+<td align="right">0.0014438</td>
+<td align="right">0.0660765</td>
+<td align="right">0.7080691</td>
+<td align="right">0.7841175</td>
+<td align="right">0.8267906</td>
+<td align="right">0.8709364</td>
+<td align="right">0.9706803</td>
+<td align="right">2094.545</td>
+<td align="right">1.0020589</td>
+</tr>
+<tr class="odd">
+<td align="left">lp__</td>
+<td align="right">-2345.2888001</td>
+<td align="right">0.4393498</td>
+<td align="right">16.9806916</td>
+<td align="right">-2379.8048145</td>
+<td align="right">-2356.5436576</td>
+<td align="right">-2345.2411017</td>
+<td align="right">-2333.3892954</td>
+<td align="right">-2312.6396333</td>
+<td align="right">1493.791</td>
+<td align="right">1.0003529</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="correlation-between-individual-level-parameters" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Correlation between individual-level parameters<a href="hierarchical-models.html#correlation-between-individual-level-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now let’s modify the model so that we can estimate a correlation matrix for our participant-level parameters. Conceptually, this is a fairly straightforward step, as we have already assigned priors to <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\tau\)</span>: by decomposing <span class="math inline">\(\Sigma\)</span> into <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\Omega\)</span>, really the only bit of thinking we need to do is to assign an appropriate prior for <span class="math inline">\(\Omega\)</span>. For this, I choose:</p>
+<p><span class="math display">\[
+\Omega\sim \mathrm{LKJCorr}(2)
+\]</span>
+which seems like a reasonably spread-out but still unimodal distribution, as shown in Figure <a href="hierarchical-models.html#fig:HierarchicalLKJ">5.1</a> for <span class="math inline">\(k=3\)</span> participant-level parameters. Here is what I came up with for the code for the hierarchical model with correlated parameters.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb75-1"><a href="hierarchical-models.html#cb75-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-2"><a href="hierarchical-models.html#cb75-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb75-3"><a href="hierarchical-models.html#cb75-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> n<span class="op">;</span> <span class="co">// number of observations</span></span>
+<span id="cb75-4"><a href="hierarchical-models.html#cb75-4" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> self_x<span class="op">;</span> <span class="co">// payoff to self with allocation x</span></span>
+<span id="cb75-5"><a href="hierarchical-models.html#cb75-5" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> other_x<span class="op">;</span> <span class="co">// payoff to other with allocation x</span></span>
+<span id="cb75-6"><a href="hierarchical-models.html#cb75-6" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> self_y<span class="op">;</span> <span class="co">// payoff to self with allocation y</span></span>
+<span id="cb75-7"><a href="hierarchical-models.html#cb75-7" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> other_y<span class="op">;</span> <span class="co">// payoff to other with allocation y</span></span>
+<span id="cb75-8"><a href="hierarchical-models.html#cb75-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> choice_x<span class="op">[</span>n<span class="op">];</span> <span class="co">// =1 iff allocation x is chosen</span></span>
+<span id="cb75-9"><a href="hierarchical-models.html#cb75-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-10"><a href="hierarchical-models.html#cb75-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> id<span class="op">[</span>n<span class="op">];</span></span>
+<span id="cb75-11"><a href="hierarchical-models.html#cb75-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> nParticipants<span class="op">;</span></span>
+<span id="cb75-12"><a href="hierarchical-models.html#cb75-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-13"><a href="hierarchical-models.html#cb75-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-14"><a href="hierarchical-models.html#cb75-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-15"><a href="hierarchical-models.html#cb75-15" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_mu<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span>
+<span id="cb75-16"><a href="hierarchical-models.html#cb75-16" aria-hidden="true" tabindex="-1"></a>  real prior_tau<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span>
+<span id="cb75-17"><a href="hierarchical-models.html#cb75-17" aria-hidden="true" tabindex="-1"></a>  real prior_LKJ<span class="op">;</span></span>
+<span id="cb75-18"><a href="hierarchical-models.html#cb75-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-19"><a href="hierarchical-models.html#cb75-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb75-20"><a href="hierarchical-models.html#cb75-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-21"><a href="hierarchical-models.html#cb75-21" aria-hidden="true" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb75-22"><a href="hierarchical-models.html#cb75-22" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dX<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation x</span></span>
+<span id="cb75-23"><a href="hierarchical-models.html#cb75-23" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dY<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation y</span></span>
+<span id="cb75-24"><a href="hierarchical-models.html#cb75-24" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aX<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
+<span id="cb75-25"><a href="hierarchical-models.html#cb75-25" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aY<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
+<span id="cb75-26"><a href="hierarchical-models.html#cb75-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-27"><a href="hierarchical-models.html#cb75-27" aria-hidden="true" tabindex="-1"></a>  dX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_x<span class="op">-</span>self_x<span class="op">);</span></span>
+<span id="cb75-28"><a href="hierarchical-models.html#cb75-28" aria-hidden="true" tabindex="-1"></a>  dY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_y<span class="op">-</span>self_y<span class="op">);</span></span>
+<span id="cb75-29"><a href="hierarchical-models.html#cb75-29" aria-hidden="true" tabindex="-1"></a>  aX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_x<span class="op">-</span>other_x<span class="op">);</span></span>
+<span id="cb75-30"><a href="hierarchical-models.html#cb75-30" aria-hidden="true" tabindex="-1"></a>  aY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_y<span class="op">-</span>other_y<span class="op">);</span></span>
+<span id="cb75-31"><a href="hierarchical-models.html#cb75-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb75-32"><a href="hierarchical-models.html#cb75-32" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb75-33"><a href="hierarchical-models.html#cb75-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-34"><a href="hierarchical-models.html#cb75-34" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> mu<span class="op">;</span> <span class="co">// population mean</span></span>
+<span id="cb75-35"><a href="hierarchical-models.html#cb75-35" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;[</span><span class="dv">3</span><span class="op">]</span> tau<span class="op">;</span> <span class="co">// population standard deviation</span></span>
+<span id="cb75-36"><a href="hierarchical-models.html#cb75-36" aria-hidden="true" tabindex="-1"></a>  cholesky_factor_corr<span class="op">[</span><span class="dv">3</span><span class="op">]</span> L_Omega<span class="op">;</span> <span class="co">// Cholesky factorization of the correlation matrix</span></span>
+<span id="cb75-37"><a href="hierarchical-models.html#cb75-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-38"><a href="hierarchical-models.html#cb75-38" aria-hidden="true" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> z<span class="op">;</span> <span class="co">// standard normals determinig participants&#39; parameters</span></span>
+<span id="cb75-39"><a href="hierarchical-models.html#cb75-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-40"><a href="hierarchical-models.html#cb75-40" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb75-41"><a href="hierarchical-models.html#cb75-41" aria-hidden="true" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb75-42"><a href="hierarchical-models.html#cb75-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-43"><a href="hierarchical-models.html#cb75-43" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Ux<span class="op">;</span> <span class="co">// utility of allocation x</span></span>
+<span id="cb75-44"><a href="hierarchical-models.html#cb75-44" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Uy<span class="op">;</span> <span class="co">// utility of allocation y</span></span>
+<span id="cb75-45"><a href="hierarchical-models.html#cb75-45" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> alpha<span class="op">;</span></span>
+<span id="cb75-46"><a href="hierarchical-models.html#cb75-46" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> beta<span class="op">;</span></span>
+<span id="cb75-47"><a href="hierarchical-models.html#cb75-47" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> lambda<span class="op">;</span></span>
+<span id="cb75-48"><a href="hierarchical-models.html#cb75-48" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-49"><a href="hierarchical-models.html#cb75-49" aria-hidden="true" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> theta<span class="op">;</span></span>
+<span id="cb75-50"><a href="hierarchical-models.html#cb75-50" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-51"><a href="hierarchical-models.html#cb75-51" aria-hidden="true" tabindex="-1"></a>  theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
+<span id="cb75-52"><a href="hierarchical-models.html#cb75-52" aria-hidden="true" tabindex="-1"></a>                    <span class="op">+</span>diag_pre_multiply<span class="op">(</span>tau<span class="op">,</span>L_Omega<span class="op">)*</span>z<span class="op">;</span></span>
+<span id="cb75-53"><a href="hierarchical-models.html#cb75-53" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-54"><a href="hierarchical-models.html#cb75-54" aria-hidden="true" tabindex="-1"></a>  alpha  <span class="op">=</span> theta<span class="op">[</span><span class="dv">1</span><span class="op">,</span>id<span class="op">]</span>&#39;<span class="op">;</span></span>
+<span id="cb75-55"><a href="hierarchical-models.html#cb75-55" aria-hidden="true" tabindex="-1"></a>  beta   <span class="op">=</span> theta<span class="op">[</span><span class="dv">2</span><span class="op">,</span>id<span class="op">]</span>&#39;<span class="op">;</span></span>
+<span id="cb75-56"><a href="hierarchical-models.html#cb75-56" aria-hidden="true" tabindex="-1"></a>  lambda <span class="op">=</span> exp<span class="op">(</span>theta<span class="op">[</span><span class="dv">3</span><span class="op">,</span>id<span class="op">]</span>&#39;<span class="op">);</span></span>
+<span id="cb75-57"><a href="hierarchical-models.html#cb75-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-58"><a href="hierarchical-models.html#cb75-58" aria-hidden="true" tabindex="-1"></a>  Ux <span class="op">=</span> self_x<span class="op">-</span>alpha <span class="op">.*</span> dX<span class="op">-</span>beta <span class="op">.*</span> aX<span class="op">;</span></span>
+<span id="cb75-59"><a href="hierarchical-models.html#cb75-59" aria-hidden="true" tabindex="-1"></a>  Uy <span class="op">=</span> self_y<span class="op">-</span>alpha <span class="op">.*</span> dY<span class="op">-</span>beta <span class="op">.*</span> aY<span class="op">;</span></span>
+<span id="cb75-60"><a href="hierarchical-models.html#cb75-60" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-61"><a href="hierarchical-models.html#cb75-61" aria-hidden="true" tabindex="-1"></a>  choice_x <span class="op">~</span> bernoulli_logit<span class="op">(</span>lambda <span class="op">.*</span> <span class="op">(</span>Ux<span class="op">-</span>Uy<span class="op">));</span></span>
+<span id="cb75-62"><a href="hierarchical-models.html#cb75-62" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-63"><a href="hierarchical-models.html#cb75-63" aria-hidden="true" tabindex="-1"></a>  to_vector<span class="op">(</span>z<span class="op">)</span> <span class="op">~</span> std_normal<span class="op">();</span></span>
+<span id="cb75-64"><a href="hierarchical-models.html#cb75-64" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-65"><a href="hierarchical-models.html#cb75-65" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>pp in <span class="dv">1</span><span class="op">:</span><span class="dv">3</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb75-66"><a href="hierarchical-models.html#cb75-66" aria-hidden="true" tabindex="-1"></a>    mu<span class="op">[</span>pp<span class="op">]</span> <span class="op">~</span> normal<span class="op">(</span>prior_mu<span class="op">[</span>pp<span class="op">][</span><span class="dv">1</span><span class="op">],</span>prior_mu<span class="op">[</span>pp<span class="op">][</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb75-67"><a href="hierarchical-models.html#cb75-67" aria-hidden="true" tabindex="-1"></a>    tau<span class="op">[</span>pp<span class="op">]</span> <span class="op">~</span> cauchy<span class="op">(</span><span class="fl">0.0</span><span class="op">,</span>prior_tau<span class="op">[</span>pp<span class="op">]);</span></span>
+<span id="cb75-68"><a href="hierarchical-models.html#cb75-68" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb75-69"><a href="hierarchical-models.html#cb75-69" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb75-70"><a href="hierarchical-models.html#cb75-70" aria-hidden="true" tabindex="-1"></a>   L_Omega <span class="op">~</span> lkj_corr_cholesky<span class="op">(</span>prior_LKJ<span class="op">);</span></span>
+<span id="cb75-71"><a href="hierarchical-models.html#cb75-71" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb75-72"><a href="hierarchical-models.html#cb75-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-73"><a href="hierarchical-models.html#cb75-73" aria-hidden="true" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
+<span id="cb75-74"><a href="hierarchical-models.html#cb75-74" aria-hidden="true" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span><span class="dv">3</span><span class="op">]</span> Omega<span class="op">;</span></span>
+<span id="cb75-75"><a href="hierarchical-models.html#cb75-75" aria-hidden="true" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> theta<span class="op">;</span></span>
+<span id="cb75-76"><a href="hierarchical-models.html#cb75-76" aria-hidden="true" tabindex="-1"></a>  theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
+<span id="cb75-77"><a href="hierarchical-models.html#cb75-77" aria-hidden="true" tabindex="-1"></a>                    <span class="op">+</span>diag_pre_multiply<span class="op">(</span>tau<span class="op">,</span>L_Omega<span class="op">)*</span>z<span class="op">;</span></span>
+<span id="cb75-78"><a href="hierarchical-models.html#cb75-78" aria-hidden="true" tabindex="-1"></a>  Omega <span class="op">=</span> L_Omega<span class="op">*</span>L_Omega&#39;<span class="op">;</span></span>
+<span id="cb75-79"><a href="hierarchical-models.html#cb75-79" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Here I am implementing both the Cholesky decomposition of <span class="math inline">\(\Omega\)</span> and the vectorization as described in Section 1.13 of the <em>Stan User’s Guide</em>. In particular, note that <span class="math inline">\(\theta\)</span> is <em>not</em> declared in the <code>parameters</code> block. Rather, I use the matrix <code>z</code> of standard normals to generate <span class="math inline">\(\theta\)</span> in the <code>model</code> block:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb76-1"><a href="hierarchical-models.html#cb76-1" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
+<span id="cb76-2"><a href="hierarchical-models.html#cb76-2" aria-hidden="true" tabindex="-1"></a>                    <span class="op">+</span>diag_pre_multiply<span class="op">(</span>tau<span class="op">,</span>L_Omega<span class="op">)*</span>z<span class="op">;</span></span></code></pre></div>
+<p>Also, since <span class="math inline">\(\Omega\)</span> is not a fundamental parameter, I generate it in the <code>generated quantities</code> block so that we can look at it later.</p>
+<p>Here’s how you estimate the model in <em>RStan</em>:<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a></p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="hierarchical-models.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb77-2"><a href="hierarchical-models.html#cb77-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-3"><a href="hierarchical-models.html#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">paste0</span>(<span class="st">&quot;Outputs/&quot;</span>,file,<span class="st">&quot;_correlated.rds&quot;</span>))) {</span>
+<span id="cb77-4"><a href="hierarchical-models.html#cb77-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb77-5"><a href="hierarchical-models.html#cb77-5" aria-hidden="true" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb77-6"><a href="hierarchical-models.html#cb77-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n=</span><span class="fu">dim</span>(D)[<span class="dv">1</span>],</span>
+<span id="cb77-7"><a href="hierarchical-models.html#cb77-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">self_x=</span>D<span class="sc">$</span>self_x,</span>
+<span id="cb77-8"><a href="hierarchical-models.html#cb77-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">other_x=</span>D<span class="sc">$</span>other_x,</span>
+<span id="cb77-9"><a href="hierarchical-models.html#cb77-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">self_y=</span>D<span class="sc">$</span>self_y,</span>
+<span id="cb77-10"><a href="hierarchical-models.html#cb77-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">other_y=</span>D<span class="sc">$</span>other_y,</span>
+<span id="cb77-11"><a href="hierarchical-models.html#cb77-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">choice_x=</span>D<span class="sc">$</span>choice_x,</span>
+<span id="cb77-12"><a href="hierarchical-models.html#cb77-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb77-13"><a href="hierarchical-models.html#cb77-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> D<span class="sc">$</span>id, </span>
+<span id="cb77-14"><a href="hierarchical-models.html#cb77-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">nParticipants =</span> D<span class="sc">$</span>id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>(),</span>
+<span id="cb77-15"><a href="hierarchical-models.html#cb77-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb77-16"><a href="hierarchical-models.html#cb77-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior_mu =</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb77-17"><a href="hierarchical-models.html#cb77-17" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb77-18"><a href="hierarchical-models.html#cb77-18" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>)</span>
+<span id="cb77-19"><a href="hierarchical-models.html#cb77-19" aria-hidden="true" tabindex="-1"></a>                     ),</span>
+<span id="cb77-20"><a href="hierarchical-models.html#cb77-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior_tau =</span> <span class="fu">c</span>(<span class="fl">0.79</span>,<span class="fl">0.79</span>,<span class="fl">0.24</span>),</span>
+<span id="cb77-21"><a href="hierarchical-models.html#cb77-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior_LKJ =</span> <span class="dv">2</span></span>
+<span id="cb77-22"><a href="hierarchical-models.html#cb77-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb77-23"><a href="hierarchical-models.html#cb77-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb77-24"><a href="hierarchical-models.html#cb77-24" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb77-25"><a href="hierarchical-models.html#cb77-25" aria-hidden="true" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">stan</span>(<span class="fu">paste0</span>(<span class="st">&quot;Code/&quot;</span>,file,<span class="st">&quot;_correlated.stan&quot;</span>),</span>
+<span id="cb77-26"><a href="hierarchical-models.html#cb77-26" aria-hidden="true" tabindex="-1"></a>            <span class="at">data=</span>dStan,</span>
+<span id="cb77-27"><a href="hierarchical-models.html#cb77-27" aria-hidden="true" tabindex="-1"></a>            <span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb77-28"><a href="hierarchical-models.html#cb77-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(Fit,<span class="fu">paste0</span>(<span class="st">&quot;Outputs/&quot;</span>,file,<span class="st">&quot;_correlated.rds&quot;</span>))</span>
+<span id="cb77-29"><a href="hierarchical-models.html#cb77-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb77-30"><a href="hierarchical-models.html#cb77-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-31"><a href="hierarchical-models.html#cb77-31" aria-hidden="true" tabindex="-1"></a>Fit<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="fu">paste0</span>(<span class="st">&quot;Outputs/&quot;</span>,file,<span class="st">&quot;_correlated.rds&quot;</span>))</span></code></pre></div>
+<p>There are quite a lot of parameters in this model (because we are using data augmentation), so looking at the entire summary is somewhat daunting and not particularly useful. Fortunately, I set up the parameters block so that the first six parameters listed have the same interpretation as the model in the previous section that assumes no correlation between parameters (except that we are estimating <span class="math inline">\(\lambda\)</span> as <span class="math inline">\(\log\lambda\)</span>):</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="hierarchical-models.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Fit)<span class="sc">$</span>summary[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,] <span class="sc">|&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">mean</th>
+<th align="right">se_mean</th>
+<th align="right">sd</th>
+<th align="right">2.5%</th>
+<th align="right">25%</th>
+<th align="right">50%</th>
+<th align="right">75%</th>
+<th align="right">97.5%</th>
+<th align="right">n_eff</th>
+<th align="right">Rhat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">mu[1]</td>
+<td align="right">-0.0143180</td>
+<td align="right">0.0004662</td>
+<td align="right">0.0151897</td>
+<td align="right">-0.0439904</td>
+<td align="right">-0.0244855</td>
+<td align="right">-0.0140957</td>
+<td align="right">-0.0039547</td>
+<td align="right">0.0156960</td>
+<td align="right">1061.561</td>
+<td align="right">1.002654</td>
+</tr>
+<tr class="even">
+<td align="left">mu[2]</td>
+<td align="right">0.2295115</td>
+<td align="right">0.0005103</td>
+<td align="right">0.0195575</td>
+<td align="right">0.1918648</td>
+<td align="right">0.2164303</td>
+<td align="right">0.2293220</td>
+<td align="right">0.2423599</td>
+<td align="right">0.2683971</td>
+<td align="right">1469.106</td>
+<td align="right">1.001084</td>
+</tr>
+<tr class="odd">
+<td align="left">mu[3]</td>
+<td align="right">-3.5292717</td>
+<td align="right">0.0014256</td>
+<td align="right">0.0669318</td>
+<td align="right">-3.6563674</td>
+<td align="right">-3.5742354</td>
+<td align="right">-3.5306900</td>
+<td align="right">-3.4843812</td>
+<td align="right">-3.3968955</td>
+<td align="right">2204.420</td>
+<td align="right">1.000160</td>
+</tr>
+<tr class="even">
+<td align="left">tau[1]</td>
+<td align="right">0.1742889</td>
+<td align="right">0.0003289</td>
+<td align="right">0.0144723</td>
+<td align="right">0.1476120</td>
+<td align="right">0.1643246</td>
+<td align="right">0.1735503</td>
+<td align="right">0.1833015</td>
+<td align="right">0.2052865</td>
+<td align="right">1936.409</td>
+<td align="right">1.002249</td>
+</tr>
+<tr class="odd">
+<td align="left">tau[2]</td>
+<td align="right">0.2411831</td>
+<td align="right">0.0003573</td>
+<td align="right">0.0157877</td>
+<td align="right">0.2123187</td>
+<td align="right">0.2300481</td>
+<td align="right">0.2407215</td>
+<td align="right">0.2517186</td>
+<td align="right">0.2735095</td>
+<td align="right">1952.369</td>
+<td align="right">1.001854</td>
+</tr>
+<tr class="even">
+<td align="left">tau[3]</td>
+<td align="right">0.7757139</td>
+<td align="right">0.0015075</td>
+<td align="right">0.0599109</td>
+<td align="right">0.6660137</td>
+<td align="right">0.7340641</td>
+<td align="right">0.7733915</td>
+<td align="right">0.8139701</td>
+<td align="right">0.9012869</td>
+<td align="right">1579.420</td>
+<td align="right">1.002299</td>
+</tr>
+</tbody>
+</table>
+<p>To read Table <a href="#tab:HierarchicalBFS2019correlatedTable"><strong>??</strong></a>, recall that the order of parameters in the vectors <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\tau\)</span> is <span class="math inline">\((\alpha_i\ ,\beta_i\ ,\ \log\lambda_i)^\top\)</span>. These population-level parameters are all quite similar to those estimated in the previous section, where we assumed no correlation between the participant-level parameters. However now we also get estimates of the correlations between these parameters, which can be see in tin Table @ref{tab:HierarchicalBFS2019correlatedTableOMEGA}. In particular, note the strong negative correlation between <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>: this is something we would not have beed able to comment on had we just estimated the model without correlation.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="hierarchical-models.html#cb79-1" aria-hidden="true" tabindex="-1"></a>Omega<span class="ot">&lt;-</span><span class="fu">extract</span>(Fit)<span class="sc">$</span>Omega</span>
+<span id="cb79-2"><a href="hierarchical-models.html#cb79-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-3"><a href="hierarchical-models.html#cb79-3" aria-hidden="true" tabindex="-1"></a>OmegaMean<span class="ot">&lt;-</span>Omega <span class="sc">|&gt;</span> <span class="fu">apply</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),mean)</span>
+<span id="cb79-4"><a href="hierarchical-models.html#cb79-4" aria-hidden="true" tabindex="-1"></a>OmegaSD  <span class="ot">&lt;-</span>Omega <span class="sc">|&gt;</span> <span class="fu">apply</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),sd)</span>
+<span id="cb79-5"><a href="hierarchical-models.html#cb79-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-6"><a href="hierarchical-models.html#cb79-6" aria-hidden="true" tabindex="-1"></a>table<span class="ot">&lt;-</span><span class="fu">paste0</span>(OmegaMean <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>),</span>
+<span id="cb79-7"><a href="hierarchical-models.html#cb79-7" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;  (&quot;</span>,OmegaSD <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>),<span class="st">&quot;)&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">matrix</span>(<span class="at">nrow=</span><span class="dv">3</span>)</span>
+<span id="cb79-8"><a href="hierarchical-models.html#cb79-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-9"><a href="hierarchical-models.html#cb79-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(table)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">alpha$&quot;</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">beta$&quot;</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">log</span><span class="sc">\\</span><span class="st">lambda$&quot;</span>)</span>
+<span id="cb79-10"><a href="hierarchical-models.html#cb79-10" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(table)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">alpha$&quot;</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">beta$&quot;</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">log</span><span class="sc">\\</span><span class="st">lambda$&quot;</span>)</span>
+<span id="cb79-11"><a href="hierarchical-models.html#cb79-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-12"><a href="hierarchical-models.html#cb79-12" aria-hidden="true" tabindex="-1"></a>table<span class="sc">|&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Estimated correlation matrix $</span><span class="sc">\\</span><span class="st">Omega$. Posterior means shown with posterior standard deviations in parentheses.&quot;</span>)</span></code></pre></div>
+<table>
+<caption><span id="tab:HierarchicalBFS2019correlatedTableOMEGA">Table 5.2: </span>Estimated correlation matrix <span class="math inline">\(\Omega\)</span>. Posterior means shown with posterior standard deviations in parentheses.</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left"><span class="math inline">\(\alpha\)</span></th>
+<th align="left"><span class="math inline">\(\beta\)</span></th>
+<th align="left"><span class="math inline">\(\log\lambda\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\alpha\)</span></td>
+<td align="left">1 (0)</td>
+<td align="left">-0.691 (0.06)</td>
+<td align="left">-0.59 (0.066)</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\beta\)</span></td>
+<td align="left">-0.691 (0.06)</td>
+<td align="left">1 (0)</td>
+<td align="left">-0.003 (0.089)</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\log\lambda\)</span></td>
+<td align="left">-0.59 (0.066)</td>
+<td align="left">-0.003 (0.089)</td>
+<td align="left">1 (0)</td>
+</tr>
+</tbody>
+</table>
+<p>Finally, let’s have a look at the model’s shrinkage estimates. Recall that these come from the data-augmentation process, and can be thought of as participant-specific estimates, had we used the parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\Sigma\)</span> that we estimated as our prior for these parameters. As with the previous chapter, I will focus on parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, which are the parameters of the <span class="citation">Fehr and Schmidt (<a href="#ref-FS1999" role="doc-biblioref">1999</a>)</span> inequality-aversion model. Also, as with the previous chapter, I will just plot their posterior means to avoid over-plotting. I show these in Figure <a href="hierarchical-models.html#fig:HierarchicalBFS2019correlatedIndPlot">5.3</a></p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="hierarchical-models.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract the right parameters from the Stan Fit object</span></span>
+<span id="cb80-2"><a href="hierarchical-models.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and take the mean</span></span>
+<span id="cb80-3"><a href="hierarchical-models.html#cb80-3" aria-hidden="true" tabindex="-1"></a>theta<span class="ot">&lt;-</span><span class="fu">extract</span>(Fit)<span class="sc">$</span>theta <span class="sc">|&gt;</span> <span class="fu">apply</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),mean)<span class="sc">|&gt;</span> <span class="fu">t</span>()</span>
+<span id="cb80-4"><a href="hierarchical-models.html#cb80-4" aria-hidden="true" tabindex="-1"></a>dTheta<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">alpha=</span>theta[,<span class="dv">1</span>],<span class="at">beta=</span>theta[,<span class="dv">2</span>],<span class="at">lambda =</span> <span class="fu">exp</span>(theta[,<span class="dv">3</span>]))</span>
+<span id="cb80-5"><a href="hierarchical-models.html#cb80-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-6"><a href="hierarchical-models.html#cb80-6" aria-hidden="true" tabindex="-1"></a>regions<span class="ot">&lt;-</span><span class="fu">tibble</span>(</span>
+<span id="cb80-7"><a href="hierarchical-models.html#cb80-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">alpha =</span> <span class="fu">c</span>(<span class="fl">0.25</span>,<span class="sc">-</span><span class="fl">0.25</span>,<span class="sc">-</span><span class="fl">0.25</span>,<span class="fl">0.25</span>),</span>
+<span id="cb80-8"><a href="hierarchical-models.html#cb80-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">beta =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.5</span>,<span class="fl">0.8</span>,<span class="sc">-</span><span class="fl">0.5</span>),</span>
+<span id="cb80-9"><a href="hierarchical-models.html#cb80-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="fu">c</span>(<span class="st">&quot;inequality averse&quot;</span>,</span>
+<span id="cb80-10"><a href="hierarchical-models.html#cb80-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;inequality loving&quot;</span>,</span>
+<span id="cb80-11"><a href="hierarchical-models.html#cb80-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;efficiency loving&quot;</span>,</span>
+<span id="cb80-12"><a href="hierarchical-models.html#cb80-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;competitive&quot;</span></span>
+<span id="cb80-13"><a href="hierarchical-models.html#cb80-13" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb80-14"><a href="hierarchical-models.html#cb80-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb80-15"><a href="hierarchical-models.html#cb80-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-16"><a href="hierarchical-models.html#cb80-16" aria-hidden="true" tabindex="-1"></a>(  </span>
+<span id="cb80-17"><a href="hierarchical-models.html#cb80-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb80-18"><a href="hierarchical-models.html#cb80-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> dTheta,</span>
+<span id="cb80-19"><a href="hierarchical-models.html#cb80-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>alpha,<span class="at">y=</span>beta,<span class="at">color=</span><span class="fu">log</span>(lambda))</span>
+<span id="cb80-20"><a href="hierarchical-models.html#cb80-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb80-21"><a href="hierarchical-models.html#cb80-21" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb80-22"><a href="hierarchical-models.html#cb80-22" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_text</span>(<span class="at">data=</span>regions,<span class="fu">aes</span>(<span class="at">x=</span>alpha,<span class="at">y=</span>beta,<span class="at">label=</span>label),<span class="at">color=</span><span class="st">&quot;black&quot;</span>)</span>
+<span id="cb80-23"><a href="hierarchical-models.html#cb80-23" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb80-24"><a href="hierarchical-models.html#cb80-24" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(alpha))<span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta))</span>
+<span id="cb80-25"><a href="hierarchical-models.html#cb80-25" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb80-26"><a href="hierarchical-models.html#cb80-26" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb80-27"><a href="hierarchical-models.html#cb80-27" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:HierarchicalBFS2019correlatedIndPlot"></span>
+<img src="index_files/figure-html/HierarchicalBFS2019correlatedIndPlot-1.png" alt="Posterior mean estimates of individual-level parameters $\alpha$ and $\beta$ from the hierarchical model assuming correlation between the parameters." width="672" />
+<p class="caption">
+Figure 5.3: Posterior mean estimates of individual-level parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> from the hierarchical model assuming correlation between the parameters.
+</p>
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Betancourt2015" class="csl-entry">
+Betancourt, Michael, and Mark Girolami. 2015. <span>“Hamiltonian Monte Carlo for Hierarchical Models.”</span> <em>Current Trends in Bayesian Methodology with Applications</em> 79 (30): 2–4. <a href="https://doi.org/10.48550/arXiv.1312.0906">https://doi.org/10.48550/arXiv.1312.0906</a>.
+</div>
+<div id="ref-BFS2019" class="csl-entry">
+Bruhin, Adrian, Ernst Fehr, and Daniel Schunk. 2019. <span>“The Many Faces of Human Sociality: Uncovering the Distribution and Stability of Social Preferences.”</span> <em>Journal of the European Economic Association</em> 17 (4): 1025–69.
+</div>
+<div id="ref-Conte2011" class="csl-entry">
+Conte, Anna, John D Hey, and Peter G Moffatt. 2011. <span>“Mixture Models of Choice Under Risk.”</span> <em>Journal of Econometrics</em> 162 (1): 79–88.
+</div>
+<div id="ref-FS1999" class="csl-entry">
+Fehr, Ernst, and Klaus M Schmidt. 1999. <span>“A Theory of Fairness, Competition, and Cooperation.”</span> <em>The Quarterly Journal of Economics</em> 114 (3): 817–68.
+</div>
+<div id="ref-Moffatt2015" class="csl-entry">
+Moffatt, Peter G. 2015. <em>Experimetrics: Econometrics for Experimental Economics</em>. Palgrave Macmillan.
+</div>
+<div id="ref-StanUsersGuide" class="csl-entry">
+Stan Development Team. 2022. <span>“Stan User’s Guide, Version 2.31.”</span>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="16">
+<li id="fn16"><p>I.e. <span class="math inline">\(p(A,B)=p(A\mid B)p(B)\)</span><a href="hierarchical-models.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>In fact, sometimes these are also referred to as “priors” in discussion of hierarchical models. I like to stay away from this language, as <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\Sigma\)</span> are parameters that we are trying to estimate, rather than parameters describing our prior beliefs about other parameters.<a href="hierarchical-models.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>This is a really useful section. I have it open in my browser most of the time that I am coding hierarchical models in <em>Stan</em>.<a href="hierarchical-models.html#fnref18" class="footnote-back">↩︎</a></p></li>
+<li id="fn19"><p>Here I have deliberately tried to leave as much of this <em>Stan</em> file as unchanged as possible so you can compare it side-by-side with the representative agent model. There are better ways to do this, which I will get to shortly. Most of them take advantage of the stacked vector <span class="math inline">\(\theta\)</span> notation that I have used above.<a href="hierarchical-models.html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p>This one will take a while. Fold some laundry, write some poetry, find Kakariko Village, or something. (about 17 minutes on my laptop)<a href="hierarchical-models.html#fnref20" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="representative-agent-and-participant-specific-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
