@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Application: Strategy Frequency Estimation | Structural Bayesian Techniques for Experimental and Behavioral Economics</title>
+  <meta name="description" content="8 Application: Strategy Frequency Estimation | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Application: Strategy Frequency Estimation | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Application: Strategy Frequency Estimation | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2023-06-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="application-experience-weighted-attraction.html"/>
+<link rel="next" href="outline-of-future-chapters.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="section.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="setting-the-stage.html"><a href="setting-the-stage.html"><i class="fa fa-check"></i>Setting the stage</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-does-your-theory-say-about-your-data"><i class="fa fa-check"></i><b>1.1</b> What does your theory say about your data?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-do-your-data-say-about-your-theory"><i class="fa fa-check"></i><b>1.2</b> What do your data say about your theory?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-do-your-parameters-say-about-other-things"><i class="fa fa-check"></i><b>1.3</b> What do your parameters say about other things?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#what-does-your-expertise-say-about-your-parameters"><i class="fa fa-check"></i><b>1.4</b> What does your expertise say about your parameters?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>Stan</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#installation-in-r"><i class="fa fa-check"></i><b>2.1</b> Installation in <em>R</em></a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-anatomy-of-a-stan-program"><i class="fa fa-check"></i><b>2.2</b> The anatomy of a <em>Stan</em> program</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#data-block"><i class="fa fa-check"></i><b>2.2.1</b> Data block</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#transformed-data-block"><i class="fa fa-check"></i><b>2.2.2</b> Transformed data block</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#parameters-block"><i class="fa fa-check"></i><b>2.2.3</b> Parameters block</a></li>
+<li class="chapter" data-level="2.2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#model-block"><i class="fa fa-check"></i><b>2.2.4</b> Model block</a></li>
+<li class="chapter" data-level="2.2.5" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#generated-quantities-block"><i class="fa fa-check"></i><b>2.2.5</b> Generated quantities block</a></li>
+<li class="chapter" data-level="2.2.6" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-final-product"><i class="fa fa-check"></i><b>2.2.6</b> The final product</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#estimating-a-model"><i class="fa fa-check"></i><b>2.3</b> Estimating a model</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#looking-at-the-results"><i class="fa fa-check"></i><b>2.4</b> Looking at the results</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html"><i class="fa fa-check"></i><b>3</b> Probabilistic models of behavior</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#the-problem-with-deterministic-models"><i class="fa fa-check"></i><b>3.1</b> The problem with deterministic models</a></li>
+<li class="chapter" data-level="3.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#what-is-a-probabilistic-model"><i class="fa fa-check"></i><b>3.2</b> What <em>is</em> a probabilistic model?</a></li>
+<li class="chapter" data-level="3.3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#example-dataset-and-model"><i class="fa fa-check"></i><b>3.3</b> Example dataset and model</a></li>
+<li class="chapter" data-level="3.4" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#optimal-choice-plus-an-error"><i class="fa fa-check"></i><b>3.4</b> Optimal choice plus an error</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-1"><i class="fa fa-check"></i><b>3.4.1</b> Estimating a model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#utility-based-models"><i class="fa fa-check"></i><b>3.5</b> Utility-based models</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-2"><i class="fa fa-check"></i><b>3.5.1</b> Estimating a model</a></li>
+<li class="chapter" data-level="3.5.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#doing-something-with-the-estimates"><i class="fa fa-check"></i><b>3.5.2</b> Doing something with the estimates</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="building-blocks.html"><a href="building-blocks.html"><i class="fa fa-check"></i>Building blocks</a></li>
+<li class="chapter" data-level="4" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html"><i class="fa fa-check"></i><b>4</b> Representative agent and participant-specific models</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#participant-specific-models"><i class="fa fa-check"></i><b>4.1</b> Participant-specific models</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#example-data-and-economic-model"><i class="fa fa-check"></i><b>4.1.1</b> Example data and economic model</a></li>
+<li class="chapter" data-level="4.1.2" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#going-to-the-probabilistic-model"><i class="fa fa-check"></i><b>4.1.2</b> Going to the probabilistic model</a></li>
+<li class="chapter" data-level="4.1.3" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#a-short-side-quest-into-canned-estimation-techniques"><i class="fa fa-check"></i><b>4.1.3</b> A short side quest into canned estimation techniques</a></li>
+<li class="chapter" data-level="4.1.4" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#assigning-priors"><i class="fa fa-check"></i><b>4.1.4</b> Assigning priors</a></li>
+<li class="chapter" data-level="4.1.5" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#estimating-the-model-for-one-participant"><i class="fa fa-check"></i><b>4.1.5</b> Estimating the model for one participant</a></li>
+<li class="chapter" data-level="4.1.6" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#estimating-the-model-for-all-participants"><i class="fa fa-check"></i><b>4.1.6</b> Estimating the model for all participants</a></li>
+<li class="chapter" data-level="4.1.7" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#but-we-could-be-learning-more"><i class="fa fa-check"></i><b>4.1.7</b> But we could be learning more!</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#actual-representative-agent-models-pooled-models"><i class="fa fa-check"></i><b>4.2</b> Actual representative agent models (pooled models)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="hierarchical-models.html"><a href="hierarchical-models.html"><i class="fa fa-check"></i><b>5</b> Hierarchical models</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#a-random-sample-of-participants-walks-into-your-lab"><i class="fa fa-check"></i><b>5.1</b> A random sample of participants walks into your lab</a></li>
+<li class="chapter" data-level="5.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#the-anatomy-of-a-basic-hierarchical-model"><i class="fa fa-check"></i><b>5.2</b> The anatomy of a basic hierarchical model</a></li>
+<li class="chapter" data-level="5.3" data-path="hierarchical-models.html"><a href="hierarchical-models.html#accounting-for-unobserved-heterogeneity"><i class="fa fa-check"></i><b>5.3</b> Accounting for unobserved heterogeneity</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#the-last-time-you-will-integrate-the-likelihood-probably"><i class="fa fa-check"></i><b>5.3.1</b> The last time you will integrate the likelihood, probably</a></li>
+<li class="chapter" data-level="5.3.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#data-augmentation"><i class="fa fa-check"></i><b>5.3.2</b> Data augmentation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="hierarchical-models.html"><a href="hierarchical-models.html#a-multivariate-normal-hierarchical-model"><i class="fa fa-check"></i><b>5.4</b> A multivariate normal hierarchical model</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#decomposing-the-variance-covariance-matrix"><i class="fa fa-check"></i><b>5.4.1</b> Decomposing the variance-covariance matrix</a></li>
+<li class="chapter" data-level="5.4.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#transformed-parameters-and-normal-distributions"><i class="fa fa-check"></i><b>5.4.2</b> Transformed parameters and normal distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="hierarchical-models.html"><a href="hierarchical-models.html#example-again-with-bfs2019"><i class="fa fa-check"></i><b>5.5</b> Example: again with <span class="citation">Bruhin, Fehr, and Schunk (<span>2019</span>)</span></a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#no-correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>5.5.1</b> No correlation between individual-level parameters</a></li>
+<li class="chapter" data-level="5.5.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>5.5.2</b> Correlation between individual-level parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="mixture-models.html"><a href="mixture-models.html"><i class="fa fa-check"></i><b>6</b> Mixture models</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="mixture-models.html"><a href="mixture-models.html#a-menu-of-models"><i class="fa fa-check"></i><b>6.1</b> A menu of models</a></li>
+<li class="chapter" data-level="6.2" data-path="mixture-models.html"><a href="mixture-models.html#dichotomous-and-toolbox-mixture-models"><i class="fa fa-check"></i><b>6.2</b> Dichotomous and toolbox mixture models</a></li>
+<li class="chapter" data-level="6.3" data-path="mixture-models.html"><a href="mixture-models.html#coding-peculearities"><i class="fa fa-check"></i><b>6.3</b> Coding peculearities</a></li>
+<li class="chapter" data-level="6.4" data-path="mixture-models.html"><a href="mixture-models.html#example-experiment-av2001"><i class="fa fa-check"></i><b>6.4</b> Example experiment: <span class="citation">Andreoni and Vesterlund (<span>2001</span>)</span></a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="mixture-models.html"><a href="mixture-models.html#as-basic-as-it-gets"><i class="fa fa-check"></i><b>6.4.1</b> As basic as it gets</a></li>
+<li class="chapter" data-level="6.4.2" data-path="mixture-models.html"><a href="mixture-models.html#adding-some-heterogeneity"><i class="fa fa-check"></i><b>6.4.2</b> Adding some heterogeneity</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="mixture-models.html"><a href="mixture-models.html#some-code-used-to-estimate-the-models"><i class="fa fa-check"></i><b>6.5</b> Some code used to estimate the models</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i>Applications</a></li>
+<li class="chapter" data-level="7" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html"><i class="fa fa-check"></i><b>7</b> Application: Experience-Weighted Attraction</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-model-at-the-individual-level"><i class="fa fa-check"></i><b>7.1</b> The model at the individual level</a></li>
+<li class="chapter" data-level="7.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-computational-and-coding-issues"><i class="fa fa-check"></i><b>7.2</b> Some computational and coding issues</a></li>
+<li class="chapter" data-level="7.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#representative-agent-models"><i class="fa fa-check"></i><b>7.3</b> Representative agent models</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration"><i class="fa fa-check"></i><b>7.3.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="7.3.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model"><i class="fa fa-check"></i><b>7.3.2</b> The <em>Stan</em> model</a></li>
+<li class="chapter" data-level="7.3.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results"><i class="fa fa-check"></i><b>7.3.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#hierarchical-model"><i class="fa fa-check"></i><b>7.4</b> Hierarchical model</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration-1"><i class="fa fa-check"></i><b>7.4.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="7.4.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model-1"><i class="fa fa-check"></i><b>7.4.2</b> The <em>Stan</em> model</a></li>
+<li class="chapter" data-level="7.4.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results-1"><i class="fa fa-check"></i><b>7.4.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-code-used-to-estimate-the-models-1"><i class="fa fa-check"></i><b>7.5</b> Some code used to estimate the models</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#loading-the-data"><i class="fa fa-check"></i><b>7.5.1</b> Loading the data</a></li>
+<li class="chapter" data-level="7.5.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-representative-agent-models"><i class="fa fa-check"></i><b>7.5.2</b> Estimating the representative agent models</a></li>
+<li class="chapter" data-level="7.5.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-hierarchical-model"><i class="fa fa-check"></i><b>7.5.3</b> Estimating the hierarchical model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>8</b> Application: Strategy Frequency Estimation</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#simplifying-the-individual-likelihood-functions"><i class="fa fa-check"></i><b>8.1</b> Simplifying the individual likelihood functions</a></li>
+<li class="chapter" data-level="8.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011"><i class="fa fa-check"></i><b>8.2</b> Example experiment: <span class="citation">(<span><strong>DBF2011?</strong></span>)</span></a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#the-sfem-with-homogeneous-trembles"><i class="fa fa-check"></i><b>8.2.1</b> The SFEM with homogeneous trembles</a></li>
+<li class="chapter" data-level="8.2.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#adding-heterogeneous-trembles-and-integrating-the-likelihood"><i class="fa fa-check"></i><b>8.2.2</b> Adding heterogeneous trembles and integrating the likelihood</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#r-code-to-do-these-estimations"><i class="fa fa-check"></i><b>8.3</b> <em>R</em> code to do these estimations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="outline-of-future-chapters.html"><a href="outline-of-future-chapters.html"><i class="fa fa-check"></i>Outline of future chapters</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Structural Bayesian Techniques for Experimental and Behavioral Economics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="application-strategy-frequency-estimation" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Application: Strategy Frequency Estimation<a href="application-strategy-frequency-estimation.html#application-strategy-frequency-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>One of the econometric models that most sparked my interest as a grad student was the Strategy Frequency Estimation Method (SFEM), which first showed up in <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span> and <span class="citation">(<a href="#ref-Fundenberg2012" role="doc-biblioref"><strong>Fundenberg2012?</strong></a>)</span>.
+In these applications, and a lot that followed, the SFEM is applied to data from infinitely repeated Prisoner’s Dilemma experiments. In these games, strategies can be quite complicated beasts, because they must prescribe an action to take after every possible history of play, and histories in an infinitely repeated game can be, well … infinite. We therefore cannot <em>observe</em> strategies (or the pure-action realizations of mixed strategies) like we would in a single-shot game.<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a>
+However we cannot just ignore strategies in these games, because a lot of the theory motivating why cooperation will or will not occur has to do with strategies that support cooperation.
+The idea behind the SFEM is to focus on a menu of strategies that we have decided could be empirically relevant. We then estimate the fraction of participants whose behavior in our experiment is best described by each of these strategies. Hence, the SFEM is a mixture model.</p>
+<p>A strategy <span class="math inline">\(s\)</span> in an indefinitely repeated game can be defined as a function that maps the history of play <span class="math inline">\(h_{i,t-1}\)</span> into a probability distribution over the actions in player <span class="math inline">\(i\)</span>’s choice set in the next period of the game, <span class="math inline">\(y_{i,t}\mid h_{i,t-1},s\)</span>, where <span class="math inline">\(y_{i,t}\)</span> is the action taken by participant <span class="math inline">\(i\)</span> in period <span class="math inline">\(t\)</span>. While these strategies can in principle be mixed, unless they are <em>fully</em> mixed they will not assign positive probability to all actions, and so we will run into the zero-likelihood problem. The SFEM’s solution to this is to assume that players <em>tremble</em>. That is, participants follow the action specified by the strategy with probability <span class="math inline">\(1-\epsilon\)</span>, and choose another action with probability <span class="math inline">\(\epsilon\)</span>. In the most common application of the SFEM, which is indefinitely repeated Prisoner’s dilemmas, players’ choice sets have just two elements (cooperate and defect), so it makes sense that <span class="math inline">\(\epsilon\in(0,0.5)\)</span>. This ensures that players are more likely to choose the action specified by their strategy than not. For this chapter, I will focus on the SFEM when the choice set is binary<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a> I will further focus only on strategies that specify pure actions.</p>
+<p>The strategy <span class="math inline">\(s\)</span>, tremble probability <span class="math inline">\(\epsilon\)</span>, history <span class="math inline">\(\{h_{i,t-1}\}\)</span>, and data <span class="math inline">\(\{y_{i,t}\}\)</span> is sufficient information to write down the probability of an individual decision:</p>
+<p><span class="math display">\[
+p(y_{i,t}\mid h_{i,t-1},s,\epsilon)=(1-\epsilon)^{I(y_{i,t}=s(h_{i,t-1}))}\epsilon^{I(y_{i,t}\neq s(h_{i,t-1}))}
+\]</span></p>
+<p>where <span class="math inline">\(I(\cdot)\)</span> is the indicator function. That is, when <span class="math inline">\(y_{i,t}=s(h_{i,t-1})\)</span> the participant has followed the prescribed action of the strategy, which happens with probability <span class="math inline">\(1-\epsilon\)</span>, and when <span class="math inline">\(y_{i,t}\neq s(h_{i,t-1})\)</span> the participant has not followed the prescribed action of the strategy, which happens with probability <span class="math inline">\(\epsilon\)</span>.</p>
+<p>As the goal of the SFEM is to estimate the fraction of <em>participants</em> who use each strategy, we combine these decision-level likelihoods and mixing probabilities <span class="math inline">\(\{\rho_s\}_{s=1}^S\)</span> into a grand likelihood using a <em>dichotomous</em> mixture model specification:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\log p(y\mid \rho,\epsilon)
+&amp;=\sum_{i=1}^N\log\left(\sum_{s=1}^S\exp\left(\log \rho_s+\sum_{t=1}^{T_i}\log p(y_{i,t}\mid h_{i,t-1},s,\epsilon)\right)\right)
+\end{aligned}
+\]</span></p>
+<p>This is one of these situations where we can take advantage of <em>Stan</em>’s <code>log_sum_exp</code> function, so I have added the logged mixing probabilities to the exponent, rather than multiplying them in levels. Also, it is important to keep track of the <span class="math inline">\(i\)</span> subscript on <span class="math inline">\(T_i\)</span>, the total number of actions taken by participant <span class="math inline">\(i\)</span>. Indefinitely repeated games is one of the situations where we do not have a balanced panel, as the length of a game must be random.</p>
+<div id="simplifying-the-individual-likelihood-functions" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Simplifying the individual likelihood functions<a href="application-strategy-frequency-estimation.html#simplifying-the-individual-likelihood-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For pure strategies, there is a lot we can do to speed up estimation. Specifically, we can simplify the summation over <span class="math inline">\(t\)</span> in the above grand likelihood by pre-summarizing our data: we don’t actually need to know for which <em>specific decisions</em> a participant followed a strategy or trembled, we just need to know the <em>total number of times</em> they followed a strategy, and the total number of times they trembled. This is because we have assumed that actions are independent conditional on <span class="math inline">\(h_{i,t-1}\)</span>, <span class="math inline">\(s\)</span>, and <span class="math inline">\(\epsilon\)</span>. To see this, note that:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{t=1}^{T_i}\log p(y_{i,t}\mid h_{i,t-1},s,\epsilon)
+&amp;=\sum_{t=1}^{T_i}\left[I(y_{i,t}=s(h_{i,t-1}))\log(1-\epsilon)+I(y_{i,t}\neq s(h_{i,t-1}))\log (\epsilon)\right]\\
+&amp;=\log(1-\epsilon)\sum_{t=1}^{T_i}I(y_{i,t}=s(h_{i,t-1}))+\log(\epsilon)\sum_{t=1}^{T_i}I(y_{i,t}\neq s(h_{i,t-1}))\\
+&amp;=\log(1-\epsilon)\mathrm{follow}_{i,s}+\log(\epsilon)(T_i-\mathrm{follow}_{i,s})
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\mathrm{follow}_{i,s}\)</span> is the number of times participant <span class="math inline">\(i\)</span> followed the prescribed action in strategy <span class="math inline">\(s\)</span>. Importantly, <span class="math inline">\(\mathrm{follow}_{i,s}\)</span> can be pre-calculated, so we can speed up our estimation by doing this.</p>
+</div>
+<div id="example-experiment-dbf2011" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Example experiment: <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In their Table 7, <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span> estimate the fraction of <span class="math inline">\(S=6\)</span> strategies being used in their indefinitely repeated Prisoner’s dilemma experiment.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a> These strategies are:</p>
+<ol style="list-style-type: decimal">
+<li>Always Defect (AD)</li>
+<li>Always Cooperate (AC)</li>
+<li>Grim Trigger (G), defect for ever once one person has defected</li>
+<li>Tit for Tat (TFT)</li>
+<li>Win Stay Lose Shit (WSLS)</li>
+<li>Tit for two tats (T2)</li>
+</ol>
+<p>From their footnote 19:</p>
+<blockquote>
+<p>WSLS is a strategty hat starts cooperating and then condition behavior only on the outcome of the previous round. If either both cooperate or neither cooperate, then WSLS cooperates; otherwise it defects. T2 starts cooperating, and a defection by the other triggers two rounds of defection, after which the strategy goes back to cooperation. These two strategies are cooperative st rategies with punishments of limited length.</p>
+</blockquote>
+<p>Each strategy specifies an action (for an infinitely repeated Prisoner’s Dilemma, either “Cooperate” or “Defect”) to be played after every possible combination of strategies. The trouble, with a few notable exceptions, is that we do not observe strategies, we only observe the actions that result from these strategies, and so we have data like this:</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="application-strategy-frequency-estimation.html#cb110-1" aria-hidden="true" tabindex="-1"></a>DBFData<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&#39;Data/SFEM/DBFData.rds&#39;</span>)</span>
+<span id="cb110-2"><a href="application-strategy-frequency-estimation.html#cb110-2" aria-hidden="true" tabindex="-1"></a>DBFData <span class="sc">|&gt;</span> <span class="fu">head</span>() <span class="sc">|&gt;</span> <span class="fu">kbl</span>() <span class="sc">|&gt;</span> <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F)</span></code></pre></div>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:right;">
+follow1
+</th>
+<th style="text-align:right;">
+follow2
+</th>
+<th style="text-align:right;">
+follow3
+</th>
+<th style="text-align:right;">
+follow4
+</th>
+<th style="text-align:right;">
+follow5
+</th>
+<th style="text-align:right;">
+follow6
+</th>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:right;">
+Treatment
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<p>Each row here is a participant in the experiment. Follow1 is a count of the number of times this participant played the action consistent with AD, likewise for follow2, and so on. <span class="math inline">\(n\)</span> is the number of actions this participant played (some data from early rounds were excluded).</p>
+<div id="the-sfem-with-homogeneous-trembles" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> The SFEM with homogeneous trembles<a href="application-strategy-frequency-estimation.html#the-sfem-with-homogeneous-trembles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here is my implementation of the model in <em>Stan</em>. I chose not to use the <code>log_sum_exp</code> function here because it would have meant that I could not vectorize the calculation of the <code>target += log(like_i*mix)</code> line. In order to make the estimates directly comparable to Table 7 of <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span>, I estimate one model for each of their six treatments.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a></p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb111-1"><a href="application-strategy-frequency-estimation.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co">// SFEM.stan</span></span>
+<span id="cb111-2"><a href="application-strategy-frequency-estimation.html#cb111-2" aria-hidden="true" tabindex="-1"></a>functions <span class="op">{</span></span>
+<span id="cb111-3"><a href="application-strategy-frequency-estimation.html#cb111-3" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb111-4"><a href="application-strategy-frequency-estimation.html#cb111-4" aria-hidden="true" tabindex="-1"></a>              </span>
+<span id="cb111-5"><a href="application-strategy-frequency-estimation.html#cb111-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb111-6"><a href="application-strategy-frequency-estimation.html#cb111-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb111-7"><a href="application-strategy-frequency-estimation.html#cb111-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Tell Stan how to read in the data</span></span>
+<span id="cb111-8"><a href="application-strategy-frequency-estimation.html#cb111-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> N<span class="op">;</span> <span class="co">// Number of subjects</span></span>
+<span id="cb111-9"><a href="application-strategy-frequency-estimation.html#cb111-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> S<span class="op">;</span> <span class="co">// Number of strategies</span></span>
+<span id="cb111-10"><a href="application-strategy-frequency-estimation.html#cb111-10" aria-hidden="true" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span>S<span class="op">]</span> COUNTS<span class="op">;</span> <span class="co">// Number of decisions by each player, here I repeat the vector S times to make the stuff below a bit simpler</span></span>
+<span id="cb111-11"><a href="application-strategy-frequency-estimation.html#cb111-11" aria-hidden="true" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span>S<span class="op">]</span> FOLLOWS<span class="op">;</span> <span class="co">// counts of following each strategy</span></span>
+<span id="cb111-12"><a href="application-strategy-frequency-estimation.html#cb111-12" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>S<span class="op">]</span> priorMix<span class="op">;</span> <span class="co">// Dirichlet prior for mixing probabilities</span></span>
+<span id="cb111-13"><a href="application-strategy-frequency-estimation.html#cb111-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb111-14"><a href="application-strategy-frequency-estimation.html#cb111-14" aria-hidden="true" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb111-15"><a href="application-strategy-frequency-estimation.html#cb111-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb111-16"><a href="application-strategy-frequency-estimation.html#cb111-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb111-17"><a href="application-strategy-frequency-estimation.html#cb111-17" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb111-18"><a href="application-strategy-frequency-estimation.html#cb111-18" aria-hidden="true" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">,</span>upper<span class="op">=</span><span class="fl">0.5</span><span class="op">&gt;</span> trmb<span class="op">;</span> <span class="co">// tremble probability</span></span>
+<span id="cb111-19"><a href="application-strategy-frequency-estimation.html#cb111-19" aria-hidden="true" tabindex="-1"></a>  simplex<span class="op">[</span>S<span class="op">]</span> mix<span class="op">;</span> <span class="co">// strategy mixing probabilities</span></span>
+<span id="cb111-20"><a href="application-strategy-frequency-estimation.html#cb111-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb111-21"><a href="application-strategy-frequency-estimation.html#cb111-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-22"><a href="application-strategy-frequency-estimation.html#cb111-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb111-23"><a href="application-strategy-frequency-estimation.html#cb111-23" aria-hidden="true" tabindex="-1"></a>transformed parameters <span class="op">{</span></span>
+<span id="cb111-24"><a href="application-strategy-frequency-estimation.html#cb111-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb111-25"><a href="application-strategy-frequency-estimation.html#cb111-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb111-26"><a href="application-strategy-frequency-estimation.html#cb111-26" aria-hidden="true" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb111-27"><a href="application-strategy-frequency-estimation.html#cb111-27" aria-hidden="true" tabindex="-1"></a>    matrix<span class="op">[</span>N<span class="op">,</span>S<span class="op">]</span> like_i<span class="op">;</span> </span>
+<span id="cb111-28"><a href="application-strategy-frequency-estimation.html#cb111-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb111-29"><a href="application-strategy-frequency-estimation.html#cb111-29" aria-hidden="true" tabindex="-1"></a>    mix <span class="op">~</span> dirichlet<span class="op">(</span>priorMix<span class="op">);</span></span>
+<span id="cb111-30"><a href="application-strategy-frequency-estimation.html#cb111-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-31"><a href="application-strategy-frequency-estimation.html#cb111-31" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Individual likelihoods</span></span>
+<span id="cb111-32"><a href="application-strategy-frequency-estimation.html#cb111-32" aria-hidden="true" tabindex="-1"></a>    like_i <span class="op">=</span> exp<span class="op">(</span>FOLLOWS<span class="op">*</span>log<span class="op">(</span><span class="dv">1</span><span class="op">-</span>trmb<span class="op">)+(</span>COUNTS<span class="op">-</span>FOLLOWS<span class="op">)*</span>log<span class="op">(</span>trmb<span class="op">));</span></span>
+<span id="cb111-33"><a href="application-strategy-frequency-estimation.html#cb111-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb111-34"><a href="application-strategy-frequency-estimation.html#cb111-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Adding the grand likelihood to the target</span></span>
+<span id="cb111-35"><a href="application-strategy-frequency-estimation.html#cb111-35" aria-hidden="true" tabindex="-1"></a>    target <span class="op">+=</span> log<span class="op">(</span>like_i<span class="op">*</span>mix<span class="op">);</span></span>
+<span id="cb111-36"><a href="application-strategy-frequency-estimation.html#cb111-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb111-37"><a href="application-strategy-frequency-estimation.html#cb111-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb111-38"><a href="application-strategy-frequency-estimation.html#cb111-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-39"><a href="application-strategy-frequency-estimation.html#cb111-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-40"><a href="application-strategy-frequency-estimation.html#cb111-40" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb111-41"><a href="application-strategy-frequency-estimation.html#cb111-41" aria-hidden="true" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
+<span id="cb111-42"><a href="application-strategy-frequency-estimation.html#cb111-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-43"><a href="application-strategy-frequency-estimation.html#cb111-43" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>The estimates from these models are shown in Table @(tab:SFEMSimpleTable), which is arranged in almost the same way as Table 7 in <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span>.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="application-strategy-frequency-estimation.html#cb112-1" aria-hidden="true" tabindex="-1"></a>TAB<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;Code/SFEM/SFEMHomogeneousTremblesEstimates.rds&quot;</span>) </span>
+<span id="cb112-2"><a href="application-strategy-frequency-estimation.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(TAB)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;AD&quot;</span>,<span class="st">&quot;AC&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;TFT&quot;</span>,<span class="st">&quot;WSLS&quot;</span>,<span class="st">&quot;T2&quot;</span>,<span class="st">&quot;tremble&quot;</span>)</span>
+<span id="cb112-3"><a href="application-strategy-frequency-estimation.html#cb112-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-4"><a href="application-strategy-frequency-estimation.html#cb112-4" aria-hidden="true" tabindex="-1"></a>TAB <span class="sc">|&gt;</span> </span>
+<span id="cb112-5"><a href="application-strategy-frequency-estimation.html#cb112-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&quot;SFEM estimates from the six treatments of @DBF2011. Posterior means with standard deviations in parentheses. Each colum is one of the six treatments. $R$ is the payoff when both payers cooperate, and $</span><span class="sc">\\</span><span class="st">delta$ is the continuation probability.&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb112-6"><a href="application-strategy-frequency-estimation.html#cb112-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F) <span class="sc">|&gt;</span></span>
+<span id="cb112-7"><a href="application-strategy-frequency-estimation.html#cb112-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">&quot; &quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;R = 32&quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;R = 40&quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;R = 48&quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;R = 32&quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;R = 40&quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;R = 48&quot;</span><span class="ot">=</span><span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb112-8"><a href="application-strategy-frequency-estimation.html#cb112-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">&quot; &quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">delta=</span><span class="sc">\\</span><span class="st">frac{1}{2}$&quot;</span><span class="ot">=</span><span class="dv">3</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">delta=</span><span class="sc">\\</span><span class="st">frac{3}{4}$&quot;</span><span class="ot">=</span><span class="dv">3</span>))</span></code></pre></div>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="empty-cells: hide;" colspan="1">
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+<span class="math inline">\(\delta=\frac{1}{2}\)</span>
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+<span class="math inline">\(\delta=\frac{3}{4}\)</span>
+</div>
+</th>
+</tr>
+<tr>
+<th style="empty-cells: hide;" colspan="1">
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+R = 32
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+R = 40
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+R = 48
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+R = 32
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+R = 40
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+R = 48
+</div>
+</th>
+</tr>
+</thead>
+<caption>
+<span id="tab:SFEMSimpleTable">Table 8.1: </span>SFEM estimates from the six treatments of <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span>. Posterior means with standard deviations in parentheses. Each colum is one of the six treatments. <span class="math inline">\(R\)</span> is the payoff when both payers cooperate, and <span class="math inline">\(\delta\)</span> is the continuation probability.
+</caption>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AD
+</td>
+<td style="text-align:left;">
+0.83 (0.053)
+</td>
+<td style="text-align:left;">
+0.716 (0.061)
+</td>
+<td style="text-align:left;">
+0.49 (0.07)
+</td>
+<td style="text-align:left;">
+0.59 (0.071)
+</td>
+<td style="text-align:left;">
+0.118 (0.048)
+</td>
+<td style="text-align:left;">
+0.02 (0.021)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AC
+</td>
+<td style="text-align:left;">
+0.02 (0.02)
+</td>
+<td style="text-align:left;">
+0.083 (0.04)
+</td>
+<td style="text-align:left;">
+0.084 (0.04)
+</td>
+<td style="text-align:left;">
+0.021 (0.021)
+</td>
+<td style="text-align:left;">
+0.27 (0.094)
+</td>
+<td style="text-align:left;">
+0.112 (0.072)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+0.02 (0.019)
+</td>
+<td style="text-align:left;">
+0.051 (0.032)
+</td>
+<td style="text-align:left;">
+0.035 (0.033)
+</td>
+<td style="text-align:left;">
+0.034 (0.029)
+</td>
+<td style="text-align:left;">
+0.225 (0.096)
+</td>
+<td style="text-align:left;">
+0.145 (0.1)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TFT
+</td>
+<td style="text-align:left;">
+0.09 (0.042)
+</td>
+<td style="text-align:left;">
+0.107 (0.045)
+</td>
+<td style="text-align:left;">
+0.332 (0.071)
+</td>
+<td style="text-align:left;">
+0.314 (0.069)
+</td>
+<td style="text-align:left;">
+0.297 (0.11)
+</td>
+<td style="text-align:left;">
+0.455 (0.117)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+WSLS
+</td>
+<td style="text-align:left;">
+0.02 (0.019)
+</td>
+<td style="text-align:left;">
+0.021 (0.02)
+</td>
+<td style="text-align:left;">
+0.037 (0.027)
+</td>
+<td style="text-align:left;">
+0.02 (0.019)
+</td>
+<td style="text-align:left;">
+0.045 (0.043)
+</td>
+<td style="text-align:left;">
+0.057 (0.053)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T2
+</td>
+<td style="text-align:left;">
+0.02 (0.019)
+</td>
+<td style="text-align:left;">
+0.022 (0.022)
+</td>
+<td style="text-align:left;">
+0.022 (0.022)
+</td>
+<td style="text-align:left;">
+0.02 (0.02)
+</td>
+<td style="text-align:left;">
+0.045 (0.041)
+</td>
+<td style="text-align:left;">
+0.211 (0.112)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tremble
+</td>
+<td style="text-align:left;">
+0.06 (0.008)
+</td>
+<td style="text-align:left;">
+0.137 (0.01)
+</td>
+<td style="text-align:left;">
+0.089 (0.008)
+</td>
+<td style="text-align:left;">
+0.097 (0.007)
+</td>
+<td style="text-align:left;">
+0.092 (0.01)
+</td>
+<td style="text-align:left;">
+0.03 (0.005)
+</td>
+</tr>
+</tbody>
+</table>
+<p>Comparing my estimates in Table <a href="application-strategy-frequency-estimation.html#tab:SFEMSimpleTable">8.1</a> to Table 7 of <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span>, there are many similarities, but my mixing probabilities are all closer to <span class="math inline">\(\frac{1}{6}\)</span> (i.e. large probabilities are attenuated, small probabilities are inflated). This is because <span class="math inline">\(\frac{1}{6}\)</span> is the prior mean, so we should expect this. Some common themes between these tables are:</p>
+<ul>
+<li>Mostly AD in the <span class="math inline">\(R=32\)</span> or <span class="math inline">\(R=40\)</span>, <span class="math inline">\(\delta=\frac12\)</span> treatments</li>
+<li>Similar fractions of AD and TFT in the <span class="math inline">\(R=48\)</span> <span class="math inline">\(\delta=\frac12\)</span> and <span class="math inline">\(R=32\)</span> <span class="math inline">\(\delta=\frac34\)</span> treatments</li>
+<li>Similar fractions of TFT in the <span class="math inline">\(\delta=\frac34\)</span> <span class="math inline">\(R=40\)</span> and <span class="math inline">\(R=48\)</span> treatments, and</li>
+<li>Similar fraction of AC in the <span class="math inline">\(\delta=\frac34\)</span> <span class="math inline">\(R=40\)</span> treatment.</li>
+</ul>
+</div>
+<div id="adding-heterogeneous-trembles-and-integrating-the-likelihood" class="section level3 hasAnchor" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Adding heterogeneous trembles and integrating the likelihood<a href="application-strategy-frequency-estimation.html#adding-heterogeneous-trembles-and-integrating-the-likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An extension I did with the SFEM in <span class="citation">Bland (<a href="#ref-Bland2020SFEM" role="doc-biblioref">2020</a>)</span> was to allow for participant-specific heterogeneous tremble probabilities <span class="math inline">\(\epsilon_i\)</span>. This can be done a few different ways. Probably the most obvious way is to assume that <span class="math inline">\(2\epsilon_i\)</span> probit-normally distributed,<a href="#fn38" class="footnote-ref" id="fnref38"><sup>38</sup></a> and use data augmentation accordingly. I use this distribution in <span class="citation">Bland (<a href="#ref-Bland2020SFEM" role="doc-biblioref">2020</a>)</span>, but implement a maximum likelihood estimator that uses Monte Carlo integration to integrate out the <span class="math inline">\(\epsilon_i\)</span>s.<a href="#fn39" class="footnote-ref" id="fnref39"><sup>39</sup></a> Since the data augmentation approach is going to look like any other 1-parameter hierarchical extension that I might show you in this book, I thought I would show you a different solution, where we can find an analytical solution to integrating the likelihood. This is similar to the process of finding conjugate priors.</p>
+<p>To begin with, I will write out the strategy-specific likelihood function for one participant’s decisions if we assume a general probability density function for the distribution of <span class="math inline">\(\epsilon\)</span>, call it <span class="math inline">\(p(\epsilon\mid \theta)\)</span>, where <span class="math inline">\(\theta\)</span> are some parameters describing the distribution.</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(y_i\mid h_{i,t-1},s,\theta)&amp;=\int_0^{0.5}\prod_{t=1}^{T_i}p(y_{i,t}\mid h_{i,t-1},s,\epsilon_i)p(\epsilon\mid \theta)\mathrm d\epsilon\\
+&amp;=\int_0^{0.5}(1-\epsilon)^{F_{i,s}}\epsilon^{T_i-F_{i,s}}p(\epsilon\mid\theta)\mathrm d\epsilon
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(F_{i,s}\)</span> is short for the variable <span class="math inline">\(\mathrm{follow}_{i,s}\)</span>.</p>
+<p>Looking at the likelihood part, it almost looks like an <a href="https://en.wikipedia.org/wiki/Beta_function#Incomplete_beta_function">incomplete beta function</a>, which is:</p>
+<p><span class="math display">\[
+B(x;a,b)=\int_0^xt^{a-1}(1-t)^{b-1}\mathrm dt
+\]</span></p>
+<p>so if we choose:</p>
+<p><span class="math display">\[
+p(\epsilon\mid \theta)\propto \epsilon^{\theta_1-1}(1-\epsilon)^{\theta_2-1}
+\]</span></p>
+<p>our likelihood becomes:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(y_i\mid h_{i,t-1},s,\theta)&amp;\propto\int_0^{0.5}(1-\epsilon)^{F_{i,s}}\epsilon^{T_i-F_{i,s}}\epsilon^{\theta_1-1}(1-\epsilon)^{\theta_2-1}\mathrm d\epsilon\\
+&amp;=\int_0^{0.5}\epsilon^{\theta_1+T_i-F_{i,s}-1}(1-\epsilon)^{\theta_2+F_{i,s}-1}\mathrm d\epsilon\\
+&amp;=B(0.5;\theta_1+T_i-F_{i,s},\theta_2+F_{i,s})
+\end{aligned}
+\]</span></p>
+<p>So we can evaluate the likelihood, up to a constant of proportionality, using the incomplete Beta function! Now we need to work out the constant of proportionality. Fortunately for us, this is just the constant to make sure that <span class="math inline">\(p(\epsilon\mid\theta)\)</span> integrates to one, so it must be that:</p>
+<p><span class="math display">\[
+\begin{aligned}
+1&amp;=c\int_0^{0.5}\epsilon^{\theta_1-1}(1-\epsilon)^{\theta_2-1}\mathrm d\epsilon\\
+&amp;=cB(0.5;\theta_1,\theta_2)\\
+c&amp;=\frac{1}{B(0.5;\theta_1,\theta_2)}\\
+\implies p(\epsilon\mid\theta)&amp;=\frac{\epsilon^{\theta_1-1}(1-\epsilon)^{\theta_2-1}}{B(0.5;\theta_1,\theta_2)}
+\end{aligned}
+\]</span></p>
+<p>And so we can write the strategy-specific log-likelihood of a participant’s choices as:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\log p(y_i\mid h_{i,t-1},s,\theta)&amp;=\log B(0.5;\theta_1+T_i-F_{i,s},\theta_2+F_{i,s})-\log B(0.5; \theta_1,\theta_2)
+\end{aligned}
+\]</span></p>
+<p>This means that we have modeled the tremble probabilities <span class="math inline">\(\epsilon_i\)</span> as coming from a <em>truncated beta</em> distribution.</p>
+<p>Unfortunately, <em>Stan</em>’s <code>inc_beta</code> function returns the <em>regularized</em> incomplete beta function, which is not what we have above. The regularized version divides the incomplete beta function by the (complete) beta function. That is, we can evaluate:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{(complete) beta: } B(a,b)&amp;=\int_0^1t^{a-1}(1-t)^{b-1}\mathrm dt\\
+\text{regularized incomplete beta: } I_x(a,b)&amp;=\frac{\int_0^xt^{a-1}(1-t)^{b-1}\mathrm dt}{B(a,b)}
+\end{aligned}
+\]</span></p>
+<p>so we will need to add in the beta function to this expression. In summary, we have:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\log p(y_i\mid h_{i,t-1},s,\theta)&amp;=\log I_{0.5}(\theta_1+T_i-F_{i,s},\theta_2+F_{i,s})+\log B(\theta_1+T_i-F_{i,s},\theta_2+F_{i,s})\\
+&amp;\quad -\log I_{0.5}(\theta_1,\theta_2)-\log B(\theta_1,\theta_2)
+\end{aligned}
+\]</span></p>
+<p>In <em>Stan</em> <code>inc_beta</code> is the regularized incomplete beta function, and <code>lbeta</code> is the natural logarithm of the (complete) beta function.</p>
+<p>Now that we have two more parameters, <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span>, we need to assign priors for these. When using the (un-truncated) beta distribution, I like to re-parameterize this into a mean parameter and a strength parameter like this:</p>
+<p><span class="math display">\[
+\begin{aligned}
+q&amp;=\frac{\theta_1}{\theta_1+\theta_2}\in(0,1)\\
+k&amp;=\theta_1+\theta_2&gt;0
+\end{aligned}
+\]</span></p>
+<p>for the un-truncated beta distribution, we can therefore think about it as having a mean <span class="math inline">\(q\)</span> and concentration <span class="math inline">\(k\)</span>. The interpretation is less clear for this truncated case, but I will go ahead with it and use this re-parametrized version to select priors. Since <span class="math inline">\(q\)</span> is the mean, and can take on any probability between 0 and 1,<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a> I choose a uniform prior. For <span class="math inline">\(k\)</span>, I use a fairly spread-out:</p>
+<p><span class="math display">\[
+k\sim \mathrm{Cauchy}^+(0,1)
+\]</span></p>
+<p>Here is the code I came up with to implement this model in <em>Stan</em>. I was somewhat disappointed that <em>Stan</em> didn’t have a vectorized version of the <code>inc_beta</code> function, so I had to drop my vectorized implementation of calculating <code>like_i</code> from the homogeneous model. All of this is to say, I am not sure whether this implementation where we analytically solve for the integrated likelihood is actually faster than using data augmentation. This is because with data augmentation I <em>would</em> be able to vectorize the operations.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb113-1"><a href="application-strategy-frequency-estimation.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co">// SFEMBeta.stan</span></span>
+<span id="cb113-2"><a href="application-strategy-frequency-estimation.html#cb113-2" aria-hidden="true" tabindex="-1"></a>functions <span class="op">{</span></span>
+<span id="cb113-3"><a href="application-strategy-frequency-estimation.html#cb113-3" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb113-4"><a href="application-strategy-frequency-estimation.html#cb113-4" aria-hidden="true" tabindex="-1"></a>              </span>
+<span id="cb113-5"><a href="application-strategy-frequency-estimation.html#cb113-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb113-6"><a href="application-strategy-frequency-estimation.html#cb113-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb113-7"><a href="application-strategy-frequency-estimation.html#cb113-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Tell Stan how to read in the data</span></span>
+<span id="cb113-8"><a href="application-strategy-frequency-estimation.html#cb113-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> N<span class="op">;</span> <span class="co">// Number of subjects</span></span>
+<span id="cb113-9"><a href="application-strategy-frequency-estimation.html#cb113-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> S<span class="op">;</span> <span class="co">// Number of strategies</span></span>
+<span id="cb113-10"><a href="application-strategy-frequency-estimation.html#cb113-10" aria-hidden="true" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span>S<span class="op">]</span> COUNTS<span class="op">;</span> <span class="co">// Number of decisions by each player, here I repeat the vector S times to make the stuff below a bit simpler</span></span>
+<span id="cb113-11"><a href="application-strategy-frequency-estimation.html#cb113-11" aria-hidden="true" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span>S<span class="op">]</span> FOLLOWS<span class="op">;</span> <span class="co">// counts of following each strategy</span></span>
+<span id="cb113-12"><a href="application-strategy-frequency-estimation.html#cb113-12" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>S<span class="op">]</span> priorMix<span class="op">;</span> <span class="co">// Dirichlet prior for mixing probabilities</span></span>
+<span id="cb113-13"><a href="application-strategy-frequency-estimation.html#cb113-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-14"><a href="application-strategy-frequency-estimation.html#cb113-14" aria-hidden="true" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> prior_k<span class="op">;</span></span>
+<span id="cb113-15"><a href="application-strategy-frequency-estimation.html#cb113-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb113-16"><a href="application-strategy-frequency-estimation.html#cb113-16" aria-hidden="true" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb113-17"><a href="application-strategy-frequency-estimation.html#cb113-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb113-18"><a href="application-strategy-frequency-estimation.html#cb113-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb113-19"><a href="application-strategy-frequency-estimation.html#cb113-19" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb113-20"><a href="application-strategy-frequency-estimation.html#cb113-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-21"><a href="application-strategy-frequency-estimation.html#cb113-21" aria-hidden="true" tabindex="-1"></a>  simplex<span class="op">[</span>S<span class="op">]</span> mix<span class="op">;</span> <span class="co">// strategy mixing probabilities</span></span>
+<span id="cb113-22"><a href="application-strategy-frequency-estimation.html#cb113-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-23"><a href="application-strategy-frequency-estimation.html#cb113-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-24"><a href="application-strategy-frequency-estimation.html#cb113-24" aria-hidden="true" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">,</span>upper<span class="op">=</span><span class="dv">1</span><span class="op">&gt;</span> q<span class="op">;</span> <span class="co">// mode of tremble distribution</span></span>
+<span id="cb113-25"><a href="application-strategy-frequency-estimation.html#cb113-25" aria-hidden="true" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> k<span class="op">;</span> <span class="co">// concentration of tremble distribution</span></span>
+<span id="cb113-26"><a href="application-strategy-frequency-estimation.html#cb113-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-27"><a href="application-strategy-frequency-estimation.html#cb113-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb113-28"><a href="application-strategy-frequency-estimation.html#cb113-28" aria-hidden="true" tabindex="-1"></a>transformed parameters <span class="op">{</span></span>
+<span id="cb113-29"><a href="application-strategy-frequency-estimation.html#cb113-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-30"><a href="application-strategy-frequency-estimation.html#cb113-30" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> theta<span class="op">;</span></span>
+<span id="cb113-31"><a href="application-strategy-frequency-estimation.html#cb113-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-32"><a href="application-strategy-frequency-estimation.html#cb113-32" aria-hidden="true" tabindex="-1"></a>  theta<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> k<span class="op">*</span>q<span class="op">;</span></span>
+<span id="cb113-33"><a href="application-strategy-frequency-estimation.html#cb113-33" aria-hidden="true" tabindex="-1"></a>  theta<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> k<span class="op">*(</span><span class="dv">1</span><span class="op">-</span>q<span class="op">);</span></span>
+<span id="cb113-34"><a href="application-strategy-frequency-estimation.html#cb113-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-35"><a href="application-strategy-frequency-estimation.html#cb113-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb113-36"><a href="application-strategy-frequency-estimation.html#cb113-36" aria-hidden="true" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb113-37"><a href="application-strategy-frequency-estimation.html#cb113-37" aria-hidden="true" tabindex="-1"></a>    matrix<span class="op">[</span>N<span class="op">,</span>S<span class="op">]</span> like_i<span class="op">;</span> </span>
+<span id="cb113-38"><a href="application-strategy-frequency-estimation.html#cb113-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb113-39"><a href="application-strategy-frequency-estimation.html#cb113-39" aria-hidden="true" tabindex="-1"></a>    mix <span class="op">~</span> dirichlet<span class="op">(</span>priorMix<span class="op">);</span></span>
+<span id="cb113-40"><a href="application-strategy-frequency-estimation.html#cb113-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-41"><a href="application-strategy-frequency-estimation.html#cb113-41" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Individual likelihoods</span></span>
+<span id="cb113-42"><a href="application-strategy-frequency-estimation.html#cb113-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb113-43"><a href="application-strategy-frequency-estimation.html#cb113-43" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* As far as I can tell, there is not a vectorized version of </span></span>
+<span id="cb113-44"><a href="application-strategy-frequency-estimation.html#cb113-44" aria-hidden="true" tabindex="-1"></a><span class="co">  inc_beta. Hence the double for loop below here.</span></span>
+<span id="cb113-45"><a href="application-strategy-frequency-estimation.html#cb113-45" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
+<span id="cb113-46"><a href="application-strategy-frequency-estimation.html#cb113-46" aria-hidden="true" tabindex="-1"></a><span class="co">  Another thing that tripped me up was that inc_beta takes arguments</span></span>
+<span id="cb113-47"><a href="application-strategy-frequency-estimation.html#cb113-47" aria-hidden="true" tabindex="-1"></a><span class="co">  inc_beta(a,b,x), not inc_beta(x,a,b). Always read the manual, peeps!</span></span>
+<span id="cb113-48"><a href="application-strategy-frequency-estimation.html#cb113-48" aria-hidden="true" tabindex="-1"></a><span class="co">  */</span></span>
+<span id="cb113-49"><a href="application-strategy-frequency-estimation.html#cb113-49" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb113-50"><a href="application-strategy-frequency-estimation.html#cb113-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>ss in <span class="dv">1</span><span class="op">:</span>S<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb113-51"><a href="application-strategy-frequency-estimation.html#cb113-51" aria-hidden="true" tabindex="-1"></a>      like_i<span class="op">[</span>ii<span class="op">,</span>ss<span class="op">]</span> <span class="op">=</span> exp<span class="op">(</span></span>
+<span id="cb113-52"><a href="application-strategy-frequency-estimation.html#cb113-52" aria-hidden="true" tabindex="-1"></a>                  log<span class="op">(</span>inc_beta<span class="op">(</span>theta<span class="op">[</span><span class="dv">1</span><span class="op">]+</span>COUNTS<span class="op">[</span>ii<span class="op">,</span>ss<span class="op">]-</span>FOLLOWS<span class="op">[</span>ii<span class="op">,</span>ss<span class="op">],</span>theta<span class="op">[</span><span class="dv">2</span><span class="op">]+</span>FOLLOWS<span class="op">[</span>ii<span class="op">,</span>ss<span class="op">],</span><span class="fl">0.5</span><span class="op">))</span></span>
+<span id="cb113-53"><a href="application-strategy-frequency-estimation.html#cb113-53" aria-hidden="true" tabindex="-1"></a>                  <span class="op">+</span>lbeta<span class="op">(</span>theta<span class="op">[</span><span class="dv">1</span><span class="op">]+</span>COUNTS<span class="op">[</span>ii<span class="op">,</span>ss<span class="op">]-</span>FOLLOWS<span class="op">[</span>ii<span class="op">,</span>ss<span class="op">],</span>theta<span class="op">[</span><span class="dv">2</span><span class="op">]+</span>FOLLOWS<span class="op">[</span>ii<span class="op">,</span>ss<span class="op">])</span></span>
+<span id="cb113-54"><a href="application-strategy-frequency-estimation.html#cb113-54" aria-hidden="true" tabindex="-1"></a>                  <span class="op">-</span>log<span class="op">(</span>inc_beta<span class="op">(</span>theta<span class="op">[</span><span class="dv">1</span><span class="op">],</span>theta<span class="op">[</span><span class="dv">2</span><span class="op">],</span><span class="fl">0.5</span><span class="op">))</span></span>
+<span id="cb113-55"><a href="application-strategy-frequency-estimation.html#cb113-55" aria-hidden="true" tabindex="-1"></a>                  <span class="op">-</span>lbeta<span class="op">(</span>theta<span class="op">[</span><span class="dv">1</span><span class="op">],</span>theta<span class="op">[</span><span class="dv">2</span><span class="op">])</span></span>
+<span id="cb113-56"><a href="application-strategy-frequency-estimation.html#cb113-56" aria-hidden="true" tabindex="-1"></a>                <span class="op">);</span></span>
+<span id="cb113-57"><a href="application-strategy-frequency-estimation.html#cb113-57" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb113-58"><a href="application-strategy-frequency-estimation.html#cb113-58" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb113-59"><a href="application-strategy-frequency-estimation.html#cb113-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-60"><a href="application-strategy-frequency-estimation.html#cb113-60" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Adding the grand likelihood to the target</span></span>
+<span id="cb113-61"><a href="application-strategy-frequency-estimation.html#cb113-61" aria-hidden="true" tabindex="-1"></a>    target <span class="op">+=</span> log<span class="op">(</span>like_i<span class="op">*</span>mix<span class="op">);</span></span>
+<span id="cb113-62"><a href="application-strategy-frequency-estimation.html#cb113-62" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb113-63"><a href="application-strategy-frequency-estimation.html#cb113-63" aria-hidden="true" tabindex="-1"></a>    <span class="co">// prior for k</span></span>
+<span id="cb113-64"><a href="application-strategy-frequency-estimation.html#cb113-64" aria-hidden="true" tabindex="-1"></a>    k<span class="op">~</span> cauchy<span class="op">(</span><span class="fl">0.0</span><span class="op">,</span>prior_k<span class="op">);</span></span>
+<span id="cb113-65"><a href="application-strategy-frequency-estimation.html#cb113-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-66"><a href="application-strategy-frequency-estimation.html#cb113-66" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb113-67"><a href="application-strategy-frequency-estimation.html#cb113-67" aria-hidden="true" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
+<span id="cb113-68"><a href="application-strategy-frequency-estimation.html#cb113-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-69"><a href="application-strategy-frequency-estimation.html#cb113-69" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Similarly to the previous section, I estimate one model for each treatment in <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span>. The estimates are summarized in Table <a href="application-strategy-frequency-estimation.html#tab:SFEMBetaTable">8.2</a>. These estimates are very similar to those in Table <a href="application-strategy-frequency-estimation.html#tab:SFEMSimpleTable">8.1</a>, and therefore we would draw similar conclusions about strategy frequencies with these heterogeneous-trembles models. In this case the heterogeneity does not seem to be changing the results that we are most interested in much.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="application-strategy-frequency-estimation.html#cb114-1" aria-hidden="true" tabindex="-1"></a>TAB<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;Code/SFEM/SFEMHeterogeneousTremblesEstimates.rds&quot;</span>) </span>
+<span id="cb114-2"><a href="application-strategy-frequency-estimation.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(TAB)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;AD&quot;</span>,<span class="st">&quot;AC&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;TFT&quot;</span>,<span class="st">&quot;WSLS&quot;</span>,<span class="st">&quot;T2&quot;</span>,<span class="st">&quot;q&quot;</span>,<span class="st">&quot;k&quot;</span>)</span>
+<span id="cb114-3"><a href="application-strategy-frequency-estimation.html#cb114-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-4"><a href="application-strategy-frequency-estimation.html#cb114-4" aria-hidden="true" tabindex="-1"></a>TAB <span class="sc">|&gt;</span> </span>
+<span id="cb114-5"><a href="application-strategy-frequency-estimation.html#cb114-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&quot;SFEM estimates from the six treatments of @DBF2011, assuming a heterogeneous distribution of tremble probability $</span><span class="sc">\\</span><span class="st">epsilon$. Posterior means with standard deviations in parentheses. Each colum is one of the six treatments. $R$ is the payoff when both payers cooperate, and $</span><span class="sc">\\</span><span class="st">delta$ is the continuation probability.&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb114-6"><a href="application-strategy-frequency-estimation.html#cb114-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F) <span class="sc">|&gt;</span></span>
+<span id="cb114-7"><a href="application-strategy-frequency-estimation.html#cb114-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">&quot; &quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;R = 32&quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;R = 40&quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;R = 48&quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;R = 32&quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;R = 40&quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;R = 48&quot;</span><span class="ot">=</span><span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb114-8"><a href="application-strategy-frequency-estimation.html#cb114-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">&quot; &quot;</span><span class="ot">=</span><span class="dv">1</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">delta=</span><span class="sc">\\</span><span class="st">frac{1}{2}$&quot;</span><span class="ot">=</span><span class="dv">3</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">delta=</span><span class="sc">\\</span><span class="st">frac{3}{4}$&quot;</span><span class="ot">=</span><span class="dv">3</span>))</span></code></pre></div>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="empty-cells: hide;" colspan="1">
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+<span class="math inline">\(\delta=\frac{1}{2}\)</span>
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+<span class="math inline">\(\delta=\frac{3}{4}\)</span>
+</div>
+</th>
+</tr>
+<tr>
+<th style="empty-cells: hide;" colspan="1">
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+R = 32
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+R = 40
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+R = 48
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+R = 32
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+R = 40
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+R = 48
+</div>
+</th>
+</tr>
+</thead>
+<caption>
+<span id="tab:SFEMBetaTable">Table 8.2: </span>SFEM estimates from the six treatments of <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span>, assuming a heterogeneous distribution of tremble probability <span class="math inline">\(\epsilon\)</span>. Posterior means with standard deviations in parentheses. Each colum is one of the six treatments. <span class="math inline">\(R\)</span> is the payoff when both payers cooperate, and <span class="math inline">\(\delta\)</span> is the continuation probability.
+</caption>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AD
+</td>
+<td style="text-align:left;">
+0.851 (0.051)
+</td>
+<td style="text-align:left;">
+0.749 (0.063)
+</td>
+<td style="text-align:left;">
+0.481 (0.072)
+</td>
+<td style="text-align:left;">
+0.587 (0.071)
+</td>
+<td style="text-align:left;">
+0.121 (0.049)
+</td>
+<td style="text-align:left;">
+0.02 (0.02)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AC
+</td>
+<td style="text-align:left;">
+0.021 (0.02)
+</td>
+<td style="text-align:left;">
+0.047 (0.032)
+</td>
+<td style="text-align:left;">
+0.086 (0.041)
+</td>
+<td style="text-align:left;">
+0.021 (0.02)
+</td>
+<td style="text-align:left;">
+0.254 (0.091)
+</td>
+<td style="text-align:left;">
+0.11 (0.074)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+0.021 (0.021)
+</td>
+<td style="text-align:left;">
+0.058 (0.034)
+</td>
+<td style="text-align:left;">
+0.039 (0.036)
+</td>
+<td style="text-align:left;">
+0.047 (0.033)
+</td>
+<td style="text-align:left;">
+0.247 (0.094)
+</td>
+<td style="text-align:left;">
+0.13 (0.1)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TFT
+</td>
+<td style="text-align:left;">
+0.065 (0.037)
+</td>
+<td style="text-align:left;">
+0.104 (0.046)
+</td>
+<td style="text-align:left;">
+0.337 (0.074)
+</td>
+<td style="text-align:left;">
+0.304 (0.068)
+</td>
+<td style="text-align:left;">
+0.285 (0.109)
+</td>
+<td style="text-align:left;">
+0.471 (0.12)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+WSLS
+</td>
+<td style="text-align:left;">
+0.021 (0.02)
+</td>
+<td style="text-align:left;">
+0.021 (0.02)
+</td>
+<td style="text-align:left;">
+0.033 (0.027)
+</td>
+<td style="text-align:left;">
+0.02 (0.02)
+</td>
+<td style="text-align:left;">
+0.047 (0.044)
+</td>
+<td style="text-align:left;">
+0.062 (0.057)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T2
+</td>
+<td style="text-align:left;">
+0.021 (0.02)
+</td>
+<td style="text-align:left;">
+0.021 (0.021)
+</td>
+<td style="text-align:left;">
+0.024 (0.023)
+</td>
+<td style="text-align:left;">
+0.021 (0.02)
+</td>
+<td style="text-align:left;">
+0.046 (0.044)
+</td>
+<td style="text-align:left;">
+0.207 (0.113)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+q
+</td>
+<td style="text-align:left;">
+0.354 (0.254)
+</td>
+<td style="text-align:left;">
+0.547 (0.236)
+</td>
+<td style="text-align:left;">
+0.451 (0.245)
+</td>
+<td style="text-align:left;">
+0.4 (0.239)
+</td>
+<td style="text-align:left;">
+0.389 (0.243)
+</td>
+<td style="text-align:left;">
+0.226 (0.234)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+k
+</td>
+<td style="text-align:left;">
+0.728 (0.814)
+</td>
+<td style="text-align:left;">
+0.831 (0.589)
+</td>
+<td style="text-align:left;">
+0.676 (0.57)
+</td>
+<td style="text-align:left;">
+1.278 (1.146)
+</td>
+<td style="text-align:left;">
+0.673 (0.672)
+</td>
+<td style="text-align:left;">
+1.461 (1.826)
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="r-code-to-do-these-estimations" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> <em>R</em> code to do these estimations<a href="application-strategy-frequency-estimation.html#r-code-to-do-these-estimations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="application-strategy-frequency-estimation.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb115-2"><a href="application-strategy-frequency-estimation.html#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb115-3"><a href="application-strategy-frequency-estimation.html#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb115-4"><a href="application-strategy-frequency-estimation.html#cb115-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb115-5"><a href="application-strategy-frequency-estimation.html#cb115-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-6"><a href="application-strategy-frequency-estimation.html#cb115-6" aria-hidden="true" tabindex="-1"></a>rounding<span class="ot">&lt;-</span><span class="dv">3</span></span>
+<span id="cb115-7"><a href="application-strategy-frequency-estimation.html#cb115-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-8"><a href="application-strategy-frequency-estimation.html#cb115-8" aria-hidden="true" tabindex="-1"></a><span class="do">####################################################</span></span>
+<span id="cb115-9"><a href="application-strategy-frequency-estimation.html#cb115-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the data from the files available on the </span></span>
+<span id="cb115-10"><a href="application-strategy-frequency-estimation.html#cb115-10" aria-hidden="true" tabindex="-1"></a><span class="co"># journal website</span></span>
+<span id="cb115-11"><a href="application-strategy-frequency-estimation.html#cb115-11" aria-hidden="true" tabindex="-1"></a><span class="do">####################################################</span></span>
+<span id="cb115-12"><a href="application-strategy-frequency-estimation.html#cb115-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-13"><a href="application-strategy-frequency-estimation.html#cb115-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-14"><a href="application-strategy-frequency-estimation.html#cb115-14" aria-hidden="true" tabindex="-1"></a>DBFData<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb115-15"><a href="application-strategy-frequency-estimation.html#cb115-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (ff <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) {</span>
+<span id="cb115-16"><a href="application-strategy-frequency-estimation.html#cb115-16" aria-hidden="true" tabindex="-1"></a>  fname<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">&quot;Data/SFEM/dfformatlab_strg_&quot;</span>,ff,<span class="st">&quot;_special.txt&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb115-17"><a href="application-strategy-frequency-estimation.html#cb115-17" aria-hidden="true" tabindex="-1"></a>  d<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">read.delim</span>(fname, <span class="at">header =</span> <span class="cn">FALSE</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>))</span>
+<span id="cb115-18"><a href="application-strategy-frequency-estimation.html#cb115-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(d)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;match&quot;</span>,<span class="st">&quot;round&quot;</span>,<span class="st">&quot;treatment&quot;</span>,<span class="st">&quot;coop&quot;</span>,<span class="st">&quot;id&quot;</span>,<span class="st">&quot;ocoop_all&quot;</span>,<span class="st">&quot;strg1&quot;</span>,<span class="st">&quot;strg2&quot;</span>,<span class="st">&quot;strg3&quot;</span>,<span class="st">&quot;strg4&quot;</span>,<span class="st">&quot;strg5&quot;</span>,<span class="st">&quot;strg6&quot;</span>,<span class="st">&quot;session&quot;</span>,<span class="st">&quot;id2_all&quot;</span>)</span>
+<span id="cb115-19"><a href="application-strategy-frequency-estimation.html#cb115-19" aria-hidden="true" tabindex="-1"></a>  DBFData<span class="ot">&lt;-</span><span class="fu">rbind</span>(DBFData,d)</span>
+<span id="cb115-20"><a href="application-strategy-frequency-estimation.html#cb115-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb115-21"><a href="application-strategy-frequency-estimation.html#cb115-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-22"><a href="application-strategy-frequency-estimation.html#cb115-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (ff <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) {</span>
+<span id="cb115-23"><a href="application-strategy-frequency-estimation.html#cb115-23" aria-hidden="true" tabindex="-1"></a>  str<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">&quot;DBFData$follow&quot;</span>,ff,<span class="st">&quot;&lt;- as.integer(DBFData$coop == DBFData$strg&quot;</span>,ff,<span class="st">&quot;)&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb115-24"><a href="application-strategy-frequency-estimation.html#cb115-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">eval</span>(<span class="fu">parse</span>(<span class="at">text=</span>str))</span>
+<span id="cb115-25"><a href="application-strategy-frequency-estimation.html#cb115-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb115-26"><a href="application-strategy-frequency-estimation.html#cb115-26" aria-hidden="true" tabindex="-1"></a>AggData<span class="ot">&lt;-</span><span class="fu">aggregate</span>(DBFData[,<span class="fu">c</span>(<span class="st">&quot;follow1&quot;</span>,<span class="st">&quot;follow2&quot;</span>,<span class="st">&quot;follow3&quot;</span>,<span class="st">&quot;follow4&quot;</span>,<span class="st">&quot;follow5&quot;</span>,<span class="st">&quot;follow6&quot;</span>)], <span class="at">by=</span><span class="fu">list</span>(DBFData<span class="sc">$</span>id),<span class="at">FUN=</span>sum)</span>
+<span id="cb115-27"><a href="application-strategy-frequency-estimation.html#cb115-27" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(AggData)[<span class="dv">1</span>]<span class="ot">&lt;-</span><span class="st">&quot;id&quot;</span></span>
+<span id="cb115-28"><a href="application-strategy-frequency-estimation.html#cb115-28" aria-hidden="true" tabindex="-1"></a>AggData<span class="sc">$</span>n<span class="ot">&lt;-</span><span class="fu">aggregate</span>(DBFData<span class="sc">$</span>id,<span class="at">by=</span><span class="fu">list</span>(DBFData<span class="sc">$</span>id),<span class="at">FUN=</span>length)<span class="sc">$</span>x</span>
+<span id="cb115-29"><a href="application-strategy-frequency-estimation.html#cb115-29" aria-hidden="true" tabindex="-1"></a>AggData<span class="sc">$</span>Treatment<span class="ot">&lt;-</span><span class="fu">aggregate</span>(DBFData<span class="sc">$</span>treatment,<span class="at">by=</span><span class="fu">list</span>(DBFData<span class="sc">$</span>id),<span class="at">FUN=</span>mean)<span class="sc">$</span>x</span>
+<span id="cb115-30"><a href="application-strategy-frequency-estimation.html#cb115-30" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(AggData,<span class="st">&quot;Data/SFEM/DBFData.rds&quot;</span>)</span>
+<span id="cb115-31"><a href="application-strategy-frequency-estimation.html#cb115-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-32"><a href="application-strategy-frequency-estimation.html#cb115-32" aria-hidden="true" tabindex="-1"></a>priorMix<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb115-33"><a href="application-strategy-frequency-estimation.html#cb115-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-34"><a href="application-strategy-frequency-estimation.html#cb115-34" aria-hidden="true" tabindex="-1"></a><span class="do">##############################</span></span>
+<span id="cb115-35"><a href="application-strategy-frequency-estimation.html#cb115-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Homogeneous trembles models</span></span>
+<span id="cb115-36"><a href="application-strategy-frequency-estimation.html#cb115-36" aria-hidden="true" tabindex="-1"></a><span class="do">##############################</span></span>
+<span id="cb115-37"><a href="application-strategy-frequency-estimation.html#cb115-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-38"><a href="application-strategy-frequency-estimation.html#cb115-38" aria-hidden="true" tabindex="-1"></a>model<span class="ot">&lt;-</span><span class="fu">stan_model</span>(<span class="st">&quot;Code/SFEM/SFEM.stan&quot;</span>)</span>
+<span id="cb115-39"><a href="application-strategy-frequency-estimation.html#cb115-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-40"><a href="application-strategy-frequency-estimation.html#cb115-40" aria-hidden="true" tabindex="-1"></a>Fits<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb115-41"><a href="application-strategy-frequency-estimation.html#cb115-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-42"><a href="application-strategy-frequency-estimation.html#cb115-42" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (tt <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) {</span>
+<span id="cb115-43"><a href="application-strategy-frequency-estimation.html#cb115-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;estimating homogeneous trembles model&quot;</span>,tt))</span>
+<span id="cb115-44"><a href="application-strategy-frequency-estimation.html#cb115-44" aria-hidden="true" tabindex="-1"></a>  Dt<span class="ot">&lt;-</span> AggData <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Treatment<span class="sc">==</span>tt)</span>
+<span id="cb115-45"><a href="application-strategy-frequency-estimation.html#cb115-45" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">=</span> <span class="fu">list</span>(</span>
+<span id="cb115-46"><a href="application-strategy-frequency-estimation.html#cb115-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">FOLLOWS=</span>Dt[,<span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>],</span>
+<span id="cb115-47"><a href="application-strategy-frequency-estimation.html#cb115-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">N=</span><span class="fu">dim</span>(Dt)[<span class="dv">1</span>],</span>
+<span id="cb115-48"><a href="application-strategy-frequency-estimation.html#cb115-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">S=</span><span class="dv">6</span>,</span>
+<span id="cb115-49"><a href="application-strategy-frequency-estimation.html#cb115-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">COUNTS=</span><span class="fu">kronecker</span>(Dt[,<span class="st">&quot;n&quot;</span>],<span class="fu">matrix</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">6</span>)),</span>
+<span id="cb115-50"><a href="application-strategy-frequency-estimation.html#cb115-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">priorMix=</span>priorMix)</span>
+<span id="cb115-51"><a href="application-strategy-frequency-estimation.html#cb115-51" aria-hidden="true" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(model,<span class="at">data=</span>d,<span class="at">seed=</span><span class="dv">42</span>,<span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.8</span>))</span>
+<span id="cb115-52"><a href="application-strategy-frequency-estimation.html#cb115-52" aria-hidden="true" tabindex="-1"></a>  S<span class="ot">&lt;-</span><span class="fu">summary</span>(Fit,<span class="at">pars=</span><span class="fu">c</span>(<span class="st">&quot;mix&quot;</span>,<span class="st">&quot;trmb&quot;</span>))<span class="sc">$</span>summary[,<span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>,<span class="st">&quot;sd&quot;</span>)] <span class="sc">|&gt;</span></span>
+<span id="cb115-53"><a href="application-strategy-frequency-estimation.html#cb115-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb115-54"><a href="application-strategy-frequency-estimation.html#cb115-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">msd =</span> <span class="fu">paste0</span>(mean <span class="sc">|&gt;</span> <span class="fu">round</span>(rounding),<span class="st">&quot; (&quot;</span>,sd <span class="sc">|&gt;</span> <span class="fu">round</span>(rounding),<span class="st">&quot;)&quot;</span>))</span>
+<span id="cb115-55"><a href="application-strategy-frequency-estimation.html#cb115-55" aria-hidden="true" tabindex="-1"></a>  Fits<span class="ot">&lt;-</span><span class="fu">cbind</span>(Fits,S<span class="sc">$</span>msd)</span>
+<span id="cb115-56"><a href="application-strategy-frequency-estimation.html#cb115-56" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb115-57"><a href="application-strategy-frequency-estimation.html#cb115-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-58"><a href="application-strategy-frequency-estimation.html#cb115-58" aria-hidden="true" tabindex="-1"></a>Fits <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(<span class="st">&quot;Code/SFEM/SFEMHomogeneousTremblesEstimates.rds&quot;</span>)</span>
+<span id="cb115-59"><a href="application-strategy-frequency-estimation.html#cb115-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-60"><a href="application-strategy-frequency-estimation.html#cb115-60" aria-hidden="true" tabindex="-1"></a><span class="do">##############################</span></span>
+<span id="cb115-61"><a href="application-strategy-frequency-estimation.html#cb115-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Heterogeneous trembles models</span></span>
+<span id="cb115-62"><a href="application-strategy-frequency-estimation.html#cb115-62" aria-hidden="true" tabindex="-1"></a><span class="do">##############################</span></span>
+<span id="cb115-63"><a href="application-strategy-frequency-estimation.html#cb115-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-64"><a href="application-strategy-frequency-estimation.html#cb115-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-65"><a href="application-strategy-frequency-estimation.html#cb115-65" aria-hidden="true" tabindex="-1"></a>model<span class="ot">&lt;-</span><span class="fu">stan_model</span>(<span class="st">&quot;Code/SFEM/SFEMBeta.stan&quot;</span>)</span>
+<span id="cb115-66"><a href="application-strategy-frequency-estimation.html#cb115-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-67"><a href="application-strategy-frequency-estimation.html#cb115-67" aria-hidden="true" tabindex="-1"></a>Fits<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb115-68"><a href="application-strategy-frequency-estimation.html#cb115-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-69"><a href="application-strategy-frequency-estimation.html#cb115-69" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (tt <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) {</span>
+<span id="cb115-70"><a href="application-strategy-frequency-estimation.html#cb115-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;estimating heterogeneous trembles model&quot;</span>,tt))</span>
+<span id="cb115-71"><a href="application-strategy-frequency-estimation.html#cb115-71" aria-hidden="true" tabindex="-1"></a>  Dt<span class="ot">&lt;-</span> AggData <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Treatment<span class="sc">==</span>tt)</span>
+<span id="cb115-72"><a href="application-strategy-frequency-estimation.html#cb115-72" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">=</span> <span class="fu">list</span>(</span>
+<span id="cb115-73"><a href="application-strategy-frequency-estimation.html#cb115-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">FOLLOWS=</span>Dt[,<span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>],</span>
+<span id="cb115-74"><a href="application-strategy-frequency-estimation.html#cb115-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">N=</span><span class="fu">dim</span>(Dt)[<span class="dv">1</span>],</span>
+<span id="cb115-75"><a href="application-strategy-frequency-estimation.html#cb115-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">S=</span><span class="dv">6</span>,</span>
+<span id="cb115-76"><a href="application-strategy-frequency-estimation.html#cb115-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">COUNTS=</span><span class="fu">kronecker</span>(Dt[,<span class="st">&quot;n&quot;</span>],<span class="fu">matrix</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">6</span>)),</span>
+<span id="cb115-77"><a href="application-strategy-frequency-estimation.html#cb115-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">priorMix=</span>priorMix,</span>
+<span id="cb115-78"><a href="application-strategy-frequency-estimation.html#cb115-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior_k =</span> <span class="dv">1</span>)</span>
+<span id="cb115-79"><a href="application-strategy-frequency-estimation.html#cb115-79" aria-hidden="true" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(model,<span class="at">data=</span>d,<span class="at">seed=</span><span class="dv">42</span>,<span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.8</span>))</span>
+<span id="cb115-80"><a href="application-strategy-frequency-estimation.html#cb115-80" aria-hidden="true" tabindex="-1"></a>  S<span class="ot">&lt;-</span><span class="fu">summary</span>(Fit,<span class="at">pars=</span><span class="fu">c</span>(<span class="st">&quot;mix&quot;</span>,<span class="st">&quot;q&quot;</span>,<span class="st">&quot;k&quot;</span>))<span class="sc">$</span>summary[,<span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>,<span class="st">&quot;sd&quot;</span>)] <span class="sc">|&gt;</span></span>
+<span id="cb115-81"><a href="application-strategy-frequency-estimation.html#cb115-81" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb115-82"><a href="application-strategy-frequency-estimation.html#cb115-82" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">msd =</span> <span class="fu">paste0</span>(mean <span class="sc">|&gt;</span> <span class="fu">round</span>(rounding),<span class="st">&quot; (&quot;</span>,sd <span class="sc">|&gt;</span> <span class="fu">round</span>(rounding),<span class="st">&quot;)&quot;</span>))</span>
+<span id="cb115-83"><a href="application-strategy-frequency-estimation.html#cb115-83" aria-hidden="true" tabindex="-1"></a>  Fits<span class="ot">&lt;-</span><span class="fu">cbind</span>(Fits,S<span class="sc">$</span>msd)</span>
+<span id="cb115-84"><a href="application-strategy-frequency-estimation.html#cb115-84" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb115-85"><a href="application-strategy-frequency-estimation.html#cb115-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-86"><a href="application-strategy-frequency-estimation.html#cb115-86" aria-hidden="true" tabindex="-1"></a>Fits <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(<span class="st">&quot;Code/SFEM/SFEMHeterogeneousTremblesEstimates.rds&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Bland2020SFEM" class="csl-entry">
+———. 2020. <span>“Heterogeneous Trembles and Model Selection in the Strategy Frequency Estimation Method.”</span> <em>Journal of the Economic Science Association</em> 6 (2): 113–24.
+</div>
+<div id="ref-DBF2019" class="csl-entry">
+Dal Bó, Pedro, and Guillaume R Fréchette. 2019. <span>“Strategy Choice in the Infinitely Repeated Prisoner’s Dilemma.”</span> <em>American Economic Review</em> 109 (11): 3929–52.
+</div>
+<div id="ref-Romero2018" class="csl-entry">
+Romero, Julian, and Yaroslav Rosokha. 2018. <span>“Constructing Strategies in the Indefinitely Repeated Prisoner’s Dilemma Game.”</span> <em>European Economic Review</em> 104: 185–219.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="34">
+<li id="fn34"><p>Two exceptions to this are <span class="citation">Romero and Rosokha (<a href="#ref-Romero2018" role="doc-biblioref">2018</a>)</span> and <span class="citation">Dal Bó and Fréchette (<a href="#ref-DBF2019" role="doc-biblioref">2019</a>)</span>. <a href="application-strategy-frequency-estimation.html#fnref34" class="footnote-back">↩︎</a></p></li>
+<li id="fn35"><p>For choice sets with more than two elements we need to be a bit more careful with how we specify the trembles. Since I am focusing attention on indefinitely-repeated Prisoner’s dilemma experiments, where the choice set is binary, I will not go into more detail here, but might later in a follow-up chapter.<a href="application-strategy-frequency-estimation.html#fnref35" class="footnote-back">↩︎</a></p></li>
+<li id="fn36"><p>You can download their data (and <em>Matlab</em> code to replicate it!) from <a href="https://www.aeaweb.org/articles?id=10.1257/aer.101.1.411">here</a><a href="application-strategy-frequency-estimation.html#fnref36" class="footnote-back">↩︎</a></p></li>
+<li id="fn37"><p>
+These estimations run very quickly (a second or two on my laptop each), so it’s probably not worth trying to find a korok while it runs.<a href="application-strategy-frequency-estimation.html#fnref37" class="footnote-back">↩︎</a></p></li>
+<li id="fn38"><p>Multiplying by 2 ensures that <span class="math inline">\(\epsilon_i\in(0,0.5)\)</span>.<a href="application-strategy-frequency-estimation.html#fnref38" class="footnote-back">↩︎</a></p></li>
+<li id="fn39"><p>This was not for my lack of trying. I originally wrote that paper using Bayesian estimators, but the editor wanted me to re-do everything using MLE. <a href="application-strategy-frequency-estimation.html#fnref39" class="footnote-back">↩︎</a></p></li>
+<li id="fn40"><p>For the truncated model, if <span class="math inline">\(q&lt;0.5\)</span> then <span class="math inline">\(q\)</span> is the <em>mode</em> of the distribution.<a href="application-strategy-frequency-estimation.html#fnref40" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="application-experience-weighted-attraction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="outline-of-future-chapters.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

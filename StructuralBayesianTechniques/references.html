@@ -23,7 +23,7 @@
 <meta name="author" content="James R. Bland" />
 
 
-<meta name="date" content="2023-06-05" />
+<meta name="date" content="2023-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -266,12 +266,15 @@ div.csl-indent {
 <li class="chapter" data-level="7.5.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-hierarchical-model"><i class="fa fa-check"></i><b>7.5.3</b> Estimating the hierarchical model</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="strategy-frequency-estimation.html"><a href="strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>8</b> Strategy Frequency Estimation</a>
+<li class="chapter" data-level="8" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>8</b> Application: Strategy Frequency Estimation</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="strategy-frequency-estimation.html"><a href="strategy-frequency-estimation.html#basic-model-and-data"><i class="fa fa-check"></i><b>8.1</b> Basic model and data</a>
+<li class="chapter" data-level="8.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#simplifying-the-individual-likelihood-functions"><i class="fa fa-check"></i><b>8.1</b> Simplifying the individual likelihood functions</a></li>
+<li class="chapter" data-level="8.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011"><i class="fa fa-check"></i><b>8.2</b> Example experiment: <span class="citation">(<span><strong>DBF2011?</strong></span>)</span></a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="strategy-frequency-estimation.html"><a href="strategy-frequency-estimation.html#data-wrangling"><i class="fa fa-check"></i><b>8.1.1</b> Data wrangling</a></li>
+<li class="chapter" data-level="8.2.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#the-sfem-with-homogeneous-trembles"><i class="fa fa-check"></i><b>8.2.1</b> The SFEM with homogeneous trembles</a></li>
+<li class="chapter" data-level="8.2.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#adding-heterogeneous-trembles-and-integrating-the-likelihood"><i class="fa fa-check"></i><b>8.2.2</b> Adding heterogeneous trembles and integrating the likelihood</a></li>
 </ul></li>
+<li class="chapter" data-level="8.3" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#r-code-to-do-these-estimations"><i class="fa fa-check"></i><b>8.3</b> <em>R</em> code to do these estimations</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="outline-of-future-chapters.html"><a href="outline-of-future-chapters.html"><i class="fa fa-check"></i>Outline of future chapters</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -311,6 +314,9 @@ Betancourt, Michael, and Mark Girolami. 2015. <span>“Hamiltonian Monte Carlo f
 Bland, James R. 2019. <span>“How Many Games Are We Playing? An Experimental Analysis of Choice Bracketing in Games.”</span> <em>Journal of Behavioral and Experimental Economics</em> 80: 80–91. <a href="https://doi.org/10.1016/j.socec.2019.03.011">https://doi.org/10.1016/j.socec.2019.03.011</a>.
 </div>
 <div class="csl-entry">
+———. 2020. <span>“Heterogeneous Trembles and Model Selection in the Strategy Frequency Estimation Method.”</span> <em>Journal of the Economic Science Association</em> 6 (2): 113–24.
+</div>
+<div class="csl-entry">
 ———. 2022. <span>“Bayesian Inference for Quantal Response Equilibrium in Normal-Form Games.”</span> <em>Available at SSRN 3748586</em>. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3748586">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3748586</a>.
 </div>
 <div class="csl-entry">
@@ -330,6 +336,9 @@ Cason, Timothy N., Daniel Friedman, and Ed Hopkins. 2010. <span>“Testing the T
 </div>
 <div class="csl-entry">
 Conte, Anna, John D Hey, and Peter G Moffatt. 2011. <span>“Mixture Models of Choice Under Risk.”</span> <em>Journal of Econometrics</em> 162 (1): 79–88.
+</div>
+<div class="csl-entry">
+Dal Bó, Pedro, and Guillaume R Fréchette. 2019. <span>“Strategy Choice in the Infinitely Repeated Prisoner’s Dilemma.”</span> <em>American Economic Review</em> 109 (11): 3929–52.
 </div>
 <div class="csl-entry">
 Fehr, Ernst, and Klaus M Schmidt. 1999. <span>“A Theory of Fairness, Competition, and Cooperation.”</span> <em>The Quarterly Journal of Economics</em> 114 (3): 817–68.
@@ -356,6 +365,9 @@ McKelvey, Richard D, and Thomas R Palfrey. 1995. <span>“Quantal Response Equil
 Moffatt, Peter G. 2015. <em>Experimetrics: Econometrics for Experimental Economics</em>. Palgrave Macmillan.
 </div>
 <div class="csl-entry">
+Romero, Julian, and Yaroslav Rosokha. 2018. <span>“Constructing Strategies in the Indefinitely Repeated Prisoner’s Dilemma Game.”</span> <em>European Economic Review</em> 104: 185–219.
+</div>
+<div class="csl-entry">
 Stahl, Dale O. 2018. <span>“Assessing the Forecast Performance of Models of Choice.”</span> <em>Journal of Behavioral and Experimental Economics</em> 73: 86–92.
 </div>
 <div class="csl-entry">
@@ -366,6 +378,14 @@ Wilcox, Nathaniel T. 2006. <span>“Theories of Learning in Games and Heterogene
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
 
 
 
