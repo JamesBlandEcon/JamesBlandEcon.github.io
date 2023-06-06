@@ -269,7 +269,7 @@ div.csl-indent {
 <li class="chapter" data-level="8" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>8</b> Application: Strategy Frequency Estimation</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#simplifying-the-individual-likelihood-functions"><i class="fa fa-check"></i><b>8.1</b> Simplifying the individual likelihood functions</a></li>
-<li class="chapter" data-level="8.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011"><i class="fa fa-check"></i><b>8.2</b> Example experiment: <span class="citation">(<span><strong>DBF2011?</strong></span>)</span></a>
+<li class="chapter" data-level="8.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011"><i class="fa fa-check"></i><b>8.2</b> Example experiment: <span class="citation">Dal Bó and Fréchette (<span>2011</span>)</span></a>
 <ul>
 <li class="chapter" data-level="8.2.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#the-sfem-with-homogeneous-trembles"><i class="fa fa-check"></i><b>8.2.1</b> The SFEM with homogeneous trembles</a></li>
 <li class="chapter" data-level="8.2.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#adding-heterogeneous-trembles-and-integrating-the-likelihood"><i class="fa fa-check"></i><b>8.2.2</b> Adding heterogeneous trembles and integrating the likelihood</a></li>
@@ -297,7 +297,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="application-strategy-frequency-estimation" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">8</span> Application: Strategy Frequency Estimation<a href="application-strategy-frequency-estimation.html#application-strategy-frequency-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>One of the econometric models that most sparked my interest as a grad student was the Strategy Frequency Estimation Method (SFEM), which first showed up in <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span> and <span class="citation">(<a href="#ref-Fundenberg2012" role="doc-biblioref"><strong>Fundenberg2012?</strong></a>)</span>.
+<p>One of the econometric models that most sparked my interest as a grad student was the Strategy Frequency Estimation Method (SFEM), which first showed up in <span class="citation">Dal Bó and Fréchette (<a href="#ref-DBF2011" role="doc-biblioref">2011</a>)</span> and <span class="citation">Fudenberg, Rand, and Dreber (<a href="#ref-Fudenberg2012" role="doc-biblioref">2012</a>)</span>.
 In these applications, and a lot that followed, the SFEM is applied to data from infinitely repeated Prisoner’s Dilemma experiments. In these games, strategies can be quite complicated beasts, because they must prescribe an action to take after every possible history of play, and histories in an infinitely repeated game can be, well … infinite. We therefore cannot <em>observe</em> strategies (or the pure-action realizations of mixed strategies) like we would in a single-shot game.<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a>
 However we cannot just ignore strategies in these games, because a lot of the theory motivating why cooperation will or will not occur has to do with strategies that support cooperation.
 The idea behind the SFEM is to focus on a menu of strategies that we have decided could be empirically relevant. We then estimate the fraction of participants whose behavior in our experiment is best described by each of these strategies. Hence, the SFEM is a mixture model.</p>
@@ -329,8 +329,8 @@ p(y_{i,t}\mid h_{i,t-1},s,\epsilon)=(1-\epsilon)^{I(y_{i,t}=s(h_{i,t-1}))}\epsil
 <p>where <span class="math inline">\(\mathrm{follow}_{i,s}\)</span> is the number of times participant <span class="math inline">\(i\)</span> followed the prescribed action in strategy <span class="math inline">\(s\)</span>. Importantly, <span class="math inline">\(\mathrm{follow}_{i,s}\)</span> can be pre-calculated, so we can speed up our estimation by doing this.</p>
 </div>
 <div id="example-experiment-dbf2011" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Example experiment: <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In their Table 7, <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span> estimate the fraction of <span class="math inline">\(S=6\)</span> strategies being used in their indefinitely repeated Prisoner’s dilemma experiment.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a> These strategies are:</p>
+<h2><span class="header-section-number">8.2</span> Example experiment: <span class="citation">Dal Bó and Fréchette (<a href="#ref-DBF2011" role="doc-biblioref">2011</a>)</span><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In their Table 7, <span class="citation">Dal Bó and Fréchette (<a href="#ref-DBF2011" role="doc-biblioref">2011</a>)</span> estimate the fraction of <span class="math inline">\(S=6\)</span> strategies being used in their indefinitely repeated Prisoner’s dilemma experiment.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a> These strategies are:</p>
 <ol style="list-style-type: decimal">
 <li>Always Defect (AD)</li>
 <li>Always Cooperate (AC)</li>
@@ -558,7 +558,7 @@ Treatment
 <p>Each row here is a participant in the experiment. Follow1 is a count of the number of times this participant played the action consistent with AD, likewise for follow2, and so on. <span class="math inline">\(n\)</span> is the number of actions this participant played (some data from early rounds were excluded).</p>
 <div id="the-sfem-with-homogeneous-trembles" class="section level3 hasAnchor" number="8.2.1">
 <h3><span class="header-section-number">8.2.1</span> The SFEM with homogeneous trembles<a href="application-strategy-frequency-estimation.html#the-sfem-with-homogeneous-trembles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Here is my implementation of the model in <em>Stan</em>. I chose not to use the <code>log_sum_exp</code> function here because it would have meant that I could not vectorize the calculation of the <code>target += log(like_i*mix)</code> line. In order to make the estimates directly comparable to Table 7 of <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span>, I estimate one model for each of their six treatments.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a></p>
+<p>Here is my implementation of the model in <em>Stan</em>. I chose not to use the <code>log_sum_exp</code> function here because it would have meant that I could not vectorize the calculation of the <code>target += log(like_i*mix)</code> line. In order to make the estimates directly comparable to Table 7 of <span class="citation">Dal Bó and Fréchette (<a href="#ref-DBF2011" role="doc-biblioref">2011</a>)</span>, I estimate one model for each of their six treatments.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a></p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb111-1"><a href="application-strategy-frequency-estimation.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co">// SFEM.stan</span></span>
 <span id="cb111-2"><a href="application-strategy-frequency-estimation.html#cb111-2" aria-hidden="true" tabindex="-1"></a>functions <span class="op">{</span></span>
 <span id="cb111-3"><a href="application-strategy-frequency-estimation.html#cb111-3" aria-hidden="true" tabindex="-1"></a>   </span>
@@ -602,7 +602,7 @@ Treatment
 <span id="cb111-41"><a href="application-strategy-frequency-estimation.html#cb111-41" aria-hidden="true" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
 <span id="cb111-42"><a href="application-strategy-frequency-estimation.html#cb111-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb111-43"><a href="application-strategy-frequency-estimation.html#cb111-43" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>The estimates from these models are shown in Table @(tab:SFEMSimpleTable), which is arranged in almost the same way as Table 7 in <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span>.</p>
+<p>The estimates from these models are shown in Table @(tab:SFEMSimpleTable), which is arranged in almost the same way as Table 7 in <span class="citation">Dal Bó and Fréchette (<a href="#ref-DBF2011" role="doc-biblioref">2011</a>)</span>.</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="application-strategy-frequency-estimation.html#cb112-1" aria-hidden="true" tabindex="-1"></a>TAB<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;Code/SFEM/SFEMHomogeneousTremblesEstimates.rds&quot;</span>) </span>
 <span id="cb112-2"><a href="application-strategy-frequency-estimation.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(TAB)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;AD&quot;</span>,<span class="st">&quot;AC&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;TFT&quot;</span>,<span class="st">&quot;WSLS&quot;</span>,<span class="st">&quot;T2&quot;</span>,<span class="st">&quot;tremble&quot;</span>)</span>
 <span id="cb112-3"><a href="application-strategy-frequency-estimation.html#cb112-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -663,7 +663,7 @@ R = 48
 </tr>
 </thead>
 <caption>
-<span id="tab:SFEMSimpleTable">Table 8.1: </span>SFEM estimates from the six treatments of <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span>. Posterior means with standard deviations in parentheses. Each colum is one of the six treatments. <span class="math inline">\(R\)</span> is the payoff when both payers cooperate, and <span class="math inline">\(\delta\)</span> is the continuation probability.
+<span id="tab:SFEMSimpleTable">Table 8.1: </span>SFEM estimates from the six treatments of <span class="citation">Dal Bó and Fréchette (<a href="#ref-DBF2011" role="doc-biblioref">2011</a>)</span>. Posterior means with standard deviations in parentheses. Each colum is one of the six treatments. <span class="math inline">\(R\)</span> is the payoff when both payers cooperate, and <span class="math inline">\(\delta\)</span> is the continuation probability.
 </caption>
 <tbody>
 <tr>
@@ -829,7 +829,7 @@ tremble
 </tr>
 </tbody>
 </table>
-<p>Comparing my estimates in Table <a href="application-strategy-frequency-estimation.html#tab:SFEMSimpleTable">8.1</a> to Table 7 of <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span>, there are many similarities, but my mixing probabilities are all closer to <span class="math inline">\(\frac{1}{6}\)</span> (i.e. large probabilities are attenuated, small probabilities are inflated). This is because <span class="math inline">\(\frac{1}{6}\)</span> is the prior mean, so we should expect this. Some common themes between these tables are:</p>
+<p>Comparing my estimates in Table <a href="application-strategy-frequency-estimation.html#tab:SFEMSimpleTable">8.1</a> to Table 7 of <span class="citation">Dal Bó and Fréchette (<a href="#ref-DBF2011" role="doc-biblioref">2011</a>)</span>, there are many similarities, but my mixing probabilities are all closer to <span class="math inline">\(\frac{1}{6}\)</span> (i.e. large probabilities are attenuated, small probabilities are inflated). This is because <span class="math inline">\(\frac{1}{6}\)</span> is the prior mean, so we should expect this. Some common themes between these tables are:</p>
 <ul>
 <li>Mostly AD in the <span class="math inline">\(R=32\)</span> or <span class="math inline">\(R=40\)</span>, <span class="math inline">\(\delta=\frac12\)</span> treatments</li>
 <li>Similar fractions of AD and TFT in the <span class="math inline">\(R=48\)</span> <span class="math inline">\(\delta=\frac12\)</span> and <span class="math inline">\(R=32\)</span> <span class="math inline">\(\delta=\frac34\)</span> treatments</li>
@@ -976,7 +976,7 @@ k\sim \mathrm{Cauchy}^+(0,1)
 <span id="cb113-67"><a href="application-strategy-frequency-estimation.html#cb113-67" aria-hidden="true" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
 <span id="cb113-68"><a href="application-strategy-frequency-estimation.html#cb113-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb113-69"><a href="application-strategy-frequency-estimation.html#cb113-69" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>Similarly to the previous section, I estimate one model for each treatment in <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span>. The estimates are summarized in Table <a href="application-strategy-frequency-estimation.html#tab:SFEMBetaTable">8.2</a>. These estimates are very similar to those in Table <a href="application-strategy-frequency-estimation.html#tab:SFEMSimpleTable">8.1</a>, and therefore we would draw similar conclusions about strategy frequencies with these heterogeneous-trembles models. In this case the heterogeneity does not seem to be changing the results that we are most interested in much.</p>
+<p>Similarly to the previous section, I estimate one model for each treatment in <span class="citation">Dal Bó and Fréchette (<a href="#ref-DBF2011" role="doc-biblioref">2011</a>)</span>. The estimates are summarized in Table <a href="application-strategy-frequency-estimation.html#tab:SFEMBetaTable">8.2</a>. These estimates are very similar to those in Table <a href="application-strategy-frequency-estimation.html#tab:SFEMSimpleTable">8.1</a>, and therefore we would draw similar conclusions about strategy frequencies with these heterogeneous-trembles models. In this case the heterogeneity does not seem to be changing the results that we are most interested in much.</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="application-strategy-frequency-estimation.html#cb114-1" aria-hidden="true" tabindex="-1"></a>TAB<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;Code/SFEM/SFEMHeterogeneousTremblesEstimates.rds&quot;</span>) </span>
 <span id="cb114-2"><a href="application-strategy-frequency-estimation.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(TAB)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;AD&quot;</span>,<span class="st">&quot;AC&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;TFT&quot;</span>,<span class="st">&quot;WSLS&quot;</span>,<span class="st">&quot;T2&quot;</span>,<span class="st">&quot;q&quot;</span>,<span class="st">&quot;k&quot;</span>)</span>
 <span id="cb114-3"><a href="application-strategy-frequency-estimation.html#cb114-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1037,7 +1037,7 @@ R = 48
 </tr>
 </thead>
 <caption>
-<span id="tab:SFEMBetaTable">Table 8.2: </span>SFEM estimates from the six treatments of <span class="citation">(<a href="#ref-DBF2011" role="doc-biblioref"><strong>DBF2011?</strong></a>)</span>, assuming a heterogeneous distribution of tremble probability <span class="math inline">\(\epsilon\)</span>. Posterior means with standard deviations in parentheses. Each colum is one of the six treatments. <span class="math inline">\(R\)</span> is the payoff when both payers cooperate, and <span class="math inline">\(\delta\)</span> is the continuation probability.
+<span id="tab:SFEMBetaTable">Table 8.2: </span>SFEM estimates from the six treatments of <span class="citation">Dal Bó and Fréchette (<a href="#ref-DBF2011" role="doc-biblioref">2011</a>)</span>, assuming a heterogeneous distribution of tremble probability <span class="math inline">\(\epsilon\)</span>. Posterior means with standard deviations in parentheses. Each colum is one of the six treatments. <span class="math inline">\(R\)</span> is the payoff when both payers cooperate, and <span class="math inline">\(\delta\)</span> is the continuation probability.
 </caption>
 <tbody>
 <tr>
@@ -1323,8 +1323,14 @@ k
 <div id="ref-Bland2020SFEM" class="csl-entry">
 ———. 2020. <span>“Heterogeneous Trembles and Model Selection in the Strategy Frequency Estimation Method.”</span> <em>Journal of the Economic Science Association</em> 6 (2): 113–24.
 </div>
+<div id="ref-DBF2011" class="csl-entry">
+Dal Bó, Pedro, and Guillaume R Fréchette. 2011. <span>“The Evolution of Cooperation in Infinitely Repeated Games: Experimental Evidence.”</span> <em>American Economic Review</em> 101 (1): 411–29.
+</div>
 <div id="ref-DBF2019" class="csl-entry">
-Dal Bó, Pedro, and Guillaume R Fréchette. 2019. <span>“Strategy Choice in the Infinitely Repeated Prisoner’s Dilemma.”</span> <em>American Economic Review</em> 109 (11): 3929–52.
+———. 2019. <span>“Strategy Choice in the Infinitely Repeated Prisoner’s Dilemma.”</span> <em>American Economic Review</em> 109 (11): 3929–52.
+</div>
+<div id="ref-Fudenberg2012" class="csl-entry">
+Fudenberg, Drew, David G Rand, and Anna Dreber. 2012. <span>“Slow to Anger and Fast to Forgive: Cooperation in an Uncertain World.”</span> <em>American Economic Review</em> 102 (2): 720–49.
 </div>
 <div id="ref-Romero2018" class="csl-entry">
 Romero, Julian, and Yaroslav Rosokha. 2018. <span>“Constructing Strategies in the Indefinitely Repeated Prisoner’s Dilemma Game.”</span> <em>European Economic Review</em> 104: 185–219.
