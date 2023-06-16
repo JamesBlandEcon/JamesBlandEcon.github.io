@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>9 Computing Quantal Response Equilibrium | Structural Bayesian Techniques for Experimental and Behavioral Economics</title>
+  <meta name="description" content="9 Computing Quantal Response Equilibrium | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="9 Computing Quantal Response Equilibrium | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="9 Computing Quantal Response Equilibrium | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2023-06-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="application-strategy-frequency-estimation.html"/>
+<link rel="next" href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="section.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="setting-the-stage.html"><a href="setting-the-stage.html"><i class="fa fa-check"></i>Setting the stage</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-does-your-theory-say-about-your-data"><i class="fa fa-check"></i><b>1.1</b> What does your theory say about your data?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-do-your-data-say-about-your-theory"><i class="fa fa-check"></i><b>1.2</b> What do your data say about your theory?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-do-your-parameters-say-about-other-things"><i class="fa fa-check"></i><b>1.3</b> What do your parameters say about other things?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#what-does-your-expertise-say-about-your-parameters"><i class="fa fa-check"></i><b>1.4</b> What does your expertise say about your parameters?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>Stan</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#installation-in-r"><i class="fa fa-check"></i><b>2.1</b> Installation in <em>R</em></a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-anatomy-of-a-stan-program"><i class="fa fa-check"></i><b>2.2</b> The anatomy of a <em>Stan</em> program</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#data-block"><i class="fa fa-check"></i><b>2.2.1</b> Data block</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#transformed-data-block"><i class="fa fa-check"></i><b>2.2.2</b> Transformed data block</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#parameters-block"><i class="fa fa-check"></i><b>2.2.3</b> Parameters block</a></li>
+<li class="chapter" data-level="2.2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#model-block"><i class="fa fa-check"></i><b>2.2.4</b> Model block</a></li>
+<li class="chapter" data-level="2.2.5" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#generated-quantities-block"><i class="fa fa-check"></i><b>2.2.5</b> Generated quantities block</a></li>
+<li class="chapter" data-level="2.2.6" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-final-product"><i class="fa fa-check"></i><b>2.2.6</b> The final product</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#estimating-a-model"><i class="fa fa-check"></i><b>2.3</b> Estimating a model</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#looking-at-the-results"><i class="fa fa-check"></i><b>2.4</b> Looking at the results</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html"><i class="fa fa-check"></i><b>3</b> Probabilistic models of behavior</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#the-problem-with-deterministic-models"><i class="fa fa-check"></i><b>3.1</b> The problem with deterministic models</a></li>
+<li class="chapter" data-level="3.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#what-is-a-probabilistic-model"><i class="fa fa-check"></i><b>3.2</b> What <em>is</em> a probabilistic model?</a></li>
+<li class="chapter" data-level="3.3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#example-dataset-and-model"><i class="fa fa-check"></i><b>3.3</b> Example dataset and model</a></li>
+<li class="chapter" data-level="3.4" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#optimal-choice-plus-an-error"><i class="fa fa-check"></i><b>3.4</b> Optimal choice plus an error</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-1"><i class="fa fa-check"></i><b>3.4.1</b> Estimating a model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#utility-based-models"><i class="fa fa-check"></i><b>3.5</b> Utility-based models</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-2"><i class="fa fa-check"></i><b>3.5.1</b> Estimating a model</a></li>
+<li class="chapter" data-level="3.5.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#doing-something-with-the-estimates"><i class="fa fa-check"></i><b>3.5.2</b> Doing something with the estimates</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="building-blocks.html"><a href="building-blocks.html"><i class="fa fa-check"></i>Building blocks</a></li>
+<li class="chapter" data-level="4" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html"><i class="fa fa-check"></i><b>4</b> Representative agent and participant-specific models</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#participant-specific-models"><i class="fa fa-check"></i><b>4.1</b> Participant-specific models</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#example-data-and-economic-model"><i class="fa fa-check"></i><b>4.1.1</b> Example data and economic model</a></li>
+<li class="chapter" data-level="4.1.2" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#going-to-the-probabilistic-model"><i class="fa fa-check"></i><b>4.1.2</b> Going to the probabilistic model</a></li>
+<li class="chapter" data-level="4.1.3" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#a-short-side-quest-into-canned-estimation-techniques"><i class="fa fa-check"></i><b>4.1.3</b> A short side quest into canned estimation techniques</a></li>
+<li class="chapter" data-level="4.1.4" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#assigning-priors"><i class="fa fa-check"></i><b>4.1.4</b> Assigning priors</a></li>
+<li class="chapter" data-level="4.1.5" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#estimating-the-model-for-one-participant"><i class="fa fa-check"></i><b>4.1.5</b> Estimating the model for one participant</a></li>
+<li class="chapter" data-level="4.1.6" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#estimating-the-model-for-all-participants"><i class="fa fa-check"></i><b>4.1.6</b> Estimating the model for all participants</a></li>
+<li class="chapter" data-level="4.1.7" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#but-we-could-be-learning-more"><i class="fa fa-check"></i><b>4.1.7</b> But we could be learning more!</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#actual-representative-agent-models-pooled-models"><i class="fa fa-check"></i><b>4.2</b> Actual representative agent models (pooled models)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="hierarchical-models.html"><a href="hierarchical-models.html"><i class="fa fa-check"></i><b>5</b> Hierarchical models</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#a-random-sample-of-participants-walks-into-your-lab"><i class="fa fa-check"></i><b>5.1</b> A random sample of participants walks into your lab</a></li>
+<li class="chapter" data-level="5.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#the-anatomy-of-a-basic-hierarchical-model"><i class="fa fa-check"></i><b>5.2</b> The anatomy of a basic hierarchical model</a></li>
+<li class="chapter" data-level="5.3" data-path="hierarchical-models.html"><a href="hierarchical-models.html#accounting-for-unobserved-heterogeneity"><i class="fa fa-check"></i><b>5.3</b> Accounting for unobserved heterogeneity</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#the-last-time-you-will-integrate-the-likelihood-probably"><i class="fa fa-check"></i><b>5.3.1</b> The last time you will integrate the likelihood, probably</a></li>
+<li class="chapter" data-level="5.3.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#data-augmentation"><i class="fa fa-check"></i><b>5.3.2</b> Data augmentation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="hierarchical-models.html"><a href="hierarchical-models.html#a-multivariate-normal-hierarchical-model"><i class="fa fa-check"></i><b>5.4</b> A multivariate normal hierarchical model</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#decomposing-the-variance-covariance-matrix"><i class="fa fa-check"></i><b>5.4.1</b> Decomposing the variance-covariance matrix</a></li>
+<li class="chapter" data-level="5.4.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#transformed-parameters-and-normal-distributions"><i class="fa fa-check"></i><b>5.4.2</b> Transformed parameters and normal distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="hierarchical-models.html"><a href="hierarchical-models.html#example-again-with-bfs2019"><i class="fa fa-check"></i><b>5.5</b> Example: again with <span class="citation">Bruhin, Fehr, and Schunk (<span>2019</span>)</span></a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#no-correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>5.5.1</b> No correlation between individual-level parameters</a></li>
+<li class="chapter" data-level="5.5.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>5.5.2</b> Correlation between individual-level parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="mixture-models.html"><a href="mixture-models.html"><i class="fa fa-check"></i><b>6</b> Mixture models</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="mixture-models.html"><a href="mixture-models.html#a-menu-of-models"><i class="fa fa-check"></i><b>6.1</b> A menu of models</a></li>
+<li class="chapter" data-level="6.2" data-path="mixture-models.html"><a href="mixture-models.html#dichotomous-and-toolbox-mixture-models"><i class="fa fa-check"></i><b>6.2</b> Dichotomous and toolbox mixture models</a></li>
+<li class="chapter" data-level="6.3" data-path="mixture-models.html"><a href="mixture-models.html#coding-peculearities"><i class="fa fa-check"></i><b>6.3</b> Coding peculearities</a></li>
+<li class="chapter" data-level="6.4" data-path="mixture-models.html"><a href="mixture-models.html#example-experiment-av2001"><i class="fa fa-check"></i><b>6.4</b> Example experiment: <span class="citation">Andreoni and Vesterlund (<span>2001</span>)</span></a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="mixture-models.html"><a href="mixture-models.html#as-basic-as-it-gets"><i class="fa fa-check"></i><b>6.4.1</b> As basic as it gets</a></li>
+<li class="chapter" data-level="6.4.2" data-path="mixture-models.html"><a href="mixture-models.html#adding-some-heterogeneity"><i class="fa fa-check"></i><b>6.4.2</b> Adding some heterogeneity</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="mixture-models.html"><a href="mixture-models.html#some-code-used-to-estimate-the-models"><i class="fa fa-check"></i><b>6.5</b> Some code used to estimate the models</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i>Applications</a></li>
+<li class="chapter" data-level="7" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html"><i class="fa fa-check"></i><b>7</b> Application: Experience-Weighted Attraction</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-model-at-the-individual-level"><i class="fa fa-check"></i><b>7.1</b> The model at the individual level</a></li>
+<li class="chapter" data-level="7.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-computational-and-coding-issues"><i class="fa fa-check"></i><b>7.2</b> Some computational and coding issues</a></li>
+<li class="chapter" data-level="7.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#representative-agent-models"><i class="fa fa-check"></i><b>7.3</b> Representative agent models</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration"><i class="fa fa-check"></i><b>7.3.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="7.3.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model"><i class="fa fa-check"></i><b>7.3.2</b> The <em>Stan</em> model</a></li>
+<li class="chapter" data-level="7.3.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results"><i class="fa fa-check"></i><b>7.3.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#hierarchical-model"><i class="fa fa-check"></i><b>7.4</b> Hierarchical model</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration-1"><i class="fa fa-check"></i><b>7.4.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="7.4.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model-1"><i class="fa fa-check"></i><b>7.4.2</b> The <em>Stan</em> model</a></li>
+<li class="chapter" data-level="7.4.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results-1"><i class="fa fa-check"></i><b>7.4.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-code-used-to-estimate-the-models-1"><i class="fa fa-check"></i><b>7.5</b> Some code used to estimate the models</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#loading-the-data"><i class="fa fa-check"></i><b>7.5.1</b> Loading the data</a></li>
+<li class="chapter" data-level="7.5.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-representative-agent-models"><i class="fa fa-check"></i><b>7.5.2</b> Estimating the representative agent models</a></li>
+<li class="chapter" data-level="7.5.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-hierarchical-model"><i class="fa fa-check"></i><b>7.5.3</b> Estimating the hierarchical model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>8</b> Application: Strategy Frequency Estimation</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#simplifying-the-individual-likelihood-functions"><i class="fa fa-check"></i><b>8.1</b> Simplifying the individual likelihood functions</a></li>
+<li class="chapter" data-level="8.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011"><i class="fa fa-check"></i><b>8.2</b> Example experiment: <span class="citation">Dal Bó and Fréchette (<span>2011</span>)</span></a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#the-sfem-with-homogeneous-trembles"><i class="fa fa-check"></i><b>8.2.1</b> The SFEM with homogeneous trembles</a></li>
+<li class="chapter" data-level="8.2.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#adding-heterogeneous-trembles-and-integrating-the-likelihood"><i class="fa fa-check"></i><b>8.2.2</b> Adding heterogeneous trembles and integrating the likelihood</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#r-code-to-do-these-estimations"><i class="fa fa-check"></i><b>8.3</b> <em>R</em> code to do these estimations</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html"><i class="fa fa-check"></i><b>9</b> Computing Quantal Response Equilibrium</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#overview-of-quantal-response-equilibrium"><i class="fa fa-check"></i><b>9.1</b> Overview of quantal response equilibrium</a></li>
+<li class="chapter" data-level="9.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#computing-quantal-response-equilibrium-1"><i class="fa fa-check"></i><b>9.2</b> Computing Quantal Response Equilibrium</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#setting-up-the-problem"><i class="fa fa-check"></i><b>9.2.1</b> Setting up the problem</a></li>
+<li class="chapter" data-level="9.2.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#a-predictor-corrector-algorithm"><i class="fa fa-check"></i><b>9.2.2</b> A predictor-corrector algorithm</a></li>
+<li class="chapter" data-level="9.2.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#initial-conditions"><i class="fa fa-check"></i><b>9.2.3</b> Initial conditions</a></li>
+<li class="chapter" data-level="9.2.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#algorithm-tuning"><i class="fa fa-check"></i><b>9.2.4</b> Algorithm tuning</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#the-predictor-corrector-algorithm-in-r"><i class="fa fa-check"></i><b>9.3</b> The predictor-corrector algorithm in <em>R</em></a></li>
+<li class="chapter" data-level="9.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#some-example-games"><i class="fa fa-check"></i><b>9.4</b> Some example games</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#generalized-matching-pennies-ochs1995"><i class="fa fa-check"></i><b>9.4.1</b> Generalized matching pennies <span class="citation">(<span>Ochs 1995</span>)</span></a></li>
+<li class="chapter" data-level="9.4.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#stag-hunt"><i class="fa fa-check"></i><b>9.4.2</b> Stag hunt</a></li>
+<li class="chapter" data-level="9.4.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#n-player-volunteers-dilemma-imposing-symmetric-strategies"><i class="fa fa-check"></i><b>9.4.3</b> <span class="math inline">\(n\)</span>-player Volunteer’s Dilemma imposing symmetric strategies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><i class="fa fa-check"></i><b>10</b> Application: Quantal Response Equilibrium and the Volunteer’s Dilemma <span class="citation">(<span>Goeree, Holt, and Smith 2017</span>)</span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#solving-logit-qre-and-estimating-the-model"><i class="fa fa-check"></i><b>10.1</b> Solving logit QRE and estimating the model</a></li>
+<li class="chapter" data-level="10.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#adding-some-heterogeneity-1"><i class="fa fa-check"></i><b>10.2</b> Adding some heterogeneity</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#computing-quantal-response-equilibrium-with-heterogeneous-parameters"><i class="fa fa-check"></i><b>10.2.1</b> Computing quantal response equilibrium with heterogeneous parameters</a></li>
+<li class="chapter" data-level="10.2.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#warm-glow-volunteering"><i class="fa fa-check"></i><b>10.2.2</b> Warm glow volunteering</a></li>
+<li class="chapter" data-level="10.2.3" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#duplicate-aversion"><i class="fa fa-check"></i><b>10.2.3</b> Duplicate aversion</a></li>
+<li class="chapter" data-level="10.2.4" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#results-2"><i class="fa fa-check"></i><b>10.2.4</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#r-code-to-run-estimations"><i class="fa fa-check"></i><b>10.3</b> <em>R</em> code to run estimations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Structural Bayesian Techniques for Experimental and Behavioral Economics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="computing-quantal-response-equilibrium" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">9</span> Computing Quantal Response Equilibrium<a href="computing-quantal-response-equilibrium.html#computing-quantal-response-equilibrium" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Quantal response equilibrium <span class="citation">(<a href="#ref-McKelvey1995" role="doc-biblioref">McKelvey and Palfrey 1995</a>)</span> is an extension of Nash equilibrium that replaces the concept of a best response with a <em>probabilistic</em> best response. That is, instead of choosing an action that is in their best response correspondence, players assign positive probability to all of their actions in a game, and are more likely to take actions that yield greater utility. This extension offers some big advantages over Nash equilibrium when structurally analyzing data from economic experiments. Firstly, the idea of a <em>probabilistic</em> best response is <em>behaviorally plausible</em>. Just as we assume a probabilistic choice rule (like softmax) for individual choice experiments, the same reasons for using this in a game apply: people make mistakes, our model is probably mis-specified, and so on. Secondly, also for the same reasons we use them in individual choice experiments, the probabilistic choice rule permits us to use a likelihood. Otherwise one decision that goes against the prescription of the deterministic component of our model will make the likelihood zero everywhere, and so we cannot simulate a posterior. For games, this is especially a problem when players have a strictly dominated strategy, as these should never be played in equilibrium. Finally, Quantal Response Equilibrium has been shown to organize experimental data a lot better than Nash equilibrium. For example, it models well the “own payoff” effect observed in some games, where Nash equilibrium does not.</p>
+<p>Compared to typical structural models for <em>individual</em> choice experiments, the challenges of estimating a Quantal Response Equilibrium model are somewhat unique. Individual choice experiments are sometimes difficult to estimate because it is difficult for our sampler to explore the posterior distribution implied by our likelihood and prior.<a href="#fn41" class="footnote-ref" id="fnref41"><sup>41</sup></a> While this problem is by no means ruled out for Quantal Response Equilibrium, its typical computational hurdles come from computing the fixed point condition associated with the equilibrium. I will therefore devote the entirety of this chapter to feasible methods for computing quantal response equilibrium, as this can really make the difference between a model being feasible to estimate or not. As such, this chapter will be more of a <em>computational</em> chapter and less of an <em>estimation</em> chapter. Fear not, I will follow up with a Quantal Response Equilibrium estimation chapter later.</p>
+<div id="overview-of-quantal-response-equilibrium" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Overview of quantal response equilibrium<a href="computing-quantal-response-equilibrium.html#overview-of-quantal-response-equilibrium" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Quantal response equilibrium assumes that players <em>probabilistically</em> best respond to their opponents’ mixed strategies. We model this with a <em>probabilistic best response function</em>, which I will denote as <span class="math inline">\(q(\lambda,u_{i}(\sigma))\)</span>, where <span class="math inline">\(\lambda&gt;0\)</span> is a choice precision parameter, and <span class="math inline">\(u_{i,a}(\sigma)\)</span> is the expected utility to player <span class="math inline">\(i\)</span> of taking action <span class="math inline">\(a\)</span>, given that they are facing mixed strategy profile <span class="math inline">\(\sigma\)</span>. Holding <span class="math inline">\(\lambda\)</span> constant, <span class="math inline">\(q_i\)</span> takes a vector of expected utilities <span class="math inline">\(u_i(\sigma)\)</span>, and returns a probability distribution over actions in the player’s choice set, which itself is a vector of probabilities the same size as <span class="math inline">\(u_i(\sigma)\)</span>. Some popular choices of the functional form of <span class="math inline">\(q\)</span> include the logit or softmax specification:</p>
+<p><span class="math display">\[
+q_{i,a}(\lambda,u_i(\sigma))=\frac{\exp(\lambda u_{i,a}(\sigma))}{\sum_{b\in A_i}\exp(\lambda u_{i,b}(\sigma))}
+\]</span></p>
+<p>and the Luce specification:</p>
+<p><span class="math display">\[
+q_{i,a}(\lambda, u_i(\sigma))=\frac{u_{i,a}(\sigma)^\lambda}{\sum_{b\in A_i} u_{i,b}(\sigma)^\lambda}
+\]</span></p>
+<p>Note that both of these functions approach best response functions as <span class="math inline">\(\lambda\to\infty\)</span>. At the other end of the parameter space, <span class="math inline">\(\lambda=0\)</span>, players randomize uniformly over their action space.</p>
+<p>The “equilibrium” part of Quantal Response Equilibrium comes from assuming that players have correct beliefs about their opponents’ mixed strategies. Mathematically then, the equilibrium condition is:</p>
+<p><span class="math display" id="eq:QREfixedpoint">\[
+\sigma_i=q_i(\lambda,u_i(\sigma))\quad \forall i\in \{1, 2, \ldots ,n\} \tag{9.1}
+\]</span></p>
+<p>That is, every equilibrium mixed strategy <span class="math inline">\(\sigma_i\)</span> is a probabilistic best response to the equilibrium mixed strategy profile <span class="math inline">\(\sigma\)</span>.</p>
+</div>
+<div id="computing-quantal-response-equilibrium-1" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Computing Quantal Response Equilibrium<a href="computing-quantal-response-equilibrium.html#computing-quantal-response-equilibrium-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Finding a solution to <a href="computing-quantal-response-equilibrium.html#eq:QREfixedpoint">(9.1)</a> can be difficult because it is a fixed point condition: <span class="math inline">\(\sigma\)</span> appears on both the right- and left-hand side of the equation, and we typically cannot find a closed-form solution. Furthermore, we cannot be guaranteed that it is a contraction, so iterating the equation by first guessing a <span class="math inline">\(\sigma\)</span>, then computing the probabilistic best response profile, and then repeating, will not in general find a solution. A far more reliable way to compute Quantal Response Equilibrium is to use a <em>predictor-corrector</em> algorithm. This algorithm in the context of Quantal Response Equilibrium was developed in <span class="citation">Turocy (<a href="#ref-Turocy2005" role="doc-biblioref">2005</a>)</span> and <span class="citation">Turocy (<a href="#ref-Turocy2010" role="doc-biblioref">2010</a>)</span>, and is discussed in detail in <span class="citation">Bland and Turocy (<a href="#ref-BlandTurocy2023" role="doc-biblioref">2023</a>)</span>. This algorithm is also implemented in the software package <em>Gambit</em> <span class="citation">(<a href="#ref-Gambit" role="doc-biblioref">McKelvey, McLennan, and Turocy 2022</a>)</span>.</p>
+<div id="setting-up-the-problem" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Setting up the problem<a href="computing-quantal-response-equilibrium.html#setting-up-the-problem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>While it might be more intuitive to think about solving <a href="computing-quantal-response-equilibrium.html#eq:QREfixedpoint">(9.1)</a> exactly as it is written in probability <em>levels</em>, you will likely run into some stability issues if you do. This is because for some games the algorithm will want to jump into “probabilities” that are either less than zero or greater than one. In practice, the problem is much more stable if we first translate <a href="computing-quantal-response-equilibrium.html#eq:QREfixedpoint">(9.1)</a> into <em>log</em>-probability <em>differences</em>. That is, we re-write this equation as:</p>
+<p><span class="math display">\[
+\begin{aligned}
+0=H_{i,a}(\lambda,\sigma)&amp;=\log\sigma_{i,a}-\log\sigma_{i,a+1}-\left(\log q_{i,a}(\lambda,u_i(\sigma))-\log q_{i,a+1}(\lambda,u_i(\sigma))\right)\\
+&amp;\forall i\in\{1, 2, \ldots, n\},\ \forall a \in \{1, 2, \ldots ,J_i-1\}
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the number of players and <span class="math inline">\(J_i\)</span> is the number of actions in player <span class="math inline">\(i\)</span>’s action space.</p>
+<p>This representation is particularly useful, because the log-difference of the probabilistic best responses (the term in the parentheses) for the logit and Luce specifications become:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{logit: }\quad H_{i,a}(\lambda,\sigma)&amp;=\log\sigma_{i,a}-\log\sigma_{i,a+1}-\lambda\left[u_{i,a}(\sigma)-u_{i,a+1}(\sigma)\right]\\
+\text{Luce: }\quad  H_{i,a}(\lambda,\sigma)&amp;=\log\sigma_{i,a}-\log\sigma_{i,a+1}-\lambda\left[\log u_{i,a}(\sigma)-\log u_{i,a+1}(\sigma)\right]
+\end{aligned}
+\]</span></p>
+<p>respectively. That is, we can cancel out the common denominators.</p>
+<p>We then need some adding-up constraints to ensure that the mixed strategies add up to one:</p>
+<p><span class="math display">\[
+\begin{aligned}
+0=H_{i,\Sigma}(\lambda,\sigma)&amp;=\sum_{a=1}^{J_i}\sigma_{i,a}-1,\quad \forall i \in\{1, 2, \ldots ,n\}
+\end{aligned}
+\]</span></p>
+<p>Letting <span class="math inline">\(\rho_{i,a}=\log\sigma_{i,a}\)</span>, these constraints become:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{logit:}\quad H_{i,a}(\lambda,\rho)&amp;=\rho_{i,a}-\rho_{i,a+1}-\lambda\left[u_{i,a}(\exp(\rho))-u_{i,a+1}(\exp(\rho))\right]\\
+\text{Luce: }\quad H_{i,a}(\lambda,\rho)&amp;=\rho_{i,a}-\rho_{i,a+1}-\lambda\left[\log u_{i,a}(\exp(\rho))-\log u_{i,a+1}(\exp(\rho))\right]\\
+\text{adding up: }\quad H_{i,\Sigma}(\lambda,\rho)&amp;=\sum_{a=1}^{J_i}\exp(\rho_{i,a})-1
+\end{aligned}
+\]</span>
+where <span class="math inline">\(\exp(\rho)=\sigma\)</span> is the element-wise exponentiation of <span class="math inline">\(\rho\)</span>.</p>
+<p>Stacking all of these together, we have one great big vector of zero conditions defining a quantal response equilibrium:</p>
+<p><span class="math display">\[
+0=H(\lambda,\rho)=\begin{pmatrix}
+H_{1,1} \\ H_{1,2}\\ \vdots \\ H_{1,J_1-1} \\ H_{2,1} \\ \vdots \\ H_{2,J_2-1} \\ \vdots\\ H_{n,J_n-1}\\
+H_{1,\Sigma} \\ H_{2,\Sigma}\\\vdots \\ H_{n,\Sigma}
+\end{pmatrix}
+\]</span></p>
+</div>
+<div id="a-predictor-corrector-algorithm" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> A predictor-corrector algorithm<a href="computing-quantal-response-equilibrium.html#a-predictor-corrector-algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A good way to solve for quantal response equilibrium is to use a predictor corrector algorithm. This algorithm, developed in <span class="citation">Turocy (<a href="#ref-Turocy2005" role="doc-biblioref">2005</a>)</span> and <span class="citation">Turocy (<a href="#ref-Turocy2010" role="doc-biblioref">2010</a>)</span>, initializes with a known quantal response equilibrium <span class="math inline">\((\lambda^t,\rho^t)\)</span>, then uses information contained in <span class="math inline">\(H\)</span> find a nearby solution <span class="math inline">\((\lambda^{t+1},\rho^{t+1})\)</span>.</p>
+<p>To begin with, we will re-parameterize the problem using <span class="math inline">\(x\equiv \begin{pmatrix}\rho^\top &amp; \lambda\end{pmatrix}^\top\)</span>. This is because the algorithm does not really make a distinction between the parameters <span class="math inline">\(\rho\)</span> and <span class="math inline">\(\lambda\)</span>.</p>
+<p>A quantal response equilibrium <span class="math inline">\((\lambda,\rho)\)</span> can therefore be characterized as a solution to:</p>
+<p><span class="math display">\[
+H(x)=0
+\]</span></p>
+<p>where <span class="math inline">\(H(x)\)</span> is a <span class="math inline">\({\sum_{i=1}^n}J_i \times 1\)</span> vector. Furthermore, since the solutions of <span class="math inline">\(H(x)=0\)</span> form a smooth, differentiable curve in the <span class="math inline">\(\rho-\lambda\)</span> space, we can trace out this curve using information contained in <span class="math inline">\(H\)</span>. Specifically, we will use the <em>jacobian</em> of <span class="math inline">\(H\)</span> to make a first-order approximation of the curve. We will then use the zero condition to correct any errors that come from this approximation.</p>
+<p>Following the initialization, the algorithm applies two distinct steps:</p>
+<p>First, in the <em>predictor</em> step, the algorithm makes a first-order approximation of the path continues from point <span class="math inline">\(x^t\)</span> to point <span class="math inline">\(x^{t+1}\)</span>. This approximation is found using the total derivative of <span class="math inline">\(H\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial H(x)}{\partial x^\top}\Delta x\approx0
+\end{aligned}
+\]</span></p>
+<p>There are many solutions to this equation.<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a> What we really need from thi is a <em>direction</em> to move. To do this, we can take a “fat” QR decomposition of the transpose of the jacobian <span class="math inline">\(\frac{\partial H(x)}{\partial x^\top}\)</span>. The final column of the <span class="math inline">\(Q\)</span> that comes out of this gives us the direction we want, and has magnitude one. Therefore the predictor step is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+x^{t+1}&amp;=x^t+h\omega Q_{,-1}(x_t)
+\end{aligned}
+\]</span>
+where:</p>
+<ul>
+<li><span class="math inline">\(Q_{,-1}(x_t)\)</span> is the final column of the <span class="math inline">\(Q\)</span> component of the “fat” QR decomposition of <span class="math inline">\(\left[\frac{\partial H(x_t)}{\partial x^\top}\right]^\top\)</span>. We can compute the fat decomposition of matrix <span class="math inline">\(A\)</span> in <em>R</em> using <code>qr(A) |&gt; qr.Q(complete=TRUE)</code>.<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a></li>
+<li><span class="math inline">\(\omega\in\{0,1\}\)</span> ensures that we are moving in the right direction along the curve, and not back-tracking. For example, if we are looking to trace out the curve for increasing <span class="math inline">\(\lambda\)</span>, then <span class="math inline">\(\omega\)</span> will have the same sign as the last element in <span class="math inline">\(Q_{,-1}(x_t)\)</span>, which corresponds to <span class="math inline">\(\lambda\)</span>.</li>
+<li><span class="math inline">\(h&gt;0\)</span> is a tuning parameter specifying the step length. Recall that the magnitude of <span class="math inline">\(Q_{,-1}(x_t)\)</span> has a magnitude of 1, so <span class="math inline">\(h\)</span> is the step length.</li>
+</ul>
+<p>As noted in <span class="citation">Turocy (<a href="#ref-Turocy2005" role="doc-biblioref">2005</a>)</span>, while it may be feasible to solve for quantal response equilibrium using only predictor steps, which are a form of numerical integration, this ignores some information that we have about quantal response equilibrium: it is characterized by a solution to a set of equations.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a> Therefore, we can also exploit these equations to correct any errors that may have made their way into the system equations because the predictor step is only an approximation of the change in <span class="math inline">\(x\)</span>. Specifically, the following <em>corrector step</em> moves <span class="math inline">\(x\)</span> in the direction that gets <span class="math inline">\(H(x^{t+1})\)</span> closer to zero:</p>
+<p><span class="math display">\[
+x^{t+1}=x^t-\left(\frac{\partial H(x^t)}{\partial x^\top}\right)^+ H(x^t)
+\]</span></p>
+<p>where <span class="math inline">\(A^+\)</span> is the Moore-Penrose inverse of <span class="math inline">\(A\)</span>. We can compute this inverse in <em>R</em> using <code>ginv(A)</code>, which comes in the <code>MASS</code> library. We iterate on the corrector step until it has reached our desired level of accuracy.</p>
+</div>
+<div id="initial-conditions" class="section level3 hasAnchor" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> Initial conditions<a href="computing-quantal-response-equilibrium.html#initial-conditions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>So once we have one solution to <span class="math inline">\(H(\lambda,\rho)=0\)</span>, we can trace out many other solutions. Great! But how do we initialize the problem? That is, we are doing this because we want to compute quantal response equilibrium, but we need to know one in order to start the algorithm. Fortunately, there are a couple of natural starting places. The simplest to start with is at the <em>centroid</em>: <span class="math inline">\(\lambda=0\)</span>, <span class="math inline">\(\sigma_{i,a}=1/J_i\)</span> will always be a quantal response equilibrium. That is, when choice precision is zero, they payoffs of the game don’t matter, and uniform randomization is the equilibrium strategy profile. The path <span class="math inline">\(\{(\lambda,\rho): H(\lambda,\rho)=0,\lambda\geq 0\}\)</span> starting at the centroid and <span class="math inline">\(\lambda=0\)</span> is called the “principal branch”, and is often used to select an equilibrium when multiple are present.</p>
+<p>Other places to consider starting might be ones close to a Nash equilibrium. This is because quantal response equilibrium will nest every Nash equilibrium when <span class="math inline">\(\lambda\to\infty\)</span>. Therefore starting with <span class="math inline">\(\lambda^0 =\)</span> something very large, and <span class="math inline">\(\rho^0=\log\sigma^\text{Nash}\)</span>, then tracing out the branch from there might also be useful. Of course, computing Nash equilibrium can be difficult, too, so this starting point may not be computationally feasible in some games.</p>
+</div>
+<div id="algorithm-tuning" class="section level3 hasAnchor" number="9.2.4">
+<h3><span class="header-section-number">9.2.4</span> Algorithm tuning<a href="computing-quantal-response-equilibrium.html#algorithm-tuning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The predictor-corrector algorithm described above allows us to choose two tuning parameters in order to (hopefully) improve the algorithm’s performance.</p>
+<ol style="list-style-type: decimal">
+<li>For the <em>predictor step</em>, we can choose the step size <span class="math inline">\(h\)</span>, which pins down how large is <span class="math inline">\(\|x^{t+1}-x^t\|\)</span></li>
+<li>For the <em>corrector step</em>, we can choose the stopping rule, which defines how accurate is “accurate enough” for our solution to <span class="math inline">\(H(0)=0\)</span>.</li>
+</ol>
+<p>A good solution to this is to choose a desired level of accuracy for the corrector step, and then use the number of iterations needed in the corrector step to adjust the predictor step’s step length <span class="math inline">\(h\)</span>. Broadly speaking, if the corrector step requires a lot of iteration, then the previous predictor step jumped too far, and so we should reduce <span class="math inline">\(h\)</span> for the next step. On the other hand if only a few iterations are needed for the corrector step, then we could have jumped further using the predictor step without too much loss of accuracy, so increasing <span class="math inline">\(h\)</span> in this case is warranted.</p>
+</div>
+</div>
+<div id="the-predictor-corrector-algorithm-in-r" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> The predictor-corrector algorithm in <em>R</em><a href="computing-quantal-response-equilibrium.html#the-predictor-corrector-algorithm-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here is my implementation of the predictor-corrector algorithm in <em>R</em>. It is unashamedly translated from Ted Turocy’s <a href="http://www.gambit-project.org/turocy/papers/qrefit-20230421-src.zip"><em>Python</em> code</a>, which accompanies our paper <span class="citation">Bland and Turocy (<a href="#ref-BlandTurocy2023" role="doc-biblioref">2023</a>)</span>.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="computing-quantal-response-equilibrium.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Needed for the Moore-Penrose inverse</span></span>
+<span id="cb116-2"><a href="computing-quantal-response-equilibrium.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb116-3"><a href="computing-quantal-response-equilibrium.html#cb116-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb116-4"><a href="computing-quantal-response-equilibrium.html#cb116-4" aria-hidden="true" tabindex="-1"></a>PC<span class="ot">&lt;-</span><span class="cf">function</span>(</span>
+<span id="cb116-5"><a href="computing-quantal-response-equilibrium.html#cb116-5" aria-hidden="true" tabindex="-1"></a>             <span class="co"># A named list comprising of functions H, Hlambda, and Hrho</span></span>
+<span id="cb116-6"><a href="computing-quantal-response-equilibrium.html#cb116-6" aria-hidden="true" tabindex="-1"></a>             Hlist, </span>
+<span id="cb116-7"><a href="computing-quantal-response-equilibrium.html#cb116-7" aria-hidden="true" tabindex="-1"></a>             <span class="co"># Total number of actions in the game</span></span>
+<span id="cb116-8"><a href="computing-quantal-response-equilibrium.html#cb116-8" aria-hidden="true" tabindex="-1"></a>             nActions,</span>
+<span id="cb116-9"><a href="computing-quantal-response-equilibrium.html#cb116-9" aria-hidden="true" tabindex="-1"></a>             <span class="co"># range of lambda to compute QRE for. First element is the starting point. Second element can be above or below this</span></span>
+<span id="cb116-10"><a href="computing-quantal-response-equilibrium.html#cb116-10" aria-hidden="true" tabindex="-1"></a>             lambda_span, <span class="co"># c(lambda0,lambda_end)</span></span>
+<span id="cb116-11"><a href="computing-quantal-response-equilibrium.html#cb116-11" aria-hidden="true" tabindex="-1"></a>             <span class="co"># Starting poring for log probabilities</span></span>
+<span id="cb116-12"><a href="computing-quantal-response-equilibrium.html#cb116-12" aria-hidden="true" tabindex="-1"></a>             x0, <span class="co"># rho0</span></span>
+<span id="cb116-13"><a href="computing-quantal-response-equilibrium.html#cb116-13" aria-hidden="true" tabindex="-1"></a>             <span class="co"># first step size</span></span>
+<span id="cb116-14"><a href="computing-quantal-response-equilibrium.html#cb116-14" aria-hidden="true" tabindex="-1"></a>             first_step,</span>
+<span id="cb116-15"><a href="computing-quantal-response-equilibrium.html#cb116-15" aria-hidden="true" tabindex="-1"></a>             <span class="co"># Minimum step size</span></span>
+<span id="cb116-16"><a href="computing-quantal-response-equilibrium.html#cb116-16" aria-hidden="true" tabindex="-1"></a>             min_step,</span>
+<span id="cb116-17"><a href="computing-quantal-response-equilibrium.html#cb116-17" aria-hidden="true" tabindex="-1"></a>             <span class="co"># Maximum deceleration of step size</span></span>
+<span id="cb116-18"><a href="computing-quantal-response-equilibrium.html#cb116-18" aria-hidden="true" tabindex="-1"></a>             max_decel,</span>
+<span id="cb116-19"><a href="computing-quantal-response-equilibrium.html#cb116-19" aria-hidden="true" tabindex="-1"></a>             <span class="co"># Maimum number of iterations for corrector step</span></span>
+<span id="cb116-20"><a href="computing-quantal-response-equilibrium.html#cb116-20" aria-hidden="true" tabindex="-1"></a>             maxiter,</span>
+<span id="cb116-21"><a href="computing-quantal-response-equilibrium.html#cb116-21" aria-hidden="true" tabindex="-1"></a>             <span class="co"># Tolerance for corrector step (a step size)</span></span>
+<span id="cb116-22"><a href="computing-quantal-response-equilibrium.html#cb116-22" aria-hidden="true" tabindex="-1"></a>             tol</span>
+<span id="cb116-23"><a href="computing-quantal-response-equilibrium.html#cb116-23" aria-hidden="true" tabindex="-1"></a>) {</span>
+<span id="cb116-24"><a href="computing-quantal-response-equilibrium.html#cb116-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb116-25"><a href="computing-quantal-response-equilibrium.html#cb116-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb116-26"><a href="computing-quantal-response-equilibrium.html#cb116-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># unpack the list of functions Hlist</span></span>
+<span id="cb116-27"><a href="computing-quantal-response-equilibrium.html#cb116-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb116-28"><a href="computing-quantal-response-equilibrium.html#cb116-28" aria-hidden="true" tabindex="-1"></a>  H<span class="ot">&lt;-</span>Hlist[[<span class="st">&quot;H&quot;</span>]]</span>
+<span id="cb116-29"><a href="computing-quantal-response-equilibrium.html#cb116-29" aria-hidden="true" tabindex="-1"></a>  Hlambda<span class="ot">&lt;-</span>Hlist[[<span class="st">&quot;Hlambda&quot;</span>]]</span>
+<span id="cb116-30"><a href="computing-quantal-response-equilibrium.html#cb116-30" aria-hidden="true" tabindex="-1"></a>  Hrho<span class="ot">&lt;-</span>Hlist[[<span class="st">&quot;Hrho&quot;</span>]]</span>
+<span id="cb116-31"><a href="computing-quantal-response-equilibrium.html#cb116-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb116-32"><a href="computing-quantal-response-equilibrium.html#cb116-32" aria-hidden="true" tabindex="-1"></a>  jac<span class="ot">&lt;-</span><span class="cf">function</span>(x) {</span>
+<span id="cb116-33"><a href="computing-quantal-response-equilibrium.html#cb116-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cbind</span>(<span class="fu">Hrho</span>(x[nActions<span class="sc">+</span><span class="dv">1</span>],x[<span class="dv">1</span><span class="sc">:</span>nActions]),<span class="fu">Hlambda</span>(x[nActions<span class="sc">+</span><span class="dv">1</span>],x[<span class="dv">1</span><span class="sc">:</span>nActions]))</span>
+<span id="cb116-34"><a href="computing-quantal-response-equilibrium.html#cb116-34" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb116-35"><a href="computing-quantal-response-equilibrium.html#cb116-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Maximum distance to curve</span></span>
+<span id="cb116-36"><a href="computing-quantal-response-equilibrium.html#cb116-36" aria-hidden="true" tabindex="-1"></a>    max_dist <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb116-37"><a href="computing-quantal-response-equilibrium.html#cb116-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Maximum contraction rate in corrector</span></span>
+<span id="cb116-38"><a href="computing-quantal-response-equilibrium.html#cb116-38" aria-hidden="true" tabindex="-1"></a>    max_contr <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
+<span id="cb116-39"><a href="computing-quantal-response-equilibrium.html#cb116-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Perturbation to avoid cancellation in calculating contraction rate</span></span>
+<span id="cb116-40"><a href="computing-quantal-response-equilibrium.html#cb116-40" aria-hidden="true" tabindex="-1"></a>    eta <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
+<span id="cb116-41"><a href="computing-quantal-response-equilibrium.html#cb116-41" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb116-42"><a href="computing-quantal-response-equilibrium.html#cb116-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initial conditions</span></span>
+<span id="cb116-43"><a href="computing-quantal-response-equilibrium.html#cb116-43" aria-hidden="true" tabindex="-1"></a>    x<span class="ot">&lt;-</span><span class="fu">c</span>(x0,lambda_span[<span class="dv">1</span>])</span>
+<span id="cb116-44"><a href="computing-quantal-response-equilibrium.html#cb116-44" aria-hidden="true" tabindex="-1"></a>    QRE<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">c</span>(),x)</span>
+<span id="cb116-45"><a href="computing-quantal-response-equilibrium.html#cb116-45" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb116-46"><a href="computing-quantal-response-equilibrium.html#cb116-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb116-47"><a href="computing-quantal-response-equilibrium.html#cb116-47" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb116-48"><a href="computing-quantal-response-equilibrium.html#cb116-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The last column of Q in the QR decomposition is the tangent vector</span></span>
+<span id="cb116-49"><a href="computing-quantal-response-equilibrium.html#cb116-49" aria-hidden="true" tabindex="-1"></a>    t <span class="ot">&lt;-</span> (<span class="fu">qr</span>(<span class="fu">jac</span>(x) <span class="sc">|&gt;</span> <span class="fu">t</span>())  <span class="sc">|&gt;</span> <span class="fu">qr.Q</span>(<span class="at">complete=</span><span class="cn">TRUE</span>))[,nActions<span class="sc">+</span><span class="dv">1</span>]</span>
+<span id="cb116-50"><a href="computing-quantal-response-equilibrium.html#cb116-50" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb116-51"><a href="computing-quantal-response-equilibrium.html#cb116-51" aria-hidden="true" tabindex="-1"></a>    h<span class="ot">&lt;-</span>first_step</span>
+<span id="cb116-52"><a href="computing-quantal-response-equilibrium.html#cb116-52" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb116-53"><a href="computing-quantal-response-equilibrium.html#cb116-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set orientation of curve, so we are tracing into the interior of `t_span`</span></span>
+<span id="cb116-54"><a href="computing-quantal-response-equilibrium.html#cb116-54" aria-hidden="true" tabindex="-1"></a>    omega<span class="ot">&lt;-</span><span class="fu">sign</span>(t[nActions<span class="sc">+</span><span class="dv">1</span>])<span class="sc">*</span><span class="fu">sign</span>(lambda_span[<span class="dv">2</span>]<span class="sc">-</span>lambda_span[<span class="dv">1</span>])</span>
+<span id="cb116-55"><a href="computing-quantal-response-equilibrium.html#cb116-55" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb116-56"><a href="computing-quantal-response-equilibrium.html#cb116-56" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb116-57"><a href="computing-quantal-response-equilibrium.html#cb116-57" aria-hidden="true" tabindex="-1"></a>   <span class="cf">while</span> ((x[nActions<span class="sc">+</span><span class="dv">1</span>]<span class="sc">&gt;=</span><span class="fu">min</span>(lambda_span)) <span class="sc">&amp;</span> (x[nActions<span class="sc">+</span><span class="dv">1</span>]<span class="sc">&lt;=</span><span class="fu">max</span>(lambda_span))) {</span>
+<span id="cb116-58"><a href="computing-quantal-response-equilibrium.html#cb116-58" aria-hidden="true" tabindex="-1"></a>   accept <span class="ot">&lt;-</span><span class="cn">TRUE</span></span>
+<span id="cb116-59"><a href="computing-quantal-response-equilibrium.html#cb116-59" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb116-60"><a href="computing-quantal-response-equilibrium.html#cb116-60" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> (<span class="fu">abs</span>(h)<span class="sc">&lt;=</span> min_step) {</span>
+<span id="cb116-61"><a href="computing-quantal-response-equilibrium.html#cb116-61" aria-hidden="true" tabindex="-1"></a>       <span class="co"># Stepsize below minimum tolerance; terminate.</span></span>
+<span id="cb116-62"><a href="computing-quantal-response-equilibrium.html#cb116-62" aria-hidden="true" tabindex="-1"></a>       success <span class="ot">&lt;-</span><span class="cn">FALSE</span></span>
+<span id="cb116-63"><a href="computing-quantal-response-equilibrium.html#cb116-63" aria-hidden="true" tabindex="-1"></a>       <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Stepsize&quot;</span>,<span class="fu">abs</span>(h),<span class="st">&quot;less than minimum&quot;</span>,min_step))</span>
+<span id="cb116-64"><a href="computing-quantal-response-equilibrium.html#cb116-64" aria-hidden="true" tabindex="-1"></a>       <span class="cf">break</span></span>
+<span id="cb116-65"><a href="computing-quantal-response-equilibrium.html#cb116-65" aria-hidden="true" tabindex="-1"></a>     }</span>
+<span id="cb116-66"><a href="computing-quantal-response-equilibrium.html#cb116-66" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb116-67"><a href="computing-quantal-response-equilibrium.html#cb116-67" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Predictor step</span></span>
+<span id="cb116-68"><a href="computing-quantal-response-equilibrium.html#cb116-68" aria-hidden="true" tabindex="-1"></a>     u<span class="ot">&lt;-</span>x <span class="sc">+</span> h<span class="sc">*</span>omega<span class="sc">*</span>t</span>
+<span id="cb116-69"><a href="computing-quantal-response-equilibrium.html#cb116-69" aria-hidden="true" tabindex="-1"></a>     q<span class="ot">&lt;-</span><span class="fu">qr</span>(<span class="fu">jac</span>(u) <span class="sc">|&gt;</span> <span class="fu">t</span>())  <span class="sc">|&gt;</span> <span class="fu">qr.Q</span>(<span class="at">complete=</span><span class="cn">TRUE</span>)</span>
+<span id="cb116-70"><a href="computing-quantal-response-equilibrium.html#cb116-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-71"><a href="computing-quantal-response-equilibrium.html#cb116-71" aria-hidden="true" tabindex="-1"></a>     disto <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb116-72"><a href="computing-quantal-response-equilibrium.html#cb116-72" aria-hidden="true" tabindex="-1"></a>     decel <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>max_decel <span class="co"># deceleration factor</span></span>
+<span id="cb116-73"><a href="computing-quantal-response-equilibrium.html#cb116-73" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb116-74"><a href="computing-quantal-response-equilibrium.html#cb116-74" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span> (it <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>maxiter) {</span>
+<span id="cb116-75"><a href="computing-quantal-response-equilibrium.html#cb116-75" aria-hidden="true" tabindex="-1"></a>       y<span class="ot">&lt;-</span><span class="fu">H</span>(u[nActions<span class="sc">+</span><span class="dv">1</span>],u[<span class="dv">1</span><span class="sc">:</span>nActions])</span>
+<span id="cb116-76"><a href="computing-quantal-response-equilibrium.html#cb116-76" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-77"><a href="computing-quantal-response-equilibrium.html#cb116-77" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-78"><a href="computing-quantal-response-equilibrium.html#cb116-78" aria-hidden="true" tabindex="-1"></a>       <span class="co"># change in rho proposed by Newton step</span></span>
+<span id="cb116-79"><a href="computing-quantal-response-equilibrium.html#cb116-79" aria-hidden="true" tabindex="-1"></a>       <span class="co"># This is the step we&#39;d use if we kept lambda constant</span></span>
+<span id="cb116-80"><a href="computing-quantal-response-equilibrium.html#cb116-80" aria-hidden="true" tabindex="-1"></a>       <span class="co">#drho &lt;- -solve(Hrho(u[nActions+1],u[1:nActions]),y)</span></span>
+<span id="cb116-81"><a href="computing-quantal-response-equilibrium.html#cb116-81" aria-hidden="true" tabindex="-1"></a>       drho<span class="ot">&lt;-</span> <span class="sc">-</span> <span class="fu">ginv</span>(<span class="fu">jac</span>(u)) <span class="sc">%*%</span> y</span>
+<span id="cb116-82"><a href="computing-quantal-response-equilibrium.html#cb116-82" aria-hidden="true" tabindex="-1"></a>       dist<span class="ot">&lt;-</span>(drho<span class="sc">^</span><span class="dv">2</span>) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>() <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span>
+<span id="cb116-83"><a href="computing-quantal-response-equilibrium.html#cb116-83" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-84"><a href="computing-quantal-response-equilibrium.html#cb116-84" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-85"><a href="computing-quantal-response-equilibrium.html#cb116-85" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> (dist <span class="sc">&gt;=</span> max_dist) {</span>
+<span id="cb116-86"><a href="computing-quantal-response-equilibrium.html#cb116-86" aria-hidden="true" tabindex="-1"></a>         <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Proposed distance&quot;</span>,dist,<span class="st">&quot;exceeds max_dist =&quot;</span>,max_dist))</span>
+<span id="cb116-87"><a href="computing-quantal-response-equilibrium.html#cb116-87" aria-hidden="true" tabindex="-1"></a>         accept<span class="ot">&lt;-</span><span class="cn">FALSE</span></span>
+<span id="cb116-88"><a href="computing-quantal-response-equilibrium.html#cb116-88" aria-hidden="true" tabindex="-1"></a>         <span class="cf">break</span></span>
+<span id="cb116-89"><a href="computing-quantal-response-equilibrium.html#cb116-89" aria-hidden="true" tabindex="-1"></a>       }</span>
+<span id="cb116-90"><a href="computing-quantal-response-equilibrium.html#cb116-90" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-91"><a href="computing-quantal-response-equilibrium.html#cb116-91" aria-hidden="true" tabindex="-1"></a>       decel<span class="ot">&lt;-</span><span class="fu">max</span>(<span class="fu">c</span>(decel,<span class="fu">sqrt</span>(dist<span class="sc">/</span>max_dist)<span class="sc">*</span>max_decel))</span>
+<span id="cb116-92"><a href="computing-quantal-response-equilibrium.html#cb116-92" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-93"><a href="computing-quantal-response-equilibrium.html#cb116-93" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> (it<span class="sc">&gt;</span><span class="dv">1</span>) {</span>
+<span id="cb116-94"><a href="computing-quantal-response-equilibrium.html#cb116-94" aria-hidden="true" tabindex="-1"></a>         contr<span class="ot">&lt;-</span> dist<span class="sc">/</span>(disto <span class="sc">+</span>tol<span class="sc">*</span>eta)</span>
+<span id="cb116-95"><a href="computing-quantal-response-equilibrium.html#cb116-95" aria-hidden="true" tabindex="-1"></a>         <span class="cf">if</span> (contr <span class="sc">&gt;</span> max_contr) {</span>
+<span id="cb116-96"><a href="computing-quantal-response-equilibrium.html#cb116-96" aria-hidden="true" tabindex="-1"></a>           <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Maximum contraction rate exceeded&quot;</span>))</span>
+<span id="cb116-97"><a href="computing-quantal-response-equilibrium.html#cb116-97" aria-hidden="true" tabindex="-1"></a>           accept<span class="ot">&lt;-</span><span class="cn">FALSE</span></span>
+<span id="cb116-98"><a href="computing-quantal-response-equilibrium.html#cb116-98" aria-hidden="true" tabindex="-1"></a>           <span class="cf">break</span></span>
+<span id="cb116-99"><a href="computing-quantal-response-equilibrium.html#cb116-99" aria-hidden="true" tabindex="-1"></a>         }</span>
+<span id="cb116-100"><a href="computing-quantal-response-equilibrium.html#cb116-100" aria-hidden="true" tabindex="-1"></a>         decel <span class="ot">&lt;-</span><span class="fu">max</span>(<span class="fu">c</span>(decel,<span class="fu">sqrt</span>(contr<span class="sc">/</span>max_contr)<span class="sc">*</span>max_decel))</span>
+<span id="cb116-101"><a href="computing-quantal-response-equilibrium.html#cb116-101" aria-hidden="true" tabindex="-1"></a>       }</span>
+<span id="cb116-102"><a href="computing-quantal-response-equilibrium.html#cb116-102" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> (dist <span class="sc">&lt;</span> tol) {</span>
+<span id="cb116-103"><a href="computing-quantal-response-equilibrium.html#cb116-103" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb116-104"><a href="computing-quantal-response-equilibrium.html#cb116-104" aria-hidden="true" tabindex="-1"></a>         <span class="co"># Success! update and break out of iteration</span></span>
+<span id="cb116-105"><a href="computing-quantal-response-equilibrium.html#cb116-105" aria-hidden="true" tabindex="-1"></a>         <span class="cf">break</span></span>
+<span id="cb116-106"><a href="computing-quantal-response-equilibrium.html#cb116-106" aria-hidden="true" tabindex="-1"></a>       }</span>
+<span id="cb116-107"><a href="computing-quantal-response-equilibrium.html#cb116-107" aria-hidden="true" tabindex="-1"></a>       disto<span class="ot">&lt;-</span>dist</span>
+<span id="cb116-108"><a href="computing-quantal-response-equilibrium.html#cb116-108" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-109"><a href="computing-quantal-response-equilibrium.html#cb116-109" aria-hidden="true" tabindex="-1"></a>       <span class="co"># if we have got to this point, then:</span></span>
+<span id="cb116-110"><a href="computing-quantal-response-equilibrium.html#cb116-110" aria-hidden="true" tabindex="-1"></a>       <span class="co">#  1. The Newton step has not proposed a too-large change</span></span>
+<span id="cb116-111"><a href="computing-quantal-response-equilibrium.html#cb116-111" aria-hidden="true" tabindex="-1"></a>       <span class="co">#  2. The contraction rate has not been exceeded</span></span>
+<span id="cb116-112"><a href="computing-quantal-response-equilibrium.html#cb116-112" aria-hidden="true" tabindex="-1"></a>       <span class="co">#  3. The proposed Newton step is not so small that we have effectively </span></span>
+<span id="cb116-113"><a href="computing-quantal-response-equilibrium.html#cb116-113" aria-hidden="true" tabindex="-1"></a>       <span class="co">#    found a solution</span></span>
+<span id="cb116-114"><a href="computing-quantal-response-equilibrium.html#cb116-114" aria-hidden="true" tabindex="-1"></a>       <span class="co"># Therefore, we update rho</span></span>
+<span id="cb116-115"><a href="computing-quantal-response-equilibrium.html#cb116-115" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-116"><a href="computing-quantal-response-equilibrium.html#cb116-116" aria-hidden="true" tabindex="-1"></a>       u<span class="ot">&lt;-</span>u<span class="sc">+</span>drho</span>
+<span id="cb116-117"><a href="computing-quantal-response-equilibrium.html#cb116-117" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-118"><a href="computing-quantal-response-equilibrium.html#cb116-118" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-119"><a href="computing-quantal-response-equilibrium.html#cb116-119" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-120"><a href="computing-quantal-response-equilibrium.html#cb116-120" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> (it<span class="sc">==</span>maxiter) {</span>
+<span id="cb116-121"><a href="computing-quantal-response-equilibrium.html#cb116-121" aria-hidden="true" tabindex="-1"></a>         <span class="co"># We have run out of iterations. Terminate</span></span>
+<span id="cb116-122"><a href="computing-quantal-response-equilibrium.html#cb116-122" aria-hidden="true" tabindex="-1"></a>         <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Maximum number of iterations&quot;</span>,maxiter,<span class="st">&quot;reached&quot;</span>))</span>
+<span id="cb116-123"><a href="computing-quantal-response-equilibrium.html#cb116-123" aria-hidden="true" tabindex="-1"></a>       }</span>
+<span id="cb116-124"><a href="computing-quantal-response-equilibrium.html#cb116-124" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-125"><a href="computing-quantal-response-equilibrium.html#cb116-125" aria-hidden="true" tabindex="-1"></a>     } <span class="do">## </span><span class="re">END</span><span class="do"> OF CORRECTOR STEP</span></span>
+<span id="cb116-126"><a href="computing-quantal-response-equilibrium.html#cb116-126" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-127"><a href="computing-quantal-response-equilibrium.html#cb116-127" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> (<span class="sc">!</span>accept) {</span>
+<span id="cb116-128"><a href="computing-quantal-response-equilibrium.html#cb116-128" aria-hidden="true" tabindex="-1"></a>         <span class="co"># Step was not accepted; take a smaller step and try again</span></span>
+<span id="cb116-129"><a href="computing-quantal-response-equilibrium.html#cb116-129" aria-hidden="true" tabindex="-1"></a>         h<span class="ot">&lt;-</span>h<span class="sc">/</span>max_decel</span>
+<span id="cb116-130"><a href="computing-quantal-response-equilibrium.html#cb116-130" aria-hidden="true" tabindex="-1"></a>       }</span>
+<span id="cb116-131"><a href="computing-quantal-response-equilibrium.html#cb116-131" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-132"><a href="computing-quantal-response-equilibrium.html#cb116-132" aria-hidden="true" tabindex="-1"></a>       <span class="co"># Standard steplength adaptation</span></span>
+<span id="cb116-133"><a href="computing-quantal-response-equilibrium.html#cb116-133" aria-hidden="true" tabindex="-1"></a>       h<span class="ot">&lt;-</span><span class="fu">abs</span>(h<span class="sc">/</span><span class="fu">min</span>(<span class="fu">c</span>(decel,max_decel)))</span>
+<span id="cb116-134"><a href="computing-quantal-response-equilibrium.html#cb116-134" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-135"><a href="computing-quantal-response-equilibrium.html#cb116-135" aria-hidden="true" tabindex="-1"></a>       <span class="co"># Update with outcome of successful PC step</span></span>
+<span id="cb116-136"><a href="computing-quantal-response-equilibrium.html#cb116-136" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> (<span class="fu">sum</span>(t<span class="sc">*</span>q[,nActions<span class="sc">+</span><span class="dv">1</span>])<span class="sc">&lt;</span><span class="dv">0</span>) {</span>
+<span id="cb116-137"><a href="computing-quantal-response-equilibrium.html#cb116-137" aria-hidden="true" tabindex="-1"></a>         <span class="co"># The orientation of the curve as determined by the QR</span></span>
+<span id="cb116-138"><a href="computing-quantal-response-equilibrium.html#cb116-138" aria-hidden="true" tabindex="-1"></a>         <span class="co"># decomposition has changed.</span></span>
+<span id="cb116-139"><a href="computing-quantal-response-equilibrium.html#cb116-139" aria-hidden="true" tabindex="-1"></a>         <span class="co">#</span></span>
+<span id="cb116-140"><a href="computing-quantal-response-equilibrium.html#cb116-140" aria-hidden="true" tabindex="-1"></a>         <span class="co"># The original Allgower-Georg QR decomposition implementation</span></span>
+<span id="cb116-141"><a href="computing-quantal-response-equilibrium.html#cb116-141" aria-hidden="true" tabindex="-1"></a>         <span class="co"># ensures the sign of the tangent is stable; when it is stable</span></span>
+<span id="cb116-142"><a href="computing-quantal-response-equilibrium.html#cb116-142" aria-hidden="true" tabindex="-1"></a>         <span class="co"># the curve orientation switching is a sign of a bifurcation.</span></span>
+<span id="cb116-143"><a href="computing-quantal-response-equilibrium.html#cb116-143" aria-hidden="true" tabindex="-1"></a>         omega<span class="ot">&lt;-</span> <span class="sc">-</span>omega</span>
+<span id="cb116-144"><a href="computing-quantal-response-equilibrium.html#cb116-144" aria-hidden="true" tabindex="-1"></a>         <span class="co">#print(&quot;sign of omega flipped&quot;)</span></span>
+<span id="cb116-145"><a href="computing-quantal-response-equilibrium.html#cb116-145" aria-hidden="true" tabindex="-1"></a>       }</span>
+<span id="cb116-146"><a href="computing-quantal-response-equilibrium.html#cb116-146" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-147"><a href="computing-quantal-response-equilibrium.html#cb116-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-148"><a href="computing-quantal-response-equilibrium.html#cb116-148" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-149"><a href="computing-quantal-response-equilibrium.html#cb116-149" aria-hidden="true" tabindex="-1"></a>       x<span class="ot">&lt;-</span>u</span>
+<span id="cb116-150"><a href="computing-quantal-response-equilibrium.html#cb116-150" aria-hidden="true" tabindex="-1"></a>       t<span class="ot">&lt;-</span>q[,nActions<span class="sc">+</span><span class="dv">1</span>]</span>
+<span id="cb116-151"><a href="computing-quantal-response-equilibrium.html#cb116-151" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-152"><a href="computing-quantal-response-equilibrium.html#cb116-152" aria-hidden="true" tabindex="-1"></a>       <span class="co">#print(c(exp(x[1:nActions]),x[nActions+1]))</span></span>
+<span id="cb116-153"><a href="computing-quantal-response-equilibrium.html#cb116-153" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-154"><a href="computing-quantal-response-equilibrium.html#cb116-154" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb116-155"><a href="computing-quantal-response-equilibrium.html#cb116-155" aria-hidden="true" tabindex="-1"></a>        QRE<span class="ot">&lt;-</span><span class="fu">rbind</span>(QRE,x <span class="sc">|&gt;</span> <span class="fu">as.vector</span>())</span>
+<span id="cb116-156"><a href="computing-quantal-response-equilibrium.html#cb116-156" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(c(exp(x[1:nActions]),x[nActions+1]) |&gt; t())</span></span>
+<span id="cb116-157"><a href="computing-quantal-response-equilibrium.html#cb116-157" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb116-158"><a href="computing-quantal-response-equilibrium.html#cb116-158" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb116-159"><a href="computing-quantal-response-equilibrium.html#cb116-159" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb116-160"><a href="computing-quantal-response-equilibrium.html#cb116-160" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb116-161"><a href="computing-quantal-response-equilibrium.html#cb116-161" aria-hidden="true" tabindex="-1"></a>  QRE</span>
+<span id="cb116-162"><a href="computing-quantal-response-equilibrium.html#cb116-162" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb116-163"><a href="computing-quantal-response-equilibrium.html#cb116-163" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb116-164"><a href="computing-quantal-response-equilibrium.html#cb116-164" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="some-example-games" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Some example games<a href="computing-quantal-response-equilibrium.html#some-example-games" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="generalized-matching-pennies-ochs1995" class="section level3 hasAnchor" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> Generalized matching pennies <span class="citation">(<a href="#ref-Ochs1995" role="doc-biblioref">Ochs 1995</a>)</span><a href="computing-quantal-response-equilibrium.html#generalized-matching-pennies-ochs1995" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To begin with, I will show you the logit quantal response equilibrium for a generalized matching pennies game. Generalized matching pennies games are a good place to start due to their simplicity: there is only one path that we have to follow, which is the principal branch connecting the centroid <span class="math inline">\((\rho^0,0)\)</span> to the unique Nash equilibrium. Therefore we can be sure to trace out all quantal response equilibria by starting at the centroid. The game, studied in <span class="citation">Ochs (<a href="#ref-Ochs1995" role="doc-biblioref">1995</a>)</span>, is shows in Table <a href="computing-quantal-response-equilibrium.html#tab:QRE1GMP">9.1</a>. This game is also used as an example in <span class="citation">McKelvey and Palfrey (<a href="#ref-McKelvey1995" role="doc-biblioref">1995</a>)</span>.</p>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:QRE1GMP">Table 9.1: </span>A generalized matching pennies game
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+L
+</th>
+<th style="text-align:left;">
+R
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+4, 0
+</td>
+<td style="text-align:left;">
+0, 1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+0, 1
+</td>
+<td style="text-align:left;">
+1, 0
+</td>
+</tr>
+</tbody>
+</table>
+<p>Here is some working constructing the function <span class="math inline">\(H\)</span> and finding its derivatives:</p>
+<p><span class="math display">\[
+\begin{aligned}
+H(\lambda,\rho)&amp;=\begin{pmatrix}
+\rho_U-\rho_D -\lambda(4\exp(\rho_L)-1\exp(\rho_R))\\
+\rho_L-\rho_R-\lambda(-1\exp(\rho_U)+1\exp(\rho_D))\\
+\exp(\rho_U)+\exp(\rho_D)-1\\
+\exp(\rho_L)+\exp(\rho_R)-1
+\end{pmatrix}
+\\~\\
+\frac{\partial H(\lambda,\rho)}{\partial \lambda}
+&amp;=\begin{pmatrix}
+-(4\exp(\rho_L)-1\exp(\rho_R))\\
+-(-1\exp(\rho_U)+1\exp(\rho_D))\\
+0\\0
+\end{pmatrix}
+\\ ~ \\
+\frac{\partial H(\lambda,\rho)}{\partial \rho^\top}&amp;=
+\begin{bmatrix}
+1 &amp; -1 &amp; -4\lambda\exp(\rho_L) &amp; +1\lambda \exp(\rho_R)\\
+1\lambda\exp(\rho_U) &amp; -1\lambda\exp(\rho_D) &amp; 1 &amp; -1\\
+\exp(\rho_U) &amp; \exp(\rho_D) &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; \exp(\rho_L) &amp; \exp(\rho_R)
+\end{bmatrix}
+\end{aligned}
+\]</span></p>
+<p>And here is how we pass this information to the solver function I wrote above:</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="computing-quantal-response-equilibrium.html#cb117-1" aria-hidden="true" tabindex="-1"></a>GMP<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb117-2"><a href="computing-quantal-response-equilibrium.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Function defining QRE conditions</span></span>
+<span id="cb117-3"><a href="computing-quantal-response-equilibrium.html#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">H =</span> <span class="cf">function</span>(lambda,rho) {</span>
+<span id="cb117-4"><a href="computing-quantal-response-equilibrium.html#cb117-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(</span>
+<span id="cb117-5"><a href="computing-quantal-response-equilibrium.html#cb117-5" aria-hidden="true" tabindex="-1"></a>      rho[<span class="dv">1</span>]<span class="sc">-</span>rho[<span class="dv">2</span>]<span class="sc">-</span>lambda<span class="sc">*</span>(<span class="dv">4</span><span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">3</span>])<span class="sc">-</span><span class="dv">1</span><span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">4</span>])),</span>
+<span id="cb117-6"><a href="computing-quantal-response-equilibrium.html#cb117-6" aria-hidden="true" tabindex="-1"></a>      rho[<span class="dv">3</span>]<span class="sc">-</span>rho[<span class="dv">4</span>]<span class="sc">-</span>lambda<span class="sc">*</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">1</span>])<span class="sc">+</span><span class="dv">1</span><span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">2</span>])),</span>
+<span id="cb117-7"><a href="computing-quantal-response-equilibrium.html#cb117-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">exp</span>(rho[<span class="dv">1</span>])<span class="sc">+</span><span class="fu">exp</span>(rho[<span class="dv">2</span>])<span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb117-8"><a href="computing-quantal-response-equilibrium.html#cb117-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">exp</span>(rho[<span class="dv">3</span>])<span class="sc">+</span><span class="fu">exp</span>(rho[<span class="dv">4</span>])<span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb117-9"><a href="computing-quantal-response-equilibrium.html#cb117-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb117-10"><a href="computing-quantal-response-equilibrium.html#cb117-10" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb117-11"><a href="computing-quantal-response-equilibrium.html#cb117-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># derivative with respect to lambda</span></span>
+<span id="cb117-12"><a href="computing-quantal-response-equilibrium.html#cb117-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Hlambda =</span> <span class="cf">function</span>(lambda,rho) {</span>
+<span id="cb117-13"><a href="computing-quantal-response-equilibrium.html#cb117-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(</span>
+<span id="cb117-14"><a href="computing-quantal-response-equilibrium.html#cb117-14" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span>(<span class="dv">4</span><span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">3</span>])<span class="sc">-</span><span class="dv">1</span><span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">4</span>])),</span>
+<span id="cb117-15"><a href="computing-quantal-response-equilibrium.html#cb117-15" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">1</span>])<span class="sc">+</span><span class="dv">1</span><span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">2</span>])),</span>
+<span id="cb117-16"><a href="computing-quantal-response-equilibrium.html#cb117-16" aria-hidden="true" tabindex="-1"></a>      <span class="dv">0</span>,</span>
+<span id="cb117-17"><a href="computing-quantal-response-equilibrium.html#cb117-17" aria-hidden="true" tabindex="-1"></a>      <span class="dv">0</span></span>
+<span id="cb117-18"><a href="computing-quantal-response-equilibrium.html#cb117-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb117-19"><a href="computing-quantal-response-equilibrium.html#cb117-19" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb117-20"><a href="computing-quantal-response-equilibrium.html#cb117-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># derivative with respect to rho</span></span>
+<span id="cb117-21"><a href="computing-quantal-response-equilibrium.html#cb117-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">Hrho =</span> <span class="cf">function</span>(lambda,rho) {</span>
+<span id="cb117-22"><a href="computing-quantal-response-equilibrium.html#cb117-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(</span>
+<span id="cb117-23"><a href="computing-quantal-response-equilibrium.html#cb117-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="dv">4</span><span class="sc">*</span>lambda<span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">3</span>]),<span class="dv">1</span><span class="sc">*</span>lambda<span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">4</span>])),</span>
+<span id="cb117-24"><a href="computing-quantal-response-equilibrium.html#cb117-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="dv">1</span><span class="sc">*</span>lambda<span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">1</span>]),<span class="sc">-</span><span class="dv">1</span><span class="sc">*</span>lambda<span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">2</span>]),<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>),</span>
+<span id="cb117-25"><a href="computing-quantal-response-equilibrium.html#cb117-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="fu">exp</span>(rho[<span class="dv">1</span>]),<span class="fu">exp</span>(rho[<span class="dv">2</span>]),<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb117-26"><a href="computing-quantal-response-equilibrium.html#cb117-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="fu">exp</span>(rho[<span class="dv">3</span>]),<span class="fu">exp</span>(rho[<span class="dv">4</span>]))</span>
+<span id="cb117-27"><a href="computing-quantal-response-equilibrium.html#cb117-27" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb117-28"><a href="computing-quantal-response-equilibrium.html#cb117-28" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb117-29"><a href="computing-quantal-response-equilibrium.html#cb117-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb117-30"><a href="computing-quantal-response-equilibrium.html#cb117-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-31"><a href="computing-quantal-response-equilibrium.html#cb117-31" aria-hidden="true" tabindex="-1"></a>     QRE<span class="ot">&lt;-</span>   <span class="fu">PC</span>(GMP,</span>
+<span id="cb117-32"><a href="computing-quantal-response-equilibrium.html#cb117-32" aria-hidden="true" tabindex="-1"></a>             <span class="dv">4</span>, <span class="co"># total number of actions</span></span>
+<span id="cb117-33"><a href="computing-quantal-response-equilibrium.html#cb117-33" aria-hidden="true" tabindex="-1"></a>             <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>), <span class="co"># c(lambda0,lambda_end)</span></span>
+<span id="cb117-34"><a href="computing-quantal-response-equilibrium.html#cb117-34" aria-hidden="true" tabindex="-1"></a>             <span class="fu">rep</span>(<span class="fu">log</span>(<span class="fl">0.5</span>),<span class="dv">4</span>), <span class="co"># rho0</span></span>
+<span id="cb117-35"><a href="computing-quantal-response-equilibrium.html#cb117-35" aria-hidden="true" tabindex="-1"></a>             <span class="fl">0.1</span>, <span class="co"># first step size</span></span>
+<span id="cb117-36"><a href="computing-quantal-response-equilibrium.html#cb117-36" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1e-4</span>,<span class="co"># minimum step size</span></span>
+<span id="cb117-37"><a href="computing-quantal-response-equilibrium.html#cb117-37" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1.1</span>, <span class="co"># max deceleration</span></span>
+<span id="cb117-38"><a href="computing-quantal-response-equilibrium.html#cb117-38" aria-hidden="true" tabindex="-1"></a>             <span class="dv">1000</span>, <span class="co"># maximum number of iterations</span></span>
+<span id="cb117-39"><a href="computing-quantal-response-equilibrium.html#cb117-39" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1e-4</span> <span class="co"># tolerance</span></span>
+<span id="cb117-40"><a href="computing-quantal-response-equilibrium.html#cb117-40" aria-hidden="true" tabindex="-1"></a>        )  </span>
+<span id="cb117-41"><a href="computing-quantal-response-equilibrium.html#cb117-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-42"><a href="computing-quantal-response-equilibrium.html#cb117-42" aria-hidden="true" tabindex="-1"></a>QRE<span class="ot">&lt;-</span><span class="fu">cbind</span>(<span class="fu">exp</span>(QRE[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]),QRE[,<span class="dv">5</span>])</span>
+<span id="cb117-43"><a href="computing-quantal-response-equilibrium.html#cb117-43" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(QRE)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;U&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;L&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;lambda&quot;</span>)</span>
+<span id="cb117-44"><a href="computing-quantal-response-equilibrium.html#cb117-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-45"><a href="computing-quantal-response-equilibrium.html#cb117-45" aria-hidden="true" tabindex="-1"></a>QRE<span class="ot">&lt;-</span>QRE <span class="sc">|&gt;</span> <span class="fu">data.frame</span>()</span>
+<span id="cb117-46"><a href="computing-quantal-response-equilibrium.html#cb117-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-47"><a href="computing-quantal-response-equilibrium.html#cb117-47" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb117-48"><a href="computing-quantal-response-equilibrium.html#cb117-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(QRE,<span class="fu">aes</span>(<span class="at">x=</span>U,<span class="at">y=</span>L))</span>
+<span id="cb117-49"><a href="computing-quantal-response-equilibrium.html#cb117-49" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="at">linewidth=</span><span class="dv">1</span>)</span>
+<span id="cb117-50"><a href="computing-quantal-response-equilibrium.html#cb117-50" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb117-51"><a href="computing-quantal-response-equilibrium.html#cb117-51" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">coord_fixed</span>(<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb117-52"><a href="computing-quantal-response-equilibrium.html#cb117-52" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:QRE1GMPlocus"></span>
+<img src="index_files/figure-html/QRE1GMPlocus-1.png" alt="Locus of logit quantal response equilibrium probabilities for a generalized matching pennies game." width="672" />
+<p class="caption">
+Figure 9.1: Locus of logit quantal response equilibrium probabilities for a generalized matching pennies game.
+</p>
+</div>
+<p>Figure @(fig:QRE1GMPlocus) shows the logit quantal response equilibrium <em>locus</em>. This is the set of mixed strategy profiles that are a quantal response equilibrium. While this kind of plot obfuscates the choice precision parametrer <span class="math inline">\(\lambda\)</span>, I really like to show a QRE this way, as it very clearly shows the kind of predictions that it can make.<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a></p>
+<p>However to visualize the curves that the predictor-corrector algorithm is actually tracing out, you need to include <span class="math inline">\(\lambda\)</span>. This is shown in Figure <a href="computing-quantal-response-equilibrium.html#fig:QRE1GMPlambda">9.2</a>. Note that I have included <span class="math inline">\(\lambda\)</span> on a log scale. For this plot this transformation ensures that all of the interesting stuff isn’t squished up into the first 10% of horizontal coordinates.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="computing-quantal-response-equilibrium.html#cb118-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb118-2"><a href="computing-quantal-response-equilibrium.html#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(QRE,<span class="fu">aes</span>(<span class="at">x=</span>lambda))</span>
+<span id="cb118-3"><a href="computing-quantal-response-equilibrium.html#cb118-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="fu">aes</span>(<span class="at">y=</span>U,<span class="at">linetype=</span><span class="st">&quot;U&quot;</span>),<span class="at">linewidth=</span><span class="dv">1</span>)</span>
+<span id="cb118-4"><a href="computing-quantal-response-equilibrium.html#cb118-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="fu">aes</span>(<span class="at">y=</span>L,<span class="at">linetype=</span><span class="st">&quot;L&quot;</span>),<span class="at">linewidth=</span><span class="dv">1</span>)</span>
+<span id="cb118-5"><a href="computing-quantal-response-equilibrium.html#cb118-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>)</span>
+<span id="cb118-6"><a href="computing-quantal-response-equilibrium.html#cb118-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb118-7"><a href="computing-quantal-response-equilibrium.html#cb118-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(lambda))</span>
+<span id="cb118-8"><a href="computing-quantal-response-equilibrium.html#cb118-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Mixed strategy&quot;</span>)</span>
+<span id="cb118-9"><a href="computing-quantal-response-equilibrium.html#cb118-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_linetype_discrete</span>(<span class="at">name=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb118-10"><a href="computing-quantal-response-equilibrium.html#cb118-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:QRE1GMPlambda"></span>
+<img src="index_files/figure-html/QRE1GMPlambda-1.png" alt="Logit quantal response equilibrium of generalized matching pennies game as a function of choice precision $\lambda$" width="672" />
+<p class="caption">
+Figure 9.2: Logit quantal response equilibrium of generalized matching pennies game as a function of choice precision <span class="math inline">\(\lambda\)</span>
+</p>
+</div>
+</div>
+<div id="stag-hunt" class="section level3 hasAnchor" number="9.4.2">
+<h3><span class="header-section-number">9.4.2</span> Stag hunt<a href="computing-quantal-response-equilibrium.html#stag-hunt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Table <a href="computing-quantal-response-equilibrium.html#tab:QRE1StagHunt">9.2</a> shows a <em>stag hunt</em> game, which is a coordination game with three Nash equilibria: <span class="math inline">\((U,L)\)</span>, <span class="math inline">\((D,R)\)</span>, and <span class="math inline">\(\sigma_U=\sigma_L=a/4\)</span>. This should get us a bit worried about computing quantal response equilibrium, because we will not find <em>all</em> of the paths if we just start at the centroid. To begin with, let’s set up the system of equations, and see what happens when we start at the centroid. Here I am going to take advantage of the symmetry of the game, noting that I can set <span class="math inline">\(\sigma_U=\sigma_L\)</span> without loss of generality.</p>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:QRE1StagHunt">Table 9.2: </span>A stag hunt game. <span class="math inline">\(0&lt;a&lt;4\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+L
+</th>
+<th style="text-align:left;">
+R
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+4, 4
+</td>
+<td style="text-align:left;">
+0, a
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+a, 0
+</td>
+<td style="text-align:left;">
+a, a
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+\begin{aligned}
+H(\lambda,\rho)
+&amp;=
+\begin{pmatrix}
+\rho_U-\rho_D-\lambda(4\exp(\rho_U)-a)\\
+\exp(\rho_U)+\exp(\rho_D)-1
+\end{pmatrix}
+\\
+\frac{\partial H(\lambda,\rho)}{\partial \rho^\top}
+&amp;=\begin{bmatrix}
+1-4\lambda\exp(\rho_U) &amp; -1\\
+\exp(\rho_U) &amp; \exp(\rho_D)
+\end{bmatrix}
+\\
+\frac{\partial H(\lambda,\rho)}{\partial \lambda}
+&amp;=\begin{pmatrix}
+-(4\exp(\rho_U)-a)\\ 0
+\end{pmatrix}
+\end{aligned}
+\]</span></p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="computing-quantal-response-equilibrium.html#cb119-1" aria-hidden="true" tabindex="-1"></a>StagHunt<span class="ot">&lt;-</span><span class="cf">function</span>(a) {</span>
+<span id="cb119-2"><a href="computing-quantal-response-equilibrium.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb119-3"><a href="computing-quantal-response-equilibrium.html#cb119-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">H =</span> <span class="cf">function</span>(lambda,rho) {</span>
+<span id="cb119-4"><a href="computing-quantal-response-equilibrium.html#cb119-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(</span>
+<span id="cb119-5"><a href="computing-quantal-response-equilibrium.html#cb119-5" aria-hidden="true" tabindex="-1"></a>      rho[<span class="dv">1</span>]<span class="sc">-</span>rho[<span class="dv">2</span>]<span class="sc">-</span>lambda<span class="sc">*</span>(<span class="dv">4</span><span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">1</span>])<span class="sc">-</span>a),</span>
+<span id="cb119-6"><a href="computing-quantal-response-equilibrium.html#cb119-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">exp</span>(rho[<span class="dv">1</span>])<span class="sc">+</span><span class="fu">exp</span>(rho[<span class="dv">2</span>])<span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb119-7"><a href="computing-quantal-response-equilibrium.html#cb119-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb119-8"><a href="computing-quantal-response-equilibrium.html#cb119-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb119-9"><a href="computing-quantal-response-equilibrium.html#cb119-9" aria-hidden="true" tabindex="-1"></a>  ,</span>
+<span id="cb119-10"><a href="computing-quantal-response-equilibrium.html#cb119-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">Hrho =</span> <span class="cf">function</span>(lambda,rho) {</span>
+<span id="cb119-11"><a href="computing-quantal-response-equilibrium.html#cb119-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(</span>
+<span id="cb119-12"><a href="computing-quantal-response-equilibrium.html#cb119-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="dv">1-4</span><span class="sc">*</span>lambda<span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">1</span>]),<span class="sc">-</span><span class="dv">1</span>),</span>
+<span id="cb119-13"><a href="computing-quantal-response-equilibrium.html#cb119-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="fu">exp</span>(rho[<span class="dv">1</span>]),<span class="fu">exp</span>(rho[<span class="dv">2</span>]))</span>
+<span id="cb119-14"><a href="computing-quantal-response-equilibrium.html#cb119-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb119-15"><a href="computing-quantal-response-equilibrium.html#cb119-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb119-16"><a href="computing-quantal-response-equilibrium.html#cb119-16" aria-hidden="true" tabindex="-1"></a>  ,</span>
+<span id="cb119-17"><a href="computing-quantal-response-equilibrium.html#cb119-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">Hlambda =</span> <span class="cf">function</span>(lambda,rho) {</span>
+<span id="cb119-18"><a href="computing-quantal-response-equilibrium.html#cb119-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(</span>
+<span id="cb119-19"><a href="computing-quantal-response-equilibrium.html#cb119-19" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span>(<span class="dv">4</span><span class="sc">*</span><span class="fu">exp</span>(rho[<span class="dv">1</span>])<span class="sc">-</span>a),</span>
+<span id="cb119-20"><a href="computing-quantal-response-equilibrium.html#cb119-20" aria-hidden="true" tabindex="-1"></a>      <span class="dv">0</span></span>
+<span id="cb119-21"><a href="computing-quantal-response-equilibrium.html#cb119-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb119-22"><a href="computing-quantal-response-equilibrium.html#cb119-22" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb119-23"><a href="computing-quantal-response-equilibrium.html#cb119-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb119-24"><a href="computing-quantal-response-equilibrium.html#cb119-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb119-25"><a href="computing-quantal-response-equilibrium.html#cb119-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-26"><a href="computing-quantal-response-equilibrium.html#cb119-26" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb119-27"><a href="computing-quantal-response-equilibrium.html#cb119-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-28"><a href="computing-quantal-response-equilibrium.html#cb119-28" aria-hidden="true" tabindex="-1"></a>QRE1<span class="ot">&lt;-</span>   <span class="fu">PC</span>(<span class="fu">StagHunt</span>(a),</span>
+<span id="cb119-29"><a href="computing-quantal-response-equilibrium.html#cb119-29" aria-hidden="true" tabindex="-1"></a>             <span class="dv">2</span>, <span class="co"># total number of actions</span></span>
+<span id="cb119-30"><a href="computing-quantal-response-equilibrium.html#cb119-30" aria-hidden="true" tabindex="-1"></a>           <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),</span>
+<span id="cb119-31"><a href="computing-quantal-response-equilibrium.html#cb119-31" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rep</span>(<span class="fu">log</span>(<span class="fl">0.5</span>),<span class="dv">2</span>), <span class="co"># rho0</span></span>
+<span id="cb119-32"><a href="computing-quantal-response-equilibrium.html#cb119-32" aria-hidden="true" tabindex="-1"></a>             <span class="fl">0.03</span>, <span class="co"># first step size</span></span>
+<span id="cb119-33"><a href="computing-quantal-response-equilibrium.html#cb119-33" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1e-4</span>,<span class="co"># minimum step size</span></span>
+<span id="cb119-34"><a href="computing-quantal-response-equilibrium.html#cb119-34" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1.1</span>, <span class="co"># max deceleration</span></span>
+<span id="cb119-35"><a href="computing-quantal-response-equilibrium.html#cb119-35" aria-hidden="true" tabindex="-1"></a>             <span class="dv">1000</span>, <span class="co"># maximum number of iterations</span></span>
+<span id="cb119-36"><a href="computing-quantal-response-equilibrium.html#cb119-36" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1e-4</span> <span class="co"># tolerance</span></span>
+<span id="cb119-37"><a href="computing-quantal-response-equilibrium.html#cb119-37" aria-hidden="true" tabindex="-1"></a>        )  </span>
+<span id="cb119-38"><a href="computing-quantal-response-equilibrium.html#cb119-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-39"><a href="computing-quantal-response-equilibrium.html#cb119-39" aria-hidden="true" tabindex="-1"></a>QRE1[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="fu">exp</span>(QRE1[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb119-40"><a href="computing-quantal-response-equilibrium.html#cb119-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-41"><a href="computing-quantal-response-equilibrium.html#cb119-41" aria-hidden="true" tabindex="-1"></a>QRE1<span class="ot">&lt;-</span>QRE1 <span class="sc">|&gt;</span> <span class="fu">data.frame</span>()</span>
+<span id="cb119-42"><a href="computing-quantal-response-equilibrium.html#cb119-42" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(QRE1)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;U&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;lambda&quot;</span>)</span>
+<span id="cb119-43"><a href="computing-quantal-response-equilibrium.html#cb119-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-44"><a href="computing-quantal-response-equilibrium.html#cb119-44" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb119-45"><a href="computing-quantal-response-equilibrium.html#cb119-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(QRE1,<span class="fu">aes</span>(<span class="at">x=</span>lambda,<span class="at">y=</span>U))</span>
+<span id="cb119-46"><a href="computing-quantal-response-equilibrium.html#cb119-46" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="at">linewidth=</span><span class="dv">1</span>)</span>
+<span id="cb119-47"><a href="computing-quantal-response-equilibrium.html#cb119-47" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb119-48"><a href="computing-quantal-response-equilibrium.html#cb119-48" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>)</span>
+<span id="cb119-49"><a href="computing-quantal-response-equilibrium.html#cb119-49" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(lambda))</span>
+<span id="cb119-50"><a href="computing-quantal-response-equilibrium.html#cb119-50" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,a<span class="sc">/</span><span class="dv">4</span>),<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb119-51"><a href="computing-quantal-response-equilibrium.html#cb119-51" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:QRE1StagHuntPrincipalBranch"></span>
+<img src="index_files/figure-html/QRE1StagHuntPrincipalBranch-1.png" alt="The principal branch of the logit quantal response equilibrium of the stag hunt game with $a=1$." width="672" />
+<p class="caption">
+Figure 9.3: The principal branch of the logit quantal response equilibrium of the stag hunt game with <span class="math inline">\(a=1\)</span>.
+</p>
+</div>
+<p>Tracing out the principal branch of the logit QRE is done in exactly the same way as we did it for the asymmetric matching pennies games. This branch is shown in Figure <a href="computing-quantal-response-equilibrium.html#fig:QRE1StagHuntPrincipalBranch">9.3</a> for <span class="math inline">\(a=1\)</span>. However note that we have only approach one of the three Nash equilibria, which are shown with horizontal dashed lines. In order to trace out the other parts of the quantal response equilibrium, we need to give the predictor-corrector algorithm different starting points. Let’s do this and add them to the principal branch:</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="computing-quantal-response-equilibrium.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Starting close to the mixed strategy Nash equilibrium</span></span>
+<span id="cb120-2"><a href="computing-quantal-response-equilibrium.html#cb120-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-3"><a href="computing-quantal-response-equilibrium.html#cb120-3" aria-hidden="true" tabindex="-1"></a>QRE2<span class="ot">&lt;-</span>   <span class="fu">PC</span>(<span class="fu">StagHunt</span>(a),</span>
+<span id="cb120-4"><a href="computing-quantal-response-equilibrium.html#cb120-4" aria-hidden="true" tabindex="-1"></a>             <span class="dv">2</span>, <span class="co"># total number of actions</span></span>
+<span id="cb120-5"><a href="computing-quantal-response-equilibrium.html#cb120-5" aria-hidden="true" tabindex="-1"></a>           <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">0</span>),</span>
+<span id="cb120-6"><a href="computing-quantal-response-equilibrium.html#cb120-6" aria-hidden="true" tabindex="-1"></a>           <span class="fu">c</span>(<span class="fu">log</span>(a<span class="sc">/</span><span class="dv">4</span>),<span class="fu">log</span>(<span class="dv">1</span><span class="sc">-</span>a<span class="sc">/</span><span class="dv">4</span>)), <span class="co"># rho0</span></span>
+<span id="cb120-7"><a href="computing-quantal-response-equilibrium.html#cb120-7" aria-hidden="true" tabindex="-1"></a>             <span class="fl">0.001</span>, <span class="co"># first step size</span></span>
+<span id="cb120-8"><a href="computing-quantal-response-equilibrium.html#cb120-8" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1e-4</span>,<span class="co"># minimum step size</span></span>
+<span id="cb120-9"><a href="computing-quantal-response-equilibrium.html#cb120-9" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1.01</span>, <span class="co"># max deceleration</span></span>
+<span id="cb120-10"><a href="computing-quantal-response-equilibrium.html#cb120-10" aria-hidden="true" tabindex="-1"></a>             <span class="dv">1000</span>, <span class="co"># maximum number of iterations</span></span>
+<span id="cb120-11"><a href="computing-quantal-response-equilibrium.html#cb120-11" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1e-4</span> <span class="co"># tolerance</span></span>
+<span id="cb120-12"><a href="computing-quantal-response-equilibrium.html#cb120-12" aria-hidden="true" tabindex="-1"></a>        )  </span>
+<span id="cb120-13"><a href="computing-quantal-response-equilibrium.html#cb120-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-14"><a href="computing-quantal-response-equilibrium.html#cb120-14" aria-hidden="true" tabindex="-1"></a>QRE2[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="fu">exp</span>(QRE2[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb120-15"><a href="computing-quantal-response-equilibrium.html#cb120-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-16"><a href="computing-quantal-response-equilibrium.html#cb120-16" aria-hidden="true" tabindex="-1"></a>QRE2<span class="ot">&lt;-</span>QRE2 <span class="sc">|&gt;</span> <span class="fu">data.frame</span>()</span>
+<span id="cb120-17"><a href="computing-quantal-response-equilibrium.html#cb120-17" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(QRE2)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;U&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;lambda&quot;</span>)</span>
+<span id="cb120-18"><a href="computing-quantal-response-equilibrium.html#cb120-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-19"><a href="computing-quantal-response-equilibrium.html#cb120-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Joining them together</span></span>
+<span id="cb120-20"><a href="computing-quantal-response-equilibrium.html#cb120-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-21"><a href="computing-quantal-response-equilibrium.html#cb120-21" aria-hidden="true" tabindex="-1"></a>QRE<span class="ot">&lt;-</span><span class="fu">rbind</span>(</span>
+<span id="cb120-22"><a href="computing-quantal-response-equilibrium.html#cb120-22" aria-hidden="true" tabindex="-1"></a>  QRE1 <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">branch =</span> <span class="st">&quot;Principal&quot;</span>),</span>
+<span id="cb120-23"><a href="computing-quantal-response-equilibrium.html#cb120-23" aria-hidden="true" tabindex="-1"></a>  QRE2 <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">branch =</span> <span class="st">&quot;Other&quot;</span>)</span>
+<span id="cb120-24"><a href="computing-quantal-response-equilibrium.html#cb120-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb120-25"><a href="computing-quantal-response-equilibrium.html#cb120-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-26"><a href="computing-quantal-response-equilibrium.html#cb120-26" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb120-27"><a href="computing-quantal-response-equilibrium.html#cb120-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(QRE,<span class="fu">aes</span>(<span class="at">x=</span>lambda,<span class="at">y=</span>U,<span class="at">color=</span>branch))</span>
+<span id="cb120-28"><a href="computing-quantal-response-equilibrium.html#cb120-28" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="at">linewidth=</span><span class="dv">1</span>)</span>
+<span id="cb120-29"><a href="computing-quantal-response-equilibrium.html#cb120-29" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb120-30"><a href="computing-quantal-response-equilibrium.html#cb120-30" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>)</span>
+<span id="cb120-31"><a href="computing-quantal-response-equilibrium.html#cb120-31" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(lambda))</span>
+<span id="cb120-32"><a href="computing-quantal-response-equilibrium.html#cb120-32" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,a<span class="sc">/</span><span class="dv">4</span>),<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb120-33"><a href="computing-quantal-response-equilibrium.html#cb120-33" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:QRE1StagHuntOtherBranches"></span>
+<img src="index_files/figure-html/QRE1StagHuntOtherBranches-1.png" alt="Logit quantal response equilibrium branches for the stag hunt game with $a=1$." width="672" />
+<p class="caption">
+Figure 9.4: Logit quantal response equilibrium branches for the stag hunt game with <span class="math inline">\(a=1\)</span>.
+</p>
+</div>
+<p>The principal branch is shown alongside the other branch in Figure <a href="computing-quantal-response-equilibrium.html#fig:QRE1StagHuntOtherBranches">9.4</a>. Note with the above code that I had to tweak some of the tuning parameters: <code>max_deceleration</code> is much smaller, which means that the step size will change more slowly. What is also apparent from this Figure is that we can get turning points in <span class="math inline">\(\lambda\)</span>. This can be seen in the “Other” branch (red curve). We therefore cannot always parameterize these curves as a function of <span class="math inline">\(\lambda\)</span>.</p>
+<p>An interesting knife-edge case for this game is when <span class="math inline">\(a=2\)</span>. Here the principal branch is constant at <span class="math inline">\(\sigma_U=0.5\)</span>, and hence is always equal to the mixed strategy Nash equilibrium. In this case, we get a bifurcation, and the two pure-strategy Nash equilibria are connected by a branch. Therefore, the only way to compute the non-principal branch is to start really close to one of the pure-strategy Nash equilibria. For this case, suppose we start close to the Nash equilibrium where <span class="math inline">\(\sigma_U=0\)</span>. This means that the expected utility of playing <span class="math inline">\(U\)</span> will be approximately zero (for large but finite <span class="math inline">\(\lambda\)</span>), and the expected utility of playing <span class="math inline">\(D\)</span> will be <span class="math inline">\(a=2\)</span>. Therefore the approximate quantal response equilibrium mixed strategy for large <span class="math inline">\(\lambda\)</span> will be:</p>
+<p><span class="math display">\[
+\sigma_U(\lambda)\approx(1+\exp(-\lambda(0-2)))
+\]</span></p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="computing-quantal-response-equilibrium.html#cb121-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="dv">2</span></span>
+<span id="cb121-2"><a href="computing-quantal-response-equilibrium.html#cb121-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-3"><a href="computing-quantal-response-equilibrium.html#cb121-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-4"><a href="computing-quantal-response-equilibrium.html#cb121-4" aria-hidden="true" tabindex="-1"></a>QRE1<span class="ot">&lt;-</span>   <span class="fu">PC</span>(<span class="fu">StagHunt</span>(a),</span>
+<span id="cb121-5"><a href="computing-quantal-response-equilibrium.html#cb121-5" aria-hidden="true" tabindex="-1"></a>             <span class="dv">2</span>, <span class="co"># total number of actions</span></span>
+<span id="cb121-6"><a href="computing-quantal-response-equilibrium.html#cb121-6" aria-hidden="true" tabindex="-1"></a>           <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),</span>
+<span id="cb121-7"><a href="computing-quantal-response-equilibrium.html#cb121-7" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rep</span>(<span class="fu">log</span>(<span class="fl">0.5</span>),<span class="dv">2</span>), <span class="co"># rho0</span></span>
+<span id="cb121-8"><a href="computing-quantal-response-equilibrium.html#cb121-8" aria-hidden="true" tabindex="-1"></a>             <span class="fl">0.03</span>, <span class="co"># first step size</span></span>
+<span id="cb121-9"><a href="computing-quantal-response-equilibrium.html#cb121-9" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1e-4</span>,<span class="co"># minimum step size</span></span>
+<span id="cb121-10"><a href="computing-quantal-response-equilibrium.html#cb121-10" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1.1</span>, <span class="co"># max deceleration</span></span>
+<span id="cb121-11"><a href="computing-quantal-response-equilibrium.html#cb121-11" aria-hidden="true" tabindex="-1"></a>             <span class="dv">1000</span>, <span class="co"># maximum number of iterations</span></span>
+<span id="cb121-12"><a href="computing-quantal-response-equilibrium.html#cb121-12" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1e-4</span> <span class="co"># tolerance</span></span>
+<span id="cb121-13"><a href="computing-quantal-response-equilibrium.html#cb121-13" aria-hidden="true" tabindex="-1"></a>        )  </span>
+<span id="cb121-14"><a href="computing-quantal-response-equilibrium.html#cb121-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-15"><a href="computing-quantal-response-equilibrium.html#cb121-15" aria-hidden="true" tabindex="-1"></a>QRE1[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="fu">exp</span>(QRE1[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb121-16"><a href="computing-quantal-response-equilibrium.html#cb121-16" aria-hidden="true" tabindex="-1"></a>QRE1<span class="ot">&lt;-</span>QRE1 <span class="sc">|&gt;</span> <span class="fu">data.frame</span>()</span>
+<span id="cb121-17"><a href="computing-quantal-response-equilibrium.html#cb121-17" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(QRE1)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;U&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;lambda&quot;</span>)</span>
+<span id="cb121-18"><a href="computing-quantal-response-equilibrium.html#cb121-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-19"><a href="computing-quantal-response-equilibrium.html#cb121-19" aria-hidden="true" tabindex="-1"></a>lambdaStart<span class="ot">&lt;-</span><span class="dv">10</span></span>
+<span id="cb121-20"><a href="computing-quantal-response-equilibrium.html#cb121-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-21"><a href="computing-quantal-response-equilibrium.html#cb121-21" aria-hidden="true" tabindex="-1"></a>QRE2<span class="ot">&lt;-</span>   <span class="fu">PC</span>(<span class="fu">StagHunt</span>(a),</span>
+<span id="cb121-22"><a href="computing-quantal-response-equilibrium.html#cb121-22" aria-hidden="true" tabindex="-1"></a>             <span class="dv">2</span>, <span class="co"># total number of actions</span></span>
+<span id="cb121-23"><a href="computing-quantal-response-equilibrium.html#cb121-23" aria-hidden="true" tabindex="-1"></a>           <span class="fu">c</span>(lambdaStart,<span class="dv">0</span>),</span>
+<span id="cb121-24"><a href="computing-quantal-response-equilibrium.html#cb121-24" aria-hidden="true" tabindex="-1"></a>           <span class="fu">c</span>(<span class="sc">-</span><span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="dv">2</span><span class="sc">*</span>lambdaStart)),<span class="sc">-</span><span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>lambdaStart))), <span class="co"># rho0</span></span>
+<span id="cb121-25"><a href="computing-quantal-response-equilibrium.html#cb121-25" aria-hidden="true" tabindex="-1"></a>             <span class="fl">0.03</span>, <span class="co"># first step size</span></span>
+<span id="cb121-26"><a href="computing-quantal-response-equilibrium.html#cb121-26" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1e-4</span>,<span class="co"># minimum step size</span></span>
+<span id="cb121-27"><a href="computing-quantal-response-equilibrium.html#cb121-27" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1.01</span>, <span class="co"># max deceleration</span></span>
+<span id="cb121-28"><a href="computing-quantal-response-equilibrium.html#cb121-28" aria-hidden="true" tabindex="-1"></a>             <span class="dv">1000</span>, <span class="co"># maximum number of iterations</span></span>
+<span id="cb121-29"><a href="computing-quantal-response-equilibrium.html#cb121-29" aria-hidden="true" tabindex="-1"></a>             <span class="fl">1e-4</span> <span class="co"># tolerance</span></span>
+<span id="cb121-30"><a href="computing-quantal-response-equilibrium.html#cb121-30" aria-hidden="true" tabindex="-1"></a>        ) </span>
+<span id="cb121-31"><a href="computing-quantal-response-equilibrium.html#cb121-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-32"><a href="computing-quantal-response-equilibrium.html#cb121-32" aria-hidden="true" tabindex="-1"></a>QRE2[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="fu">exp</span>(QRE2[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb121-33"><a href="computing-quantal-response-equilibrium.html#cb121-33" aria-hidden="true" tabindex="-1"></a>QRE2<span class="ot">&lt;-</span>QRE2 <span class="sc">|&gt;</span> <span class="fu">data.frame</span>()</span>
+<span id="cb121-34"><a href="computing-quantal-response-equilibrium.html#cb121-34" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(QRE2)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;U&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;lambda&quot;</span>)</span>
+<span id="cb121-35"><a href="computing-quantal-response-equilibrium.html#cb121-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-36"><a href="computing-quantal-response-equilibrium.html#cb121-36" aria-hidden="true" tabindex="-1"></a>QRE<span class="ot">&lt;-</span><span class="fu">rbind</span>(</span>
+<span id="cb121-37"><a href="computing-quantal-response-equilibrium.html#cb121-37" aria-hidden="true" tabindex="-1"></a>  QRE1 <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">branch =</span> <span class="st">&quot;Principal&quot;</span>),</span>
+<span id="cb121-38"><a href="computing-quantal-response-equilibrium.html#cb121-38" aria-hidden="true" tabindex="-1"></a>  QRE2 <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">branch =</span> <span class="st">&quot;Other&quot;</span>)</span>
+<span id="cb121-39"><a href="computing-quantal-response-equilibrium.html#cb121-39" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb121-40"><a href="computing-quantal-response-equilibrium.html#cb121-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-41"><a href="computing-quantal-response-equilibrium.html#cb121-41" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb121-42"><a href="computing-quantal-response-equilibrium.html#cb121-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(QRE,<span class="fu">aes</span>(<span class="at">x=</span>lambda,<span class="at">y=</span>U,<span class="at">color=</span>branch))</span>
+<span id="cb121-43"><a href="computing-quantal-response-equilibrium.html#cb121-43" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="at">linewidth=</span><span class="dv">1</span>)</span>
+<span id="cb121-44"><a href="computing-quantal-response-equilibrium.html#cb121-44" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb121-45"><a href="computing-quantal-response-equilibrium.html#cb121-45" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>)</span>
+<span id="cb121-46"><a href="computing-quantal-response-equilibrium.html#cb121-46" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(lambda))</span>
+<span id="cb121-47"><a href="computing-quantal-response-equilibrium.html#cb121-47" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,a<span class="sc">/</span><span class="dv">4</span>),<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb121-48"><a href="computing-quantal-response-equilibrium.html#cb121-48" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:QRE1StagHuntPitchfork"></span>
+<img src="index_files/figure-html/QRE1StagHuntPitchfork-1.png" alt="Logit quantal response equilibrium branches for the stag hunt game with $a=2$." width="672" />
+<p class="caption">
+Figure 9.5: Logit quantal response equilibrium branches for the stag hunt game with <span class="math inline">\(a=2\)</span>.
+</p>
+</div>
+</div>
+<div id="n-player-volunteers-dilemma-imposing-symmetric-strategies" class="section level3 hasAnchor" number="9.4.3">
+<h3><span class="header-section-number">9.4.3</span> <span class="math inline">\(n\)</span>-player Volunteer’s Dilemma imposing symmetric strategies<a href="computing-quantal-response-equilibrium.html#n-player-volunteers-dilemma-imposing-symmetric-strategies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In their experimental analysis of the Volunteer’s Dilemma <span class="citation">(<a href="#ref-Diekmann1985" role="doc-biblioref">Diekmann 1985</a>)</span>, <span class="citation">Goeree, Holt, and Smith (<a href="#ref-Goeree2017" role="doc-biblioref">2017</a>)</span> analyze the data through the lens of the <em>symmetric</em> quantal response equilibrium, which assumes that all players volunteer with the same probability.<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a> The Volunteer’s dilemma is an <span class="math inline">\(n\geq 2\)</span> person game, and is summarized in Table <a href="computing-quantal-response-equilibrium.html#tab:QRE1VolunteersDilemma">9.3</a>. Each player either volunteers (<span class="math inline">\(V\)</span>) at a private cost of <span class="math inline">\(c\)</span>, or does not volunteer <span class="math inline">\(D\)</span> at no cost. If at least one player volunteers, then all players earn <span class="math inline">\(V&gt;c\)</span>, and if no player volunteers, all earn <span class="math inline">\(L&lt;V-c\)</span>.</p>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:QRE1VolunteersDilemma">Table 9.3: </span>Payoffs for the Volunteer’s Dilemma
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+At least one other player volunteers
+</th>
+<th style="text-align:left;">
+Nobody else volunteers
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Volunteer
+</td>
+<td style="text-align:left;">
+V-c
+</td>
+<td style="text-align:left;">
+V-c
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Don’t volunteer
+</td>
+<td style="text-align:left;">
+V
+</td>
+<td style="text-align:left;">
+L
+</td>
+</tr>
+</tbody>
+</table>
+<p>The symmetry assumption here greatly simplifies the equilibrium predictions. For example, in Nash equilibrium, it rules out everything except for the symmetric mixed strategy Nash equilibrium. Similarly for quantal response equilibrium, we are left just with the equilibria where everybody volunteers with probability <span class="math inline">\(\sigma_V(\lambda)\)</span>.
+In working out the payoff differences needed to compute quantal response equilibrium, it is useful to have an expression for the probability that none of the <span class="math inline">\(n-1\)</span> opponents volunteer:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(\text{nobody else volunteers})&amp;=\sigma_N^{n-1}\\
+&amp;=\exp(\rho_N)^{n-1}\\
+&amp;=\exp((n-1)\rho_N)
+\\
+p(\text{at least one other player volunteers})&amp;=1-\exp((n-1)\rho_N)
+\end{aligned}
+\]</span></p>
+<p>These can then be used to construct <span class="math inline">\(H(\rho,\lambda)\)</span> and its derivatives as follows:</p>
+<p><span class="math display">\[
+\begin{aligned}
+H(\lambda,\rho)
+&amp;=\begin{pmatrix}
+\rho_V - \rho_N
+-\lambda(V-c-V(1-\exp((n-1)\rho_N))-L\exp((n-1)\rho_N)))\\
+\exp(\rho_V)+\exp(\rho_N)-1
+\end{pmatrix}\\
+\frac{\partial H(\lambda,\rho)}{\partial \rho^\top}
+&amp;=\begin{bmatrix}
+1 &amp; -1-\lambda(n-1)\exp((n-1)\rho_N)\left(V-L\right)\\
+1 &amp; 1
+\end{bmatrix}
+\\
+\frac{\partial H(\rho,\lambda)}{\partial \lambda}
+&amp;=\begin{pmatrix}
+-(V-c-V(1-\exp((n-1)\rho_N))-L\exp((n-1)\rho_N)))\\
+0
+\end{pmatrix}
+\end{aligned}
+\]</span></p>
+<p>Here are these functions coded in <em>R</em>:</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="computing-quantal-response-equilibrium.html#cb122-1" aria-hidden="true" tabindex="-1"></a>VolunteersDilemma<span class="ot">&lt;-</span><span class="cf">function</span>(n,V,c,L) {</span>
+<span id="cb122-2"><a href="computing-quantal-response-equilibrium.html#cb122-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb122-3"><a href="computing-quantal-response-equilibrium.html#cb122-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">H =</span> <span class="cf">function</span>(lambda,rho) {</span>
+<span id="cb122-4"><a href="computing-quantal-response-equilibrium.html#cb122-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rbind</span>(</span>
+<span id="cb122-5"><a href="computing-quantal-response-equilibrium.html#cb122-5" aria-hidden="true" tabindex="-1"></a>        rho[<span class="dv">1</span>]<span class="sc">-</span>rho[<span class="dv">2</span>]<span class="sc">-</span>lambda<span class="sc">*</span>(</span>
+<span id="cb122-6"><a href="computing-quantal-response-equilibrium.html#cb122-6" aria-hidden="true" tabindex="-1"></a>          V<span class="sc">-</span>c<span class="sc">-</span>V<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">exp</span>((n<span class="dv">-1</span>)<span class="sc">*</span>rho[<span class="dv">2</span>]))<span class="sc">-</span>L<span class="sc">*</span><span class="fu">exp</span>((n<span class="dv">-1</span>)<span class="sc">*</span>rho[<span class="dv">2</span>])</span>
+<span id="cb122-7"><a href="computing-quantal-response-equilibrium.html#cb122-7" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb122-8"><a href="computing-quantal-response-equilibrium.html#cb122-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">exp</span>(rho[<span class="dv">1</span>])<span class="sc">+</span><span class="fu">exp</span>(rho[<span class="dv">2</span>])<span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb122-9"><a href="computing-quantal-response-equilibrium.html#cb122-9" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb122-10"><a href="computing-quantal-response-equilibrium.html#cb122-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb122-11"><a href="computing-quantal-response-equilibrium.html#cb122-11" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb122-12"><a href="computing-quantal-response-equilibrium.html#cb122-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Hrho =</span> <span class="cf">function</span>(lambda,rho) {</span>
+<span id="cb122-13"><a href="computing-quantal-response-equilibrium.html#cb122-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span><span class="sc">-</span>lambda<span class="sc">*</span>(n<span class="dv">-1</span>)<span class="sc">*</span><span class="fu">exp</span>((n<span class="dv">-1</span>)<span class="sc">*</span>rho[<span class="dv">2</span>])<span class="sc">*</span>(V<span class="sc">-</span>L)),</span>
+<span id="cb122-14"><a href="computing-quantal-response-equilibrium.html#cb122-14" aria-hidden="true" tabindex="-1"></a>            <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb122-15"><a href="computing-quantal-response-equilibrium.html#cb122-15" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb122-16"><a href="computing-quantal-response-equilibrium.html#cb122-16" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb122-17"><a href="computing-quantal-response-equilibrium.html#cb122-17" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb122-18"><a href="computing-quantal-response-equilibrium.html#cb122-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Hlambda =</span> <span class="cf">function</span>(lambda,rho) {</span>
+<span id="cb122-19"><a href="computing-quantal-response-equilibrium.html#cb122-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rbind</span>(</span>
+<span id="cb122-20"><a href="computing-quantal-response-equilibrium.html#cb122-20" aria-hidden="true" tabindex="-1"></a>        <span class="sc">-</span>( V<span class="sc">-</span>c<span class="sc">-</span>V<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">exp</span>((n<span class="dv">-1</span>)<span class="sc">*</span>rho[<span class="dv">2</span>]))<span class="sc">-</span>L<span class="sc">*</span><span class="fu">exp</span>((n<span class="dv">-1</span>)<span class="sc">*</span>rho[<span class="dv">2</span>])),</span>
+<span id="cb122-21"><a href="computing-quantal-response-equilibrium.html#cb122-21" aria-hidden="true" tabindex="-1"></a>        <span class="dv">0</span></span>
+<span id="cb122-22"><a href="computing-quantal-response-equilibrium.html#cb122-22" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb122-23"><a href="computing-quantal-response-equilibrium.html#cb122-23" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb122-24"><a href="computing-quantal-response-equilibrium.html#cb122-24" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb122-25"><a href="computing-quantal-response-equilibrium.html#cb122-25" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>And now we can solve this for a few values of the group size <span class="math inline">\(n\)</span> (here I hold <span class="math inline">\(V=1\)</span>, <span class="math inline">\(c=0.1\)</span>, and <span class="math inline">\(L=0.2\)</span> constant):</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="computing-quantal-response-equilibrium.html#cb123-1" aria-hidden="true" tabindex="-1"></a>QRE<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb123-2"><a href="computing-quantal-response-equilibrium.html#cb123-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-3"><a href="computing-quantal-response-equilibrium.html#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (nn <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>) {</span>
+<span id="cb123-4"><a href="computing-quantal-response-equilibrium.html#cb123-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-5"><a href="computing-quantal-response-equilibrium.html#cb123-5" aria-hidden="true" tabindex="-1"></a>  qre<span class="ot">&lt;-</span><span class="fu">PC</span>(<span class="fu">VolunteersDilemma</span>(nn,<span class="dv">1</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>),</span>
+<span id="cb123-6"><a href="computing-quantal-response-equilibrium.html#cb123-6" aria-hidden="true" tabindex="-1"></a>               <span class="dv">2</span>, <span class="co"># total number of actions</span></span>
+<span id="cb123-7"><a href="computing-quantal-response-equilibrium.html#cb123-7" aria-hidden="true" tabindex="-1"></a>             <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1000</span>),</span>
+<span id="cb123-8"><a href="computing-quantal-response-equilibrium.html#cb123-8" aria-hidden="true" tabindex="-1"></a>             <span class="fu">rep</span>(<span class="fu">log</span>(<span class="fl">0.5</span>),<span class="dv">2</span>), <span class="co"># rho0</span></span>
+<span id="cb123-9"><a href="computing-quantal-response-equilibrium.html#cb123-9" aria-hidden="true" tabindex="-1"></a>               <span class="fl">0.03</span>, <span class="co"># first step size</span></span>
+<span id="cb123-10"><a href="computing-quantal-response-equilibrium.html#cb123-10" aria-hidden="true" tabindex="-1"></a>               <span class="fl">1e-4</span>,<span class="co"># minimum step size</span></span>
+<span id="cb123-11"><a href="computing-quantal-response-equilibrium.html#cb123-11" aria-hidden="true" tabindex="-1"></a>               <span class="fl">1.1</span>, <span class="co"># max deceleration</span></span>
+<span id="cb123-12"><a href="computing-quantal-response-equilibrium.html#cb123-12" aria-hidden="true" tabindex="-1"></a>               <span class="dv">1000</span>, <span class="co"># maximum number of iterations</span></span>
+<span id="cb123-13"><a href="computing-quantal-response-equilibrium.html#cb123-13" aria-hidden="true" tabindex="-1"></a>               <span class="fl">1e-4</span> <span class="co"># tolerance</span></span>
+<span id="cb123-14"><a href="computing-quantal-response-equilibrium.html#cb123-14" aria-hidden="true" tabindex="-1"></a>          ) </span>
+<span id="cb123-15"><a href="computing-quantal-response-equilibrium.html#cb123-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb123-16"><a href="computing-quantal-response-equilibrium.html#cb123-16" aria-hidden="true" tabindex="-1"></a>  qre[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="fu">exp</span>(qre[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb123-17"><a href="computing-quantal-response-equilibrium.html#cb123-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(qre)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;V&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;lambda&quot;</span>)</span>
+<span id="cb123-18"><a href="computing-quantal-response-equilibrium.html#cb123-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb123-19"><a href="computing-quantal-response-equilibrium.html#cb123-19" aria-hidden="true" tabindex="-1"></a>  QRE<span class="ot">&lt;-</span><span class="fu">rbind</span>(</span>
+<span id="cb123-20"><a href="computing-quantal-response-equilibrium.html#cb123-20" aria-hidden="true" tabindex="-1"></a>    QRE,</span>
+<span id="cb123-21"><a href="computing-quantal-response-equilibrium.html#cb123-21" aria-hidden="true" tabindex="-1"></a>    qre <span class="sc">|&gt;</span> </span>
+<span id="cb123-22"><a href="computing-quantal-response-equilibrium.html#cb123-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb123-23"><a href="computing-quantal-response-equilibrium.html#cb123-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="st">`</span><span class="at">group size</span><span class="st">`</span> <span class="ot">=</span> nn)</span>
+<span id="cb123-24"><a href="computing-quantal-response-equilibrium.html#cb123-24" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb123-25"><a href="computing-quantal-response-equilibrium.html#cb123-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-26"><a href="computing-quantal-response-equilibrium.html#cb123-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb123-27"><a href="computing-quantal-response-equilibrium.html#cb123-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-28"><a href="computing-quantal-response-equilibrium.html#cb123-28" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb123-29"><a href="computing-quantal-response-equilibrium.html#cb123-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(QRE,<span class="fu">aes</span>(<span class="at">x=</span>lambda,<span class="at">y=</span>V,<span class="at">color=</span><span class="fu">as.factor</span>(<span class="st">`</span><span class="at">group size</span><span class="st">`</span>)))</span>
+<span id="cb123-30"><a href="computing-quantal-response-equilibrium.html#cb123-30" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="at">linewidth=</span><span class="dv">1</span>)</span>
+<span id="cb123-31"><a href="computing-quantal-response-equilibrium.html#cb123-31" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb123-32"><a href="computing-quantal-response-equilibrium.html#cb123-32" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>)</span>
+<span id="cb123-33"><a href="computing-quantal-response-equilibrium.html#cb123-33" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(lambda))</span>
+<span id="cb123-34"><a href="computing-quantal-response-equilibrium.html#cb123-34" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Probability of volunteering&quot;</span>)</span>
+<span id="cb123-35"><a href="computing-quantal-response-equilibrium.html#cb123-35" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_discrete</span>(<span class="at">name=</span><span class="st">&quot;group size&quot;</span>)</span>
+<span id="cb123-36"><a href="computing-quantal-response-equilibrium.html#cb123-36" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb123-37"><a href="computing-quantal-response-equilibrium.html#cb123-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb123-38"><a href="computing-quantal-response-equilibrium.html#cb123-38" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:QRE1VolunteersDilemmaPlot"></span>
+<img src="index_files/figure-html/QRE1VolunteersDilemmaPlot-1.png" alt="The symmetric quantal response equilubrium paths for the $n$-player Volunteer's Dilemma with $V=1$, $c=0.1$ and $L=0.2$" width="672" />
+<p class="caption">
+Figure 9.6: The symmetric quantal response equilubrium paths for the <span class="math inline">\(n\)</span>-player Volunteer’s Dilemma with <span class="math inline">\(V=1\)</span>, <span class="math inline">\(c=0.1\)</span> and <span class="math inline">\(L=0.2\)</span>
+</p>
+</div>
+<!--
+
+### Asymmetric Chicken
+
+<table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+<caption>(\#tab:QRE1chicken)Asymmetric chicken</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:left;"> L </th>
+   <th style="text-align:left;"> R </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> U </td>
+   <td style="text-align:left;"> 0, 0 </td>
+   <td style="text-align:left;"> 6, 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> L </td>
+   <td style="text-align:left;"> 1, 14 </td>
+   <td style="text-align:left;"> 2, 2 </td>
+  </tr>
+</tbody>
+</table>
+
+$$
+\begin{aligned}
+H(\lambda,\rho)&=\begin{pmatrix}
+\rho_U-\rho_D-\lambda(-\exp(\rho_L)+4\exp(\rho_R))\\
+\rho_L-\rho_R-\lambda(-\exp(\rho_U)+12\exp(\rho_L))\\
+\exp(\rho_U)+\exp(\rho_D)-1\\
+\exp(\rho_L)+\exp(\rho_R)-1
+\end{pmatrix}
+\\
+\frac{\partial H(\lambda,\rho)}{\partial \rho^\top}&=\begin{bmatrix}
+1 & -1 & \lambda\exp(\rho_L) & -4\lambda\exp(\rho_R)\\
+\exp(\rho_U)&-12\exp(\rho_D)&1&-1\\
+\exp(\rho_U)& \exp(\rho_D)&0&0\\
+0&0&\exp(\rho_L)& \exp(\rho_R)
+\end{bmatrix}
+\\
+\frac{\partial H(\lambda,\rho)}{\partial \lambda}
+&=\begin{pmatrix}
+-(-\exp(\rho_L)+4\exp(\rho_R))\\
+-(-\exp(\rho_U)+12\exp(\rho_L))\\
+0\\0
+\end{pmatrix}
+\end{aligned}
+$$
+
+
+```r
+Chicken<-list(
+  H=function(lambda,rho) {
+    rbind(
+      rho[1]-rho[2]-lambda*(-exp(rho[3])+4*exp(rho[4])),
+      rho[3]-rho[4]-lambda*(-exp(rho[1])+12*exp(rho[2])),
+      exp(rho[1])+exp(rho[2])-1,
+      exp(rho[3])+exp(rho[3])-1
+    )
+  },
+  Hrho = function(lambda,rho) {
+    rbind(
+      c(1,-1,lambda*exp(rho[3]),-4*lambda*exp(rho[4])),
+      c(exp(rho[1]),-12*exp(rho[2]),1,-1),
+      c(exp(rho[1]),exp(rho[2]),0,0),
+      c(0,0,exp(rho[3]),exp(rho[4]))
+    )
+  },
+  Hlambda = function(lambda,rho) {
+    rbind(
+      -(-exp(rho[3])+4*exp(rho[4])),
+      -(-exp(rho[1])+12*exp(rho[2])),
+      0,0
+    )
+  }
+)
+
+QRE1<-PC(Chicken,
+               4, # total number of actions
+             c(0,10),
+             rep(log(0.5),4), # rho0
+               0.03, # first step size
+               1e-4,# minimum step size
+               1.1, # max deceleration
+               1000, # maximum number of iterations
+               1e-4 # tolerance
+          ) 
+
+QRE1[,1:4]<-exp(QRE1[,1:4])
+colnames(QRE1)<-c("U","D","L","R","lambda")
+
+
+QRE<-QRE1 |>
+  data.frame() |>
+  mutate(branch="principal")
+
+(
+  ggplot(QRE,aes(x=lambda))
+  +geom_path(aes(y=U,color="U"))
+  +geom_path(aes(y=L,color="L"))
+  +theme_bw()
+  +scale_x_continuous(trans="log10")
+  +xlab(expression(lambda))
+  +ylab("probability")
+  +scale_color_discrete(name="")
+)
+```
+
+-->
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Bland2023QRE" class="csl-entry">
+———. 2023a. <span>“Bayesian Inference for Quantal Response Equilibrium in Normal-Form Games.”</span> <em>Games and Economic Behavior</em>. https://doi.org/<a href="https://doi.org/10.1016/j.geb.2023.05.005">https://doi.org/10.1016/j.geb.2023.05.005</a>.
+</div>
+<div id="ref-BlandTurocy2023" class="csl-entry">
+Bland, James R., and Theodore L. Turocy. 2023. <span>“Quantal Response Equilibrium as a Structural Model for Estimation: The Missing Manual.”</span> <em>Available at SSRN</em>. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4425515">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4425515</a>.
+</div>
+<div id="ref-Diekmann1985" class="csl-entry">
+Diekmann, Andreas. 1985. <span>“Volunteer’s Dilemma.”</span> <em>Journal of Conflict Resolution</em> 29 (4): 605–10.
+</div>
+<div id="ref-Goeree2017" class="csl-entry">
+Goeree, Jacob K, Charles A Holt, and Angela M Smith. 2017. <span>“An Experimental Examination of the Volunteer’s Dilemma.”</span> <em>Games and Economic Behavior</em> 102: 303–15.
+</div>
+<div id="ref-Gambit" class="csl-entry">
+McKelvey, Richard D, Andrew M McLennan, and Theodore L Turocy. 2022. <span>“Gambit: Software Tools for Game Theory.”</span> <a href="http://www.gambit-project.org/">http://www.gambit-project.org/</a>.
+</div>
+<div id="ref-McKelvey1995" class="csl-entry">
+McKelvey, Richard D, and Thomas R Palfrey. 1995. <span>“Quantal Response Equilibria for Normal Form Games.”</span> <em>Games and Economic Behavior</em> 10 (1): 6–38. <a href="https://doi.org/10.1006/game.1995.1023">https://doi.org/10.1006/game.1995.1023</a>.
+</div>
+<div id="ref-Ochs1995" class="csl-entry">
+Ochs, Jack. 1995. <span>“Games with Unique, Mixed Strategy Equilibria: An Experimental Study.”</span> <em>Games and Economic Behavior</em> 10 (1): 202–17.
+</div>
+<div id="ref-Turocy2005" class="csl-entry">
+Turocy, Theodore L. 2005. <span>“A Dynamic Homotopy Interpretation of the Logistic Quantal Response Equilibrium Correspondence.”</span> <em>Games and Economic Behavior</em> 51 (2): 243–63.
+</div>
+<div id="ref-Turocy2010" class="csl-entry">
+———. 2010. <span>“Computing Sequential Equilibria Using Agent Quantal Response Equilibria.”</span> <em>Economic Theory</em> 42: 255–69.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="41">
+<li id="fn41"><p>Loosely speaking, this is a similar problem to it being hard to maximize the likelihood in these applications.<a href="computing-quantal-response-equilibrium.html#fnref41" class="footnote-back">↩︎</a></p></li>
+<li id="fn42"><p>For example, if <span class="math inline">\(\Delta x\)</span> is a solution to this equations, <span class="math inline">\(c\Delta x\)</span> for <span class="math inline">\(c\in\mathbb R\)</span> is also a solution.<a href="computing-quantal-response-equilibrium.html#fnref42" class="footnote-back">↩︎</a></p></li>
+<li id="fn43"><p>This was a major time suck for me in converting Ted Turocy’s <em>Python</em> code into <em>R</em>, because the default options in each language are different. By default, <em>Python</em> computes the fat decomposition, but <em>R</em> does not. <a href="computing-quantal-response-equilibrium.html#fnref43" class="footnote-back">↩︎</a></p></li>
+<li id="fn44"><p>That is, the predictor steps are equivalent if we are solving <span class="math inline">\(H(x)=0\)</span>, or <span class="math inline">\(H(x)=\)</span> any other vector of constants. In the predictor step, we explicitly take advantage of this being a zero condition.<a href="computing-quantal-response-equilibrium.html#fnref44" class="footnote-back">↩︎</a></p></li>
+<li id="fn45"><p>You can see a lot of plots like this one in <span class="citation">Bland and Turocy (<a href="#ref-BlandTurocy2023" role="doc-biblioref">2023</a>)</span> and <span class="citation">Bland (<a href="#ref-Bland2023QRE" role="doc-biblioref">2023a</a>)</span>.<a href="computing-quantal-response-equilibrium.html#fnref45" class="footnote-back">↩︎</a></p></li>
+<li id="fn46"><p>They then extend the model to investigate several motivations for heterogeneneous volunteering probabilities, which I might get to later.<a href="computing-quantal-response-equilibrium.html#fnref46" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="application-strategy-frequency-estimation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
