@@ -23,7 +23,7 @@
 <meta name="author" content="James R. Bland" />
 
 
-<meta name="date" content="2023-06-16" />
+<meta name="date" content="2023-06-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -414,7 +414,7 @@ x^{t+1}&amp;=x^t+h\omega Q_{,-1}(x_t)
 where:</p>
 <ul>
 <li><span class="math inline">\(Q_{,-1}(x_t)\)</span> is the final column of the <span class="math inline">\(Q\)</span> component of the “fat” QR decomposition of <span class="math inline">\(\left[\frac{\partial H(x_t)}{\partial x^\top}\right]^\top\)</span>. We can compute the fat decomposition of matrix <span class="math inline">\(A\)</span> in <em>R</em> using <code>qr(A) |&gt; qr.Q(complete=TRUE)</code>.<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a></li>
-<li><span class="math inline">\(\omega\in\{0,1\}\)</span> ensures that we are moving in the right direction along the curve, and not back-tracking. For example, if we are looking to trace out the curve for increasing <span class="math inline">\(\lambda\)</span>, then <span class="math inline">\(\omega\)</span> will have the same sign as the last element in <span class="math inline">\(Q_{,-1}(x_t)\)</span>, which corresponds to <span class="math inline">\(\lambda\)</span>.</li>
+<li><span class="math inline">\(\omega\in\{-1,1\}\)</span> ensures that we are moving in the right direction along the curve, and not back-tracking. For example, if we are looking to trace out the curve for increasing <span class="math inline">\(\lambda\)</span>, then <span class="math inline">\(\omega\)</span> will have the same sign as the last element in <span class="math inline">\(Q_{,-1}(x_t)\)</span>, which corresponds to <span class="math inline">\(\lambda\)</span>.</li>
 <li><span class="math inline">\(h&gt;0\)</span> is a tuning parameter specifying the step length. Recall that the magnitude of <span class="math inline">\(Q_{,-1}(x_t)\)</span> has a magnitude of 1, so <span class="math inline">\(h\)</span> is the step length.</li>
 </ul>
 <p>As noted in <span class="citation">Turocy (<a href="#ref-Turocy2005" role="doc-biblioref">2005</a>)</span>, while it may be feasible to solve for quantal response equilibrium using only predictor steps, which are a form of numerical integration, this ignores some information that we have about quantal response equilibrium: it is characterized by a solution to a set of equations.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a> Therefore, we can also exploit these equations to correct any errors that may have made their way into the system equations because the predictor step is only an approximation of the change in <span class="math inline">\(x\)</span>. Specifically, the following <em>corrector step</em> moves <span class="math inline">\(x\)</span> in the direction that gets <span class="math inline">\(H(x^{t+1})\)</span> closer to zero:</p>
