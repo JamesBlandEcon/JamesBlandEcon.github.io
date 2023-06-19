@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Considerations for choosing a prior | Structural Bayesian Techniques for Experimental and Behavioral Economics</title>
+  <meta name="description" content="4 Considerations for choosing a prior | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Considerations for choosing a prior | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Considerations for choosing a prior | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2023-06-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="probabilistic-models-of-behavior.html"/>
+<link rel="next" href="building-blocks.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="section.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="setting-the-stage.html"><a href="setting-the-stage.html"><i class="fa fa-check"></i>Setting the stage</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-does-your-theory-say-about-your-data"><i class="fa fa-check"></i><b>1.1</b> What does your theory say about your data?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-do-your-data-say-about-your-theory"><i class="fa fa-check"></i><b>1.2</b> What do your data say about your theory?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-do-your-parameters-say-about-other-things"><i class="fa fa-check"></i><b>1.3</b> What do your parameters say about other things?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#what-does-your-expertise-say-about-your-parameters"><i class="fa fa-check"></i><b>1.4</b> What does your expertise say about your parameters?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>Stan</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#installation-in-r"><i class="fa fa-check"></i><b>2.1</b> Installation in <em>R</em></a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-anatomy-of-a-stan-program"><i class="fa fa-check"></i><b>2.2</b> The anatomy of a <em>Stan</em> program</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#data-block"><i class="fa fa-check"></i><b>2.2.1</b> Data block</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#transformed-data-block"><i class="fa fa-check"></i><b>2.2.2</b> Transformed data block</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#parameters-block"><i class="fa fa-check"></i><b>2.2.3</b> Parameters block</a></li>
+<li class="chapter" data-level="2.2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#model-block"><i class="fa fa-check"></i><b>2.2.4</b> Model block</a></li>
+<li class="chapter" data-level="2.2.5" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#generated-quantities-block"><i class="fa fa-check"></i><b>2.2.5</b> Generated quantities block</a></li>
+<li class="chapter" data-level="2.2.6" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-final-product"><i class="fa fa-check"></i><b>2.2.6</b> The final product</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#estimating-a-model"><i class="fa fa-check"></i><b>2.3</b> Estimating a model</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#looking-at-the-results"><i class="fa fa-check"></i><b>2.4</b> Looking at the results</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html"><i class="fa fa-check"></i><b>3</b> Probabilistic models of behavior</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#the-problem-with-deterministic-models"><i class="fa fa-check"></i><b>3.1</b> The problem with deterministic models</a></li>
+<li class="chapter" data-level="3.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#what-is-a-probabilistic-model"><i class="fa fa-check"></i><b>3.2</b> What <em>is</em> a probabilistic model?</a></li>
+<li class="chapter" data-level="3.3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#example-dataset-and-model"><i class="fa fa-check"></i><b>3.3</b> Example dataset and model</a></li>
+<li class="chapter" data-level="3.4" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#optimal-choice-plus-an-error"><i class="fa fa-check"></i><b>3.4</b> Optimal choice plus an error</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-1"><i class="fa fa-check"></i><b>3.4.1</b> Estimating a model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#utility-based-models"><i class="fa fa-check"></i><b>3.5</b> Utility-based models</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-2"><i class="fa fa-check"></i><b>3.5.1</b> Estimating a model</a></li>
+<li class="chapter" data-level="3.5.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#doing-something-with-the-estimates"><i class="fa fa-check"></i><b>3.5.2</b> Doing something with the estimates</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html"><i class="fa fa-check"></i><b>4</b> Considerations for choosing a prior</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#example-model-and-experiment"><i class="fa fa-check"></i><b>4.1</b> Example model and experiment</a></li>
+<li class="chapter" data-level="4.2" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#getting-the-support-right"><i class="fa fa-check"></i><b>4.2</b> Getting the support right</a></li>
+<li class="chapter" data-level="4.3" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#eliciting-reasonable-priors"><i class="fa fa-check"></i><b>4.3</b> Eliciting reasonable priors</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#parameter-values-and-the-prior-pushforward-check"><i class="fa fa-check"></i><b>4.3.1</b> Parameter values and the prior pushforward check</a></li>
+<li class="chapter" data-level="4.3.2" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#predictions-and-other-derived-quantities-the-prior-predictive-check"><i class="fa fa-check"></i><b>4.3.2</b> Predictions and other derived quantities: The prior predictive check</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#assessing-the-sampling-performance-of-a-prior"><i class="fa fa-check"></i><b>4.4</b> Assessing the sampling performance of a prior</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#does-our-model-recover-its-parameters-well"><i class="fa fa-check"></i><b>4.4.1</b> Does our model recover its parameters well?</a></li>
+<li class="chapter" data-level="4.4.2" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#do-we-see-any-pathologies-in-the-estimation-process"><i class="fa fa-check"></i><b>4.4.2</b> Do we see any pathologies in the estimation process?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#r-code-used-for-this-chapter"><i class="fa fa-check"></i><b>4.5</b> <em>R</em> code used for this chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="building-blocks.html"><a href="building-blocks.html"><i class="fa fa-check"></i>Building blocks</a></li>
+<li class="chapter" data-level="5" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html"><i class="fa fa-check"></i><b>5</b> Representative agent and participant-specific models</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#participant-specific-models"><i class="fa fa-check"></i><b>5.1</b> Participant-specific models</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#example-data-and-economic-model"><i class="fa fa-check"></i><b>5.1.1</b> Example data and economic model</a></li>
+<li class="chapter" data-level="5.1.2" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#going-to-the-probabilistic-model"><i class="fa fa-check"></i><b>5.1.2</b> Going to the probabilistic model</a></li>
+<li class="chapter" data-level="5.1.3" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#a-short-side-quest-into-canned-estimation-techniques"><i class="fa fa-check"></i><b>5.1.3</b> A short side quest into canned estimation techniques</a></li>
+<li class="chapter" data-level="5.1.4" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#assigning-priors"><i class="fa fa-check"></i><b>5.1.4</b> Assigning priors</a></li>
+<li class="chapter" data-level="5.1.5" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#estimating-the-model-for-one-participant"><i class="fa fa-check"></i><b>5.1.5</b> Estimating the model for one participant</a></li>
+<li class="chapter" data-level="5.1.6" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#estimating-the-model-for-all-participants"><i class="fa fa-check"></i><b>5.1.6</b> Estimating the model for all participants</a></li>
+<li class="chapter" data-level="5.1.7" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#but-we-could-be-learning-more"><i class="fa fa-check"></i><b>5.1.7</b> But we could be learning more!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#actual-representative-agent-models-pooled-models"><i class="fa fa-check"></i><b>5.2</b> Actual representative agent models (pooled models)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="hierarchical-models.html"><a href="hierarchical-models.html"><i class="fa fa-check"></i><b>6</b> Hierarchical models</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#a-random-sample-of-participants-walks-into-your-lab"><i class="fa fa-check"></i><b>6.1</b> A random sample of participants walks into your lab</a></li>
+<li class="chapter" data-level="6.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#the-anatomy-of-a-basic-hierarchical-model"><i class="fa fa-check"></i><b>6.2</b> The anatomy of a basic hierarchical model</a></li>
+<li class="chapter" data-level="6.3" data-path="hierarchical-models.html"><a href="hierarchical-models.html#accounting-for-unobserved-heterogeneity"><i class="fa fa-check"></i><b>6.3</b> Accounting for unobserved heterogeneity</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#the-last-time-you-will-integrate-the-likelihood-probably"><i class="fa fa-check"></i><b>6.3.1</b> The last time you will integrate the likelihood, probably</a></li>
+<li class="chapter" data-level="6.3.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#data-augmentation"><i class="fa fa-check"></i><b>6.3.2</b> Data augmentation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="hierarchical-models.html"><a href="hierarchical-models.html#a-multivariate-normal-hierarchical-model"><i class="fa fa-check"></i><b>6.4</b> A multivariate normal hierarchical model</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#decomposing-the-variance-covariance-matrix"><i class="fa fa-check"></i><b>6.4.1</b> Decomposing the variance-covariance matrix</a></li>
+<li class="chapter" data-level="6.4.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#transformed-parameters-and-normal-distributions"><i class="fa fa-check"></i><b>6.4.2</b> Transformed parameters and normal distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="hierarchical-models.html"><a href="hierarchical-models.html#example-again-with-bfs2019"><i class="fa fa-check"></i><b>6.5</b> Example: again with <span class="citation">Bruhin, Fehr, and Schunk (<span>2019</span>)</span></a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#no-correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>6.5.1</b> No correlation between individual-level parameters</a></li>
+<li class="chapter" data-level="6.5.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>6.5.2</b> Correlation between individual-level parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="mixture-models.html"><a href="mixture-models.html"><i class="fa fa-check"></i><b>7</b> Mixture models</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="mixture-models.html"><a href="mixture-models.html#a-menu-of-models"><i class="fa fa-check"></i><b>7.1</b> A menu of models</a></li>
+<li class="chapter" data-level="7.2" data-path="mixture-models.html"><a href="mixture-models.html#dichotomous-and-toolbox-mixture-models"><i class="fa fa-check"></i><b>7.2</b> Dichotomous and toolbox mixture models</a></li>
+<li class="chapter" data-level="7.3" data-path="mixture-models.html"><a href="mixture-models.html#coding-peculearities"><i class="fa fa-check"></i><b>7.3</b> Coding peculearities</a></li>
+<li class="chapter" data-level="7.4" data-path="mixture-models.html"><a href="mixture-models.html#example-experiment-av2001"><i class="fa fa-check"></i><b>7.4</b> Example experiment: <span class="citation">Andreoni and Vesterlund (<span>2001</span>)</span></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="mixture-models.html"><a href="mixture-models.html#as-basic-as-it-gets"><i class="fa fa-check"></i><b>7.4.1</b> As basic as it gets</a></li>
+<li class="chapter" data-level="7.4.2" data-path="mixture-models.html"><a href="mixture-models.html#adding-some-heterogeneity"><i class="fa fa-check"></i><b>7.4.2</b> Adding some heterogeneity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="mixture-models.html"><a href="mixture-models.html#some-code-used-to-estimate-the-models"><i class="fa fa-check"></i><b>7.5</b> Some code used to estimate the models</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i>Applications</a></li>
+<li class="chapter" data-level="8" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html"><i class="fa fa-check"></i><b>8</b> Application: Experience-Weighted Attraction</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-model-at-the-individual-level"><i class="fa fa-check"></i><b>8.1</b> The model at the individual level</a></li>
+<li class="chapter" data-level="8.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-computational-and-coding-issues"><i class="fa fa-check"></i><b>8.2</b> Some computational and coding issues</a></li>
+<li class="chapter" data-level="8.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#representative-agent-models"><i class="fa fa-check"></i><b>8.3</b> Representative agent models</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration"><i class="fa fa-check"></i><b>8.3.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="8.3.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model"><i class="fa fa-check"></i><b>8.3.2</b> The <em>Stan</em> model</a></li>
+<li class="chapter" data-level="8.3.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results"><i class="fa fa-check"></i><b>8.3.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#hierarchical-model"><i class="fa fa-check"></i><b>8.4</b> Hierarchical model</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration-1"><i class="fa fa-check"></i><b>8.4.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="8.4.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model-1"><i class="fa fa-check"></i><b>8.4.2</b> The <em>Stan</em> model</a></li>
+<li class="chapter" data-level="8.4.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results-1"><i class="fa fa-check"></i><b>8.4.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-code-used-to-estimate-the-models-1"><i class="fa fa-check"></i><b>8.5</b> Some code used to estimate the models</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#loading-the-data"><i class="fa fa-check"></i><b>8.5.1</b> Loading the data</a></li>
+<li class="chapter" data-level="8.5.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-representative-agent-models"><i class="fa fa-check"></i><b>8.5.2</b> Estimating the representative agent models</a></li>
+<li class="chapter" data-level="8.5.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-hierarchical-model"><i class="fa fa-check"></i><b>8.5.3</b> Estimating the hierarchical model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>9</b> Application: Strategy Frequency Estimation</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#simplifying-the-individual-likelihood-functions"><i class="fa fa-check"></i><b>9.1</b> Simplifying the individual likelihood functions</a></li>
+<li class="chapter" data-level="9.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011"><i class="fa fa-check"></i><b>9.2</b> Example experiment: <span class="citation">Dal Bó and Fréchette (<span>2011</span>)</span></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#the-sfem-with-homogeneous-trembles"><i class="fa fa-check"></i><b>9.2.1</b> The SFEM with homogeneous trembles</a></li>
+<li class="chapter" data-level="9.2.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#adding-heterogeneous-trembles-and-integrating-the-likelihood"><i class="fa fa-check"></i><b>9.2.2</b> Adding heterogeneous trembles and integrating the likelihood</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#r-code-to-do-these-estimations"><i class="fa fa-check"></i><b>9.3</b> <em>R</em> code to do these estimations</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html"><i class="fa fa-check"></i><b>10</b> Computing Quantal Response Equilibrium</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#overview-of-quantal-response-equilibrium"><i class="fa fa-check"></i><b>10.1</b> Overview of quantal response equilibrium</a></li>
+<li class="chapter" data-level="10.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#computing-quantal-response-equilibrium-1"><i class="fa fa-check"></i><b>10.2</b> Computing Quantal Response Equilibrium</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#setting-up-the-problem"><i class="fa fa-check"></i><b>10.2.1</b> Setting up the problem</a></li>
+<li class="chapter" data-level="10.2.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#a-predictor-corrector-algorithm"><i class="fa fa-check"></i><b>10.2.2</b> A predictor-corrector algorithm</a></li>
+<li class="chapter" data-level="10.2.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#initial-conditions"><i class="fa fa-check"></i><b>10.2.3</b> Initial conditions</a></li>
+<li class="chapter" data-level="10.2.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#algorithm-tuning"><i class="fa fa-check"></i><b>10.2.4</b> Algorithm tuning</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#the-predictor-corrector-algorithm-in-r"><i class="fa fa-check"></i><b>10.3</b> The predictor-corrector algorithm in <em>R</em></a></li>
+<li class="chapter" data-level="10.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#some-example-games"><i class="fa fa-check"></i><b>10.4</b> Some example games</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#generalized-matching-pennies-ochs1995"><i class="fa fa-check"></i><b>10.4.1</b> Generalized matching pennies <span class="citation">(<span>Ochs 1995</span>)</span></a></li>
+<li class="chapter" data-level="10.4.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#stag-hunt"><i class="fa fa-check"></i><b>10.4.2</b> Stag hunt</a></li>
+<li class="chapter" data-level="10.4.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#n-player-volunteers-dilemma-imposing-symmetric-strategies"><i class="fa fa-check"></i><b>10.4.3</b> <span class="math inline">\(n\)</span>-player Volunteer’s Dilemma imposing symmetric strategies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><i class="fa fa-check"></i><b>11</b> Application: Quantal Response Equilibrium and the Volunteer’s Dilemma <span class="citation">(<span>Goeree, Holt, and Smith 2017</span>)</span></a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#solving-logit-qre-and-estimating-the-model"><i class="fa fa-check"></i><b>11.1</b> Solving logit QRE and estimating the model</a></li>
+<li class="chapter" data-level="11.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#adding-some-heterogeneity-1"><i class="fa fa-check"></i><b>11.2</b> Adding some heterogeneity</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#computing-quantal-response-equilibrium-with-heterogeneous-parameters"><i class="fa fa-check"></i><b>11.2.1</b> Computing quantal response equilibrium with heterogeneous parameters</a></li>
+<li class="chapter" data-level="11.2.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#warm-glow-volunteering"><i class="fa fa-check"></i><b>11.2.2</b> Warm glow volunteering</a></li>
+<li class="chapter" data-level="11.2.3" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#duplicate-aversion"><i class="fa fa-check"></i><b>11.2.3</b> Duplicate aversion</a></li>
+<li class="chapter" data-level="11.2.4" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#results-2"><i class="fa fa-check"></i><b>11.2.4</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#r-code-to-run-estimations"><i class="fa fa-check"></i><b>11.3</b> <em>R</em> code to run estimations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="links-to-data.html"><a href="links-to-data.html"><i class="fa fa-check"></i>Links to data</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Structural Bayesian Techniques for Experimental and Behavioral Economics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="considerations-for-choosing-a-prior" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Considerations for choosing a prior<a href="considerations-for-choosing-a-prior.html#considerations-for-choosing-a-prior" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Conceptually, the Bayesian techniques I am teaching you in the book are very similar to how we would approach the same inferential goals using maximum likelihood estimation.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> Both work with a likelihood function that specifies the distribution of data given the model’s parameters. The big difference between the two is that when using Bayesian techniques, we also need to specify a prior. That is, the likelihood is our formal statement about how our model’s parameters and the experiment generate data, and the prior is our formal statement about how much uncertainty we have about our model’s parameters before running an experiment. Whether we have had a good hard think about the prior we want to use, whether we have just thrown up our hands and gone for an improper “uninformative” flat prior, or anything in between, these are modeling choices. We should therefore pay at least some attention to our priors, and how they affect our estimates. This is especially the case for economic experiments, where sample sizes can be relatively small, and so the prior may still have substantial influence over the posterior.</p>
+<p>We can assess our priors in several ways. If we want to take a stand on priors representing our <em>actual prior beliefs</em> about the uncertainty in our parameters, we can calibrate our priors using our expert knowledge of what reasonable and unreasonable parameter values are. For example, this could include choosing distributions that pin down what we think are reasonable 5% and 95% lower and upper bounds on the parameters.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> We can also scrutinize our priors on <em>parameters</em> to check that they say about behavior. For example, we may check to see whether our calibrated prior makes reasonable predictions for behavior in the experiment. This might be useful if we are very uncertain about what reasonable values of our parameters are, but we have a better idea of what behavior might look like. Additionally, we can assess our prior’s performance in recovering the parameters of the model. That is, is there a prior that results in an estimator with better sampling properties than other choices?</p>
+<p>A prior is useful not just in the <em>estimation</em> stage of our research, but also in the <em>design</em> stage. Priors can be immensely useful for tuning an experiment to best estimate our parameters of interest. A prior that actually reflects what we believe are plausible parameter values can help us choose experimental conditions that are the most informative of these parameters. This chapter is focused on ways for us to <em>select</em> a prior, not how to use it to design an experiment. I will devote a chapter to this at some point.</p>
+<div id="example-model-and-experiment" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Example model and experiment<a href="considerations-for-choosing-a-prior.html#example-model-and-experiment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For this chapter I will use as an example the modified dictator game part of <span class="citation">Bruhin, Fehr, and Schunk (<a href="#ref-BFS2019" role="doc-biblioref">2019</a>)</span>, where participants made 78 pairwise choices of allocations between themselves and another participant. For this chapter, we will focus on estimating a simple one-parameter<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> other-regarding utility function:</p>
+<p><span class="math display">\[
+\begin{aligned}
+U(\pi_1,\pi_2,\alpha)&amp;=\alpha\pi_1+(1-\alpha)\pi_2,\quad0\leq \alpha \leq 1
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\pi_1\)</span> and <span class="math inline">\(\pi_2\)</span> are the payoffs of the self and the other, respectively, and <span class="math inline">\(\alpha\in[0,1]\)</span> is the weight placed on the self’s payoff. Hence, <span class="math inline">\(\alpha=1\)</span> corresponds to self-regarding preferences. We will also assume a logit probabilistic choice rule with choice precision <span class="math inline">\(\lambda&gt;0\)</span>. Given the two allocations <span class="math inline">\((\pi_1^X,\pi_2^X)\)</span> and <span class="math inline">\((\pi_1^Y,\pi_2^Y)\)</span>, we can write the likelihood as:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(y_t=1\mid \alpha,\lambda,\pi_t)&amp;=\Lambda\left(\lambda\left(\alpha\pi_{t,1}^X+(1-\alpha)\pi_{t,2}^X-\alpha\pi_{t,1}^Y-(1-\alpha)\pi_{t,2}^Y\right)\right)\\
+&amp;=\Lambda\left(\lambda\left(\alpha(\pi_{t,1}^X-\pi_{t,1}^Y)+(1-\alpha)(\pi_{t,2}^X-\pi_{t,2}^Y)\right)\right)
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(y_t=1\)</span> iff allocation <span class="math inline">\(X\)</span> is chosen in decision <span class="math inline">\(t\)</span>, zero otherwise. <span class="math inline">\(\Lambda(x)=(1+\exp(-x))^{-1}\)</span> is the inverse logit function.</p>
+<p>The 78 pairwise choices in <span class="citation">Bruhin, Fehr, and Schunk (<a href="#ref-BFS2019" role="doc-biblioref">2019</a>)</span> are shown in Figure <a href="considerations-for-choosing-a-prior.html#fig:PriorsBFS2019">4.1</a>. Each line segment represents a pairwise choice, with the coordinates of the endpoints showing the two allocations.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="considerations-for-choosing-a-prior.html#cb44-1" aria-hidden="true" tabindex="-1"></a>d1<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp1.csv&quot;</span>)</span>
+<span id="cb44-2"><a href="considerations-for-choosing-a-prior.html#cb44-2" aria-hidden="true" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">1</span>)</span>
+<span id="cb44-3"><a href="considerations-for-choosing-a-prior.html#cb44-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb44-4"><a href="considerations-for-choosing-a-prior.html#cb44-4" aria-hidden="true" tabindex="-1"></a>d2<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp2.csv&quot;</span>)</span>
+<span id="cb44-5"><a href="considerations-for-choosing-a-prior.html#cb44-5" aria-hidden="true" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">2</span>)    </span>
+<span id="cb44-6"><a href="considerations-for-choosing-a-prior.html#cb44-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb44-7"><a href="considerations-for-choosing-a-prior.html#cb44-7" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>(<span class="fu">rbind</span>(d1,d2)</span>
+<span id="cb44-8"><a href="considerations-for-choosing-a-prior.html#cb44-8" aria-hidden="true" tabindex="-1"></a>     <span class="co"># Just use the dictator game data</span></span>
+<span id="cb44-9"><a href="considerations-for-choosing-a-prior.html#cb44-9" aria-hidden="true" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">filter</span>(dg<span class="sc">==</span><span class="dv">1</span>)  </span>
+<span id="cb44-10"><a href="considerations-for-choosing-a-prior.html#cb44-10" aria-hidden="true" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
+<span id="cb44-11"><a href="considerations-for-choosing-a-prior.html#cb44-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">self_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,self_x,self_y),</span>
+<span id="cb44-12"><a href="considerations-for-choosing-a-prior.html#cb44-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">other_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,other_x,other_y)</span>
+<span id="cb44-13"><a href="considerations-for-choosing-a-prior.html#cb44-13" aria-hidden="true" tabindex="-1"></a>     )</span>
+<span id="cb44-14"><a href="considerations-for-choosing-a-prior.html#cb44-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb44-15"><a href="considerations-for-choosing-a-prior.html#cb44-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-16"><a href="considerations-for-choosing-a-prior.html#cb44-16" aria-hidden="true" tabindex="-1"></a><span class="co"># We just need one participant&#39;s data because everything in this chapter will be simulation</span></span>
+<span id="cb44-17"><a href="considerations-for-choosing-a-prior.html#cb44-17" aria-hidden="true" tabindex="-1"></a>BFS2019<span class="ot">&lt;-</span>D <span class="sc">|&gt;</span> <span class="fu">filter</span>(sid<span class="sc">==</span><span class="dv">102010050706</span>)</span>
+<span id="cb44-18"><a href="considerations-for-choosing-a-prior.html#cb44-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-19"><a href="considerations-for-choosing-a-prior.html#cb44-19" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb44-20"><a href="considerations-for-choosing-a-prior.html#cb44-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb44-21"><a href="considerations-for-choosing-a-prior.html#cb44-21" aria-hidden="true" tabindex="-1"></a>    BFS2019,</span>
+<span id="cb44-22"><a href="considerations-for-choosing-a-prior.html#cb44-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb44-23"><a href="considerations-for-choosing-a-prior.html#cb44-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb44-24"><a href="considerations-for-choosing-a-prior.html#cb44-24" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x=</span>self_x,<span class="at">y=</span>other_x,<span class="at">xend=</span>self_y,<span class="at">yend=</span>other_y))</span>
+<span id="cb44-25"><a href="considerations-for-choosing-a-prior.html#cb44-25" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb44-26"><a href="considerations-for-choosing-a-prior.html#cb44-26" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Own payoff&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Other&#39;s payoff&quot;</span>)</span>
+<span id="cb44-27"><a href="considerations-for-choosing-a-prior.html#cb44-27" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>,<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb44-28"><a href="considerations-for-choosing-a-prior.html#cb44-28" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">coord_fixed</span>()</span>
+<span id="cb44-29"><a href="considerations-for-choosing-a-prior.html#cb44-29" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:PriorsBFS2019"></span>
+<img src="index_files/figure-html/PriorsBFS2019-1.png" alt="The 78 pairwise choices over allocations of money in the modified dictator game. Each pariwise choice is denoted by the endpoints of a line." width="672" />
+<p class="caption">
+Figure 4.1: The 78 pairwise choices over allocations of money in the modified dictator game. Each pariwise choice is denoted by the endpoints of a line.
+</p>
+</div>
+</div>
+<div id="getting-the-support-right" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Getting the support right<a href="considerations-for-choosing-a-prior.html#getting-the-support-right" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To begin with, we need to choose which <em>family</em> of distributions we will use for our prior. This is where we rule out any nonsensical values, and make sure we do <em>not</em> rule out anything that could be reasonable. For example, if a parameter could in principle take on any real number, then a normal distribution makes sense. This allows us the freedom of choosing two properties of the prior distribution (the mean and standard deviation) to appropriately express our prior uncertainty in a parameter.</p>
+<p>For the preference parameter <span class="math inline">\(\alpha\)</span>, we have been given the restriction <span class="math inline">\(\alpha\in[0,1]\)</span>, so here we need to choose a distribution that has a support of the unit interval. In this case, choosing something like the Beta distribution:</p>
+<p><span class="math display">\[
+\alpha\sim B(a_\alpha,b_\alpha)
+\]</span></p>
+<p>the probit-normal distribution:</p>
+<p><span class="math display">\[
+\Phi^{-1}(\alpha)\sim N(m_\alpha,s_\alpha^2)
+\]</span>
+or the logit-normal distribution:</p>
+<p><span class="math display">\[
+\log(\alpha)-\log(1-\alpha)\sim N(m_\alpha,s^2_\alpha)
+\]</span></p>
+<p>could be reasonable choices, as they all permit us to independently choose two properties of the distribution. Furthermore, if the <em>uniform</em> distribution is something we would want to consider using, the Beta distribution (setting <span class="math inline">\(a_\alpha=b_\alpha=1\)</span>) and the probit-normal distribution (setting <span class="math inline">\(m_\alpha=0\)</span>, <span class="math inline">\(s_\alpha=1\)</span>) nest this distribution, so these may be useful choices. For this example, I will choose the probit-normal distribution, as I use it quite commonly in my hierarchical models when I need to make this parameter restriction on an individual-level parameter.</p>
+<p>For the choice precision parameter <span class="math inline">\(\lambda\)</span>, we need to ensure that it is positive: negative values would imply that participants are <em>less</em> likely to choose the action with the greater utility, which is nonsensical. A good choice in this instance is the log-normal distribution. Again, this permits us to independently pin down two properties of the distribution.</p>
+<p><span class="math display">\[
+\log\lambda\sim N(m_\lambda,s^2_\lambda)
+\]</span></p>
+<p>With the likelihood and the family of prior specified, we can go ahead and code this model up in <em>Stan</em>. This will be useful even before we have data, because we can use the <em>Stan</em> model to simulate data and explore the sampling properties of our estimator. Here you will see a few extras added to the model so we can do some more with it. In particular the <code>UseData</code> variable lets us turn the likelihood contribution on or off. That way we can get draws from both the prior and the posterior with the same model. Also, the <code>UsePrior</code> variable turns the prior on and off. This will enable us to see what happens when we use improper, flat, “uninformative” priors. It will also permit us to do maximum likelihood estimation.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb45-1"><a href="considerations-for-choosing-a-prior.html#cb45-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-2"><a href="considerations-for-choosing-a-prior.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co">// BFS2019priors.stan</span></span>
+<span id="cb45-3"><a href="considerations-for-choosing-a-prior.html#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="considerations-for-choosing-a-prior.html#cb45-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb45-5"><a href="considerations-for-choosing-a-prior.html#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> n<span class="op">;</span> <span class="co">// number of decisions</span></span>
+<span id="cb45-6"><a href="considerations-for-choosing-a-prior.html#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> y<span class="op">[</span>n<span class="op">];</span> <span class="co">// choices. 1=X, 0=Y</span></span>
+<span id="cb45-7"><a href="considerations-for-choosing-a-prior.html#cb45-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-8"><a href="considerations-for-choosing-a-prior.html#cb45-8" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> self_x<span class="op">;</span> <span class="co">// payoff to self with allocation x</span></span>
+<span id="cb45-9"><a href="considerations-for-choosing-a-prior.html#cb45-9" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> other_x<span class="op">;</span> <span class="co">// payoff to other with allocation x</span></span>
+<span id="cb45-10"><a href="considerations-for-choosing-a-prior.html#cb45-10" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> self_y<span class="op">;</span> <span class="co">// payoff to self with allocation y</span></span>
+<span id="cb45-11"><a href="considerations-for-choosing-a-prior.html#cb45-11" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> other_y<span class="op">;</span> <span class="co">// payoff to other with allocation y</span></span>
+<span id="cb45-12"><a href="considerations-for-choosing-a-prior.html#cb45-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-13"><a href="considerations-for-choosing-a-prior.html#cb45-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">// priors</span></span>
+<span id="cb45-14"><a href="considerations-for-choosing-a-prior.html#cb45-14" aria-hidden="true" tabindex="-1"></a>  real prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">];</span> <span class="co">// log-normal</span></span>
+<span id="cb45-15"><a href="considerations-for-choosing-a-prior.html#cb45-15" aria-hidden="true" tabindex="-1"></a>  real prior_alpha<span class="op">[</span><span class="dv">2</span><span class="op">];</span> <span class="co">// probit-normal</span></span>
+<span id="cb45-16"><a href="considerations-for-choosing-a-prior.html#cb45-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-17"><a href="considerations-for-choosing-a-prior.html#cb45-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Turns on and off whether we are using the data</span></span>
+<span id="cb45-18"><a href="considerations-for-choosing-a-prior.html#cb45-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">,</span>upper<span class="op">=</span><span class="dv">1</span><span class="op">&gt;</span> UseData<span class="op">;</span> </span>
+<span id="cb45-19"><a href="considerations-for-choosing-a-prior.html#cb45-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-20"><a href="considerations-for-choosing-a-prior.html#cb45-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Turns on or off whether we are using the prior, or </span></span>
+<span id="cb45-21"><a href="considerations-for-choosing-a-prior.html#cb45-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">// &quot;uninformative&quot; priors</span></span>
+<span id="cb45-22"><a href="considerations-for-choosing-a-prior.html#cb45-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">,</span>upper<span class="op">=</span><span class="dv">1</span><span class="op">&gt;</span> UsePrior<span class="op">;</span></span>
+<span id="cb45-23"><a href="considerations-for-choosing-a-prior.html#cb45-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb45-24"><a href="considerations-for-choosing-a-prior.html#cb45-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-25"><a href="considerations-for-choosing-a-prior.html#cb45-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-26"><a href="considerations-for-choosing-a-prior.html#cb45-26" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb45-27"><a href="considerations-for-choosing-a-prior.html#cb45-27" aria-hidden="true" tabindex="-1"></a>  real probitAlpha<span class="op">;</span></span>
+<span id="cb45-28"><a href="considerations-for-choosing-a-prior.html#cb45-28" aria-hidden="true" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
+<span id="cb45-29"><a href="considerations-for-choosing-a-prior.html#cb45-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb45-30"><a href="considerations-for-choosing-a-prior.html#cb45-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-31"><a href="considerations-for-choosing-a-prior.html#cb45-31" aria-hidden="true" tabindex="-1"></a>transformed parameters <span class="op">{</span></span>
+<span id="cb45-32"><a href="considerations-for-choosing-a-prior.html#cb45-32" aria-hidden="true" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">,</span>upper<span class="op">=</span><span class="dv">1</span><span class="op">&gt;</span> alpha <span class="op">=</span> Phi<span class="op">(</span>probitAlpha<span class="op">);</span></span>
+<span id="cb45-33"><a href="considerations-for-choosing-a-prior.html#cb45-33" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb45-34"><a href="considerations-for-choosing-a-prior.html#cb45-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-35"><a href="considerations-for-choosing-a-prior.html#cb45-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-36"><a href="considerations-for-choosing-a-prior.html#cb45-36" aria-hidden="true" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb45-37"><a href="considerations-for-choosing-a-prior.html#cb45-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-38"><a href="considerations-for-choosing-a-prior.html#cb45-38" aria-hidden="true" tabindex="-1"></a>  <span class="co">// priors</span></span>
+<span id="cb45-39"><a href="considerations-for-choosing-a-prior.html#cb45-39" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>UsePrior<span class="op">==</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb45-40"><a href="considerations-for-choosing-a-prior.html#cb45-40" aria-hidden="true" tabindex="-1"></a>    probitAlpha <span class="op">~</span> normal<span class="op">(</span>prior_alpha<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_alpha<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb45-41"><a href="considerations-for-choosing-a-prior.html#cb45-41" aria-hidden="true" tabindex="-1"></a>    lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb45-42"><a href="considerations-for-choosing-a-prior.html#cb45-42" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb45-43"><a href="considerations-for-choosing-a-prior.html#cb45-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-44"><a href="considerations-for-choosing-a-prior.html#cb45-44" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>UseData<span class="op">==</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb45-45"><a href="considerations-for-choosing-a-prior.html#cb45-45" aria-hidden="true" tabindex="-1"></a>    y <span class="op">~</span> bernoulli_logit<span class="op">(</span>lambda<span class="op">*(</span></span>
+<span id="cb45-46"><a href="considerations-for-choosing-a-prior.html#cb45-46" aria-hidden="true" tabindex="-1"></a>      alpha<span class="op">*(</span>self_x<span class="op">-</span>self_y<span class="op">)+(</span><span class="dv">1</span><span class="op">-</span>alpha<span class="op">)*(</span>other_x<span class="op">-</span>other_y<span class="op">)</span></span>
+<span id="cb45-47"><a href="considerations-for-choosing-a-prior.html#cb45-47" aria-hidden="true" tabindex="-1"></a>       <span class="op">));</span></span>
+<span id="cb45-48"><a href="considerations-for-choosing-a-prior.html#cb45-48" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb45-49"><a href="considerations-for-choosing-a-prior.html#cb45-49" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-50"><a href="considerations-for-choosing-a-prior.html#cb45-50" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb45-51"><a href="considerations-for-choosing-a-prior.html#cb45-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-52"><a href="considerations-for-choosing-a-prior.html#cb45-52" aria-hidden="true" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
+<span id="cb45-53"><a href="considerations-for-choosing-a-prior.html#cb45-53" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-54"><a href="considerations-for-choosing-a-prior.html#cb45-54" aria-hidden="true" tabindex="-1"></a>  <span class="co">// predicted probability of choosing allocation X</span></span>
+<span id="cb45-55"><a href="considerations-for-choosing-a-prior.html#cb45-55" aria-hidden="true" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> probX <span class="op">=</span> inv_logit<span class="op">(</span>lambda<span class="op">*(</span></span>
+<span id="cb45-56"><a href="considerations-for-choosing-a-prior.html#cb45-56" aria-hidden="true" tabindex="-1"></a>      alpha<span class="op">*(</span>self_x<span class="op">-</span>self_y<span class="op">)+(</span><span class="dv">1</span><span class="op">-</span>alpha<span class="op">)*(</span>other_x<span class="op">-</span>other_y<span class="op">)</span></span>
+<span id="cb45-57"><a href="considerations-for-choosing-a-prior.html#cb45-57" aria-hidden="true" tabindex="-1"></a>       <span class="op">));</span></span>
+<span id="cb45-58"><a href="considerations-for-choosing-a-prior.html#cb45-58" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-59"><a href="considerations-for-choosing-a-prior.html#cb45-59" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Simulated data, 1 = chose allocation X</span></span>
+<span id="cb45-60"><a href="considerations-for-choosing-a-prior.html#cb45-60" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> simX<span class="op">[</span>n<span class="op">]</span> <span class="op">=</span> bernoulli_logit_rng<span class="op">(</span>lambda<span class="op">*(</span></span>
+<span id="cb45-61"><a href="considerations-for-choosing-a-prior.html#cb45-61" aria-hidden="true" tabindex="-1"></a>      alpha<span class="op">*(</span>self_x<span class="op">-</span>self_y<span class="op">)+(</span><span class="dv">1</span><span class="op">-</span>alpha<span class="op">)*(</span>other_x<span class="op">-</span>other_y<span class="op">)</span></span>
+<span id="cb45-62"><a href="considerations-for-choosing-a-prior.html#cb45-62" aria-hidden="true" tabindex="-1"></a>       <span class="op">));</span></span>
+<span id="cb45-63"><a href="considerations-for-choosing-a-prior.html#cb45-63" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-64"><a href="considerations-for-choosing-a-prior.html#cb45-64" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</div>
+<div id="eliciting-reasonable-priors" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Eliciting reasonable priors<a href="considerations-for-choosing-a-prior.html#eliciting-reasonable-priors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As discussed in detail in <span class="citation">Betancourt (<a href="#ref-Betancourt2020" role="doc-biblioref">2020</a>)</span> (Section 1.1), it is important for our models not to be built on assumptions that are in conflict with our “domain expertise”. That is as experts in the field, we may have a reasonable understanding of what are likely and unlikely parameter values before running an experiment, and we should incorporate this information into our prior. However translating a likely qualitative, general understanding of how participants might behave into a mathematical statement about the distribution of some parameters may not be straightforward. Two techniques <span class="citation">Betancourt (<a href="#ref-Betancourt2020" role="doc-biblioref">2020</a>)</span> advocates for are the <em>prior pushforward</em> check, which checks whether our prior about a <em>parameter</em> is consistent with our understanding of our participants, and the <em>prior predictive</em> check, which checks whether our prior about a parameter is consistent with our understanding of our prior belief about <em>summaries of the data</em> that we might get. That is, a prior pushforward check is to check whether our chosen prior places too much, or not enough, mass in the wrong places of the parameter’s support, whereas the prior predictive check is to check whether our prior implies something implausible about summaries of our data (such as participants’ choices).</p>
+<div id="parameter-values-and-the-prior-pushforward-check" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Parameter values and the prior pushforward check<a href="considerations-for-choosing-a-prior.html#parameter-values-and-the-prior-pushforward-check" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once we have settled on a family of distributions, perhaps the most direct way to hone in on the distribution within that family that we will actually use is by exploring the properties of these distributions. If we are just choosing a prior for a single (i.e. scalar) parameter, then we will most often have only a handful of degrees of freedom in our prior choice once we have selected a family of distributions. For example, the normal and beta families each allow us to independently pin down two properties of the distribution, while the exponential, Cauchy, and LKJ priors only allow for one. It is therefore very feasible to explore the properties of these distributions graphically.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="considerations-for-choosing-a-prior.html#cb46-1" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">expand_grid</span>(</span>
+<span id="cb46-2"><a href="considerations-for-choosing-a-prior.html#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">m =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.4</span>,<span class="dv">0</span>,<span class="fl">0.4</span>,<span class="fl">0.8</span>,<span class="fl">1.2</span>),</span>
+<span id="cb46-3"><a href="considerations-for-choosing-a-prior.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">s =</span> <span class="fu">c</span>(<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="dv">1</span>,<span class="dv">2</span>),</span>
+<span id="cb46-4"><a href="considerations-for-choosing-a-prior.html#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sim =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span></span>
+<span id="cb46-5"><a href="considerations-for-choosing-a-prior.html#cb46-5" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb46-6"><a href="considerations-for-choosing-a-prior.html#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
+<span id="cb46-7"><a href="considerations-for-choosing-a-prior.html#cb46-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">alpha =</span> <span class="fu">rnorm</span>(<span class="dv">1</span>,<span class="at">mean=</span>m,<span class="at">sd=</span>s) <span class="sc">|&gt;</span> <span class="fu">pnorm</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb46-8"><a href="considerations-for-choosing-a-prior.html#cb46-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb46-9"><a href="considerations-for-choosing-a-prior.html#cb46-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mtag =</span> <span class="fu">paste</span>(<span class="st">&quot;m =&quot;</span>,m),</span>
+<span id="cb46-10"><a href="considerations-for-choosing-a-prior.html#cb46-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">stag =</span> <span class="fu">paste</span>(<span class="st">&quot;s =&quot;</span>,s))</span>
+<span id="cb46-11"><a href="considerations-for-choosing-a-prior.html#cb46-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-12"><a href="considerations-for-choosing-a-prior.html#cb46-12" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb46-13"><a href="considerations-for-choosing-a-prior.html#cb46-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>alpha))</span>
+<span id="cb46-14"><a href="considerations-for-choosing-a-prior.html#cb46-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">40</span>)</span>
+<span id="cb46-15"><a href="considerations-for-choosing-a-prior.html#cb46-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_grid</span>(stag<span class="sc">~</span>mtag)</span>
+<span id="cb46-16"><a href="considerations-for-choosing-a-prior.html#cb46-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb46-17"><a href="considerations-for-choosing-a-prior.html#cb46-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(alpha))</span>
+<span id="cb46-18"><a href="considerations-for-choosing-a-prior.html#cb46-18" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_x_continuous</span>(<span class="at">n.breaks=</span><span class="dv">4</span>)</span>
+<span id="cb46-19"><a href="considerations-for-choosing-a-prior.html#cb46-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:PriorsParameterValuesAlpha"></span>
+<img src="index_files/figure-html/PriorsParameterValuesAlpha-1.png" alt="Histograms of 10,000 draws from the probit-normal distribution for various location ($m$) and scale ($s$) parameters. " width="672" />
+<p class="caption">
+Figure 4.2: Histograms of 10,000 draws from the probit-normal distribution for various location (<span class="math inline">\(m\)</span>) and scale (<span class="math inline">\(s\)</span>) parameters.
+</p>
+</div>
+<p>For example Figure <a href="considerations-for-choosing-a-prior.html#fig:PriorsParameterValuesAlpha">4.2</a> shows a range of priors from the probit-normal family of distributions that we could use for our prior for the other-regarding preference parameter <span class="math inline">\(\alpha\)</span>. In this figure, I especially want to draw your attention to the bottom row, which sets the prior scale parameter <span class="math inline">\(s_\alpha\)</span> to 2. If limited to these sixteen options, but without seeing Figure <a href="considerations-for-choosing-a-prior.html#fig:PriorsParameterValuesAlpha">4.2</a>, one may be tempted to choose one of the priors with <span class="math inline">\(s_\alpha=2\)</span>. This is because these priors have the largest variance. However inspection of the figure reveals that choosing one of these priors implies a starkly bi-model distribution for <span class="math inline">\(\alpha\)</span>. To put this into context, these “uninformative” priors imply that it is very likely that <span class="math inline">\(\alpha\)</span> is close to one or zero, but very <em>unlikely</em> that it is anywhere in between. While <span class="math inline">\(\alpha=1\)</span> corresponds to self-regarding preferences, and so we may in fact like to have a fair chunk of prior probability mass near this value, the bunching at <span class="math inline">\(\alpha=0\)</span> should be particularly worrisome: this participant is completely selfless! In fact, we may even want to be worried about there being any appreciable mass in the <span class="math inline">\(\alpha&lt;0.5\)</span> region, as this participant would place more weight on the other’s payoff than they do their own. My own assessment of this figure is that the <span class="math inline">\(m=0.8\)</span>, <span class="math inline">\(s=0.5\)</span> panel covers the <span class="math inline">\(0.5&lt;\alpha&lt;1\)</span> region fairly well, and while not ruling it out, does not place too much mass in the <span class="math inline">\(\alpha&lt;0.5\)</span> region.</p>
+<p>While plotting alternative priors in something like Figure <a href="considerations-for-choosing-a-prior.html#fig:PriorsParameterValuesAlpha">4.2</a> can be helpful, another useful tool can be to write down a system of equations that pins down some properties that we would like the prior to have. Suppose for example that we think our prior should only place 1% probability mass on the <span class="math inline">\(\alpha&lt;0.5\)</span> region. This could be because we believe that it is highly unlikey that people will care more about the other person’s payoff than their own. This condition tells us that:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(\alpha&lt;0.5)&amp;=0.01\\
+p(\Phi^{-1}(\alpha)&lt;\Phi^{-1}(0.5))&amp;=0.01\\
+p(X&lt;0)&amp;=0.01,\quad \text{where: }X=\Phi^{-1}(\alpha)\sim N(m_\alpha,s_\alpha^2)\\
+\Phi\left(\frac{-m_\alpha}{s_\alpha}\right)&amp;=0.01\\
+-m_\alpha&amp;=-2.33s_\alpha
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\Phi(x)\)</span> is the standard normal cumulative density function, and <span class="math inline">\(\Phi^{-1}(x)\)</span> is its inverse.</p>
+<p>As we have two parameters in the prior distribution to play with, we can choose one more property of the distribution. Therefore suppose that we want 20% of the probability mass to be in the <span class="math inline">\(0.95&lt;\alpha\)</span> range, meaning that we expect there to be a large fraction of very self-regarding participants. This sets up the following equation:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(\alpha&lt;0.95)&amp;=0.8\\
+p(X&lt;1.64)&amp;=0.8\\
+\Phi\left(\frac{1.64-m_\alpha}{s_\alpha}\right)&amp;=0.8\\
+\frac{1.64-m_\alpha}{s_\alpha}&amp;=0.842\\
+m_\alpha&amp;=1.64-0.842s_\alpha
+\end{aligned}
+\]</span></p>
+<p>Adding the two conditions together gets us:</p>
+<p><span class="math display">\[
+\begin{aligned}
+0&amp;=1.64-3.17s_\alpha\\
+s_\alpha&amp; \approx 0.52
+\end{aligned}
+\]</span></p>
+<p>And then subtracting the first from the second:</p>
+<p><span class="math display">\[
+\begin{aligned}
+2m_\alpha&amp;=1.64-3.17\times 0.52+2.33\times0.52\\
+m_\alpha\approx 1.2
+\end{aligned}
+\]</span></p>
+<p>which is not too far off the prior I selected by eyeballing Figure <a href="considerations-for-choosing-a-prior.html#fig:PriorsParameterValuesAlpha">4.2</a>. Note that the parameter <span class="math inline">\(m_\alpha\)</span> pins down the prior <em>median</em> for <span class="math inline">\(\alpha\)</span>, which is <span class="math inline">\(\Phi(1.2)\approx0.88\)</span>. While an explicit expression for the mean of the probit-normal distribution does not exist, we can approximate it with Monte Carlo integration:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="considerations-for-choosing-a-prior.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="at">mean =</span> <span class="fl">1.2</span>,<span class="at">sd=</span><span class="fl">0.52</span>) <span class="sc">|&gt;</span> <span class="fu">pnorm</span>() <span class="sc">|&gt;</span> <span class="fu">mean</span>()</span></code></pre></div>
+<pre><code>## [1] 0.85508</code></pre>
+<p>Of course, if we had some estimates of our parameters from previous studies, then these could also aid us in choosing a prior. For example in <span class="citation">Bland (<a href="#ref-Bland2023" role="doc-biblioref">2023b</a>)</span>, I calibrate a prior for risk-aversion using a distribution of estimates for a treatment reported in <span class="citation">Holt and Laury (<a href="#ref-Holt2002" role="doc-biblioref">2002</a>)</span>.
+Even better than this, the population-level estimates we get from hierarchical models have exactly the right interpretation we need to be priors for individual-level parameters. Therefore, if we have existing data that could speak to the parameters of a model we want to estimate, using these data to appropriately calibrate our priors could be very helpful.</p>
+</div>
+<div id="predictions-and-other-derived-quantities-the-prior-predictive-check" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Predictions and other derived quantities: The prior predictive check<a href="considerations-for-choosing-a-prior.html#predictions-and-other-derived-quantities-the-prior-predictive-check" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A parameter like <span class="math inline">\(\alpha\)</span> can be relatively easy to interpret on its own: it represents the weight a participant places on their own payoff. However this is not always the case. For example, I find the logit choice precision parameter <span class="math inline">\(\lambda\)</span> difficult to interpret. For one thing, its units are inverse utility units, whatever they are. Furthermore, without a sense of the <em>scale</em> of payoffs in an experiment, it is difficult to know what a particular value of <span class="math inline">\(\lambda\)</span> implies for actual behavior. Fortunately, we can always transform a parameter, or group of parameters, into probabilistic predictions of behavior in our experiment (otherwise we would not be able to write down a likelihood), and so we can explore the implications of the more difficult-to-interpret parameters’ priors using these predictions. Additionally, we can also transform our parameters into other, economically meaningful quantities, that may be easier to interpret. For example in an experiment on decision-making under risk, the parameters in our structural model might permit us to compute a certainty equivalent, which is a translation of von-Neumann-Morgenstern utility units into currency. The latter I find much easier to interpret.</p>
+<p>For the logit choice precision parameter <span class="math inline">\(\lambda\)</span>, I like to think about its implications for choice <em>probabilities</em>. To see how to do this, note that for a given utility difference <span class="math inline">\(\Delta&gt;0\)</span>, the probability of choosing the action that yields the greatest utility is <span class="math inline">\((1+\exp(-\lambda\Delta))^{-1}\)</span>. Hence, if we have a sense of the scale of utility differences in our experiment, we can get a sense of the influence <span class="math inline">\(\lambda\)</span> has on choice probabilities. For <span class="citation">Bruhin, Fehr, and Schunk (<a href="#ref-BFS2019" role="doc-biblioref">2019</a>)</span> for example, we can look at the unique values of the utility difference, evaluated at the prior median <span class="math inline">\(\alpha\)</span> of 0.88:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="considerations-for-choosing-a-prior.html#cb49-1" aria-hidden="true" tabindex="-1"></a>alpha<span class="ot">&lt;-</span><span class="fl">0.88</span></span>
+<span id="cb49-2"><a href="considerations-for-choosing-a-prior.html#cb49-2" aria-hidden="true" tabindex="-1"></a>Delta<span class="ot">&lt;-</span>BFS2019 <span class="sc">|&gt;</span></span>
+<span id="cb49-3"><a href="considerations-for-choosing-a-prior.html#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">DU =</span> (alpha<span class="sc">*</span>self_x<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>alpha)<span class="sc">*</span>other_x<span class="sc">-</span>alpha<span class="sc">*</span>self_y<span class="sc">-</span>(<span class="dv">1</span><span class="sc">-</span>alpha)<span class="sc">*</span>other_y) <span class="sc">|&gt;</span> <span class="fu">abs</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb49-4"><a href="considerations-for-choosing-a-prior.html#cb49-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(DU) <span class="sc">|&gt;</span>  <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">unlist</span>() <span class="sc">|&gt;</span> <span class="fu">as.vector</span>()</span>
+<span id="cb49-5"><a href="considerations-for-choosing-a-prior.html#cb49-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-6"><a href="considerations-for-choosing-a-prior.html#cb49-6" aria-hidden="true" tabindex="-1"></a>Delta</span></code></pre></div>
+<pre><code>##  [1]  80.0 214.4 334.4 247.2 148.8 214.4 116.0  80.8 212.8 199.2 247.2 212.8
+## [13]  45.6  80.0  10.4 184.0 116.0 148.8  45.6  10.4 302.4 334.4  80.8 302.4
+## [25] 199.2  80.8  80.0 247.2 184.0  10.4 148.8 199.2  45.6 116.0</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="considerations-for-choosing-a-prior.html#cb51-1" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">expand.grid</span>(</span>
+<span id="cb51-2"><a href="considerations-for-choosing-a-prior.html#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Delta =</span> Delta,</span>
+<span id="cb51-3"><a href="considerations-for-choosing-a-prior.html#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">lambda =</span> <span class="dv">10</span><span class="sc">^</span>(<span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">1</span>,<span class="at">length=</span><span class="dv">1000</span>))</span>
+<span id="cb51-4"><a href="considerations-for-choosing-a-prior.html#cb51-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb51-5"><a href="considerations-for-choosing-a-prior.html#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb51-6"><a href="considerations-for-choosing-a-prior.html#cb51-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pr =</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span>lambda<span class="sc">*</span>Delta))</span>
+<span id="cb51-7"><a href="considerations-for-choosing-a-prior.html#cb51-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb51-8"><a href="considerations-for-choosing-a-prior.html#cb51-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-9"><a href="considerations-for-choosing-a-prior.html#cb51-9" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb51-10"><a href="considerations-for-choosing-a-prior.html#cb51-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">x=</span>lambda,<span class="at">y=</span>Pr,<span class="at">group=</span>Delta))</span>
+<span id="cb51-11"><a href="considerations-for-choosing-a-prior.html#cb51-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>()</span>
+<span id="cb51-12"><a href="considerations-for-choosing-a-prior.html#cb51-12" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb51-13"><a href="considerations-for-choosing-a-prior.html#cb51-13" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>)</span>
+<span id="cb51-14"><a href="considerations-for-choosing-a-prior.html#cb51-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(lambda))<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Probability of choosing action with higher utility&quot;</span>)</span>
+<span id="cb51-15"><a href="considerations-for-choosing-a-prior.html#cb51-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:PriorsLambdaScale"></span>
+<img src="index_files/figure-html/PriorsLambdaScale-1.png" alt="The implications of choice precision $\lambda$ on choice probabilities." width="672" />
+<p class="caption">
+Figure 4.3: The implications of choice precision <span class="math inline">\(\lambda\)</span> on choice probabilities.
+</p>
+</div>
+<p>We can then plot the logit choice rule as a function of <span class="math inline">\(\lambda\)</span> to see how choice probabilities could change with <span class="math inline">\(\lambda\)</span>. This is done in Figure <a href="considerations-for-choosing-a-prior.html#fig:PriorsLambdaScale">4.3</a>. Here we can see that for <span class="math inline">\(\lambda&lt;10^{-4}\)</span>, all decisions are effectively coin flips: we might not want to assign too much prior probability in this region. Likewise for <span class="math inline">\(\lambda&gt;1\)</span>, decisions are effectively deterministic. Suppose then, that we decide to assign 99% of our prior probability to the region <span class="math inline">\(10^{-4}&lt;\lambda&lt;1\)</span>, and use these endpoints as the 0.5th and 99.5th percentiles of the prior. This gives us a system of equations to solve for <span class="math inline">\(m_\lambda\)</span> and <span class="math inline">\(s_\lambda\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+-2.57s_\lambda&amp;=\log(10^{-4})-m_\lambda\\
+2.57s_\lambda&amp;=\log(1)-m_\lambda
+\end{aligned}
+\]</span></p>
+<p>Adding them together yields:</p>
+<p><span class="math display">\[
+\begin{aligned}
+2m_\lambda&amp;=\log(10^{-4})+\log(1)\\
+m_\lambda&amp;\approx-4.61
+\end{aligned}
+\]</span>
+Subtracting the first from the second yields:</p>
+<p><span class="math display">\[
+\begin{aligned}
+2\times2.57 s_\lambda &amp;=\log(1)-\log(10^{-4})\\
+s_\lambda&amp;\approx 1.79
+\end{aligned}
+\]</span></p>
+<p>If we code it up the right way, we can also have our <em>Stan</em> model help us in choosing a prior. This is because we can always turn off the likelihood contribution with an appropriately-placed <code>if</code> statement. This is done using the <code>UseData</code> variable in the <em>Stan</em> model above. For the calibrated priors for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\lambda\)</span>, I simulate the <em>prior predictive</em> distribution of choices. I then summarize these distributions in Figure <a href="considerations-for-choosing-a-prior.html#fig:PriorsStanPriorCheck">4.4</a>. This provides a useful “sanity check” to test whether or not our priors are implying anything weird about choices in the experiment.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="considerations-for-choosing-a-prior.html#cb52-1" aria-hidden="true" tabindex="-1"></a>PriorCheck<span class="ot">&lt;-</span><span class="st">&quot;Code/Priors/priorCheck.rds&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb52-2"><a href="considerations-for-choosing-a-prior.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">readRDS</span>() <span class="sc">|&gt;</span></span>
+<span id="cb52-3"><a href="considerations-for-choosing-a-prior.html#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb52-4"><a href="considerations-for-choosing-a-prior.html#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(mean)</span>
+<span id="cb52-5"><a href="considerations-for-choosing-a-prior.html#cb52-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-6"><a href="considerations-for-choosing-a-prior.html#cb52-6" aria-hidden="true" tabindex="-1"></a>PriorCheck<span class="ot">&lt;-</span>PriorCheck[<span class="fu">rownames</span>(PriorCheck)<span class="sc">!=</span><span class="st">&quot;lp__&quot;</span>,]</span>
+<span id="cb52-7"><a href="considerations-for-choosing-a-prior.html#cb52-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb52-8"><a href="considerations-for-choosing-a-prior.html#cb52-8" aria-hidden="true" tabindex="-1"></a>PriorCheck<span class="ot">&lt;-</span>PriorCheck <span class="sc">|&gt;</span></span>
+<span id="cb52-9"><a href="considerations-for-choosing-a-prior.html#cb52-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cumul =</span> (<span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())<span class="sc">/</span><span class="fu">n</span>())</span>
+<span id="cb52-10"><a href="considerations-for-choosing-a-prior.html#cb52-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-11"><a href="considerations-for-choosing-a-prior.html#cb52-11" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb52-12"><a href="considerations-for-choosing-a-prior.html#cb52-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(PriorCheck,<span class="fu">aes</span>(<span class="at">x=</span>mean,<span class="at">y=</span>cumul))</span>
+<span id="cb52-13"><a href="considerations-for-choosing-a-prior.html#cb52-13" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb52-14"><a href="considerations-for-choosing-a-prior.html#cb52-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> X25.,<span class="at">xmax =</span> X75.))</span>
+<span id="cb52-15"><a href="considerations-for-choosing-a-prior.html#cb52-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> X2.<span class="fl">5.</span>,<span class="at">xmax =</span> X97.<span class="fl">5.</span>),<span class="at">alpha=</span><span class="fl">0.2</span>)</span>
+<span id="cb52-16"><a href="considerations-for-choosing-a-prior.html#cb52-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb52-17"><a href="considerations-for-choosing-a-prior.html#cb52-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Cumulative density of prior mean&quot;</span>)</span>
+<span id="cb52-18"><a href="considerations-for-choosing-a-prior.html#cb52-18" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Choice probability&quot;</span>)</span>
+<span id="cb52-19"><a href="considerations-for-choosing-a-prior.html#cb52-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:PriorsStanPriorCheck"></span>
+<img src="index_files/figure-html/PriorsStanPriorCheck-1.png" alt="Prior distribution of choice probabilities. Dots show prior means. Heavy error bars show a 50% Bayesian credible region, and light error bars show a 95% Bayesian credible region." width="672" />
+<p class="caption">
+Figure 4.4: Prior distribution of choice probabilities. Dots show prior means. Heavy error bars show a 50% Bayesian credible region, and light error bars show a 95% Bayesian credible region.
+</p>
+</div>
+</div>
+</div>
+<div id="assessing-the-sampling-performance-of-a-prior" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Assessing the sampling performance of a prior<a href="considerations-for-choosing-a-prior.html#assessing-the-sampling-performance-of-a-prior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Another way to investigate the implications of a prior is to explore the sampling properties of our estimator. As we have a probabilistic model, this can be done through simulation. That is, since we have a likelihood, we can draw simulated data from <span class="math inline">\(y\mid \theta\)</span>, the distribution of <span class="math inline">\(y\)</span> given a specific realization of parameters <span class="math inline">\(\theta\)</span>. Furthermore, since we also have a prior, we can simulate data that are consistent with our prior belief about these <span class="math inline">\(\theta\)</span>s. In particular, the following simulation process:</p>
+<ol style="list-style-type: decimal">
+<li>Draw parameters <span class="math inline">\(\tilde\theta\)</span> from the prior</li>
+<li>Draw data <span class="math inline">\(y\mid\tilde\theta\)</span> using the likelihood</li>
+<li>Simulate the posterior <span class="math inline">\(\theta\mid y\)</span> using the simulated data.</li>
+</ol>
+<p>produces data (in step 2) and estimates (in step 3) that are consistent with our prior. This information will let us do two important diagnostics of our estimation process. Firstly, we can ask if the model <em>recovers its parameters well</em>. That is, are our estimates <span class="math inline">\(\hat\theta\)</span> in some sense “close” to their true value <span class="math inline">\(\theta\)</span>? Secondly, we can check whether our model is showing any pathologies by comparing the posterior distributions to the prior distribution. That is if all is working correctly, then draws from the prior in step 1 should have the same distribution as the posterior draws from step 3.</p>
+<p>I demonstrate how this simulation is done in the <em>R</em> code at the end of this chapter. Basically, we first use <em>Stan</em> to get us some parameter draws from the prior distribution, and one simulated dataset consistent with each of these prior draws. I do this by running my <em>Stan</em> program with the <code>UseData</code> variable set to zero. Then for each of these simulated datasets, we fit the model and store the posterior draws.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
+<div id="does-our-model-recover-its-parameters-well" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Does our model recover its parameters well?<a href="considerations-for-choosing-a-prior.html#does-our-model-recover-its-parameters-well" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A useful diagnostic for our model is to ask whether it estimates our parameters or quantities of interest well. Using the simulation described above, we can compare our posterior means to the prior draws that generated them. I show an example of this in Figure <a href="considerations-for-choosing-a-prior.html#fig:PriorsParamRecoveryAlphaBayes">4.5</a>. Each dot represents a simulated dataset, with the horizontal coordinate equal to the (true) prior draw of <span class="math inline">\(\alpha\)</span> that generated the dataset, and the vertical coordinate equal to the posterior mean of <span class="math inline">\(\alpha\)</span>. Ideally, all of these points would fall on the <span class="math inline">\(45^\circ\)</span> line (red dashed line), however we can expect the posterior mean to be pulled at least a little bit toward the prior mean, hence the smoothed fit (blue curve) crossing the <span class="math inline">\(45^\circ\)</span> line. Of course, this plot is just as much a function of your chosen prior as it is of your likelihood and experiment design. If this plot is not to your liking, then re-designing your experiment at this stage could go a long way.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a></p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="considerations-for-choosing-a-prior.html#cb53-1" aria-hidden="true" tabindex="-1"></a>ParamRecovery<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;Code/Priors/SimSummary.rds&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb53-2"><a href="considerations-for-choosing-a-prior.html#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SimStep,alpha_true,lambda_true,alpha_MLE,lambda_MLE) <span class="sc">|&gt;</span></span>
+<span id="cb53-3"><a href="considerations-for-choosing-a-prior.html#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">alpha =</span> <span class="fu">mean</span>(alpha),<span class="at">lambda =</span> <span class="fu">mean</span>(lambda))</span>
+<span id="cb53-4"><a href="considerations-for-choosing-a-prior.html#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="considerations-for-choosing-a-prior.html#cb53-5" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb53-6"><a href="considerations-for-choosing-a-prior.html#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(ParamRecovery,<span class="fu">aes</span>(<span class="at">x=</span>alpha_true,<span class="at">y=</span>alpha))</span>
+<span id="cb53-7"><a href="considerations-for-choosing-a-prior.html#cb53-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">1</span>,<span class="at">alpha=</span><span class="fl">0.5</span>)</span>
+<span id="cb53-8"><a href="considerations-for-choosing-a-prior.html#cb53-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb53-9"><a href="considerations-for-choosing-a-prior.html#cb53-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">slope=</span><span class="dv">1</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>,<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb53-10"><a href="considerations-for-choosing-a-prior.html#cb53-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">formula=</span><span class="st">&quot;y~x&quot;</span>,<span class="at">method=</span><span class="st">&quot;loess&quot;</span>)</span>
+<span id="cb53-11"><a href="considerations-for-choosing-a-prior.html#cb53-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">pnorm</span>(<span class="fl">1.2</span>),<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb53-12"><a href="considerations-for-choosing-a-prior.html#cb53-12" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;True value&quot;</span>)</span>
+<span id="cb53-13"><a href="considerations-for-choosing-a-prior.html#cb53-13" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Posterior mean&quot;</span>)</span>
+<span id="cb53-14"><a href="considerations-for-choosing-a-prior.html#cb53-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb53-15"><a href="considerations-for-choosing-a-prior.html#cb53-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:PriorsParamRecoveryAlphaBayes"></span>
+<img src="index_files/figure-html/PriorsParamRecoveryAlphaBayes-1.png" alt="Parameter recovery plot for $\alpha$" width="672" />
+<p class="caption">
+Figure 4.5: Parameter recovery plot for <span class="math inline">\(\alpha\)</span>
+</p>
+</div>
+<p>In fairness to the Bayesian model, I also did the same exercise using the maximum likelihood estimator. The calibration plot can be seen below in Figure <a href="considerations-for-choosing-a-prior.html#fig:PriorsParamRecoveryAlphaMLE">4.6</a>. Here there is clearly much more variance in the estimates, with a fair number of instances where the estimate falls at one of the endpoints of the parameter space.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="considerations-for-choosing-a-prior.html#cb54-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb54-2"><a href="considerations-for-choosing-a-prior.html#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(ParamRecovery,<span class="fu">aes</span>(<span class="at">x=</span>alpha_true,<span class="at">y=</span>alpha_MLE))</span>
+<span id="cb54-3"><a href="considerations-for-choosing-a-prior.html#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">1</span>,<span class="at">alpha=</span><span class="fl">0.5</span>)</span>
+<span id="cb54-4"><a href="considerations-for-choosing-a-prior.html#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb54-5"><a href="considerations-for-choosing-a-prior.html#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">slope=</span><span class="dv">1</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>,<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb54-6"><a href="considerations-for-choosing-a-prior.html#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">formula=</span><span class="st">&quot;y~x&quot;</span>,<span class="at">method=</span><span class="st">&quot;loess&quot;</span>)</span>
+<span id="cb54-7"><a href="considerations-for-choosing-a-prior.html#cb54-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">pnorm</span>(<span class="fl">1.2</span>),<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb54-8"><a href="considerations-for-choosing-a-prior.html#cb54-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;True value&quot;</span>)</span>
+<span id="cb54-9"><a href="considerations-for-choosing-a-prior.html#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Posterior mean&quot;</span>)</span>
+<span id="cb54-10"><a href="considerations-for-choosing-a-prior.html#cb54-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb54-11"><a href="considerations-for-choosing-a-prior.html#cb54-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:PriorsParamRecoveryAlphaMLE"></span>
+<img src="index_files/figure-html/PriorsParamRecoveryAlphaMLE-1.png" alt="Parameter recovery plot for $\alpha$ using maximum likelihood estimation" width="672" />
+<p class="caption">
+Figure 4.6: Parameter recovery plot for <span class="math inline">\(\alpha\)</span> using maximum likelihood estimation
+</p>
+</div>
+</div>
+<div id="do-we-see-any-pathologies-in-the-estimation-process" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Do we see any pathologies in the estimation process?<a href="considerations-for-choosing-a-prior.html#do-we-see-any-pathologies-in-the-estimation-process" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Another sanity check for our prior and model that we can do with the above simulation process is to compare the draws from the prior to the draws from the posteriors. This is because the <em>average</em> posterior distribution should be the prior distribution (see <span class="citation">Betancourt (<a href="#ref-Betancourt2020" role="doc-biblioref">2020</a>)</span> Section 1.2). We can do this by computing the rank of each prior draw within its corresponding posterior distribution (that we estimated using the dataset simulated from that prior draw). Then, if we plot the histogram of these ranks, we should get something close to a uniform distribution, which is what we get in Figure <a href="considerations-for-choosing-a-prior.html#fig:PriorsSimulationBasedCalibrationHist">4.7</a>. I show these histograms alongside a 95% range for the binomial distribution (using the normal approximation) in order to give you a perspective for what normal statistical variation should look like.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> It is common for computational problems to manifest themselves in easy-to recognize ways in these plots <span class="citation">(<a href="#ref-Betancourt2020" role="doc-biblioref">Betancourt 2020</a>)</span>.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="considerations-for-choosing-a-prior.html#cb55-1" aria-hidden="true" tabindex="-1"></a>Rank<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;Code/Priors/SimSummary.rds&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb55-2"><a href="considerations-for-choosing-a-prior.html#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SimStep) <span class="sc">|&gt;</span></span>
+<span id="cb55-3"><a href="considerations-for-choosing-a-prior.html#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb55-4"><a href="considerations-for-choosing-a-prior.html#cb55-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fu">sum</span>(<span class="fu">mean</span>(alpha_true)<span class="sc">&lt;</span>alpha),</span>
+<span id="cb55-5"><a href="considerations-for-choosing-a-prior.html#cb55-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">lambda =</span> <span class="fu">sum</span>(<span class="fu">mean</span>(lambda_true)<span class="sc">&lt;</span>lambda),</span>
+<span id="cb55-6"><a href="considerations-for-choosing-a-prior.html#cb55-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb55-7"><a href="considerations-for-choosing-a-prior.html#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(alpha,lambda),<span class="at">names_to=</span><span class="st">&quot;parameter&quot;</span>,<span class="at">values_to =</span> <span class="st">&quot;rank&quot;</span>)</span>
+<span id="cb55-8"><a href="considerations-for-choosing-a-prior.html#cb55-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-9"><a href="considerations-for-choosing-a-prior.html#cb55-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-10"><a href="considerations-for-choosing-a-prior.html#cb55-10" aria-hidden="true" tabindex="-1"></a>SimSize<span class="ot">&lt;-</span>Rank<span class="sc">$</span>SimStep <span class="sc">|&gt;</span> <span class="fu">max</span>()</span>
+<span id="cb55-11"><a href="considerations-for-choosing-a-prior.html#cb55-11" aria-hidden="true" tabindex="-1"></a>nbins<span class="ot">&lt;-</span><span class="dv">20</span></span>
+<span id="cb55-12"><a href="considerations-for-choosing-a-prior.html#cb55-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-13"><a href="considerations-for-choosing-a-prior.html#cb55-13" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb55-14"><a href="considerations-for-choosing-a-prior.html#cb55-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(Rank,<span class="fu">aes</span>(<span class="at">x=</span>rank))</span>
+<span id="cb55-15"><a href="considerations-for-choosing-a-prior.html#cb55-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="at">bins=</span>nbins)</span>
+<span id="cb55-16"><a href="considerations-for-choosing-a-prior.html#cb55-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>parameter)</span>
+<span id="cb55-17"><a href="considerations-for-choosing-a-prior.html#cb55-17" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb55-18"><a href="considerations-for-choosing-a-prior.html#cb55-18" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> SimSize<span class="sc">/</span>nbins,<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb55-19"><a href="considerations-for-choosing-a-prior.html#cb55-19" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> SimSize<span class="sc">/</span>nbins<span class="fl">+1.96</span><span class="sc">*</span><span class="fu">sqrt</span>(SimSize<span class="sc">*</span>(<span class="dv">1</span><span class="sc">/</span>nbins)<span class="sc">*</span>(<span class="dv">1-1</span><span class="sc">/</span>nbins)),<span class="at">color=</span><span class="st">&quot;red&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb55-20"><a href="considerations-for-choosing-a-prior.html#cb55-20" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> SimSize<span class="sc">/</span>nbins<span class="fl">-1.96</span><span class="sc">*</span><span class="fu">sqrt</span>(SimSize<span class="sc">*</span>(<span class="dv">1</span><span class="sc">/</span>nbins)<span class="sc">*</span>(<span class="dv">1-1</span><span class="sc">/</span>nbins)),<span class="at">color=</span><span class="st">&quot;red&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb55-21"><a href="considerations-for-choosing-a-prior.html#cb55-21" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:PriorsSimulationBasedCalibrationHist"></span>
+<img src="index_files/figure-html/PriorsSimulationBasedCalibrationHist-1.png" alt="Histograms of ranks of prior draws within their corresponding posterior simulations." width="672" />
+<p class="caption">
+Figure 4.7: Histograms of ranks of prior draws within their corresponding posterior simulations.
+</p>
+</div>
+<p>Alternatively, we could visualize these ranks as an empirical cumulative density function, as I have done in Figure <a href="considerations-for-choosing-a-prior.html#fig:PriorsSimulationBasedCalibrationECDF">4.8</a>. Here, we are hoping that the plot will be of a straight line.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="considerations-for-choosing-a-prior.html#cb56-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb56-2"><a href="considerations-for-choosing-a-prior.html#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(Rank,<span class="fu">aes</span>(<span class="at">x=</span>rank))</span>
+<span id="cb56-3"><a href="considerations-for-choosing-a-prior.html#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_ecdf</span>()</span>
+<span id="cb56-4"><a href="considerations-for-choosing-a-prior.html#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>parameter)</span>
+<span id="cb56-5"><a href="considerations-for-choosing-a-prior.html#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb56-6"><a href="considerations-for-choosing-a-prior.html#cb56-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">slope =</span> <span class="dv">1</span><span class="sc">/</span>SimSize,<span class="at">color=</span><span class="st">&quot;red&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb56-7"><a href="considerations-for-choosing-a-prior.html#cb56-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:PriorsSimulationBasedCalibrationECDF"></span>
+<img src="index_files/figure-html/PriorsSimulationBasedCalibrationECDF-1.png" alt="Empirical cumulative density function of ranks of prior draws within their corresponding posterior simulations. Dashed red line shows the ideal case of a uniform distribution." width="672" />
+<p class="caption">
+Figure 4.8: Empirical cumulative density function of ranks of prior draws within their corresponding posterior simulations. Dashed red line shows the ideal case of a uniform distribution.
+</p>
+</div>
+</div>
+</div>
+<div id="r-code-used-for-this-chapter" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> <em>R</em> code used for this chapter<a href="considerations-for-choosing-a-prior.html#r-code-used-for-this-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="considerations-for-choosing-a-prior.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb57-2"><a href="considerations-for-choosing-a-prior.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb57-3"><a href="considerations-for-choosing-a-prior.html#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># These models estimate a lot faster without parallelization</span></span>
+<span id="cb57-4"><a href="considerations-for-choosing-a-prior.html#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This is because the initialization of the cores takes much</span></span>
+<span id="cb57-5"><a href="considerations-for-choosing-a-prior.html#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># longer than the estimation itself</span></span>
+<span id="cb57-6"><a href="considerations-for-choosing-a-prior.html#cb57-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">mc.cores =</span> <span class="dv">1</span>)</span>
+<span id="cb57-7"><a href="considerations-for-choosing-a-prior.html#cb57-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#options(mc.cores = parallel::detectCores())</span></span>
+<span id="cb57-8"><a href="considerations-for-choosing-a-prior.html#cb57-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb57-9"><a href="considerations-for-choosing-a-prior.html#cb57-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rstan_options</span>(<span class="at">threads_per_chain =</span> <span class="dv">1</span>)</span>
+<span id="cb57-10"><a href="considerations-for-choosing-a-prior.html#cb57-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb57-11"><a href="considerations-for-choosing-a-prior.html#cb57-11" aria-hidden="true" tabindex="-1"></a>model<span class="ot">&lt;-</span><span class="fu">stan_model</span>(<span class="st">&quot;Code/Priors/BFS2019priors.stan&quot;</span>)</span>
+<span id="cb57-12"><a href="considerations-for-choosing-a-prior.html#cb57-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-13"><a href="considerations-for-choosing-a-prior.html#cb57-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb57-14"><a href="considerations-for-choosing-a-prior.html#cb57-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-15"><a href="considerations-for-choosing-a-prior.html#cb57-15" aria-hidden="true" tabindex="-1"></a>d1<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp1.csv&quot;</span>)</span>
+<span id="cb57-16"><a href="considerations-for-choosing-a-prior.html#cb57-16" aria-hidden="true" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">1</span>)</span>
+<span id="cb57-17"><a href="considerations-for-choosing-a-prior.html#cb57-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb57-18"><a href="considerations-for-choosing-a-prior.html#cb57-18" aria-hidden="true" tabindex="-1"></a>d2<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp2.csv&quot;</span>)</span>
+<span id="cb57-19"><a href="considerations-for-choosing-a-prior.html#cb57-19" aria-hidden="true" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">2</span>)    </span>
+<span id="cb57-20"><a href="considerations-for-choosing-a-prior.html#cb57-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb57-21"><a href="considerations-for-choosing-a-prior.html#cb57-21" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>(<span class="fu">rbind</span>(d1,d2)</span>
+<span id="cb57-22"><a href="considerations-for-choosing-a-prior.html#cb57-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Just use the dictator game data</span></span>
+<span id="cb57-23"><a href="considerations-for-choosing-a-prior.html#cb57-23" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">filter</span>(dg<span class="sc">==</span><span class="dv">1</span>)  </span>
+<span id="cb57-24"><a href="considerations-for-choosing-a-prior.html#cb57-24" aria-hidden="true" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
+<span id="cb57-25"><a href="considerations-for-choosing-a-prior.html#cb57-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">self_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,self_x,self_y),</span>
+<span id="cb57-26"><a href="considerations-for-choosing-a-prior.html#cb57-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">other_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,other_x,other_y)</span>
+<span id="cb57-27"><a href="considerations-for-choosing-a-prior.html#cb57-27" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb57-28"><a href="considerations-for-choosing-a-prior.html#cb57-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb57-29"><a href="considerations-for-choosing-a-prior.html#cb57-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-30"><a href="considerations-for-choosing-a-prior.html#cb57-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Data from just one participant</span></span>
+<span id="cb57-31"><a href="considerations-for-choosing-a-prior.html#cb57-31" aria-hidden="true" tabindex="-1"></a>BFS2019<span class="ot">&lt;-</span>D <span class="sc">|&gt;</span> <span class="fu">filter</span>(sid<span class="sc">==</span><span class="dv">102010050706</span>)</span>
+<span id="cb57-32"><a href="considerations-for-choosing-a-prior.html#cb57-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-33"><a href="considerations-for-choosing-a-prior.html#cb57-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking that it works</span></span>
+<span id="cb57-34"><a href="considerations-for-choosing-a-prior.html#cb57-34" aria-hidden="true" tabindex="-1"></a>dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb57-35"><a href="considerations-for-choosing-a-prior.html#cb57-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">dim</span>(BFS2019)[<span class="dv">1</span>],</span>
+<span id="cb57-36"><a href="considerations-for-choosing-a-prior.html#cb57-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> BFS2019<span class="sc">$</span>choice_x,</span>
+<span id="cb57-37"><a href="considerations-for-choosing-a-prior.html#cb57-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">self_x =</span> BFS2019<span class="sc">$</span>self_x,</span>
+<span id="cb57-38"><a href="considerations-for-choosing-a-prior.html#cb57-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">self_y =</span> BFS2019<span class="sc">$</span>self_y,</span>
+<span id="cb57-39"><a href="considerations-for-choosing-a-prior.html#cb57-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">other_x =</span> BFS2019<span class="sc">$</span>other_x,</span>
+<span id="cb57-40"><a href="considerations-for-choosing-a-prior.html#cb57-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">other_y =</span> BFS2019<span class="sc">$</span>other_y,</span>
+<span id="cb57-41"><a href="considerations-for-choosing-a-prior.html#cb57-41" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb57-42"><a href="considerations-for-choosing-a-prior.html#cb57-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">prior_lambda =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">4.61</span>,<span class="fl">1.79</span>),</span>
+<span id="cb57-43"><a href="considerations-for-choosing-a-prior.html#cb57-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">prior_alpha =</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="fl">0.52</span>),</span>
+<span id="cb57-44"><a href="considerations-for-choosing-a-prior.html#cb57-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">UseData =</span> <span class="dv">1</span>,</span>
+<span id="cb57-45"><a href="considerations-for-choosing-a-prior.html#cb57-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">UsePrior =</span> <span class="dv">1</span></span>
+<span id="cb57-46"><a href="considerations-for-choosing-a-prior.html#cb57-46" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb57-47"><a href="considerations-for-choosing-a-prior.html#cb57-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-48"><a href="considerations-for-choosing-a-prior.html#cb57-48" aria-hidden="true" tabindex="-1"></a>Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(model,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)  </span>
+<span id="cb57-49"><a href="considerations-for-choosing-a-prior.html#cb57-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-50"><a href="considerations-for-choosing-a-prior.html#cb57-50" aria-hidden="true" tabindex="-1"></a><span class="do">## Simulating the prior distribution of choices</span></span>
+<span id="cb57-51"><a href="considerations-for-choosing-a-prior.html#cb57-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-52"><a href="considerations-for-choosing-a-prior.html#cb57-52" aria-hidden="true" tabindex="-1"></a>dStan<span class="sc">$</span>UseData<span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb57-53"><a href="considerations-for-choosing-a-prior.html#cb57-53" aria-hidden="true" tabindex="-1"></a>Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(model,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>,</span>
+<span id="cb57-54"><a href="considerations-for-choosing-a-prior.html#cb57-54" aria-hidden="true" tabindex="-1"></a>              <span class="at">pars =</span> <span class="st">&quot;probX&quot;</span>,<span class="at">include=</span><span class="cn">TRUE</span>)  </span>
+<span id="cb57-55"><a href="considerations-for-choosing-a-prior.html#cb57-55" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(<span class="st">&quot;Code/Priors/priorCheck.rds&quot;</span>)</span>
+<span id="cb57-56"><a href="considerations-for-choosing-a-prior.html#cb57-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-57"><a href="considerations-for-choosing-a-prior.html#cb57-57" aria-hidden="true" tabindex="-1"></a><span class="do">## Simulating some data from the prior, then estimating the models</span></span>
+<span id="cb57-58"><a href="considerations-for-choosing-a-prior.html#cb57-58" aria-hidden="true" tabindex="-1"></a><span class="co"># using those data</span></span>
+<span id="cb57-59"><a href="considerations-for-choosing-a-prior.html#cb57-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-60"><a href="considerations-for-choosing-a-prior.html#cb57-60" aria-hidden="true" tabindex="-1"></a>SimData<span class="ot">&lt;-</span><span class="fu">sampling</span>(model,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>,</span>
+<span id="cb57-61"><a href="considerations-for-choosing-a-prior.html#cb57-61" aria-hidden="true" tabindex="-1"></a>              <span class="at">pars =</span> <span class="st">&quot;probX&quot;</span>,<span class="at">include=</span><span class="cn">FALSE</span>)</span>
+<span id="cb57-62"><a href="considerations-for-choosing-a-prior.html#cb57-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-63"><a href="considerations-for-choosing-a-prior.html#cb57-63" aria-hidden="true" tabindex="-1"></a>SIMDATA<span class="ot">&lt;-</span><span class="fu">extract</span>(SimData)<span class="sc">$</span>simX</span>
+<span id="cb57-64"><a href="considerations-for-choosing-a-prior.html#cb57-64" aria-hidden="true" tabindex="-1"></a>  SIMDATA <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(<span class="st">&quot;Code/Priors/SimData.rds&quot;</span>)</span>
+<span id="cb57-65"><a href="considerations-for-choosing-a-prior.html#cb57-65" aria-hidden="true" tabindex="-1"></a>alpha<span class="ot">&lt;-</span><span class="fu">extract</span>(SimData)<span class="sc">$</span>alpha</span>
+<span id="cb57-66"><a href="considerations-for-choosing-a-prior.html#cb57-66" aria-hidden="true" tabindex="-1"></a>lambda<span class="ot">&lt;-</span><span class="fu">extract</span>(SimData)<span class="sc">$</span>lambda</span>
+<span id="cb57-67"><a href="considerations-for-choosing-a-prior.html#cb57-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-68"><a href="considerations-for-choosing-a-prior.html#cb57-68" aria-hidden="true" tabindex="-1"></a>dStan<span class="sc">$</span>UseData<span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb57-69"><a href="considerations-for-choosing-a-prior.html#cb57-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-70"><a href="considerations-for-choosing-a-prior.html#cb57-70" aria-hidden="true" tabindex="-1"></a>SimSummary<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
+<span id="cb57-71"><a href="considerations-for-choosing-a-prior.html#cb57-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-72"><a href="considerations-for-choosing-a-prior.html#cb57-72" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (ss <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(SIMDATA)[<span class="dv">1</span>]) {</span>
+<span id="cb57-73"><a href="considerations-for-choosing-a-prior.html#cb57-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Sim step&quot;</span>,ss,<span class="st">&quot;of&quot;</span>,<span class="fu">dim</span>(SIMDATA)[<span class="dv">1</span>]))</span>
+<span id="cb57-74"><a href="considerations-for-choosing-a-prior.html#cb57-74" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb57-75"><a href="considerations-for-choosing-a-prior.html#cb57-75" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Estimate the model</span></span>
+<span id="cb57-76"><a href="considerations-for-choosing-a-prior.html#cb57-76" aria-hidden="true" tabindex="-1"></a>  dStan<span class="sc">$</span>y<span class="ot">&lt;-</span>SIMDATA[ss,] <span class="sc">|&gt;</span> <span class="fu">as.vector</span>()</span>
+<span id="cb57-77"><a href="considerations-for-choosing-a-prior.html#cb57-77" aria-hidden="true" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(model,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>,</span>
+<span id="cb57-78"><a href="considerations-for-choosing-a-prior.html#cb57-78" aria-hidden="true" tabindex="-1"></a>                <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">&quot;alpha&quot;</span>,<span class="st">&quot;lambda&quot;</span>),<span class="at">include=</span><span class="cn">TRUE</span>)</span>
+<span id="cb57-79"><a href="considerations-for-choosing-a-prior.html#cb57-79" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb57-80"><a href="considerations-for-choosing-a-prior.html#cb57-80" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Also check to see what the MLE looks like</span></span>
+<span id="cb57-81"><a href="considerations-for-choosing-a-prior.html#cb57-81" aria-hidden="true" tabindex="-1"></a>  dStanMLE<span class="ot">&lt;-</span>dStan</span>
+<span id="cb57-82"><a href="considerations-for-choosing-a-prior.html#cb57-82" aria-hidden="true" tabindex="-1"></a>  dStanMLE<span class="sc">$</span>UsePrior<span class="ot">&lt;-</span><span class="dv">0</span></span>
+<span id="cb57-83"><a href="considerations-for-choosing-a-prior.html#cb57-83" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb57-84"><a href="considerations-for-choosing-a-prior.html#cb57-84" aria-hidden="true" tabindex="-1"></a>  MLE<span class="ot">&lt;-</span><span class="fu">optimizing</span>(model,<span class="at">data=</span>dStanMLE,<span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb57-85"><a href="considerations-for-choosing-a-prior.html#cb57-85" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb57-86"><a href="considerations-for-choosing-a-prior.html#cb57-86" aria-hidden="true" tabindex="-1"></a>  SimSummary<span class="ot">&lt;-</span><span class="fu">rbind</span>(</span>
+<span id="cb57-87"><a href="considerations-for-choosing-a-prior.html#cb57-87" aria-hidden="true" tabindex="-1"></a>    SimSummary,</span>
+<span id="cb57-88"><a href="considerations-for-choosing-a-prior.html#cb57-88" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
+<span id="cb57-89"><a href="considerations-for-choosing-a-prior.html#cb57-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">SimStep =</span> ss,</span>
+<span id="cb57-90"><a href="considerations-for-choosing-a-prior.html#cb57-90" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha_true =</span> alpha[ss],</span>
+<span id="cb57-91"><a href="considerations-for-choosing-a-prior.html#cb57-91" aria-hidden="true" tabindex="-1"></a>    <span class="at">lambda_true =</span> lambda[ss],</span>
+<span id="cb57-92"><a href="considerations-for-choosing-a-prior.html#cb57-92" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fu">extract</span>(Fit)<span class="sc">$</span>alpha,</span>
+<span id="cb57-93"><a href="considerations-for-choosing-a-prior.html#cb57-93" aria-hidden="true" tabindex="-1"></a>    <span class="at">lambda =</span> <span class="fu">extract</span>(Fit)<span class="sc">$</span>lambda,</span>
+<span id="cb57-94"><a href="considerations-for-choosing-a-prior.html#cb57-94" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha_MLE =</span> MLE<span class="sc">$</span>par[<span class="st">&quot;alpha&quot;</span>],</span>
+<span id="cb57-95"><a href="considerations-for-choosing-a-prior.html#cb57-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">lambda_MLE =</span> MLE<span class="sc">$</span>par[<span class="st">&quot;lambda&quot;</span>]</span>
+<span id="cb57-96"><a href="considerations-for-choosing-a-prior.html#cb57-96" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb57-97"><a href="considerations-for-choosing-a-prior.html#cb57-97" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb57-98"><a href="considerations-for-choosing-a-prior.html#cb57-98" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb57-99"><a href="considerations-for-choosing-a-prior.html#cb57-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-100"><a href="considerations-for-choosing-a-prior.html#cb57-100" aria-hidden="true" tabindex="-1"></a>SimSummary <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(<span class="st">&quot;Code/Priors/SimSummary.rds&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Betancourt2020" class="csl-entry">
+Betancourt, Michael. 2020. <span>“Towards a Principled Bayesian Workflow.”</span> <a href="https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html">https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html</a>.
+</div>
+<div id="ref-Bland2023" class="csl-entry">
+———. 2023b. <span>“Bayesian Model Selection and Prior Calibration for Models of Behavior in Economic Experiments.”</span> <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4334267">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4334267</a>.
+</div>
+<div id="ref-BFS2019" class="csl-entry">
+Bruhin, Adrian, Ernst Fehr, and Daniel Schunk. 2019. <span>“The Many Faces of Human Sociality: Uncovering the Distribution and Stability of Social Preferences.”</span> <em>Journal of the European Economic Association</em> 17 (4): 1025–69.
+</div>
+<div id="ref-Holt2002" class="csl-entry">
+Holt, Charles A, and Susan K Laury. 2002. <span>“Risk Aversion and Incentive Effects.”</span> <em>American Economic Review</em> 92 (5): 1644–55.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="10">
+<li id="fn10"><p>Probably the biggest difference other than the prior is the differing approach to dealing with unobservable heterogeneity, which we will get to in the hierarchical models chapter.<a href="considerations-for-choosing-a-prior.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>If you have read other chapters of this book, you can see that I am a big fan of using this technique, at least as a starting point.<a href="considerations-for-choosing-a-prior.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>Coupled with the logit probabilistic choice rule, this means we will have two parameters total. This makes plotting parameter values much easier compared to a 3+ parameter model.<a href="considerations-for-choosing-a-prior.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>The process is simple, but took a while (a couple of hours on my laptop). If you’re playing at home, now would be a good time to slay a few lynels.<a href="considerations-for-choosing-a-prior.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>For this experiment in particular, which was not designed to estimate this utility function, I suspect that including more decisions where the allocations are connected by a line segment with a negative slope would improve this plot dramatically. This is because the indifference curves of the utility function that we are using will be downward-sloping, parallel, straight lines. <span class="citation">Bruhin, Fehr, and Schunk (<a href="#ref-BFS2019" role="doc-biblioref">2019</a>)</span> designed this experiment with inequality-aversion in mind, rather than the efficiency-loving model that I use here. <a href="considerations-for-choosing-a-prior.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p><span class="citation">Betancourt (<a href="#ref-Betancourt2020" role="doc-biblioref">2020</a>)</span> also does this, it is not my original idea.<a href="considerations-for-choosing-a-prior.html#fnref15" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="probabilistic-models-of-behavior.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="building-blocks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
