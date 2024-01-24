@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Building blocks | Structural Bayesian Techniques for Experimental and Behavioral Economics</title>
   <meta name="description" content="Building blocks | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Building blocks | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="James R. Bland" />
 
 
-<meta name="date" content="2024-01-23" />
+<meta name="date" content="2024-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -94,7 +94,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +107,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -240,7 +240,7 @@ div.csl-indent {
 <li class="chapter" data-level="6.4.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#decomposing-the-variance-covariance-matrix"><i class="fa fa-check"></i><b>6.4.1</b> Decomposing the variance-covariance matrix</a></li>
 <li class="chapter" data-level="6.4.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#transformed-parameters-and-normal-distributions"><i class="fa fa-check"></i><b>6.4.2</b> Transformed parameters and normal distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="hierarchical-models.html"><a href="hierarchical-models.html#example-again-with-bfs2019"><i class="fa fa-check"></i><b>6.5</b> Example: again with <span class="citation">Bruhin, Fehr, and Schunk (<span>2019</span>)</span></a>
+<li class="chapter" data-level="6.5" data-path="hierarchical-models.html"><a href="hierarchical-models.html#example-again-with-bfs2019"><i class="fa fa-check"></i><b>6.5</b> Example: again with <span class="citation">Bruhin, Fehr, and Schunk (2019)</span></a>
 <ul>
 <li class="chapter" data-level="6.5.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#no-correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>6.5.1</b> No correlation between individual-level parameters</a></li>
 <li class="chapter" data-level="6.5.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>6.5.2</b> Correlation between individual-level parameters</a></li>
@@ -251,120 +251,138 @@ div.csl-indent {
 <li class="chapter" data-level="7.1" data-path="mixture-models.html"><a href="mixture-models.html#a-menu-of-models"><i class="fa fa-check"></i><b>7.1</b> A menu of models</a></li>
 <li class="chapter" data-level="7.2" data-path="mixture-models.html"><a href="mixture-models.html#dichotomous-and-toolbox-mixture-models"><i class="fa fa-check"></i><b>7.2</b> Dichotomous and toolbox mixture models</a></li>
 <li class="chapter" data-level="7.3" data-path="mixture-models.html"><a href="mixture-models.html#coding-peculearities"><i class="fa fa-check"></i><b>7.3</b> Coding peculearities</a></li>
-<li class="chapter" data-level="7.4" data-path="mixture-models.html"><a href="mixture-models.html#example-experiment-av2001"><i class="fa fa-check"></i><b>7.4</b> Example experiment: <span class="citation">Andreoni and Vesterlund (<span>2001</span>)</span></a>
+<li class="chapter" data-level="7.4" data-path="mixture-models.html"><a href="mixture-models.html#example-experiment-av2001"><i class="fa fa-check"></i><b>7.4</b> Example experiment: <span class="citation">Andreoni and Vesterlund (2001)</span></a>
 <ul>
 <li class="chapter" data-level="7.4.1" data-path="mixture-models.html"><a href="mixture-models.html#as-basic-as-it-gets"><i class="fa fa-check"></i><b>7.4.1</b> As basic as it gets</a></li>
 <li class="chapter" data-level="7.4.2" data-path="mixture-models.html"><a href="mixture-models.html#adding-some-heterogeneity"><i class="fa fa-check"></i><b>7.4.2</b> Adding some heterogeneity</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="mixture-models.html"><a href="mixture-models.html#some-code-used-to-estimate-the-models"><i class="fa fa-check"></i><b>7.5</b> Some code used to estimate the models</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html"><i class="fa fa-check"></i><b>8</b> Speeding up your <em>Stan</em> code</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#example-dataset-and-model-1"><i class="fa fa-check"></i><b>8.1</b> Example dataset and model</a></li>
+<li class="chapter" data-level="8.2" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#a-really-slow-way-to-estimate-the-model"><i class="fa fa-check"></i><b>8.2</b> A really slow way to estimate the model</a></li>
+<li class="chapter" data-level="8.3" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#pre-computing-things"><i class="fa fa-check"></i><b>8.3</b> Pre-computing things</a></li>
+<li class="chapter" data-level="8.4" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#vectorization"><i class="fa fa-check"></i><b>8.4</b> Vectorization</a></li>
+<li class="chapter" data-level="8.5" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#within-chain-parallelization-with-reduce_sum"><i class="fa fa-check"></i><b>8.5</b> Within-chain parallelization with <code>reduce_sum()</code></a></li>
+<li class="chapter" data-level="8.6" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#evaluating-the-implementations"><i class="fa fa-check"></i><b>8.6</b> Evaluating the implementations</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#pre-computing-and-vectorization"><i class="fa fa-check"></i><b>8.6.1</b> Pre-computing and vectorization</a></li>
+<li class="chapter" data-level="8.6.2" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#within-chain-parallelization"><i class="fa fa-check"></i><b>8.6.2</b> Within-chain parallelization</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#r-code-to-estimate-models"><i class="fa fa-check"></i><b>8.7</b> <em>R</em> code to estimate models</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#slow-pre-computed-and-vectorized-models"><i class="fa fa-check"></i><b>8.7.1</b> Slow, pre-computed, and vectorized models</a></li>
+<li class="chapter" data-level="8.7.2" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#parallelized-model"><i class="fa fa-check"></i><b>8.7.2</b> Parallelized model</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i>Applications</a></li>
-<li class="chapter" data-level="8" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html"><i class="fa fa-check"></i><b>8</b> Application: Experience-Weighted Attraction</a>
+<li class="chapter" data-level="9" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html"><i class="fa fa-check"></i><b>9</b> Application: Experience-Weighted Attraction</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-model-at-the-individual-level"><i class="fa fa-check"></i><b>8.1</b> The model at the individual level</a></li>
-<li class="chapter" data-level="8.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-computational-and-coding-issues"><i class="fa fa-check"></i><b>8.2</b> Some computational and coding issues</a></li>
-<li class="chapter" data-level="8.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#representative-agent-models"><i class="fa fa-check"></i><b>8.3</b> Representative agent models</a>
+<li class="chapter" data-level="9.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-model-at-the-individual-level"><i class="fa fa-check"></i><b>9.1</b> The model at the individual level</a></li>
+<li class="chapter" data-level="9.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-computational-and-coding-issues"><i class="fa fa-check"></i><b>9.2</b> Some computational and coding issues</a></li>
+<li class="chapter" data-level="9.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#representative-agent-models"><i class="fa fa-check"></i><b>9.3</b> Representative agent models</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration"><i class="fa fa-check"></i><b>8.3.1</b> Prior calibration</a></li>
-<li class="chapter" data-level="8.3.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model"><i class="fa fa-check"></i><b>8.3.2</b> The <em>Stan</em> model</a></li>
-<li class="chapter" data-level="8.3.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results"><i class="fa fa-check"></i><b>8.3.3</b> Results</a></li>
+<li class="chapter" data-level="9.3.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration"><i class="fa fa-check"></i><b>9.3.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="9.3.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model"><i class="fa fa-check"></i><b>9.3.2</b> The <em>Stan</em> model</a></li>
+<li class="chapter" data-level="9.3.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results"><i class="fa fa-check"></i><b>9.3.3</b> Results</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#hierarchical-model"><i class="fa fa-check"></i><b>8.4</b> Hierarchical model</a>
+<li class="chapter" data-level="9.4" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#hierarchical-model"><i class="fa fa-check"></i><b>9.4</b> Hierarchical model</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration-1"><i class="fa fa-check"></i><b>8.4.1</b> Prior calibration</a></li>
-<li class="chapter" data-level="8.4.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model-1"><i class="fa fa-check"></i><b>8.4.2</b> The <em>Stan</em> model</a></li>
-<li class="chapter" data-level="8.4.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results-1"><i class="fa fa-check"></i><b>8.4.3</b> Results</a></li>
+<li class="chapter" data-level="9.4.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration-1"><i class="fa fa-check"></i><b>9.4.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="9.4.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model-1"><i class="fa fa-check"></i><b>9.4.2</b> The <em>Stan</em> model</a></li>
+<li class="chapter" data-level="9.4.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results-1"><i class="fa fa-check"></i><b>9.4.3</b> Results</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-code-used-to-estimate-the-models-1"><i class="fa fa-check"></i><b>8.5</b> Some code used to estimate the models</a>
+<li class="chapter" data-level="9.5" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-code-used-to-estimate-the-models-1"><i class="fa fa-check"></i><b>9.5</b> Some code used to estimate the models</a>
 <ul>
-<li class="chapter" data-level="8.5.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#loading-the-data"><i class="fa fa-check"></i><b>8.5.1</b> Loading the data</a></li>
-<li class="chapter" data-level="8.5.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-representative-agent-models"><i class="fa fa-check"></i><b>8.5.2</b> Estimating the representative agent models</a></li>
-<li class="chapter" data-level="8.5.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-hierarchical-model"><i class="fa fa-check"></i><b>8.5.3</b> Estimating the hierarchical model</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>9</b> Application: Strategy Frequency Estimation</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#simplifying-the-individual-likelihood-functions"><i class="fa fa-check"></i><b>9.1</b> Simplifying the individual likelihood functions</a></li>
-<li class="chapter" data-level="9.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011"><i class="fa fa-check"></i><b>9.2</b> Example experiment: <span class="citation">Dal Bó and Fréchette (<span>2011</span>)</span></a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#the-sfem-with-homogeneous-trembles"><i class="fa fa-check"></i><b>9.2.1</b> The SFEM with homogeneous trembles</a></li>
-<li class="chapter" data-level="9.2.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#adding-heterogeneous-trembles-and-integrating-the-likelihood"><i class="fa fa-check"></i><b>9.2.2</b> Adding heterogeneous trembles and integrating the likelihood</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#r-code-to-do-these-estimations"><i class="fa fa-check"></i><b>9.3</b> <em>R</em> code to do these estimations</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html"><i class="fa fa-check"></i><b>10</b> Computing Quantal Response Equilibrium</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#overview-of-quantal-response-equilibrium"><i class="fa fa-check"></i><b>10.1</b> Overview of quantal response equilibrium</a></li>
-<li class="chapter" data-level="10.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#computing-quantal-response-equilibrium-1"><i class="fa fa-check"></i><b>10.2</b> Computing Quantal Response Equilibrium</a>
-<ul>
-<li class="chapter" data-level="10.2.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#setting-up-the-problem"><i class="fa fa-check"></i><b>10.2.1</b> Setting up the problem</a></li>
-<li class="chapter" data-level="10.2.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#a-predictor-corrector-algorithm"><i class="fa fa-check"></i><b>10.2.2</b> A predictor-corrector algorithm</a></li>
-<li class="chapter" data-level="10.2.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#initial-conditions"><i class="fa fa-check"></i><b>10.2.3</b> Initial conditions</a></li>
-<li class="chapter" data-level="10.2.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#algorithm-tuning"><i class="fa fa-check"></i><b>10.2.4</b> Algorithm tuning</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#the-predictor-corrector-algorithm-in-r"><i class="fa fa-check"></i><b>10.3</b> The predictor-corrector algorithm in <em>R</em></a></li>
-<li class="chapter" data-level="10.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#some-example-games"><i class="fa fa-check"></i><b>10.4</b> Some example games</a>
-<ul>
-<li class="chapter" data-level="10.4.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#generalized-matching-pennies-ochs1995"><i class="fa fa-check"></i><b>10.4.1</b> Generalized matching pennies <span class="citation">(<span>Ochs 1995</span>)</span></a></li>
-<li class="chapter" data-level="10.4.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#stag-hunt"><i class="fa fa-check"></i><b>10.4.2</b> Stag hunt</a></li>
-<li class="chapter" data-level="10.4.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#n-player-volunteers-dilemma-imposing-symmetric-strategies"><i class="fa fa-check"></i><b>10.4.3</b> <span class="math inline">\(n\)</span>-player Volunteer’s Dilemma imposing symmetric strategies</a></li>
+<li class="chapter" data-level="9.5.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#loading-the-data"><i class="fa fa-check"></i><b>9.5.1</b> Loading the data</a></li>
+<li class="chapter" data-level="9.5.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-representative-agent-models"><i class="fa fa-check"></i><b>9.5.2</b> Estimating the representative agent models</a></li>
+<li class="chapter" data-level="9.5.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-hierarchical-model"><i class="fa fa-check"></i><b>9.5.3</b> Estimating the hierarchical model</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><i class="fa fa-check"></i><b>11</b> Application: Quantal Response Equilibrium and the Volunteer’s Dilemma <span class="citation">(<span>Goeree, Holt, and Smith 2017</span>)</span></a>
+<li class="chapter" data-level="10" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>10</b> Application: Strategy Frequency Estimation</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#solving-logit-qre-and-estimating-the-model"><i class="fa fa-check"></i><b>11.1</b> Solving logit QRE and estimating the model</a></li>
-<li class="chapter" data-level="11.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#adding-some-heterogeneity-1"><i class="fa fa-check"></i><b>11.2</b> Adding some heterogeneity</a>
+<li class="chapter" data-level="10.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#simplifying-the-individual-likelihood-functions"><i class="fa fa-check"></i><b>10.1</b> Simplifying the individual likelihood functions</a></li>
+<li class="chapter" data-level="10.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011"><i class="fa fa-check"></i><b>10.2</b> Example experiment: <span class="citation">Dal Bó and Fréchette (2011)</span></a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#computing-quantal-response-equilibrium-with-heterogeneous-parameters"><i class="fa fa-check"></i><b>11.2.1</b> Computing quantal response equilibrium with heterogeneous parameters</a></li>
-<li class="chapter" data-level="11.2.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#warm-glow-volunteering"><i class="fa fa-check"></i><b>11.2.2</b> Warm glow volunteering</a></li>
-<li class="chapter" data-level="11.2.3" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#duplicate-aversion"><i class="fa fa-check"></i><b>11.2.3</b> Duplicate aversion</a></li>
-<li class="chapter" data-level="11.2.4" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#results-2"><i class="fa fa-check"></i><b>11.2.4</b> Results</a></li>
+<li class="chapter" data-level="10.2.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#the-sfem-with-homogeneous-trembles"><i class="fa fa-check"></i><b>10.2.1</b> The SFEM with homogeneous trembles</a></li>
+<li class="chapter" data-level="10.2.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#adding-heterogeneous-trembles-and-integrating-the-likelihood"><i class="fa fa-check"></i><b>10.2.2</b> Adding heterogeneous trembles and integrating the likelihood</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#r-code-to-run-estimations"><i class="fa fa-check"></i><b>11.3</b> <em>R</em> code to run estimations</a></li>
+<li class="chapter" data-level="10.3" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#r-code-to-do-these-estimations"><i class="fa fa-check"></i><b>10.3</b> <em>R</em> code to do these estimations</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="application-level-k-models.html"><a href="application-level-k-models.html"><i class="fa fa-check"></i><b>12</b> Application: Level-<span class="math inline">\(k\)</span> models</a>
+<li class="chapter" data-level="11" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html"><i class="fa fa-check"></i><b>11</b> Computing Quantal Response Equilibrium</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#data-and-game"><i class="fa fa-check"></i><b>12.1</b> Data and game</a></li>
-<li class="chapter" data-level="12.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-level-k-model"><i class="fa fa-check"></i><b>12.2</b> The level-<span class="math inline">\(k\)</span> model</a>
+<li class="chapter" data-level="11.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#overview-of-quantal-response-equilibrium"><i class="fa fa-check"></i><b>11.1</b> Overview of quantal response equilibrium</a></li>
+<li class="chapter" data-level="11.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#computing-quantal-response-equilibrium-1"><i class="fa fa-check"></i><b>11.2</b> Computing Quantal Response Equilibrium</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-deterministic-component-of-the-model"><i class="fa fa-check"></i><b>12.2.1</b> The deterministic component of the model</a></li>
-<li class="chapter" data-level="12.2.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#exact-and-probabilistic-play"><i class="fa fa-check"></i><b>12.2.2</b> Exact and probabilistic play</a></li>
+<li class="chapter" data-level="11.2.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#setting-up-the-problem"><i class="fa fa-check"></i><b>11.2.1</b> Setting up the problem</a></li>
+<li class="chapter" data-level="11.2.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#a-predictor-corrector-algorithm"><i class="fa fa-check"></i><b>11.2.2</b> A predictor-corrector algorithm</a></li>
+<li class="chapter" data-level="11.2.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#initial-conditions"><i class="fa fa-check"></i><b>11.2.3</b> Initial conditions</a></li>
+<li class="chapter" data-level="11.2.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#algorithm-tuning"><i class="fa fa-check"></i><b>11.2.4</b> Algorithm tuning</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#assigning-probabilities-to-types-for-each-participant-separately"><i class="fa fa-check"></i><b>12.3</b> Assigning probabilities to types for each participant separately</a>
+<li class="chapter" data-level="11.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#the-predictor-corrector-algorithm-in-r"><i class="fa fa-check"></i><b>11.3</b> The predictor-corrector algorithm in <em>R</em></a></li>
+<li class="chapter" data-level="11.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#some-example-games"><i class="fa fa-check"></i><b>11.4</b> Some example games</a>
 <ul>
-<li class="chapter" data-level="12.3.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-stan-program"><i class="fa fa-check"></i><b>12.3.1</b> The <em>Stan</em> program</a></li>
-<li class="chapter" data-level="12.3.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#prior-calibration-2"><i class="fa fa-check"></i><b>12.3.2</b> Prior calibration</a></li>
-<li class="chapter" data-level="12.3.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-3"><i class="fa fa-check"></i><b>12.3.3</b> Results</a></li>
+<li class="chapter" data-level="11.4.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#generalized-matching-pennies-ochs1995"><i class="fa fa-check"></i><b>11.4.1</b> Generalized matching pennies <span class="citation">(Ochs 1995)</span></a></li>
+<li class="chapter" data-level="11.4.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#stag-hunt"><i class="fa fa-check"></i><b>11.4.2</b> Stag hunt</a></li>
+<li class="chapter" data-level="11.4.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#n-player-volunteers-dilemma-imposing-symmetric-strategies"><i class="fa fa-check"></i><b>11.4.3</b> <span class="math inline">\(n\)</span>-player Volunteer’s Dilemma imposing symmetric strategies</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="application-level-k-models.html"><a href="application-level-k-models.html#doing-the-averaging-within-one-program"><i class="fa fa-check"></i><b>12.4</b> Doing the averaging within one program</a>
-<ul>
-<li class="chapter" data-level="12.4.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-stan-program-1"><i class="fa fa-check"></i><b>12.4.1</b> The <em>Stan</em> program</a></li>
-<li class="chapter" data-level="12.4.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-4"><i class="fa fa-check"></i><b>12.4.2</b> Results</a></li>
 </ul></li>
-<li class="chapter" data-level="12.5" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-mixture-model"><i class="fa fa-check"></i><b>12.5</b> A mixture model</a>
+<li class="chapter" data-level="12" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><i class="fa fa-check"></i><b>12</b> Application: Quantal Response Equilibrium and the Volunteer’s Dilemma <span class="citation">(Goeree, Holt, and Smith 2017)</span></a>
 <ul>
-<li class="chapter" data-level="12.5.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#stan-program"><i class="fa fa-check"></i><b>12.5.1</b> <em>Stan</em> program</a></li>
-<li class="chapter" data-level="12.5.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-prior-for-psi"><i class="fa fa-check"></i><b>12.5.2</b> A prior for <span class="math inline">\(\psi\)</span></a></li>
-<li class="chapter" data-level="12.5.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-5"><i class="fa fa-check"></i><b>12.5.3</b> Results</a></li>
+<li class="chapter" data-level="12.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#solving-logit-qre-and-estimating-the-model"><i class="fa fa-check"></i><b>12.1</b> Solving logit QRE and estimating the model</a></li>
+<li class="chapter" data-level="12.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#adding-some-heterogeneity-1"><i class="fa fa-check"></i><b>12.2</b> Adding some heterogeneity</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#computing-quantal-response-equilibrium-with-heterogeneous-parameters"><i class="fa fa-check"></i><b>12.2.1</b> Computing quantal response equilibrium with heterogeneous parameters</a></li>
+<li class="chapter" data-level="12.2.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#warm-glow-volunteering"><i class="fa fa-check"></i><b>12.2.2</b> Warm glow volunteering</a></li>
+<li class="chapter" data-level="12.2.3" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#duplicate-aversion"><i class="fa fa-check"></i><b>12.2.3</b> Duplicate aversion</a></li>
+<li class="chapter" data-level="12.2.4" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#results-2"><i class="fa fa-check"></i><b>12.2.4</b> Results</a></li>
 </ul></li>
-<li class="chapter" data-level="12.6" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-mixture-over-levels-and-hierarchical-nuisance-parameters"><i class="fa fa-check"></i><b>12.6</b> A mixture over levels and hierarchical nuisance parameters</a>
-<ul>
-<li class="chapter" data-level="12.6.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#prior-calibration-3"><i class="fa fa-check"></i><b>12.6.1</b> Prior calibration</a></li>
-<li class="chapter" data-level="12.6.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#stan-program-1"><i class="fa fa-check"></i><b>12.6.2</b> <em>Stan</em> program</a></li>
-<li class="chapter" data-level="12.6.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-6"><i class="fa fa-check"></i><b>12.6.3</b> Results</a></li>
+<li class="chapter" data-level="12.3" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#r-code-to-run-estimations"><i class="fa fa-check"></i><b>12.3</b> <em>R</em> code to run estimations</a></li>
 </ul></li>
-<li class="chapter" data-level="12.7" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-different-assumption-about-mixing"><i class="fa fa-check"></i><b>12.7</b> A different assumption about mixing</a>
+<li class="chapter" data-level="13" data-path="application-level-k-models.html"><a href="application-level-k-models.html"><i class="fa fa-check"></i><b>13</b> Application: Level-<span class="math inline">\(k\)</span> models</a>
 <ul>
-<li class="chapter" data-level="12.7.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#stan-program-2"><i class="fa fa-check"></i><b>12.7.1</b> <em>Stan</em> program</a></li>
-<li class="chapter" data-level="12.7.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-7"><i class="fa fa-check"></i><b>12.7.2</b> Results</a></li>
+<li class="chapter" data-level="13.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#data-and-game"><i class="fa fa-check"></i><b>13.1</b> Data and game</a></li>
+<li class="chapter" data-level="13.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-level-k-model"><i class="fa fa-check"></i><b>13.2</b> The level-<span class="math inline">\(k\)</span> model</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-deterministic-component-of-the-model"><i class="fa fa-check"></i><b>13.2.1</b> The deterministic component of the model</a></li>
+<li class="chapter" data-level="13.2.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#exact-and-probabilistic-play"><i class="fa fa-check"></i><b>13.2.2</b> Exact and probabilistic play</a></li>
 </ul></li>
-<li class="chapter" data-level="12.8" data-path="application-level-k-models.html"><a href="application-level-k-models.html#r-code-to-estimate-the-models"><i class="fa fa-check"></i><b>12.8</b> <em>R</em> code to estimate the models</a>
+<li class="chapter" data-level="13.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#assigning-probabilities-to-types-for-each-participant-separately"><i class="fa fa-check"></i><b>13.3</b> Assigning probabilities to types for each participant separately</a>
 <ul>
-<li class="chapter" data-level="12.8.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#participant-specific-estimation-conditional-on-k-with-bayesian-model-averaging"><i class="fa fa-check"></i><b>12.8.1</b> Participant-specific estimation conditional on <span class="math inline">\(k\)</span> with Bayesian model averaging</a></li>
-<li class="chapter" data-level="12.8.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#participant-specific-estimation-with-a-prior-over-k"><i class="fa fa-check"></i><b>12.8.2</b> Participant-specific estimation with a prior over <span class="math inline">\(k\)</span></a></li>
-<li class="chapter" data-level="12.8.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#mixture-model"><i class="fa fa-check"></i><b>12.8.3</b> Mixture model</a></li>
-<li class="chapter" data-level="12.8.4" data-path="application-level-k-models.html"><a href="application-level-k-models.html#hierarchical-model-1"><i class="fa fa-check"></i><b>12.8.4</b> Hierarchical model</a></li>
-<li class="chapter" data-level="12.8.5" data-path="application-level-k-models.html"><a href="application-level-k-models.html#mixture-model-with-beliefs-consistent-with-truncated-type-distribution"><i class="fa fa-check"></i><b>12.8.5</b> Mixture model with beliefs consistent with truncated type distribution</a></li>
+<li class="chapter" data-level="13.3.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-stan-program"><i class="fa fa-check"></i><b>13.3.1</b> The <em>Stan</em> program</a></li>
+<li class="chapter" data-level="13.3.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#prior-calibration-2"><i class="fa fa-check"></i><b>13.3.2</b> Prior calibration</a></li>
+<li class="chapter" data-level="13.3.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-3"><i class="fa fa-check"></i><b>13.3.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="application-level-k-models.html"><a href="application-level-k-models.html#doing-the-averaging-within-one-program"><i class="fa fa-check"></i><b>13.4</b> Doing the averaging within one program</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-stan-program-1"><i class="fa fa-check"></i><b>13.4.1</b> The <em>Stan</em> program</a></li>
+<li class="chapter" data-level="13.4.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-4"><i class="fa fa-check"></i><b>13.4.2</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-mixture-model"><i class="fa fa-check"></i><b>13.5</b> A mixture model</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#stan-program"><i class="fa fa-check"></i><b>13.5.1</b> <em>Stan</em> program</a></li>
+<li class="chapter" data-level="13.5.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-prior-for-psi"><i class="fa fa-check"></i><b>13.5.2</b> A prior for <span class="math inline">\(\psi\)</span></a></li>
+<li class="chapter" data-level="13.5.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-5"><i class="fa fa-check"></i><b>13.5.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-mixture-over-levels-and-hierarchical-nuisance-parameters"><i class="fa fa-check"></i><b>13.6</b> A mixture over levels and hierarchical nuisance parameters</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#prior-calibration-3"><i class="fa fa-check"></i><b>13.6.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="13.6.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#stan-program-1"><i class="fa fa-check"></i><b>13.6.2</b> <em>Stan</em> program</a></li>
+<li class="chapter" data-level="13.6.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-6"><i class="fa fa-check"></i><b>13.6.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-different-assumption-about-mixing"><i class="fa fa-check"></i><b>13.7</b> A different assumption about mixing</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#stan-program-2"><i class="fa fa-check"></i><b>13.7.1</b> <em>Stan</em> program</a></li>
+<li class="chapter" data-level="13.7.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-7"><i class="fa fa-check"></i><b>13.7.2</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="application-level-k-models.html"><a href="application-level-k-models.html#r-code-to-estimate-the-models"><i class="fa fa-check"></i><b>13.8</b> <em>R</em> code to estimate the models</a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#participant-specific-estimation-conditional-on-k-with-bayesian-model-averaging"><i class="fa fa-check"></i><b>13.8.1</b> Participant-specific estimation conditional on <span class="math inline">\(k\)</span> with Bayesian model averaging</a></li>
+<li class="chapter" data-level="13.8.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#participant-specific-estimation-with-a-prior-over-k"><i class="fa fa-check"></i><b>13.8.2</b> Participant-specific estimation with a prior over <span class="math inline">\(k\)</span></a></li>
+<li class="chapter" data-level="13.8.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#mixture-model"><i class="fa fa-check"></i><b>13.8.3</b> Mixture model</a></li>
+<li class="chapter" data-level="13.8.4" data-path="application-level-k-models.html"><a href="application-level-k-models.html#hierarchical-model-1"><i class="fa fa-check"></i><b>13.8.4</b> Hierarchical model</a></li>
+<li class="chapter" data-level="13.8.5" data-path="application-level-k-models.html"><a href="application-level-k-models.html#mixture-model-with-beliefs-consistent-with-truncated-type-distribution"><i class="fa fa-check"></i><b>13.8.5</b> Mixture model with beliefs consistent with truncated type distribution</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="links-to-data.html"><a href="links-to-data.html"><i class="fa fa-check"></i>Links to data</a></li>
