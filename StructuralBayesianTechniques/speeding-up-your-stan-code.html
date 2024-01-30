@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Speeding up your Stan code | Structural Bayesian Techniques for Experimental and Behavioral Economics</title>
   <meta name="description" content="8 Speeding up your Stan code | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Speeding up your Stan code | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="James R. Bland" />
 
 
-<meta name="date" content="2024-01-24" />
+<meta name="date" content="2024-01-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -94,7 +94,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
+code span.bu { } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +107,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -240,7 +240,7 @@ div.csl-indent {
 <li class="chapter" data-level="6.4.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#decomposing-the-variance-covariance-matrix"><i class="fa fa-check"></i><b>6.4.1</b> Decomposing the variance-covariance matrix</a></li>
 <li class="chapter" data-level="6.4.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#transformed-parameters-and-normal-distributions"><i class="fa fa-check"></i><b>6.4.2</b> Transformed parameters and normal distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="hierarchical-models.html"><a href="hierarchical-models.html#example-again-with-bfs2019"><i class="fa fa-check"></i><b>6.5</b> Example: again with <span class="citation">Bruhin, Fehr, and Schunk (2019)</span></a>
+<li class="chapter" data-level="6.5" data-path="hierarchical-models.html"><a href="hierarchical-models.html#example-again-with-bfs2019"><i class="fa fa-check"></i><b>6.5</b> Example: again with <span class="citation">Bruhin, Fehr, and Schunk (<span>2019</span>)</span></a>
 <ul>
 <li class="chapter" data-level="6.5.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#no-correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>6.5.1</b> No correlation between individual-level parameters</a></li>
 <li class="chapter" data-level="6.5.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>6.5.2</b> Correlation between individual-level parameters</a></li>
@@ -251,7 +251,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.1" data-path="mixture-models.html"><a href="mixture-models.html#a-menu-of-models"><i class="fa fa-check"></i><b>7.1</b> A menu of models</a></li>
 <li class="chapter" data-level="7.2" data-path="mixture-models.html"><a href="mixture-models.html#dichotomous-and-toolbox-mixture-models"><i class="fa fa-check"></i><b>7.2</b> Dichotomous and toolbox mixture models</a></li>
 <li class="chapter" data-level="7.3" data-path="mixture-models.html"><a href="mixture-models.html#coding-peculearities"><i class="fa fa-check"></i><b>7.3</b> Coding peculearities</a></li>
-<li class="chapter" data-level="7.4" data-path="mixture-models.html"><a href="mixture-models.html#example-experiment-av2001"><i class="fa fa-check"></i><b>7.4</b> Example experiment: <span class="citation">Andreoni and Vesterlund (2001)</span></a>
+<li class="chapter" data-level="7.4" data-path="mixture-models.html"><a href="mixture-models.html#example-experiment-av2001"><i class="fa fa-check"></i><b>7.4</b> Example experiment: <span class="citation">Andreoni and Vesterlund (<span>2001</span>)</span></a>
 <ul>
 <li class="chapter" data-level="7.4.1" data-path="mixture-models.html"><a href="mixture-models.html#as-basic-as-it-gets"><i class="fa fa-check"></i><b>7.4.1</b> As basic as it gets</a></li>
 <li class="chapter" data-level="7.4.2" data-path="mixture-models.html"><a href="mixture-models.html#adding-some-heterogeneity"><i class="fa fa-check"></i><b>7.4.2</b> Adding some heterogeneity</a></li>
@@ -303,7 +303,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>10</b> Application: Strategy Frequency Estimation</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#simplifying-the-individual-likelihood-functions"><i class="fa fa-check"></i><b>10.1</b> Simplifying the individual likelihood functions</a></li>
-<li class="chapter" data-level="10.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011"><i class="fa fa-check"></i><b>10.2</b> Example experiment: <span class="citation">Dal Bó and Fréchette (2011)</span></a>
+<li class="chapter" data-level="10.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011"><i class="fa fa-check"></i><b>10.2</b> Example experiment: <span class="citation">Dal Bó and Fréchette (<span>2011</span>)</span></a>
 <ul>
 <li class="chapter" data-level="10.2.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#the-sfem-with-homogeneous-trembles"><i class="fa fa-check"></i><b>10.2.1</b> The SFEM with homogeneous trembles</a></li>
 <li class="chapter" data-level="10.2.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#adding-heterogeneous-trembles-and-integrating-the-likelihood"><i class="fa fa-check"></i><b>10.2.2</b> Adding heterogeneous trembles and integrating the likelihood</a></li>
@@ -323,12 +323,12 @@ div.csl-indent {
 <li class="chapter" data-level="11.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#the-predictor-corrector-algorithm-in-r"><i class="fa fa-check"></i><b>11.3</b> The predictor-corrector algorithm in <em>R</em></a></li>
 <li class="chapter" data-level="11.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#some-example-games"><i class="fa fa-check"></i><b>11.4</b> Some example games</a>
 <ul>
-<li class="chapter" data-level="11.4.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#generalized-matching-pennies-ochs1995"><i class="fa fa-check"></i><b>11.4.1</b> Generalized matching pennies <span class="citation">(Ochs 1995)</span></a></li>
+<li class="chapter" data-level="11.4.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#generalized-matching-pennies-ochs1995"><i class="fa fa-check"></i><b>11.4.1</b> Generalized matching pennies <span class="citation">(<span>Ochs 1995</span>)</span></a></li>
 <li class="chapter" data-level="11.4.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#stag-hunt"><i class="fa fa-check"></i><b>11.4.2</b> Stag hunt</a></li>
 <li class="chapter" data-level="11.4.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#n-player-volunteers-dilemma-imposing-symmetric-strategies"><i class="fa fa-check"></i><b>11.4.3</b> <span class="math inline">\(n\)</span>-player Volunteer’s Dilemma imposing symmetric strategies</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><i class="fa fa-check"></i><b>12</b> Application: Quantal Response Equilibrium and the Volunteer’s Dilemma <span class="citation">(Goeree, Holt, and Smith 2017)</span></a>
+<li class="chapter" data-level="12" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><i class="fa fa-check"></i><b>12</b> Application: Quantal Response Equilibrium and the Volunteer’s Dilemma <span class="citation">(<span>Goeree, Holt, and Smith 2017</span>)</span></a>
 <ul>
 <li class="chapter" data-level="12.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#solving-logit-qre-and-estimating-the-model"><i class="fa fa-check"></i><b>12.1</b> Solving logit QRE and estimating the model</a></li>
 <li class="chapter" data-level="12.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#adding-some-heterogeneity-1"><i class="fa fa-check"></i><b>12.2</b> Adding some heterogeneity</a>
@@ -409,7 +409,7 @@ div.csl-indent {
 <p>While Bayesian computation certainly isn’t for the impatient, there are some things you can do to make sure you are not waiting any longer than you have to for your results. I this chapter, I will show you some ways to write code that runs faster. In particular, we will learn about recognizing opportunities to pre-compute values, how to vectorize operations, and how to take advantage of <em>Stan</em>’s within-chain parallel processing capabilities. The first two of these will help on any machine that you might be using, whereas parallelization might help in specific instances where you have some idle cores that could be put to use.</p>
 <div id="example-dataset-and-model-1" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Example dataset and model<a href="speeding-up-your-stan-code.html#example-dataset-and-model-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this chapter we will be estimating a two-parameter Expected Utility Theory (EUT) model for each for the 327 undergraduate participants in the “house money” treatment of <span class="citation">Harrison and Swarthout (<a href="#ref-Harrison2016cumulative" role="doc-biblioref">2023</a>)</span>. In this experiment, each participant made 100 binary lottery choices. Each lottery pair can be described by three monetary prizes (which were common for both lotteries in the pair), and the probabilities of winning each prize. Let <span class="math inline">\(x_{t,k}\)</span> be the <span class="math inline">\(k\)</span>th prize in lottery pair <span class="math inline">\(t\)</span>, and <span class="math inline">\(q_{t,k}^L\)</span> and <span class="math inline">\(q_{t,k}^R\)</span> are the probabilities of winning prize <span class="math inline">\(k\)</span> for the “Left” and “Right” lottery in pair <span class="math inline">\(t\)</span>. Assuming a constant relative risk-aversion specification, we can then write down the expected utility of the Left lottery in pair <span class="math inline">\(t\)</span> as:</p>
+<p>In this chapter we will be estimating a two-parameter Expected Utility Theory (EUT) model for each of the 327 participants of <span class="citation">Harrison and Swarthout (<a href="#ref-Harrison2016cumulative" role="doc-biblioref">2023</a>)</span>. In this experiment, each participant made 100 binary lottery choices. Each lottery pair can be described by three monetary prizes (which were common for both lotteries in the pair), and the probabilities of winning each prize. Let <span class="math inline">\(x_{t,k}\)</span> be the <span class="math inline">\(k\)</span>th prize in lottery pair <span class="math inline">\(t\)</span>, and <span class="math inline">\(q_{t,k}^L\)</span> and <span class="math inline">\(q_{t,k}^R\)</span> are the probabilities of winning prize <span class="math inline">\(k\)</span> for the “Left” and “Right” lottery in pair <span class="math inline">\(t\)</span>. Assuming a constant relative risk-aversion specification, we can then write down the expected utility of the Left lottery in pair <span class="math inline">\(t\)</span> as:</p>
 <p><span class="math display">\[
 Eu(x_t,q_{t}^L\mid r)=\sum_{k=1}^3q_{t,k}^L\frac{x_{t,k}^{1-r}}{1-r}
 \]</span></p>
@@ -889,16 +889,16 @@ NA
 <span id="cb115-8"><a href="speeding-up-your-stan-code.html#cb115-8" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb115-9"><a href="speeding-up-your-stan-code.html#cb115-9" aria-hidden="true" tabindex="-1"></a>numreps<span class="ot">&lt;-</span><span class="dv">1</span></span>
 <span id="cb115-10"><a href="speeding-up-your-stan-code.html#cb115-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-11"><a href="speeding-up-your-stan-code.html#cb115-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The show-up fee for the undergrads was $10</span></span>
-<span id="cb115-12"><a href="speeding-up-your-stan-code.html#cb115-12" aria-hidden="true" tabindex="-1"></a>show_up_fee <span class="ot">&lt;-</span><span class="dv">10</span></span>
-<span id="cb115-13"><a href="speeding-up-your-stan-code.html#cb115-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-14"><a href="speeding-up-your-stan-code.html#cb115-14" aria-hidden="true" tabindex="-1"></a>BenchmarkSummary<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
-<span id="cb115-15"><a href="speeding-up-your-stan-code.html#cb115-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-16"><a href="speeding-up-your-stan-code.html#cb115-16" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="st">&quot;Data/HS2023.dta&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb115-17"><a href="speeding-up-your-stan-code.html#cb115-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_dta</span>() <span class="sc">|&gt;</span></span>
-<span id="cb115-18"><a href="speeding-up-your-stan-code.html#cb115-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id,choice,prize1L<span class="sc">:</span>prob4R,endowment) <span class="sc">|&gt;</span></span>
-<span id="cb115-19"><a href="speeding-up-your-stan-code.html#cb115-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add in the endowment</span></span>
-<span id="cb115-20"><a href="speeding-up-your-stan-code.html#cb115-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb115-11"><a href="speeding-up-your-stan-code.html#cb115-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The show-up fee for the undergrads was $10 and $40 for the MBA students</span></span>
+<span id="cb115-12"><a href="speeding-up-your-stan-code.html#cb115-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-13"><a href="speeding-up-your-stan-code.html#cb115-13" aria-hidden="true" tabindex="-1"></a>BenchmarkSummary<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
+<span id="cb115-14"><a href="speeding-up-your-stan-code.html#cb115-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-15"><a href="speeding-up-your-stan-code.html#cb115-15" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="st">&quot;Data/HS2023.dta&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb115-16"><a href="speeding-up-your-stan-code.html#cb115-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_dta</span>() <span class="sc">|&gt;</span></span>
+<span id="cb115-17"><a href="speeding-up-your-stan-code.html#cb115-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id,choice,prize1L<span class="sc">:</span>prob4R,endowment) <span class="sc">|&gt;</span></span>
+<span id="cb115-18"><a href="speeding-up-your-stan-code.html#cb115-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add in the endowment</span></span>
+<span id="cb115-19"><a href="speeding-up-your-stan-code.html#cb115-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb115-20"><a href="speeding-up-your-stan-code.html#cb115-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">show_up_fee =</span> <span class="fu">ifelse</span>(mba,<span class="dv">40</span>,<span class="dv">10</span>),</span>
 <span id="cb115-21"><a href="speeding-up-your-stan-code.html#cb115-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">Left =</span> <span class="dv">1</span><span class="sc">-</span>choice,</span>
 <span id="cb115-22"><a href="speeding-up-your-stan-code.html#cb115-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">prize1L =</span> prize1L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
 <span id="cb115-23"><a href="speeding-up-your-stan-code.html#cb115-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">prize2L =</span> prize2L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
@@ -988,16 +988,16 @@ NA
 <span id="cb116-10"><a href="speeding-up-your-stan-code.html#cb116-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb116-11"><a href="speeding-up-your-stan-code.html#cb116-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb116-12"><a href="speeding-up-your-stan-code.html#cb116-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-13"><a href="speeding-up-your-stan-code.html#cb116-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The show-up fee for the undergrads was $10</span></span>
-<span id="cb116-14"><a href="speeding-up-your-stan-code.html#cb116-14" aria-hidden="true" tabindex="-1"></a>show_up_fee <span class="ot">&lt;-</span><span class="dv">10</span></span>
-<span id="cb116-15"><a href="speeding-up-your-stan-code.html#cb116-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-16"><a href="speeding-up-your-stan-code.html#cb116-16" aria-hidden="true" tabindex="-1"></a>BenchmarkSummary<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
-<span id="cb116-17"><a href="speeding-up-your-stan-code.html#cb116-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-18"><a href="speeding-up-your-stan-code.html#cb116-18" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="st">&quot;Data/HS2023.dta&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb116-19"><a href="speeding-up-your-stan-code.html#cb116-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_dta</span>() <span class="sc">|&gt;</span></span>
-<span id="cb116-20"><a href="speeding-up-your-stan-code.html#cb116-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id,choice,prize1L<span class="sc">:</span>prob4R,endowment) <span class="sc">|&gt;</span></span>
-<span id="cb116-21"><a href="speeding-up-your-stan-code.html#cb116-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add in the endowment</span></span>
-<span id="cb116-22"><a href="speeding-up-your-stan-code.html#cb116-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb116-13"><a href="speeding-up-your-stan-code.html#cb116-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The show-up fee for the undergrads was $10 and $40 for the MBA students</span></span>
+<span id="cb116-14"><a href="speeding-up-your-stan-code.html#cb116-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-15"><a href="speeding-up-your-stan-code.html#cb116-15" aria-hidden="true" tabindex="-1"></a>BenchmarkSummary<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
+<span id="cb116-16"><a href="speeding-up-your-stan-code.html#cb116-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-17"><a href="speeding-up-your-stan-code.html#cb116-17" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="st">&quot;Data/HS2023.dta&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb116-18"><a href="speeding-up-your-stan-code.html#cb116-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_dta</span>() <span class="sc">|&gt;</span></span>
+<span id="cb116-19"><a href="speeding-up-your-stan-code.html#cb116-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id,choice,prize1L<span class="sc">:</span>prob4R,endowment) <span class="sc">|&gt;</span></span>
+<span id="cb116-20"><a href="speeding-up-your-stan-code.html#cb116-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add in the endowment</span></span>
+<span id="cb116-21"><a href="speeding-up-your-stan-code.html#cb116-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb116-22"><a href="speeding-up-your-stan-code.html#cb116-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">show_up_fee =</span> <span class="fu">ifelse</span>(mba,<span class="dv">40</span>,<span class="dv">10</span>),</span>
 <span id="cb116-23"><a href="speeding-up-your-stan-code.html#cb116-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">Left =</span> <span class="dv">1</span><span class="sc">-</span>choice,</span>
 <span id="cb116-24"><a href="speeding-up-your-stan-code.html#cb116-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">prize1L =</span> prize1L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
 <span id="cb116-25"><a href="speeding-up-your-stan-code.html#cb116-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">prize2L =</span> prize2L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
