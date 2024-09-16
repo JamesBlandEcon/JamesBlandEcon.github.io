@@ -1,0 +1,2781 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>15 Application: Meta-analysis using (some of) the METARET data | Structural Bayesian Techniques for Experimental and Behavioral Economics</title>
+  <meta name="description" content="15 Application: Meta-analysis using (some of) the METARET data | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="15 Application: Meta-analysis using (some of) the METARET data | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="15 Application: Meta-analysis using (some of) the METARET data | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2024-09-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="application-estimating-risk-preferences.html"/>
+<link rel="next" href="links-to-data.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="section.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="setting-the-stage.html"><a href="setting-the-stage.html"><i class="fa fa-check"></i>Setting the stage</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-does-your-theory-say-about-your-data"><i class="fa fa-check"></i><b>1.1</b> What does your theory say about your data?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-do-your-data-say-about-your-theory"><i class="fa fa-check"></i><b>1.2</b> What do your data say about your theory?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-do-your-parameters-say-about-other-things"><i class="fa fa-check"></i><b>1.3</b> What do your parameters say about other things?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#what-does-your-expertise-say-about-your-parameters"><i class="fa fa-check"></i><b>1.4</b> What does your expertise say about your parameters?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>Stan</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#installation-in-r"><i class="fa fa-check"></i><b>2.1</b> Installation in <em>R</em></a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-anatomy-of-a-stan-program"><i class="fa fa-check"></i><b>2.2</b> The anatomy of a <em>Stan</em> program</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#data-block"><i class="fa fa-check"></i><b>2.2.1</b> Data block</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#transformed-data-block"><i class="fa fa-check"></i><b>2.2.2</b> Transformed data block</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#parameters-block"><i class="fa fa-check"></i><b>2.2.3</b> Parameters block</a></li>
+<li class="chapter" data-level="2.2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#model-block"><i class="fa fa-check"></i><b>2.2.4</b> Model block</a></li>
+<li class="chapter" data-level="2.2.5" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#generated-quantities-block"><i class="fa fa-check"></i><b>2.2.5</b> Generated quantities block</a></li>
+<li class="chapter" data-level="2.2.6" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-final-product"><i class="fa fa-check"></i><b>2.2.6</b> The final product</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#estimating-a-model"><i class="fa fa-check"></i><b>2.3</b> Estimating a model</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#looking-at-the-results"><i class="fa fa-check"></i><b>2.4</b> Looking at the results</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html"><i class="fa fa-check"></i><b>3</b> Probabilistic models of behavior</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#the-problem-with-deterministic-models"><i class="fa fa-check"></i><b>3.1</b> The problem with deterministic models</a></li>
+<li class="chapter" data-level="3.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#what-is-a-probabilistic-model"><i class="fa fa-check"></i><b>3.2</b> What <em>is</em> a probabilistic model?</a></li>
+<li class="chapter" data-level="3.3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#example-dataset-and-model"><i class="fa fa-check"></i><b>3.3</b> Example dataset and model</a></li>
+<li class="chapter" data-level="3.4" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#optimal-choice-plus-an-error"><i class="fa fa-check"></i><b>3.4</b> Optimal choice plus an error</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-1"><i class="fa fa-check"></i><b>3.4.1</b> Estimating a model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#utility-based-models"><i class="fa fa-check"></i><b>3.5</b> Utility-based models</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-2"><i class="fa fa-check"></i><b>3.5.1</b> Estimating a model</a></li>
+<li class="chapter" data-level="3.5.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#doing-something-with-the-estimates"><i class="fa fa-check"></i><b>3.5.2</b> Doing something with the estimates</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html"><i class="fa fa-check"></i><b>4</b> Considerations for choosing a prior</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#example-model-and-experiment"><i class="fa fa-check"></i><b>4.1</b> Example model and experiment</a></li>
+<li class="chapter" data-level="4.2" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#getting-the-support-right"><i class="fa fa-check"></i><b>4.2</b> Getting the support right</a></li>
+<li class="chapter" data-level="4.3" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#eliciting-reasonable-priors"><i class="fa fa-check"></i><b>4.3</b> Eliciting reasonable priors</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#parameter-values-and-the-prior-pushforward-check"><i class="fa fa-check"></i><b>4.3.1</b> Parameter values and the prior pushforward check</a></li>
+<li class="chapter" data-level="4.3.2" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#predictions-and-other-derived-quantities-the-prior-predictive-check"><i class="fa fa-check"></i><b>4.3.2</b> Predictions and other derived quantities: The prior predictive check</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#assessing-the-sampling-performance-of-a-prior"><i class="fa fa-check"></i><b>4.4</b> Assessing the sampling performance of a prior</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#does-our-model-recover-its-parameters-well"><i class="fa fa-check"></i><b>4.4.1</b> Does our model recover its parameters well?</a></li>
+<li class="chapter" data-level="4.4.2" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#do-we-see-any-pathologies-in-the-estimation-process"><i class="fa fa-check"></i><b>4.4.2</b> Do we see any pathologies in the estimation process?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#r-code-used-for-this-chapter"><i class="fa fa-check"></i><b>4.5</b> <em>R</em> code used for this chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="building-blocks.html"><a href="building-blocks.html"><i class="fa fa-check"></i>Building blocks</a></li>
+<li class="chapter" data-level="5" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html"><i class="fa fa-check"></i><b>5</b> Representative agent and participant-specific models</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#participant-specific-models"><i class="fa fa-check"></i><b>5.1</b> Participant-specific models</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#example-data-and-economic-model"><i class="fa fa-check"></i><b>5.1.1</b> Example data and economic model</a></li>
+<li class="chapter" data-level="5.1.2" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#going-to-the-probabilistic-model"><i class="fa fa-check"></i><b>5.1.2</b> Going to the probabilistic model</a></li>
+<li class="chapter" data-level="5.1.3" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#a-short-side-quest-into-canned-estimation-techniques"><i class="fa fa-check"></i><b>5.1.3</b> A short side quest into canned estimation techniques</a></li>
+<li class="chapter" data-level="5.1.4" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#assigning-priors"><i class="fa fa-check"></i><b>5.1.4</b> Assigning priors</a></li>
+<li class="chapter" data-level="5.1.5" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#estimating-the-model-for-one-participant"><i class="fa fa-check"></i><b>5.1.5</b> Estimating the model for one participant</a></li>
+<li class="chapter" data-level="5.1.6" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#estimating-the-model-for-all-participants"><i class="fa fa-check"></i><b>5.1.6</b> Estimating the model for all participants</a></li>
+<li class="chapter" data-level="5.1.7" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#but-we-could-be-learning-more"><i class="fa fa-check"></i><b>5.1.7</b> But we could be learning more!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#actual-representative-agent-models-pooled-models"><i class="fa fa-check"></i><b>5.2</b> Actual representative agent models (pooled models)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="hierarchical-models.html"><a href="hierarchical-models.html"><i class="fa fa-check"></i><b>6</b> Hierarchical models</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#a-random-sample-of-participants-walks-into-your-lab"><i class="fa fa-check"></i><b>6.1</b> A random sample of participants walks into your lab</a></li>
+<li class="chapter" data-level="6.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#the-anatomy-of-a-basic-hierarchical-model"><i class="fa fa-check"></i><b>6.2</b> The anatomy of a basic hierarchical model</a></li>
+<li class="chapter" data-level="6.3" data-path="hierarchical-models.html"><a href="hierarchical-models.html#accounting-for-unobserved-heterogeneity"><i class="fa fa-check"></i><b>6.3</b> Accounting for unobserved heterogeneity</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#the-last-time-you-will-integrate-the-likelihood-probably"><i class="fa fa-check"></i><b>6.3.1</b> The last time you will integrate the likelihood, probably</a></li>
+<li class="chapter" data-level="6.3.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#data-augmentation"><i class="fa fa-check"></i><b>6.3.2</b> Data augmentation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="hierarchical-models.html"><a href="hierarchical-models.html#a-multivariate-normal-hierarchical-model"><i class="fa fa-check"></i><b>6.4</b> A multivariate normal hierarchical model</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#decomposing-the-variance-covariance-matrix"><i class="fa fa-check"></i><b>6.4.1</b> Decomposing the variance-covariance matrix</a></li>
+<li class="chapter" data-level="6.4.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#transformed-parameters-and-normal-distributions"><i class="fa fa-check"></i><b>6.4.2</b> Transformed parameters and normal distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="hierarchical-models.html"><a href="hierarchical-models.html#example-again-with-bfs2019"><i class="fa fa-check"></i><b>6.5</b> Example: again with <span class="citation">Bruhin, Fehr, and Schunk (2019)</span></a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#no-correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>6.5.1</b> No correlation between individual-level parameters</a></li>
+<li class="chapter" data-level="6.5.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>6.5.2</b> Correlation between individual-level parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="mixture-models.html"><a href="mixture-models.html"><i class="fa fa-check"></i><b>7</b> Mixture models</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="mixture-models.html"><a href="mixture-models.html#a-menu-of-models"><i class="fa fa-check"></i><b>7.1</b> A menu of models</a></li>
+<li class="chapter" data-level="7.2" data-path="mixture-models.html"><a href="mixture-models.html#dichotomous-and-toolbox-mixture-models"><i class="fa fa-check"></i><b>7.2</b> Dichotomous and toolbox mixture models</a></li>
+<li class="chapter" data-level="7.3" data-path="mixture-models.html"><a href="mixture-models.html#coding-peculearities"><i class="fa fa-check"></i><b>7.3</b> Coding peculearities</a></li>
+<li class="chapter" data-level="7.4" data-path="mixture-models.html"><a href="mixture-models.html#example-experiment-av2001"><i class="fa fa-check"></i><b>7.4</b> Example experiment: <span class="citation">Andreoni and Vesterlund (2001)</span></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="mixture-models.html"><a href="mixture-models.html#as-basic-as-it-gets"><i class="fa fa-check"></i><b>7.4.1</b> As basic as it gets</a></li>
+<li class="chapter" data-level="7.4.2" data-path="mixture-models.html"><a href="mixture-models.html#adding-some-heterogeneity"><i class="fa fa-check"></i><b>7.4.2</b> Adding some heterogeneity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="mixture-models.html"><a href="mixture-models.html#some-code-used-to-estimate-the-models"><i class="fa fa-check"></i><b>7.5</b> Some code used to estimate the models</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html"><i class="fa fa-check"></i><b>8</b> Speeding up your <em>Stan</em> code</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#example-dataset-and-model-1"><i class="fa fa-check"></i><b>8.1</b> Example dataset and model</a></li>
+<li class="chapter" data-level="8.2" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#a-really-slow-way-to-estimate-the-model"><i class="fa fa-check"></i><b>8.2</b> A really slow way to estimate the model</a></li>
+<li class="chapter" data-level="8.3" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#pre-computing-things"><i class="fa fa-check"></i><b>8.3</b> Pre-computing things</a></li>
+<li class="chapter" data-level="8.4" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#vectorization"><i class="fa fa-check"></i><b>8.4</b> Vectorization</a></li>
+<li class="chapter" data-level="8.5" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#within-chain-parallelization-with-reduce_sum"><i class="fa fa-check"></i><b>8.5</b> Within-chain parallelization with <code>reduce_sum()</code></a></li>
+<li class="chapter" data-level="8.6" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#evaluating-the-implementations"><i class="fa fa-check"></i><b>8.6</b> Evaluating the implementations</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#pre-computing-and-vectorization"><i class="fa fa-check"></i><b>8.6.1</b> Pre-computing and vectorization</a></li>
+<li class="chapter" data-level="8.6.2" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#within-chain-parallelization"><i class="fa fa-check"></i><b>8.6.2</b> Within-chain parallelization</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#r-code-to-estimate-models"><i class="fa fa-check"></i><b>8.7</b> <em>R</em> code to estimate models</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#slow-pre-computed-and-vectorized-models"><i class="fa fa-check"></i><b>8.7.1</b> Slow, pre-computed, and vectorized models</a></li>
+<li class="chapter" data-level="8.7.2" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#parallelized-model"><i class="fa fa-check"></i><b>8.7.2</b> Parallelized model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i>Applications</a></li>
+<li class="chapter" data-level="9" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html"><i class="fa fa-check"></i><b>9</b> Application: Experience-Weighted Attraction</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-model-at-the-individual-level"><i class="fa fa-check"></i><b>9.1</b> The model at the individual level</a></li>
+<li class="chapter" data-level="9.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-computational-and-coding-issues"><i class="fa fa-check"></i><b>9.2</b> Some computational and coding issues</a></li>
+<li class="chapter" data-level="9.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#representative-agent-models"><i class="fa fa-check"></i><b>9.3</b> Representative agent models</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration"><i class="fa fa-check"></i><b>9.3.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="9.3.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model"><i class="fa fa-check"></i><b>9.3.2</b> The <em>Stan</em> model</a></li>
+<li class="chapter" data-level="9.3.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results"><i class="fa fa-check"></i><b>9.3.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#hierarchical-model"><i class="fa fa-check"></i><b>9.4</b> Hierarchical model</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration-1"><i class="fa fa-check"></i><b>9.4.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="9.4.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model-1"><i class="fa fa-check"></i><b>9.4.2</b> The <em>Stan</em> model</a></li>
+<li class="chapter" data-level="9.4.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results-1"><i class="fa fa-check"></i><b>9.4.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-code-used-to-estimate-the-models-1"><i class="fa fa-check"></i><b>9.5</b> Some code used to estimate the models</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#loading-the-data"><i class="fa fa-check"></i><b>9.5.1</b> Loading the data</a></li>
+<li class="chapter" data-level="9.5.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-representative-agent-models"><i class="fa fa-check"></i><b>9.5.2</b> Estimating the representative agent models</a></li>
+<li class="chapter" data-level="9.5.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-hierarchical-model"><i class="fa fa-check"></i><b>9.5.3</b> Estimating the hierarchical model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>10</b> Application: Strategy Frequency Estimation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#simplifying-the-individual-likelihood-functions"><i class="fa fa-check"></i><b>10.1</b> Simplifying the individual likelihood functions</a></li>
+<li class="chapter" data-level="10.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011"><i class="fa fa-check"></i><b>10.2</b> Example experiment: <span class="citation">Dal Bó and Fréchette (2011)</span></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#the-sfem-with-homogeneous-trembles"><i class="fa fa-check"></i><b>10.2.1</b> The SFEM with homogeneous trembles</a></li>
+<li class="chapter" data-level="10.2.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#adding-heterogeneous-trembles-and-integrating-the-likelihood"><i class="fa fa-check"></i><b>10.2.2</b> Adding heterogeneous trembles and integrating the likelihood</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#r-code-to-do-these-estimations"><i class="fa fa-check"></i><b>10.3</b> <em>R</em> code to do these estimations</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html"><i class="fa fa-check"></i><b>11</b> Computing Quantal Response Equilibrium</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#overview-of-quantal-response-equilibrium"><i class="fa fa-check"></i><b>11.1</b> Overview of quantal response equilibrium</a></li>
+<li class="chapter" data-level="11.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#computing-quantal-response-equilibrium-1"><i class="fa fa-check"></i><b>11.2</b> Computing Quantal Response Equilibrium</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#setting-up-the-problem"><i class="fa fa-check"></i><b>11.2.1</b> Setting up the problem</a></li>
+<li class="chapter" data-level="11.2.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#a-predictor-corrector-algorithm"><i class="fa fa-check"></i><b>11.2.2</b> A predictor-corrector algorithm</a></li>
+<li class="chapter" data-level="11.2.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#initial-conditions"><i class="fa fa-check"></i><b>11.2.3</b> Initial conditions</a></li>
+<li class="chapter" data-level="11.2.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#algorithm-tuning"><i class="fa fa-check"></i><b>11.2.4</b> Algorithm tuning</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#the-predictor-corrector-algorithm-in-r"><i class="fa fa-check"></i><b>11.3</b> The predictor-corrector algorithm in <em>R</em></a></li>
+<li class="chapter" data-level="11.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#some-example-games"><i class="fa fa-check"></i><b>11.4</b> Some example games</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#generalized-matching-pennies-ochs1995"><i class="fa fa-check"></i><b>11.4.1</b> Generalized matching pennies <span class="citation">(Ochs 1995)</span></a></li>
+<li class="chapter" data-level="11.4.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#stag-hunt"><i class="fa fa-check"></i><b>11.4.2</b> Stag hunt</a></li>
+<li class="chapter" data-level="11.4.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#n-player-volunteers-dilemma-imposing-symmetric-strategies"><i class="fa fa-check"></i><b>11.4.3</b> <span class="math inline">\(n\)</span>-player Volunteer’s Dilemma imposing symmetric strategies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><i class="fa fa-check"></i><b>12</b> Application: Quantal Response Equilibrium and the Volunteer’s Dilemma <span class="citation">(Goeree, Holt, and Smith 2017)</span></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#solving-logit-qre-and-estimating-the-model"><i class="fa fa-check"></i><b>12.1</b> Solving logit QRE and estimating the model</a></li>
+<li class="chapter" data-level="12.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#adding-some-heterogeneity-1"><i class="fa fa-check"></i><b>12.2</b> Adding some heterogeneity</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#computing-quantal-response-equilibrium-with-heterogeneous-parameters"><i class="fa fa-check"></i><b>12.2.1</b> Computing quantal response equilibrium with heterogeneous parameters</a></li>
+<li class="chapter" data-level="12.2.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#warm-glow-volunteering"><i class="fa fa-check"></i><b>12.2.2</b> Warm glow volunteering</a></li>
+<li class="chapter" data-level="12.2.3" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#duplicate-aversion"><i class="fa fa-check"></i><b>12.2.3</b> Duplicate aversion</a></li>
+<li class="chapter" data-level="12.2.4" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#results-2"><i class="fa fa-check"></i><b>12.2.4</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#r-code-to-run-estimations"><i class="fa fa-check"></i><b>12.3</b> <em>R</em> code to run estimations</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="application-level-k-models.html"><a href="application-level-k-models.html"><i class="fa fa-check"></i><b>13</b> Application: Level-<span class="math inline">\(k\)</span> models</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#data-and-game"><i class="fa fa-check"></i><b>13.1</b> Data and game</a></li>
+<li class="chapter" data-level="13.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-level-k-model"><i class="fa fa-check"></i><b>13.2</b> The level-<span class="math inline">\(k\)</span> model</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-deterministic-component-of-the-model"><i class="fa fa-check"></i><b>13.2.1</b> The deterministic component of the model</a></li>
+<li class="chapter" data-level="13.2.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#exact-and-probabilistic-play"><i class="fa fa-check"></i><b>13.2.2</b> Exact and probabilistic play</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#assigning-probabilities-to-types-for-each-participant-separately"><i class="fa fa-check"></i><b>13.3</b> Assigning probabilities to types for each participant separately</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-stan-program"><i class="fa fa-check"></i><b>13.3.1</b> The <em>Stan</em> program</a></li>
+<li class="chapter" data-level="13.3.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#prior-calibration-2"><i class="fa fa-check"></i><b>13.3.2</b> Prior calibration</a></li>
+<li class="chapter" data-level="13.3.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-3"><i class="fa fa-check"></i><b>13.3.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="application-level-k-models.html"><a href="application-level-k-models.html#doing-the-averaging-within-one-program"><i class="fa fa-check"></i><b>13.4</b> Doing the averaging within one program</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-stan-program-1"><i class="fa fa-check"></i><b>13.4.1</b> The <em>Stan</em> program</a></li>
+<li class="chapter" data-level="13.4.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-4"><i class="fa fa-check"></i><b>13.4.2</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-mixture-model"><i class="fa fa-check"></i><b>13.5</b> A mixture model</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#stan-program"><i class="fa fa-check"></i><b>13.5.1</b> <em>Stan</em> program</a></li>
+<li class="chapter" data-level="13.5.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-prior-for-psi"><i class="fa fa-check"></i><b>13.5.2</b> A prior for <span class="math inline">\(\psi\)</span></a></li>
+<li class="chapter" data-level="13.5.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-5"><i class="fa fa-check"></i><b>13.5.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-mixture-over-levels-and-hierarchical-nuisance-parameters"><i class="fa fa-check"></i><b>13.6</b> A mixture over levels and hierarchical nuisance parameters</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#prior-calibration-3"><i class="fa fa-check"></i><b>13.6.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="13.6.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#stan-program-1"><i class="fa fa-check"></i><b>13.6.2</b> <em>Stan</em> program</a></li>
+<li class="chapter" data-level="13.6.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-6"><i class="fa fa-check"></i><b>13.6.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-different-assumption-about-mixing"><i class="fa fa-check"></i><b>13.7</b> A different assumption about mixing</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#stan-program-2"><i class="fa fa-check"></i><b>13.7.1</b> <em>Stan</em> program</a></li>
+<li class="chapter" data-level="13.7.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-7"><i class="fa fa-check"></i><b>13.7.2</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="application-level-k-models.html"><a href="application-level-k-models.html#r-code-to-estimate-the-models"><i class="fa fa-check"></i><b>13.8</b> <em>R</em> code to estimate the models</a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#participant-specific-estimation-conditional-on-k-with-bayesian-model-averaging"><i class="fa fa-check"></i><b>13.8.1</b> Participant-specific estimation conditional on <span class="math inline">\(k\)</span> with Bayesian model averaging</a></li>
+<li class="chapter" data-level="13.8.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#participant-specific-estimation-with-a-prior-over-k"><i class="fa fa-check"></i><b>13.8.2</b> Participant-specific estimation with a prior over <span class="math inline">\(k\)</span></a></li>
+<li class="chapter" data-level="13.8.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#mixture-model"><i class="fa fa-check"></i><b>13.8.3</b> Mixture model</a></li>
+<li class="chapter" data-level="13.8.4" data-path="application-level-k-models.html"><a href="application-level-k-models.html#hierarchical-model-1"><i class="fa fa-check"></i><b>13.8.4</b> Hierarchical model</a></li>
+<li class="chapter" data-level="13.8.5" data-path="application-level-k-models.html"><a href="application-level-k-models.html#mixture-model-with-beliefs-consistent-with-truncated-type-distribution"><i class="fa fa-check"></i><b>13.8.5</b> Mixture model with beliefs consistent with truncated type distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html"><i class="fa fa-check"></i><b>14</b> Application: Estimating risk preferences</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#example-dataset"><i class="fa fa-check"></i><b>14.1</b> Example dataset</a></li>
+<li class="chapter" data-level="14.2" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#we-might-not-just-be-interested-in-the-parameters"><i class="fa fa-check"></i><b>14.2</b> We might not just be interested in the parameters</a></li>
+<li class="chapter" data-level="14.3" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#introducing-some-important-models"><i class="fa fa-check"></i><b>14.3</b> Introducing some important models</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#expected-utility-theory"><i class="fa fa-check"></i><b>14.3.1</b> Expected utility theory</a></li>
+<li class="chapter" data-level="14.3.2" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#rank-dependent-utility-quiggin1982"><i class="fa fa-check"></i><b>14.3.2</b> Rank-dependent utility <span class="citation">(Quiggin 1982)</span></a></li>
+<li class="chapter" data-level="14.3.3" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#comparing-the-certainty-equivalents-estimated-using-eut-and-rdu"><i class="fa fa-check"></i><b>14.3.3</b> Comparing the certainty equivalents estimated using EUT and RDU</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#a-hierarchical-specification"><i class="fa fa-check"></i><b>14.4</b> A hierarchical specification</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#population-level-estimates"><i class="fa fa-check"></i><b>14.4.1</b> Population-level estimates</a></li>
+<li class="chapter" data-level="14.4.2" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#participant-level-estimates"><i class="fa fa-check"></i><b>14.4.2</b> Participant-level estimates</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#r-code-used-to-estimate-these-models"><i class="fa fa-check"></i><b>14.5</b> <em>R</em> code used to estimate these models</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html"><i class="fa fa-check"></i><b>15</b> Application: Meta-analysis using (some of) the METARET data</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#data"><i class="fa fa-check"></i><b>15.1</b> Data</a></li>
+<li class="chapter" data-level="15.2" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#a-basic-model"><i class="fa fa-check"></i><b>15.2</b> A basic model</a></li>
+<li class="chapter" data-level="15.3" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#but-the-data-are-really-interval-valued"><i class="fa fa-check"></i><b>15.3</b> But the data are really interval-valued!</a></li>
+<li class="chapter" data-level="15.4" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#heterogeneous-standard-deviations"><i class="fa fa-check"></i><b>15.4</b> Heterogeneous standard deviations</a></li>
+<li class="chapter" data-level="15.5" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#student-t-distributions-because-why-not"><i class="fa fa-check"></i><b>15.5</b> Student-<span class="math inline">\(t\)</span> distributions, because why not?</a></li>
+<li class="chapter" data-level="15.6" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#r-code-to-estimate-the-models-1"><i class="fa fa-check"></i><b>15.6</b> <em>R</em> code to estimate the models</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="links-to-data.html"><a href="links-to-data.html"><i class="fa fa-check"></i>Links to data</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Structural Bayesian Techniques for Experimental and Behavioral Economics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="application-meta-analysis-using-some-of-the-metaret-data" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">15</span> Application: Meta-analysis using (some of) the METARET data<a href="application-meta-analysis-using-some-of-the-metaret-data.html#application-meta-analysis-using-some-of-the-metaret-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Sometimes, you have more than one dataset and you want to make inferences about how similar or dissimular these datasets are, or how much you can learn from the data as a whole. This is where you want to do a <em>meta-analysis</em>, and Bayesian techniques are particularly well-suited to these, for exactly the same reason that they handle hierarchical models well. While the hierarchical models presented up to this point has two levels of parameters (i.e. population-level and participant-level), we will now have three or more levels, as there could be meaningful variation at the population level, between experiments, and between participants within experiments. Quantifying this variation is useful, and some small additions to our understanding of hierarchical models will help us understand this.</p>
+<p>Hopefully you will see that adding this additional level of variation is not much of a leap forward as far as hierarchical models go. We now simply have (i) parameters describing the distribution between experiments. These feed into (ii) parameters describing the distribution <em>within</em> experiments, and (iii) participant-specific parameters.</p>
+<p>I suspect and hope that this kind of analysis is going to become <em>very</em> common in Experimental Economics. This is because we have had a long history of good data-sharing norms, and it is therefore not too difficult to obtain data from published experiments. Furthermore, as experimental economists often design new experiments by using older experiments as a baseline, there are a lot of opportunities for the same (or similar enough) designs to show up a lot more than once.</p>
+<div id="data" class="section level2 hasAnchor" number="15.1">
+<h2><span class="header-section-number">15.1</span> Data<a href="application-meta-analysis-using-some-of-the-metaret-data.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here we will be using a subset of the <a href="https://t.co/Ynb71bKZed">METARET</a> datset, which is a collection of data on risk elicitation tasks.<a href="#fn76" class="footnote-ref" id="fnref76"><sup>76</sup></a> I will focus just on the subset of this dataset corresponding to the <span class="citation">Holt and Laury (<a href="#ref-Holt2002">2002</a>)</span> risk elicitation task. Table <a href="application-meta-analysis-using-some-of-the-metaret-data.html#tab:METARETdata">15.1</a> summarizes this slice of the data. as you can see, there are a lot of experiments, and a lot of participants!</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-1" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="st">&quot;Code/METARET/Data/data.csv&quot;</span> <span class="sc">|&gt;</span> </span>
+<span id="cb192-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb192-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-3" tabindex="-1"></a>  <span class="fu">filter</span>(task<span class="sc">==</span><span class="st">&quot;HL&quot;</span>)<span class="sc">|&gt;</span></span>
+<span id="cb192-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">exptID =</span> bibkey <span class="sc">|&gt;</span> <span class="fu">as.factor</span>()) </span>
+<span id="cb192-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-5" tabindex="-1"></a></span>
+<span id="cb192-6"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-6" tabindex="-1"></a>exptList<span class="ot">&lt;-</span>D <span class="sc">|&gt;</span></span>
+<span id="cb192-7"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-7" tabindex="-1"></a>  <span class="fu">group_by</span>(exptID) <span class="sc">|&gt;</span></span>
+<span id="cb192-8"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-8" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb192-9"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-9" tabindex="-1"></a>    <span class="at">experiment =</span> bibkey[<span class="dv">1</span>],</span>
+<span id="cb192-10"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-10" tabindex="-1"></a>    <span class="at">id =</span> exptID[<span class="dv">1</span>] <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb192-11"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-11" tabindex="-1"></a>    <span class="at">participants =</span> <span class="fu">n</span>()</span>
+<span id="cb192-12"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-12" tabindex="-1"></a>  )</span>
+<span id="cb192-13"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-13" tabindex="-1"></a></span>
+<span id="cb192-14"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-14" tabindex="-1"></a>exptList <span class="sc">|&gt;</span></span>
+<span id="cb192-15"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-15" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(</span>
+<span id="cb192-16"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-16" tabindex="-1"></a>    experiment,participants</span>
+<span id="cb192-17"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-17" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb192-18"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-18" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="fu">paste</span>(<span class="st">&quot;The &quot;</span>,<span class="fu">dim</span>(exptList)[<span class="dv">1</span>],<span class="st">&quot;experiments using the Holt and Laury (2002) task in the METARET dataset&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb192-19"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb192-19" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<table class=" lightable-classic" style="color: black; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:METARETdata">Table 15.1: </span>The 52 experiments using the Holt and Laury (2002) task in the METARET dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+experiment
+</th>
+<th style="text-align:right;">
+participants
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Abdellaoui2011
+</td>
+<td style="text-align:right;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Andersen2010
+</td>
+<td style="text-align:right;">
+89
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Barrera2012
+</td>
+<td style="text-align:right;">
+98
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bauernschuster2010
+</td>
+<td style="text-align:right;">
+174
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bellemare2010
+</td>
+<td style="text-align:right;">
+84
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Branas2011
+</td>
+<td style="text-align:right;">
+145
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Carlsson2009
+</td>
+<td style="text-align:right;">
+213
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Casari2009
+</td>
+<td style="text-align:right;">
+78
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chakravarty2011
+</td>
+<td style="text-align:right;">
+37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Charness2019
+</td>
+<td style="text-align:right;">
+157
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chen2013
+</td>
+<td style="text-align:right;">
+72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cobo-Reyes2012
+</td>
+<td style="text-align:right;">
+76
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Crosetto2016
+</td>
+<td style="text-align:right;">
+73
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dave2010
+</td>
+<td style="text-align:right;">
+802
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Deck2012a
+</td>
+<td style="text-align:right;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dickinson2009
+</td>
+<td style="text-align:right;">
+126
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Drichoutis2012
+</td>
+<td style="text-align:right;">
+57
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Duersch2012
+</td>
+<td style="text-align:right;">
+200
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Eckel2006
+</td>
+<td style="text-align:right;">
+198
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fiedler2012
+</td>
+<td style="text-align:right;">
+29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Fiore2009
+</td>
+<td style="text-align:right;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Frey2017
+</td>
+<td style="text-align:right;">
+1331
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gloeckner2012
+</td>
+<td style="text-align:right;">
+159
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gloeckner2012a
+</td>
+<td style="text-align:right;">
+38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Grijalva2011
+</td>
+<td style="text-align:right;">
+77
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Harrison2005
+</td>
+<td style="text-align:right;">
+152
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Harrison2007b
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Harrison2008
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+harrison2012b
+</td>
+<td style="text-align:right;">
+90
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Holt2002
+</td>
+<td style="text-align:right;">
+199
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Holzmeister2019
+</td>
+<td style="text-align:right;">
+198
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jacquemet2008
+</td>
+<td style="text-align:right;">
+87
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jamison2008
+</td>
+<td style="text-align:right;">
+130
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lange2007
+</td>
+<td style="text-align:right;">
+121
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lange2007a
+</td>
+<td style="text-align:right;">
+172
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Levy-Garboua2012
+</td>
+<td style="text-align:right;">
+54
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lusk2005
+</td>
+<td style="text-align:right;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Masclet2009
+</td>
+<td style="text-align:right;">
+79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mueller2012
+</td>
+<td style="text-align:right;">
+116
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nieken2012
+</td>
+<td style="text-align:right;">
+287
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pogrebna2011
+</td>
+<td style="text-align:right;">
+57
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ponti2009
+</td>
+<td style="text-align:right;">
+33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rosaz2012
+</td>
+<td style="text-align:right;">
+112
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rosaz2012a
+</td>
+<td style="text-align:right;">
+279
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ryvkin2011
+</td>
+<td style="text-align:right;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Schram2011
+</td>
+<td style="text-align:right;">
+137
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Shafran2010
+</td>
+<td style="text-align:right;">
+64
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Slonim2010
+</td>
+<td style="text-align:right;">
+116
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sloof2010
+</td>
+<td style="text-align:right;">
+86
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Szrek2012
+</td>
+<td style="text-align:right;">
+198
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wakolbinger2009
+</td>
+<td style="text-align:right;">
+131
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Yechiam2012
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table <a href="application-meta-analysis-using-some-of-the-metaret-data.html#tab:METARETrandom">15.2</a> shows you a random sample of the data we will be using. The variable <code>bibkey</code> will identify the experiment. Our outcome of interest will be the variable <code>r</code>, wich is an estimate of the coefficient of relative risk aversion. However those of you familiar with <span class="citation">Holt and Laury (<a href="#ref-Holt2002">2002</a>)</span> will know that this task only gives you an <em>interval</em> range for <span class="math inline">\(r\)</span>. This interval is a function of the variable <code>choice</code>, which is the switch-point observed for a participant in the task. In corresponding with Paolo Crosetto, I found out that the <code>r</code> variable was uniformly assigned within this range (you can also see this in the METARET replication files). We can see that these intervals are exactly the same by looking at the empirical cumulative density function of the <code>r</code> variable, which I show in Figure <a href="application-meta-analysis-using-some-of-the-metaret-data.html#fig:METARETintervals">15.1</a>:</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb193-1" tabindex="-1"></a>(</span>
+<span id="cb193-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb193-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(D,<span class="fu">aes</span>(<span class="at">x=</span>r,<span class="at">color=</span><span class="fu">as.factor</span>(choice)))</span>
+<span id="cb193-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb193-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_ecdf</span>()</span>
+<span id="cb193-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb193-4" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb193-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb193-5" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:METARETintervals"></span>
+<img src="index_files/figure-html/METARETintervals-1.png" alt="Empirical cumulative density functions of $r$, broken down by choice in the Holt and Laury (2002) task" width="672" />
+<p class="caption">
+Figure 15.1: Empirical cumulative density functions of <span class="math inline">\(r\)</span>, broken down by choice in the Holt and Laury (2002) task
+</p>
+</div>
+<p>For simplicity we will begin by treating <code>r</code> as if it is the exact value of <span class="math inline">\(r\)</span> for this participant, but then we will relax this assumption so that it is interval-valued.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb194-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb194-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb194-2" tabindex="-1"></a>D <span class="sc">|&gt;</span></span>
+<span id="cb194-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb194-3" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">20</span>) <span class="sc">|&gt;</span></span>
+<span id="cb194-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb194-4" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(bibkey,choice,r,task) <span class="sc">|&gt;</span></span>
+<span id="cb194-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb194-5" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&quot;A random sample of the METARET Holt and Laury (2002) data.&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb194-6"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb194-6" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<table class=" lightable-classic" style="color: black; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:METARETrandom">Table 15.2: </span>A random sample of the METARET Holt and Laury (2002) data.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+bibkey
+</th>
+<th style="text-align:right;">
+choice
+</th>
+<th style="text-align:right;">
+r
+</th>
+<th style="text-align:left;">
+task
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+harrison2012b
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.7974468
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Duersch2012
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1.1191757
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lange2007a
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.6087734
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Grijalva2011
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1.1030496
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Szrek2012
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.6409813
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jacquemet2008
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0.9068044
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Frey2017
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.0869766
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Shafran2010
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1.3751412
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gloeckner2012
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+-0.2327934
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Grijalva2011
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+1.4956184
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Andersen2010
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.5473514
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Branas2011
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.8301501
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bauernschuster2010
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.4462529
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Holzmeister2019
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.0638232
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Casari2009
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.7920361
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Carlsson2009
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+-0.3700000
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Frey2017
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+-0.2673258
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Frey2017
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.7556473
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Duersch2012
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.3521928
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wakolbinger2009
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1.3328647
+</td>
+<td style="text-align:left;">
+HL
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="a-basic-model" class="section level2 hasAnchor" number="15.2">
+<h2><span class="header-section-number">15.2</span> A basic model<a href="application-meta-analysis-using-some-of-the-metaret-data.html#a-basic-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To begin with, assume that the <code>r</code> in the dataset is measured perfectly, and so we do not have to worry about it really being an interval. Let <span class="math inline">\(r_{i,e}\)</span> be the risk-aversion value measured for participant <span class="math inline">\(i\)</span> in experiment <span class="math inline">\(e\)</span>. <em>Within</em> each experiment <span class="math inline">\(e\)</span>, assume that <span class="math inline">\(r_{i,e}\sim N(\mu_e,\sigma^2)\)</span>, where <span class="math inline">\(\mu_e\)</span> is an experiment-specific mean of <span class="math inline">\(r_{i,e}\)</span> and <span class="math inline">\(\sigma\)</span> is common to all experiments (we will relax this later). <em>Between</em> experiments, we will assume that the experiment means <span class="math inline">\(\mu_i\)</span>s are normally distributed, <span class="math inline">\(\mu_i\sim N(\bar\mu,\bar\sigma^2)\)</span>. That is, we have between-experiment variation measured by <span class="math inline">\(\bar\sigma\)</span>, and within-experiment variation measured by <span class="math inline">\(\sigma\)</span>.</p>
+<p>As we might be interested in the relative importance of these sources of variation, it is useful to decompose the total variance of an observation by looking at the ratio of between-experiment variance to within-experiment variance, which is:</p>
+<p><span class="math display">\[
+\rho = \frac{\bar\sigma^2}{\bar\sigma^2+\sigma^2}
+\]</span></p>
+<p>That is if <span class="math inline">\(\rho\)</span> is close to zero, then <span class="math inline">\(\bar\sigma^2\)</span> is relatively small. This will mean that there is not much difference in the means of <span class="math inline">\(r_{e,i}\)</span> between experiments. On the other hand, if <span class="math inline">\(\rho\)</span> is close to one, then most of the variation in <span class="math inline">\(r_{e,i}\)</span> is attributable to variation between experiments. In this case, it would be hard to predict the mean of <span class="math inline">\(r_{e,i}\)</span> in a new experiment.</p>
+<p>Here is my formal statement of the model’s structure and its priors:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{Participant-level variation: }r_{i,e}&amp;\sim N(\mu_e,\sigma^2)\\
+\text{Experiment-level variation: }\mu_e&amp;\sim N(\bar\mu,\bar\sigma^2)\\
+\text{priors: } \bar\mu&amp;\sim N(0,10)\\
+\bar\sigma&amp;\sim\mathrm{Cauchy}^+(0,10)\\
+\sigma&amp;\sim \mathrm{Cauchy}^+(0,10)
+\end{aligned}
+\]</span></p>
+<p>And here is the <em>Stan</em> program I wrote to estimate it. Note that we are augmenting the data by the <span class="math inline">\(\mu_i\)</span>s. Therefore we will get shrinkage estimates of these from the estimation process.</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb195-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-1" tabindex="-1"></a><span class="co">// 2level.stan </span></span>
+<span id="cb195-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-2" tabindex="-1"></a><span class="co">// a 2-level hierarchical model for aggregating risk preferences</span></span>
+<span id="cb195-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-3" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb195-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-4" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span></span>
+<span id="cb195-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-5" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> r<span class="op">;</span></span>
+<span id="cb195-6"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-6" tabindex="-1"></a>  </span>
+<span id="cb195-7"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-7" tabindex="-1"></a>  <span class="dt">int</span> nexpt<span class="op">;</span></span>
+<span id="cb195-8"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-8" tabindex="-1"></a>  <span class="dt">int</span> exptID<span class="op">[</span>N<span class="op">];</span></span>
+<span id="cb195-9"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-9" tabindex="-1"></a>  </span>
+<span id="cb195-10"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-10" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_MU<span class="op">;</span></span>
+<span id="cb195-11"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-11" tabindex="-1"></a>  real prior_sigma_expt<span class="op">;</span></span>
+<span id="cb195-12"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-12" tabindex="-1"></a>  real prior_sigma_i<span class="op">;</span></span>
+<span id="cb195-13"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-13" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb195-14"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-14" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb195-15"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-15" tabindex="-1"></a>  real MU<span class="op">;</span></span>
+<span id="cb195-16"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-16" tabindex="-1"></a>  </span>
+<span id="cb195-17"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-17" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> sigma_expt<span class="op">;</span></span>
+<span id="cb195-18"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-18" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> sigma_i<span class="op">;</span></span>
+<span id="cb195-19"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-19" tabindex="-1"></a>  </span>
+<span id="cb195-20"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-20" tabindex="-1"></a>  vector<span class="op">[</span>nexpt<span class="op">]</span> mu_expt<span class="op">;</span></span>
+<span id="cb195-21"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-21" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb195-22"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-22" tabindex="-1"></a></span>
+<span id="cb195-23"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-23" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb195-24"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-24" tabindex="-1"></a>  </span>
+<span id="cb195-25"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-25" tabindex="-1"></a>  <span class="co">// prior</span></span>
+<span id="cb195-26"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-26" tabindex="-1"></a>  </span>
+<span id="cb195-27"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-27" tabindex="-1"></a>  target <span class="op">+=</span> normal_lpdf<span class="op">(</span>MU <span class="op">|</span> prior_MU<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_MU<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb195-28"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-28" tabindex="-1"></a>  target <span class="op">+=</span> cauchy_lpdf<span class="op">(</span>sigma_expt <span class="op">|</span> <span class="dv">0</span><span class="er">.0</span><span class="op">,</span>prior_sigma_expt<span class="op">);</span></span>
+<span id="cb195-29"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-29" tabindex="-1"></a>  target <span class="op">+=</span> cauchy_lpdf<span class="op">(</span>sigma_i <span class="op">|</span> <span class="dv">0</span><span class="er">.0</span><span class="op">,</span>prior_sigma_i<span class="op">);</span></span>
+<span id="cb195-30"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-30" tabindex="-1"></a>  </span>
+<span id="cb195-31"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-31" tabindex="-1"></a>  <span class="co">// hierarchical structure</span></span>
+<span id="cb195-32"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-32" tabindex="-1"></a>  </span>
+<span id="cb195-33"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-33" tabindex="-1"></a>  target<span class="op">+=</span> normal_lpdf<span class="op">(</span>mu_expt <span class="op">|</span> MU<span class="op">,</span>sigma_expt<span class="op">);</span></span>
+<span id="cb195-34"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-34" tabindex="-1"></a>  </span>
+<span id="cb195-35"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-35" tabindex="-1"></a>  <span class="co">// likelihood</span></span>
+<span id="cb195-36"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-36" tabindex="-1"></a>  </span>
+<span id="cb195-37"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-37" tabindex="-1"></a>  target <span class="op">+=</span> normal_lpdf<span class="op">(</span>r <span class="op">|</span> mu_expt<span class="op">[</span>exptID<span class="op">],</span> sigma_i<span class="op">);</span></span>
+<span id="cb195-38"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-38" tabindex="-1"></a></span>
+<span id="cb195-39"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-39" tabindex="-1"></a><span class="op">}</span> </span>
+<span id="cb195-40"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-40" tabindex="-1"></a></span>
+<span id="cb195-41"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-41" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
+<span id="cb195-42"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-42" tabindex="-1"></a>  </span>
+<span id="cb195-43"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-43" tabindex="-1"></a>  real rho <span class="op">=</span> pow<span class="op">(</span>sigma_expt<span class="op">,</span><span class="fl">2.0</span><span class="op">)/(</span>pow<span class="op">(</span>sigma_expt<span class="op">,</span><span class="fl">2.0</span><span class="op">)+</span>pow<span class="op">(</span>sigma_i<span class="op">,</span><span class="fl">2.0</span><span class="op">));</span></span>
+<span id="cb195-44"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb195-44" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Table <a href="application-meta-analysis-using-some-of-the-metaret-data.html#tab:METARETbasic">15.3</a> shows the estimates from this model. In particular, note the estimate for <span class="math inline">\(\rho\)</span>, which is much closer to zero than one. This suggests that within-experiment variation in <span class="math inline">\(r_{e,i}\)</span> is larger than between-experiment variation in its means.</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-1" tabindex="-1"></a>Fit<span class="ot">&lt;-</span><span class="fu">summary</span>(</span>
+<span id="cb196-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-2" tabindex="-1"></a>  <span class="st">&quot;Code/METARET/Fit.rds&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb196-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-3" tabindex="-1"></a>  <span class="fu">readRDS</span>()</span>
+<span id="cb196-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-4" tabindex="-1"></a>  )<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
+<span id="cb196-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-5" tabindex="-1"></a>  <span class="fu">data.frame</span>()<span class="sc">|&gt;</span></span>
+<span id="cb196-6"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-6" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">&quot;parameter&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb196-7"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-7" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb196-8"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-8" tabindex="-1"></a>    <span class="at">exptID =</span> <span class="fu">parse_number</span>(parameter)</span>
+<span id="cb196-9"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-9" tabindex="-1"></a>  ) </span>
+<span id="cb196-10"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-10" tabindex="-1"></a></span>
+<span id="cb196-11"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-11" tabindex="-1"></a>Fit <span class="sc">|&gt;</span> </span>
+<span id="cb196-12"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-12" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(exptID)) <span class="sc">|&gt;</span></span>
+<span id="cb196-13"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-13" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>exptID) <span class="sc">|&gt;</span></span>
+<span id="cb196-14"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-14" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">digits=</span><span class="dv">3</span>,<span class="at">caption =</span> <span class="st">&quot;Parameter estimates from the basic model&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb196-15"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb196-15" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<table class=" lightable-classic" style="color: black; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:METARETbasic">Table 15.3: </span>Parameter estimates from the basic model
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+parameter
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+se_mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+X2.5.
+</th>
+<th style="text-align:right;">
+X25.
+</th>
+<th style="text-align:right;">
+X50.
+</th>
+<th style="text-align:right;">
+X75.
+</th>
+<th style="text-align:right;">
+X97.5.
+</th>
+<th style="text-align:right;">
+n_eff
+</th>
+<th style="text-align:right;">
+Rhat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+MU
+</td>
+<td style="text-align:right;">
+0.584
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.030
+</td>
+<td style="text-align:right;">
+0.524
+</td>
+<td style="text-align:right;">
+0.564
+</td>
+<td style="text-align:right;">
+0.584
+</td>
+<td style="text-align:right;">
+0.604
+</td>
+<td style="text-align:right;">
+0.643
+</td>
+<td style="text-align:right;">
+5618.174
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sigma_expt
+</td>
+<td style="text-align:right;">
+0.207
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.025
+</td>
+<td style="text-align:right;">
+0.165
+</td>
+<td style="text-align:right;">
+0.189
+</td>
+<td style="text-align:right;">
+0.206
+</td>
+<td style="text-align:right;">
+0.223
+</td>
+<td style="text-align:right;">
+0.261
+</td>
+<td style="text-align:right;">
+4218.509
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sigma_i
+</td>
+<td style="text-align:right;">
+0.550
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.005
+</td>
+<td style="text-align:right;">
+0.541
+</td>
+<td style="text-align:right;">
+0.547
+</td>
+<td style="text-align:right;">
+0.550
+</td>
+<td style="text-align:right;">
+0.553
+</td>
+<td style="text-align:right;">
+0.559
+</td>
+<td style="text-align:right;">
+7046.200
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rho
+</td>
+<td style="text-align:right;">
+0.125
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.026
+</td>
+<td style="text-align:right;">
+0.082
+</td>
+<td style="text-align:right;">
+0.106
+</td>
+<td style="text-align:right;">
+0.122
+</td>
+<td style="text-align:right;">
+0.141
+</td>
+<td style="text-align:right;">
+0.184
+</td>
+<td style="text-align:right;">
+4256.043
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lp__
+</td>
+<td style="text-align:right;">
+-6203.000
+</td>
+<td style="text-align:right;">
+0.13
+</td>
+<td style="text-align:right;">
+5.223
+</td>
+<td style="text-align:right;">
+-6214.325
+</td>
+<td style="text-align:right;">
+-6206.201
+</td>
+<td style="text-align:right;">
+-6202.631
+</td>
+<td style="text-align:right;">
+-6199.302
+</td>
+<td style="text-align:right;">
+-6193.737
+</td>
+<td style="text-align:right;">
+1611.583
+</td>
+<td style="text-align:right;">
+1.003
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="but-the-data-are-really-interval-valued" class="section level2 hasAnchor" number="15.3">
+<h2><span class="header-section-number">15.3</span> But the data are really interval-valued!<a href="application-meta-analysis-using-some-of-the-metaret-data.html#but-the-data-are-really-interval-valued" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we will take the interval-valued property of <span class="citation">Holt and Laury (<a href="#ref-Holt2002">2002</a>)</span> data more seriously. Once we code up the bounds (you can see how I do that at the end of this chapter), it is really easy to augment our data again by the unobserved (i.e. latent) <span class="math inline">\(r_{i,i}^*\)</span>, which we know will be somewhere between a lower bound of <span class="math inline">\(\underline r_{e,i}\)</span>, and an upper bound of <span class="math inline">\(\overline r_{e,i}\)</span>. Here is the modification to the model statement we need to make:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{Participant-level variation: }r_{i,e}^*&amp;\sim \mathrm{Truncated\ Normal}(\mu_e,\sigma^2,(\underline r_{i,e},\overline r_{i,e}))\\
+\text{Experiment-level variation: }\mu_e&amp;\sim N(\bar\mu,\bar\sigma^2)\\
+\text{priors: } \bar\mu&amp;\sim N(0,10)\\
+\bar\sigma&amp;\sim\mathrm{Cauchy}^+(0,10)\\
+\sigma&amp;\sim \mathrm{Cauchy}^+(0,10)
+\end{aligned}
+\]</span></p>
+<p>And here is the <em>Stan</em> program that estimates it. Note now that <code>r</code> is a parameter, rather than data.</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb197-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-1" tabindex="-1"></a><span class="co">// 2level_interval.stan </span></span>
+<span id="cb197-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-2" tabindex="-1"></a><span class="co">// a 2-level hierarchical model for aggregating risk preferences</span></span>
+<span id="cb197-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-3" tabindex="-1"></a><span class="co">// treating choices as revealing intervals</span></span>
+<span id="cb197-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-4" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb197-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-5" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span> <span class="co">// number of observations</span></span>
+<span id="cb197-6"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-6" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> rlb<span class="op">;</span> <span class="co">// lower bound for r</span></span>
+<span id="cb197-7"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-7" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> rub<span class="op">;</span> <span class="co">// upper bound of r</span></span>
+<span id="cb197-8"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-8" tabindex="-1"></a>  </span>
+<span id="cb197-9"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-9" tabindex="-1"></a>  <span class="dt">int</span> nexpt<span class="op">;</span> <span class="co">// number of experiments</span></span>
+<span id="cb197-10"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-10" tabindex="-1"></a>  <span class="dt">int</span> exptID<span class="op">[</span>N<span class="op">];</span> <span class="co">// experiment id</span></span>
+<span id="cb197-11"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-11" tabindex="-1"></a>  </span>
+<span id="cb197-12"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-12" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_MU<span class="op">;</span> <span class="co">// mean of r in population</span></span>
+<span id="cb197-13"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-13" tabindex="-1"></a>  real prior_sigma_expt<span class="op">;</span> <span class="co">// sd of r at experiment level</span></span>
+<span id="cb197-14"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-14" tabindex="-1"></a>  real prior_sigma_i<span class="op">;</span> <span class="co">// sd of r at individual level</span></span>
+<span id="cb197-15"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-15" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb197-16"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-16" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb197-17"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-17" tabindex="-1"></a>  real MU<span class="op">;</span></span>
+<span id="cb197-18"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-18" tabindex="-1"></a>  </span>
+<span id="cb197-19"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-19" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> sigma_expt<span class="op">;</span></span>
+<span id="cb197-20"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-20" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> sigma_i<span class="op">;</span></span>
+<span id="cb197-21"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-21" tabindex="-1"></a>  </span>
+<span id="cb197-22"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-22" tabindex="-1"></a>  vector<span class="op">[</span>nexpt<span class="op">]</span> mu_expt<span class="op">;</span></span>
+<span id="cb197-23"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-23" tabindex="-1"></a>  </span>
+<span id="cb197-24"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-24" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span>rlb<span class="op">,</span>upper<span class="op">=</span>rub<span class="op">&gt;[</span>N<span class="op">]</span> r<span class="op">;</span></span>
+<span id="cb197-25"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-25" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb197-26"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-26" tabindex="-1"></a></span>
+<span id="cb197-27"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-27" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb197-28"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-28" tabindex="-1"></a>  </span>
+<span id="cb197-29"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-29" tabindex="-1"></a>  <span class="co">// prior</span></span>
+<span id="cb197-30"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-30" tabindex="-1"></a>  </span>
+<span id="cb197-31"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-31" tabindex="-1"></a>  target <span class="op">+=</span> normal_lpdf<span class="op">(</span>MU <span class="op">|</span> prior_MU<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_MU<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb197-32"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-32" tabindex="-1"></a>  target <span class="op">+=</span> cauchy_lpdf<span class="op">(</span>sigma_expt <span class="op">|</span> <span class="dv">0</span><span class="er">.0</span><span class="op">,</span>prior_sigma_expt<span class="op">);</span></span>
+<span id="cb197-33"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-33" tabindex="-1"></a>  target <span class="op">+=</span> cauchy_lpdf<span class="op">(</span>sigma_i <span class="op">|</span> <span class="dv">0</span><span class="er">.0</span><span class="op">,</span>prior_sigma_i<span class="op">);</span></span>
+<span id="cb197-34"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-34" tabindex="-1"></a>  </span>
+<span id="cb197-35"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-35" tabindex="-1"></a>  <span class="co">// hierarchical structure</span></span>
+<span id="cb197-36"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-36" tabindex="-1"></a>  </span>
+<span id="cb197-37"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-37" tabindex="-1"></a>  target<span class="op">+=</span> normal_lpdf<span class="op">(</span>mu_expt <span class="op">|</span> MU<span class="op">,</span>sigma_expt<span class="op">);</span></span>
+<span id="cb197-38"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-38" tabindex="-1"></a>  </span>
+<span id="cb197-39"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-39" tabindex="-1"></a>  <span class="co">// likelihood</span></span>
+<span id="cb197-40"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-40" tabindex="-1"></a>  </span>
+<span id="cb197-41"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-41" tabindex="-1"></a>  target <span class="op">+=</span> normal_lpdf<span class="op">(</span>r <span class="op">|</span> mu_expt<span class="op">[</span>exptID<span class="op">],</span> sigma_i<span class="op">);</span></span>
+<span id="cb197-42"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-42" tabindex="-1"></a></span>
+<span id="cb197-43"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-43" tabindex="-1"></a><span class="op">}</span> </span>
+<span id="cb197-44"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-44" tabindex="-1"></a></span>
+<span id="cb197-45"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-45" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
+<span id="cb197-46"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-46" tabindex="-1"></a>  </span>
+<span id="cb197-47"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-47" tabindex="-1"></a>  real rho <span class="op">=</span> pow<span class="op">(</span>sigma_expt<span class="op">,</span><span class="fl">2.0</span><span class="op">)/(</span>pow<span class="op">(</span>sigma_expt<span class="op">,</span><span class="fl">2.0</span><span class="op">)+</span>pow<span class="op">(</span>sigma_i<span class="op">,</span><span class="fl">2.0</span><span class="op">));</span></span>
+<span id="cb197-48"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb197-48" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Table <a href="application-meta-analysis-using-some-of-the-metaret-data.html#tab:METARETinterval">15.4</a> shows the estimates from this model. These are not substantially different from those in Table <a href="application-meta-analysis-using-some-of-the-metaret-data.html#tab:METARETbasic">15.3</a>, but we didn’t know that until estimating this model.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-1" tabindex="-1"></a>Fit_interval<span class="ot">&lt;-</span><span class="fu">summary</span>(</span>
+<span id="cb198-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-2" tabindex="-1"></a>  <span class="st">&quot;Code/METARET/Fit_interval.rds&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb198-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-3" tabindex="-1"></a>  <span class="fu">readRDS</span>()</span>
+<span id="cb198-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-4" tabindex="-1"></a>  )<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
+<span id="cb198-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-5" tabindex="-1"></a>  <span class="fu">data.frame</span>()<span class="sc">|&gt;</span></span>
+<span id="cb198-6"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-6" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">&quot;parameter&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb198-7"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-7" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb198-8"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-8" tabindex="-1"></a>    <span class="at">exptID =</span> <span class="fu">parse_number</span>(parameter)</span>
+<span id="cb198-9"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-9" tabindex="-1"></a>  ) </span>
+<span id="cb198-10"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-10" tabindex="-1"></a></span>
+<span id="cb198-11"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-11" tabindex="-1"></a>Fit_interval <span class="sc">|&gt;</span> </span>
+<span id="cb198-12"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-12" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(exptID)) <span class="sc">|&gt;</span></span>
+<span id="cb198-13"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-13" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>exptID) <span class="sc">|&gt;</span></span>
+<span id="cb198-14"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-14" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">digits=</span><span class="dv">3</span>,<span class="at">caption =</span> <span class="st">&quot;Parameter estimates from the interval-valued model&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb198-15"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb198-15" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<table class=" lightable-classic" style="color: black; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:METARETinterval">Table 15.4: </span>Parameter estimates from the interval-valued model
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+parameter
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+se_mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+X2.5.
+</th>
+<th style="text-align:right;">
+X25.
+</th>
+<th style="text-align:right;">
+X50.
+</th>
+<th style="text-align:right;">
+X75.
+</th>
+<th style="text-align:right;">
+X97.5.
+</th>
+<th style="text-align:right;">
+n_eff
+</th>
+<th style="text-align:right;">
+Rhat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+MU
+</td>
+<td style="text-align:right;">
+0.567
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.034
+</td>
+<td style="text-align:right;">
+0.501
+</td>
+<td style="text-align:right;">
+0.544
+</td>
+<td style="text-align:right;">
+0.568
+</td>
+<td style="text-align:right;">
+0.591
+</td>
+<td style="text-align:right;">
+0.632
+</td>
+<td style="text-align:right;">
+4096.224
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sigma_expt
+</td>
+<td style="text-align:right;">
+0.230
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.027
+</td>
+<td style="text-align:right;">
+0.183
+</td>
+<td style="text-align:right;">
+0.211
+</td>
+<td style="text-align:right;">
+0.228
+</td>
+<td style="text-align:right;">
+0.247
+</td>
+<td style="text-align:right;">
+0.290
+</td>
+<td style="text-align:right;">
+3068.388
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sigma_i
+</td>
+<td style="text-align:right;">
+0.590
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.005
+</td>
+<td style="text-align:right;">
+0.580
+</td>
+<td style="text-align:right;">
+0.587
+</td>
+<td style="text-align:right;">
+0.590
+</td>
+<td style="text-align:right;">
+0.594
+</td>
+<td style="text-align:right;">
+0.601
+</td>
+<td style="text-align:right;">
+5038.230
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rho
+</td>
+<td style="text-align:right;">
+0.133
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.027
+</td>
+<td style="text-align:right;">
+0.087
+</td>
+<td style="text-align:right;">
+0.113
+</td>
+<td style="text-align:right;">
+0.130
+</td>
+<td style="text-align:right;">
+0.149
+</td>
+<td style="text-align:right;">
+0.193
+</td>
+<td style="text-align:right;">
+3050.136
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lp__
+</td>
+<td style="text-align:right;">
+-30049.240
+</td>
+<td style="text-align:right;">
+2.011
+</td>
+<td style="text-align:right;">
+73.787
+</td>
+<td style="text-align:right;">
+-30196.315
+</td>
+<td style="text-align:right;">
+-30099.434
+</td>
+<td style="text-align:right;">
+-30049.547
+</td>
+<td style="text-align:right;">
+-29998.176
+</td>
+<td style="text-align:right;">
+-29905.889
+</td>
+<td style="text-align:right;">
+1346.326
+</td>
+<td style="text-align:right;">
+1.001
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="heterogeneous-standard-deviations" class="section level2 hasAnchor" number="15.4">
+<h2><span class="header-section-number">15.4</span> Heterogeneous standard deviations<a href="application-meta-analysis-using-some-of-the-metaret-data.html#heterogeneous-standard-deviations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Of course, these experiments could be different not just because they have different means of risk-aversion, but also because they have different standard deviations of risk-aversion. In order to investigate how and whether this affects our conclusions, here is a model that assumes a hierarchical structure for <span class="math inline">\(\sigma_e\)</span> as well as <span class="math inline">\(\mu_e\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{Participant-level variation: }r_{i,e}^*&amp;\sim \mathrm{Truncated\ Normal}(\mu_e,\sigma^2_e,(\underline r_{i,e},\overline r_{i,e}))\\
+\text{Experiment-level variation: }\mu_e&amp;\sim N(\bar\mu,\bar\sigma^2)\\
+\log \sigma_e &amp;\sim N(M,S^2)\\
+\text{priors: } \bar\mu&amp;\sim N(0,10)\\
+\bar\sigma&amp;\sim\mathrm{Cauchy}^+(0,10)\\
+M&amp;\sim N(0,10)\\
+S&amp;\sim \mathrm{Cauchy}^+(0,10)
+\end{aligned}
+\]</span></p>
+<p>And here is the the <em>Stan</em> file that implements it. Note that we are augmenting the data by <span class="math inline">\(\sigma_e\)</span> <em>and</em> <span class="math inline">\(\mu_e\)</span> now. Also, since we don’t have <em>one</em> <span class="math inline">\(\rho\)</span> anymore, I am calculating an <em>average</em> <span class="math inline">\(\rho\)</span> in the <code>generated quantities</code> block using Monte Carlo integration.</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb199-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-1" tabindex="-1"></a><span class="co">// 2level_interval_sd.stan </span></span>
+<span id="cb199-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-2" tabindex="-1"></a><span class="co">// a 2-level hierarchical model for aggregating risk preferences</span></span>
+<span id="cb199-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-3" tabindex="-1"></a><span class="co">// treating choices as revealing intervals</span></span>
+<span id="cb199-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-4" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb199-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-5" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span> <span class="co">// number of observations</span></span>
+<span id="cb199-6"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-6" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> rlb<span class="op">;</span> <span class="co">// lower bound for r</span></span>
+<span id="cb199-7"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-7" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> rub<span class="op">;</span> <span class="co">// upper bound of r</span></span>
+<span id="cb199-8"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-8" tabindex="-1"></a>  </span>
+<span id="cb199-9"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-9" tabindex="-1"></a>  <span class="dt">int</span> nexpt<span class="op">;</span> <span class="co">// number of experiments</span></span>
+<span id="cb199-10"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-10" tabindex="-1"></a>  <span class="dt">int</span> exptID<span class="op">[</span>N<span class="op">];</span> <span class="co">// experiment id</span></span>
+<span id="cb199-11"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-11" tabindex="-1"></a>  </span>
+<span id="cb199-12"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-12" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_MU<span class="op">;</span> <span class="co">// mean of r in population</span></span>
+<span id="cb199-13"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-13" tabindex="-1"></a>  real prior_sigma_expt<span class="op">;</span> <span class="co">// sd of r at experiment level</span></span>
+<span id="cb199-14"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-14" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_sigma_i_M<span class="op">;</span>  <span class="co">// m and sd of log-median sigma_i</span></span>
+<span id="cb199-15"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-15" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> prior_sigma_i_SD<span class="op">;</span> <span class="co">// sd for sigma_i</span></span>
+<span id="cb199-16"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-16" tabindex="-1"></a>  </span>
+<span id="cb199-17"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-17" tabindex="-1"></a>  <span class="dt">int</span> nsim<span class="op">;</span></span>
+<span id="cb199-18"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-18" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb199-19"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-19" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb199-20"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-20" tabindex="-1"></a>  real MU<span class="op">;</span></span>
+<span id="cb199-21"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-21" tabindex="-1"></a>  </span>
+<span id="cb199-22"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-22" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> sigma_expt<span class="op">;</span></span>
+<span id="cb199-23"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-23" tabindex="-1"></a>  </span>
+<span id="cb199-24"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-24" tabindex="-1"></a>  real sigma_i_M<span class="op">;</span></span>
+<span id="cb199-25"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-25" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> sigma_i_SD<span class="op">;</span></span>
+<span id="cb199-26"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-26" tabindex="-1"></a>  </span>
+<span id="cb199-27"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-27" tabindex="-1"></a>  </span>
+<span id="cb199-28"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-28" tabindex="-1"></a>  <span class="co">// augmentted data</span></span>
+<span id="cb199-29"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-29" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;[</span>nexpt<span class="op">]</span>sigma_i<span class="op">;</span></span>
+<span id="cb199-30"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-30" tabindex="-1"></a>  vector<span class="op">[</span>nexpt<span class="op">]</span> mu_expt<span class="op">;</span></span>
+<span id="cb199-31"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-31" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span>rlb<span class="op">,</span>upper<span class="op">=</span>rub<span class="op">&gt;[</span>N<span class="op">]</span> r<span class="op">;</span></span>
+<span id="cb199-32"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-32" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb199-33"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-33" tabindex="-1"></a></span>
+<span id="cb199-34"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-34" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb199-35"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-35" tabindex="-1"></a>  </span>
+<span id="cb199-36"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-36" tabindex="-1"></a>  <span class="co">// prior</span></span>
+<span id="cb199-37"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-37" tabindex="-1"></a>  </span>
+<span id="cb199-38"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-38" tabindex="-1"></a>  target <span class="op">+=</span> normal_lpdf<span class="op">(</span>MU <span class="op">|</span> prior_MU<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_MU<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb199-39"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-39" tabindex="-1"></a>  target <span class="op">+=</span> cauchy_lpdf<span class="op">(</span>sigma_expt <span class="op">|</span> <span class="dv">0</span><span class="er">.0</span><span class="op">,</span>prior_sigma_expt<span class="op">);</span></span>
+<span id="cb199-40"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-40" tabindex="-1"></a>  target <span class="op">+=</span> normal_lpdf<span class="op">(</span>sigma_i_M <span class="op">|</span> prior_sigma_i_M<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_sigma_i_M<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb199-41"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-41" tabindex="-1"></a>  target <span class="op">+=</span> cauchy_lpdf<span class="op">(</span>sigma_i_SD <span class="op">|</span> <span class="dv">0</span><span class="er">.0</span><span class="op">,</span> prior_sigma_i_SD<span class="op">);</span></span>
+<span id="cb199-42"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-42" tabindex="-1"></a>  </span>
+<span id="cb199-43"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-43" tabindex="-1"></a>  </span>
+<span id="cb199-44"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-44" tabindex="-1"></a>  <span class="co">// hierarchical structure</span></span>
+<span id="cb199-45"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-45" tabindex="-1"></a>  </span>
+<span id="cb199-46"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-46" tabindex="-1"></a>  target<span class="op">+=</span> normal_lpdf<span class="op">(</span>mu_expt <span class="op">|</span> MU<span class="op">,</span>sigma_expt<span class="op">);</span></span>
+<span id="cb199-47"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-47" tabindex="-1"></a>  target<span class="op">+=</span> lognormal_lpdf<span class="op">(</span>sigma_i <span class="op">|</span> sigma_i_M<span class="op">,</span> sigma_i_SD<span class="op">);</span></span>
+<span id="cb199-48"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-48" tabindex="-1"></a>  </span>
+<span id="cb199-49"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-49" tabindex="-1"></a>  <span class="co">// likelihood</span></span>
+<span id="cb199-50"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-50" tabindex="-1"></a>  </span>
+<span id="cb199-51"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-51" tabindex="-1"></a>  target <span class="op">+=</span> normal_lpdf<span class="op">(</span>r <span class="op">|</span> mu_expt<span class="op">[</span>exptID<span class="op">],</span> sigma_i<span class="op">[</span>exptID<span class="op">]);</span></span>
+<span id="cb199-52"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-52" tabindex="-1"></a></span>
+<span id="cb199-53"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-53" tabindex="-1"></a><span class="op">}</span> </span>
+<span id="cb199-54"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-54" tabindex="-1"></a></span>
+<span id="cb199-55"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-55" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
+<span id="cb199-56"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-56" tabindex="-1"></a>  </span>
+<span id="cb199-57"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-57" tabindex="-1"></a>  real rho<span class="op">;</span></span>
+<span id="cb199-58"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-58" tabindex="-1"></a>  </span>
+<span id="cb199-59"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-59" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb199-60"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-60" tabindex="-1"></a>    vector<span class="op">[</span>nsim<span class="op">]</span> sim_sigma_i <span class="op">=</span>exp<span class="op">(</span>sigma_i_M<span class="op">+</span>sigma_i_SD<span class="op">*</span>to_vector<span class="op">(</span>normal_rng<span class="op">(</span>rep_vector<span class="op">(</span><span class="dv">0</span><span class="er">.0</span><span class="op">,</span>nsim<span class="op">),</span>rep_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nsim<span class="op">))));</span></span>
+<span id="cb199-61"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-61" tabindex="-1"></a>    </span>
+<span id="cb199-62"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-62" tabindex="-1"></a>    rho <span class="op">=</span> mean<span class="op">(</span>pow<span class="op">(</span>sigma_expt<span class="op">,</span><span class="fl">2.0</span><span class="op">)/(</span>pow<span class="op">(</span>sigma_expt<span class="op">,</span><span class="fl">2.0</span><span class="op">)+</span>pow<span class="op">(</span>sim_sigma_i<span class="op">,</span><span class="fl">2.0</span><span class="op">)));</span></span>
+<span id="cb199-63"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-63" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb199-64"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb199-64" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Table <a href="application-meta-analysis-using-some-of-the-metaret-data.html#tab:METARETinteralsdpop">15.5</a> shows the estimates of the non-augmented parameters of the model. We don’t see much of a difference in what we can compare to the previous model. However note that <code>sigma_i_sd</code> is substantially away from zero, indicating a good amount of variation in the experiment-specific standard deviations.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-1" tabindex="-1"></a>Fit_interval_sd<span class="ot">&lt;-</span><span class="fu">summary</span>(</span>
+<span id="cb200-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-2" tabindex="-1"></a>  <span class="st">&quot;Code/METARET/Fit_interval_sd.rds&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb200-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-3" tabindex="-1"></a>  <span class="fu">readRDS</span>()</span>
+<span id="cb200-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-4" tabindex="-1"></a>  )<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
+<span id="cb200-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-5" tabindex="-1"></a>  <span class="fu">data.frame</span>()<span class="sc">|&gt;</span></span>
+<span id="cb200-6"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-6" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">&quot;parameter&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb200-7"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-7" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb200-8"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-8" tabindex="-1"></a>    <span class="at">exptID =</span> <span class="fu">parse_number</span>(parameter)</span>
+<span id="cb200-9"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-9" tabindex="-1"></a>  ) </span>
+<span id="cb200-10"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-10" tabindex="-1"></a></span>
+<span id="cb200-11"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-11" tabindex="-1"></a>Fit_interval_sd <span class="sc">|&gt;</span> </span>
+<span id="cb200-12"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-12" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(exptID)) <span class="sc">|&gt;</span></span>
+<span id="cb200-13"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-13" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>exptID) <span class="sc">|&gt;</span></span>
+<span id="cb200-14"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-14" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">digits=</span><span class="dv">3</span>,<span class="at">caption =</span> <span class="st">&quot;Parameter estimates from the model assuming heterogeneous within-experiment standard deviations&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb200-15"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb200-15" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<table class=" lightable-classic" style="color: black; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:METARETinteralsdpop">Table 15.5: </span>Parameter estimates from the model assuming heterogeneous within-experiment standard deviations
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+parameter
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+se_mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+X2.5.
+</th>
+<th style="text-align:right;">
+X25.
+</th>
+<th style="text-align:right;">
+X50.
+</th>
+<th style="text-align:right;">
+X75.
+</th>
+<th style="text-align:right;">
+X97.5.
+</th>
+<th style="text-align:right;">
+n_eff
+</th>
+<th style="text-align:right;">
+Rhat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+MU
+</td>
+<td style="text-align:right;">
+0.550
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.028
+</td>
+<td style="text-align:right;">
+0.496
+</td>
+<td style="text-align:right;">
+0.531
+</td>
+<td style="text-align:right;">
+0.550
+</td>
+<td style="text-align:right;">
+0.570
+</td>
+<td style="text-align:right;">
+0.606
+</td>
+<td style="text-align:right;">
+3834.973
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sigma_expt
+</td>
+<td style="text-align:right;">
+0.186
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.024
+</td>
+<td style="text-align:right;">
+0.144
+</td>
+<td style="text-align:right;">
+0.169
+</td>
+<td style="text-align:right;">
+0.184
+</td>
+<td style="text-align:right;">
+0.201
+</td>
+<td style="text-align:right;">
+0.239
+</td>
+<td style="text-align:right;">
+2679.907
+</td>
+<td style="text-align:right;">
+1.002
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sigma_i_M
+</td>
+<td style="text-align:right;">
+-0.521
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.044
+</td>
+<td style="text-align:right;">
+-0.608
+</td>
+<td style="text-align:right;">
+-0.551
+</td>
+<td style="text-align:right;">
+-0.521
+</td>
+<td style="text-align:right;">
+-0.490
+</td>
+<td style="text-align:right;">
+-0.436
+</td>
+<td style="text-align:right;">
+4478.523
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sigma_i_SD
+</td>
+<td style="text-align:right;">
+0.316
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.037
+</td>
+<td style="text-align:right;">
+0.253
+</td>
+<td style="text-align:right;">
+0.290
+</td>
+<td style="text-align:right;">
+0.313
+</td>
+<td style="text-align:right;">
+0.339
+</td>
+<td style="text-align:right;">
+0.396
+</td>
+<td style="text-align:right;">
+3509.713
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rho
+</td>
+<td style="text-align:right;">
+0.104
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.025
+</td>
+<td style="text-align:right;">
+0.064
+</td>
+<td style="text-align:right;">
+0.086
+</td>
+<td style="text-align:right;">
+0.101
+</td>
+<td style="text-align:right;">
+0.118
+</td>
+<td style="text-align:right;">
+0.159
+</td>
+<td style="text-align:right;">
+2969.940
+</td>
+<td style="text-align:right;">
+1.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lp__
+</td>
+<td style="text-align:right;">
+-29589.388
+</td>
+<td style="text-align:right;">
+2.016
+</td>
+<td style="text-align:right;">
+73.080
+</td>
+<td style="text-align:right;">
+-29738.524
+</td>
+<td style="text-align:right;">
+-29637.172
+</td>
+<td style="text-align:right;">
+-29587.289
+</td>
+<td style="text-align:right;">
+-29540.121
+</td>
+<td style="text-align:right;">
+-29451.549
+</td>
+<td style="text-align:right;">
+1314.469
+</td>
+<td style="text-align:right;">
+1.001
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now that we have <em>two</em> sets of augmented parameters, <span class="math inline">\(\mu_e\)</span> and <span class="math inline">\(\sigma_e\)</span>, we can visualize their relationship in a plot, which I do in Figure <a href="application-meta-analysis-using-some-of-the-metaret-data.html#fig:METARETsigmamu">15.2</a>. These are the “shrinkage” estimates of these parameters, in that they are informed both by the values of <span class="math inline">\(r_{i,e}\)</span> within their respective experiments, and also by the population distributions that are jointly estimated alongside them.</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-1" tabindex="-1"></a>d<span class="ot">&lt;-</span>Fit_interval_sd <span class="sc">|&gt;</span></span>
+<span id="cb201-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(exptID)) <span class="sc">|&gt;</span></span>
+<span id="cb201-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^a-zA-Z]&quot;</span>, <span class="st">&quot;&quot;</span>, parameter)) <span class="sc">|&gt;</span> </span>
+<span id="cb201-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-4" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb201-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-5" tabindex="-1"></a>    <span class="at">id_cols =</span> exptID,</span>
+<span id="cb201-6"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-6" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">&quot;parameter&quot;</span>,</span>
+<span id="cb201-7"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-7" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>,<span class="st">&quot;X25.&quot;</span>,<span class="st">&quot;X75.&quot;</span>)</span>
+<span id="cb201-8"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-8" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb201-9"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> exptID <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb201-10"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-10" tabindex="-1"></a>  <span class="fu">full_join</span>(</span>
+<span id="cb201-11"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-11" tabindex="-1"></a>    exptList,</span>
+<span id="cb201-12"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-12" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">&quot;id&quot;</span></span>
+<span id="cb201-13"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-13" tabindex="-1"></a>  )</span>
+<span id="cb201-14"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-14" tabindex="-1"></a></span>
+<span id="cb201-15"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-15" tabindex="-1"></a>(</span>
+<span id="cb201-16"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-16" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">x=</span>mean_muexpt,<span class="at">y=</span>mean_sigmai,<span class="at">label=</span>experiment))</span>
+<span id="cb201-17"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-17" tabindex="-1"></a>  <span class="co">#+geom_text(size=2)</span></span>
+<span id="cb201-18"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-18" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size=</span>participants))</span>
+<span id="cb201-19"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-19" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> X25._muexpt,<span class="at">xmax=</span>X75._muexpt),<span class="at">alpha=</span><span class="fl">0.3</span>)</span>
+<span id="cb201-20"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-20" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> X25._sigmai,<span class="at">ymax=</span>X75._sigmai),<span class="at">alpha=</span><span class="fl">0.3</span>)</span>
+<span id="cb201-21"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-21" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(mu[e]<span class="sc">~</span><span class="st">&quot;: mean of risk-aversion within experiemnt&quot;</span>))<span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(sigma[e]<span class="sc">~</span><span class="st">&quot;: standard deviation of risk-aversion within experiment&quot;</span>))</span>
+<span id="cb201-22"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-22" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb201-23"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb201-23" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:METARETsigmamu"></span>
+<img src="index_files/figure-html/METARETsigmamu-1.png" alt="Experiment-level estimates of mean and standard deviation of risk-aversion. Error bars show 50% Bayesian credible regions" width="672" />
+<p class="caption">
+Figure 15.2: Experiment-level estimates of mean and standard deviation of risk-aversion. Error bars show 50% Bayesian credible regions
+</p>
+</div>
+</div>
+<div id="student-t-distributions-because-why-not" class="section level2 hasAnchor" number="15.5">
+<h2><span class="header-section-number">15.5</span> Student-<span class="math inline">\(t\)</span> distributions, because why not?<a href="application-meta-analysis-using-some-of-the-metaret-data.html#student-t-distributions-because-why-not" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One assumption we have maintained here is that the experiment- and participant-level distributions are both normals. While this is a great place to start, but if we suspect that this is a bad assumption then we might want to take a more flexible model to our data. A simple one-parameter relaxation of the normal distribution is Student’s <span class="math inline">\(t\)</span> distribution. The new “degrees of freedom” parameter <span class="math inline">\(\nu&gt;0\)</span> measures how closely this distribution matches the normal: as <span class="math inline">\(\nu\to\infty\)</span> the <span class="math inline">\(t\)</span> approaches the normal, and <span class="math inline">\(\nu&lt;30\)</span> is a good rule of thumb for the range of <span class="math inline">\(\nu\)</span> where the distributions differ appreciably.</p>
+<p>Here I will assume that both the experiment-specific <span class="math inline">\(\mu_i\)</span>s and the participant-specific <span class="math inline">\(r_{e,i}\)</span>s have <span class="math inline">\(t\)</span> distributions. Here is the new model:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{Participant-level variation: }r_{i,e}^*&amp;\sim \mathrm{Truncated\ Student\ t}(\nu,\mu_e,\sigma^2_e,(\underline r_{i,e},\overline r_{i,e}))\\
+\text{Experiment-level variation: }\mu_e&amp;\sim \mathrm{Student\ t}(\bar\nu,\bar\mu,\bar\sigma^2)\\
+\log \sigma_e &amp;\sim N(M,S^2)\\
+\text{priors: } \bar\mu&amp;\sim N(0,10)\\
+\bar\sigma&amp;\sim\mathrm{Cauchy}^+(0,10)\\
+M&amp;\sim N(0,10)\\
+S&amp;\sim \mathrm{Cauchy}^+(0,10)
+\end{aligned}
+\]</span></p>
+<p>Note that I have kept the experiment-specific augmented <span class="math inline">\(\sigma_e\)</span>s, but for simplicity I will not be allowing <span class="math inline">\(\nu\)</span> to vary between experiments.</p>
+<p>We need to be especially careful here when calculating <span class="math inline">\(\rho\)</span>, the fraction of the variance of <span class="math inline">\(r_{e,i}\)</span> that is due to between-experiment variation. This is because the variance of the <span class="math inline">\(t\)</span>-distribution is not equal to the parameter <span class="math inline">\(\sigma\)</span>. In fact, it is:</p>
+<p><span class="math display">\[
+V(t(\nu,\mu,\sigma))=\begin{cases}
+\frac{\nu}{\nu-2}\sigma^2 &amp;\text{if } \nu&gt;2\\
+\text{undefined} &amp; \text{otherwise}
+\end{cases}
+\]</span></p>
+<p>I will therefore not comment on <span class="math inline">\(\rho\)</span> for this estimation.</p>
+<p>You can see this in the <code>generated quantities</code> block at the bottom of this <em>Stan</em> program:</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb202-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-1" tabindex="-1"></a><span class="co">// 2level_interval_sd_t.stan </span></span>
+<span id="cb202-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-2" tabindex="-1"></a><span class="co">// a 2-level hierarchical model for aggregating risk preferences</span></span>
+<span id="cb202-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-3" tabindex="-1"></a><span class="co">// treating choices as revealing intervals</span></span>
+<span id="cb202-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-4" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb202-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-5" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span> <span class="co">// number of observations</span></span>
+<span id="cb202-6"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-6" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> rlb<span class="op">;</span> <span class="co">// lower bound for r</span></span>
+<span id="cb202-7"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-7" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> rub<span class="op">;</span> <span class="co">// upper bound of r</span></span>
+<span id="cb202-8"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-8" tabindex="-1"></a>  </span>
+<span id="cb202-9"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-9" tabindex="-1"></a>  <span class="dt">int</span> nexpt<span class="op">;</span> <span class="co">// number of experiments</span></span>
+<span id="cb202-10"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-10" tabindex="-1"></a>  <span class="dt">int</span> exptID<span class="op">[</span>N<span class="op">];</span> <span class="co">// experiment id</span></span>
+<span id="cb202-11"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-11" tabindex="-1"></a>  </span>
+<span id="cb202-12"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-12" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_MU<span class="op">;</span> <span class="co">// mean of r in population</span></span>
+<span id="cb202-13"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-13" tabindex="-1"></a>  real prior_sigma_expt<span class="op">;</span> <span class="co">// sd of r at experiment level</span></span>
+<span id="cb202-14"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-14" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_sigma_i_M<span class="op">;</span>  <span class="co">// m and sd of log-median sigma_i</span></span>
+<span id="cb202-15"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-15" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> prior_sigma_i_SD<span class="op">;</span> <span class="co">// sd for sigma_i</span></span>
+<span id="cb202-16"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-16" tabindex="-1"></a>  </span>
+<span id="cb202-17"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-17" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> prior_nu_expt<span class="op">;</span> <span class="co">// prior for nu at expt level</span></span>
+<span id="cb202-18"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-18" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> prior_nu_i<span class="op">;</span> <span class="co">// prior for nu at individual level</span></span>
+<span id="cb202-19"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-19" tabindex="-1"></a>  </span>
+<span id="cb202-20"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-20" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb202-21"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-21" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb202-22"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-22" tabindex="-1"></a>  real MU<span class="op">;</span></span>
+<span id="cb202-23"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-23" tabindex="-1"></a>  </span>
+<span id="cb202-24"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-24" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> sigma_expt<span class="op">;</span></span>
+<span id="cb202-25"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-25" tabindex="-1"></a>  </span>
+<span id="cb202-26"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-26" tabindex="-1"></a>  real sigma_i_M<span class="op">;</span></span>
+<span id="cb202-27"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-27" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> sigma_i_SD<span class="op">;</span></span>
+<span id="cb202-28"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-28" tabindex="-1"></a>  </span>
+<span id="cb202-29"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-29" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> nu_i<span class="op">;</span></span>
+<span id="cb202-30"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-30" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> nu_expt<span class="op">;</span></span>
+<span id="cb202-31"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-31" tabindex="-1"></a>  </span>
+<span id="cb202-32"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-32" tabindex="-1"></a>  </span>
+<span id="cb202-33"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-33" tabindex="-1"></a>  <span class="co">// augmentted data</span></span>
+<span id="cb202-34"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-34" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;[</span>nexpt<span class="op">]</span>sigma_i<span class="op">;</span></span>
+<span id="cb202-35"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-35" tabindex="-1"></a>  vector<span class="op">[</span>nexpt<span class="op">]</span> mu_expt<span class="op">;</span></span>
+<span id="cb202-36"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-36" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span>rlb<span class="op">,</span>upper<span class="op">=</span>rub<span class="op">&gt;[</span>N<span class="op">]</span> r<span class="op">;</span></span>
+<span id="cb202-37"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-37" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb202-38"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-38" tabindex="-1"></a></span>
+<span id="cb202-39"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-39" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb202-40"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-40" tabindex="-1"></a>  </span>
+<span id="cb202-41"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-41" tabindex="-1"></a>  <span class="co">// prior</span></span>
+<span id="cb202-42"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-42" tabindex="-1"></a>  </span>
+<span id="cb202-43"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-43" tabindex="-1"></a>  target <span class="op">+=</span> normal_lpdf<span class="op">(</span>MU <span class="op">|</span> prior_MU<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_MU<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb202-44"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-44" tabindex="-1"></a>  target <span class="op">+=</span> cauchy_lpdf<span class="op">(</span>sigma_expt <span class="op">|</span> <span class="dv">0</span><span class="er">.0</span><span class="op">,</span>prior_sigma_expt<span class="op">);</span></span>
+<span id="cb202-45"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-45" tabindex="-1"></a>  target <span class="op">+=</span> normal_lpdf<span class="op">(</span>sigma_i_M <span class="op">|</span> prior_sigma_i_M<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_sigma_i_M<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb202-46"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-46" tabindex="-1"></a>  target <span class="op">+=</span> cauchy_lpdf<span class="op">(</span>sigma_i_SD <span class="op">|</span> <span class="dv">0</span><span class="er">.0</span><span class="op">,</span> prior_sigma_i_SD<span class="op">);</span></span>
+<span id="cb202-47"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-47" tabindex="-1"></a>  target <span class="op">+=</span> cauchy_lpdf<span class="op">(</span>nu_i<span class="op">|</span> <span class="dv">0</span><span class="er">.0</span><span class="op">,</span> prior_nu_i<span class="op">);</span></span>
+<span id="cb202-48"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-48" tabindex="-1"></a>  target <span class="op">+=</span> cauchy_lpdf<span class="op">(</span>nu_expt<span class="op">|</span><span class="dv">0</span><span class="er">.0</span><span class="op">,</span>prior_nu_expt<span class="op">);</span></span>
+<span id="cb202-49"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-49" tabindex="-1"></a>  </span>
+<span id="cb202-50"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-50" tabindex="-1"></a>  </span>
+<span id="cb202-51"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-51" tabindex="-1"></a>  <span class="co">// hierarchical structure</span></span>
+<span id="cb202-52"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-52" tabindex="-1"></a>  </span>
+<span id="cb202-53"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-53" tabindex="-1"></a>  target<span class="op">+=</span> student_t_lpdf<span class="op">(</span>mu_expt <span class="op">|</span>nu_expt<span class="op">,</span> MU<span class="op">,</span>sigma_expt<span class="op">);</span></span>
+<span id="cb202-54"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-54" tabindex="-1"></a>  target<span class="op">+=</span> lognormal_lpdf<span class="op">(</span>sigma_i <span class="op">|</span> sigma_i_M<span class="op">,</span> sigma_i_SD<span class="op">);</span></span>
+<span id="cb202-55"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-55" tabindex="-1"></a>  </span>
+<span id="cb202-56"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-56" tabindex="-1"></a>  <span class="co">// likelihood</span></span>
+<span id="cb202-57"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-57" tabindex="-1"></a>  </span>
+<span id="cb202-58"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-58" tabindex="-1"></a>  target <span class="op">+=</span> student_t_lpdf<span class="op">(</span>r <span class="op">|</span>nu_i<span class="op">,</span> mu_expt<span class="op">[</span>exptID<span class="op">],</span> sigma_i<span class="op">[</span>exptID<span class="op">]);</span></span>
+<span id="cb202-59"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-59" tabindex="-1"></a></span>
+<span id="cb202-60"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb202-60" tabindex="-1"></a><span class="op">}</span> </span></code></pre></div>
+<p>Table <a href="application-meta-analysis-using-some-of-the-metaret-data.html#tab:METARETinteralsdpopt">15.6</a> shows estimates from this model. Of particular interest are the new parameters <span class="math inline">\(\bar\nu\)</span> (<code>nu_expt</code>) and <span class="math inline">\(\nu\)</span> (<code>nu_i</code>). Recall that <span class="math inline">\(\nu&lt;30\)</span> suggests that a <span class="math inline">\(t\)</span> distribution departs meaningfully from a normal, and we see this for the median estimates of both <span class="math inline">\(\nu\)</span>s (although the posterior <em>mean</em> estimate of <span class="math inline">\(\bar nu\)</span> is well above 30). I would conclude from this that the normal assumption probably isn’t a good one to make with these data, both at the experiment level (i.e. <span class="math inline">\(\mu_i\)</span> is not normally distributed), and at the participant level (i.e. <span class="math inline">\(r_{i,e}\)</span> is not normally distributed within an experiment)</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-1" tabindex="-1"></a>Fit_interval_sd_t<span class="ot">&lt;-</span><span class="fu">summary</span>(</span>
+<span id="cb203-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-2" tabindex="-1"></a>  <span class="st">&quot;Code/METARET/Fit_interval_sd_t.rds&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb203-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-3" tabindex="-1"></a>  <span class="fu">readRDS</span>()</span>
+<span id="cb203-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-4" tabindex="-1"></a>  )<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
+<span id="cb203-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-5" tabindex="-1"></a>  <span class="fu">data.frame</span>()<span class="sc">|&gt;</span></span>
+<span id="cb203-6"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-6" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">&quot;parameter&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb203-7"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-7" tabindex="-1"></a>  <span class="fu">mutate</span>( </span>
+<span id="cb203-8"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-8" tabindex="-1"></a>    <span class="at">exptID =</span> <span class="fu">parse_number</span>(parameter)</span>
+<span id="cb203-9"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-9" tabindex="-1"></a>  ) </span>
+<span id="cb203-10"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-10" tabindex="-1"></a></span>
+<span id="cb203-11"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-11" tabindex="-1"></a>Fit_interval_sd_t <span class="sc">|&gt;</span> </span>
+<span id="cb203-12"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-12" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(exptID)) <span class="sc">|&gt;</span></span>
+<span id="cb203-13"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-13" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>exptID) <span class="sc">|&gt;</span></span>
+<span id="cb203-14"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-14" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">digits=</span><span class="dv">3</span>,<span class="at">caption =</span> <span class="st">&quot;Parameter estimates from the model assuming heterogeneous within-experiment standard deviations&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb203-15"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb203-15" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<table class=" lightable-classic" style="color: black; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:METARETinteralsdpopt">Table 15.6: </span>Parameter estimates from the model assuming heterogeneous within-experiment standard deviations
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+parameter
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+se_mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+X2.5.
+</th>
+<th style="text-align:right;">
+X25.
+</th>
+<th style="text-align:right;">
+X50.
+</th>
+<th style="text-align:right;">
+X75.
+</th>
+<th style="text-align:right;">
+X97.5.
+</th>
+<th style="text-align:right;">
+n_eff
+</th>
+<th style="text-align:right;">
+Rhat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+MU
+</td>
+<td style="text-align:right;">
+0.535
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.024
+</td>
+<td style="text-align:right;">
+0.488
+</td>
+<td style="text-align:right;">
+0.519
+</td>
+<td style="text-align:right;">
+0.535
+</td>
+<td style="text-align:right;">
+0.552
+</td>
+<td style="text-align:right;">
+0.584
+</td>
+<td style="text-align:right;">
+5507.149
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sigma_expt
+</td>
+<td style="text-align:right;">
+0.156
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.022
+</td>
+<td style="text-align:right;">
+0.116
+</td>
+<td style="text-align:right;">
+0.140
+</td>
+<td style="text-align:right;">
+0.154
+</td>
+<td style="text-align:right;">
+0.170
+</td>
+<td style="text-align:right;">
+0.203
+</td>
+<td style="text-align:right;">
+4285.374
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sigma_i_M
+</td>
+<td style="text-align:right;">
+-0.885
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.047
+</td>
+<td style="text-align:right;">
+-0.978
+</td>
+<td style="text-align:right;">
+-0.916
+</td>
+<td style="text-align:right;">
+-0.884
+</td>
+<td style="text-align:right;">
+-0.854
+</td>
+<td style="text-align:right;">
+-0.790
+</td>
+<td style="text-align:right;">
+4005.442
+</td>
+<td style="text-align:right;">
+0.999
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sigma_i_SD
+</td>
+<td style="text-align:right;">
+0.298
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.038
+</td>
+<td style="text-align:right;">
+0.231
+</td>
+<td style="text-align:right;">
+0.272
+</td>
+<td style="text-align:right;">
+0.296
+</td>
+<td style="text-align:right;">
+0.321
+</td>
+<td style="text-align:right;">
+0.383
+</td>
+<td style="text-align:right;">
+3427.930
+</td>
+<td style="text-align:right;">
+1.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nu_i
+</td>
+<td style="text-align:right;">
+2.927
+</td>
+<td style="text-align:right;">
+0.004
+</td>
+<td style="text-align:right;">
+0.150
+</td>
+<td style="text-align:right;">
+2.650
+</td>
+<td style="text-align:right;">
+2.822
+</td>
+<td style="text-align:right;">
+2.921
+</td>
+<td style="text-align:right;">
+3.025
+</td>
+<td style="text-align:right;">
+3.232
+</td>
+<td style="text-align:right;">
+1623.285
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nu_expt
+</td>
+<td style="text-align:right;">
+55.167
+</td>
+<td style="text-align:right;">
+4.231
+</td>
+<td style="text-align:right;">
+236.743
+</td>
+<td style="text-align:right;">
+2.936
+</td>
+<td style="text-align:right;">
+8.234
+</td>
+<td style="text-align:right;">
+15.859
+</td>
+<td style="text-align:right;">
+36.389
+</td>
+<td style="text-align:right;">
+367.124
+</td>
+<td style="text-align:right;">
+3131.111
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lp__
+</td>
+<td style="text-align:right;">
+-29308.651
+</td>
+<td style="text-align:right;">
+2.077
+</td>
+<td style="text-align:right;">
+72.261
+</td>
+<td style="text-align:right;">
+-29452.428
+</td>
+<td style="text-align:right;">
+-29357.689
+</td>
+<td style="text-align:right;">
+-29306.838
+</td>
+<td style="text-align:right;">
+-29258.540
+</td>
+<td style="text-align:right;">
+-29170.925
+</td>
+<td style="text-align:right;">
+1210.179
+</td>
+<td style="text-align:right;">
+1.003
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="r-code-to-estimate-the-models-1" class="section level2 hasAnchor" number="15.6">
+<h2><span class="header-section-number">15.6</span> <em>R</em> code to estimate the models<a href="application-meta-analysis-using-some-of-the-metaret-data.html#r-code-to-estimate-the-models-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb204-2"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-2" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb204-3"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-3" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb204-4"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-4" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb204-5"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-5" tabindex="-1"></a></span>
+<span id="cb204-6"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-6" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="st">&quot;Code/METARET/Data/data.csv&quot;</span> <span class="sc">|&gt;</span> </span>
+<span id="cb204-7"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-7" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb204-8"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-8" tabindex="-1"></a>  <span class="fu">filter</span>(task<span class="sc">==</span><span class="st">&quot;HL&quot;</span>)<span class="sc">|&gt;</span></span>
+<span id="cb204-9"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">exptID =</span> bibkey <span class="sc">|&gt;</span> <span class="fu">as.factor</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb204-10"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-10" tabindex="-1"></a>  <span class="fu">group_by</span>(choice) <span class="sc">|&gt;</span></span>
+<span id="cb204-11"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-11" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb204-12"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-12" tabindex="-1"></a>    <span class="at">rlb =</span> <span class="fu">min</span>(r),</span>
+<span id="cb204-13"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-13" tabindex="-1"></a>    <span class="at">rub =</span> <span class="fu">max</span>(r)</span>
+<span id="cb204-14"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-14" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb204-15"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-15" tabindex="-1"></a><span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb204-16"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-16" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb204-17"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-17" tabindex="-1"></a>    <span class="at">rlb =</span> <span class="fu">ifelse</span>(choice<span class="sc">&lt;=</span><span class="dv">1</span>,<span class="sc">-</span><span class="cn">Inf</span>,rlb),</span>
+<span id="cb204-18"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-18" tabindex="-1"></a>    <span class="at">rub =</span> <span class="fu">ifelse</span>(choice<span class="sc">==</span><span class="dv">10</span>,<span class="cn">Inf</span>,rub)</span>
+<span id="cb204-19"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-19" tabindex="-1"></a>  )</span>
+<span id="cb204-20"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-20" tabindex="-1"></a></span>
+<span id="cb204-21"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-21" tabindex="-1"></a></span>
+<span id="cb204-22"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-22" tabindex="-1"></a>D<span class="sc">$</span>bibkey <span class="sc">|&gt;</span> <span class="fu">unique</span>()</span>
+<span id="cb204-23"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-23" tabindex="-1"></a></span>
+<span id="cb204-24"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-24" tabindex="-1"></a></span>
+<span id="cb204-25"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-25" tabindex="-1"></a></span>
+<span id="cb204-26"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-26" tabindex="-1"></a></span>
+<span id="cb204-27"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-27" tabindex="-1"></a>dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb204-28"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-28" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">dim</span>(D)[<span class="dv">1</span>],</span>
+<span id="cb204-29"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-29" tabindex="-1"></a>  <span class="at">r =</span> D<span class="sc">$</span>r,</span>
+<span id="cb204-30"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-30" tabindex="-1"></a>  <span class="at">rlb =</span>D<span class="sc">$</span>rlb,</span>
+<span id="cb204-31"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-31" tabindex="-1"></a>  <span class="at">rub =</span> D<span class="sc">$</span>rub,</span>
+<span id="cb204-32"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-32" tabindex="-1"></a>  </span>
+<span id="cb204-33"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-33" tabindex="-1"></a>  <span class="at">nexpt =</span> D<span class="sc">$</span>exptID <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>(),</span>
+<span id="cb204-34"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-34" tabindex="-1"></a>  <span class="at">exptID =</span> D<span class="sc">$</span>exptID <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb204-35"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-35" tabindex="-1"></a>  </span>
+<span id="cb204-36"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-36" tabindex="-1"></a>  <span class="at">prior_MU =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),</span>
+<span id="cb204-37"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-37" tabindex="-1"></a>  <span class="at">prior_sigma_expt =</span> <span class="dv">10</span>,</span>
+<span id="cb204-38"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-38" tabindex="-1"></a>  <span class="at">prior_sigma_i =</span> <span class="dv">10</span>,</span>
+<span id="cb204-39"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-39" tabindex="-1"></a>  <span class="at">prior_sigma_i_M =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),</span>
+<span id="cb204-40"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-40" tabindex="-1"></a>  <span class="at">prior_sigma_i_SD =</span> <span class="dv">10</span>,</span>
+<span id="cb204-41"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-41" tabindex="-1"></a>  <span class="at">prior_nu_expt =</span> <span class="dv">10</span>,</span>
+<span id="cb204-42"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-42" tabindex="-1"></a>  <span class="at">prior_nu_i =</span> <span class="dv">10</span>,</span>
+<span id="cb204-43"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-43" tabindex="-1"></a>  </span>
+<span id="cb204-44"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-44" tabindex="-1"></a>  <span class="at">nsim =</span> <span class="dv">1000</span></span>
+<span id="cb204-45"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-45" tabindex="-1"></a>)</span>
+<span id="cb204-46"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-46" tabindex="-1"></a></span>
+<span id="cb204-47"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-47" tabindex="-1"></a>model_interval_sd_t<span class="ot">&lt;-</span><span class="st">&quot;Code/METARET/2level_interval_sd_t.stan&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb204-48"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-48" tabindex="-1"></a>  <span class="fu">stan_model</span>() </span>
+<span id="cb204-49"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-49" tabindex="-1"></a></span>
+<span id="cb204-50"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-50" tabindex="-1"></a>Fit_interval_sd_t <span class="ot">&lt;-</span> model_interval_sd_t <span class="sc">|&gt;</span></span>
+<span id="cb204-51"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-51" tabindex="-1"></a>  <span class="fu">sampling</span>(</span>
+<span id="cb204-52"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-52" tabindex="-1"></a>    <span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>,</span>
+<span id="cb204-53"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-53" tabindex="-1"></a>    <span class="at">iter =</span> <span class="dv">2000</span></span>
+<span id="cb204-54"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-54" tabindex="-1"></a>    ,</span>
+<span id="cb204-55"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-55" tabindex="-1"></a>    <span class="at">par =</span> <span class="st">&quot;r&quot;</span>,<span class="at">include=</span><span class="cn">FALSE</span></span>
+<span id="cb204-56"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-56" tabindex="-1"></a>  )</span>
+<span id="cb204-57"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-57" tabindex="-1"></a></span>
+<span id="cb204-58"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-58" tabindex="-1"></a>Fit_interval_sd_t <span class="sc">|&gt;</span></span>
+<span id="cb204-59"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-59" tabindex="-1"></a>  <span class="fu">saveRDS</span>(</span>
+<span id="cb204-60"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-60" tabindex="-1"></a>    <span class="st">&quot;Code/METARET/Fit_interval_sd_t.rds&quot;</span></span>
+<span id="cb204-61"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-61" tabindex="-1"></a>  )</span>
+<span id="cb204-62"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-62" tabindex="-1"></a></span>
+<span id="cb204-63"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-63" tabindex="-1"></a></span>
+<span id="cb204-64"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-64" tabindex="-1"></a>model_interval_sd<span class="ot">&lt;-</span><span class="st">&quot;Code/METARET/2level_interval_sd.stan&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb204-65"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-65" tabindex="-1"></a>  <span class="fu">stan_model</span>() </span>
+<span id="cb204-66"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-66" tabindex="-1"></a></span>
+<span id="cb204-67"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-67" tabindex="-1"></a>Fit_interval_sd <span class="ot">&lt;-</span> model_interval_sd <span class="sc">|&gt;</span></span>
+<span id="cb204-68"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-68" tabindex="-1"></a>  <span class="fu">sampling</span>(</span>
+<span id="cb204-69"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-69" tabindex="-1"></a>    <span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>,</span>
+<span id="cb204-70"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-70" tabindex="-1"></a>    <span class="at">iter =</span> <span class="dv">2000</span>,</span>
+<span id="cb204-71"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-71" tabindex="-1"></a>    <span class="at">par =</span> <span class="st">&quot;r&quot;</span>,<span class="at">include=</span><span class="cn">FALSE</span></span>
+<span id="cb204-72"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-72" tabindex="-1"></a>  )</span>
+<span id="cb204-73"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-73" tabindex="-1"></a></span>
+<span id="cb204-74"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-74" tabindex="-1"></a>Fit_interval_sd <span class="sc">|&gt;</span></span>
+<span id="cb204-75"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-75" tabindex="-1"></a>  <span class="fu">saveRDS</span>(</span>
+<span id="cb204-76"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-76" tabindex="-1"></a>    <span class="st">&quot;Code/METARET/Fit_interval_sd.rds&quot;</span></span>
+<span id="cb204-77"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-77" tabindex="-1"></a>  )</span>
+<span id="cb204-78"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-78" tabindex="-1"></a></span>
+<span id="cb204-79"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-79" tabindex="-1"></a>model<span class="ot">&lt;-</span><span class="st">&quot;Code/METARET/2level.stan&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb204-80"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-80" tabindex="-1"></a>  <span class="fu">stan_model</span>() </span>
+<span id="cb204-81"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-81" tabindex="-1"></a></span>
+<span id="cb204-82"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-82" tabindex="-1"></a>Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span></span>
+<span id="cb204-83"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-83" tabindex="-1"></a>  <span class="fu">sampling</span>(<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>,</span>
+<span id="cb204-84"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-84" tabindex="-1"></a>           <span class="at">iter =</span> <span class="dv">2000</span></span>
+<span id="cb204-85"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-85" tabindex="-1"></a>  )</span>
+<span id="cb204-86"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-86" tabindex="-1"></a></span>
+<span id="cb204-87"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-87" tabindex="-1"></a></span>
+<span id="cb204-88"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-88" tabindex="-1"></a></span>
+<span id="cb204-89"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-89" tabindex="-1"></a>Fit <span class="sc">|&gt;</span></span>
+<span id="cb204-90"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-90" tabindex="-1"></a>  <span class="fu">saveRDS</span>(<span class="st">&quot;Code/METARET/Fit.rds&quot;</span>)</span>
+<span id="cb204-91"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-91" tabindex="-1"></a></span>
+<span id="cb204-92"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-92" tabindex="-1"></a>model_interval<span class="ot">&lt;-</span><span class="st">&quot;Code/METARET/2level_interval.stan&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb204-93"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-93" tabindex="-1"></a>  <span class="fu">stan_model</span>() </span>
+<span id="cb204-94"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-94" tabindex="-1"></a></span>
+<span id="cb204-95"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-95" tabindex="-1"></a></span>
+<span id="cb204-96"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-96" tabindex="-1"></a>Fit_interval<span class="ot">&lt;-</span>model_interval <span class="sc">|&gt;</span></span>
+<span id="cb204-97"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-97" tabindex="-1"></a>  <span class="fu">sampling</span>(<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>,</span>
+<span id="cb204-98"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-98" tabindex="-1"></a>           <span class="at">iter =</span> <span class="dv">2000</span>,</span>
+<span id="cb204-99"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-99" tabindex="-1"></a>           <span class="at">par =</span> <span class="st">&quot;r&quot;</span>,<span class="at">include=</span><span class="cn">FALSE</span></span>
+<span id="cb204-100"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-100" tabindex="-1"></a>  )</span>
+<span id="cb204-101"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-101" tabindex="-1"></a></span>
+<span id="cb204-102"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-102" tabindex="-1"></a>Fit_interval <span class="sc">|&gt;</span></span>
+<span id="cb204-103"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#cb204-103" tabindex="-1"></a>  <span class="fu">saveRDS</span>(<span class="st">&quot;Code/METARET/Fit_interval.rds&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Holt2002" class="csl-entry">
+Holt, Charles A, and Susan K Laury. 2002. <span>“Risk Aversion and Incentive Effects.”</span> <em>American Economic Review</em> 92 (5): 1644–55.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="76">
+<li id="fn76"><p>I downloaded this dataset on 2024-09-12. As METARET is an ongoing project, you may get different estimates to me.<a href="application-meta-analysis-using-some-of-the-metaret-data.html#fnref76" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="application-estimating-risk-preferences.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="links-to-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
