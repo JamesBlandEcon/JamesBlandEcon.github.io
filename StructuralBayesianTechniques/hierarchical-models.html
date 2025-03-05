@@ -23,7 +23,7 @@
 <meta name="author" content="James R. Bland" />
 
 
-<meta name="date" content="2024-09-16" />
+<meta name="date" content="2025-03-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -913,128 +913,293 @@ and similarly for <span class="math inline">\(\mu_\beta\)</span>, and <span clas
 <span id="cb86-3"><a href="hierarchical-models.html#cb86-3" tabindex="-1"></a><span class="co"># identify the rows that contain the population-level parameters.</span></span>
 <span id="cb86-4"><a href="hierarchical-models.html#cb86-4" tabindex="-1"></a><span class="co"># These have row names that contain the character &quot;_&quot;</span></span>
 <span id="cb86-5"><a href="hierarchical-models.html#cb86-5" tabindex="-1"></a>II<span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">&quot;_&quot;</span>,<span class="fu">rownames</span>(s))</span>
-<span id="cb86-6"><a href="hierarchical-models.html#cb86-6" tabindex="-1"></a>s[II,] <span class="sc">|&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption=</span><span class="st">&quot;Population estimates of a model assuming a hierarchical independent distribution of individual-level parameters.&quot;</span>)</span></code></pre></div>
-<table>
-<caption><span id="tab:HierarchicalIndependent">Table 6.1: </span>Population estimates of a model assuming a hierarchical independent distribution of individual-level parameters.</caption>
-<colgroup>
-<col width="8%" />
-<col width="10%" />
-<col width="7%" />
-<col width="8%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="6%" />
-<col width="7%" />
-</colgroup>
+<span id="cb86-6"><a href="hierarchical-models.html#cb86-6" tabindex="-1"></a>s[II,] <span class="sc">|&gt;</span> <span class="fu">kbl</span>(<span class="at">digits=</span><span class="dv">3</span>,<span class="at">caption=</span><span class="st">&quot;Population estimates of a model assuming a hierarchical independent distribution of individual-level parameters.&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb86-7"><a href="hierarchical-models.html#cb86-7" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<table class=" lightable-classic" style="color: black; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:HierarchicalIndependent">Table 6.1: </span>Population estimates of a model assuming a hierarchical independent distribution of individual-level parameters.
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">mean</th>
-<th align="right">se_mean</th>
-<th align="right">sd</th>
-<th align="right">2.5%</th>
-<th align="right">25%</th>
-<th align="right">50%</th>
-<th align="right">75%</th>
-<th align="right">97.5%</th>
-<th align="right">n_eff</th>
-<th align="right">Rhat</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+se_mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+2.5%
+</th>
+<th style="text-align:right;">
+25%
+</th>
+<th style="text-align:right;">
+50%
+</th>
+<th style="text-align:right;">
+75%
+</th>
+<th style="text-align:right;">
+97.5%
+</th>
+<th style="text-align:right;">
+n_eff
+</th>
+<th style="text-align:right;">
+Rhat
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">mu_alpha</td>
-<td align="right">-0.0299471</td>
-<td align="right">0.0002310</td>
-<td align="right">0.0144897</td>
-<td align="right">-0.0579685</td>
-<td align="right">-0.0398457</td>
-<td align="right">-0.0301734</td>
-<td align="right">-0.0202862</td>
-<td align="right">-0.0010588</td>
-<td align="right">3933.694</td>
-<td align="right">0.9994897</td>
+<tr>
+<td style="text-align:left;">
+mu_alpha
+</td>
+<td style="text-align:right;">
+-0.030
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.014
+</td>
+<td style="text-align:right;">
+-0.058
+</td>
+<td style="text-align:right;">
+-0.040
+</td>
+<td style="text-align:right;">
+-0.030
+</td>
+<td style="text-align:right;">
+-0.020
+</td>
+<td style="text-align:right;">
+-0.001
+</td>
+<td style="text-align:right;">
+3933.694
+</td>
+<td style="text-align:right;">
+0.999
+</td>
 </tr>
-<tr class="even">
-<td align="left">mu_beta</td>
-<td align="right">0.2328233</td>
-<td align="right">0.0002484</td>
-<td align="right">0.0197600</td>
-<td align="right">0.1946268</td>
-<td align="right">0.2191426</td>
-<td align="right">0.2329795</td>
-<td align="right">0.2458299</td>
-<td align="right">0.2710317</td>
-<td align="right">6327.612</td>
-<td align="right">0.9991247</td>
+<tr>
+<td style="text-align:left;">
+mu_beta
+</td>
+<td style="text-align:right;">
+0.233
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.020
+</td>
+<td style="text-align:right;">
+0.195
+</td>
+<td style="text-align:right;">
+0.219
+</td>
+<td style="text-align:right;">
+0.233
+</td>
+<td style="text-align:right;">
+0.246
+</td>
+<td style="text-align:right;">
+0.271
+</td>
+<td style="text-align:right;">
+6327.612
+</td>
+<td style="text-align:right;">
+0.999
+</td>
 </tr>
-<tr class="odd">
-<td align="left">mu_lambda</td>
-<td align="right">-3.4978372</td>
-<td align="right">0.0012878</td>
-<td align="right">0.0720133</td>
-<td align="right">-3.6363200</td>
-<td align="right">-3.5458535</td>
-<td align="right">-3.4991667</td>
-<td align="right">-3.4503688</td>
-<td align="right">-3.3527293</td>
-<td align="right">3126.904</td>
-<td align="right">1.0014316</td>
+<tr>
+<td style="text-align:left;">
+mu_lambda
+</td>
+<td style="text-align:right;">
+-3.498
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.072
+</td>
+<td style="text-align:right;">
+-3.636
+</td>
+<td style="text-align:right;">
+-3.546
+</td>
+<td style="text-align:right;">
+-3.499
+</td>
+<td style="text-align:right;">
+-3.450
+</td>
+<td style="text-align:right;">
+-3.353
+</td>
+<td style="text-align:right;">
+3126.904
+</td>
+<td style="text-align:right;">
+1.001
+</td>
 </tr>
-<tr class="even">
-<td align="left">tau_alpha</td>
-<td align="right">0.1654981</td>
-<td align="right">0.0003269</td>
-<td align="right">0.0148568</td>
-<td align="right">0.1384934</td>
-<td align="right">0.1550940</td>
-<td align="right">0.1650167</td>
-<td align="right">0.1752452</td>
-<td align="right">0.1959276</td>
-<td align="right">2065.354</td>
-<td align="right">1.0002466</td>
+<tr>
+<td style="text-align:left;">
+tau_alpha
+</td>
+<td style="text-align:right;">
+0.165
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.015
+</td>
+<td style="text-align:right;">
+0.138
+</td>
+<td style="text-align:right;">
+0.155
+</td>
+<td style="text-align:right;">
+0.165
+</td>
+<td style="text-align:right;">
+0.175
+</td>
+<td style="text-align:right;">
+0.196
+</td>
+<td style="text-align:right;">
+2065.354
+</td>
+<td style="text-align:right;">
+1.000
+</td>
 </tr>
-<tr class="odd">
-<td align="left">tau_beta</td>
-<td align="right">0.2482626</td>
-<td align="right">0.0002560</td>
-<td align="right">0.0163315</td>
-<td align="right">0.2189854</td>
-<td align="right">0.2368284</td>
-<td align="right">0.2473067</td>
-<td align="right">0.2587884</td>
-<td align="right">0.2825178</td>
-<td align="right">4071.073</td>
-<td align="right">1.0009367</td>
+<tr>
+<td style="text-align:left;">
+tau_beta
+</td>
+<td style="text-align:right;">
+0.248
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.016
+</td>
+<td style="text-align:right;">
+0.219
+</td>
+<td style="text-align:right;">
+0.237
+</td>
+<td style="text-align:right;">
+0.247
+</td>
+<td style="text-align:right;">
+0.259
+</td>
+<td style="text-align:right;">
+0.283
+</td>
+<td style="text-align:right;">
+4071.073
+</td>
+<td style="text-align:right;">
+1.001
+</td>
 </tr>
-<tr class="even">
-<td align="left">tau_lambda</td>
-<td align="right">0.8289658</td>
-<td align="right">0.0014438</td>
-<td align="right">0.0660765</td>
-<td align="right">0.7080691</td>
-<td align="right">0.7841175</td>
-<td align="right">0.8267906</td>
-<td align="right">0.8709364</td>
-<td align="right">0.9706803</td>
-<td align="right">2094.545</td>
-<td align="right">1.0020589</td>
+<tr>
+<td style="text-align:left;">
+tau_lambda
+</td>
+<td style="text-align:right;">
+0.829
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.066
+</td>
+<td style="text-align:right;">
+0.708
+</td>
+<td style="text-align:right;">
+0.784
+</td>
+<td style="text-align:right;">
+0.827
+</td>
+<td style="text-align:right;">
+0.871
+</td>
+<td style="text-align:right;">
+0.971
+</td>
+<td style="text-align:right;">
+2094.545
+</td>
+<td style="text-align:right;">
+1.002
+</td>
 </tr>
-<tr class="odd">
-<td align="left">lp__</td>
-<td align="right">-2345.2888001</td>
-<td align="right">0.4393498</td>
-<td align="right">16.9806916</td>
-<td align="right">-2379.8048145</td>
-<td align="right">-2356.5436576</td>
-<td align="right">-2345.2411017</td>
-<td align="right">-2333.3892954</td>
-<td align="right">-2312.6396333</td>
-<td align="right">1493.791</td>
-<td align="right">1.0003529</td>
+<tr>
+<td style="text-align:left;">
+lp__
+</td>
+<td style="text-align:right;">
+-2345.289
+</td>
+<td style="text-align:right;">
+0.439
+</td>
+<td style="text-align:right;">
+16.981
+</td>
+<td style="text-align:right;">
+-2379.805
+</td>
+<td style="text-align:right;">
+-2356.544
+</td>
+<td style="text-align:right;">
+-2345.241
+</td>
+<td style="text-align:right;">
+-2333.389
+</td>
+<td style="text-align:right;">
+-2312.640
+</td>
+<td style="text-align:right;">
+1493.791
+</td>
+<td style="text-align:right;">
+1.000
+</td>
 </tr>
 </tbody>
 </table>
@@ -1065,105 +1230,189 @@ which seems like a reasonably spread-out but still unimodal distribution, as sho
 <span id="cb87-16"><a href="hierarchical-models.html#cb87-16" tabindex="-1"></a>  real prior_tau<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span>
 <span id="cb87-17"><a href="hierarchical-models.html#cb87-17" tabindex="-1"></a>  real prior_LKJ<span class="op">;</span></span>
 <span id="cb87-18"><a href="hierarchical-models.html#cb87-18" tabindex="-1"></a>  </span>
-<span id="cb87-19"><a href="hierarchical-models.html#cb87-19" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb87-20"><a href="hierarchical-models.html#cb87-20" tabindex="-1"></a></span>
-<span id="cb87-21"><a href="hierarchical-models.html#cb87-21" tabindex="-1"></a>transformed data <span class="op">{</span></span>
-<span id="cb87-22"><a href="hierarchical-models.html#cb87-22" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dX<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation x</span></span>
-<span id="cb87-23"><a href="hierarchical-models.html#cb87-23" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dY<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation y</span></span>
-<span id="cb87-24"><a href="hierarchical-models.html#cb87-24" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aX<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
-<span id="cb87-25"><a href="hierarchical-models.html#cb87-25" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aY<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
-<span id="cb87-26"><a href="hierarchical-models.html#cb87-26" tabindex="-1"></a>  </span>
-<span id="cb87-27"><a href="hierarchical-models.html#cb87-27" tabindex="-1"></a>  dX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_x<span class="op">-</span>self_x<span class="op">);</span></span>
-<span id="cb87-28"><a href="hierarchical-models.html#cb87-28" tabindex="-1"></a>  dY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_y<span class="op">-</span>self_y<span class="op">);</span></span>
-<span id="cb87-29"><a href="hierarchical-models.html#cb87-29" tabindex="-1"></a>  aX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_x<span class="op">-</span>other_x<span class="op">);</span></span>
-<span id="cb87-30"><a href="hierarchical-models.html#cb87-30" tabindex="-1"></a>  aY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_y<span class="op">-</span>other_y<span class="op">);</span></span>
-<span id="cb87-31"><a href="hierarchical-models.html#cb87-31" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb87-32"><a href="hierarchical-models.html#cb87-32" tabindex="-1"></a>parameters <span class="op">{</span></span>
-<span id="cb87-33"><a href="hierarchical-models.html#cb87-33" tabindex="-1"></a>  </span>
-<span id="cb87-34"><a href="hierarchical-models.html#cb87-34" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> mu<span class="op">;</span> <span class="co">// population mean</span></span>
-<span id="cb87-35"><a href="hierarchical-models.html#cb87-35" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;[</span><span class="dv">3</span><span class="op">]</span> tau<span class="op">;</span> <span class="co">// population standard deviation</span></span>
-<span id="cb87-36"><a href="hierarchical-models.html#cb87-36" tabindex="-1"></a>  cholesky_factor_corr<span class="op">[</span><span class="dv">3</span><span class="op">]</span> L_Omega<span class="op">;</span> <span class="co">// Cholesky factorization of the correlation matrix</span></span>
-<span id="cb87-37"><a href="hierarchical-models.html#cb87-37" tabindex="-1"></a>  </span>
-<span id="cb87-38"><a href="hierarchical-models.html#cb87-38" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> z<span class="op">;</span> <span class="co">// standard normals determinig participants&#39; parameters</span></span>
-<span id="cb87-39"><a href="hierarchical-models.html#cb87-39" tabindex="-1"></a>  </span>
-<span id="cb87-40"><a href="hierarchical-models.html#cb87-40" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb87-41"><a href="hierarchical-models.html#cb87-41" tabindex="-1"></a>model <span class="op">{</span></span>
-<span id="cb87-42"><a href="hierarchical-models.html#cb87-42" tabindex="-1"></a>  </span>
-<span id="cb87-43"><a href="hierarchical-models.html#cb87-43" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Ux<span class="op">;</span> <span class="co">// utility of allocation x</span></span>
-<span id="cb87-44"><a href="hierarchical-models.html#cb87-44" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Uy<span class="op">;</span> <span class="co">// utility of allocation y</span></span>
-<span id="cb87-45"><a href="hierarchical-models.html#cb87-45" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> alpha<span class="op">;</span></span>
-<span id="cb87-46"><a href="hierarchical-models.html#cb87-46" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> beta<span class="op">;</span></span>
-<span id="cb87-47"><a href="hierarchical-models.html#cb87-47" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> lambda<span class="op">;</span></span>
+<span id="cb87-19"><a href="hierarchical-models.html#cb87-19" tabindex="-1"></a>  <span class="co">// number of simulation steps to approximate demand</span></span>
+<span id="cb87-20"><a href="hierarchical-models.html#cb87-20" tabindex="-1"></a>  <span class="dt">int</span> nsim<span class="op">;</span> </span>
+<span id="cb87-21"><a href="hierarchical-models.html#cb87-21" tabindex="-1"></a>  <span class="co">// Endowment of tokens for demand</span></span>
+<span id="cb87-22"><a href="hierarchical-models.html#cb87-22" tabindex="-1"></a>  <span class="dt">int</span> W<span class="op">;</span></span>
+<span id="cb87-23"><a href="hierarchical-models.html#cb87-23" tabindex="-1"></a>  <span class="co">// number of prices to evaluate demand at</span></span>
+<span id="cb87-24"><a href="hierarchical-models.html#cb87-24" tabindex="-1"></a>  <span class="dt">int</span> nrho<span class="op">;</span></span>
+<span id="cb87-25"><a href="hierarchical-models.html#cb87-25" tabindex="-1"></a>  <span class="co">// prices to evaluate demand at</span></span>
+<span id="cb87-26"><a href="hierarchical-models.html#cb87-26" tabindex="-1"></a>  vector<span class="op">[</span>nrho<span class="op">]</span> rho<span class="op">;</span> </span>
+<span id="cb87-27"><a href="hierarchical-models.html#cb87-27" tabindex="-1"></a>  </span>
+<span id="cb87-28"><a href="hierarchical-models.html#cb87-28" tabindex="-1"></a>  </span>
+<span id="cb87-29"><a href="hierarchical-models.html#cb87-29" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb87-30"><a href="hierarchical-models.html#cb87-30" tabindex="-1"></a></span>
+<span id="cb87-31"><a href="hierarchical-models.html#cb87-31" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb87-32"><a href="hierarchical-models.html#cb87-32" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dX<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation x</span></span>
+<span id="cb87-33"><a href="hierarchical-models.html#cb87-33" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dY<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation y</span></span>
+<span id="cb87-34"><a href="hierarchical-models.html#cb87-34" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aX<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
+<span id="cb87-35"><a href="hierarchical-models.html#cb87-35" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aY<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
+<span id="cb87-36"><a href="hierarchical-models.html#cb87-36" tabindex="-1"></a>  </span>
+<span id="cb87-37"><a href="hierarchical-models.html#cb87-37" tabindex="-1"></a>  dX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_x<span class="op">-</span>self_x<span class="op">);</span></span>
+<span id="cb87-38"><a href="hierarchical-models.html#cb87-38" tabindex="-1"></a>  dY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_y<span class="op">-</span>self_y<span class="op">);</span></span>
+<span id="cb87-39"><a href="hierarchical-models.html#cb87-39" tabindex="-1"></a>  aX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_x<span class="op">-</span>other_x<span class="op">);</span></span>
+<span id="cb87-40"><a href="hierarchical-models.html#cb87-40" tabindex="-1"></a>  aY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_y<span class="op">-</span>other_y<span class="op">);</span></span>
+<span id="cb87-41"><a href="hierarchical-models.html#cb87-41" tabindex="-1"></a>  </span>
+<span id="cb87-42"><a href="hierarchical-models.html#cb87-42" tabindex="-1"></a>  <span class="co">// some things used to produce demand </span></span>
+<span id="cb87-43"><a href="hierarchical-models.html#cb87-43" tabindex="-1"></a>  vector<span class="op">[</span>W<span class="op">+</span><span class="dv">1</span><span class="op">]</span> X<span class="op">;</span></span>
+<span id="cb87-44"><a href="hierarchical-models.html#cb87-44" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>xx in <span class="dv">1</span><span class="op">:(</span>W<span class="op">+</span><span class="dv">1</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb87-45"><a href="hierarchical-models.html#cb87-45" tabindex="-1"></a>      X<span class="op">[</span>xx<span class="op">]</span> <span class="op">=</span> xx<span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb87-46"><a href="hierarchical-models.html#cb87-46" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb87-47"><a href="hierarchical-models.html#cb87-47" tabindex="-1"></a>  </span>
 <span id="cb87-48"><a href="hierarchical-models.html#cb87-48" tabindex="-1"></a>  </span>
-<span id="cb87-49"><a href="hierarchical-models.html#cb87-49" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> theta<span class="op">;</span></span>
-<span id="cb87-50"><a href="hierarchical-models.html#cb87-50" tabindex="-1"></a>  </span>
-<span id="cb87-51"><a href="hierarchical-models.html#cb87-51" tabindex="-1"></a>  theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
-<span id="cb87-52"><a href="hierarchical-models.html#cb87-52" tabindex="-1"></a>                    <span class="op">+</span>diag_pre_multiply<span class="op">(</span>tau<span class="op">,</span>L_Omega<span class="op">)*</span>z<span class="op">;</span></span>
-<span id="cb87-53"><a href="hierarchical-models.html#cb87-53" tabindex="-1"></a>  </span>
-<span id="cb87-54"><a href="hierarchical-models.html#cb87-54" tabindex="-1"></a>  alpha  <span class="op">=</span> theta<span class="op">[</span><span class="dv">1</span><span class="op">,</span>id<span class="op">]</span><span class="ch">&#39;;</span></span>
-<span id="cb87-55"><a href="hierarchical-models.html#cb87-55" tabindex="-1"></a>  beta   <span class="op">=</span> theta<span class="op">[</span><span class="dv">2</span><span class="op">,</span>id<span class="op">]</span><span class="ch">&#39;;</span></span>
-<span id="cb87-56"><a href="hierarchical-models.html#cb87-56" tabindex="-1"></a>  lambda <span class="op">=</span> exp<span class="op">(</span>theta<span class="op">[</span><span class="dv">3</span><span class="op">,</span>id<span class="op">]</span><span class="ch">&#39;)</span><span class="er">;</span></span>
-<span id="cb87-57"><a href="hierarchical-models.html#cb87-57" tabindex="-1"></a></span>
-<span id="cb87-58"><a href="hierarchical-models.html#cb87-58" tabindex="-1"></a>  Ux <span class="op">=</span> self_x<span class="op">-</span>alpha <span class="op">.*</span> dX<span class="op">-</span>beta <span class="op">.*</span> aX<span class="op">;</span></span>
-<span id="cb87-59"><a href="hierarchical-models.html#cb87-59" tabindex="-1"></a>  Uy <span class="op">=</span> self_y<span class="op">-</span>alpha <span class="op">.*</span> dY<span class="op">-</span>beta <span class="op">.*</span> aY<span class="op">;</span></span>
-<span id="cb87-60"><a href="hierarchical-models.html#cb87-60" tabindex="-1"></a>  </span>
-<span id="cb87-61"><a href="hierarchical-models.html#cb87-61" tabindex="-1"></a>  choice_x <span class="op">~</span> bernoulli_logit<span class="op">(</span>lambda <span class="op">.*</span> <span class="op">(</span>Ux<span class="op">-</span>Uy<span class="op">));</span></span>
-<span id="cb87-62"><a href="hierarchical-models.html#cb87-62" tabindex="-1"></a>  </span>
-<span id="cb87-63"><a href="hierarchical-models.html#cb87-63" tabindex="-1"></a>  to_vector<span class="op">(</span>z<span class="op">)</span> <span class="op">~</span> std_normal<span class="op">();</span></span>
-<span id="cb87-64"><a href="hierarchical-models.html#cb87-64" tabindex="-1"></a>  </span>
-<span id="cb87-65"><a href="hierarchical-models.html#cb87-65" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>pp in <span class="dv">1</span><span class="op">:</span><span class="dv">3</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb87-66"><a href="hierarchical-models.html#cb87-66" tabindex="-1"></a>    mu<span class="op">[</span>pp<span class="op">]</span> <span class="op">~</span> normal<span class="op">(</span>prior_mu<span class="op">[</span>pp<span class="op">][</span><span class="dv">1</span><span class="op">],</span>prior_mu<span class="op">[</span>pp<span class="op">][</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb87-67"><a href="hierarchical-models.html#cb87-67" tabindex="-1"></a>    tau<span class="op">[</span>pp<span class="op">]</span> <span class="op">~</span> cauchy<span class="op">(</span><span class="dv">0</span><span class="er">.0</span><span class="op">,</span>prior_tau<span class="op">[</span>pp<span class="op">]);</span></span>
-<span id="cb87-68"><a href="hierarchical-models.html#cb87-68" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb87-49"><a href="hierarchical-models.html#cb87-49" tabindex="-1"></a>  </span>
+<span id="cb87-50"><a href="hierarchical-models.html#cb87-50" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb87-51"><a href="hierarchical-models.html#cb87-51" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb87-52"><a href="hierarchical-models.html#cb87-52" tabindex="-1"></a>  </span>
+<span id="cb87-53"><a href="hierarchical-models.html#cb87-53" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> mu<span class="op">;</span> <span class="co">// population mean</span></span>
+<span id="cb87-54"><a href="hierarchical-models.html#cb87-54" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;[</span><span class="dv">3</span><span class="op">]</span> tau<span class="op">;</span> <span class="co">// population standard deviation</span></span>
+<span id="cb87-55"><a href="hierarchical-models.html#cb87-55" tabindex="-1"></a>  cholesky_factor_corr<span class="op">[</span><span class="dv">3</span><span class="op">]</span> L_Omega<span class="op">;</span> <span class="co">// Cholesky factorization of the correlation matrix</span></span>
+<span id="cb87-56"><a href="hierarchical-models.html#cb87-56" tabindex="-1"></a>  </span>
+<span id="cb87-57"><a href="hierarchical-models.html#cb87-57" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> z<span class="op">;</span> <span class="co">// standard normals determinig participants&#39; parameters</span></span>
+<span id="cb87-58"><a href="hierarchical-models.html#cb87-58" tabindex="-1"></a>  </span>
+<span id="cb87-59"><a href="hierarchical-models.html#cb87-59" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb87-60"><a href="hierarchical-models.html#cb87-60" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb87-61"><a href="hierarchical-models.html#cb87-61" tabindex="-1"></a>  </span>
+<span id="cb87-62"><a href="hierarchical-models.html#cb87-62" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Ux<span class="op">;</span> <span class="co">// utility of allocation x</span></span>
+<span id="cb87-63"><a href="hierarchical-models.html#cb87-63" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Uy<span class="op">;</span> <span class="co">// utility of allocation y</span></span>
+<span id="cb87-64"><a href="hierarchical-models.html#cb87-64" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> alpha<span class="op">;</span></span>
+<span id="cb87-65"><a href="hierarchical-models.html#cb87-65" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> beta<span class="op">;</span></span>
+<span id="cb87-66"><a href="hierarchical-models.html#cb87-66" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> lambda<span class="op">;</span></span>
+<span id="cb87-67"><a href="hierarchical-models.html#cb87-67" tabindex="-1"></a>  </span>
+<span id="cb87-68"><a href="hierarchical-models.html#cb87-68" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> theta<span class="op">;</span></span>
 <span id="cb87-69"><a href="hierarchical-models.html#cb87-69" tabindex="-1"></a>  </span>
-<span id="cb87-70"><a href="hierarchical-models.html#cb87-70" tabindex="-1"></a>   L_Omega <span class="op">~</span> lkj_corr_cholesky<span class="op">(</span>prior_LKJ<span class="op">);</span></span>
-<span id="cb87-71"><a href="hierarchical-models.html#cb87-71" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb87-72"><a href="hierarchical-models.html#cb87-72" tabindex="-1"></a></span>
-<span id="cb87-73"><a href="hierarchical-models.html#cb87-73" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
-<span id="cb87-74"><a href="hierarchical-models.html#cb87-74" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span><span class="dv">3</span><span class="op">]</span> Omega<span class="op">;</span></span>
-<span id="cb87-75"><a href="hierarchical-models.html#cb87-75" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> theta<span class="op">;</span></span>
-<span id="cb87-76"><a href="hierarchical-models.html#cb87-76" tabindex="-1"></a>  theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
-<span id="cb87-77"><a href="hierarchical-models.html#cb87-77" tabindex="-1"></a>                    <span class="op">+</span>diag_pre_multiply<span class="op">(</span>tau<span class="op">,</span>L_Omega<span class="op">)*</span>z<span class="op">;</span></span>
-<span id="cb87-78"><a href="hierarchical-models.html#cb87-78" tabindex="-1"></a>  Omega <span class="op">=</span> L_Omega<span class="op">*</span>L_Omega<span class="ch">&#39;;</span></span>
-<span id="cb87-79"><a href="hierarchical-models.html#cb87-79" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb87-70"><a href="hierarchical-models.html#cb87-70" tabindex="-1"></a>  theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
+<span id="cb87-71"><a href="hierarchical-models.html#cb87-71" tabindex="-1"></a>                    <span class="op">+</span>diag_pre_multiply<span class="op">(</span>tau<span class="op">,</span>L_Omega<span class="op">)*</span>z<span class="op">;</span></span>
+<span id="cb87-72"><a href="hierarchical-models.html#cb87-72" tabindex="-1"></a>  </span>
+<span id="cb87-73"><a href="hierarchical-models.html#cb87-73" tabindex="-1"></a>  alpha  <span class="op">=</span> theta<span class="op">[</span><span class="dv">1</span><span class="op">,</span>id<span class="op">]</span><span class="ch">&#39;;</span></span>
+<span id="cb87-74"><a href="hierarchical-models.html#cb87-74" tabindex="-1"></a>  beta   <span class="op">=</span> theta<span class="op">[</span><span class="dv">2</span><span class="op">,</span>id<span class="op">]</span><span class="ch">&#39;;</span></span>
+<span id="cb87-75"><a href="hierarchical-models.html#cb87-75" tabindex="-1"></a>  lambda <span class="op">=</span> exp<span class="op">(</span>theta<span class="op">[</span><span class="dv">3</span><span class="op">,</span>id<span class="op">]</span><span class="ch">&#39;)</span><span class="er">;</span></span>
+<span id="cb87-76"><a href="hierarchical-models.html#cb87-76" tabindex="-1"></a></span>
+<span id="cb87-77"><a href="hierarchical-models.html#cb87-77" tabindex="-1"></a>  Ux <span class="op">=</span> self_x<span class="op">-</span>alpha <span class="op">.*</span> dX<span class="op">-</span>beta <span class="op">.*</span> aX<span class="op">;</span></span>
+<span id="cb87-78"><a href="hierarchical-models.html#cb87-78" tabindex="-1"></a>  Uy <span class="op">=</span> self_y<span class="op">-</span>alpha <span class="op">.*</span> dY<span class="op">-</span>beta <span class="op">.*</span> aY<span class="op">;</span></span>
+<span id="cb87-79"><a href="hierarchical-models.html#cb87-79" tabindex="-1"></a>  </span>
+<span id="cb87-80"><a href="hierarchical-models.html#cb87-80" tabindex="-1"></a>  choice_x <span class="op">~</span> bernoulli_logit<span class="op">(</span>lambda <span class="op">.*</span> <span class="op">(</span>Ux<span class="op">-</span>Uy<span class="op">));</span></span>
+<span id="cb87-81"><a href="hierarchical-models.html#cb87-81" tabindex="-1"></a>  </span>
+<span id="cb87-82"><a href="hierarchical-models.html#cb87-82" tabindex="-1"></a>  to_vector<span class="op">(</span>z<span class="op">)</span> <span class="op">~</span> std_normal<span class="op">();</span></span>
+<span id="cb87-83"><a href="hierarchical-models.html#cb87-83" tabindex="-1"></a>  </span>
+<span id="cb87-84"><a href="hierarchical-models.html#cb87-84" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>pp in <span class="dv">1</span><span class="op">:</span><span class="dv">3</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb87-85"><a href="hierarchical-models.html#cb87-85" tabindex="-1"></a>    mu<span class="op">[</span>pp<span class="op">]</span> <span class="op">~</span> normal<span class="op">(</span>prior_mu<span class="op">[</span>pp<span class="op">][</span><span class="dv">1</span><span class="op">],</span>prior_mu<span class="op">[</span>pp<span class="op">][</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb87-86"><a href="hierarchical-models.html#cb87-86" tabindex="-1"></a>    tau<span class="op">[</span>pp<span class="op">]</span> <span class="op">~</span> cauchy<span class="op">(</span><span class="dv">0</span><span class="er">.0</span><span class="op">,</span>prior_tau<span class="op">[</span>pp<span class="op">]);</span></span>
+<span id="cb87-87"><a href="hierarchical-models.html#cb87-87" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb87-88"><a href="hierarchical-models.html#cb87-88" tabindex="-1"></a>  </span>
+<span id="cb87-89"><a href="hierarchical-models.html#cb87-89" tabindex="-1"></a>   L_Omega <span class="op">~</span> lkj_corr_cholesky<span class="op">(</span>prior_LKJ<span class="op">);</span></span>
+<span id="cb87-90"><a href="hierarchical-models.html#cb87-90" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb87-91"><a href="hierarchical-models.html#cb87-91" tabindex="-1"></a></span>
+<span id="cb87-92"><a href="hierarchical-models.html#cb87-92" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
+<span id="cb87-93"><a href="hierarchical-models.html#cb87-93" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span><span class="dv">3</span><span class="op">]</span> Omega<span class="op">;</span></span>
+<span id="cb87-94"><a href="hierarchical-models.html#cb87-94" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> theta<span class="op">;</span></span>
+<span id="cb87-95"><a href="hierarchical-models.html#cb87-95" tabindex="-1"></a>  theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
+<span id="cb87-96"><a href="hierarchical-models.html#cb87-96" tabindex="-1"></a>                    <span class="op">+</span>diag_pre_multiply<span class="op">(</span>tau<span class="op">,</span>L_Omega<span class="op">)*</span>z<span class="op">;</span></span>
+<span id="cb87-97"><a href="hierarchical-models.html#cb87-97" tabindex="-1"></a>  Omega <span class="op">=</span> L_Omega<span class="op">*</span>L_Omega<span class="ch">&#39;;</span></span>
+<span id="cb87-98"><a href="hierarchical-models.html#cb87-98" tabindex="-1"></a>  </span>
+<span id="cb87-99"><a href="hierarchical-models.html#cb87-99" tabindex="-1"></a>  <span class="co">// store demand in this vector</span></span>
+<span id="cb87-100"><a href="hierarchical-models.html#cb87-100" tabindex="-1"></a>  vector<span class="op">[</span>nrho<span class="op">]</span> demand<span class="op">;</span></span>
+<span id="cb87-101"><a href="hierarchical-models.html#cb87-101" tabindex="-1"></a>  </span>
+<span id="cb87-102"><a href="hierarchical-models.html#cb87-102" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb87-103"><a href="hierarchical-models.html#cb87-103" tabindex="-1"></a>    <span class="co">// simulated standard normals</span></span>
+<span id="cb87-104"><a href="hierarchical-models.html#cb87-104" tabindex="-1"></a>    matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nsim<span class="op">]</span> zsim<span class="op">;</span></span>
+<span id="cb87-105"><a href="hierarchical-models.html#cb87-105" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>rr in <span class="dv">1</span><span class="op">:</span><span class="dv">3</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb87-106"><a href="hierarchical-models.html#cb87-106" tabindex="-1"></a>      zsim<span class="op">[</span>rr<span class="op">,]</span> <span class="op">=</span> to_row_vector<span class="op">(</span>normal_rng<span class="op">(</span>rep_vector<span class="op">(</span><span class="dv">0</span><span class="er">.0</span><span class="op">,</span>nsim<span class="op">),</span>rep_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nsim<span class="op">)));</span></span>
+<span id="cb87-107"><a href="hierarchical-models.html#cb87-107" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb87-108"><a href="hierarchical-models.html#cb87-108" tabindex="-1"></a>    </span>
+<span id="cb87-109"><a href="hierarchical-models.html#cb87-109" tabindex="-1"></a>    <span class="co">// simulate parameters</span></span>
+<span id="cb87-110"><a href="hierarchical-models.html#cb87-110" tabindex="-1"></a>    matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nsim<span class="op">]</span> thetasim<span class="op">;</span></span>
+<span id="cb87-111"><a href="hierarchical-models.html#cb87-111" tabindex="-1"></a>    thetasim <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nsim<span class="op">)</span></span>
+<span id="cb87-112"><a href="hierarchical-models.html#cb87-112" tabindex="-1"></a>                    <span class="op">+</span>diag_pre_multiply<span class="op">(</span>tau<span class="op">,</span>L_Omega<span class="op">)*</span>zsim<span class="op">;</span></span>
+<span id="cb87-113"><a href="hierarchical-models.html#cb87-113" tabindex="-1"></a>                    </span>
+<span id="cb87-114"><a href="hierarchical-models.html#cb87-114" tabindex="-1"></a>    vector<span class="op">[</span>nsim<span class="op">]</span> alphasim <span class="op">=</span> thetasim<span class="op">[</span><span class="dv">1</span><span class="op">,]</span><span class="ch">&#39;;</span></span>
+<span id="cb87-115"><a href="hierarchical-models.html#cb87-115" tabindex="-1"></a>    vector<span class="op">[</span>nsim<span class="op">]</span> betasim <span class="op">=</span> thetasim<span class="op">[</span><span class="dv">2</span><span class="op">,]</span><span class="ch">&#39;;</span></span>
+<span id="cb87-116"><a href="hierarchical-models.html#cb87-116" tabindex="-1"></a>    vector<span class="op">[</span>nsim<span class="op">]</span> lambdasim <span class="op">=</span> exp<span class="op">(</span>thetasim<span class="op">[</span><span class="dv">3</span><span class="op">,]</span><span class="ch">&#39;)</span><span class="er">;</span></span>
+<span id="cb87-117"><a href="hierarchical-models.html#cb87-117" tabindex="-1"></a>    </span>
+<span id="cb87-118"><a href="hierarchical-models.html#cb87-118" tabindex="-1"></a>    <span class="co">// go through each value of rho </span></span>
+<span id="cb87-119"><a href="hierarchical-models.html#cb87-119" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>rr in <span class="dv">1</span><span class="op">:</span>nrho<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb87-120"><a href="hierarchical-models.html#cb87-120" tabindex="-1"></a>      </span>
+<span id="cb87-121"><a href="hierarchical-models.html#cb87-121" tabindex="-1"></a>      <span class="co">// dump individual-level expected demand in here</span></span>
+<span id="cb87-122"><a href="hierarchical-models.html#cb87-122" tabindex="-1"></a>      vector<span class="op">[</span>nsim<span class="op">]</span> Y<span class="op">;</span></span>
+<span id="cb87-123"><a href="hierarchical-models.html#cb87-123" tabindex="-1"></a>      <span class="cf">for</span> <span class="op">(</span>ss in <span class="dv">1</span><span class="op">:</span>nsim<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb87-124"><a href="hierarchical-models.html#cb87-124" tabindex="-1"></a>        </span>
+<span id="cb87-125"><a href="hierarchical-models.html#cb87-125" tabindex="-1"></a>        <span class="co">// utility of choosing each allocation</span></span>
+<span id="cb87-126"><a href="hierarchical-models.html#cb87-126" tabindex="-1"></a>        vector<span class="op">[</span>W<span class="op">+</span><span class="dv">1</span><span class="op">]</span> U <span class="op">=</span> X</span>
+<span id="cb87-127"><a href="hierarchical-models.html#cb87-127" tabindex="-1"></a>            <span class="op">-</span>alphasim<span class="op">[</span>ss<span class="op">]*</span>fmax<span class="op">(</span><span class="dv">0</span><span class="er">.0</span><span class="op">,(</span>W<span class="op">-</span>X<span class="op">*(</span><span class="fl">1.0</span><span class="op">+</span>rho<span class="op">[</span>rr<span class="op">]))/</span>rho<span class="op">[</span>rr<span class="op">])</span></span>
+<span id="cb87-128"><a href="hierarchical-models.html#cb87-128" tabindex="-1"></a>            <span class="op">-</span>betasim<span class="op">[</span>ss<span class="op">]*</span>fmax<span class="op">(</span><span class="dv">0</span><span class="er">.0</span><span class="op">,(</span>X<span class="op">*(</span><span class="dv">1</span><span class="op">+</span>rho<span class="op">[</span>rr<span class="op">])-</span>W<span class="op">)/</span>rho<span class="op">[</span>rr<span class="op">]);</span></span>
+<span id="cb87-129"><a href="hierarchical-models.html#cb87-129" tabindex="-1"></a>        <span class="co">// probability of choosing each allocation</span></span>
+<span id="cb87-130"><a href="hierarchical-models.html#cb87-130" tabindex="-1"></a>        vector<span class="op">[</span>W<span class="op">+</span><span class="dv">1</span><span class="op">]</span> pr <span class="op">=</span> softmax<span class="op">(</span>lambdasim<span class="op">[</span>ss<span class="op">]*</span>U<span class="op">);</span></span>
+<span id="cb87-131"><a href="hierarchical-models.html#cb87-131" tabindex="-1"></a>        <span class="co">// expected tokens kept</span></span>
+<span id="cb87-132"><a href="hierarchical-models.html#cb87-132" tabindex="-1"></a>        real EX <span class="op">=</span> sum<span class="op">(</span>X<span class="op">.*</span>pr<span class="op">);</span></span>
+<span id="cb87-133"><a href="hierarchical-models.html#cb87-133" tabindex="-1"></a>        <span class="co">// expected tokens bought for the other participant</span></span>
+<span id="cb87-134"><a href="hierarchical-models.html#cb87-134" tabindex="-1"></a>        Y<span class="op">[</span>ss<span class="op">]</span> <span class="op">=</span> <span class="op">(</span>W<span class="op">-</span>EX<span class="op">)/</span>rho<span class="op">[</span>rr<span class="op">];</span></span>
+<span id="cb87-135"><a href="hierarchical-models.html#cb87-135" tabindex="-1"></a>        </span>
+<span id="cb87-136"><a href="hierarchical-models.html#cb87-136" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb87-137"><a href="hierarchical-models.html#cb87-137" tabindex="-1"></a>      </span>
+<span id="cb87-138"><a href="hierarchical-models.html#cb87-138" tabindex="-1"></a>      demand<span class="op">[</span>rr<span class="op">]</span> <span class="op">=</span> mean<span class="op">(</span>Y<span class="op">);</span></span>
+<span id="cb87-139"><a href="hierarchical-models.html#cb87-139" tabindex="-1"></a>      </span>
+<span id="cb87-140"><a href="hierarchical-models.html#cb87-140" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb87-141"><a href="hierarchical-models.html#cb87-141" tabindex="-1"></a>    </span>
+<span id="cb87-142"><a href="hierarchical-models.html#cb87-142" tabindex="-1"></a>    </span>
+<span id="cb87-143"><a href="hierarchical-models.html#cb87-143" tabindex="-1"></a>    </span>
+<span id="cb87-144"><a href="hierarchical-models.html#cb87-144" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb87-145"><a href="hierarchical-models.html#cb87-145" tabindex="-1"></a>  </span>
+<span id="cb87-146"><a href="hierarchical-models.html#cb87-146" tabindex="-1"></a>  </span>
+<span id="cb87-147"><a href="hierarchical-models.html#cb87-147" tabindex="-1"></a>  </span>
+<span id="cb87-148"><a href="hierarchical-models.html#cb87-148" tabindex="-1"></a>  </span>
+<span id="cb87-149"><a href="hierarchical-models.html#cb87-149" tabindex="-1"></a>  </span>
+<span id="cb87-150"><a href="hierarchical-models.html#cb87-150" tabindex="-1"></a>  </span>
+<span id="cb87-151"><a href="hierarchical-models.html#cb87-151" tabindex="-1"></a>  </span>
+<span id="cb87-152"><a href="hierarchical-models.html#cb87-152" tabindex="-1"></a>  </span>
+<span id="cb87-153"><a href="hierarchical-models.html#cb87-153" tabindex="-1"></a>  </span>
+<span id="cb87-154"><a href="hierarchical-models.html#cb87-154" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Here I am implementing both the Cholesky decomposition of <span class="math inline">\(\Omega\)</span> and the vectorization as described in Section 1.13 of the <em>Stan User’s Guide</em>. In particular, note that <span class="math inline">\(\theta\)</span> is <em>not</em> declared in the <code>parameters</code> block. Rather, I use the matrix <code>z</code> of standard normals to generate <span class="math inline">\(\theta\)</span> in the <code>model</code> block:</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb88-1"><a href="hierarchical-models.html#cb88-1" tabindex="-1"></a>theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
 <span id="cb88-2"><a href="hierarchical-models.html#cb88-2" tabindex="-1"></a>                    <span class="op">+</span>diag_pre_multiply<span class="op">(</span>tau<span class="op">,</span>L_Omega<span class="op">)*</span>z<span class="op">;</span></span></code></pre></div>
 <p>Also, since <span class="math inline">\(\Omega\)</span> is not a fundamental parameter, I generate it in the <code>generated quantities</code> block so that we can look at it later.</p>
 <p>Here’s how you estimate the model in <em>RStan</em>:<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a></p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="hierarchical-models.html#cb89-1" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
-<span id="cb89-2"><a href="hierarchical-models.html#cb89-2" tabindex="-1"></a></span>
-<span id="cb89-3"><a href="hierarchical-models.html#cb89-3" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">paste0</span>(<span class="st">&quot;Outputs/&quot;</span>,file,<span class="st">&quot;_correlated.rds&quot;</span>))) {</span>
-<span id="cb89-4"><a href="hierarchical-models.html#cb89-4" tabindex="-1"></a> </span>
-<span id="cb89-5"><a href="hierarchical-models.html#cb89-5" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
-<span id="cb89-6"><a href="hierarchical-models.html#cb89-6" tabindex="-1"></a>    <span class="at">n=</span><span class="fu">dim</span>(D)[<span class="dv">1</span>],</span>
-<span id="cb89-7"><a href="hierarchical-models.html#cb89-7" tabindex="-1"></a>    <span class="at">self_x=</span>D<span class="sc">$</span>self_x,</span>
-<span id="cb89-8"><a href="hierarchical-models.html#cb89-8" tabindex="-1"></a>    <span class="at">other_x=</span>D<span class="sc">$</span>other_x,</span>
-<span id="cb89-9"><a href="hierarchical-models.html#cb89-9" tabindex="-1"></a>    <span class="at">self_y=</span>D<span class="sc">$</span>self_y,</span>
-<span id="cb89-10"><a href="hierarchical-models.html#cb89-10" tabindex="-1"></a>    <span class="at">other_y=</span>D<span class="sc">$</span>other_y,</span>
-<span id="cb89-11"><a href="hierarchical-models.html#cb89-11" tabindex="-1"></a>    <span class="at">choice_x=</span>D<span class="sc">$</span>choice_x,</span>
-<span id="cb89-12"><a href="hierarchical-models.html#cb89-12" tabindex="-1"></a>    </span>
-<span id="cb89-13"><a href="hierarchical-models.html#cb89-13" tabindex="-1"></a>    <span class="at">id =</span> D<span class="sc">$</span>id, </span>
-<span id="cb89-14"><a href="hierarchical-models.html#cb89-14" tabindex="-1"></a>    <span class="at">nParticipants =</span> D<span class="sc">$</span>id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>(),</span>
-<span id="cb89-15"><a href="hierarchical-models.html#cb89-15" tabindex="-1"></a>    </span>
-<span id="cb89-16"><a href="hierarchical-models.html#cb89-16" tabindex="-1"></a>    <span class="at">prior_mu =</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
-<span id="cb89-17"><a href="hierarchical-models.html#cb89-17" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
-<span id="cb89-18"><a href="hierarchical-models.html#cb89-18" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>)</span>
-<span id="cb89-19"><a href="hierarchical-models.html#cb89-19" tabindex="-1"></a>                     ),</span>
-<span id="cb89-20"><a href="hierarchical-models.html#cb89-20" tabindex="-1"></a>    <span class="at">prior_tau =</span> <span class="fu">c</span>(<span class="fl">0.79</span>,<span class="fl">0.79</span>,<span class="fl">0.24</span>),</span>
-<span id="cb89-21"><a href="hierarchical-models.html#cb89-21" tabindex="-1"></a>    <span class="at">prior_LKJ =</span> <span class="dv">2</span></span>
-<span id="cb89-22"><a href="hierarchical-models.html#cb89-22" tabindex="-1"></a>    </span>
-<span id="cb89-23"><a href="hierarchical-models.html#cb89-23" tabindex="-1"></a>    </span>
-<span id="cb89-24"><a href="hierarchical-models.html#cb89-24" tabindex="-1"></a>  )</span>
-<span id="cb89-25"><a href="hierarchical-models.html#cb89-25" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">stan</span>(<span class="fu">paste0</span>(<span class="st">&quot;Code/&quot;</span>,file,<span class="st">&quot;_correlated.stan&quot;</span>),</span>
-<span id="cb89-26"><a href="hierarchical-models.html#cb89-26" tabindex="-1"></a>            <span class="at">data=</span>dStan,</span>
-<span id="cb89-27"><a href="hierarchical-models.html#cb89-27" tabindex="-1"></a>            <span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb89-28"><a href="hierarchical-models.html#cb89-28" tabindex="-1"></a>  <span class="fu">saveRDS</span>(Fit,<span class="fu">paste0</span>(<span class="st">&quot;Outputs/&quot;</span>,file,<span class="st">&quot;_correlated.rds&quot;</span>))</span>
-<span id="cb89-29"><a href="hierarchical-models.html#cb89-29" tabindex="-1"></a>}</span>
-<span id="cb89-30"><a href="hierarchical-models.html#cb89-30" tabindex="-1"></a></span>
-<span id="cb89-31"><a href="hierarchical-models.html#cb89-31" tabindex="-1"></a>Fit<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="fu">paste0</span>(<span class="st">&quot;Outputs/&quot;</span>,file,<span class="st">&quot;_correlated.rds&quot;</span>))</span></code></pre></div>
+<span id="cb89-2"><a href="hierarchical-models.html#cb89-2" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb89-3"><a href="hierarchical-models.html#cb89-3" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb89-4"><a href="hierarchical-models.html#cb89-4" tabindex="-1"></a></span>
+<span id="cb89-5"><a href="hierarchical-models.html#cb89-5" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">paste0</span>(<span class="st">&quot;Outputs/&quot;</span>,file,<span class="st">&quot;_correlated.rds&quot;</span>))) {</span>
+<span id="cb89-6"><a href="hierarchical-models.html#cb89-6" tabindex="-1"></a> </span>
+<span id="cb89-7"><a href="hierarchical-models.html#cb89-7" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb89-8"><a href="hierarchical-models.html#cb89-8" tabindex="-1"></a>    <span class="at">n=</span><span class="fu">dim</span>(D)[<span class="dv">1</span>],</span>
+<span id="cb89-9"><a href="hierarchical-models.html#cb89-9" tabindex="-1"></a>    <span class="at">self_x=</span>D<span class="sc">$</span>self_x,</span>
+<span id="cb89-10"><a href="hierarchical-models.html#cb89-10" tabindex="-1"></a>    <span class="at">other_x=</span>D<span class="sc">$</span>other_x,</span>
+<span id="cb89-11"><a href="hierarchical-models.html#cb89-11" tabindex="-1"></a>    <span class="at">self_y=</span>D<span class="sc">$</span>self_y,</span>
+<span id="cb89-12"><a href="hierarchical-models.html#cb89-12" tabindex="-1"></a>    <span class="at">other_y=</span>D<span class="sc">$</span>other_y,</span>
+<span id="cb89-13"><a href="hierarchical-models.html#cb89-13" tabindex="-1"></a>    <span class="at">choice_x=</span>D<span class="sc">$</span>choice_x,</span>
+<span id="cb89-14"><a href="hierarchical-models.html#cb89-14" tabindex="-1"></a>    </span>
+<span id="cb89-15"><a href="hierarchical-models.html#cb89-15" tabindex="-1"></a>    <span class="at">id =</span> D<span class="sc">$</span>id, </span>
+<span id="cb89-16"><a href="hierarchical-models.html#cb89-16" tabindex="-1"></a>    <span class="at">nParticipants =</span> D<span class="sc">$</span>id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>(),</span>
+<span id="cb89-17"><a href="hierarchical-models.html#cb89-17" tabindex="-1"></a>    </span>
+<span id="cb89-18"><a href="hierarchical-models.html#cb89-18" tabindex="-1"></a>    <span class="at">prior_mu =</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb89-19"><a href="hierarchical-models.html#cb89-19" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb89-20"><a href="hierarchical-models.html#cb89-20" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>)</span>
+<span id="cb89-21"><a href="hierarchical-models.html#cb89-21" tabindex="-1"></a>                     ),</span>
+<span id="cb89-22"><a href="hierarchical-models.html#cb89-22" tabindex="-1"></a>    <span class="at">prior_tau =</span> <span class="fu">c</span>(<span class="fl">0.79</span>,<span class="fl">0.79</span>,<span class="fl">0.24</span>),</span>
+<span id="cb89-23"><a href="hierarchical-models.html#cb89-23" tabindex="-1"></a>    <span class="at">prior_LKJ =</span> <span class="dv">2</span>,</span>
+<span id="cb89-24"><a href="hierarchical-models.html#cb89-24" tabindex="-1"></a>    </span>
+<span id="cb89-25"><a href="hierarchical-models.html#cb89-25" tabindex="-1"></a>    <span class="co"># data needed for demand calculation</span></span>
+<span id="cb89-26"><a href="hierarchical-models.html#cb89-26" tabindex="-1"></a>    <span class="co"># (see the &quot;Doing something with the estimates&quot; section)</span></span>
+<span id="cb89-27"><a href="hierarchical-models.html#cb89-27" tabindex="-1"></a>    <span class="at">nsim=</span><span class="dv">100</span>,</span>
+<span id="cb89-28"><a href="hierarchical-models.html#cb89-28" tabindex="-1"></a>    <span class="at">W =</span> <span class="dv">1000</span>,</span>
+<span id="cb89-29"><a href="hierarchical-models.html#cb89-29" tabindex="-1"></a>    <span class="at">nrho =</span> <span class="dv">100</span>,</span>
+<span id="cb89-30"><a href="hierarchical-models.html#cb89-30" tabindex="-1"></a>    <span class="at">rho =</span> <span class="fu">seq</span>(<span class="fl">0.1</span>,<span class="dv">10</span>,<span class="at">by=</span><span class="fl">0.1</span>)</span>
+<span id="cb89-31"><a href="hierarchical-models.html#cb89-31" tabindex="-1"></a>    </span>
+<span id="cb89-32"><a href="hierarchical-models.html#cb89-32" tabindex="-1"></a>    </span>
+<span id="cb89-33"><a href="hierarchical-models.html#cb89-33" tabindex="-1"></a>  )</span>
+<span id="cb89-34"><a href="hierarchical-models.html#cb89-34" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">stan</span>(<span class="fu">paste0</span>(<span class="st">&quot;Code/&quot;</span>,file,<span class="st">&quot;_correlated.stan&quot;</span>),</span>
+<span id="cb89-35"><a href="hierarchical-models.html#cb89-35" tabindex="-1"></a>            <span class="at">data=</span>dStan,</span>
+<span id="cb89-36"><a href="hierarchical-models.html#cb89-36" tabindex="-1"></a>            <span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb89-37"><a href="hierarchical-models.html#cb89-37" tabindex="-1"></a>  <span class="fu">saveRDS</span>(Fit,<span class="fu">paste0</span>(<span class="st">&quot;Outputs/&quot;</span>,file,<span class="st">&quot;_correlated.rds&quot;</span>))</span>
+<span id="cb89-38"><a href="hierarchical-models.html#cb89-38" tabindex="-1"></a>}</span>
+<span id="cb89-39"><a href="hierarchical-models.html#cb89-39" tabindex="-1"></a></span>
+<span id="cb89-40"><a href="hierarchical-models.html#cb89-40" tabindex="-1"></a>Fit<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="fu">paste0</span>(<span class="st">&quot;Outputs/&quot;</span>,file,<span class="st">&quot;_correlated.rds&quot;</span>))</span></code></pre></div>
 <p>There are quite a lot of parameters in this model (because we are using data augmentation), so looking at the entire summary is somewhat daunting and not particularly useful. Fortunately, I set up the parameters block so that the first six parameters listed have the same interpretation as the model in the previous section that assumes no correlation between parameters (except that we are estimating <span class="math inline">\(\lambda\)</span> as <span class="math inline">\(\log\lambda\)</span>):</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="hierarchical-models.html#cb90-1" tabindex="-1"></a><span class="fu">summary</span>(Fit)<span class="sc">$</span>summary[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,] <span class="sc">|&gt;</span> <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&quot;Posterior estimates from the model with correlated parameters.&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="hierarchical-models.html#cb90-1" tabindex="-1"></a><span class="fu">summary</span>(Fit)<span class="sc">$</span>summary[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,] <span class="sc">|&gt;</span> <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&quot;Posterior estimates from the model with correlated parameters.&quot;</span>,<span class="at">digits=</span><span class="dv">3</span>) <span class="sc">|&gt;</span> <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F)</span></code></pre></div>
 <table class=" lightable-classic" style="color: black; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:HierarchicalBFS2019correlatedTable">Table 6.2: </span>Posterior estimates from the model with correlated parameters.
@@ -1210,34 +1459,34 @@ Rhat
 mu[1]
 </td>
 <td style="text-align:right;">
--0.0143180
+-0.014
 </td>
 <td style="text-align:right;">
-0.0004662
+0.001
 </td>
 <td style="text-align:right;">
-0.0151897
+0.015
 </td>
 <td style="text-align:right;">
--0.0439904
+-0.044
 </td>
 <td style="text-align:right;">
--0.0244855
+-0.024
 </td>
 <td style="text-align:right;">
--0.0140957
+-0.014
 </td>
 <td style="text-align:right;">
--0.0039547
+-0.004
 </td>
 <td style="text-align:right;">
-0.0156960
+0.017
 </td>
 <td style="text-align:right;">
-1061.561
+898.269
 </td>
 <td style="text-align:right;">
-1.002654
+1.008
 </td>
 </tr>
 <tr>
@@ -1245,34 +1494,34 @@ mu[1]
 mu[2]
 </td>
 <td style="text-align:right;">
-0.2295115
+0.230
 </td>
 <td style="text-align:right;">
-0.0005103
+0.001
 </td>
 <td style="text-align:right;">
-0.0195575
+0.020
 </td>
 <td style="text-align:right;">
-0.1918648
+0.191
 </td>
 <td style="text-align:right;">
-0.2164303
+0.216
 </td>
 <td style="text-align:right;">
-0.2293220
+0.230
 </td>
 <td style="text-align:right;">
-0.2423599
+0.243
 </td>
 <td style="text-align:right;">
-0.2683971
+0.269
 </td>
 <td style="text-align:right;">
-1469.106
+1156.227
 </td>
 <td style="text-align:right;">
-1.001084
+1.004
 </td>
 </tr>
 <tr>
@@ -1280,34 +1529,34 @@ mu[2]
 mu[3]
 </td>
 <td style="text-align:right;">
--3.5292717
+-3.531
 </td>
 <td style="text-align:right;">
-0.0014256
+0.002
 </td>
 <td style="text-align:right;">
-0.0669318
+0.068
 </td>
 <td style="text-align:right;">
--3.6563674
+-3.662
 </td>
 <td style="text-align:right;">
--3.5742354
+-3.576
 </td>
 <td style="text-align:right;">
--3.5306900
+-3.532
 </td>
 <td style="text-align:right;">
--3.4843812
+-3.486
 </td>
 <td style="text-align:right;">
--3.3968955
+-3.394
 </td>
 <td style="text-align:right;">
-2204.420
+1593.340
 </td>
 <td style="text-align:right;">
-1.000160
+1.004
 </td>
 </tr>
 <tr>
@@ -1315,34 +1564,34 @@ mu[3]
 tau[1]
 </td>
 <td style="text-align:right;">
-0.1742889
+0.175
 </td>
 <td style="text-align:right;">
-0.0003289
+0.000
 </td>
 <td style="text-align:right;">
-0.0144723
+0.014
 </td>
 <td style="text-align:right;">
-0.1476120
+0.149
 </td>
 <td style="text-align:right;">
-0.1643246
+0.165
 </td>
 <td style="text-align:right;">
-0.1735503
+0.174
 </td>
 <td style="text-align:right;">
-0.1833015
+0.184
 </td>
 <td style="text-align:right;">
-0.2052865
+0.204
 </td>
 <td style="text-align:right;">
-1936.409
+1584.464
 </td>
 <td style="text-align:right;">
-1.002249
+1.001
 </td>
 </tr>
 <tr>
@@ -1350,34 +1599,34 @@ tau[1]
 tau[2]
 </td>
 <td style="text-align:right;">
-0.2411831
+0.242
 </td>
 <td style="text-align:right;">
-0.0003573
+0.000
 </td>
 <td style="text-align:right;">
-0.0157877
+0.016
 </td>
 <td style="text-align:right;">
-0.2123187
+0.211
 </td>
 <td style="text-align:right;">
-0.2300481
+0.231
 </td>
 <td style="text-align:right;">
-0.2407215
+0.241
 </td>
 <td style="text-align:right;">
-0.2517186
+0.252
 </td>
 <td style="text-align:right;">
-0.2735095
+0.275
 </td>
 <td style="text-align:right;">
-1952.369
+1692.600
 </td>
 <td style="text-align:right;">
-1.001854
+1.000
 </td>
 </tr>
 <tr>
@@ -1385,34 +1634,34 @@ tau[2]
 tau[3]
 </td>
 <td style="text-align:right;">
-0.7757139
+0.774
 </td>
 <td style="text-align:right;">
-0.0015075
+0.002
 </td>
 <td style="text-align:right;">
-0.0599109
+0.062
 </td>
 <td style="text-align:right;">
-0.6660137
+0.660
 </td>
 <td style="text-align:right;">
-0.7340641
+0.731
 </td>
 <td style="text-align:right;">
-0.7733915
+0.771
 </td>
 <td style="text-align:right;">
-0.8139701
+0.814
 </td>
 <td style="text-align:right;">
-0.9012869
+0.902
 </td>
 <td style="text-align:right;">
-1579.420
+1292.542
 </td>
 <td style="text-align:right;">
-1.002299
+1.001
 </td>
 </tr>
 </tbody>
@@ -1429,35 +1678,69 @@ tau[3]
 <span id="cb91-9"><a href="hierarchical-models.html#cb91-9" tabindex="-1"></a><span class="fu">colnames</span>(table)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">alpha$&quot;</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">beta$&quot;</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">log</span><span class="sc">\\</span><span class="st">lambda$&quot;</span>)</span>
 <span id="cb91-10"><a href="hierarchical-models.html#cb91-10" tabindex="-1"></a><span class="fu">rownames</span>(table)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">alpha$&quot;</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">beta$&quot;</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">log</span><span class="sc">\\</span><span class="st">lambda$&quot;</span>)</span>
 <span id="cb91-11"><a href="hierarchical-models.html#cb91-11" tabindex="-1"></a></span>
-<span id="cb91-12"><a href="hierarchical-models.html#cb91-12" tabindex="-1"></a>table<span class="sc">|&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Estimated correlation matrix $</span><span class="sc">\\</span><span class="st">Omega$. Posterior means shown with posterior standard deviations in parentheses.&quot;</span>)</span></code></pre></div>
-<table>
-<caption><span id="tab:HierarchicalBFS2019correlatedTableOMEGA">Table 6.3: </span>Estimated correlation matrix <span class="math inline">\(\Omega\)</span>. Posterior means shown with posterior standard deviations in parentheses.</caption>
+<span id="cb91-12"><a href="hierarchical-models.html#cb91-12" tabindex="-1"></a>table<span class="sc">|&gt;</span> <span class="fu">kbl</span>(<span class="at">digits=</span><span class="dv">3</span>,<span class="at">caption =</span> <span class="st">&quot;Estimated correlation matrix $</span><span class="sc">\\</span><span class="st">Omega$. Posterior means shown with posterior standard deviations in parentheses.&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb91-13"><a href="hierarchical-models.html#cb91-13" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<table class=" lightable-classic" style="color: black; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:HierarchicalBFS2019correlatedTableOMEGA">Table 6.3: </span>Estimated correlation matrix <span class="math inline">\(\Omega\)</span>. Posterior means shown with posterior standard deviations in parentheses.
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left"><span class="math inline">\(\alpha\)</span></th>
-<th align="left"><span class="math inline">\(\beta\)</span></th>
-<th align="left"><span class="math inline">\(\log\lambda\)</span></th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+<span class="math inline">\(\alpha\)</span>
+</th>
+<th style="text-align:left;">
+<span class="math inline">\(\beta\)</span>
+</th>
+<th style="text-align:left;">
+<span class="math inline">\(\log\lambda\)</span>
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left"><span class="math inline">\(\alpha\)</span></td>
-<td align="left">1 (0)</td>
-<td align="left">-0.691 (0.06)</td>
-<td align="left">-0.59 (0.066)</td>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\alpha\)</span>
+</td>
+<td style="text-align:left;">
+1 (0)
+</td>
+<td style="text-align:left;">
+-0.689 (0.061)
+</td>
+<td style="text-align:left;">
+-0.594 (0.064)
+</td>
 </tr>
-<tr class="even">
-<td align="left"><span class="math inline">\(\beta\)</span></td>
-<td align="left">-0.691 (0.06)</td>
-<td align="left">1 (0)</td>
-<td align="left">-0.003 (0.089)</td>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\beta\)</span>
+</td>
+<td style="text-align:left;">
+-0.689 (0.061)
+</td>
+<td style="text-align:left;">
+1 (0)
+</td>
+<td style="text-align:left;">
+-0.005 (0.088)
+</td>
 </tr>
-<tr class="odd">
-<td align="left"><span class="math inline">\(\log\lambda\)</span></td>
-<td align="left">-0.59 (0.066)</td>
-<td align="left">-0.003 (0.089)</td>
-<td align="left">1 (0)</td>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\log\lambda\)</span>
+</td>
+<td style="text-align:left;">
+-0.594 (0.064)
+</td>
+<td style="text-align:left;">
+-0.005 (0.088)
+</td>
+<td style="text-align:left;">
+1 (0)
+</td>
 </tr>
 </tbody>
 </table>
@@ -1495,11 +1778,92 @@ tau[3]
 Figure 6.3: Posterior mean estimates of individual-level parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> from the hierarchical model assuming correlation between the parameters.
 </p>
 </div>
+<div id="doing-something-with-the-estimates-1" class="section level4 hasAnchor" number="6.5.2.1">
+<h4><span class="header-section-number">6.5.2.1</span> Doing something with the estimates<a href="hierarchical-models.html#doing-something-with-the-estimates-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now that we have a model and estimates that respect the heterogeneity we believe is present in the population, how about we use it to make an out-of-sample prediction? For this exercise, we will use the estimated model to predict a demand curve for charitable giving, <em>a la</em> <span class="citation">Andreoni and Vesterlund (<a href="#ref-AV2001">2001</a>)</span> and <span class="citation">Andreoni and Miller (<a href="#ref-Andreoni2002">2002</a>)</span>. To do this, suppose that a participant has 1000 tokens,<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a> which she can either keep, or use to buy income for another participant, who starts out with nothing. Kept tokens generate income of 1 experimental currency unit for the participant, and the participant can buy 1 experimental currency unit for the other participant for a price of <span class="math inline">\(\rho\)</span>. Therefore, if <span class="math inline">\(x\)</span> is the income of the participant, and <span class="math inline">\(y\)</span> is the income of the other, then the budget constraint is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+1000 = x+\rho y
+\end{aligned}
+\]</span></p>
+<p>The participant’s utility function is then:</p>
+<p><span class="math display">\[
+\begin{aligned}
+U_i(x,y)=x-\alpha_i\max\{0,y-x\}-\beta\max\{0,x-y\}
+\end{aligned}
+\]</span></p>
+<p>And substituting the budget constraint into the utility function yields utility just as a function of <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+U_i(x)&amp;=x-\alpha_i\max\left\{0,\frac{1000-x}{\rho}-x\right\}-\beta_i\max\left\{0,x-\frac{1000-x}{\rho}\right\}\\
+U_i(x)&amp;=x-\alpha_i\max\left\{0,\frac{1000-x(1+\rho)}{\rho}\right\}-\beta_i\max\left\{0,\frac{x(1+\rho)-1000}{\rho}\right\}
+\end{aligned}
+\]</span></p>
+<p>Now assume that participants use logit choice with the same <span class="math inline">\(\lambda_i\)</span> as in the original experiment.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a> So the distribution of choices given <span class="math inline">\((\alpha_i,\beta_i,\lambda_i)\)</span> is:</p>
+<p><span class="math display">\[
+\Pr(X = x\mid \alpha_i,\beta_i,\lambda_i,\rho)=\frac{\exp(\lambda_i U_i(x))}{\sum_{k=0}^{1000}\exp(\lambda_iU_i(k))}
+\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[
+E[X\mid  \alpha_i,\beta_i,\lambda_i,\rho]=\frac{\sum_{x=0}^{1000}x\exp(\lambda_i U_i(x))}{\sum_{k=0}^{1000}\exp(\lambda_iU_i(k))}
+\]</span></p>
+<p>But what we really want to report is the <em>demand</em> for giving to the other participant, so we need to convert this into income bought for the other participant (<span class="math inline">\(y\)</span>):</p>
+<p><span class="math display">\[
+E[Y\mid \alpha_i,\beta_i,\lambda_i,\rho] = \frac{1000-E[X\mid  \alpha_i,\beta_i,\lambda_i,\rho]}{\rho}
+\]</span></p>
+<p>This is participant <span class="math inline">\(i\)</span>’s (average, since they use probabilistic choice) demand for giving. But what we really want is a sense of what the <em>population</em> would demand. Hence, we need to integrate out the individual-specific parameters <span class="math inline">\(\alpha_i\)</span>, <span class="math inline">\(\beta_i\)</span>, and <span class="math inline">\(\lambda_i\)</span>. Mathematically, we can apply the law of iterated expectations like this, where the left-hand side is what we want to report as a function of <span class="math inline">\(\rho\)</span>:</p>
+<p><span class="math display">\[
+E[Y\mid \rho]=E\left[E[Y\mid \alpha_i,\beta_i,\lambda_i,\rho]\mid \rho\right]
+\]</span></p>
+<p>In practice, this is a really hard expectation to take analytically, so instead we will do it with Monte Carlo integration:</p>
+<p><span class="math display">\[
+\begin{aligned}
+E[Y\mid \rho]&amp;\approx \frac1S\sum_{s=1}^SE[Y\mid \alpha_s,\beta_s,\lambda_s,\rho]\\
+\begin{pmatrix}
+\alpha_s\\ \beta_s \\ \log\lambda_s
+\end{pmatrix}&amp;\sim iid N(\mu,\Sigma)
+\end{aligned}
+\]</span></p>
+<p>You can see the implementation of this in the <em>Stan</em> file above. In particular, see the <code>generated quantities</code> block. In general, it is a good idea to use the <code>generated quantities</code> block to compute transformations of the parameters like this, as opposed to doing this outside of <em>Stan</em> in post-estimation. This is for at least two reasons. Firstly, since <em>Stan</em> is fast, this is probably the fastest way for you to compute things. Secondly, <em>Stan</em> gives you all of the convergence diagnostics for these transformed quantities, so you don’t need to worry about (say) having too small an effective sample size or a bad <span class="math inline">\(\hat R\)</span> for these quantities.<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a></p>
+<p>Now we can have a look at our estimated demand curve in Figure <a href="hierarchical-models.html#fig:hierarchicaldemand">6.4</a>. For perspective, I also include the demand curve if participants chose allocations that equalized payoffs. This is shown with the red dashed line. Here we can see that participants are generally less generous than this, but get <em>more</em> generous than this for very low prices.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="hierarchical-models.html#cb93-1" tabindex="-1"></a>demand<span class="ot">&lt;-</span><span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
+<span id="cb93-2"><a href="hierarchical-models.html#cb93-2" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb93-3"><a href="hierarchical-models.html#cb93-3" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;parameter&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb93-4"><a href="hierarchical-models.html#cb93-4" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">&quot;demand&quot;</span>,parameter)) <span class="sc">|&gt;</span></span>
+<span id="cb93-5"><a href="hierarchical-models.html#cb93-5" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb93-6"><a href="hierarchical-models.html#cb93-6" tabindex="-1"></a>    <span class="at">price =</span> <span class="fu">seq</span>(<span class="fl">0.1</span>,<span class="dv">10</span>,<span class="at">by=</span><span class="fl">0.1</span>),</span>
+<span id="cb93-7"><a href="hierarchical-models.html#cb93-7" tabindex="-1"></a>    <span class="at">equal_split =</span> <span class="dv">1000</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>price)</span>
+<span id="cb93-8"><a href="hierarchical-models.html#cb93-8" tabindex="-1"></a>  )</span>
+<span id="cb93-9"><a href="hierarchical-models.html#cb93-9" tabindex="-1"></a></span>
+<span id="cb93-10"><a href="hierarchical-models.html#cb93-10" tabindex="-1"></a>(</span>
+<span id="cb93-11"><a href="hierarchical-models.html#cb93-11" tabindex="-1"></a>  <span class="fu">ggplot</span>(demand,<span class="fu">aes</span>(<span class="at">x=</span>mean,<span class="at">y=</span>price))</span>
+<span id="cb93-12"><a href="hierarchical-models.html#cb93-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>() </span>
+<span id="cb93-13"><a href="hierarchical-models.html#cb93-13" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>equal_split,<span class="at">y=</span>price),<span class="at">color=</span><span class="st">&quot;red&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb93-14"><a href="hierarchical-models.html#cb93-14" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> X2.<span class="fl">5.</span>,<span class="at">xmax=</span>X97.<span class="fl">5.</span>,<span class="at">y=</span>price),<span class="at">alpha=</span><span class="fl">0.5</span>)</span>
+<span id="cb93-15"><a href="hierarchical-models.html#cb93-15" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1500</span>))</span>
+<span id="cb93-16"><a href="hierarchical-models.html#cb93-16" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb93-17"><a href="hierarchical-models.html#cb93-17" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="st">&quot;Price (&quot;</span><span class="sc">*</span>rho<span class="sc">*</span><span class="st">&quot;)&quot;</span>))</span>
+<span id="cb93-18"><a href="hierarchical-models.html#cb93-18" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Quantity of experimental currency units demanded for the other participant&quot;</span>)</span>
+<span id="cb93-19"><a href="hierarchical-models.html#cb93-19" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:hierarchicaldemand"></span>
+<img src="index_files/figure-html/hierarchicaldemand-1.png" alt="Estimted demand curve for giving. Line shows posterior mean estimate, shaded region shows a 95% Bayesian credible region (2.5th-97.5th percentile). Note that since this is a demand curve, the uncertainty is in the *horizontal* coordinates. Dashed red line shows the demand curve if participants equalized payoffs" width="672" />
+<p class="caption">
+Figure 6.4: Estimted demand curve for giving. Line shows posterior mean estimate, shaded region shows a 95% Bayesian credible region (2.5th-97.5th percentile). Note that since this is a demand curve, the uncertainty is in the <em>horizontal</em> coordinates. Dashed red line shows the demand curve if participants equalized payoffs
+</p>
+</div>
+<p>Note that here we are making an <em>out-of-sample</em> prediction. That is, we are using our parameter estimates to predict how different participants (but drawn from the same population) would behave in a different environment (i.e. the budget set problem, rather than the binary choice task). This is a testable prediction if we run another experiment!</p>
+</div>
 </div>
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Andreoni2002" class="csl-entry">
+Andreoni, James, and John Miller. 2002. <span>“Giving According to GARP: An Experimental Test of the Consistency of Preferences for Altruism.”</span> <em>Econometrica</em> 70 (2): 737–53. <a href="https://www.jstor.org/stable/2692289">https://www.jstor.org/stable/2692289</a>.
+</div>
+<div id="ref-AV2001" class="csl-entry">
+Andreoni, James, and Lise Vesterlund. 2001. <span>“Which Is the Fair Sex? Gender Differences in Altruism.”</span> <em>The Quarterly Journal of Economics</em> 116 (1): 293–312. <a href="https://doi.org/10.1162/003355301556419">https://doi.org/10.1162/003355301556419</a>.
+</div>
 <div id="ref-Betancourt2015" class="csl-entry">
 Betancourt, Michael, and Mark Girolami. 2015. <span>“Hamiltonian Monte Carlo for Hierarchical Models.”</span> <em>Current Trends in Bayesian Methodology with Applications</em> 79 (30): 2–4. <a href="https://doi.org/10.48550/arXiv.1312.0906">https://doi.org/10.48550/arXiv.1312.0906</a>.
 </div>
@@ -1527,6 +1891,9 @@ Stan Development Team. 2022. <span>“Stan User’s Guide, Version 2.31.”</spa
 <li id="fn24"><p>This is a really useful section. I have it open in my browser most of the time that I am coding hierarchical models in <em>Stan</em>.<a href="hierarchical-models.html#fnref24" class="footnote-back">↩︎</a></p></li>
 <li id="fn25"><p>Here I have deliberately tried to leave as much of this <em>Stan</em> file as unchanged as possible so you can compare it side-by-side with the representative agent model. There are better ways to do this, which I will get to shortly. Most of them take advantage of the stacked vector <span class="math inline">\(\theta\)</span> notation that I have used above.<a href="hierarchical-models.html#fnref25" class="footnote-back">↩︎</a></p></li>
 <li id="fn26"><p>This one will take a while. Fold some laundry, write some poetry, find Kakariko Village, or something. (about 17 minutes on my laptop)<a href="hierarchical-models.html#fnref26" class="footnote-back">↩︎</a></p></li>
+<li id="fn27"><p>I use 1000 tokens to keep the payoff scales similar to the original experiment.<a href="hierarchical-models.html#fnref27" class="footnote-back">↩︎</a></p></li>
+<li id="fn28"><p>This is a somewhat corageous assumption, as in the original experiment participants chose between two things at a time, and now we are asking them to choose between 1,001 things. <a href="hierarchical-models.html#fnref28" class="footnote-back">↩︎</a></p></li>
+<li id="fn29"><p>I thank Brian Monroe for this insight.<a href="hierarchical-models.html#fnref29" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
