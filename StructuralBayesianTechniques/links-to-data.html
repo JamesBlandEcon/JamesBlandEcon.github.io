@@ -23,14 +23,14 @@
 <meta name="author" content="James R. Bland" />
 
 
-<meta name="date" content="2025-03-05" />
+<meta name="date" content="2025-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="application-meta-analysis-using-some-of-the-metaret-data.html"/>
+<link rel="prev" href="ranked-choices-and-the-thurstonian-model.html"/>
 <link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -417,6 +417,15 @@ div.csl-indent {
 <li class="chapter" data-level="15.5" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#student-t-distributions-because-why-not"><i class="fa fa-check"></i><b>15.5</b> Student-<span class="math inline">\(t\)</span> distributions, because why not?</a></li>
 <li class="chapter" data-level="15.6" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#r-code-to-estimate-the-models-1"><i class="fa fa-check"></i><b>15.6</b> <em>R</em> code to estimate the models</a></li>
 </ul></li>
+<li class="chapter" data-level="16" data-path="ranked-choices-and-the-thurstonian-model.html"><a href="ranked-choices-and-the-thurstonian-model.html"><i class="fa fa-check"></i><b>16</b> Ranked choices and the Thurstonian model</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="ranked-choices-and-the-thurstonian-model.html"><a href="ranked-choices-and-the-thurstonian-model.html#the-thurstonian-model"><i class="fa fa-check"></i><b>16.1</b> The Thurstonian model</a></li>
+<li class="chapter" data-level="16.2" data-path="ranked-choices-and-the-thurstonian-model.html"><a href="ranked-choices-and-the-thurstonian-model.html#computational-issues"><i class="fa fa-check"></i><b>16.2</b> Computational issues</a></li>
+<li class="chapter" data-level="16.3" data-path="ranked-choices-and-the-thurstonian-model.html"><a href="ranked-choices-and-the-thurstonian-model.html#example-dataset-and-model-2"><i class="fa fa-check"></i><b>16.3</b> Example dataset and model</a></li>
+<li class="chapter" data-level="16.4" data-path="ranked-choices-and-the-thurstonian-model.html"><a href="ranked-choices-and-the-thurstonian-model.html#a-representative-agent-model"><i class="fa fa-check"></i><b>16.4</b> A representative agent model</a></li>
+<li class="chapter" data-level="16.5" data-path="ranked-choices-and-the-thurstonian-model.html"><a href="ranked-choices-and-the-thurstonian-model.html#a-hierarchical-model"><i class="fa fa-check"></i><b>16.5</b> A hierarchical model</a></li>
+<li class="chapter" data-level="16.6" data-path="ranked-choices-and-the-thurstonian-model.html"><a href="ranked-choices-and-the-thurstonian-model.html#r-code-used-to-run-this"><i class="fa fa-check"></i><b>16.6</b> <em>R</em> code used to run this</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="links-to-data.html"><a href="links-to-data.html"><i class="fa fa-check"></i>Links to data</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -440,6 +449,7 @@ div.csl-indent {
 <h1>Links to data<a href="links-to-data.html#links-to-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Links to the data that are freely available from other sources:</p>
 <ul>
+<li><p><span class="citation">Alempaki et al. (<a href="#ref-ACKLP2022">2022</a>)</span>: <a href="https://osf.io/zhufe/" class="uri">https://osf.io/zhufe/</a></p></li>
 <li><p><span class="citation">Bruhin, Fehr, and Schunk (<a href="#ref-BFS2019">2019</a>)</span>: <a href="https://academic.oup.com/jeea/article/17/4/1025/5001317?guestAccessKey=005c6e7e-70c9-4946-bc13-095f35424669&amp;login=false#supplementary-data" class="uri">https://academic.oup.com/jeea/article/17/4/1025/5001317?guestAccessKey=005c6e7e-70c9-4946-bc13-095f35424669&amp;login=false#supplementary-data</a></p></li>
 <li><p><span class="citation">Costa-Gomes and Crawford (<a href="#ref-CGC2006">2006</a>)</span>: <a href="https://www.aeaweb.org/articles?id=10.1257/aer.96.5.1737" class="uri">https://www.aeaweb.org/articles?id=10.1257/aer.96.5.1737</a></p></li>
 <li><p><span class="citation">Dal Bó and Fréchette (<a href="#ref-DBF2011">2011</a>)</span>: <a href="https://www.aeaweb.org/articles?id=10.1257/aer.101.1.411" class="uri">https://www.aeaweb.org/articles?id=10.1257/aer.101.1.411</a></p></li>
@@ -465,6 +475,9 @@ div.csl-indent {
 </div>
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-ACKLP2022" class="csl-entry">
+Alempaki, Despoina, Andrew M Colman, Felix Kölle, Graham Loomes, and Briony D Pulford. 2022. <span>“Investigating the Failure to Best Respond in Experimental Games.”</span> <em>Experimental Economics</em>, 1–24.
+</div>
 <div id="ref-BFS2019" class="csl-entry">
 Bruhin, Adrian, Ernst Fehr, and Daniel Schunk. 2019. <span>“The Many Faces of Human Sociality: Uncovering the Distribution and Stability of Social Preferences.”</span> <em>Journal of the European Economic Association</em> 17 (4): 1025–69.
 </div>
@@ -489,7 +502,7 @@ Harrison, Glenn W, and Todd Swarthout. 2023. <span>“Cumulative Prospect Theory
           </div>
         </div>
       </div>
-<a href="application-meta-analysis-using-some-of-the-metaret-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ranked-choices-and-the-thurstonian-model.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
