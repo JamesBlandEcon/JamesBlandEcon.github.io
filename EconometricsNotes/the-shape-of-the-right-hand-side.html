@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 The shape of the right-hand side | Econometrics notes</title>
+  <meta name="description" content="8 The shape of the right-hand side | Econometrics notes" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 The shape of the right-hand side | Econometrics notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 The shape of the right-hand side | Econometrics notes" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2025-08-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="linear-regression.html"/>
+<link rel="next" href="linear-regression---common-misconceptions.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>1</b> Introduction to the course</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#housekeeping"><i class="fa fa-check"></i><b>1.1</b> Housekeeping</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#two-important-skills-in-econometrics"><i class="fa fa-check"></i><b>1.2</b> Two important skills in econometrics</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#example-incumbency-advantage---lee-moretti-and-butler-2004"><i class="fa fa-check"></i><b>1.3</b> Example: incumbency advantage - Lee, Moretti, and Butler (2004)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>R</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#scripts"><i class="fa fa-check"></i><b>2.2</b> Scripts</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-working-directory"><i class="fa fa-check"></i><b>2.3</b> The working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#exercises"><i class="fa fa-check"></i><b>2.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#understanding-some-code"><i class="fa fa-check"></i><b>2.4.1</b> Understanding some code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html"><i class="fa fa-check"></i><b>3</b> Review of some mathmatical concepts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#summation"><i class="fa fa-check"></i><b>3.1</b> Summation</a></li>
+<li class="chapter" data-level="3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-random-variables"><i class="fa fa-check"></i><b>3.2</b> Describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#discrete-random-variables"><i class="fa fa-check"></i><b>3.2.1</b> Discrete random variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#continuous-random-variables"><i class="fa fa-check"></i><b>3.2.2</b> Continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#completely-describing-random-variables"><i class="fa fa-check"></i><b>3.3</b> Completely describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#cumulative-density-function"><i class="fa fa-check"></i><b>3.3.1</b> Cumulative density function</a></li>
+<li class="chapter" data-level="3.3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-mass-function"><i class="fa fa-check"></i><b>3.3.2</b> Probability mass function</a></li>
+<li class="chapter" data-level="3.3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-density-function"><i class="fa fa-check"></i><b>3.3.3</b> Probability density function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#ways-to-summarize-a-distribution"><i class="fa fa-check"></i><b>3.4</b> Ways to summarize a distribution</a></li>
+<li class="chapter" data-level="3.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-the-relationship-between-two-or-more-random-variables"><i class="fa fa-check"></i><b>3.5</b> Describing the relationship between two or more random variables</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#joint-distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Joint distribution functions</a></li>
+<li class="chapter" data-level="3.5.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#conditional-probability"><i class="fa fa-check"></i><b>3.5.2</b> Conditional probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exercises-1"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#four-sided-die-roll"><i class="fa fa-check"></i><b>3.6.1</b> Four-sided die roll</a></li>
+<li class="chapter" data-level="3.6.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exponential-distribution"><i class="fa fa-check"></i><b>3.6.2</b> Exponential distribution</a></li>
+<li class="chapter" data-level="3.6.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#modeling-a-random-probability"><i class="fa fa-check"></i><b>3.6.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="3.6.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#an-unfair-coin"><i class="fa fa-check"></i><b>3.6.4</b> An unfair coin</a></li>
+<li class="chapter" data-level="3.6.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#adding-two-random-variables"><i class="fa fa-check"></i><b>3.6.5</b> Adding two random variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estimators.html"><a href="estimators.html"><i class="fa fa-check"></i><b>4</b> Estimators</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="estimators.html"><a href="estimators.html#estimators-and-the-sampling-distribution"><i class="fa fa-check"></i><b>4.1</b> Estimators and the sampling distribution</a></li>
+<li class="chapter" data-level="4.2" data-path="estimators.html"><a href="estimators.html#small-sample-properties-of-estimators"><i class="fa fa-check"></i><b>4.2</b> Small sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="estimators.html"><a href="estimators.html#bias"><i class="fa fa-check"></i><b>4.2.1</b> Bias</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estimators.html"><a href="estimators.html#variance"><i class="fa fa-check"></i><b>4.2.2</b> Variance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="estimators.html"><a href="estimators.html#mean-squared-error"><i class="fa fa-check"></i><b>4.2.3</b> Mean squared error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="estimators.html"><a href="estimators.html#exercises-2"><i class="fa fa-check"></i><b>4.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="estimators.html"><a href="estimators.html#modeling-a-random-probability-1"><i class="fa fa-check"></i><b>4.3.1</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="4.3.2" data-path="estimators.html"><a href="estimators.html#exponential-distribution-1"><i class="fa fa-check"></i><b>4.3.2</b> Exponential distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>5</b> Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="inference.html"><a href="inference.html#hypothesis-tests"><i class="fa fa-check"></i><b>5.1</b> Hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="inference.html"><a href="inference.html#one-sided-hypothesis-tests"><i class="fa fa-check"></i><b>5.1.1</b> One-sided hypothesis tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="inference.html"><a href="inference.html#p-values"><i class="fa fa-check"></i><b>5.2</b> <span class="math inline">\(p\)</span>-values</a></li>
+<li class="chapter" data-level="5.3" data-path="inference.html"><a href="inference.html#confidence-intervals"><i class="fa fa-check"></i><b>5.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="5.4" data-path="inference.html"><a href="inference.html#test-power"><i class="fa fa-check"></i><b>5.4</b> Test power</a></li>
+<li class="chapter" data-level="5.5" data-path="inference.html"><a href="inference.html#the-take-away"><i class="fa fa-check"></i><b>5.5</b> The take-away</a></li>
+<li class="chapter" data-level="5.6" data-path="inference.html"><a href="inference.html#exercises-3"><i class="fa fa-check"></i><b>5.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="inference.html"><a href="inference.html#converting-a-continuous-variable-into-a-coin-flip"><i class="fa fa-check"></i><b>5.6.1</b> Converting a continuous variable into a coin flip</a></li>
+<li class="chapter" data-level="5.6.2" data-path="inference.html"><a href="inference.html#the-maximum-of-a-sample"><i class="fa fa-check"></i><b>5.6.2</b> The maximum of a sample</a></li>
+<li class="chapter" data-level="5.6.3" data-path="inference.html"><a href="inference.html#assessing-the-performance-of-a-cookbook-hypothesis-test"><i class="fa fa-check"></i><b>5.6.3</b> Assessing the performance of a “cookbook” hypothesis test</a></li>
+<li class="chapter" data-level="5.6.4" data-path="inference.html"><a href="inference.html#hypothesis-tests-using-graphs"><i class="fa fa-check"></i><b>5.6.4</b> Hypothesis tests using graphs</a></li>
+<li class="chapter" data-level="5.6.5" data-path="inference.html"><a href="inference.html#simulation-exercise"><i class="fa fa-check"></i><b>5.6.5</b> Simulation exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html"><i class="fa fa-check"></i><b>6</b> Inference using asymptotic assumptions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-estimators"><i class="fa fa-check"></i><b>6.1</b> Large-sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#consistency"><i class="fa fa-check"></i><b>6.1.1</b> Consistency</a></li>
+<li class="chapter" data-level="6.1.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#asymptotic-distribution"><i class="fa fa-check"></i><b>6.1.2</b> Asymptotic distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-sample-means"><i class="fa fa-check"></i><b>6.2</b> Large-sample properties of sample means</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-weak-law-of-large-numbers-wlln"><i class="fa fa-check"></i><b>6.2.1</b> The Weak Law of Large Numbers (WLLN)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-central-limit-theorem"><i class="fa fa-check"></i><b>6.2.2</b> A Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#using-large-sample-properties-to-make-inference-easier"><i class="fa fa-check"></i><b>6.3</b> Using large-sample properties to make inference easier</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#hypothesis-tests-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.1</b> Hypothesis tests with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#even-more-of-a-shortcut"><i class="fa fa-check"></i><b>6.3.2</b> Even more of a shortcut</a></li>
+<li class="chapter" data-level="6.3.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#confidence-intervals-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.3</b> Confidence intervals with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#p-values-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.4</b> <span class="math inline">\(p\)</span>-values with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#tieing-this-in-with-the-previous-chapter"><i class="fa fa-check"></i><b>6.3.5</b> Tieing this in with the previous chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#transforming-variables"><i class="fa fa-check"></i><b>6.4</b> Transforming variables</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-continuous-mapping-theorem"><i class="fa fa-check"></i><b>6.4.1</b> The continuous mapping theorem</a></li>
+<li class="chapter" data-level="6.4.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-delta-method"><i class="fa fa-check"></i><b>6.4.2</b> The delta method</a></li>
+<li class="chapter" data-level="6.4.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#jensens-inequality"><i class="fa fa-check"></i><b>6.4.3</b> Jensen’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exercises-4"><i class="fa fa-check"></i><b>6.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exponential-distribution-2"><i class="fa fa-check"></i><b>6.5.1</b> Exponential distribution</a></li>
+<li class="chapter" data-level="6.5.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-simulation"><i class="fa fa-check"></i><b>6.5.2</b> A simulation</a></li>
+<li class="chapter" data-level="6.5.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#modeling-a-random-probability-2"><i class="fa fa-check"></i><b>6.5.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="6.5.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-sort-of-simulation-exercise"><i class="fa fa-check"></i><b>6.5.4</b> A (sort-of) simulation exercise</a></li>
+<li class="chapter" data-level="6.5.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#one-test-three-ways"><i class="fa fa-check"></i><b>6.5.5</b> One test, three ways</a></li>
+<li class="chapter" data-level="6.5.6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#deriving-properties-of-estimators"><i class="fa fa-check"></i><b>6.5.6</b> Deriving properties of estimators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="linear-regression.html"><a href="linear-regression.html#derivation-of-the-bivariate-ols-slope-estimator"><i class="fa fa-check"></i><b>7.1</b> Derivation of the bivariate OLS slope estimator</a></li>
+<li class="chapter" data-level="7.2" data-path="linear-regression.html"><a href="linear-regression.html#unbiasedness"><i class="fa fa-check"></i><b>7.2</b> Unbiasedness</a></li>
+<li class="chapter" data-level="7.3" data-path="linear-regression.html"><a href="linear-regression.html#variance-1"><i class="fa fa-check"></i><b>7.3</b> Variance</a></li>
+<li class="chapter" data-level="7.4" data-path="linear-regression.html"><a href="linear-regression.html#inference-in-bivariate-ols"><i class="fa fa-check"></i><b>7.4</b> Inference in bivariate OLS</a></li>
+<li class="chapter" data-level="7.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-5"><i class="fa fa-check"></i><b>7.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="linear-regression.html"><a href="linear-regression.html#municipal-expenditure"><i class="fa fa-check"></i><b>7.5.1</b> Municipal expenditure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html"><i class="fa fa-check"></i><b>8</b> The shape of the right-hand side</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#linear-regression-as-a-model-for-conditional-expectation"><i class="fa fa-check"></i><b>8.1</b> Linear regression as a model for conditional expectation</a></li>
+<li class="chapter" data-level="8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#an-example-dataset"><i class="fa fa-check"></i><b>8.2</b> An example dataset</a></li>
+<li class="chapter" data-level="8.3" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#marginal-effects"><i class="fa fa-check"></i><b>8.3</b> Marginal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#categorical-variables"><i class="fa fa-check"></i><b>8.4</b> Categorical variables</a></li>
+<li class="chapter" data-level="8.5" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#interactions"><i class="fa fa-check"></i><b>8.5</b> Interactions</a></li>
+<li class="chapter" data-level="8.6" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#logarithms"><i class="fa fa-check"></i><b>8.6</b> Logarithms</a></li>
+<li class="chapter" data-level="8.7" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#polynomials"><i class="fa fa-check"></i><b>8.7</b> Polynomials</a></li>
+<li class="chapter" data-level="8.8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#exercises-6"><i class="fa fa-check"></i><b>8.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#baking-a-cake"><i class="fa fa-check"></i><b>8.8.1</b> Baking a cake</a></li>
+<li class="chapter" data-level="8.8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#psid-earnings-panel-data"><i class="fa fa-check"></i><b>8.8.2</b> PSID Earnings Panel Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html"><i class="fa fa-check"></i><b>9</b> Linear regression - common misconceptions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#heteroskedasticity"><i class="fa fa-check"></i><b>9.1</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#multicolinearity"><i class="fa fa-check"></i><b>9.2</b> Multicolinearity</a></li>
+<li class="chapter" data-level="9.3" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#omitted-variables-are-always-a-problem"><i class="fa fa-check"></i><b>9.3</b> Omitted variables are <em>always</em> a problem</a></li>
+<li class="chapter" data-level="9.4" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#normal-errors"><i class="fa fa-check"></i><b>9.4</b> Normal errors</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Standard errors in linear regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#homoskedasticity-the-standard-standard-errors"><i class="fa fa-check"></i><b>10.1</b> Homoskedasticity: the “standard” standard errors</a></li>
+<li class="chapter" data-level="10.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#heteroskedasticity-1"><i class="fa fa-check"></i><b>10.2</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="10.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#clustered-standard-errors"><i class="fa fa-check"></i><b>10.3</b> Clustered standard errors</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#an-example"><i class="fa fa-check"></i><b>10.3.1</b> An example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#standard-errors-for-multivariate-linear-regression"><i class="fa fa-check"></i><b>10.4</b> Standard errors for multivariate linear regression</a></li>
+<li class="chapter" data-level="10.5" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#calculating-standard-errors-in-r"><i class="fa fa-check"></i><b>10.5</b> Calculating standard errors in <em>R</em></a></li>
+<li class="chapter" data-level="10.6" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#exercises-7"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#galtons-families"><i class="fa fa-check"></i><b>10.6.1</b> Galton’s families</a></li>
+<li class="chapter" data-level="10.6.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#simulation"><i class="fa fa-check"></i><b>10.6.2</b> Simulation</a></li>
+<li class="chapter" data-level="10.6.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#more-simulation"><i class="fa fa-check"></i><b>10.6.3</b> More simulation</a></li>
+<li class="chapter" data-level="10.6.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#instructor-ratings"><i class="fa fa-check"></i><b>10.6.4</b> Instructor ratings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html"><i class="fa fa-check"></i><b>11</b> Hypothesis tests about more than one parameter</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-restricted-model"><i class="fa fa-check"></i><b>11.1</b> The restricted model</a></li>
+<li class="chapter" data-level="11.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-test-using-r2-that-you-probably-shouldnt-use"><i class="fa fa-check"></i><b>11.2</b> A test using <span class="math inline">\(R^2\)</span> that you probably shouldn’t use</a></li>
+<li class="chapter" data-level="11.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-more-robust-test"><i class="fa fa-check"></i><b>11.3</b> A more robust test</a></li>
+<li class="chapter" data-level="11.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#another-example"><i class="fa fa-check"></i><b>11.4</b> Another example</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-whether-the-child-is-male-of-female"><i class="fa fa-check"></i><b>11.4.1</b> The height of a child does not depend on whether the child is male of female</a></li>
+<li class="chapter" data-level="11.4.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-the-height-of-their-parents"><i class="fa fa-check"></i><b>11.4.2</b> The height of a child does not depend on the height of their parents</a></li>
+<li class="chapter" data-level="11.4.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-mother-height-on-child-height-is-the-same-as-the-effect-of-father-height-on-child-height"><i class="fa fa-check"></i><b>11.4.3</b> The effect of mother height on child height is the same as the effect of father height on child height</a></li>
+<li class="chapter" data-level="11.4.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-male-childrens-height-is-the-same-as-the-effect-of-parent-height-on-female-childrens-height"><i class="fa fa-check"></i><b>11.4.4</b> The effect of parent height on male children’s height is the same as the effect of parent height on female children’s height</a></li>
+<li class="chapter" data-level="11.4.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-child-height-is-linear"><i class="fa fa-check"></i><b>11.4.5</b> The effect of parent height on child height is linear</a></li>
+<li class="chapter" data-level="11.4.6" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#parents-who-are-on-average-one-inch-taller-have-children-that-are-on-average-one-inch-taller"><i class="fa fa-check"></i><b>11.4.6</b> Parents who are on average one inch taller have children that are on average one inch taller</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#exercises-8"><i class="fa fa-check"></i><b>11.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#project-star-student-teacher-achievement-ratio"><i class="fa fa-check"></i><b>11.5.1</b> Project STAR: Student-Teacher Achievement Ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><i class="fa fa-check"></i><b>12</b> Limited dependent variable models and maximum likelihood estimation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#motivation-the-linear-probability-model-works-134-of-the-time"><i class="fa fa-check"></i><b>12.1</b> Motivation: The linear probability model works 134% of the time</a></li>
+<li class="chapter" data-level="12.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-practical-solution-ensure-that-predictions-are-always-valid"><i class="fa fa-check"></i><b>12.2</b> A practical solution: Ensure that predictions are always valid</a></li>
+<li class="chapter" data-level="12.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#interpreting-the-coefficients-of-the-probit-and-logit-models"><i class="fa fa-check"></i><b>12.3</b> Interpreting the coefficients of the probit and logit models</a></li>
+<li class="chapter" data-level="12.4" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#but-how-do-we-estimate-it-maximum-likelihood"><i class="fa fa-check"></i><b>12.4</b> But how do we estimate it? Maximum likelihood</a></li>
+<li class="chapter" data-level="12.5" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#doing-inference-with-maximum-likelihood"><i class="fa fa-check"></i><b>12.5</b> Doing inference with maximum likelihood</a></li>
+<li class="chapter" data-level="12.6" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#how-some-estimators-relate-to-maximum-likelihood"><i class="fa fa-check"></i><b>12.6</b> How some estimators relate to maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sample-mean-for-a-bernoulli-coin-flip-variable"><i class="fa fa-check"></i><b>12.6.1</b> Sample mean for a Bernoulli (coin flip) variable</a></li>
+<li class="chapter" data-level="12.6.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#linear-regression-1"><i class="fa fa-check"></i><b>12.6.2</b> Linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#some-examples-of-estimating-parameters-using-maximum-likelihood"><i class="fa fa-check"></i><b>12.7</b> Some examples of estimating parameters using maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#geometric-distribution"><i class="fa fa-check"></i><b>12.7.1</b> Geometric distribution</a></li>
+<li class="chapter" data-level="12.7.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#simplified-beta-distribution"><i class="fa fa-check"></i><b>12.7.2</b> Simplified Beta distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#an-extended-example"><i class="fa fa-check"></i><b>12.8</b> An extended example</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#data"><i class="fa fa-check"></i><b>12.8.1</b> Data</a></li>
+<li class="chapter" data-level="12.8.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-research-question"><i class="fa fa-check"></i><b>12.8.2</b> A research question</a></li>
+<li class="chapter" data-level="12.8.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#the-model-based-approach"><i class="fa fa-check"></i><b>12.8.3</b> The model-based approach</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#exercises-9"><i class="fa fa-check"></i><b>12.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.9.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#checking-that-we-rolled-a-die-correctly"><i class="fa fa-check"></i><b>12.9.1</b> Checking that we rolled a die correctly</a></li>
+<li class="chapter" data-level="12.9.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#galtons-heights-dataset"><i class="fa fa-check"></i><b>12.9.2</b> Galton’s heights dataset</a></li>
+<li class="chapter" data-level="12.9.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sumo-wrestling"><i class="fa fa-check"></i><b>12.9.3</b> Sumo wrestling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html"><i class="fa fa-check"></i><b>13</b> Combining and manipulating datasets</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#merging-data-join"><i class="fa fa-check"></i><b>13.1</b> Merging data (<code>join</code>)</a></li>
+<li class="chapter" data-level="13.2" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#wide-and-long-formats-pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>13.2</b> Wide and long formats (<code>pivot_longer</code> and <code>pivot_wider</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="time-series-introduction.html"><a href="time-series-introduction.html"><i class="fa fa-check"></i><b>14</b> Time series – Introduction</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#autoregressive-and-moving-average-arma-models-the-basic-building-blocks-of-time-series-models"><i class="fa fa-check"></i><b>14.1</b> Autoregressive and moving average (ARMA) models: the basic building blocks of time series models</a></li>
+<li class="chapter" data-level="14.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-properties-of-arma-processes"><i class="fa fa-check"></i><b>14.2</b> Stationarity and properties of ARMA processes</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#examples"><i class="fa fa-check"></i><b>14.2.1</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#diagnostics-autocorrelation-and-partial-autocorrelation-functions"><i class="fa fa-check"></i><b>14.3</b> Diagnostics: Autocorrelation and partial autocorrelation functions</a></li>
+<li class="chapter" data-level="14.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-unemployment"><i class="fa fa-check"></i><b>14.4</b> Example dataset – unemployment</a></li>
+<li class="chapter" data-level="14.5" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-testing-for-unit-roots"><i class="fa fa-check"></i><b>14.5</b> Stationarity and testing for unit roots</a></li>
+<li class="chapter" data-level="14.6" data-path="time-series-introduction.html"><a href="time-series-introduction.html#non-stationarity-and-spurious-correlation"><i class="fa fa-check"></i><b>14.6</b> Non-stationarity and spurious correlation</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-share-a-trend"><i class="fa fa-check"></i><b>14.6.1</b> Two variables share a trend</a></li>
+<li class="chapter" data-level="14.6.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-are-cyclical"><i class="fa fa-check"></i><b>14.6.2</b> Two variables are cyclical</a></li>
+<li class="chapter" data-level="14.6.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-have-a-unit-root"><i class="fa fa-check"></i><b>14.6.3</b> Two variables have a unit root</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="time-series-introduction.html"><a href="time-series-introduction.html#differencing-and-stationarity"><i class="fa fa-check"></i><b>14.7</b> Differencing and stationarity</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#some-examples-of-making-non-stationary-series-stationary-through-differencing"><i class="fa fa-check"></i><b>14.7.1</b> Some examples of making non-stationary series stationary through differencing</a></li>
+<li class="chapter" data-level="14.7.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-us-consumer-price-index"><i class="fa fa-check"></i><b>14.7.2</b> Example dataset: US Consumer Price Index</a></li>
+<li class="chapter" data-level="14.7.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-data-gdp-and-money-supply"><i class="fa fa-check"></i><b>14.7.3</b> Example data: GDP and money supply</a></li>
+<li class="chapter" data-level="14.7.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-peace-corps"><i class="fa fa-check"></i><b>14.7.4</b> Example: Peace Corps</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="time-series-introduction.html"><a href="time-series-introduction.html#estimating-arima-models"><i class="fa fa-check"></i><b>14.8</b> Estimating ARIMA models</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html"><i class="fa fa-check"></i><b>15</b> Time series – Forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#prediction-and-forecasting"><i class="fa fa-check"></i><b>15.1</b> Prediction and forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-with-univariate-problems"><i class="fa fa-check"></i><b>15.1.1</b> Example: Prediction with univariate problems</a></li>
+<li class="chapter" data-level="15.1.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-in-bivariate-ols"><i class="fa fa-check"></i><b>15.1.2</b> Example: Prediction in bivariate OLS</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#cross-validation"><i class="fa fa-check"></i><b>15.2</b> Cross-validation</a></li>
+<li class="chapter" data-level="15.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-cpi-and-ppi"><i class="fa fa-check"></i><b>15.3</b> Example: CPI and PPI</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#using-just-ar-and-ma-components"><i class="fa fa-check"></i><b>15.3.1</b> Using just AR and MA components</a></li>
+<li class="chapter" data-level="15.3.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-some-seasonality"><i class="fa fa-check"></i><b>15.3.2</b> Incorporating some seasonality</a></li>
+<li class="chapter" data-level="15.3.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-ppi-inflation"><i class="fa fa-check"></i><b>15.3.3</b> Incorporating PPI inflation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="additional-exercises.html"><a href="additional-exercises.html"><i class="fa fa-check"></i><b>16</b> Additional exercises</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="additional-exercises.html"><a href="additional-exercises.html#for-loops"><i class="fa fa-check"></i><b>16.1</b> For loops</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="additional-exercises.html"><a href="additional-exercises.html#determinants-of-wage-data-cps-1988"><i class="fa fa-check"></i><b>16.1.1</b> Determinants of wage data (CPS 1988)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="past-exam-questions.html"><a href="past-exam-questions.html"><i class="fa fa-check"></i><b>17</b> Past exam questions</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2023-5810-exam-1"><i class="fa fa-check"></i><b>17.1</b> Fall 2023 5810 Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability"><i class="fa fa-check"></i><b>17.1.1</b> Probability</a></li>
+<li class="chapter" data-level="17.1.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimation-and-inference"><i class="fa fa-check"></i><b>17.1.2</b> Estimation and inference</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2022-5810-exam-1"><i class="fa fa-check"></i><b>17.2</b> Fall 2022 5810, Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability-1"><i class="fa fa-check"></i><b>17.2.1</b> Probability</a></li>
+<li class="chapter" data-level="17.2.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#inference-1"><i class="fa fa-check"></i><b>17.2.2</b> Inference</a></li>
+<li class="chapter" data-level="17.2.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimators-and-large-sample-properties"><i class="fa fa-check"></i><b>17.2.3</b> Estimators and large-sample properties</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-2-2022"><i class="fa fa-check"></i><b>17.3</b> 5810 Exam 2 (2022)</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#directed-acyclic-graphs"><i class="fa fa-check"></i><b>17.3.1</b> Directed Acyclic Graphs</a></li>
+<li class="chapter" data-level="17.3.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#linear-regression-2"><i class="fa fa-check"></i><b>17.3.2</b> Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-1-2023"><i class="fa fa-check"></i><b>17.4</b> 5820, Exam 1 (2023)</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#maximum-likelihood"><i class="fa fa-check"></i><b>17.4.1</b> Maximum likelihood</a></li>
+<li class="chapter" data-level="17.4.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fire-trucks"><i class="fa fa-check"></i><b>17.4.2</b> Fire trucks</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Econometrics notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-shape-of-the-right-hand-side" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> The shape of the right-hand side<a href="the-shape-of-the-right-hand-side.html#the-shape-of-the-right-hand-side" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Up to this point, you have learned about linear regression, and how we can interpret a coefficient on a variable as the expected change in <span class="math inline">\(Y\)</span> due to a one-unit change in this variable. If we can go further and establish that our <span class="math inline">\(X\)</span> is uncorrelated with <span class="math inline">\(\epsilon\)</span>, then we can also claim that the coefficient is the <em>causal</em> effect.</p>
+<p>But what if we are trying to estimate something that is not just the effect of one of our variables on <span class="math inline">\(Y\)</span>, but maybe a <em>difference</em> in effects? Maybe we would prefer to estimate a proportal effect rather than an absolute effect? Perhaps we expect that the effect we are estimating could be different between two or more groups in our data, and we would like to test whether this is true.</p>
+<p>This chapter is aimed at helping you work out how to include the right variables, and transformations of variables, on the right-hand side of your model so that you can do things like this. We will begin by formalizing linear regression as a model of the conditional mean of <span class="math inline">\(Y\)</span>, and then we will investigate how we can work out how to interpret models that have transformed variables included on the right-hand side.</p>
+<div id="linear-regression-as-a-model-for-conditional-expectation" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Linear regression as a model for conditional expectation<a href="the-shape-of-the-right-hand-side.html#linear-regression-as-a-model-for-conditional-expectation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Linear regression is a model for the expectation of <span class="math inline">\(Y\)</span> conditional on <span class="math inline">\(X\)</span>. To see this, we combine our regression equation:</p>
+<p><span class="math display">\[
+Y_i=\beta_0+\beta_1X_i+\epsilon_i
+\]</span>
+with our conditional independence or “no endogeneity” assumption about the error term:</p>
+<p><span class="math display">\[
+E[X_i\epsilon_i]=0
+\]</span>
+which can also be written as:</p>
+<p><span class="math display">\[
+E[\epsilon_i\mid X_i]=0
+\]</span></p>
+<p>So if we take the conditional expectation of both sides of the regression equation, we get:</p>
+<p><span class="math display">\[
+E[Y_i\mid X_i]=E\left[\beta_0+\beta_1X_i+\epsilon_i\mid X_i\right]
+\]</span></p>
+<p>But because the only random variable on the right-hand side of this equation is <span class="math inline">\(\epsilon_i\)</span>, we can simplify this to:</p>
+<p><span class="math display">\[
+\begin{aligned}
+E[Y_i\mid X_i]&amp;=\beta_0+\beta_1X_i+E[\epsilon_i\mid X_i]\\
+&amp;=\beta_0+\beta_1X_i
+\end{aligned}
+\]</span></p>
+<p>where the second line follows because of the conditional independence assumption. Hence, we can interpret our bivariate linear regression as modeling the conditional expectation of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> as a straight line. In fact, with more than one right-hand-side variable, this interpretation is exactly the same. That is, if we are estimating the equation:
+<span class="math display">\[
+Y_i=\beta_0+\beta_1X_{1,i}+\beta_2X_{2,i}+\cdots+\epsilon_i
+\]</span>
+then with the same “no endogeneity” assumption, we get:</p>
+<p><span class="math display">\[
+E[Y_i\mid X_1,X_2,\ldots,X_k]=\beta_0+\beta_1X_{1,i}+\beta_2X_{2,i}+\cdots+\beta_kX_{k,i}\quad(\star)
+\]</span></p>
+<p>Importantly, note here that we are conditioning the expectation over <em>all</em> of the <span class="math inline">\(X\)</span>s.</p>
+</div>
+<div id="an-example-dataset" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> An example dataset<a href="the-shape-of-the-right-hand-side.html#an-example-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here I use the <a href="https://vincentarelbundock.github.io/Rdatasets/doc/AER/CPS1988.html">CPS1988</a> dataset, which you can download like this:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="the-shape-of-the-right-hand-side.html#cb51-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb51-2"><a href="the-shape-of-the-right-hand-side.html#cb51-2" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb51-3"><a href="the-shape-of-the-right-hand-side.html#cb51-3" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;https://vincentarelbundock.github.io/Rdatasets/csv/AER/CPS1988.csv&quot;</span>)</span>
+<span id="cb51-4"><a href="the-shape-of-the-right-hand-side.html#cb51-4" tabindex="-1"></a></span>
+<span id="cb51-5"><a href="the-shape-of-the-right-hand-side.html#cb51-5" tabindex="-1"></a>d <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="9%" />
+<col width="14%" />
+<col width="15%" />
+<col width="14%" />
+<col width="7%" />
+<col width="14%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">rownames</th>
+<th align="right">wage</th>
+<th align="right">education</th>
+<th align="right">experience</th>
+<th align="left">ethnicity</th>
+<th align="left">smsa</th>
+<th align="left">region</th>
+<th align="left">parttime</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">354.94</td>
+<td align="right">7</td>
+<td align="right">45</td>
+<td align="left">cauc</td>
+<td align="left">yes</td>
+<td align="left">northeast</td>
+<td align="left">no</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">123.46</td>
+<td align="right">12</td>
+<td align="right">1</td>
+<td align="left">cauc</td>
+<td align="left">yes</td>
+<td align="left">northeast</td>
+<td align="left">yes</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">370.37</td>
+<td align="right">9</td>
+<td align="right">9</td>
+<td align="left">cauc</td>
+<td align="left">yes</td>
+<td align="left">northeast</td>
+<td align="left">no</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">754.94</td>
+<td align="right">11</td>
+<td align="right">46</td>
+<td align="left">cauc</td>
+<td align="left">yes</td>
+<td align="left">northeast</td>
+<td align="left">no</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">593.54</td>
+<td align="right">12</td>
+<td align="right">36</td>
+<td align="left">cauc</td>
+<td align="left">yes</td>
+<td align="left">northeast</td>
+<td align="left">no</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">377.23</td>
+<td align="right">16</td>
+<td align="right">22</td>
+<td align="left">cauc</td>
+<td align="left">yes</td>
+<td align="left">northeast</td>
+<td align="left">no</td>
+</tr>
+</tbody>
+</table>
+<p>The variables in this dataset are:</p>
+<ul>
+<li><code>wage</code> (in dollars per week).</li>
+<li><code>education</code> (number of years)</li>
+<li><code>experience</code> (number of years of potential work experience)</li>
+<li><code>ethnicity</code> (factor with levels “cauc” and “afam”)</li>
+<li><code>smsa</code> (Factor. Does the individual reside in a Standard Metropolitan Statistical Area (SMSA)?)</li>
+<li><code>region</code> (Factor with levels “northeast”, “midwest”, “south”, “west”.)</li>
+<li><code>parttime</code> (Factor. Does the individual work part-time?)</li>
+</ul>
+<p>In particular, let’s suppose that we are interested in the determinates of wages, so we will estimate equations with <code>wage</code> on the left-hand side. For the purposes of this chapter, we will always assume that the “no endogeneity” assumption of <span class="math inline">\(E[X\epsilon]=0\)</span> always holds, but you should think about why this might not be a good assumption.</p>
+<p>It is going to be <em>very</em> important that we understand what the above variables mean, and how they are measured. This is because the units of our coefficients will inherit the units of our variables.</p>
+</div>
+<div id="marginal-effects" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Marginal effects<a href="the-shape-of-the-right-hand-side.html#marginal-effects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>An immediate observation of the above equation (<span class="math inline">\(\star\)</span>) is that the coeffieints represent the derivative of the conditional expectation with respect to a particular <span class="math inline">\(X\)</span>. That is, suppose I take the derivative of both sides of <span class="math inline">\((\star)\)</span> with respect to <span class="math inline">\(X_2\)</span>, I will get:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial E[Y_i\mid X_1,X_2,\ldots,X_k]}{\partial X_2}&amp;=\beta_2
+\end{aligned}
+\]</span></p>
+<p>Note here that we needed the “no endogeneity” assumption to get here. In particular, had we not assumed that the <span class="math inline">\(X\)</span>s are uncorrelated with <span class="math inline">\(\epsilon\)</span>, we would have ended up with:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial E[Y_i\mid X_1,X_2,\ldots,X_k]}{\partial X_2}&amp;=\beta_2+\frac{\partial E[\epsilon_i\mid X_1,X_2,\ldots, X_K]}{\partial X_2}
+\end{aligned}
+\]</span></p>
+<p>That is, the slope of the line we are estimating with respect to <span class="math inline">\(X_2\)</span> (the left-had side) is equal to the effect of <span class="math inline">\(X_2\)</span> on <span class="math inline">\(Y_i\)</span> (i.e. <span class="math inline">\(\beta_2\)</span>), <em>plus</em> the average “effect” of <span class="math inline">\(X_2\)</span> on <span class="math inline">\(\epsilon_i\)</span>. The only way we can interpret <span class="math inline">\(\beta_2\)</span> as the causal effect of <span class="math inline">\(X_2\)</span> on <span class="math inline">\(Y\)</span> is if this second term is zero, otherwise we are measuring the causal effect plus the effect of things in the error term that are correlated with <span class="math inline">\(X_2\)</span> changing.</p>
+<p>In our example, if we estimate a regression with just continuous variable on the right-hand side, then all coefficients will have this interpretation:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="the-shape-of-the-right-hand-side.html#cb52-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="at">data=</span>d,<span class="at">formula=</span>wage<span class="sc">~</span>education<span class="sc">+</span>experience)</span>
+<span id="cb52-2"><a href="the-shape-of-the-right-hand-side.html#cb52-2" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+wage
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+education
+</td>
+<td>
+60.896<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.883)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+experience
+</td>
+<td>
+10.606<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.196)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-385.083<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(13.243)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+28,155
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.177
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.177
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+411.510 (df = 28152)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+3,023.970<sup>***</sup> (df = 2; 28152)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>From this, we can interpret the coefficients as follows:</p>
+<ul>
+<li><code>education</code>: on average, people with an additional year of education earn $60.90 more per week</li>
+<li><code>experience</code>: on average, people with an additional year of experience earn $10.61 more per week</li>
+<li><code>constant</code>: People with zero education and zero experience earn -$385.08 per week</li>
+</ul>
+<p>Note that the interpretation of the constant is rather silly here. This is a common occurrance, especially when we do not have many observations where all of the right-hand side variables are close to zero</p>
+<p>For the remainder of this chapter, we will maintain the “no endogeneity” assumption, but add more complexity to the right-hand side in order to allow our conditional expectation, and its derivatives, to take on particular forms.</p>
+</div>
+<div id="categorical-variables" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Categorical variables<a href="the-shape-of-the-right-hand-side.html#categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Categorical variables pose a unique, but not difficult, problem for interpreting effects, because it does not make sense to take the derivative with respect to a categorical variable. To illustrate, suppose we are estimating a model which includes a variable <span class="math inline">\(D\)</span>, which can only take on values of zero or one. The model looks something like this:</p>
+<p><span class="math display">\[
+\begin{aligned}
+Y_i&amp;=\beta_0+\beta_1D_i+\beta_2X_i+\epsilon_i
+\end{aligned}
+\]</span></p>
+<p>which, along with the “no endogeneity” assumption gets us the conditional expectation:</p>
+<p><span class="math display">\[
+E[Y_i\mid D_i,X_i]=\beta_0+\beta_1D_i+\beta_2X_i
+\]</span></p>
+<p>However, since <span class="math inline">\(D\)</span> is a discrete variable, it does not make sense to take the derivative with respect to <span class="math inline">\(D\)</span> to work out how <span class="math inline">\(D\)</span> affects <span class="math inline">\(Y\)</span>. Instead, we take the <em>difference</em>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+E[Y_i\mid D_i=1,X_i]&amp;-E[Y_i\mid D_i=0,X_i]\\
+&amp;=\beta_0+\beta_1\times 1+\beta_2X_i-(\beta_0+\beta_1\times 0+\beta_2X_i)\\
+&amp;=\beta_1
+\end{aligned}
+\]</span></p>
+<p>Consider for example the first column in the following regression table:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="the-shape-of-the-right-hand-side.html#cb53-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="at">data=</span>d,<span class="at">formula=</span>wage<span class="sc">~</span>education<span class="sc">+</span>experience<span class="sc">+</span><span class="fu">I</span>(smsa<span class="sc">==</span><span class="st">&quot;yes&quot;</span>))</span>
+<span id="cb53-2"><a href="the-shape-of-the-right-hand-side.html#cb53-2" tabindex="-1"></a>reg2<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="at">data=</span>d,<span class="at">formula=</span>wage<span class="sc">~</span>education<span class="sc">+</span><span class="fu">as.factor</span>(region))</span>
+<span id="cb53-3"><a href="the-shape-of-the-right-hand-side.html#cb53-3" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,reg2,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+wage
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+education
+</td>
+<td>
+59.719<sup>***</sup>
+</td>
+<td>
+46.682<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.881)
+</td>
+<td>
+(0.889)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+experience
+</td>
+<td>
+10.657<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.195)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+I(smsa == “yes”)
+</td>
+<td>
+94.944<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(5.609)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(region)northeast
+</td>
+<td>
+</td>
+<td>
+49.078<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(7.487)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(region)south
+</td>
+<td>
+</td>
+<td>
+-25.080<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(6.969)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(region)west
+</td>
+<td>
+</td>
+<td>
+19.298<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(7.599)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-441.214<sup>***</sup>
+</td>
+<td>
+-13.906
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(13.587)
+</td>
+<td>
+(12.882)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+28,155
+</td>
+<td>
+28,155
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.185
+</td>
+<td>
+0.095
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.185
+</td>
+<td>
+0.095
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+409.439 (df = 28151)
+</td>
+<td>
+431.564 (df = 28150)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+2,131.927<sup>***</sup> (df = 3; 28151)
+</td>
+<td>
+736.339<sup>***</sup> (df = 4; 28150)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>The interpretation of the coefficient on <code>I(smsa=="yes")</code> is that people who live in a SMSA earn $95 more per week than people who do not.</p>
+<p>But not all categorical variables take on just ones or zeros. Sometimes there are more than two categories. In this instance, we need to be very careful about interpreting their coefficients. Note that in the second column of the above table, there are three variables associated with <code>region</code>, but there are four regions in the data:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="the-shape-of-the-right-hand-side.html#cb54-1" tabindex="-1"></a>d<span class="sc">$</span>region <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;northeast&quot; &quot;midwest&quot;   &quot;south&quot;     &quot;west&quot;</code></pre>
+<p>The regression has dropped “midwest” from the set of explanatory variables. This is because if we included all four, they would be perfectly collinear, and we would not be able to estimate the model. Instead, we need to interpret these variables as differences relative to the omitted category. For example, poeple in the Northeast earn about $39 more per week than people in the Midwest.
+Graphically, we are allowing our model to have different intercepts based on the variable <code>region</code>:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="the-shape-of-the-right-hand-side.html#cb56-1" tabindex="-1"></a>d<span class="sc">$</span>fit<span class="ot">&lt;-</span>reg2<span class="sc">$</span>fitted.values</span>
+<span id="cb56-2"><a href="the-shape-of-the-right-hand-side.html#cb56-2" tabindex="-1"></a>(<span class="fu">ggplot</span>()</span>
+<span id="cb56-3"><a href="the-shape-of-the-right-hand-side.html#cb56-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>education,<span class="at">y=</span>fit,<span class="at">color=</span>region,<span class="at">group=</span>region))</span>
+<span id="cb56-4"><a href="the-shape-of-the-right-hand-side.html#cb56-4" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb56-5"><a href="the-shape-of-the-right-hand-side.html#cb56-5" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;years of education&quot;</span>)</span>
+<span id="cb56-6"><a href="the-shape-of-the-right-hand-side.html#cb56-6" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;wage (fitted, $/week)&quot;</span>)</span>
+<span id="cb56-7"><a href="the-shape-of-the-right-hand-side.html#cb56-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
+</div>
+<div id="interactions" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Interactions<a href="the-shape-of-the-right-hand-side.html#interactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So having the intercept vary in our models might be useful if, we believe that there are level effects in our categories. In the previous example, we might suspect that wages in some regions of the US may be higher than others. However me might also want the <em>slopes</em> of our model to vary by a categorical variable. We can achieve this with an interaction:</p>
+<p><span class="math display">\[
+\begin{aligned}
+Y_i&amp;=\beta_0+\beta_1X_i+\beta_2D_i+\beta_3X_iD_i+\epsilon_i\\
+E[Y_i\mid X_i,D_i]&amp;=\beta_0+\beta_1X_i+\beta_2D_i+\beta_3X_iD_i
+\end{aligned}
+\]</span></p>
+<p>Now, if we take the derivative with respect to <span class="math inline">\(X_i\)</span>, we get:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial E[Y_i\mid X_i,D_i]}{\partial X_i}&amp;=\beta_1+\beta_3D_i
+\end{aligned}
+\]</span></p>
+<p>That is, when <span class="math inline">\(X\)</span> increases by one unit, <span class="math inline">\(E[Y_i\mid X_i,D_i]\)</span> increases by <span class="math inline">\(\beta_1\)</span> if <span class="math inline">\(D_i=0\)</span>, and <span class="math inline">\(\beta_1+\beta_3\)</span> if <span class="math inline">\(D_i=1\)</span>. Therefore, we can interpret <span class="math inline">\(\beta_1\)</span> as the “effect” of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> when <span class="math inline">\(D=0\)</span>, and <span class="math inline">\(\beta_3\)</span> is the change in this effect when <span class="math inline">\(D=1\)</span>.</p>
+<p>To illustrate, let’s estimate a model that allows the slopes for education and experience to depend on whether or not the person lives in a SMSA, and also allows for the intercepts to vary by SMSA. For this, we need education, experience, and SMSA on their own, as well as education and experience interacted with SMSA:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="the-shape-of-the-right-hand-side.html#cb57-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="at">data=</span>d,<span class="at">formula=</span>wage<span class="sc">~</span>education<span class="sc">+</span>experience<span class="sc">+</span><span class="fu">I</span>(smsa<span class="sc">==</span><span class="st">&quot;yes&quot;</span>)<span class="sc">+</span>education<span class="sc">*</span><span class="fu">I</span>(smsa<span class="sc">==</span><span class="st">&quot;yes&quot;</span>)<span class="sc">+</span>experience<span class="sc">*</span><span class="fu">I</span>(smsa<span class="sc">==</span><span class="st">&quot;yes&quot;</span>))</span>
+<span id="cb57-2"><a href="the-shape-of-the-right-hand-side.html#cb57-2" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+wage
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+education
+</td>
+<td>
+44.991<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.861)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+experience
+</td>
+<td>
+7.825<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.382)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+I(smsa == “yes”)
+</td>
+<td>
+-218.535<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(30.990)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+education:I(smsa == “yes”)
+</td>
+<td>
+18.989<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(2.112)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+experience:I(smsa == “yes”)
+</td>
+<td>
+3.781<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.444)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-201.027<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(27.063)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+28,155
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.189
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.188
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+408.594 (df = 28149)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+1,308.160<sup>***</sup> (df = 5; 28149)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>Here we interpret the coeffieicnts as follows:</p>
+<ul>
+<li>People with an additional year of education earn on average <span class="math inline">\(\$45\)</span> more per week if they are not in an SMSA, and <span class="math inline">\(\$45+\$19=\$64\)</span> if they live in an SMSA.</li>
+<li>People with an additional year of experience earn on average <span class="math inline">\(\$7.83\)</span> more per week if they do not live in an SMSA, and <span class="math inline">\(\$7.83+\$3.78=\$11.61\)</span> if they live in an SMSA.</li>
+</ul>
+</div>
+<div id="logarithms" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Logarithms<a href="the-shape-of-the-right-hand-side.html#logarithms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sometimes, including logged variables, rather than in their levels, makes more sense. For our example, it certainly does. Here is what our data look like if we plot them in levels:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="the-shape-of-the-right-hand-side.html#cb58-1" tabindex="-1"></a>(</span>
+<span id="cb58-2"><a href="the-shape-of-the-right-hand-side.html#cb58-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">y=</span>wage,<span class="at">x=</span>education))<span class="sc">+</span><span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb58-3"><a href="the-shape-of-the-right-hand-side.html#cb58-3" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
+<p>And here is what they look like if we plot them with wage on a log scale:</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="the-shape-of-the-right-hand-side.html#cb59-1" tabindex="-1"></a>(</span>
+<span id="cb59-2"><a href="the-shape-of-the-right-hand-side.html#cb59-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">y=</span>wage,<span class="at">x=</span>education))<span class="sc">+</span><span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb59-3"><a href="the-shape-of-the-right-hand-side.html#cb59-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>)</span>
+<span id="cb59-4"><a href="the-shape-of-the-right-hand-side.html#cb59-4" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
+<p>That is, sometimes it makes more sense to draw a straight line through the logged data, like this:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="the-shape-of-the-right-hand-side.html#cb60-1" tabindex="-1"></a>(</span>
+<span id="cb60-2"><a href="the-shape-of-the-right-hand-side.html#cb60-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">log</span>(wage),<span class="at">x=</span>education))<span class="sc">+</span><span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb60-3"><a href="the-shape-of-the-right-hand-side.html#cb60-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">formula=</span><span class="st">&quot;y~x&quot;</span>)</span>
+<span id="cb60-4"><a href="the-shape-of-the-right-hand-side.html#cb60-4" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
+<p>This may be for a whole lot of reasons, but probably the reason used most in economics is that logged variabes have a useful “percentage change” interpretation. To see this, note that the line in the above plot could be estimated using the following regression model:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\log Y_i&amp;=\beta_0+\beta_1X_i+\epsilon_i
+\end{aligned}
+\]</span></p>
+<p>Taking the derivative with respect to <span class="math inline">\(X_i\)</span>:
+<span class="math display">\[
+\begin{aligned}
+\frac{\partial \log(Y_i)}{\partial X_i}&amp;=\beta_1
+\end{aligned}
+\]</span></p>
+<p>But with a bit of re-arranging of the left-hand-side of this equation, we can express it as:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial \log(Y_i)}{\partial X_i}
+&amp;=\frac{\frac{\partial Y_i}{\partial X_i}}{Y_i}
+\end{aligned}
+\]</span></p>
+<p>So <span class="math inline">\(\beta_1\)</span> is a fractional change in <span class="math inline">\(Y\)</span>. Specifically, if <span class="math inline">\(X\)</span> increases by a small amount <span class="math inline">\(\delta\)</span>, we can expect <span class="math inline">\(Y\)</span> to increase by <span class="math inline">\(\beta_1 Y\delta\)</span>. Alternatively, <span class="math inline">\(Y\)</span> increases by <span class="math inline">\(\beta_1\delta\times 100\%\)</span>.</p>
+<p>With our example dataset, we could estimate a model with percentage change interpretations like this:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="the-shape-of-the-right-hand-side.html#cb61-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="at">data=</span>d,<span class="at">formula=</span><span class="fu">log</span>(wage)<span class="sc">~</span>education<span class="sc">+</span>experience<span class="sc">+</span><span class="fu">I</span>(smsa<span class="sc">==</span><span class="st">&quot;yes&quot;</span>)<span class="sc">+</span><span class="fu">as.factor</span>(region))</span>
+<span id="cb61-2"><a href="the-shape-of-the-right-hand-side.html#cb61-2" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="the-shape-of-the-right-hand-side.html#cb61-3" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+log(wage)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+education
+</td>
+<td>
+0.099<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+experience
+</td>
+<td>
+0.020<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.0003)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+I(smsa == “yes”)
+</td>
+<td>
+0.144<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.009)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(region)northeast
+</td>
+<td>
+0.055<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.011)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(region)south
+</td>
+<td>
+-0.064<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.010)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(region)west
+</td>
+<td>
+0.015
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.011)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+4.422<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.022)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+28,155
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.225
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.225
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+0.630 (df = 28148)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+1,363.993<sup>***</sup> (df = 6; 28148)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>Interpreting the first three coefficients:</p>
+<ul>
+<li>An additional year of education raises wages by approximately 10%</li>
+<li>An additional year of experience raises wages by approximately 2%</li>
+<li>People who live in an SMSA earn about 14% more than people who do not live in an SMSA</li>
+</ul>
+<p>But we don’t have to stop there. Sometimes it is useful to have logs on both sides of the equation, so it would look somethinmg like this:</p>
+<p><span class="math display">\[
+\log Y_i=\beta_0+\beta_1\log X_i+\epsilon_i
+\]</span></p>
+<p>Why would we ever want to do this? Well, for economists, this means that <span class="math inline">\(\beta_1\)</span> can be interpreted as an elasticity, which we can see by differentiating with respect to <span class="math inline">\(X_i\)</span>:</p>
+<p><span class="math display">\[
+\frac{\partial \log Y_i}{\partial X_i}=\frac{\frac{\partial Y_i}{\partial X_i}}{Y_i}=\beta_1\frac{1}{X_i}
+\]</span>
+and with a bit of re-arranging:</p>
+<p><span class="math display">\[
+\beta_1=\frac{\partial Y_i}{\partial X_i}\frac{X_i}{Y_i}
+\]</span></p>
+<p>which is exactly the formula for an elasticity. Doing this for our wages example:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="the-shape-of-the-right-hand-side.html#cb62-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="at">data=</span>d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(education<span class="sc">&gt;</span><span class="dv">0</span> <span class="sc">&amp;</span> experience<span class="sc">&gt;</span><span class="dv">0</span>),<span class="at">formula=</span><span class="fu">log</span>(wage)<span class="sc">~</span><span class="fu">log</span>(education)<span class="sc">+</span><span class="fu">log</span>(experience)<span class="sc">+</span><span class="fu">I</span>(smsa<span class="sc">==</span><span class="st">&quot;yes&quot;</span>)<span class="sc">+</span><span class="fu">as.factor</span>(region))</span>
+<span id="cb62-2"><a href="the-shape-of-the-right-hand-side.html#cb62-2" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+log(wage)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(education)
+</td>
+<td>
+0.946<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.014)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(experience)
+</td>
+<td>
+0.293<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.004)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+I(smsa == “yes”)
+</td>
+<td>
+0.171<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.008)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(region)northeast
+</td>
+<td>
+0.054<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.011)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(region)south
+</td>
+<td>
+-0.067<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.010)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(region)west
+</td>
+<td>
+0.014
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.011)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+2.923<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.040)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+26,816
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.249
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.249
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+0.589 (df = 26809)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+1,484.467<sup>***</sup> (df = 6; 26809)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>Again, interpreting the first three coefficients:</p>
+<ul>
+<li>A 1% increase in education raises wages by about 0.9%</li>
+<li>A 1% increase in experience raises wages by about 0.3%</li>
+<li>People who live in an SMSA have wages about 17% higher than those who do not live in an SMSA</li>
+</ul>
+<p>Note that, while the numbers changed, our interpretation of the coefficient on SMSA does not change. This is because we have the same left-hand-side variable, and we have left SMSA in there in levels (i.e. not in logs). In fact, you should <em>never</em> log a categorical variable. As the numbers in a categorical variable only identify a category, not a value, taking the log of them does not make sense.</p>
+</div>
+<div id="polynomials" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> Polynomials<a href="the-shape-of-the-right-hand-side.html#polynomials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If we can include <span class="math inline">\(X\)</span> on the right-hand side of a regression, then we can also include any transformation of <span class="math inline">\(X\)</span> on the right-hand side (although we shouldn’t do this with categorical variables, see above). Including a polynomial of <span class="math inline">\(X\)</span> on the right-hand side of a regression could actually make a lot of sense if we expect that there is a nonlinear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. That is, even though linear regression is a linear <em>model</em>, it doesn’t preclude us from taking nonlinear transformations of our variables. The polynomial is used a lot in situations where we expect a nonlinear realtionship, but don’t know what that relationship looks like. The reson for this is that polynomials can be motivated as a Taylor approximation of a function:</p>
+<p><span class="math display">\[
+f(x)\approx f(x_0)+\sum_{k=1}^K\frac{1}{k!}\frac{\partial^k f(x_0)}{\partial x^k}(x-x_0)^k
+\]</span></p>
+<p>That is, including <span class="math inline">\(X\)</span>, <span class="math inline">\(X^2\)</span>, and <span class="math inline">\(X^3\)</span> on the right-hand side means that we are approximating whatever function <span class="math inline">\(f\)</span> really is with a <span class="math inline">\(K=3\)</span>rd order polynomial. Since we only have 20-ish years of education to work with, let’s do this for <span class="math inline">\(K=2\)</span> in our example data:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="the-shape-of-the-right-hand-side.html#cb63-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="at">data=</span>d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(education<span class="sc">&gt;</span><span class="dv">0</span> <span class="sc">&amp;</span> experience<span class="sc">&gt;</span><span class="dv">0</span>),<span class="at">formula=</span><span class="fu">log</span>(wage) <span class="sc">~</span> <span class="fu">poly</span>(<span class="fu">log</span>(education),<span class="at">degree=</span><span class="dv">2</span>)<span class="sc">+</span><span class="fu">poly</span>(<span class="fu">log</span>(experience),<span class="at">degree=</span><span class="dv">2</span>)<span class="sc">+</span><span class="fu">I</span>(smsa<span class="sc">==</span><span class="st">&quot;yes&quot;</span>)<span class="sc">+</span><span class="fu">as.factor</span>(region))</span>
+<span id="cb63-2"><a href="the-shape-of-the-right-hand-side.html#cb63-2" tabindex="-1"></a></span>
+<span id="cb63-3"><a href="the-shape-of-the-right-hand-side.html#cb63-3" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+log(wage)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+poly(log(education), degree = 2)1
+</td>
+<td>
+40.009<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.601)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+poly(log(education), degree = 2)2
+</td>
+<td>
+17.665<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.577)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+poly(log(experience), degree = 2)1
+</td>
+<td>
+42.026<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.589)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+poly(log(experience), degree = 2)2
+</td>
+<td>
+-11.444<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.585)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+I(smsa == “yes”)
+</td>
+<td>
+0.152<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.008)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(region)northeast
+</td>
+<td>
+0.055<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.010)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(region)south
+</td>
+<td>
+-0.073<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.010)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(region)west
+</td>
+<td>
+-0.005
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.010)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+6.120<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.009)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+26,816
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.285
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.285
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+0.575 (df = 26807)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+1,337.989<sup>***</sup> (df = 8; 26807)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>In this case, we have a statistically significant squared term for both log-education and log-wage. This tells us that including the squared terms buys us substantially more explanatory power.</p>
+<p>But how do we interpret these new coefficients? Note that the coeffienect on <span class="math inline">\(\log(\mathrm{education})^2\)</span> is positive. This means that the relationship between wages and education is U-shaped. Furthermore, since the equation is:</p>
+<p><span class="math display">\[
+\log \mathrm{wage}_i=\beta_0+40\log(\mathrm{education})+18\log(\mathrm{education})^2+(\text{other things})
+\]</span></p>
+<p>This relationship has a minimum at (using the quadratic formula):</p>
+<p><span class="math display">\[
+-\frac{40}{2\times 18}\approx -1
+\]</span></p>
+<p>But let’s have a look at the distribution of log education:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="the-shape-of-the-right-hand-side.html#cb64-1" tabindex="-1"></a>(</span>
+<span id="cb64-2"><a href="the-shape-of-the-right-hand-side.html#cb64-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">log</span>(education)))<span class="sc">+</span><span class="fu">geom_histogram</span>()<span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb64-3"><a href="the-shape-of-the-right-hand-side.html#cb64-3" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 79 rows containing non-finite outside the scale range
+## (`stat_bin()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
+<p>Since this value does not show up in the data, I would not interpret it as “the wages minimizing education is <span class="math inline">\(\exp(-1)\)</span> years”, rather that there is an increasing, convex relationship between log wages and log education.</p>
+</div>
+<div id="exercises-6" class="section level2 hasAnchor" number="8.8">
+<h2><span class="header-section-number">8.8</span> Exercises<a href="the-shape-of-the-right-hand-side.html#exercises-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="baking-a-cake" class="section level3 hasAnchor" number="8.8.1">
+<h3><span class="header-section-number">8.8.1</span> Baking a cake<a href="the-shape-of-the-right-hand-side.html#baking-a-cake" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is a past exam question.</p>
+<p>You are interested in consumers’ willingness to pay for cake, and how this varies with different recipes. You collect a dataset containing the following variables (units in parentheses):</p>
+<ul>
+<li><code>WTP</code> – Consumers’ willingness to pay for cake ($)</li>
+<li><code>F</code> – Mass of flour in cake (kg)</li>
+<li><code>B</code> – mass of butter in cake (kg)</li>
+<li><code>C</code> – mass of chocolate in cake (kg)</li>
+<li><code>E</code> – mass of eggs in cake (kg)</li>
+<li><code>S</code> – mass of sugar in cake (kg)</li>
+</ul>
+<p>Write down an econometric model in the form:
+<span class="math display">\[Y_i=\beta_0+\beta_1X_{i,1}+\beta_2X_{i,2}+\ldots+\epsilon_i\]</span>
+to answer the following questions. Explain which parameters or functions of the parameters estimate the desired marginal effect. You may (and will have to) transform these variables to answer some of the questions.</p>
+<ol style="list-style-type: decimal">
+<li>On average consumers are willing to pay <span class="math inline">\(\beta\)</span>% more for a cake has 1kg more flour.</li>
+<li>A cake with chocolate will on average sell for <span class="math inline">\(\$\beta\)</span> more than the same cake without chocolate</li>
+<li>The optimal ratio of butter to flour (i.e. <span class="math inline">\(B_i/F_i\)</span>) is </li>
+<li>Consumers’ marginal willingness to pay for flour (i.e. <span class="math inline">\(\frac{\partial WTP_i}{\partial F_i}\)</span>) is <span class="math inline">\(\$\beta\)</span> greater if the cake contains chocolate (compared to if it does not).</li>
+</ol>
+</div>
+<div id="psid-earnings-panel-data" class="section level3 hasAnchor" number="8.8.2">
+<h3><span class="header-section-number">8.8.2</span> PSID Earnings Panel Data<a href="the-shape-of-the-right-hand-side.html#psid-earnings-panel-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is a past take-home exam question (it was given during COVID). As such, students had access to their computers while doing this question.</p>
+<p>Load the PSID Earnings Panel Datsset available here: <a href="https://vincentarelbundock.github.io/Rdatasets/csv/AER/PSID7682.csv" class="uri">https://vincentarelbundock.github.io/Rdatasets/csv/AER/PSID7682.csv</a></p>
+<p>The accompanying documentation is available here: <a href="https://vincentarelbundock.github.io/Rdatasets/doc/AER/PSID7682.html" class="uri">https://vincentarelbundock.github.io/Rdatasets/doc/AER/PSID7682.html</a></p>
+<ol style="list-style-type: decimal">
+<li>estimate a bivariate linear regression model where the slope coeffcient has the interpretation “a $1 increase in wage will result in working <span class="math inline">\(\beta_1\)</span> more weeks in a year”</li>
+<li>Explain what you learned from this coffcient. How could you put this number in context?</li>
+<li>Why can we not interpret this coeffcient as a causal effect? Explain why or why not. Give a speciffc example using one of the other variables in the dataset.</li>
+<li>Estimate one model, that estimates the effect of experience and years of education on wages. Set up your model so that there are coeffcients that have the interpretation:
+<ul>
+<li>a 1% increase in experience “causes” a <span class="math inline">\(\beta\)</span>% increase in wage</li>
+<li>a 1% increase in education “causes” a <span class="math inline">\(\beta\)</span>% increase in wage</li>
+</ul></li>
+<li>Experience and education are negatively correlated. Explain what this means for your point estimates and standard errors.</li>
+<li>Estimate the same model as (4), except now add in controls for <code>occupation</code>, <code>industry</code>, <code>south</code>, <code>smsa</code>, <code>married</code>, <code>gender</code>, <code>union</code>, and <code>ethnicity</code>. How does your interpretation of the coeffcients that are common to both of these models change when you add in these controls? (including the constant)
+7.Test the following hypotheses:
+<ol style="list-style-type: lower-alpha">
+<li>The controls added between parts (4) and (6) have no effect on
+wages.</li>
+<li>Education and experience have the same effect on wages.</li>
+</ol></li>
+<li>Estimate a model with one more variable than (6) that allows the efect of experience on wages to change with education. Comment on this estimated change (both economic and statistical signifcance)</li>
+</ol>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="linear-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-regression---common-misconceptions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

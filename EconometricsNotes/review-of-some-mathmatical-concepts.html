@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Review of some mathmatical concepts | Econometrics notes</title>
+  <meta name="description" content="3 Review of some mathmatical concepts | Econometrics notes" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Review of some mathmatical concepts | Econometrics notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Review of some mathmatical concepts | Econometrics notes" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2025-08-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="getting-started-in-r.html"/>
+<link rel="next" href="estimators.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>1</b> Introduction to the course</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#housekeeping"><i class="fa fa-check"></i><b>1.1</b> Housekeeping</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#two-important-skills-in-econometrics"><i class="fa fa-check"></i><b>1.2</b> Two important skills in econometrics</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#example-incumbency-advantage---lee-moretti-and-butler-2004"><i class="fa fa-check"></i><b>1.3</b> Example: incumbency advantage - Lee, Moretti, and Butler (2004)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>R</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#scripts"><i class="fa fa-check"></i><b>2.2</b> Scripts</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-working-directory"><i class="fa fa-check"></i><b>2.3</b> The working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#exercises"><i class="fa fa-check"></i><b>2.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#understanding-some-code"><i class="fa fa-check"></i><b>2.4.1</b> Understanding some code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html"><i class="fa fa-check"></i><b>3</b> Review of some mathmatical concepts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#summation"><i class="fa fa-check"></i><b>3.1</b> Summation</a></li>
+<li class="chapter" data-level="3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-random-variables"><i class="fa fa-check"></i><b>3.2</b> Describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#discrete-random-variables"><i class="fa fa-check"></i><b>3.2.1</b> Discrete random variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#continuous-random-variables"><i class="fa fa-check"></i><b>3.2.2</b> Continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#completely-describing-random-variables"><i class="fa fa-check"></i><b>3.3</b> Completely describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#cumulative-density-function"><i class="fa fa-check"></i><b>3.3.1</b> Cumulative density function</a></li>
+<li class="chapter" data-level="3.3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-mass-function"><i class="fa fa-check"></i><b>3.3.2</b> Probability mass function</a></li>
+<li class="chapter" data-level="3.3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-density-function"><i class="fa fa-check"></i><b>3.3.3</b> Probability density function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#ways-to-summarize-a-distribution"><i class="fa fa-check"></i><b>3.4</b> Ways to summarize a distribution</a></li>
+<li class="chapter" data-level="3.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-the-relationship-between-two-or-more-random-variables"><i class="fa fa-check"></i><b>3.5</b> Describing the relationship between two or more random variables</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#joint-distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Joint distribution functions</a></li>
+<li class="chapter" data-level="3.5.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#conditional-probability"><i class="fa fa-check"></i><b>3.5.2</b> Conditional probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exercises-1"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#four-sided-die-roll"><i class="fa fa-check"></i><b>3.6.1</b> Four-sided die roll</a></li>
+<li class="chapter" data-level="3.6.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exponential-distribution"><i class="fa fa-check"></i><b>3.6.2</b> Exponential distribution</a></li>
+<li class="chapter" data-level="3.6.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#modeling-a-random-probability"><i class="fa fa-check"></i><b>3.6.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="3.6.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#an-unfair-coin"><i class="fa fa-check"></i><b>3.6.4</b> An unfair coin</a></li>
+<li class="chapter" data-level="3.6.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#adding-two-random-variables"><i class="fa fa-check"></i><b>3.6.5</b> Adding two random variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estimators.html"><a href="estimators.html"><i class="fa fa-check"></i><b>4</b> Estimators</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="estimators.html"><a href="estimators.html#estimators-and-the-sampling-distribution"><i class="fa fa-check"></i><b>4.1</b> Estimators and the sampling distribution</a></li>
+<li class="chapter" data-level="4.2" data-path="estimators.html"><a href="estimators.html#small-sample-properties-of-estimators"><i class="fa fa-check"></i><b>4.2</b> Small sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="estimators.html"><a href="estimators.html#bias"><i class="fa fa-check"></i><b>4.2.1</b> Bias</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estimators.html"><a href="estimators.html#variance"><i class="fa fa-check"></i><b>4.2.2</b> Variance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="estimators.html"><a href="estimators.html#mean-squared-error"><i class="fa fa-check"></i><b>4.2.3</b> Mean squared error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="estimators.html"><a href="estimators.html#exercises-2"><i class="fa fa-check"></i><b>4.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="estimators.html"><a href="estimators.html#modeling-a-random-probability-1"><i class="fa fa-check"></i><b>4.3.1</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="4.3.2" data-path="estimators.html"><a href="estimators.html#exponential-distribution-1"><i class="fa fa-check"></i><b>4.3.2</b> Exponential distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>5</b> Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="inference.html"><a href="inference.html#hypothesis-tests"><i class="fa fa-check"></i><b>5.1</b> Hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="inference.html"><a href="inference.html#one-sided-hypothesis-tests"><i class="fa fa-check"></i><b>5.1.1</b> One-sided hypothesis tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="inference.html"><a href="inference.html#p-values"><i class="fa fa-check"></i><b>5.2</b> <span class="math inline">\(p\)</span>-values</a></li>
+<li class="chapter" data-level="5.3" data-path="inference.html"><a href="inference.html#confidence-intervals"><i class="fa fa-check"></i><b>5.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="5.4" data-path="inference.html"><a href="inference.html#test-power"><i class="fa fa-check"></i><b>5.4</b> Test power</a></li>
+<li class="chapter" data-level="5.5" data-path="inference.html"><a href="inference.html#the-take-away"><i class="fa fa-check"></i><b>5.5</b> The take-away</a></li>
+<li class="chapter" data-level="5.6" data-path="inference.html"><a href="inference.html#exercises-3"><i class="fa fa-check"></i><b>5.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="inference.html"><a href="inference.html#converting-a-continuous-variable-into-a-coin-flip"><i class="fa fa-check"></i><b>5.6.1</b> Converting a continuous variable into a coin flip</a></li>
+<li class="chapter" data-level="5.6.2" data-path="inference.html"><a href="inference.html#the-maximum-of-a-sample"><i class="fa fa-check"></i><b>5.6.2</b> The maximum of a sample</a></li>
+<li class="chapter" data-level="5.6.3" data-path="inference.html"><a href="inference.html#assessing-the-performance-of-a-cookbook-hypothesis-test"><i class="fa fa-check"></i><b>5.6.3</b> Assessing the performance of a “cookbook” hypothesis test</a></li>
+<li class="chapter" data-level="5.6.4" data-path="inference.html"><a href="inference.html#hypothesis-tests-using-graphs"><i class="fa fa-check"></i><b>5.6.4</b> Hypothesis tests using graphs</a></li>
+<li class="chapter" data-level="5.6.5" data-path="inference.html"><a href="inference.html#simulation-exercise"><i class="fa fa-check"></i><b>5.6.5</b> Simulation exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html"><i class="fa fa-check"></i><b>6</b> Inference using asymptotic assumptions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-estimators"><i class="fa fa-check"></i><b>6.1</b> Large-sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#consistency"><i class="fa fa-check"></i><b>6.1.1</b> Consistency</a></li>
+<li class="chapter" data-level="6.1.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#asymptotic-distribution"><i class="fa fa-check"></i><b>6.1.2</b> Asymptotic distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-sample-means"><i class="fa fa-check"></i><b>6.2</b> Large-sample properties of sample means</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-weak-law-of-large-numbers-wlln"><i class="fa fa-check"></i><b>6.2.1</b> The Weak Law of Large Numbers (WLLN)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-central-limit-theorem"><i class="fa fa-check"></i><b>6.2.2</b> A Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#using-large-sample-properties-to-make-inference-easier"><i class="fa fa-check"></i><b>6.3</b> Using large-sample properties to make inference easier</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#hypothesis-tests-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.1</b> Hypothesis tests with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#even-more-of-a-shortcut"><i class="fa fa-check"></i><b>6.3.2</b> Even more of a shortcut</a></li>
+<li class="chapter" data-level="6.3.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#confidence-intervals-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.3</b> Confidence intervals with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#p-values-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.4</b> <span class="math inline">\(p\)</span>-values with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#tieing-this-in-with-the-previous-chapter"><i class="fa fa-check"></i><b>6.3.5</b> Tieing this in with the previous chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#transforming-variables"><i class="fa fa-check"></i><b>6.4</b> Transforming variables</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-continuous-mapping-theorem"><i class="fa fa-check"></i><b>6.4.1</b> The continuous mapping theorem</a></li>
+<li class="chapter" data-level="6.4.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-delta-method"><i class="fa fa-check"></i><b>6.4.2</b> The delta method</a></li>
+<li class="chapter" data-level="6.4.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#jensens-inequality"><i class="fa fa-check"></i><b>6.4.3</b> Jensen’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exercises-4"><i class="fa fa-check"></i><b>6.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exponential-distribution-2"><i class="fa fa-check"></i><b>6.5.1</b> Exponential distribution</a></li>
+<li class="chapter" data-level="6.5.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-simulation"><i class="fa fa-check"></i><b>6.5.2</b> A simulation</a></li>
+<li class="chapter" data-level="6.5.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#modeling-a-random-probability-2"><i class="fa fa-check"></i><b>6.5.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="6.5.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-sort-of-simulation-exercise"><i class="fa fa-check"></i><b>6.5.4</b> A (sort-of) simulation exercise</a></li>
+<li class="chapter" data-level="6.5.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#one-test-three-ways"><i class="fa fa-check"></i><b>6.5.5</b> One test, three ways</a></li>
+<li class="chapter" data-level="6.5.6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#deriving-properties-of-estimators"><i class="fa fa-check"></i><b>6.5.6</b> Deriving properties of estimators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="linear-regression.html"><a href="linear-regression.html#derivation-of-the-bivariate-ols-slope-estimator"><i class="fa fa-check"></i><b>7.1</b> Derivation of the bivariate OLS slope estimator</a></li>
+<li class="chapter" data-level="7.2" data-path="linear-regression.html"><a href="linear-regression.html#unbiasedness"><i class="fa fa-check"></i><b>7.2</b> Unbiasedness</a></li>
+<li class="chapter" data-level="7.3" data-path="linear-regression.html"><a href="linear-regression.html#variance-1"><i class="fa fa-check"></i><b>7.3</b> Variance</a></li>
+<li class="chapter" data-level="7.4" data-path="linear-regression.html"><a href="linear-regression.html#inference-in-bivariate-ols"><i class="fa fa-check"></i><b>7.4</b> Inference in bivariate OLS</a></li>
+<li class="chapter" data-level="7.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-5"><i class="fa fa-check"></i><b>7.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="linear-regression.html"><a href="linear-regression.html#municipal-expenditure"><i class="fa fa-check"></i><b>7.5.1</b> Municipal expenditure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html"><i class="fa fa-check"></i><b>8</b> The shape of the right-hand side</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#linear-regression-as-a-model-for-conditional-expectation"><i class="fa fa-check"></i><b>8.1</b> Linear regression as a model for conditional expectation</a></li>
+<li class="chapter" data-level="8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#an-example-dataset"><i class="fa fa-check"></i><b>8.2</b> An example dataset</a></li>
+<li class="chapter" data-level="8.3" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#marginal-effects"><i class="fa fa-check"></i><b>8.3</b> Marginal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#categorical-variables"><i class="fa fa-check"></i><b>8.4</b> Categorical variables</a></li>
+<li class="chapter" data-level="8.5" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#interactions"><i class="fa fa-check"></i><b>8.5</b> Interactions</a></li>
+<li class="chapter" data-level="8.6" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#logarithms"><i class="fa fa-check"></i><b>8.6</b> Logarithms</a></li>
+<li class="chapter" data-level="8.7" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#polynomials"><i class="fa fa-check"></i><b>8.7</b> Polynomials</a></li>
+<li class="chapter" data-level="8.8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#exercises-6"><i class="fa fa-check"></i><b>8.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#baking-a-cake"><i class="fa fa-check"></i><b>8.8.1</b> Baking a cake</a></li>
+<li class="chapter" data-level="8.8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#psid-earnings-panel-data"><i class="fa fa-check"></i><b>8.8.2</b> PSID Earnings Panel Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html"><i class="fa fa-check"></i><b>9</b> Linear regression - common misconceptions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#heteroskedasticity"><i class="fa fa-check"></i><b>9.1</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#multicolinearity"><i class="fa fa-check"></i><b>9.2</b> Multicolinearity</a></li>
+<li class="chapter" data-level="9.3" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#omitted-variables-are-always-a-problem"><i class="fa fa-check"></i><b>9.3</b> Omitted variables are <em>always</em> a problem</a></li>
+<li class="chapter" data-level="9.4" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#normal-errors"><i class="fa fa-check"></i><b>9.4</b> Normal errors</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Standard errors in linear regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#homoskedasticity-the-standard-standard-errors"><i class="fa fa-check"></i><b>10.1</b> Homoskedasticity: the “standard” standard errors</a></li>
+<li class="chapter" data-level="10.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#heteroskedasticity-1"><i class="fa fa-check"></i><b>10.2</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="10.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#clustered-standard-errors"><i class="fa fa-check"></i><b>10.3</b> Clustered standard errors</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#an-example"><i class="fa fa-check"></i><b>10.3.1</b> An example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#standard-errors-for-multivariate-linear-regression"><i class="fa fa-check"></i><b>10.4</b> Standard errors for multivariate linear regression</a></li>
+<li class="chapter" data-level="10.5" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#calculating-standard-errors-in-r"><i class="fa fa-check"></i><b>10.5</b> Calculating standard errors in <em>R</em></a></li>
+<li class="chapter" data-level="10.6" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#exercises-7"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#galtons-families"><i class="fa fa-check"></i><b>10.6.1</b> Galton’s families</a></li>
+<li class="chapter" data-level="10.6.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#simulation"><i class="fa fa-check"></i><b>10.6.2</b> Simulation</a></li>
+<li class="chapter" data-level="10.6.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#more-simulation"><i class="fa fa-check"></i><b>10.6.3</b> More simulation</a></li>
+<li class="chapter" data-level="10.6.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#instructor-ratings"><i class="fa fa-check"></i><b>10.6.4</b> Instructor ratings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html"><i class="fa fa-check"></i><b>11</b> Hypothesis tests about more than one parameter</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-restricted-model"><i class="fa fa-check"></i><b>11.1</b> The restricted model</a></li>
+<li class="chapter" data-level="11.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-test-using-r2-that-you-probably-shouldnt-use"><i class="fa fa-check"></i><b>11.2</b> A test using <span class="math inline">\(R^2\)</span> that you probably shouldn’t use</a></li>
+<li class="chapter" data-level="11.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-more-robust-test"><i class="fa fa-check"></i><b>11.3</b> A more robust test</a></li>
+<li class="chapter" data-level="11.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#another-example"><i class="fa fa-check"></i><b>11.4</b> Another example</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-whether-the-child-is-male-of-female"><i class="fa fa-check"></i><b>11.4.1</b> The height of a child does not depend on whether the child is male of female</a></li>
+<li class="chapter" data-level="11.4.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-the-height-of-their-parents"><i class="fa fa-check"></i><b>11.4.2</b> The height of a child does not depend on the height of their parents</a></li>
+<li class="chapter" data-level="11.4.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-mother-height-on-child-height-is-the-same-as-the-effect-of-father-height-on-child-height"><i class="fa fa-check"></i><b>11.4.3</b> The effect of mother height on child height is the same as the effect of father height on child height</a></li>
+<li class="chapter" data-level="11.4.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-male-childrens-height-is-the-same-as-the-effect-of-parent-height-on-female-childrens-height"><i class="fa fa-check"></i><b>11.4.4</b> The effect of parent height on male children’s height is the same as the effect of parent height on female children’s height</a></li>
+<li class="chapter" data-level="11.4.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-child-height-is-linear"><i class="fa fa-check"></i><b>11.4.5</b> The effect of parent height on child height is linear</a></li>
+<li class="chapter" data-level="11.4.6" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#parents-who-are-on-average-one-inch-taller-have-children-that-are-on-average-one-inch-taller"><i class="fa fa-check"></i><b>11.4.6</b> Parents who are on average one inch taller have children that are on average one inch taller</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#exercises-8"><i class="fa fa-check"></i><b>11.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#project-star-student-teacher-achievement-ratio"><i class="fa fa-check"></i><b>11.5.1</b> Project STAR: Student-Teacher Achievement Ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><i class="fa fa-check"></i><b>12</b> Limited dependent variable models and maximum likelihood estimation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#motivation-the-linear-probability-model-works-134-of-the-time"><i class="fa fa-check"></i><b>12.1</b> Motivation: The linear probability model works 134% of the time</a></li>
+<li class="chapter" data-level="12.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-practical-solution-ensure-that-predictions-are-always-valid"><i class="fa fa-check"></i><b>12.2</b> A practical solution: Ensure that predictions are always valid</a></li>
+<li class="chapter" data-level="12.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#interpreting-the-coefficients-of-the-probit-and-logit-models"><i class="fa fa-check"></i><b>12.3</b> Interpreting the coefficients of the probit and logit models</a></li>
+<li class="chapter" data-level="12.4" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#but-how-do-we-estimate-it-maximum-likelihood"><i class="fa fa-check"></i><b>12.4</b> But how do we estimate it? Maximum likelihood</a></li>
+<li class="chapter" data-level="12.5" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#doing-inference-with-maximum-likelihood"><i class="fa fa-check"></i><b>12.5</b> Doing inference with maximum likelihood</a></li>
+<li class="chapter" data-level="12.6" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#how-some-estimators-relate-to-maximum-likelihood"><i class="fa fa-check"></i><b>12.6</b> How some estimators relate to maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sample-mean-for-a-bernoulli-coin-flip-variable"><i class="fa fa-check"></i><b>12.6.1</b> Sample mean for a Bernoulli (coin flip) variable</a></li>
+<li class="chapter" data-level="12.6.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#linear-regression-1"><i class="fa fa-check"></i><b>12.6.2</b> Linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#some-examples-of-estimating-parameters-using-maximum-likelihood"><i class="fa fa-check"></i><b>12.7</b> Some examples of estimating parameters using maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#geometric-distribution"><i class="fa fa-check"></i><b>12.7.1</b> Geometric distribution</a></li>
+<li class="chapter" data-level="12.7.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#simplified-beta-distribution"><i class="fa fa-check"></i><b>12.7.2</b> Simplified Beta distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#an-extended-example"><i class="fa fa-check"></i><b>12.8</b> An extended example</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#data"><i class="fa fa-check"></i><b>12.8.1</b> Data</a></li>
+<li class="chapter" data-level="12.8.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-research-question"><i class="fa fa-check"></i><b>12.8.2</b> A research question</a></li>
+<li class="chapter" data-level="12.8.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#the-model-based-approach"><i class="fa fa-check"></i><b>12.8.3</b> The model-based approach</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#exercises-9"><i class="fa fa-check"></i><b>12.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.9.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#checking-that-we-rolled-a-die-correctly"><i class="fa fa-check"></i><b>12.9.1</b> Checking that we rolled a die correctly</a></li>
+<li class="chapter" data-level="12.9.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#galtons-heights-dataset"><i class="fa fa-check"></i><b>12.9.2</b> Galton’s heights dataset</a></li>
+<li class="chapter" data-level="12.9.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sumo-wrestling"><i class="fa fa-check"></i><b>12.9.3</b> Sumo wrestling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html"><i class="fa fa-check"></i><b>13</b> Combining and manipulating datasets</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#merging-data-join"><i class="fa fa-check"></i><b>13.1</b> Merging data (<code>join</code>)</a></li>
+<li class="chapter" data-level="13.2" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#wide-and-long-formats-pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>13.2</b> Wide and long formats (<code>pivot_longer</code> and <code>pivot_wider</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="time-series-introduction.html"><a href="time-series-introduction.html"><i class="fa fa-check"></i><b>14</b> Time series – Introduction</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#autoregressive-and-moving-average-arma-models-the-basic-building-blocks-of-time-series-models"><i class="fa fa-check"></i><b>14.1</b> Autoregressive and moving average (ARMA) models: the basic building blocks of time series models</a></li>
+<li class="chapter" data-level="14.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-properties-of-arma-processes"><i class="fa fa-check"></i><b>14.2</b> Stationarity and properties of ARMA processes</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#examples"><i class="fa fa-check"></i><b>14.2.1</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#diagnostics-autocorrelation-and-partial-autocorrelation-functions"><i class="fa fa-check"></i><b>14.3</b> Diagnostics: Autocorrelation and partial autocorrelation functions</a></li>
+<li class="chapter" data-level="14.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-unemployment"><i class="fa fa-check"></i><b>14.4</b> Example dataset – unemployment</a></li>
+<li class="chapter" data-level="14.5" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-testing-for-unit-roots"><i class="fa fa-check"></i><b>14.5</b> Stationarity and testing for unit roots</a></li>
+<li class="chapter" data-level="14.6" data-path="time-series-introduction.html"><a href="time-series-introduction.html#non-stationarity-and-spurious-correlation"><i class="fa fa-check"></i><b>14.6</b> Non-stationarity and spurious correlation</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-share-a-trend"><i class="fa fa-check"></i><b>14.6.1</b> Two variables share a trend</a></li>
+<li class="chapter" data-level="14.6.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-are-cyclical"><i class="fa fa-check"></i><b>14.6.2</b> Two variables are cyclical</a></li>
+<li class="chapter" data-level="14.6.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-have-a-unit-root"><i class="fa fa-check"></i><b>14.6.3</b> Two variables have a unit root</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="time-series-introduction.html"><a href="time-series-introduction.html#differencing-and-stationarity"><i class="fa fa-check"></i><b>14.7</b> Differencing and stationarity</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#some-examples-of-making-non-stationary-series-stationary-through-differencing"><i class="fa fa-check"></i><b>14.7.1</b> Some examples of making non-stationary series stationary through differencing</a></li>
+<li class="chapter" data-level="14.7.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-us-consumer-price-index"><i class="fa fa-check"></i><b>14.7.2</b> Example dataset: US Consumer Price Index</a></li>
+<li class="chapter" data-level="14.7.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-data-gdp-and-money-supply"><i class="fa fa-check"></i><b>14.7.3</b> Example data: GDP and money supply</a></li>
+<li class="chapter" data-level="14.7.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-peace-corps"><i class="fa fa-check"></i><b>14.7.4</b> Example: Peace Corps</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="time-series-introduction.html"><a href="time-series-introduction.html#estimating-arima-models"><i class="fa fa-check"></i><b>14.8</b> Estimating ARIMA models</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html"><i class="fa fa-check"></i><b>15</b> Time series – Forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#prediction-and-forecasting"><i class="fa fa-check"></i><b>15.1</b> Prediction and forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-with-univariate-problems"><i class="fa fa-check"></i><b>15.1.1</b> Example: Prediction with univariate problems</a></li>
+<li class="chapter" data-level="15.1.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-in-bivariate-ols"><i class="fa fa-check"></i><b>15.1.2</b> Example: Prediction in bivariate OLS</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#cross-validation"><i class="fa fa-check"></i><b>15.2</b> Cross-validation</a></li>
+<li class="chapter" data-level="15.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-cpi-and-ppi"><i class="fa fa-check"></i><b>15.3</b> Example: CPI and PPI</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#using-just-ar-and-ma-components"><i class="fa fa-check"></i><b>15.3.1</b> Using just AR and MA components</a></li>
+<li class="chapter" data-level="15.3.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-some-seasonality"><i class="fa fa-check"></i><b>15.3.2</b> Incorporating some seasonality</a></li>
+<li class="chapter" data-level="15.3.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-ppi-inflation"><i class="fa fa-check"></i><b>15.3.3</b> Incorporating PPI inflation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="additional-exercises.html"><a href="additional-exercises.html"><i class="fa fa-check"></i><b>16</b> Additional exercises</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="additional-exercises.html"><a href="additional-exercises.html#for-loops"><i class="fa fa-check"></i><b>16.1</b> For loops</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="additional-exercises.html"><a href="additional-exercises.html#determinants-of-wage-data-cps-1988"><i class="fa fa-check"></i><b>16.1.1</b> Determinants of wage data (CPS 1988)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="past-exam-questions.html"><a href="past-exam-questions.html"><i class="fa fa-check"></i><b>17</b> Past exam questions</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2023-5810-exam-1"><i class="fa fa-check"></i><b>17.1</b> Fall 2023 5810 Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability"><i class="fa fa-check"></i><b>17.1.1</b> Probability</a></li>
+<li class="chapter" data-level="17.1.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimation-and-inference"><i class="fa fa-check"></i><b>17.1.2</b> Estimation and inference</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2022-5810-exam-1"><i class="fa fa-check"></i><b>17.2</b> Fall 2022 5810, Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability-1"><i class="fa fa-check"></i><b>17.2.1</b> Probability</a></li>
+<li class="chapter" data-level="17.2.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#inference-1"><i class="fa fa-check"></i><b>17.2.2</b> Inference</a></li>
+<li class="chapter" data-level="17.2.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimators-and-large-sample-properties"><i class="fa fa-check"></i><b>17.2.3</b> Estimators and large-sample properties</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-2-2022"><i class="fa fa-check"></i><b>17.3</b> 5810 Exam 2 (2022)</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#directed-acyclic-graphs"><i class="fa fa-check"></i><b>17.3.1</b> Directed Acyclic Graphs</a></li>
+<li class="chapter" data-level="17.3.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#linear-regression-2"><i class="fa fa-check"></i><b>17.3.2</b> Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-1-2023"><i class="fa fa-check"></i><b>17.4</b> 5820, Exam 1 (2023)</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#maximum-likelihood"><i class="fa fa-check"></i><b>17.4.1</b> Maximum likelihood</a></li>
+<li class="chapter" data-level="17.4.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fire-trucks"><i class="fa fa-check"></i><b>17.4.2</b> Fire trucks</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Econometrics notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="review-of-some-mathmatical-concepts" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Review of some mathmatical concepts<a href="review-of-some-mathmatical-concepts.html#review-of-some-mathmatical-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Before getting into the more interesting material, it is important that we are all on the same page in terms of base knowledge. While I hope that there are parts of the course coming up that you can blast through with great understanding and intuition, the reality is that there are a few things that you will need to be able to do in your sleep very early on in the course. I <em>may</em> cover these in class, but please make sure you can do them as soon as possible.</p>
+<div id="summation" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Summation<a href="review-of-some-mathmatical-concepts.html#summation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In Econometrics, we can’t avoid adding things up. For example, when we compute a sample mean, we add up all the values in the sample, and divide by the sample size. In practice, we will get our computer to do the heavy lifting for us, but we need to understand what it’s doing, and have some notation to make this more compact. For one thing, id we are computing a sample mean, our hope is that we have lots of observations, and so we will need to add a lot of things up. It is cumbersome, for example, to write the sum of integers between 1 and 10 (inclusive), as:
+<span class="math display">\[\begin{align}
+1+2+3+4+5+6+7+8+9+10=55
+\end{align}\]</span>
+Alternatively, we can write:
+<span class="math display">\[\begin{align}
+\sum_{k=1}^{10} k&amp;=55
+\end{align}\]</span>
+We can read the above equation as follows:</p>
+<ul>
+<li>The summation symbol “<span class="math inline">\(\sum\)</span>” (Greek capital sigma) tells us that we are adding things.</li>
+<li>The “<span class="math inline">\(k=1\)</span>” underneath the summation symbol tells us that we are using <span class="math inline">\(k\)</span> as an index, and we start with <span class="math inline">\(k=1\)</span>.</li>
+<li>The “10” above the summation symbol tells us that we stop summing when we get to 10 (inclusive).</li>
+</ul>
+<p>We can, and will, get more sophisticated than this. For example:
+<span class="math display">\[\begin{align}
+\sum_{k=1}^42 k^2&amp;=2\times 1^2+2\times2^2+2\times 3^2+4\times 2^2\\
+\sum_{k=1}^{12} \frac{k-1}{k}&amp;=\frac{0}{1}+\frac{1}{2}+\frac{2}{3}+\ldots+\frac{11}{12}\\
+\sum_{l=1}^3\sum_{k=1}^l lk&amp;=1\times1+2\times1+2\times2 + 3\times 1+3\times2+3\times 3
+\end{align}\]</span>
+Note that in the last equation, this is a double summation. The index of the leftmost summation (<span class="math inline">\(l\)</span>) appears in the rightmost summation as the stopping point for index <span class="math inline">\(k\)</span>.</p>
+<p>The above examples are instructive, but not particularly useful. We are usually interested in adding up a whole lot of things, so we need some notation for “a whole lot of numbers.: To do this, let’s start with some notation for an arbitrary, indexed number, <span class="math inline">\(x_k\)</span>. You can interpret this as the <span class="math inline">\(k\)</span>th number in a set of numbers. We can denote”a whole lot of numbers”, formally a “set of numbers”, as:
+<span class="math display">\[\begin{align}
+\{x_k\}_{k=1}^K &amp;= \{x_1, x_2, \ldots, x_K\}
+\end{align}\]</span>
+That is, we have a set of <span class="math inline">\(K\)</span> (a positive integer) numbers, which we index by <span class="math inline">\(k=1, 2,\ldots, K\)</span>.</p>
+<p>Here’s an example. My drive to work involves driving the following distances, in miles (each distance is the drive distance between turns on Google Maps):
+<span class="math display">\[\begin{align*}
+&amp;x_1 = 0.3,\quad
+&amp;x_2 =     1.4,\quad
+&amp;x_3 =     0.1,\quad
+&amp;x_4 =     0.5,\quad
+&amp;x_5 =     0.0,\quad\\
+&amp;x_6 =     1.8,\quad
+&amp;x_7 =     4.2,\quad
+&amp;x_8 =     0.3,\quad
+&amp;x_9 =     3.4,\quad
+&amp;x_{10} =     1.8,\quad\\
+&amp;x_{11} =     0.2,\quad
+&amp;x_{12} =     0.8,\quad
+&amp;x_{13} =     0.2,\quad
+&amp;x_{14} =     0.1,\quad
+&amp;x_{15} =     0.1\quad
+\end{align*}\]</span>
+We could denote this dataset as <span class="math inline">\(\{x_t\}_{t=1}^{15}\)</span>, and then calculate:
+<span class="math display">\[\begin{align*}
+\sum_{t=1}^{15} x_t&amp;=15.2\ \mathrm{miles}&amp;\quad \text{total distance}\\
+\sum_{t=1}^3x_t&amp;=1.8\ \mathrm{miles}&amp;\quad \text{ distance to 3rd turn}\\
+\sum_{t=10}^{15}x_t&amp;=3.2\ \mathrm{miles}&amp;\quad \text{ distance left after making 9 turns}\\
+\sum_{t=1}^{15} x_t^2&amp;=38.8\ \mathrm{miles}^2&amp;\quad \text{total squared distance (because why not?)}\\
+\end{align*}\]</span>
+Note the change in units in the last summation.</p>
+<p>There are some useful properties of sums. To begin with, multiplying every component of a sum by a constant is the same as multiplying the final value by the constant. That is (see Bailey, Appendix A):
+<span class="math display">\[\begin{align}
+\sum_{i=1}^N\beta X_i&amp;=\beta\sum_{i=1}^NX_i
+\end{align}\]</span>
+Suppose, for example, that we wanted to report the total distance above, but in a more widely-accepted unit of measurement. Knowing that 1 mile <span class="math inline">\(=\)</span> 1.6 km (accurate to 1 decimal place), we could do this by computing:
+<span class="math display">\[\begin{align*}
+\sum_{t=1}^{15}x_t\ \mathrm{miles}\times1.6\frac{\mathrm{km}}{\mathrm{mile}}=0.3\times1.6+1.4\times 1.6+\ldots
+\end{align*}\]</span>
+alternatively, we would be smarter and use this result:
+<span class="math display">\[\begin{align*}
+\sum_{t=1}^{15}x_t\ \mathrm{miles}\times1.6\frac{\mathrm{km}}{\mathrm{mile}}=1.6\frac{\mathrm{km}}{\mathrm{mile}}\sum_{t=1}^{15}x_t\ \mathrm{miles}=1.6\frac{\mathrm{km}}{\mathrm{mile}}\times 15.4 \mathrm{miles}=24.3\ \mathrm{km}
+\end{align*}\]</span>
+i.e. <span class="math inline">\(\beta=1.6\frac{\mathrm{km}}{\mathrm{mile}}\)</span>.
+Note here that I made sure the unit conversion was correct by writing down the units as well as the numbers. If it’s all done correctly, the units you are trying to get rid of should cancel.</p>
+<p>Of course, I would <em>never</em> want you to waste your time doing such a menial task by hand. If you really wanted to compute these, let your computer do it!</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="review-of-some-mathmatical-concepts.html#cb16-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.3</span>,<span class="fl">1.4</span>,<span class="fl">0.1</span>,<span class="fl">0.5</span>,<span class="fl">0.0</span>,<span class="fl">1.8</span>,<span class="fl">4.2</span>,<span class="fl">0.3</span>,<span class="fl">3.4</span>,<span class="fl">1.8</span>,<span class="fl">0.2</span>,<span class="fl">0.8</span>,<span class="fl">0.2</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>)</span>
+<span id="cb16-2"><a href="review-of-some-mathmatical-concepts.html#cb16-2" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="review-of-some-mathmatical-concepts.html#cb16-3" tabindex="-1"></a><span class="co"># Total distance</span></span>
+<span id="cb16-4"><a href="review-of-some-mathmatical-concepts.html#cb16-4" tabindex="-1"></a>(<span class="fu">sum</span>(x))</span></code></pre></div>
+<pre><code>## [1] 15.2</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="review-of-some-mathmatical-concepts.html#cb18-1" tabindex="-1"></a><span class="co"># Distance to third turn</span></span>
+<span id="cb18-2"><a href="review-of-some-mathmatical-concepts.html#cb18-2" tabindex="-1"></a>(<span class="fu">sum</span>(x[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]))</span></code></pre></div>
+<pre><code>## [1] 1.8</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="review-of-some-mathmatical-concepts.html#cb20-1" tabindex="-1"></a><span class="co"># distance left after making 9 turns</span></span>
+<span id="cb20-2"><a href="review-of-some-mathmatical-concepts.html#cb20-2" tabindex="-1"></a>(<span class="fu">sum</span>(x[<span class="dv">10</span><span class="sc">:</span><span class="dv">15</span>]))</span></code></pre></div>
+<pre><code>## [1] 3.2</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="review-of-some-mathmatical-concepts.html#cb22-1" tabindex="-1"></a><span class="co"># total squared distance</span></span>
+<span id="cb22-2"><a href="review-of-some-mathmatical-concepts.html#cb22-2" tabindex="-1"></a>(<span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## [1] 38.82</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="review-of-some-mathmatical-concepts.html#cb24-1" tabindex="-1"></a><span class="co"># distance in km</span></span>
+<span id="cb24-2"><a href="review-of-some-mathmatical-concepts.html#cb24-2" tabindex="-1"></a>(<span class="fu">sum</span>(x<span class="sc">*</span><span class="fl">1.6</span>))</span></code></pre></div>
+<pre><code>## [1] 24.32</code></pre>
+</div>
+<div id="describing-random-variables" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Describing random variables<a href="review-of-some-mathmatical-concepts.html#describing-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are many ways to categorize random variables, and we’ll get in to a lot of them during this course. For the moment, we will begin by introducing two important types of random variables: discrete and continuous. These do not constitute an exhaustive set (i.e.~I could show you some pathological examples that are neither discrete nor continuous), but cover pretty much everything we will be interested in. The distinction between discrete and continuous is important because it tells us how we will (or at least should) analyze our data (for example, see Chapter 12 of <span class="citation">Bailey (<a href="#ref-Bailey">2019</a>)</span>).</p>
+<p>We can tell these types apart by the random variable’s <em>support</em>. This, loosely, is the set of values that the random variable could possibly take on. That is, let <span class="math inline">\(\mathcal S\)</span> be the support of a random variable <span class="math inline">\(X\)</span>. If, say, <span class="math inline">\(3\in\mathcal S\)</span>, then it is possible that <span class="math inline">\(X\)</span> could take on the value 3. If <span class="math inline">\(3 \notin \mathcal S\)</span>, then <span class="math inline">\(X\)</span> could <em>never</em> be equal to 3.</p>
+<div id="discrete-random-variables" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Discrete random variables<a href="review-of-some-mathmatical-concepts.html#discrete-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Discrete random variables have countable supports. Formally, this means that we can assign an integer to every value that the random variable could take on. In fact, discrete random numbers are often stored as integers, even if assigning them a number does not add any value to the problem. Here are some examples of discrete random variables:</p>
+<ul>
+<li>The outcome of a coin toss. We could record this as Heads <span class="math inline">\(=1\)</span> and Tails <span class="math inline">\(=0\)</span>. Hence the support is <span class="math inline">\(\{0,1\}\)</span></li>
+<li>The number of days with rain in Toledo, OH in the next year. As long as it is not a leap year, the support is <span class="math inline">\(\{0,1,2,\ldots,365\}\)</span>.</li>
+<li>The number of coin tosses made until four heads have been observed. It would be impossible to toss the coin fewer than 4 before this event occurs, and a particularly unlucky individual could potentially end up doing this for ever, so the support is <span class="math inline">\(\{4, 5, 6, \ldots, \infty\}\)</span>.</li>
+<li>The name of the first player in the Collingwood Football Club to kick a goal in the last round of the Australian Football League 2017 season. Since at the time of writing, the 2017 AFL season was well underway, the support for this would be the list of players on the roster: <span class="math inline">\(\{\text{Travis Cloke}, \text{Dane Swan}, \text{Scott Pendlebury},\ldots\}\)</span>. However one may find it practical to handle data by assigning integers to these names (basically, computers like numbers more than strings): <span class="math inline">\(\{1=\text{Travis Cloke}, 2=\text{Dane Swan}, 3=\text{Scott Pendlebury},\ldots\}\)</span>. Additionally, since it is possible that Collingwood will have a particularly terrible game, one should also assign “nobody” to this support.</li>
+</ul>
+</div>
+<div id="continuous-random-variables" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Continuous random variables<a href="review-of-some-mathmatical-concepts.html#continuous-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Continuous random variables have interval supports (or collections of intervals). Note that all of the above examples of discrete random variables fail this test. Examples of continuous random numbers include:</p>
+<ul>
+<li>The total precipitation in Toledo, OH between Jan 1st and Dec 31st next year, in millimeters.</li>
+<li>The time between now and when the next asteroid hits earth.</li>
+<li>Your bank balance (note that strictly speaking, this is discrete random variable, because it is an integer multiple of $0.01. however at some point it is reasonable to claim that a variable is approximately continuous and hence can be treated as continuous).</li>
+</ul>
+</div>
+</div>
+<div id="completely-describing-random-variables" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Completely describing random variables<a href="review-of-some-mathmatical-concepts.html#completely-describing-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If all we had in our toolbox was <code>discrete'' and</code>continuous’’, we would not be able to describe random variables very well. Fortunately, we can do much better than this. To begin with, there is the cumulative density function, which completely captures anything you may want to know about a single random variable. If we know that the variable is either continuous or discrete, we can use either a probability mass function or probability density function, which also characterize the variable completely (once we know that it is either continuous or discrete). Finally, we can summarize particular aspects of the random variable with quantities such as mean, variance, median, etc.. These quantities don’t fully characterize the distribution, but are sometimes the most important quantities for our analysis.</p>
+<div id="cumulative-density-function" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Cumulative density function<a href="review-of-some-mathmatical-concepts.html#cumulative-density-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose that a random variable <span class="math inline">\(X\)</span> has support <span class="math inline">\(S\)</span>, which is a subset of the real number line (formally: <span class="math inline">\(S \subseteq \mathbb R\)</span>). For any particular value of <span class="math inline">\(x\in \mathbb R\)</span> (i.e. pick any <span class="math inline">\(x\)</span> on the real number line), it must be that either <span class="math inline">\(X\leq x\)</span>, or <span class="math inline">\(X&gt;x\)</span>. Hence, no matter whether <span class="math inline">\(X\)</span> is discrete or continuous, we can report the probability that <span class="math inline">\(X\)</span> is less than or equal to any particular value of <span class="math inline">\(x\)</span> on the real number line. Hence, we define the cumulative density function (cdf) of <span class="math inline">\(X\)</span> as follows:
+<span class="math display">\[\begin{align}
+F_X(x) &amp;=\Pr(X\leq x)
+\end{align}\]</span></p>
+<p>Note that the cdf is a function of <span class="math inline">\(x\)</span>, a particular value, and not the random variable itself. Since <span class="math inline">\(\Pr(x\leq X)\)</span> is something that we can compute for <em>any</em> <span class="math inline">\(x\in\mathbb R\)</span>, we must make sure to specify it for the whole real number line, and not just the support of <span class="math inline">\(X\)</span>. For example, if <span class="math inline">\(U\)</span> is a standard uniform random variable (i.e. <span class="math inline">\(U\)</span> is equally likely to be drawn anywhere on the unit interval), then the support of <span class="math inline">\(X\)</span> is the unit interval <span class="math inline">\((0,1)\)</span>. However we can still assign a probability to <span class="math inline">\(U\)</span> being (say) less than zero, or less than three (which would be equal to 0 and 1 respectively). This cdf would therefore be:
+<span class="math display">\[\begin{align}
+F_U(x) &amp;=\begin{cases}
+0 &amp;\text{if } x&lt; 0\\
+x&amp;\text{if } 0 \leq x &lt;1 \\
+1 &amp;\text{if } x \geq 1
+\end{cases}\label{eq:Uniformcdf}
+\end{align}\]</span>
+This is shown graphically in the following Figure:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="review-of-some-mathmatical-concepts.html#cb26-1" tabindex="-1"></a>Fu<span class="ot">&lt;-</span><span class="cf">function</span>(x) {</span>
+<span id="cb26-2"><a href="review-of-some-mathmatical-concepts.html#cb26-2" tabindex="-1"></a>  <span class="fu">min</span>(<span class="fu">max</span>(<span class="fu">c</span>(x,<span class="dv">0</span>)),<span class="dv">1</span>)</span>
+<span id="cb26-3"><a href="review-of-some-mathmatical-concepts.html#cb26-3" tabindex="-1"></a>}</span>
+<span id="cb26-4"><a href="review-of-some-mathmatical-concepts.html#cb26-4" tabindex="-1"></a>d<span class="ot">&lt;-</span>(<span class="fu">tibble</span>(<span class="at">x=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.5</span>,<span class="fl">1.5</span>,<span class="at">length=</span><span class="dv">100</span>))</span>
+<span id="cb26-5"><a href="review-of-some-mathmatical-concepts.html#cb26-5" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">rowwise</span>()</span>
+<span id="cb26-6"><a href="review-of-some-mathmatical-concepts.html#cb26-6" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">cdf =</span> <span class="fu">Fu</span>(x))   </span>
+<span id="cb26-7"><a href="review-of-some-mathmatical-concepts.html#cb26-7" tabindex="-1"></a>)</span>
+<span id="cb26-8"><a href="review-of-some-mathmatical-concepts.html#cb26-8" tabindex="-1"></a>(</span>
+<span id="cb26-9"><a href="review-of-some-mathmatical-concepts.html#cb26-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>cdf))</span>
+<span id="cb26-10"><a href="review-of-some-mathmatical-concepts.html#cb26-10" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb26-11"><a href="review-of-some-mathmatical-concepts.html#cb26-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;X&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;cumulative density function&quot;</span>)</span>
+<span id="cb26-12"><a href="review-of-some-mathmatical-concepts.html#cb26-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb26-13"><a href="review-of-some-mathmatical-concepts.html#cb26-13" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p>For discrete random variables, the cdf is defined exactly the same, but we need to take special care of the inequality. For example, consider a 6-sided fair die roll. The support of this random variable is <span class="math inline">\(\{1, 2, 3, 4, 5, 6\}\)</span>, the probability of rolling any of these is <span class="math inline">\(\frac16\)</span>, but the probability of getting anything other than these is zero. Therefore, for example, the probabilities of rolling a number less than or equal to 3.01, <span class="math inline">\(\pi\)</span>, 3.6, and 3.99 are all the same (i.e. they are all equal to <span class="math inline">\(\frac12\)</span>). Then, as the function gets to <span class="math inline">\(x=4\)</span>, it jumps up to <span class="math inline">\(\frac{2}{3}\)</span>. Therefore, at every <span class="math inline">\(x\)</span> in the support of a discrete random variable, the cdf jumps up, and it is flat everywhere else. For example, Figure <span class="math inline">\(\ref{fig:Discretecdf}\)</span>a shows the cdf of a fair, 6-sided die roll. The following Figure shows the cdf of the <span class="math inline">\(\mathrm{Binomial}(5, 0.6)\)</span> distribution, which can be constructed by flipping five coins coins, each with a probability of 0.6 of coming up heads, and then counting the number of heads. Mathematically, this cdf is</p>
+<p><span class="math display">\[
+F_X(x)=\begin{cases}
+0&amp;\text{if }x&lt;0\\
+\sum_{k=0}^{\mathrm{floor}(x)}\frac{5!}{k(5-k)!}0.6^k0.4^{5-k} &amp; \text{if }x\in[0,5]\\
+1&amp;\text{otherwise}
+\end{cases}
+\]</span>
+where <code>floor</code> rounds a number down to the nearest integer.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="review-of-some-mathmatical-concepts.html#cb27-1" tabindex="-1"></a>d<span class="ot">&lt;-</span>(<span class="fu">tibble</span>(<span class="at">x=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="dv">9</span>,<span class="at">length=</span><span class="dv">1000</span>))</span>
+<span id="cb27-2"><a href="review-of-some-mathmatical-concepts.html#cb27-2" tabindex="-1"></a>    <span class="sc">%&gt;%</span>   <span class="fu">mutate</span>(<span class="at">Fx =</span> <span class="fu">pbinom</span>(x,<span class="at">size=</span><span class="dv">5</span>,<span class="at">prob=</span><span class="fl">0.6</span>),</span>
+<span id="cb27-3"><a href="review-of-some-mathmatical-concepts.html#cb27-3" tabindex="-1"></a>                 <span class="at">floorX =</span> <span class="fu">floor</span>(x))</span>
+<span id="cb27-4"><a href="review-of-some-mathmatical-concepts.html#cb27-4" tabindex="-1"></a>)</span>
+<span id="cb27-5"><a href="review-of-some-mathmatical-concepts.html#cb27-5" tabindex="-1"></a>(</span>
+<span id="cb27-6"><a href="review-of-some-mathmatical-concepts.html#cb27-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>Fx,<span class="at">group=</span><span class="fu">floor</span>(x)))</span>
+<span id="cb27-7"><a href="review-of-some-mathmatical-concepts.html#cb27-7" tabindex="-1"></a>  </span>
+<span id="cb27-8"><a href="review-of-some-mathmatical-concepts.html#cb27-8" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb27-9"><a href="review-of-some-mathmatical-concepts.html#cb27-9" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span>d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(x<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(x<span class="sc">&lt;=</span><span class="dv">5</span>),<span class="fu">aes</span>(<span class="at">x=</span>floorX,<span class="at">y=</span>Fx))</span>
+<span id="cb27-10"><a href="review-of-some-mathmatical-concepts.html#cb27-10" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb27-11"><a href="review-of-some-mathmatical-concepts.html#cb27-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;X&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;cumulative density function&quot;</span>)</span>
+<span id="cb27-12"><a href="review-of-some-mathmatical-concepts.html#cb27-12" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+</div>
+<div id="probability-mass-function" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Probability mass function<a href="review-of-some-mathmatical-concepts.html#probability-mass-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can describe discrete random variables using a <em>probability mass function</em> (pmf). These take a number on the real number line, and return the probability that the random variable is equal to it. Going back to our fair die and Binomial examples in Figure <span class="math inline">\(\ref{fig:Discretecdf}\)</span>, the pmf of these are:
+<span class="math display">\[\begin{align}
+\text{Fair die roll}:\quad p(x)&amp;=\begin{cases}
+\frac16 &amp; \text{if } x\in\{1, 2, 3, 4, 5, 6\}\\
+0 &amp;\text{otherwise}\label{eq:FairDie}
+\end{cases}\\
+\mathrm{Binomial}(5, 0.6):\quad p(x)&amp;=\begin{cases}
+\frac{5!}{x!(5-x)!} 0.6^x 0.4^{5-x} &amp;\text{if } x\in\{0,1, 2, 3, 4, 5\}\\
+0 &amp;\text{otherwise}
+\end{cases}\label{eq:Binomial506}
+\end{align}\]</span></p>
+<p>Note that we can find the height of the cdf at the values in the support by adding up all of the values of the pmf between <span class="math inline">\(-\infty\)</span> and <span class="math inline">\(x\)</span>.</p>
+<p>Any pmf <span class="math inline">\(p(x)\)</span> must only return non-negative numbers (because negative probability does not make sense), and must sum to 1 (because this is the probability of drawing an <span class="math inline">\(x\)</span> inside the support).</p>
+</div>
+<div id="probability-density-function" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Probability density function<a href="review-of-some-mathmatical-concepts.html#probability-density-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We cannot use a pmf to describe continuous random variables. To see this, note that for a continuous random variable <span class="math inline">\(X\)</span>, the probability that <span class="math inline">\(X\)</span> is equal to a particular value is zero. For example, the probability that we will get <em>exactly</em> half an inch of rain tomorrow is zero. Not because half an inch of rain is not in the support of rainfall that we could get tomorrow, but because rain does not fall in discrete chunks. Instead, we use a probability <em>density</em> function (pdf) to describe how likely drawing particular values are. If we integrate this thing over a region, we get the probability that the random variable is drawn within this region. For example, while the probability of exactly half an inch of rain is zero, the probability of getting between 1/4 and 3/4 inches of rain is not, and also quite a meaningful number (and useful, depending on how much you care about rainfall). The pdf <span class="math inline">\(f_X(x)\)</span> therefore has the following properties:</p>
+<p><span class="math display">\[\begin{align}
+\Pr[X\in(a, b)]&amp;=\int_a^bf_X(x)\mathrm dx\\
+\Pr[X\leq x]&amp;=\int_{-\infty}^xf_X(\tilde x)\mathrm d\tilde x =F_x(x)\\
+\frac{\mathrm d}{\mathrm d x}F_x(x) &amp;=f_x(x)
+\end{align}\]</span>
+While the 2nd and 3rd lines of equations here are implied by the first, I feel that they are worth pointing out: know how to go between pdf and cdf, and know how they relate to the pmf of a discrete variable. Like pmfs, and pdf must never return negative numbers, and must integrate to 1.</p>
+</div>
+</div>
+<div id="ways-to-summarize-a-distribution" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Ways to summarize a distribution<a href="review-of-some-mathmatical-concepts.html#ways-to-summarize-a-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>While a cdf, pmf, or pdf will completely characterize a distribution, they sometimes require a bit of work to find the economically relevant values associated with this distribution. For example, a risk-neutral person cares only about the expected value of a distribution over money, and hence what we would really want to know is the <em>expected value</em>, or <em>expectation</em>, of a random variable <span class="math inline">\(X\)</span> with support <span class="math inline">\(S_X\)</span> and cdf <span class="math inline">\(F_X(x)\)</span>:
+<span class="math display">\[\begin{align}
+E[X]&amp;\equiv \int_{S_X} x\mathrm d F_X(x)\label{eq:def:mean}
+\end{align}\]</span></p>
+<p>If <span class="math inline">\(X\)</span> is a continuous random variable with pdf <span class="math inline">\(f_x(x)=F&#39;_X(x)\)</span>, then we can write the expectation as:
+<span class="math display">\[
+E[X]= \int_{S_X}xf_X(x)\mathrm dx
+\]</span>
+and if <span class="math inline">\(X\)</span> is a discrete random variable, we can write the expectation as:</p>
+<p><span class="math display">\[
+E[X]=\sum_{x\in S_X}xp_x(x)
+\]</span></p>
+<p>Hence, for the standard uniform random variable:</p>
+<p><span class="math display">\[
+E[U]=\int_0^11u\mathrm du=\left.0.5u^2\right|_0^1=0.5
+\]</span></p>
+<p>and for a fair die roll:</p>
+<p><span class="math display">\[
+E[X]=\sum_{k=1}^6k\frac{1}{6}=\frac{7\times 3}{6}=3.5
+\]</span></p>
+<p>A useful property of expectations is that one can add them up. For example, if we wanted to determine the expected value of the sum of two fair die rolls, say <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, then we could use our answer above as follows:</p>
+<p><span class="math display">\[
+E[X_1+X_2]=E[X_1]+E[X_2]=3.5+3.5=7
+\]</span></p>
+<p>This also means that if <span class="math inline">\(Y=cX\)</span> for some constant <span class="math inline">\(c\in\mathbb R\)</span>, then <span class="math inline">\(E[Y]=E[cX]=cE[X]\)</span>. However we need to be careful about non-linear functions of random variables. If <span class="math inline">\(h(x)\)</span> is a non-linear function, then in general <span class="math inline">\(E[h(X)]\neq h(E[X])\)</span>.</p>
+<p>Expected value gives us an idea of what we might, quite literally, “expect” <span class="math inline">\(X\)</span> to be. However it gives us no idea about how likely we are to be “close” to this value. For example,the following Figure shows the pdf and cdf of three distributions, all have the same mean, but some are more spread out than others.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="review-of-some-mathmatical-concepts.html#cb28-1" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
+<span id="cb28-2"><a href="review-of-some-mathmatical-concepts.html#cb28-2" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="at">length=</span><span class="dv">100</span>)</span>
+<span id="cb28-3"><a href="review-of-some-mathmatical-concepts.html#cb28-3" tabindex="-1"></a><span class="cf">for</span> (vv <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)) {</span>
+<span id="cb28-4"><a href="review-of-some-mathmatical-concepts.html#cb28-4" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">pnorm</span>(x,<span class="at">mean=</span><span class="dv">0</span>,<span class="at">sd=</span><span class="fu">sqrt</span>(vv)),<span class="at">variance=</span>vv,<span class="at">type=</span><span class="st">&quot;cdf&quot;</span>)</span>
+<span id="cb28-5"><a href="review-of-some-mathmatical-concepts.html#cb28-5" tabindex="-1"></a>  d<span class="ot">&lt;-</span><span class="fu">rbind</span>(d,tmp)</span>
+<span id="cb28-6"><a href="review-of-some-mathmatical-concepts.html#cb28-6" tabindex="-1"></a>  tmp<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">x=</span>X,<span class="at">y=</span><span class="fu">dnorm</span>(x,<span class="at">mean=</span><span class="dv">0</span>,<span class="at">sd=</span><span class="fu">sqrt</span>(vv)),<span class="at">variance=</span>vv,<span class="at">type=</span><span class="st">&quot;pdf&quot;</span>)</span>
+<span id="cb28-7"><a href="review-of-some-mathmatical-concepts.html#cb28-7" tabindex="-1"></a>  d<span class="ot">&lt;-</span><span class="fu">rbind</span>(d,tmp)</span>
+<span id="cb28-8"><a href="review-of-some-mathmatical-concepts.html#cb28-8" tabindex="-1"></a>}</span>
+<span id="cb28-9"><a href="review-of-some-mathmatical-concepts.html#cb28-9" tabindex="-1"></a>(</span>
+<span id="cb28-10"><a href="review-of-some-mathmatical-concepts.html#cb28-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y,<span class="at">color=</span>variance))</span>
+<span id="cb28-11"><a href="review-of-some-mathmatical-concepts.html#cb28-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>()</span>
+<span id="cb28-12"><a href="review-of-some-mathmatical-concepts.html#cb28-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>type)</span>
+<span id="cb28-13"><a href="review-of-some-mathmatical-concepts.html#cb28-13" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb28-14"><a href="review-of-some-mathmatical-concepts.html#cb28-14" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p>One measure of this is <em>variance</em>:</p>
+<p><span class="math display">\[\begin{align}
+V[X]&amp;\equiv E\left[\left(X-E[X]\right)^2\right]\label{eq:defV}
+\end{align}\]</span></p>
+<p>In words, <span class="math inline">\(V[X]\)</span> is <span class="math inline">\(X\)</span>’s “expected squared distance” from its mean. For example, for the uniform distribution, the variance of <span class="math inline">\(X\)</span> is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+V[X]&amp;=\int_0^1(x-0.5)^2\mathrm dx\\
+&amp;=\left.\frac{1}{3}\left(x-0.5\right)^3\right|_0^1\\
+&amp;=\frac{1}{3}(0.5^3-(-0.5)^3)\\
+&amp;=\frac{1}{12}
+\end{aligned}
+\]</span></p>
+<p>One can use our knowledge of expectations to further simplify our equation for variance as follows:
+<span class="math display">\[\begin{align}
+V[X]&amp;= E\left[\left(X-E[X]\right)^2\right]\\
+&amp;=E\left[X^2-2XE[X]+E[X]^2\right]\\
+&amp;=E[X^2]-E\left[2XE[X]\right]+E\left[E[X]^2\right]\\
+&amp;=E[X^2]-2E[X]^2+E[X]^2\\
+&amp;=E[X^2]-E[X]^2
+\end{align}\]</span>
+where the 2nd row expands the squared term, the third recognizes that this is the expectation of the sum of some random variables, and the fourth recognizes that 2 and <span class="math inline">\(E[X]\)</span> are constants. Since we have to compute <span class="math inline">\(E[X]\)</span> to get to <span class="math inline">\(V[X]\)</span> anyway, it is sometimes easier to compute <span class="math inline">\(E[X^2]\)</span> first, rather than <span class="math inline">\(E[(X-E[X])^2]\)</span> directly. For example, with the fair die roll:
+<span class="math display">\[\begin{align}
+E[X^2]&amp;=\sum_{k=1}^6 k^2\frac16
+=\frac{1+4+9+16+25+36}{6}
+=\frac{91}{6}\\
+V[X]&amp;=\frac{91}{6}-\left(\frac{21}{6}\right)^2=\frac{546-441}{36}=\frac{105}{36}\approx 2.92
+\end{align}\]</span>
+Note that variance and expectation are indifferent units. For example, if <span class="math inline">\(X\)</span> is the height of a human in meters, then <span class="math inline">\(E[x]\)</span> has units of meters, and <span class="math inline">\(V[X]\)</span> is in square meters, an area! To express spread in the same units and the mean, we therefore sometimes take the square root of this, which we call standard deviation.</p>
+<p>Like means, we can add the variances of two random variables, but only if they are not correlated. To see this, we go back to our definition of variance:
+<span class="math display">\[\begin{align}
+V[X+Y]&amp;=E\left[\left(X+Y-E[X+Y]\right)^2\right]\\
+&amp;=E\left[\left(X+Y-E[X]-E[Y]\right)^2\right]\\
+&amp;=E\left[\left((X-E[X])+(Y-E[Y])\right)^2\right]\\
+&amp;=E\left[(X-E[X])^2+(Y-E[Y])^2+2(X-E[X])(Y-E[Y])\right]\\
+&amp;=E\left[(X-E[X])^2\right]+E\left[(Y-E[Y])^2\right]+2E\left[(X-E[X])(Y-E[Y])\right]\\
+&amp;=V[X]+V[Y]+\underbrace{2E\left[(X-E[X])(Y-E[Y])\right]}_{\mathrm{cov}(X,Y)}
+\end{align}\]</span>
+Where the last term <span class="math inline">\(E\left[(X-E[X])(Y-E[Y])\right]=\mathrm{cov}(X,Y)\)</span> is the <em>covariance</em> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. This is a measure of how much <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> move together in a linear way. Loosely, if <span class="math inline">\(\mathrm{cov}(X,Y)&gt;0\)</span>, then a particularly large <span class="math inline">\(X\)</span> means that <span class="math inline">\(Y\)</span> is also likely to be large; conversely, <span class="math inline">\(\mathrm{cov}(X,Y)&lt;0\)</span> tells us that a particularly large <span class="math inline">\(X\)</span> means that <span class="math inline">\(Y\)</span> is likely to be small. There are many cases in econometrics where we assume (perhaps to our own peril) that a covariance is zero. In fact, a lot of this course will be devoted to what goes wrong when <span class="math inline">\(\mathrm{cov}(X,Y)\neq0\)</span>. When working through a derivation, therefore, please think carefully about why this thing migh or might not be equal to zero. Ideally, have a good story to back up your decision!</p>
+<p>This leads us perfectly in to <span class="math inline">\(\ldots\)</span></p>
+</div>
+<div id="describing-the-relationship-between-two-or-more-random-variables" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Describing the relationship between two or more random variables<a href="review-of-some-mathmatical-concepts.html#describing-the-relationship-between-two-or-more-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If our toolbox could only analyze one random variable at a time, econometrics would not be very interesting.
+Most of the empirical questions in economics boil down to “what is the causal effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>”. So we had better have a way of describing the relationship between (at least) two random variables. While we are mostly interested in linear correlations, this by no means is the be all and end all of the way <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> could be related to each other.
+This section shall proceed with describing the relationship between two random variables, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>; however all of this generalizes reasonably easily to more than two random variables.</p>
+<p>Up to this point, we have been describing <em>marginal</em> probability density/mass functions, <em>marginal</em> expectations, and <em>marginal</em> variances. For example, <span class="math inline">\(E[Y]\)</span> tells us our expected value of <span class="math inline">\(Y\)</span>, <em>if we were to have absolutely no information</em> about <span class="math inline">\(Y\)</span>. For example, <span class="math inline">\(Y\)</span> might be the height of a newborn baby. <span class="math inline">\(E[Y]\)</span> would give us a point prediction of this. Could we do better if we observed something else? Almost certainly yes! (In fact, we <em>can’t</em> do any worse: we can always use <span class="math inline">\(E[Y]\)</span>.)
+Suppose that we observed <span class="math inline">\(X\)</span>, the height of the baby’s mother. Then we could incorporate this information into our expectation, which we will notate as: <span class="math inline">\(E[Y\mid X]\)</span>. This is called a <em>conditional</em> expectation, or more precisely: the expectation of <span class="math inline">\(Y\)</span> conditional on <span class="math inline">\(X\)</span>. If <span class="math inline">\(X\)</span> tells us nothing about <span class="math inline">\(Y\)</span>, then the conditional and unconditional expectations are equal: <span class="math inline">\(E[Y\mid X]=E[Y]\)</span>. On the other hand, if <span class="math inline">\(X\)</span> helps us improve this point prediction, then <span class="math inline">\(E[Y\mid X]\neq E[Y]\)</span>.</p>
+<div id="joint-distribution-functions" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Joint distribution functions<a href="review-of-some-mathmatical-concepts.html#joint-distribution-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>But to fully understand the relationship between two random variables, we need to look at things that fully characterize their joint distribution. For any two random variables, we can always use a joint cdf, which tells us the probability that both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are below particular values:
+<span class="math display">\[\begin{align}
+F_{X,Y}(x,y)&amp;=\Pr[(X\leq x) \cap (Y \leq y)]
+\end{align}\]</span>
+where “<span class="math inline">\(\cap\)</span>” is the set notation for “intersection”, meaning that we are asking when both <span class="math inline">\(X\leq x\)</span> <em>and</em> <span class="math inline">\(Y\leq y\)</span>. <span class="math inline">\(F_{X,Y}(x,y)\)</span> is referred to as the multivariate (or joint) cumulative density (or distribution) function. This thing has some analogous properties to single-variable cdfs introduced earlier:</p>
+<ul>
+<li><span class="math inline">\(F_{x,y}(x,y)\to0\)</span> as <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> both <span class="math inline">\(\to-\infty\)</span>. That is, the probability of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> being less than arbitrarily large negative numbers is zero.</li>
+<li>By the same reasoning: <span class="math inline">\(F_{x,y}(x,y)\to1\)</span> as <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> both <span class="math inline">\(\to\infty\)</span></li>
+<li>For any <span class="math inline">\(x, y, x&#39;, y&#39;\)</span> such that <span class="math inline">\(x&#39;\geq x\)</span> and <span class="math inline">\(y&#39; \geq y\)</span>, <span class="math inline">\(F_{X,Y}(x&#39;,y&#39;)\geq F_{X,Y}(x,y)\)</span>. That is, if you increase any of the functions arguments, then you are relaxing the requirements for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> to be less than their specified values.</li>
+</ul>
+<p>In addition to these:
+<span class="math display">\[\begin{align}
+\lim_{y\to\infty} F_{X,Y}(x,y)=F_X(x), \quad \lim_{x\to\infty} F_{X,Y}(x,y)=F_Y(y)
+\end{align}\]</span>
+That is, if you make one of these cutoffs arbitrarily large, then the random variable corresponding to that cutoff will almost certainly be below it, hence all that is left to check is whether the other random variable is less than its cutoff, which is the same criterion for the univariate cdf introduced earlier.</p>
+<p>From here, we can define joint pdfs and pmfs analogously. For continuous variables, the joint pdf is:
+<span class="math display">\[\begin{align}
+f_{X,Y}(x,y)&amp;=\frac{\mathrm d^2}{\mathrm dx \mathrm dy}F_{X,Y}(x,y)
+\end{align}\]</span>
+and for discrete random variables, the joint pmf is:
+<span class="math display">\[\begin{align}
+p_{X,Y}(x,y)&amp;=\Pr[(X=x)\cap (Y=y)]
+\end{align}\]</span>
+To get the marginal (univariate) pdf (cdf) of <span class="math inline">\(X\)</span>, we integrate (sum) out <span class="math inline">\(Y\)</span>:
+<span class="math display">\[\begin{align}
+f_{X}(x)&amp;=\int_{S_Y}f_{X,Y}(x,y)\mathrm dy
+\end{align}\]</span></p>
+</div>
+<div id="conditional-probability" class="section level3 hasAnchor" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Conditional probability<a href="review-of-some-mathmatical-concepts.html#conditional-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>So things like <span class="math inline">\(p_{X,Y}(x,y)\)</span> can tell us the likelihood of paired events (<span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>) occurring. What if we already knew that one of them was. Could we refine our idea about the distribution of the other? Yes! This is where we introduce Bayes’ Theorem. It tells us how we should incorporate some information <span class="math inline">\(Y\)</span> about our beliefs (i.e. distribution) about some other variable <span class="math inline">\(X\)</span>. Given a joint pdf <span class="math inline">\(f_{X,Y}(x,y)\)</span>, suppose that we know that <span class="math inline">\(X\)</span> takes on a particular value <span class="math inline">\(x&#39;\)</span>, then we can use the two following observations:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(X\)</span> can now be treated as a constant, because we know that <span class="math inline">\(X=x&#39;\)</span>, and</li>
+<li>Unless <span class="math inline">\(Y\)</span> is a deterministic function of <span class="math inline">\(Y\)</span>, then there is still some uncertainty about <span class="math inline">\(X\)</span>.</li>
+</ol>
+<p>These observations mean that the density of <span class="math inline">\(Y\)</span> conditional on <span class="math inline">\(X=x&#39;\)</span> must be proportional to <span class="math inline">\(f_{X,Y}(x&#39;,y)\)</span>. Alternatively put, this density must have the same shape as the cross-section of joint pdf that we would slice out if we took a machete to the <span class="math inline">\(y=y&#39;\)</span> plane of the joint pdf plot. But once we know the pdf of something is proportional to something, then we can work out the actual pdf becauese it must integrate to one. Hence:
+<span class="math display">\[\begin{align}
+f_{Y\mid X}(y;x)&amp;\propto f_{X,Y}(x,y)\\
+\implies f_{Y\mid x}(y;x)&amp;=\frac{f_{X,Y}(x,y)}{\int_{S_X}f_{X,Y}(x,y) \mathrm dy}
+\end{align}\]</span>
+The above ramblings were formalized much more eloquently by Thomas Bayes in the 1700s:</p>
+<blockquote>
+<p><strong>(Bayes’ Theorem)</strong> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables, and <span class="math inline">\(p(X)\)</span> and <span class="math inline">\(p(Y)\)</span> denote the marginal probability (density) of events <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> occurring respectively, and denote the probability of <span class="math inline">\(X\)</span> (<span class="math inline">\(Y\)</span>) occurring {} on a particular realization of <span class="math inline">\(Y\)</span> (<span class="math inline">\(X\)</span>) as <span class="math inline">\(p(X\mid Y)\)</span> (<span class="math inline">\(p(Y\mid X\)</span>), then:
+<span class="math display">\[\begin{align}
+p(Y \mid X)&amp;=\frac{p(X\mid Y)p(Y)}{p(X)} \label{eq:BayesRule}
+\end{align}\]</span></p>
+</blockquote>
+<p>In terms of a joint pdf, this equation becomes:
+<span class="math display">\[\begin{align}
+f_{X\mid Y}(x,y) &amp;=\frac{f_{Y\mid X}(y,x)f_Y(y)}{f_X(x)}
+\end{align}\]</span></p>
+<p>At this point, you would probably like to see an example, so here one is. Suppose that in a population, 1/3 of people have a particular disease. There is a test for the disease, but it is not perfect. If the person has the disease, then it returns a “positive” result with probability 5/6. If the person does not have the disease, then it returns a positive result with probability 2/3.
+Hence, the test is more likely to return a positive result if the person has the disease, but there will be some people without the disease who get a positive result (i.e.~false positive), and some people with the disease who do not get a positive result (i.e.~false negative). <em>What is the probability that a person has the disease if they received a positive test for the disease?</em> In the notation above, let <span class="math inline">\(P=1\)</span> if the person received a positive test result, <span class="math inline">\(P=0\)</span> otherwise, and <span class="math inline">\(D=1\)</span> if the person has the disease, <span class="math inline">\(D=0\)</span> otherwise. We need to compute the conditional probability <span class="math inline">\(p(D=1\mid P=1)\)</span>. The probability that a person has the disease, conditional on receiving a positive test result. The above description gives us the following:</p>
+<ul>
+<li><span class="math inline">\(p(P=1\mid D = 1)=5/6\)</span> i.e.~if a person has the disease, they test positive with probability 5/6</li>
+<li><span class="math inline">\(p(P=1\mid D=0)=1/3\)</span> i.e.~if a person does not have the disease, they test positive with probability 1/3</li>
+<li><span class="math inline">\(p(D=1)= 1/3\)</span>, the fraction of people who have the disease.</li>
+<li><span class="math inline">\(p(D=0)= 2/3\)</span>, the fraction of people who do not have the disease.</li>
+</ul>
+<p>We can use Bayes’ Theorem to calculate <span class="math inline">\(p(D=1\mid P=1)\)</span>:
+<span class="math display">\[\begin{align}
+p(D=1\mid P=1) &amp;=\frac{p(P=1 \mid D = 1)p(D=1)}{p(P=1)}
+\end{align}\]</span>
+We know everything on the right-hand side of this except for the denominator, which is equal to the probability someone tests positive for the disease, without knowing whether or not they have it. There are (at least) two solutions to this. The first is to explicitly compute it:
+<span class="math display">\[\begin{align}
+p(P=1)&amp;=p(P=1\mid D=1)p(D=1)+p(P=1\mid D=0)p(D=0) \\
+&amp;= \frac56\times\frac13+\frac13\times\frac23=\frac{5+4}{18}=\frac{9}{18}=\frac{1}{2}
+\end{align}\]</span>
+OK, so if we test the entire population, 50% of people will be testing positive. If that seems worrysome to you, then good! We can now substitute the other things we know into our equation:
+<span class="math display">\[\begin{align}
+p(D=1\mid P=1) &amp;=\frac{5/6\times 1/3}{0.5}=\frac{5}{18}\times 2 = \frac{5}{9}\approx 0.56
+\end{align}\]</span></p>
+<p>So a little over half the people who test positive will have the disease. The worrying part is that a little under half of the people who test positive will <em>not</em> have the disease. Depending on if there is any stigma associated with the disease, it may not be a good idea to test everyone. A more palatable solution for this would be to only test people who are suspected (either by themselves or their doctor) of having the disease. Note that this would be represented in our problem as an increase in <span class="math inline">\(p(D=1)\)</span>, and hence a decrease in <span class="math inline">\(p(D=0)\)</span>.</p>
+<p>The other method of solving this (alluded to above) is to recognize that <span class="math inline">\(p(D=1\mid P=1)=1-p(D=0\mid P=1)\)</span>. If we take the ratio of these two conditional probabilities, the expression simplifies to something without <span class="math inline">\(p(P=1)\)</span>:
+<span class="math display">\[\begin{align}
+\frac{p(D=1\mid P=1) }{p(D=0\mid P=1) }&amp;=\frac{p(P=1 \mid D = 1)p(D=1)}{p(P=1)}\times \frac{p(P=1)}{p(P=1 \mid D = 0)p(D=1)}\\
+&amp;=\frac{p(P=1 \mid D = 1)}{p(P=1 \mid D = 0)p(D=1)}\\
+&amp;=\frac{5/6\times 1/3}{1/3\times 2/3}=5/4=1.25
+\end{align}\]</span></p>
+<p>This is (almost) the answer expressed in odds ratio form: people in the group who tested positive are 1.25 times as likely to have the disease than not. But these fractions need to add to 1, so letting <span class="math inline">\(q=p(D=1\mid P=1)\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+\frac{q}{1-q}&amp;=5/4, \quad q = 5/9
+\end{align}\]</span></p>
+</div>
+</div>
+<div id="exercises-1" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Exercises<a href="review-of-some-mathmatical-concepts.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="four-sided-die-roll" class="section level3 hasAnchor" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Four-sided die roll<a href="review-of-some-mathmatical-concepts.html#four-sided-die-roll" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let <span class="math inline">\(X\)</span> be the sum of two fair, four-sided die rolls. That is, each die has four faces, with numbers 1, 2, 3, 4.</p>
+<ol style="list-style-type: decimal">
+<li>What is the support of <span class="math inline">\(X\)</span>?</li>
+<li>Is <span class="math inline">\(X\)</span> a discrete or continuous random variable? Explain</li>
+<li>Based on your answer to the previous question, construct the pdf or pmf of <span class="math inline">\(X\)</span>.</li>
+<li>Construct the cdf of <span class="math inline">\(X\)</span></li>
+<li>Compute <span class="math inline">\(E[X]\)</span> and <span class="math inline">\(V[X]\)</span>.</li>
+</ol>
+</div>
+<div id="exponential-distribution" class="section level3 hasAnchor" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Exponential distribution<a href="review-of-some-mathmatical-concepts.html#exponential-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The exponential distribution has probability density function:
+<span class="math display">\[\begin{align}
+f_X(x) &amp;= \begin{cases}
+c\, \mathrm{exp}(-\lambda x)&amp;\text{if }x&gt;0\\
+0&amp;\text{otherwise}
+\end{cases}
+\end{align}\]</span>
+where <span class="math inline">\(c\)</span> is a positive constant, and <span class="math inline">\(\lambda\)</span> is a scale parameter.</p>
+<ol style="list-style-type: decimal">
+<li>What is the support of <span class="math inline">\(X\)</span>?</li>
+<li>What must the positive constant <span class="math inline">\(c\)</span> be equal to?</li>
+<li>What is the cdf of <span class="math inline">\(X\)</span>?</li>
+<li>Determine <span class="math inline">\(E[X]\)</span> and <span class="math inline">\(V[X]\)</span>. To do this, you may need to use integration by parts:
+<span class="math display">\[\begin{align}
+\int_a^b u&#39;(x)v(x) \mathrm dx &amp;= \left[u(x)v(x)\right]_a^b-\int_a^b u(x)v&#39;(x) \mathrm dx
+\end{align}\]</span>
+where <span class="math inline">\(u(x)\)</span> an <span class="math inline">\(v(x)\)</span> are both differentiable functions. You won’t need to remember this, because you can always work it out from the product rule:
+<span class="math display">\[\begin{align}
+[u(x)v(x)]&#39;&amp;=u&#39;(x)v(x)+v&#39;(x)u(x)\\
+u&#39;(x)v(x)&amp;= [u(x)v(x)]&#39;- v&#39;(x)u(x)
+\end{align}\]</span>
+then integrate both sides.</li>
+</ol>
+</div>
+<div id="modeling-a-random-probability" class="section level3 hasAnchor" number="3.6.3">
+<h3><span class="header-section-number">3.6.3</span> Modeling a random probability<a href="review-of-some-mathmatical-concepts.html#modeling-a-random-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The cumulative density function for random variable <span class="math inline">\(X\)</span> is:
+<span class="math display">\[\begin{align*}
+F(x)&amp;=\begin{cases}
+0&amp;\text{ if } x\leq 0\\
+x^\alpha &amp;\text{ if } 0&lt;x&lt; 1\\
+1&amp;\text{if } x\geq 1
+\end{cases}
+\end{align*}\]</span>
+where <span class="math inline">\(\alpha&gt;0\)</span> is a parameter of the distribution.</p>
+<ol style="list-style-type: decimal">
+<li>What is the support of <span class="math inline">\(X\)</span>, and is <span class="math inline">\(X\)</span> a discrete or continuous random variable?</li>
+<li>Calculate the pdf, <span class="math inline">\(f(x)\)</span></li>
+<li>Calculate <span class="math inline">\(E[X]\)</span> and <span class="math inline">\(V[X]\)</span>.</li>
+<li>Calculate <span class="math inline">\(E(\log (X))\)</span> and <span class="math inline">\(V(\log(X))\)</span>. (requires integration by parts and l’Hopitale’s rule)</li>
+</ol>
+</div>
+<div id="an-unfair-coin" class="section level3 hasAnchor" number="3.6.4">
+<h3><span class="header-section-number">3.6.4</span> An unfair coin<a href="review-of-some-mathmatical-concepts.html#an-unfair-coin" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An unfair coin has a probability of <span class="math inline">\(\frac{1}{3}\)</span> coming up heads, tails otherwise. You keep flipping it until the first time it comes up heads. Let <span class="math inline">\(X\)</span> be the number of times you have to flip the coin.</p>
+<ol style="list-style-type: decimal">
+<li>What is the probability that <span class="math inline">\(X=10\)</span>? <em>Hint:</em> Since each coin flip is an independent event you can multiply the probability of each coin flip that needs to occur together. For example, the probability that <span class="math inline">\(X=4\)</span> is equal to:
+<span class="math display">\[\begin{align*}
+&amp;\Pr[\text{1st flip is tails}]\times\Pr[\text{3nd flip is tails}]\times\Pr[\text{3rd flip is tails}]\times\Pr[\text{4th flip is heads}]\\
+&amp;=\frac{2}{3}\times\frac{2}{3}\times\frac{2}{3}\times\frac{1}{3}=\frac{2^3}{3^4}
+\end{align*}\]</span></li>
+<li>What is the probability that <span class="math inline">\(X\leq 4\)</span>?</li>
+<li>What is the probability mass function for <span class="math inline">\(X\)</span>?</li>
+<li>Verify that your pmf sums to 1. You can use the results that for <span class="math inline">\(-1&lt;p&lt;1\)</span>:
+<span class="math display">\[\begin{align*}
+\sum_{n=0}^\infty p^n&amp;=\frac{1}{1-p}, \quad \text{and}\ \sum_{n=1}^\infty p^n=1+\sum_{n=0}^\infty p^n
+\end{align*}\]</span></li>
+</ol>
+</div>
+<div id="adding-two-random-variables" class="section level3 hasAnchor" number="3.6.5">
+<h3><span class="header-section-number">3.6.5</span> Adding two random variables<a href="review-of-some-mathmatical-concepts.html#adding-two-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let <span class="math inline">\(X\)</span> be the sum of two fair, four-sided die rolls. That is, each die has four faces, with numbers 1, 2, 3, and 4. For the purposes of this exercise, let <span class="math inline">\(Z_1\)</span> and <span class="math inline">\(Z_2\)</span> be the die rolls themselves, hence <span class="math inline">\(X=Z_1+Z_2\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>What is the pmf/pdf of the distribution of <span class="math inline">\(X\)</span>, given that <span class="math inline">\(X\)</span> is an even number?</li>
+<li>Given that the first die roll was a 2, what is the expected value of <span class="math inline">\(X\)</span>?</li>
+<li>What is the variance of <span class="math inline">\(X\)</span>, given that <span class="math inline">\(Z_2=3\)</span>?</li>
+<li>What is the expected value of <span class="math inline">\(X\)</span>, given that <span class="math inline">\(Z_2\leq 3\)</span>?</li>
+<li>What is the probability that <span class="math inline">\(X=4\)</span>, given that <span class="math inline">\(Z_2\leq 3\)</span>?</li>
+<li>What is the covariance of <span class="math inline">\(X\)</span> and <span class="math inline">\(Z_1\)</span>?</li>
+</ol>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Bailey" class="csl-entry">
+Bailey, Michael A. 2019. <em>Real Econometrics: The Right Tools to Answer Important Questions</em>. Oxford University Press.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="getting-started-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estimators.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

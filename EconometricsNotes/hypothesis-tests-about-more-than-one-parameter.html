@@ -1,0 +1,3243 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Hypothesis tests about more than one parameter | Econometrics notes</title>
+  <meta name="description" content="11 Hypothesis tests about more than one parameter | Econometrics notes" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Hypothesis tests about more than one parameter | Econometrics notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Hypothesis tests about more than one parameter | Econometrics notes" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2025-08-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="standard-errors-in-linear-regression.html"/>
+<link rel="next" href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>1</b> Introduction to the course</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#housekeeping"><i class="fa fa-check"></i><b>1.1</b> Housekeeping</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#two-important-skills-in-econometrics"><i class="fa fa-check"></i><b>1.2</b> Two important skills in econometrics</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#example-incumbency-advantage---lee-moretti-and-butler-2004"><i class="fa fa-check"></i><b>1.3</b> Example: incumbency advantage - Lee, Moretti, and Butler (2004)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>R</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#scripts"><i class="fa fa-check"></i><b>2.2</b> Scripts</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-working-directory"><i class="fa fa-check"></i><b>2.3</b> The working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#exercises"><i class="fa fa-check"></i><b>2.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#understanding-some-code"><i class="fa fa-check"></i><b>2.4.1</b> Understanding some code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html"><i class="fa fa-check"></i><b>3</b> Review of some mathmatical concepts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#summation"><i class="fa fa-check"></i><b>3.1</b> Summation</a></li>
+<li class="chapter" data-level="3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-random-variables"><i class="fa fa-check"></i><b>3.2</b> Describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#discrete-random-variables"><i class="fa fa-check"></i><b>3.2.1</b> Discrete random variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#continuous-random-variables"><i class="fa fa-check"></i><b>3.2.2</b> Continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#completely-describing-random-variables"><i class="fa fa-check"></i><b>3.3</b> Completely describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#cumulative-density-function"><i class="fa fa-check"></i><b>3.3.1</b> Cumulative density function</a></li>
+<li class="chapter" data-level="3.3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-mass-function"><i class="fa fa-check"></i><b>3.3.2</b> Probability mass function</a></li>
+<li class="chapter" data-level="3.3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-density-function"><i class="fa fa-check"></i><b>3.3.3</b> Probability density function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#ways-to-summarize-a-distribution"><i class="fa fa-check"></i><b>3.4</b> Ways to summarize a distribution</a></li>
+<li class="chapter" data-level="3.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-the-relationship-between-two-or-more-random-variables"><i class="fa fa-check"></i><b>3.5</b> Describing the relationship between two or more random variables</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#joint-distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Joint distribution functions</a></li>
+<li class="chapter" data-level="3.5.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#conditional-probability"><i class="fa fa-check"></i><b>3.5.2</b> Conditional probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exercises-1"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#four-sided-die-roll"><i class="fa fa-check"></i><b>3.6.1</b> Four-sided die roll</a></li>
+<li class="chapter" data-level="3.6.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exponential-distribution"><i class="fa fa-check"></i><b>3.6.2</b> Exponential distribution</a></li>
+<li class="chapter" data-level="3.6.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#modeling-a-random-probability"><i class="fa fa-check"></i><b>3.6.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="3.6.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#an-unfair-coin"><i class="fa fa-check"></i><b>3.6.4</b> An unfair coin</a></li>
+<li class="chapter" data-level="3.6.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#adding-two-random-variables"><i class="fa fa-check"></i><b>3.6.5</b> Adding two random variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estimators.html"><a href="estimators.html"><i class="fa fa-check"></i><b>4</b> Estimators</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="estimators.html"><a href="estimators.html#estimators-and-the-sampling-distribution"><i class="fa fa-check"></i><b>4.1</b> Estimators and the sampling distribution</a></li>
+<li class="chapter" data-level="4.2" data-path="estimators.html"><a href="estimators.html#small-sample-properties-of-estimators"><i class="fa fa-check"></i><b>4.2</b> Small sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="estimators.html"><a href="estimators.html#bias"><i class="fa fa-check"></i><b>4.2.1</b> Bias</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estimators.html"><a href="estimators.html#variance"><i class="fa fa-check"></i><b>4.2.2</b> Variance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="estimators.html"><a href="estimators.html#mean-squared-error"><i class="fa fa-check"></i><b>4.2.3</b> Mean squared error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="estimators.html"><a href="estimators.html#exercises-2"><i class="fa fa-check"></i><b>4.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="estimators.html"><a href="estimators.html#modeling-a-random-probability-1"><i class="fa fa-check"></i><b>4.3.1</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="4.3.2" data-path="estimators.html"><a href="estimators.html#exponential-distribution-1"><i class="fa fa-check"></i><b>4.3.2</b> Exponential distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>5</b> Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="inference.html"><a href="inference.html#hypothesis-tests"><i class="fa fa-check"></i><b>5.1</b> Hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="inference.html"><a href="inference.html#one-sided-hypothesis-tests"><i class="fa fa-check"></i><b>5.1.1</b> One-sided hypothesis tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="inference.html"><a href="inference.html#p-values"><i class="fa fa-check"></i><b>5.2</b> <span class="math inline">\(p\)</span>-values</a></li>
+<li class="chapter" data-level="5.3" data-path="inference.html"><a href="inference.html#confidence-intervals"><i class="fa fa-check"></i><b>5.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="5.4" data-path="inference.html"><a href="inference.html#test-power"><i class="fa fa-check"></i><b>5.4</b> Test power</a></li>
+<li class="chapter" data-level="5.5" data-path="inference.html"><a href="inference.html#the-take-away"><i class="fa fa-check"></i><b>5.5</b> The take-away</a></li>
+<li class="chapter" data-level="5.6" data-path="inference.html"><a href="inference.html#exercises-3"><i class="fa fa-check"></i><b>5.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="inference.html"><a href="inference.html#converting-a-continuous-variable-into-a-coin-flip"><i class="fa fa-check"></i><b>5.6.1</b> Converting a continuous variable into a coin flip</a></li>
+<li class="chapter" data-level="5.6.2" data-path="inference.html"><a href="inference.html#the-maximum-of-a-sample"><i class="fa fa-check"></i><b>5.6.2</b> The maximum of a sample</a></li>
+<li class="chapter" data-level="5.6.3" data-path="inference.html"><a href="inference.html#assessing-the-performance-of-a-cookbook-hypothesis-test"><i class="fa fa-check"></i><b>5.6.3</b> Assessing the performance of a “cookbook” hypothesis test</a></li>
+<li class="chapter" data-level="5.6.4" data-path="inference.html"><a href="inference.html#hypothesis-tests-using-graphs"><i class="fa fa-check"></i><b>5.6.4</b> Hypothesis tests using graphs</a></li>
+<li class="chapter" data-level="5.6.5" data-path="inference.html"><a href="inference.html#simulation-exercise"><i class="fa fa-check"></i><b>5.6.5</b> Simulation exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html"><i class="fa fa-check"></i><b>6</b> Inference using asymptotic assumptions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-estimators"><i class="fa fa-check"></i><b>6.1</b> Large-sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#consistency"><i class="fa fa-check"></i><b>6.1.1</b> Consistency</a></li>
+<li class="chapter" data-level="6.1.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#asymptotic-distribution"><i class="fa fa-check"></i><b>6.1.2</b> Asymptotic distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-sample-means"><i class="fa fa-check"></i><b>6.2</b> Large-sample properties of sample means</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-weak-law-of-large-numbers-wlln"><i class="fa fa-check"></i><b>6.2.1</b> The Weak Law of Large Numbers (WLLN)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-central-limit-theorem"><i class="fa fa-check"></i><b>6.2.2</b> A Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#using-large-sample-properties-to-make-inference-easier"><i class="fa fa-check"></i><b>6.3</b> Using large-sample properties to make inference easier</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#hypothesis-tests-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.1</b> Hypothesis tests with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#even-more-of-a-shortcut"><i class="fa fa-check"></i><b>6.3.2</b> Even more of a shortcut</a></li>
+<li class="chapter" data-level="6.3.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#confidence-intervals-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.3</b> Confidence intervals with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#p-values-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.4</b> <span class="math inline">\(p\)</span>-values with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#tieing-this-in-with-the-previous-chapter"><i class="fa fa-check"></i><b>6.3.5</b> Tieing this in with the previous chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#transforming-variables"><i class="fa fa-check"></i><b>6.4</b> Transforming variables</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-continuous-mapping-theorem"><i class="fa fa-check"></i><b>6.4.1</b> The continuous mapping theorem</a></li>
+<li class="chapter" data-level="6.4.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-delta-method"><i class="fa fa-check"></i><b>6.4.2</b> The delta method</a></li>
+<li class="chapter" data-level="6.4.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#jensens-inequality"><i class="fa fa-check"></i><b>6.4.3</b> Jensen’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exercises-4"><i class="fa fa-check"></i><b>6.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exponential-distribution-2"><i class="fa fa-check"></i><b>6.5.1</b> Exponential distribution</a></li>
+<li class="chapter" data-level="6.5.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-simulation"><i class="fa fa-check"></i><b>6.5.2</b> A simulation</a></li>
+<li class="chapter" data-level="6.5.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#modeling-a-random-probability-2"><i class="fa fa-check"></i><b>6.5.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="6.5.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-sort-of-simulation-exercise"><i class="fa fa-check"></i><b>6.5.4</b> A (sort-of) simulation exercise</a></li>
+<li class="chapter" data-level="6.5.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#one-test-three-ways"><i class="fa fa-check"></i><b>6.5.5</b> One test, three ways</a></li>
+<li class="chapter" data-level="6.5.6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#deriving-properties-of-estimators"><i class="fa fa-check"></i><b>6.5.6</b> Deriving properties of estimators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="linear-regression.html"><a href="linear-regression.html#derivation-of-the-bivariate-ols-slope-estimator"><i class="fa fa-check"></i><b>7.1</b> Derivation of the bivariate OLS slope estimator</a></li>
+<li class="chapter" data-level="7.2" data-path="linear-regression.html"><a href="linear-regression.html#unbiasedness"><i class="fa fa-check"></i><b>7.2</b> Unbiasedness</a></li>
+<li class="chapter" data-level="7.3" data-path="linear-regression.html"><a href="linear-regression.html#variance-1"><i class="fa fa-check"></i><b>7.3</b> Variance</a></li>
+<li class="chapter" data-level="7.4" data-path="linear-regression.html"><a href="linear-regression.html#inference-in-bivariate-ols"><i class="fa fa-check"></i><b>7.4</b> Inference in bivariate OLS</a></li>
+<li class="chapter" data-level="7.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-5"><i class="fa fa-check"></i><b>7.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="linear-regression.html"><a href="linear-regression.html#municipal-expenditure"><i class="fa fa-check"></i><b>7.5.1</b> Municipal expenditure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html"><i class="fa fa-check"></i><b>8</b> The shape of the right-hand side</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#linear-regression-as-a-model-for-conditional-expectation"><i class="fa fa-check"></i><b>8.1</b> Linear regression as a model for conditional expectation</a></li>
+<li class="chapter" data-level="8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#an-example-dataset"><i class="fa fa-check"></i><b>8.2</b> An example dataset</a></li>
+<li class="chapter" data-level="8.3" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#marginal-effects"><i class="fa fa-check"></i><b>8.3</b> Marginal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#categorical-variables"><i class="fa fa-check"></i><b>8.4</b> Categorical variables</a></li>
+<li class="chapter" data-level="8.5" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#interactions"><i class="fa fa-check"></i><b>8.5</b> Interactions</a></li>
+<li class="chapter" data-level="8.6" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#logarithms"><i class="fa fa-check"></i><b>8.6</b> Logarithms</a></li>
+<li class="chapter" data-level="8.7" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#polynomials"><i class="fa fa-check"></i><b>8.7</b> Polynomials</a></li>
+<li class="chapter" data-level="8.8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#exercises-6"><i class="fa fa-check"></i><b>8.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#baking-a-cake"><i class="fa fa-check"></i><b>8.8.1</b> Baking a cake</a></li>
+<li class="chapter" data-level="8.8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#psid-earnings-panel-data"><i class="fa fa-check"></i><b>8.8.2</b> PSID Earnings Panel Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html"><i class="fa fa-check"></i><b>9</b> Linear regression - common misconceptions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#heteroskedasticity"><i class="fa fa-check"></i><b>9.1</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#multicolinearity"><i class="fa fa-check"></i><b>9.2</b> Multicolinearity</a></li>
+<li class="chapter" data-level="9.3" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#omitted-variables-are-always-a-problem"><i class="fa fa-check"></i><b>9.3</b> Omitted variables are <em>always</em> a problem</a></li>
+<li class="chapter" data-level="9.4" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#normal-errors"><i class="fa fa-check"></i><b>9.4</b> Normal errors</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Standard errors in linear regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#homoskedasticity-the-standard-standard-errors"><i class="fa fa-check"></i><b>10.1</b> Homoskedasticity: the “standard” standard errors</a></li>
+<li class="chapter" data-level="10.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#heteroskedasticity-1"><i class="fa fa-check"></i><b>10.2</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="10.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#clustered-standard-errors"><i class="fa fa-check"></i><b>10.3</b> Clustered standard errors</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#an-example"><i class="fa fa-check"></i><b>10.3.1</b> An example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#standard-errors-for-multivariate-linear-regression"><i class="fa fa-check"></i><b>10.4</b> Standard errors for multivariate linear regression</a></li>
+<li class="chapter" data-level="10.5" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#calculating-standard-errors-in-r"><i class="fa fa-check"></i><b>10.5</b> Calculating standard errors in <em>R</em></a></li>
+<li class="chapter" data-level="10.6" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#exercises-7"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#galtons-families"><i class="fa fa-check"></i><b>10.6.1</b> Galton’s families</a></li>
+<li class="chapter" data-level="10.6.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#simulation"><i class="fa fa-check"></i><b>10.6.2</b> Simulation</a></li>
+<li class="chapter" data-level="10.6.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#more-simulation"><i class="fa fa-check"></i><b>10.6.3</b> More simulation</a></li>
+<li class="chapter" data-level="10.6.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#instructor-ratings"><i class="fa fa-check"></i><b>10.6.4</b> Instructor ratings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html"><i class="fa fa-check"></i><b>11</b> Hypothesis tests about more than one parameter</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-restricted-model"><i class="fa fa-check"></i><b>11.1</b> The restricted model</a></li>
+<li class="chapter" data-level="11.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-test-using-r2-that-you-probably-shouldnt-use"><i class="fa fa-check"></i><b>11.2</b> A test using <span class="math inline">\(R^2\)</span> that you probably shouldn’t use</a></li>
+<li class="chapter" data-level="11.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-more-robust-test"><i class="fa fa-check"></i><b>11.3</b> A more robust test</a></li>
+<li class="chapter" data-level="11.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#another-example"><i class="fa fa-check"></i><b>11.4</b> Another example</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-whether-the-child-is-male-of-female"><i class="fa fa-check"></i><b>11.4.1</b> The height of a child does not depend on whether the child is male of female</a></li>
+<li class="chapter" data-level="11.4.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-the-height-of-their-parents"><i class="fa fa-check"></i><b>11.4.2</b> The height of a child does not depend on the height of their parents</a></li>
+<li class="chapter" data-level="11.4.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-mother-height-on-child-height-is-the-same-as-the-effect-of-father-height-on-child-height"><i class="fa fa-check"></i><b>11.4.3</b> The effect of mother height on child height is the same as the effect of father height on child height</a></li>
+<li class="chapter" data-level="11.4.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-male-childrens-height-is-the-same-as-the-effect-of-parent-height-on-female-childrens-height"><i class="fa fa-check"></i><b>11.4.4</b> The effect of parent height on male children’s height is the same as the effect of parent height on female children’s height</a></li>
+<li class="chapter" data-level="11.4.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-child-height-is-linear"><i class="fa fa-check"></i><b>11.4.5</b> The effect of parent height on child height is linear</a></li>
+<li class="chapter" data-level="11.4.6" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#parents-who-are-on-average-one-inch-taller-have-children-that-are-on-average-one-inch-taller"><i class="fa fa-check"></i><b>11.4.6</b> Parents who are on average one inch taller have children that are on average one inch taller</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#exercises-8"><i class="fa fa-check"></i><b>11.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#project-star-student-teacher-achievement-ratio"><i class="fa fa-check"></i><b>11.5.1</b> Project STAR: Student-Teacher Achievement Ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><i class="fa fa-check"></i><b>12</b> Limited dependent variable models and maximum likelihood estimation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#motivation-the-linear-probability-model-works-134-of-the-time"><i class="fa fa-check"></i><b>12.1</b> Motivation: The linear probability model works 134% of the time</a></li>
+<li class="chapter" data-level="12.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-practical-solution-ensure-that-predictions-are-always-valid"><i class="fa fa-check"></i><b>12.2</b> A practical solution: Ensure that predictions are always valid</a></li>
+<li class="chapter" data-level="12.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#interpreting-the-coefficients-of-the-probit-and-logit-models"><i class="fa fa-check"></i><b>12.3</b> Interpreting the coefficients of the probit and logit models</a></li>
+<li class="chapter" data-level="12.4" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#but-how-do-we-estimate-it-maximum-likelihood"><i class="fa fa-check"></i><b>12.4</b> But how do we estimate it? Maximum likelihood</a></li>
+<li class="chapter" data-level="12.5" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#doing-inference-with-maximum-likelihood"><i class="fa fa-check"></i><b>12.5</b> Doing inference with maximum likelihood</a></li>
+<li class="chapter" data-level="12.6" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#how-some-estimators-relate-to-maximum-likelihood"><i class="fa fa-check"></i><b>12.6</b> How some estimators relate to maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sample-mean-for-a-bernoulli-coin-flip-variable"><i class="fa fa-check"></i><b>12.6.1</b> Sample mean for a Bernoulli (coin flip) variable</a></li>
+<li class="chapter" data-level="12.6.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#linear-regression-1"><i class="fa fa-check"></i><b>12.6.2</b> Linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#some-examples-of-estimating-parameters-using-maximum-likelihood"><i class="fa fa-check"></i><b>12.7</b> Some examples of estimating parameters using maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#geometric-distribution"><i class="fa fa-check"></i><b>12.7.1</b> Geometric distribution</a></li>
+<li class="chapter" data-level="12.7.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#simplified-beta-distribution"><i class="fa fa-check"></i><b>12.7.2</b> Simplified Beta distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#an-extended-example"><i class="fa fa-check"></i><b>12.8</b> An extended example</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#data"><i class="fa fa-check"></i><b>12.8.1</b> Data</a></li>
+<li class="chapter" data-level="12.8.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-research-question"><i class="fa fa-check"></i><b>12.8.2</b> A research question</a></li>
+<li class="chapter" data-level="12.8.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#the-model-based-approach"><i class="fa fa-check"></i><b>12.8.3</b> The model-based approach</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#exercises-9"><i class="fa fa-check"></i><b>12.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.9.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#checking-that-we-rolled-a-die-correctly"><i class="fa fa-check"></i><b>12.9.1</b> Checking that we rolled a die correctly</a></li>
+<li class="chapter" data-level="12.9.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#galtons-heights-dataset"><i class="fa fa-check"></i><b>12.9.2</b> Galton’s heights dataset</a></li>
+<li class="chapter" data-level="12.9.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sumo-wrestling"><i class="fa fa-check"></i><b>12.9.3</b> Sumo wrestling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html"><i class="fa fa-check"></i><b>13</b> Combining and manipulating datasets</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#merging-data-join"><i class="fa fa-check"></i><b>13.1</b> Merging data (<code>join</code>)</a></li>
+<li class="chapter" data-level="13.2" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#wide-and-long-formats-pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>13.2</b> Wide and long formats (<code>pivot_longer</code> and <code>pivot_wider</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="time-series-introduction.html"><a href="time-series-introduction.html"><i class="fa fa-check"></i><b>14</b> Time series – Introduction</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#autoregressive-and-moving-average-arma-models-the-basic-building-blocks-of-time-series-models"><i class="fa fa-check"></i><b>14.1</b> Autoregressive and moving average (ARMA) models: the basic building blocks of time series models</a></li>
+<li class="chapter" data-level="14.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-properties-of-arma-processes"><i class="fa fa-check"></i><b>14.2</b> Stationarity and properties of ARMA processes</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#examples"><i class="fa fa-check"></i><b>14.2.1</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#diagnostics-autocorrelation-and-partial-autocorrelation-functions"><i class="fa fa-check"></i><b>14.3</b> Diagnostics: Autocorrelation and partial autocorrelation functions</a></li>
+<li class="chapter" data-level="14.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-unemployment"><i class="fa fa-check"></i><b>14.4</b> Example dataset – unemployment</a></li>
+<li class="chapter" data-level="14.5" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-testing-for-unit-roots"><i class="fa fa-check"></i><b>14.5</b> Stationarity and testing for unit roots</a></li>
+<li class="chapter" data-level="14.6" data-path="time-series-introduction.html"><a href="time-series-introduction.html#non-stationarity-and-spurious-correlation"><i class="fa fa-check"></i><b>14.6</b> Non-stationarity and spurious correlation</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-share-a-trend"><i class="fa fa-check"></i><b>14.6.1</b> Two variables share a trend</a></li>
+<li class="chapter" data-level="14.6.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-are-cyclical"><i class="fa fa-check"></i><b>14.6.2</b> Two variables are cyclical</a></li>
+<li class="chapter" data-level="14.6.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-have-a-unit-root"><i class="fa fa-check"></i><b>14.6.3</b> Two variables have a unit root</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="time-series-introduction.html"><a href="time-series-introduction.html#differencing-and-stationarity"><i class="fa fa-check"></i><b>14.7</b> Differencing and stationarity</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#some-examples-of-making-non-stationary-series-stationary-through-differencing"><i class="fa fa-check"></i><b>14.7.1</b> Some examples of making non-stationary series stationary through differencing</a></li>
+<li class="chapter" data-level="14.7.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-us-consumer-price-index"><i class="fa fa-check"></i><b>14.7.2</b> Example dataset: US Consumer Price Index</a></li>
+<li class="chapter" data-level="14.7.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-data-gdp-and-money-supply"><i class="fa fa-check"></i><b>14.7.3</b> Example data: GDP and money supply</a></li>
+<li class="chapter" data-level="14.7.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-peace-corps"><i class="fa fa-check"></i><b>14.7.4</b> Example: Peace Corps</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="time-series-introduction.html"><a href="time-series-introduction.html#estimating-arima-models"><i class="fa fa-check"></i><b>14.8</b> Estimating ARIMA models</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html"><i class="fa fa-check"></i><b>15</b> Time series – Forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#prediction-and-forecasting"><i class="fa fa-check"></i><b>15.1</b> Prediction and forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-with-univariate-problems"><i class="fa fa-check"></i><b>15.1.1</b> Example: Prediction with univariate problems</a></li>
+<li class="chapter" data-level="15.1.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-in-bivariate-ols"><i class="fa fa-check"></i><b>15.1.2</b> Example: Prediction in bivariate OLS</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#cross-validation"><i class="fa fa-check"></i><b>15.2</b> Cross-validation</a></li>
+<li class="chapter" data-level="15.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-cpi-and-ppi"><i class="fa fa-check"></i><b>15.3</b> Example: CPI and PPI</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#using-just-ar-and-ma-components"><i class="fa fa-check"></i><b>15.3.1</b> Using just AR and MA components</a></li>
+<li class="chapter" data-level="15.3.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-some-seasonality"><i class="fa fa-check"></i><b>15.3.2</b> Incorporating some seasonality</a></li>
+<li class="chapter" data-level="15.3.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-ppi-inflation"><i class="fa fa-check"></i><b>15.3.3</b> Incorporating PPI inflation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="additional-exercises.html"><a href="additional-exercises.html"><i class="fa fa-check"></i><b>16</b> Additional exercises</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="additional-exercises.html"><a href="additional-exercises.html#for-loops"><i class="fa fa-check"></i><b>16.1</b> For loops</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="additional-exercises.html"><a href="additional-exercises.html#determinants-of-wage-data-cps-1988"><i class="fa fa-check"></i><b>16.1.1</b> Determinants of wage data (CPS 1988)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="past-exam-questions.html"><a href="past-exam-questions.html"><i class="fa fa-check"></i><b>17</b> Past exam questions</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2023-5810-exam-1"><i class="fa fa-check"></i><b>17.1</b> Fall 2023 5810 Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability"><i class="fa fa-check"></i><b>17.1.1</b> Probability</a></li>
+<li class="chapter" data-level="17.1.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimation-and-inference"><i class="fa fa-check"></i><b>17.1.2</b> Estimation and inference</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2022-5810-exam-1"><i class="fa fa-check"></i><b>17.2</b> Fall 2022 5810, Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability-1"><i class="fa fa-check"></i><b>17.2.1</b> Probability</a></li>
+<li class="chapter" data-level="17.2.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#inference-1"><i class="fa fa-check"></i><b>17.2.2</b> Inference</a></li>
+<li class="chapter" data-level="17.2.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimators-and-large-sample-properties"><i class="fa fa-check"></i><b>17.2.3</b> Estimators and large-sample properties</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-2-2022"><i class="fa fa-check"></i><b>17.3</b> 5810 Exam 2 (2022)</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#directed-acyclic-graphs"><i class="fa fa-check"></i><b>17.3.1</b> Directed Acyclic Graphs</a></li>
+<li class="chapter" data-level="17.3.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#linear-regression-2"><i class="fa fa-check"></i><b>17.3.2</b> Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-1-2023"><i class="fa fa-check"></i><b>17.4</b> 5820, Exam 1 (2023)</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#maximum-likelihood"><i class="fa fa-check"></i><b>17.4.1</b> Maximum likelihood</a></li>
+<li class="chapter" data-level="17.4.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fire-trucks"><i class="fa fa-check"></i><b>17.4.2</b> Fire trucks</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Econometrics notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="hypothesis-tests-about-more-than-one-parameter" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> Hypothesis tests about more than one parameter<a href="hypothesis-tests-about-more-than-one-parameter.html#hypothesis-tests-about-more-than-one-parameter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Up to this point, we can estimate linear regressions with as many right-hand-side variables as we like, and can transform our parameters in some useful ways. However, when it comes to hypothesis testing, we can only test the value of one parameter at a time. This is, indeed, very useful, but sometimes we need to make a statement about a <em>group</em> of parameters.</p>
+<p>Take, for example, the <a href="https://vincentarelbundock.github.io/Rdatasets/doc/AER/TeachingRatings.html">instructor evaluations dataset</a></p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb78-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb78-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb78-2" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb78-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb78-3" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
+<span id="cb78-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb78-4" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb78-5"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb78-5" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;https://vincentarelbundock.github.io/Rdatasets/csv/AER/TeachingRatings.csv&quot;</span>)</span>
+<span id="cb78-6"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb78-6" tabindex="-1"></a></span>
+<span id="cb78-7"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb78-7" tabindex="-1"></a>d <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">10</span>) <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="3%" />
+<col width="6%" />
+<col width="7%" />
+<col width="10%" />
+<col width="4%" />
+<col width="8%" />
+<col width="6%" />
+<col width="6%" />
+<col width="8%" />
+<col width="11%" />
+<col width="4%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">rownames</th>
+<th align="left">minority</th>
+<th align="right">age</th>
+<th align="left">gender</th>
+<th align="left">credits</th>
+<th align="right">beauty</th>
+<th align="right">eval</th>
+<th align="left">division</th>
+<th align="left">native</th>
+<th align="left">tenure</th>
+<th align="right">students</th>
+<th align="right">allstudents</th>
+<th align="right">prof</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">155</td>
+<td align="left">no</td>
+<td align="right">42</td>
+<td align="left">male</td>
+<td align="left">more</td>
+<td align="right">0.2168924</td>
+<td align="right">3.8</td>
+<td align="left">upper</td>
+<td align="left">yes</td>
+<td align="left">yes</td>
+<td align="right">18</td>
+<td align="right">30</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="right">63</td>
+<td align="left">no</td>
+<td align="right">52</td>
+<td align="left">female</td>
+<td align="left">more</td>
+<td align="right">0.7735240</td>
+<td align="right">3.7</td>
+<td align="left">upper</td>
+<td align="left">yes</td>
+<td align="left">yes</td>
+<td align="right">64</td>
+<td align="right">88</td>
+<td align="right">63</td>
+</tr>
+<tr class="odd">
+<td align="right">407</td>
+<td align="left">no</td>
+<td align="right">51</td>
+<td align="left">female</td>
+<td align="left">more</td>
+<td align="right">0.9889485</td>
+<td align="right">4.6</td>
+<td align="left">upper</td>
+<td align="left">yes</td>
+<td align="left">yes</td>
+<td align="right">17</td>
+<td align="right">20</td>
+<td align="right">80</td>
+</tr>
+<tr class="even">
+<td align="right">91</td>
+<td align="left">no</td>
+<td align="right">52</td>
+<td align="left">female</td>
+<td align="left">more</td>
+<td align="right">-0.0018324</td>
+<td align="right">4.0</td>
+<td align="left">lower</td>
+<td align="left">yes</td>
+<td align="left">yes</td>
+<td align="right">61</td>
+<td align="right">111</td>
+<td align="right">91</td>
+</tr>
+<tr class="odd">
+<td align="right">385</td>
+<td align="left">no</td>
+<td align="right">52</td>
+<td align="left">male</td>
+<td align="left">more</td>
+<td align="right">0.7566829</td>
+<td align="right">4.2</td>
+<td align="left">upper</td>
+<td align="left">yes</td>
+<td align="left">yes</td>
+<td align="right">27</td>
+<td align="right">45</td>
+<td align="right">72</td>
+</tr>
+<tr class="even">
+<td align="right">26</td>
+<td align="left">no</td>
+<td align="right">58</td>
+<td align="left">male</td>
+<td align="left">more</td>
+<td align="right">-0.3218485</td>
+<td align="right">4.2</td>
+<td align="left">upper</td>
+<td align="left">yes</td>
+<td align="left">yes</td>
+<td align="right">84</td>
+<td align="right">159</td>
+<td align="right">26</td>
+</tr>
+<tr class="odd">
+<td align="right">390</td>
+<td align="left">no</td>
+<td align="right">38</td>
+<td align="left">male</td>
+<td align="left">more</td>
+<td align="right">-0.5665014</td>
+<td align="right">4.1</td>
+<td align="left">lower</td>
+<td align="left">yes</td>
+<td align="left">yes</td>
+<td align="right">66</td>
+<td align="right">84</td>
+<td align="right">74</td>
+</tr>
+<tr class="even">
+<td align="right">205</td>
+<td align="left">no</td>
+<td align="right">64</td>
+<td align="left">male</td>
+<td align="left">more</td>
+<td align="right">-0.1111221</td>
+<td align="right">4.6</td>
+<td align="left">upper</td>
+<td align="left">yes</td>
+<td align="left">yes</td>
+<td align="right">22</td>
+<td align="right">47</td>
+<td align="right">24</td>
+</tr>
+<tr class="odd">
+<td align="right">267</td>
+<td align="left">no</td>
+<td align="right">60</td>
+<td align="left">male</td>
+<td align="left">more</td>
+<td align="right">-0.3953965</td>
+<td align="right">4.6</td>
+<td align="left">upper</td>
+<td align="left">yes</td>
+<td align="left">yes</td>
+<td align="right">8</td>
+<td align="right">12</td>
+<td align="right">39</td>
+</tr>
+<tr class="even">
+<td align="right">281</td>
+<td align="left">no</td>
+<td align="right">39</td>
+<td align="left">female</td>
+<td align="left">more</td>
+<td align="right">1.9700230</td>
+<td align="right">3.6</td>
+<td align="left">lower</td>
+<td align="left">yes</td>
+<td align="left">no</td>
+<td align="right">27</td>
+<td align="right">28</td>
+<td align="right">43</td>
+</tr>
+</tbody>
+</table>
+<p>While it may be interesting to know whether and how any of these variables “affect” evaluations, one might instead be interested in testing whether a <em>group</em> of these variables affects evaluations. For this example, let’s suppose that we want to test for discrimination based on any intrinsic, unchangeable characteristic of the instructor. Specifically:</p>
+<ul>
+<li><code>age</code></li>
+<li><code>gender</code></li>
+<li><code>beauty</code></li>
+<li><code>native</code> (whether the instructor is a native English speaker)</li>
+</ul>
+<p>As a first pass, we estimate the following regression</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb79-1" tabindex="-1"></a>reg<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb79-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb79-2" tabindex="-1"></a></span>
+<span id="cb79-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb79-3" tabindex="-1"></a>reg[[<span class="dv">1</span>]]<span class="ot">&lt;-</span>d <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula=</span><span class="fu">log</span>(eval)<span class="sc">~</span><span class="fu">log</span>(age)<span class="sc">+</span><span class="fu">as.factor</span>(gender)<span class="sc">+</span>beauty<span class="sc">+</span><span class="fu">as.factor</span>(native)<span class="sc">+</span><span class="fu">as.factor</span>(credits)<span class="sc">+</span><span class="fu">as.factor</span>(tenure)<span class="sc">+</span><span class="fu">log</span>(students)<span class="sc">+</span><span class="fu">log</span>(allstudents))</span>
+<span id="cb79-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb79-4" tabindex="-1"></a><span class="fu">stargazer</span>(reg,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+log(eval)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(age)
+</td>
+<td>
+-0.030
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.034)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(gender)male
+</td>
+<td>
+0.056<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.013)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+beauty
+</td>
+<td>
+0.036<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.009)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(native)yes
+</td>
+<td>
+0.081<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.027)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(credits)single
+</td>
+<td>
+0.117<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.029)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(tenure)yes
+</td>
+<td>
+-0.018
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.017)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(students)
+</td>
+<td>
+0.081<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.026)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(allstudents)
+</td>
+<td>
+-0.088<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.024)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+1.442<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.139)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+463
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.163
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.149
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+0.136 (df = 454)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+11.088<sup>***</sup> (df = 8; 454)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>Qualitatively, our hypothesis of “no discrimination” would be roughly consistent with our estimates if all of the first four coefficients (<code>log(age)</code>, <code>male</code>, <code>beauty</code>, and <code>native</code>) were close to zero. <em>Individually</em>, the stars in this regression output tell us that all of these coefficients except for age are statistically significant, and so it looks like the data are not consistent with our hypothesis. But this is <em>not</em> the formal hypothesis test that all of these coefficients are zero. The stars are in fact reporting the test for each coefficient separately, not the joint test that <em>all</em> of these coefficients are zero.</p>
+<div id="the-restricted-model" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> The restricted model<a href="hypothesis-tests-about-more-than-one-parameter.html#the-restricted-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Qualitatively, what we want to do is to compare this <em>unrestricted</em> model, with a <em>restricted</em> model that imposes the null hypothesis. For this example to impose this restriction, all we need to do is to omit the variables of interest from the right-hand side of the regression. That is, we need to estimate the following model, which I show again alongside the first model for comparison:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb80-1" tabindex="-1"></a>reg[[<span class="dv">2</span>]]<span class="ot">&lt;-</span>d <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula=</span><span class="fu">log</span>(eval)<span class="sc">~</span><span class="fu">as.factor</span>(credits)<span class="sc">+</span><span class="fu">as.factor</span>(tenure)<span class="sc">+</span><span class="fu">log</span>(students)<span class="sc">+</span><span class="fu">log</span>(allstudents))</span>
+<span id="cb80-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb80-2" tabindex="-1"></a><span class="fu">stargazer</span>(reg,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+log(eval)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(age)
+</td>
+<td>
+-0.030
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.034)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(gender)male
+</td>
+<td>
+0.056<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.013)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+beauty
+</td>
+<td>
+0.036<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.009)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(native)yes
+</td>
+<td>
+0.081<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.027)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(credits)single
+</td>
+<td>
+0.117<sup>***</sup>
+</td>
+<td>
+0.115<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.029)
+</td>
+<td>
+(0.030)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(tenure)yes
+</td>
+<td>
+-0.018
+</td>
+<td>
+-0.021
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.017)
+</td>
+<td>
+(0.017)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(students)
+</td>
+<td>
+0.081<sup>***</sup>
+</td>
+<td>
+0.100<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.026)
+</td>
+<td>
+(0.027)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(allstudents)
+</td>
+<td>
+-0.088<sup>***</sup>
+</td>
+<td>
+-0.098<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.024)
+</td>
+<td>
+(0.025)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+1.442<sup>***</sup>
+</td>
+<td>
+1.409<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.139)
+</td>
+<td>
+(0.031)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+463
+</td>
+<td>
+463
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.163
+</td>
+<td>
+0.083
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.149
+</td>
+<td>
+0.075
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+0.136 (df = 454)
+</td>
+<td>
+0.142 (df = 458)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+11.088<sup>***</sup> (df = 8; 454)
+</td>
+<td>
+10.317<sup>***</sup> (df = 4; 458)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>Note here that I have left out the four variables of interest. Another way of thinking of this is that I have forced column (2) to set these four coefficients equal to zero, which is exactly what the null hypothesis is:</p>
+<p><span class="math display">\[
+H_0:\ \beta_\text{age}=\beta_\text{male}=\beta_\text{beauty}=\beta_\text{native}=0
+\]</span></p>
+<p>But we need to be careful about the alternative. As usual, our alternative can be summarized by “not <span class="math inline">\(H_0\)</span>”, but what exactly is this? Well in this case, <span class="math inline">\(H_0\)</span> would not by true if <em>at least one</em> of the above coefficients are not zero:</p>
+<p><span class="math display">\[
+\begin{aligned}
+H_A:\ \text{at least one of:}\ \beta_\text{age}&amp;\neq 0\\
+\beta_\text{male}&amp;\neq 0\\
+\beta_\text{beauty}&amp;\neq 0\\
+\beta_\text{native}&amp;\neq 0
+\end{aligned}
+\]</span></p>
+<p>Therefore, if we reject our null, we <em>cannot</em> conclude that there is a specific kind (e.g. gender) of discrimination, just that there is some kind of discrimination.</p>
+</div>
+<div id="a-test-using-r2-that-you-probably-shouldnt-use" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> A test using <span class="math inline">\(R^2\)</span> that you probably shouldn’t use<a href="hypothesis-tests-about-more-than-one-parameter.html#a-test-using-r2-that-you-probably-shouldnt-use" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So now that we have a null and alternative hypothesis, we need a test statistic to measure how inconsistent our data are with the null hypothesis. One way we could measure this is to compare the <span class="math inline">\(R^2\)</span>s of the restricted (column 2) and unrestricted (column 1) models. While the unrestricted model must always have a larger <span class="math inline">\(R^2\)</span>, if the restricted model’s <span class="math inline">\(R^2\)</span> was close to this, then adding in these four extra variables doesn’t buy us much in terms of explanatory power. On the other hand, if the unrestricted model’s <span class="math inline">\(R^2\)</span> is substantially larger, then it must be that the additional parameters we added into this model are explaining a lot of extra variation in our left-hand side variable, and so the null is probably not true. Therefore, comparing the differences in <span class="math inline">\(R^2\)</span>s is a good starting pint for a test statistic:</p>
+<p><span class="math display">\[
+R^2_\text{unrestricted}-R^2_\text{restricted}
+\]</span>
+Note that since this quantity must be positive, we will reject the null iff this quantity is sufficiently large.</p>
+<p>As with when we were testing hypotheses about single parameters, it is useful here to scale our test statistic so that we can look up critical values in a table, or ask <em>R</em> to compute them for us. Therefore, the following test statistic is what we will actually use:</p>
+<p><span class="math display">\[
+\begin{aligned}
+F&amp;=\frac{\left(R^2_\text{unrestricted}-R^2_\text{restricted}\right)/q}{(1-R^2_\text{unrestricted})/(N-k)}
+\end{aligned}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(R^2_\text{unrestricted}\)</span> is the <span class="math inline">\(R^2\)</span> of the unrestricted model (0.163 in this case)</li>
+<li><span class="math inline">\(R^2_\text{restricted}\)</span> is the <span class="math inline">\(R^2\)</span> of the restricted model (0.083 in this case)</li>
+<li><span class="math inline">\(N\)</span> is the sample size (463 in this case)</li>
+<li><span class="math inline">\(k\)</span> is the number of parameters in the unrestricted model, including the constant (9 in this case)</li>
+<li><span class="math inline">\(q\)</span> is the number of parameter restrictions that the null hypothesis imposes (4 in this case)</li>
+</ul>
+<p>Therefore the value of our test statistic is:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb81-1" tabindex="-1"></a>(</span>
+<span id="cb81-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb81-2" tabindex="-1"></a>  FSTAT<span class="ot">&lt;-</span>((<span class="fl">0.163-0.083</span>)<span class="sc">/</span><span class="dv">4</span>)<span class="sc">/</span>((<span class="dv">1</span><span class="fl">-0.163</span>)<span class="sc">/</span>(<span class="dv">463-9</span>))</span>
+<span id="cb81-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb81-3" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] 10.84827</code></pre>
+<p>This test statistic follows an <span class="math inline">\(F\)</span>-distribution with parameters <span class="math inline">\(q\)</span> and <span class="math inline">\(N-k\)</span>, which is denoted <span class="math inline">\(F_{q,N-k}\)</span>, so we can work out the critical value for this test at the 5% level of significance in <span class="math inline">\(R\)</span> by computing the inverse cdf at 0.95:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb83-1" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.95</span>,<span class="dv">4</span>,<span class="dv">463-9</span>)</span></code></pre></div>
+<pre><code>## [1] 2.391582</code></pre>
+<p>So since our test statistic is greater than the critical value, we reject the null. From here, we can conclude that there is some kind of discrimination going on, based on at least one of age, gender, beauty, and native English speaking.</p>
+<p>We could also work out the <span class="math inline">\(p\)</span>-value by evaluating the <span class="math inline">\(F\)</span>-distribution’s cdf:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb85-1" tabindex="-1"></a>(</span>
+<span id="cb85-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb85-2" tabindex="-1"></a>  pval<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span><span class="fu">pf</span>(FSTAT,<span class="dv">4</span>,<span class="dv">463-9</span>)</span>
+<span id="cb85-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb85-3" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] 2.084397e-08</code></pre>
+</div>
+<div id="a-more-robust-test" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> A more robust test<a href="hypothesis-tests-about-more-than-one-parameter.html#a-more-robust-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>But hopefully you are remembering here that <span class="math inline">\(R^2\)</span> is only a function of your coefficient estimates, <em>not</em> your standard errors! So if you do this test, all of the hard work that you put into thinking about how to get your standard errors right (or at least less wrong) goes out the window. You will probably at least be estimating heteroskedasticity-robust standard errors, and <span class="math inline">\(R^2\)</span> doesn’t even respect this!</p>
+<p>Fortunately for us, there are a few ways that allow us to carry our standard errors through these calculations. The null and alternative are exactly the same as above, but it takes an input your choice of standard errors.</p>
+<p>The Wald test statistic requires some matrix algebra to calculate by hand, so I won’t go into details here. All I <em>will</em> say is that a Wald test statistic for one coefficient is exactly the same a the <span class="math inline">\(t\)</span>-statistic for that coeffieicnt squared. As with the <span class="math inline">\(R^2\)</span> test above, therefore, larger test statistics are evidence against the null.</p>
+<p>Fortunately for us, <em>R</em> will do this test for us, all we have to do is tell it the restricted and unrestricted models (which we have already estimated above), and if we want to use a particular kind of standrad errors, instructions on how to calculate them. For the instructor evaluations dataset, it seems reasonable to cluster standard errors based on the instructor id, called <code>prof</code>. Here’s how we do the test:</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb87-1" tabindex="-1"></a><span class="fu">waldtest</span>(reg[[<span class="dv">2</span>]], <span class="co"># Restricted model</span></span>
+<span id="cb87-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb87-2" tabindex="-1"></a>         reg[[<span class="dv">1</span>]], <span class="co"># Unrestricted model</span></span>
+<span id="cb87-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb87-3" tabindex="-1"></a>         <span class="at">vcov=</span><span class="fu">vcovCL</span>(reg[[<span class="dv">1</span>]],<span class="at">cluster =</span> <span class="sc">~</span> prof) <span class="co"># standard errors.</span></span>
+<span id="cb87-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb87-4" tabindex="-1"></a>         )</span></code></pre></div>
+<pre><code>## Wald test
+## 
+## Model 1: log(eval) ~ as.factor(credits) + as.factor(tenure) + log(students) + 
+##     log(allstudents)
+## Model 2: log(eval) ~ log(age) + as.factor(gender) + beauty + as.factor(native) + 
+##     as.factor(credits) + as.factor(tenure) + log(students) + 
+##     log(allstudents)
+##   Res.Df Df      F    Pr(&gt;F)    
+## 1    458                        
+## 2    454  4 4.7913 0.0008554 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Note that while we still reject the null, the <span class="math inline">\(p\)</span>-value is a few orders of magnitude larger. This is because our clustered standard errors understand the dependence in observations coming from the same instructor, and are larger because of it.</p>
+</div>
+<div id="another-example" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Another example<a href="hypothesis-tests-about-more-than-one-parameter.html#another-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider the Galton heights dataset (documentation availble <a href="https://vincentarelbundock.github.io/Rdatasets/doc/HistData/GaltonFamilies.html">here</a>):</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb89-1" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;https://vincentarelbundock.github.io/Rdatasets/csv/HistData/GaltonFamilies.csv&quot;</span>)</span>
+<span id="cb89-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb89-2" tabindex="-1"></a></span>
+<span id="cb89-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb89-3" tabindex="-1"></a>D <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">10</span>) <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="19%" />
+<col width="10%" />
+<col width="10%" />
+<col width="8%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">rownames</th>
+<th align="left">family</th>
+<th align="right">father</th>
+<th align="right">mother</th>
+<th align="right">midparentHeight</th>
+<th align="right">children</th>
+<th align="right">childNum</th>
+<th align="left">gender</th>
+<th align="right">childHeight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">194</td>
+<td align="left">052</td>
+<td align="right">71.0</td>
+<td align="right">63.5</td>
+<td align="right">69.79</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="left">male</td>
+<td align="right">71.0</td>
+</tr>
+<tr class="even">
+<td align="right">796</td>
+<td align="left">173</td>
+<td align="right">66.0</td>
+<td align="right">67.0</td>
+<td align="right">69.18</td>
+<td align="right">9</td>
+<td align="right">7</td>
+<td align="left">female</td>
+<td align="right">62.0</td>
+</tr>
+<tr class="odd">
+<td align="right">578</td>
+<td align="left">130</td>
+<td align="right">68.5</td>
+<td align="right">66.5</td>
+<td align="right">70.16</td>
+<td align="right">11</td>
+<td align="right">3</td>
+<td align="left">male</td>
+<td align="right">69.0</td>
+</tr>
+<tr class="even">
+<td align="right">717</td>
+<td align="left">158</td>
+<td align="right">68.0</td>
+<td align="right">59.0</td>
+<td align="right">65.86</td>
+<td align="right">10</td>
+<td align="right">10</td>
+<td align="left">female</td>
+<td align="right">61.0</td>
+</tr>
+<tr class="odd">
+<td align="right">113</td>
+<td align="left">031</td>
+<td align="right">72.5</td>
+<td align="right">62.0</td>
+<td align="right">69.73</td>
+<td align="right">6</td>
+<td align="right">3</td>
+<td align="left">male</td>
+<td align="right">70.0</td>
+</tr>
+<tr class="even">
+<td align="right">151</td>
+<td align="left">040</td>
+<td align="right">71.0</td>
+<td align="right">66.0</td>
+<td align="right">71.14</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="left">male</td>
+<td align="right">71.0</td>
+</tr>
+<tr class="odd">
+<td align="right">99</td>
+<td align="left">027</td>
+<td align="right">72.0</td>
+<td align="right">63.0</td>
+<td align="right">70.02</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="left">male</td>
+<td align="right">67.0</td>
+</tr>
+<tr class="even">
+<td align="right">523</td>
+<td align="left">119</td>
+<td align="right">69.0</td>
+<td align="right">62.0</td>
+<td align="right">67.98</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="left">male</td>
+<td align="right">71.0</td>
+</tr>
+<tr class="odd">
+<td align="right">85</td>
+<td align="left">023</td>
+<td align="right">72.0</td>
+<td align="right">65.0</td>
+<td align="right">71.10</td>
+<td align="right">7</td>
+<td align="right">3</td>
+<td align="left">male</td>
+<td align="right">69.5</td>
+</tr>
+<tr class="even">
+<td align="right">72</td>
+<td align="left">020</td>
+<td align="right">72.7</td>
+<td align="right">69.0</td>
+<td align="right">73.61</td>
+<td align="right">8</td>
+<td align="right">4</td>
+<td align="left">female</td>
+<td align="right">70.0</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb90-1" tabindex="-1"></a>(</span>
+<span id="cb90-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb90-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(D,<span class="fu">aes</span>(<span class="at">x=</span>midparentHeight,<span class="at">y=</span>childHeight,<span class="at">color=</span>gender))</span>
+<span id="cb90-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb90-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.2</span>)</span>
+<span id="cb90-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb90-4" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">formula=</span><span class="st">&quot;y~x&quot;</span>,<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)</span>
+<span id="cb90-5"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb90-5" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb90-6"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb90-6" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-168-1.png" width="672" /></p>
+<p>Now that we can test multiple restrictions at the same time, and we know how to include variables on the right-hand side to allow for more flexible relationships, there are many more questions that we can answer using this dataset. Below we will a few of them. Note that some of these we could have answered without our understanding from this chapter, but I include them here to show how they relate to hypothesis tests on just one parameter.</p>
+<p>Note also that I have framed all of these statements as null hypotheses. That is, they all state that there should be no effect. Therefore we should be looking for an unrestricted model that allows for these statements to be <em>not</em> true, and a restriction on this model that imposes the null hypothesis.</p>
+<div id="the-height-of-a-child-does-not-depend-on-whether-the-child-is-male-of-female" class="section level3 hasAnchor" number="11.4.1">
+<h3><span class="header-section-number">11.4.1</span> The height of a child does not depend on whether the child is male of female<a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-whether-the-child-is-male-of-female" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb91-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula=</span>childHeight<span class="sc">~</span>midparentHeight<span class="sc">+</span><span class="fu">as.factor</span>(gender))</span>
+<span id="cb91-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb91-2" tabindex="-1"></a>reg2<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula=</span>childHeight<span class="sc">~</span>midparentHeight)</span>
+<span id="cb91-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb91-3" tabindex="-1"></a></span>
+<span id="cb91-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb91-4" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,reg2,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+childHeight
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+midparentHeight
+</td>
+<td>
+0.687<sup>***</sup>
+</td>
+<td>
+0.637<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.039)
+</td>
+<td>
+(0.062)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(gender)male
+</td>
+<td>
+5.215<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.142)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+16.514<sup>***</sup>
+</td>
+<td>
+22.636<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(2.734)
+</td>
+<td>
+(4.265)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+934
+</td>
+<td>
+934
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.633
+</td>
+<td>
+0.103
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.632
+</td>
+<td>
+0.102
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+2.170 (df = 931)
+</td>
+<td>
+3.392 (df = 932)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+803.636<sup>***</sup> (df = 2; 931)
+</td>
+<td>
+107.029<sup>***</sup> (df = 1; 932)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb92-1" tabindex="-1"></a><span class="fu">waldtest</span>(reg2, <span class="co"># Restricted model</span></span>
+<span id="cb92-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb92-2" tabindex="-1"></a>         reg1, <span class="co"># Unrestricted model</span></span>
+<span id="cb92-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb92-3" tabindex="-1"></a>         <span class="at">vcov=</span><span class="fu">vcovCL</span>(reg1,<span class="at">cluster =</span> <span class="sc">~</span> family) <span class="co"># standard errors.</span></span>
+<span id="cb92-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb92-4" tabindex="-1"></a>         )</span></code></pre></div>
+<pre><code>## Wald test
+## 
+## Model 1: childHeight ~ midparentHeight
+## Model 2: childHeight ~ midparentHeight + as.factor(gender)
+##   Res.Df Df      F    Pr(&gt;F)    
+## 1    932                        
+## 2    931  1 1158.6 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="the-height-of-a-child-does-not-depend-on-the-height-of-their-parents" class="section level3 hasAnchor" number="11.4.2">
+<h3><span class="header-section-number">11.4.2</span> The height of a child does not depend on the height of their parents<a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-the-height-of-their-parents" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb94-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula=</span>childHeight<span class="sc">~</span>mother<span class="sc">+</span>father<span class="sc">+</span><span class="fu">as.factor</span>(gender))</span>
+<span id="cb94-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb94-2" tabindex="-1"></a>reg2<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula=</span>childHeight<span class="sc">~</span><span class="fu">as.factor</span>(gender))</span>
+<span id="cb94-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb94-3" tabindex="-1"></a></span>
+<span id="cb94-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb94-4" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,reg2,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+childHeight
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+mother
+</td>
+<td>
+0.318<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.031)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+father
+</td>
+<td>
+0.393<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.029)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(gender)male
+</td>
+<td>
+5.215<sup>***</sup>
+</td>
+<td>
+5.130<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.142)
+</td>
+<td>
+(0.164)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+16.521<sup>***</sup>
+</td>
+<td>
+64.104<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(2.727)
+</td>
+<td>
+(0.117)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+934
+</td>
+<td>
+934
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.635
+</td>
+<td>
+0.514
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.634
+</td>
+<td>
+0.513
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+2.165 (df = 930)
+</td>
+<td>
+2.497 (df = 932)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+540.262<sup>***</sup> (df = 3; 930)
+</td>
+<td>
+984.402<sup>***</sup> (df = 1; 932)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb95-1" tabindex="-1"></a><span class="fu">waldtest</span>(reg2, <span class="co"># Restricted model</span></span>
+<span id="cb95-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb95-2" tabindex="-1"></a>         reg1, <span class="co"># Unrestricted model</span></span>
+<span id="cb95-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb95-3" tabindex="-1"></a>         <span class="at">vcov=</span><span class="fu">vcovCL</span>(reg1,<span class="at">cluster =</span> <span class="sc">~</span> family) <span class="co"># standard errors.</span></span>
+<span id="cb95-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb95-4" tabindex="-1"></a>         )</span></code></pre></div>
+<pre><code>## Wald test
+## 
+## Model 1: childHeight ~ as.factor(gender)
+## Model 2: childHeight ~ mother + father + as.factor(gender)
+##   Res.Df Df      F    Pr(&gt;F)    
+## 1    932                        
+## 2    930  2 94.935 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="the-effect-of-mother-height-on-child-height-is-the-same-as-the-effect-of-father-height-on-child-height" class="section level3 hasAnchor" number="11.4.3">
+<h3><span class="header-section-number">11.4.3</span> The effect of mother height on child height is the same as the effect of father height on child height<a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-mother-height-on-child-height-is-the-same-as-the-effect-of-father-height-on-child-height" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Unrestricted model:</p>
+<p><span class="math display">\[
+\begin{aligned}
+Y&amp;=\beta_0+\beta_1 m+\beta_2 f+\beta_3g+\epsilon\\
+H_0:&amp;\ \beta_1=\beta_2
+\end{aligned}
+\]</span>
+Let’s say that this effect is equal to <span class="math inline">\(\gamma\)</span>. The restricted model is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+Y&amp;=\beta_0+\gamma m+\gamma f+\beta_3g+\epsilon\\
+&amp;=\beta_0+\gamma (m+f)+\beta_3g+\epsilon
+\end{aligned}
+\]</span></p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb97-1" tabindex="-1"></a>D <span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">motherPlusFather=</span>mother<span class="sc">+</span>father)</span>
+<span id="cb97-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb97-2" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb97-3" tabindex="-1"></a>reg1<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula=</span>childHeight<span class="sc">~</span>motherPlusFather<span class="sc">+</span>father<span class="sc">+</span><span class="fu">as.factor</span>(gender))</span>
+<span id="cb97-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb97-4" tabindex="-1"></a>reg2<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula=</span>childHeight<span class="sc">~</span>motherPlusFather<span class="sc">+</span><span class="fu">as.factor</span>(gender))</span>
+<span id="cb97-5"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb97-5" tabindex="-1"></a></span>
+<span id="cb97-6"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb97-6" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,reg2,<span class="at">type=</span><span class="st">&quot;html&quot;</span>) </span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+childHeight
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+motherPlusFather
+</td>
+<td>
+0.318<sup>***</sup>
+</td>
+<td>
+0.358<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.031)
+</td>
+<td>
+(0.020)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+father
+</td>
+<td>
+0.075<sup>*</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.043)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(gender)male
+</td>
+<td>
+5.215<sup>***</sup>
+</td>
+<td>
+5.215<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.142)
+</td>
+<td>
+(0.142)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+16.521<sup>***</sup>
+</td>
+<td>
+16.345<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(2.727)
+</td>
+<td>
+(2.728)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+934
+</td>
+<td>
+934
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.635
+</td>
+<td>
+0.634
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.634
+</td>
+<td>
+0.633
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+2.165 (df = 930)
+</td>
+<td>
+2.167 (df = 931)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+540.262<sup>***</sup> (df = 3; 930)
+</td>
+<td>
+807.166<sup>***</sup> (df = 2; 931)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb98-1" tabindex="-1"></a><span class="fu">waldtest</span>(reg2, <span class="co"># Restricted model </span></span>
+<span id="cb98-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb98-2" tabindex="-1"></a>         reg1, <span class="co"># Unrestricted model</span></span>
+<span id="cb98-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb98-3" tabindex="-1"></a>         <span class="at">vcov=</span><span class="fu">vcovCL</span>(reg1,<span class="at">cluster =</span> <span class="sc">~</span> family) <span class="co"># standard errors.</span></span>
+<span id="cb98-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb98-4" tabindex="-1"></a>         )</span></code></pre></div>
+<pre><code>## Wald test
+## 
+## Model 1: childHeight ~ motherPlusFather + as.factor(gender)
+## Model 2: childHeight ~ motherPlusFather + father + as.factor(gender)
+##   Res.Df Df      F Pr(&gt;F)
+## 1    931                 
+## 2    930  1 1.6776 0.1956</code></pre>
+</div>
+<div id="the-effect-of-parent-height-on-male-childrens-height-is-the-same-as-the-effect-of-parent-height-on-female-childrens-height" class="section level3 hasAnchor" number="11.4.4">
+<h3><span class="header-section-number">11.4.4</span> The effect of parent height on male children’s height is the same as the effect of parent height on female children’s height<a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-male-childrens-height-is-the-same-as-the-effect-of-parent-height-on-female-childrens-height" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb100-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula=</span>childHeight<span class="sc">~</span>mother<span class="sc">+</span>father<span class="sc">+</span><span class="fu">as.factor</span>(gender) <span class="sc">+</span>mother<span class="sc">*</span><span class="fu">as.factor</span>(gender)<span class="sc">+</span>father<span class="sc">*</span><span class="fu">as.factor</span>(gender))</span>
+<span id="cb100-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb100-2" tabindex="-1"></a>reg2<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula=</span>childHeight<span class="sc">~</span>mother<span class="sc">+</span>father<span class="sc">+</span><span class="fu">as.factor</span>(gender))</span>
+<span id="cb100-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb100-3" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,reg2,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+childHeight
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+mother
+</td>
+<td>
+0.303<sup>***</sup>
+</td>
+<td>
+0.318<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.045)
+</td>
+<td>
+(0.031)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+father
+</td>
+<td>
+0.373<sup>***</sup>
+</td>
+<td>
+0.393<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.039)
+</td>
+<td>
+(0.029)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(gender)male
+</td>
+<td>
+0.479
+</td>
+<td>
+5.215<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(5.470)
+</td>
+<td>
+(0.142)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+mother:as.factor(gender)male
+</td>
+<td>
+0.025
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.062)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+father:as.factor(gender)male
+</td>
+<td>
+0.045
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.058)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+18.834<sup>***</sup>
+</td>
+<td>
+16.521<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.871)
+</td>
+<td>
+(2.727)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+934
+</td>
+<td>
+934
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.636
+</td>
+<td>
+0.635
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.634
+</td>
+<td>
+0.634
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+2.166 (df = 928)
+</td>
+<td>
+2.165 (df = 930)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+323.907<sup>***</sup> (df = 5; 928)
+</td>
+<td>
+540.262<sup>***</sup> (df = 3; 930)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb101-1" tabindex="-1"></a><span class="fu">waldtest</span>(reg2, <span class="co"># Restricted model </span></span>
+<span id="cb101-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb101-2" tabindex="-1"></a>         reg1, <span class="co"># Unrestricted model</span></span>
+<span id="cb101-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb101-3" tabindex="-1"></a>         <span class="at">vcov=</span><span class="fu">vcovCL</span>(reg1,<span class="at">cluster =</span> <span class="sc">~</span> family) <span class="co"># standard errors.</span></span>
+<span id="cb101-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb101-4" tabindex="-1"></a>         ) </span></code></pre></div>
+<pre><code>## Wald test
+## 
+## Model 1: childHeight ~ mother + father + as.factor(gender)
+## Model 2: childHeight ~ mother + father + as.factor(gender) + mother * 
+##     as.factor(gender) + father * as.factor(gender)
+##   Res.Df Df      F Pr(&gt;F)
+## 1    930                 
+## 2    928  2 0.3891 0.6778</code></pre>
+</div>
+<div id="the-effect-of-parent-height-on-child-height-is-linear" class="section level3 hasAnchor" number="11.4.5">
+<h3><span class="header-section-number">11.4.5</span> The effect of parent height on child height is linear<a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-child-height-is-linear" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb103-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">m2=</span>mother<span class="sc">^</span><span class="dv">2</span>,<span class="at">f2=</span>father<span class="sc">^</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula=</span>childHeight<span class="sc">~</span>mother<span class="sc">+</span>father<span class="sc">+</span><span class="fu">as.factor</span>(gender)<span class="sc">+</span>m2<span class="sc">+</span>f2)</span>
+<span id="cb103-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb103-2" tabindex="-1"></a>reg2<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula=</span>childHeight<span class="sc">~</span>mother<span class="sc">+</span>father<span class="sc">+</span><span class="fu">as.factor</span>(gender))</span>
+<span id="cb103-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb103-3" tabindex="-1"></a></span>
+<span id="cb103-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb103-4" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,reg2,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+childHeight
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+mother
+</td>
+<td>
+-0.459
+</td>
+<td>
+0.318<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.213)
+</td>
+<td>
+(0.031)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+father
+</td>
+<td>
+-0.418
+</td>
+<td>
+0.393<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.012)
+</td>
+<td>
+(0.029)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(gender)male
+</td>
+<td>
+5.223<sup>***</sup>
+</td>
+<td>
+5.215<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.142)
+</td>
+<td>
+(0.142)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+m2
+</td>
+<td>
+0.006
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.010)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+f2
+</td>
+<td>
+0.006
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.007)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+69.377
+</td>
+<td>
+16.521<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(50.479)
+</td>
+<td>
+(2.727)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+934
+</td>
+<td>
+934
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.636
+</td>
+<td>
+0.635
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.634
+</td>
+<td>
+0.634
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+2.166 (df = 928)
+</td>
+<td>
+2.165 (df = 930)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+324.078<sup>***</sup> (df = 5; 928)
+</td>
+<td>
+540.262<sup>***</sup> (df = 3; 930)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb104-1" tabindex="-1"></a><span class="fu">waldtest</span>(reg2, <span class="co"># Restricted model </span></span>
+<span id="cb104-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb104-2" tabindex="-1"></a>         reg1, <span class="co"># Unrestricted model</span></span>
+<span id="cb104-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb104-3" tabindex="-1"></a>         <span class="at">vcov=</span><span class="fu">vcovCL</span>(reg1,<span class="at">cluster =</span> <span class="sc">~</span> family) <span class="co"># standard errors.</span></span>
+<span id="cb104-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb104-4" tabindex="-1"></a>         ) </span></code></pre></div>
+<pre><code>## Wald test
+## 
+## Model 1: childHeight ~ mother + father + as.factor(gender)
+## Model 2: childHeight ~ mother + father + as.factor(gender) + m2 + f2
+##   Res.Df Df     F Pr(&gt;F)
+## 1    930                
+## 2    928  2 0.402 0.6691</code></pre>
+</div>
+<div id="parents-who-are-on-average-one-inch-taller-have-children-that-are-on-average-one-inch-taller" class="section level3 hasAnchor" number="11.4.6">
+<h3><span class="header-section-number">11.4.6</span> Parents who are on average one inch taller have children that are on average one inch taller<a href="hypothesis-tests-about-more-than-one-parameter.html#parents-who-are-on-average-one-inch-taller-have-children-that-are-on-average-one-inch-taller" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb106-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula =</span> childHeight<span class="sc">-</span>midparentHeight <span class="sc">~</span> midparentHeight<span class="sc">+</span><span class="fu">as.factor</span>(gender))</span>
+<span id="cb106-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb106-2" tabindex="-1"></a></span>
+<span id="cb106-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb106-3" tabindex="-1"></a>reg2<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula =</span> childHeight<span class="sc">-</span>midparentHeight <span class="sc">~</span> <span class="fu">as.factor</span>(gender))</span>
+<span id="cb106-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb106-4" tabindex="-1"></a></span>
+<span id="cb106-5"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb106-5" tabindex="-1"></a>reg3<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">lm</span>(<span class="at">formula =</span> childHeight <span class="sc">~</span> midparentHeight<span class="sc">+</span><span class="fu">as.factor</span>(gender))</span>
+<span id="cb106-6"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb106-6" tabindex="-1"></a></span>
+<span id="cb106-7"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb106-7" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,reg2,reg3,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+childHeight - midparentHeight
+</td>
+<td>
+childHeight
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+midparentHeight
+</td>
+<td>
+-0.313<sup>***</sup>
+</td>
+<td>
+</td>
+<td>
+0.687<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.039)
+</td>
+<td>
+</td>
+<td>
+(0.039)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(gender)male
+</td>
+<td>
+5.215<sup>***</sup>
+</td>
+<td>
+5.254<sup>***</sup>
+</td>
+<td>
+5.215<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.142)
+</td>
+<td>
+(0.147)
+</td>
+<td>
+(0.142)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+16.514<sup>***</sup>
+</td>
+<td>
+-5.167<sup>***</sup>
+</td>
+<td>
+16.514<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(2.734)
+</td>
+<td>
+(0.105)
+</td>
+<td>
+(2.734)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+934
+</td>
+<td>
+934
+</td>
+<td>
+934
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.606
+</td>
+<td>
+0.579
+</td>
+<td>
+0.633
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.605
+</td>
+<td>
+0.579
+</td>
+<td>
+0.632
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+2.170 (df = 931)
+</td>
+<td>
+2.241 (df = 932)
+</td>
+<td>
+2.170 (df = 931)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+715.225<sup>***</sup> (df = 2; 931)
+</td>
+<td>
+1,282.210<sup>***</sup> (df = 1; 932)
+</td>
+<td>
+803.636<sup>***</sup> (df = 2; 931)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb107-1" tabindex="-1"></a><span class="fu">waldtest</span>(reg2, <span class="co"># Restricted model </span></span>
+<span id="cb107-2"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb107-2" tabindex="-1"></a>         reg1, <span class="co"># Unrestricted model</span></span>
+<span id="cb107-3"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb107-3" tabindex="-1"></a>         <span class="at">vcov=</span><span class="fu">vcovCL</span>(reg1,<span class="at">cluster =</span> <span class="sc">~</span> family) <span class="co"># standard errors.</span></span>
+<span id="cb107-4"><a href="hypothesis-tests-about-more-than-one-parameter.html#cb107-4" tabindex="-1"></a>         ) </span></code></pre></div>
+<pre><code>## Wald test
+## 
+## Model 1: childHeight - midparentHeight ~ as.factor(gender)
+## Model 2: childHeight - midparentHeight ~ midparentHeight + as.factor(gender)
+##   Res.Df Df      F    Pr(&gt;F)    
+## 1    932                        
+## 2    931  1 40.032 3.877e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+</div>
+<div id="exercises-8" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Exercises<a href="hypothesis-tests-about-more-than-one-parameter.html#exercises-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="project-star-student-teacher-achievement-ratio" class="section level3 hasAnchor" number="11.5.1">
+<h3><span class="header-section-number">11.5.1</span> Project STAR: Student-Teacher Achievement Ratio<a href="hypothesis-tests-about-more-than-one-parameter.html#project-star-student-teacher-achievement-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Documentation here: <a href="https://vincentarelbundock.github.io/Rdatasets/doc/AER/STAR.html" class="uri">https://vincentarelbundock.github.io/Rdatasets/doc/AER/STAR.html</a></p>
+<p>Data here: <a href="https://vincentarelbundock.github.io/Rdatasets/csv/AER/STAR.csv" class="uri">https://vincentarelbundock.github.io/Rdatasets/csv/AER/STAR.csv</a></p>
+<p>This exercise is designed to be a review of a lot of the material taught in the second half of ECON 4/5810. Here are some modifications based on what you might have been taught:</p>
+<ul>
+<li>4810 students:
+<ul>
+<li>Just focus on one grade.</li>
+</ul></li>
+<li>5810/SISS students:
+<ul>
+<li>Analyze all grades.</li>
+<li>You will need to reshape the data into long format using <code>pivot_longer</code>, and you may benefit from writing appropriate for loops.</li>
+<li>Summarize your results in <code>stargazer</code> tables.</li>
+</ul></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>Suppose that we are interested in using this dataset to evaluate the impact of class size on test scores (we have data on reading and math). Based on the data description, would we be able to estimate a causal effect of class size on these test scores? Explain why or why not.</p></li>
+<li><p>Using <code>star</code> as the explanatory variable, use linear regression to estimate the effect of class size on test scores. Interpret the results.</p></li>
+<li><p>Produce a plot that shows the effect of class size on test scores</p></li>
+<li><p>Discuss why you might want to include the variable <code>birth</code> as a control variable. Explain what problem it is solving. Make reference to your answer in part 1.</p></li>
+<li><p>Based on your model in part 2, create a plot that <em>could</em> show heteroskedasticity. Re-estimate your regression in part 2 using heteroskedasticity-robust standard errors and explain whether they change any conclusions.</p></li>
+<li><p>Is it possible to estimate clustered standard errors using this dataset? Explain why or why not. If you can, explain why you might want to, and which variable(s) you would use.</p></li>
+<li><p>Test the following hypotheses:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Class size has no effect on test scores</li>
+<li>The effect of class size on test scores depends on the highest degree earned of the teacher</li>
+<li>The effect of class size on test scores depends on the years of the teacher’s total teaching experience</li>
+</ol></li>
+<li><p>Students’ assignment to the class size groups was not held constant across the four years. Write a line or two of code that shows that this was the case.</p></li>
+<li><p>What is the effect of class size in kindergarten on test scores in grade 1? How much of this effect can be attributable to the effect of kindergarten test scores on grade 1 test scores?</p></li>
+</ol>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="standard-errors-in-linear-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

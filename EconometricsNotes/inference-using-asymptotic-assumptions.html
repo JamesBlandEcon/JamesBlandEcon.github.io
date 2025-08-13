@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Inference using asymptotic assumptions | Econometrics notes</title>
+  <meta name="description" content="6 Inference using asymptotic assumptions | Econometrics notes" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Inference using asymptotic assumptions | Econometrics notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Inference using asymptotic assumptions | Econometrics notes" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2025-08-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="inference.html"/>
+<link rel="next" href="linear-regression.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>1</b> Introduction to the course</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#housekeeping"><i class="fa fa-check"></i><b>1.1</b> Housekeeping</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#two-important-skills-in-econometrics"><i class="fa fa-check"></i><b>1.2</b> Two important skills in econometrics</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#example-incumbency-advantage---lee-moretti-and-butler-2004"><i class="fa fa-check"></i><b>1.3</b> Example: incumbency advantage - Lee, Moretti, and Butler (2004)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>R</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#scripts"><i class="fa fa-check"></i><b>2.2</b> Scripts</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-working-directory"><i class="fa fa-check"></i><b>2.3</b> The working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#exercises"><i class="fa fa-check"></i><b>2.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#understanding-some-code"><i class="fa fa-check"></i><b>2.4.1</b> Understanding some code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html"><i class="fa fa-check"></i><b>3</b> Review of some mathmatical concepts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#summation"><i class="fa fa-check"></i><b>3.1</b> Summation</a></li>
+<li class="chapter" data-level="3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-random-variables"><i class="fa fa-check"></i><b>3.2</b> Describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#discrete-random-variables"><i class="fa fa-check"></i><b>3.2.1</b> Discrete random variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#continuous-random-variables"><i class="fa fa-check"></i><b>3.2.2</b> Continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#completely-describing-random-variables"><i class="fa fa-check"></i><b>3.3</b> Completely describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#cumulative-density-function"><i class="fa fa-check"></i><b>3.3.1</b> Cumulative density function</a></li>
+<li class="chapter" data-level="3.3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-mass-function"><i class="fa fa-check"></i><b>3.3.2</b> Probability mass function</a></li>
+<li class="chapter" data-level="3.3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-density-function"><i class="fa fa-check"></i><b>3.3.3</b> Probability density function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#ways-to-summarize-a-distribution"><i class="fa fa-check"></i><b>3.4</b> Ways to summarize a distribution</a></li>
+<li class="chapter" data-level="3.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-the-relationship-between-two-or-more-random-variables"><i class="fa fa-check"></i><b>3.5</b> Describing the relationship between two or more random variables</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#joint-distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Joint distribution functions</a></li>
+<li class="chapter" data-level="3.5.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#conditional-probability"><i class="fa fa-check"></i><b>3.5.2</b> Conditional probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exercises-1"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#four-sided-die-roll"><i class="fa fa-check"></i><b>3.6.1</b> Four-sided die roll</a></li>
+<li class="chapter" data-level="3.6.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exponential-distribution"><i class="fa fa-check"></i><b>3.6.2</b> Exponential distribution</a></li>
+<li class="chapter" data-level="3.6.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#modeling-a-random-probability"><i class="fa fa-check"></i><b>3.6.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="3.6.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#an-unfair-coin"><i class="fa fa-check"></i><b>3.6.4</b> An unfair coin</a></li>
+<li class="chapter" data-level="3.6.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#adding-two-random-variables"><i class="fa fa-check"></i><b>3.6.5</b> Adding two random variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estimators.html"><a href="estimators.html"><i class="fa fa-check"></i><b>4</b> Estimators</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="estimators.html"><a href="estimators.html#estimators-and-the-sampling-distribution"><i class="fa fa-check"></i><b>4.1</b> Estimators and the sampling distribution</a></li>
+<li class="chapter" data-level="4.2" data-path="estimators.html"><a href="estimators.html#small-sample-properties-of-estimators"><i class="fa fa-check"></i><b>4.2</b> Small sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="estimators.html"><a href="estimators.html#bias"><i class="fa fa-check"></i><b>4.2.1</b> Bias</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estimators.html"><a href="estimators.html#variance"><i class="fa fa-check"></i><b>4.2.2</b> Variance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="estimators.html"><a href="estimators.html#mean-squared-error"><i class="fa fa-check"></i><b>4.2.3</b> Mean squared error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="estimators.html"><a href="estimators.html#exercises-2"><i class="fa fa-check"></i><b>4.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="estimators.html"><a href="estimators.html#modeling-a-random-probability-1"><i class="fa fa-check"></i><b>4.3.1</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="4.3.2" data-path="estimators.html"><a href="estimators.html#exponential-distribution-1"><i class="fa fa-check"></i><b>4.3.2</b> Exponential distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>5</b> Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="inference.html"><a href="inference.html#hypothesis-tests"><i class="fa fa-check"></i><b>5.1</b> Hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="inference.html"><a href="inference.html#one-sided-hypothesis-tests"><i class="fa fa-check"></i><b>5.1.1</b> One-sided hypothesis tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="inference.html"><a href="inference.html#p-values"><i class="fa fa-check"></i><b>5.2</b> <span class="math inline">\(p\)</span>-values</a></li>
+<li class="chapter" data-level="5.3" data-path="inference.html"><a href="inference.html#confidence-intervals"><i class="fa fa-check"></i><b>5.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="5.4" data-path="inference.html"><a href="inference.html#test-power"><i class="fa fa-check"></i><b>5.4</b> Test power</a></li>
+<li class="chapter" data-level="5.5" data-path="inference.html"><a href="inference.html#the-take-away"><i class="fa fa-check"></i><b>5.5</b> The take-away</a></li>
+<li class="chapter" data-level="5.6" data-path="inference.html"><a href="inference.html#exercises-3"><i class="fa fa-check"></i><b>5.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="inference.html"><a href="inference.html#converting-a-continuous-variable-into-a-coin-flip"><i class="fa fa-check"></i><b>5.6.1</b> Converting a continuous variable into a coin flip</a></li>
+<li class="chapter" data-level="5.6.2" data-path="inference.html"><a href="inference.html#the-maximum-of-a-sample"><i class="fa fa-check"></i><b>5.6.2</b> The maximum of a sample</a></li>
+<li class="chapter" data-level="5.6.3" data-path="inference.html"><a href="inference.html#assessing-the-performance-of-a-cookbook-hypothesis-test"><i class="fa fa-check"></i><b>5.6.3</b> Assessing the performance of a “cookbook” hypothesis test</a></li>
+<li class="chapter" data-level="5.6.4" data-path="inference.html"><a href="inference.html#hypothesis-tests-using-graphs"><i class="fa fa-check"></i><b>5.6.4</b> Hypothesis tests using graphs</a></li>
+<li class="chapter" data-level="5.6.5" data-path="inference.html"><a href="inference.html#simulation-exercise"><i class="fa fa-check"></i><b>5.6.5</b> Simulation exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html"><i class="fa fa-check"></i><b>6</b> Inference using asymptotic assumptions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-estimators"><i class="fa fa-check"></i><b>6.1</b> Large-sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#consistency"><i class="fa fa-check"></i><b>6.1.1</b> Consistency</a></li>
+<li class="chapter" data-level="6.1.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#asymptotic-distribution"><i class="fa fa-check"></i><b>6.1.2</b> Asymptotic distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-sample-means"><i class="fa fa-check"></i><b>6.2</b> Large-sample properties of sample means</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-weak-law-of-large-numbers-wlln"><i class="fa fa-check"></i><b>6.2.1</b> The Weak Law of Large Numbers (WLLN)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-central-limit-theorem"><i class="fa fa-check"></i><b>6.2.2</b> A Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#using-large-sample-properties-to-make-inference-easier"><i class="fa fa-check"></i><b>6.3</b> Using large-sample properties to make inference easier</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#hypothesis-tests-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.1</b> Hypothesis tests with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#even-more-of-a-shortcut"><i class="fa fa-check"></i><b>6.3.2</b> Even more of a shortcut</a></li>
+<li class="chapter" data-level="6.3.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#confidence-intervals-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.3</b> Confidence intervals with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#p-values-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.4</b> <span class="math inline">\(p\)</span>-values with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#tieing-this-in-with-the-previous-chapter"><i class="fa fa-check"></i><b>6.3.5</b> Tieing this in with the previous chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#transforming-variables"><i class="fa fa-check"></i><b>6.4</b> Transforming variables</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-continuous-mapping-theorem"><i class="fa fa-check"></i><b>6.4.1</b> The continuous mapping theorem</a></li>
+<li class="chapter" data-level="6.4.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-delta-method"><i class="fa fa-check"></i><b>6.4.2</b> The delta method</a></li>
+<li class="chapter" data-level="6.4.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#jensens-inequality"><i class="fa fa-check"></i><b>6.4.3</b> Jensen’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exercises-4"><i class="fa fa-check"></i><b>6.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exponential-distribution-2"><i class="fa fa-check"></i><b>6.5.1</b> Exponential distribution</a></li>
+<li class="chapter" data-level="6.5.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-simulation"><i class="fa fa-check"></i><b>6.5.2</b> A simulation</a></li>
+<li class="chapter" data-level="6.5.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#modeling-a-random-probability-2"><i class="fa fa-check"></i><b>6.5.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="6.5.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-sort-of-simulation-exercise"><i class="fa fa-check"></i><b>6.5.4</b> A (sort-of) simulation exercise</a></li>
+<li class="chapter" data-level="6.5.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#one-test-three-ways"><i class="fa fa-check"></i><b>6.5.5</b> One test, three ways</a></li>
+<li class="chapter" data-level="6.5.6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#deriving-properties-of-estimators"><i class="fa fa-check"></i><b>6.5.6</b> Deriving properties of estimators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="linear-regression.html"><a href="linear-regression.html#derivation-of-the-bivariate-ols-slope-estimator"><i class="fa fa-check"></i><b>7.1</b> Derivation of the bivariate OLS slope estimator</a></li>
+<li class="chapter" data-level="7.2" data-path="linear-regression.html"><a href="linear-regression.html#unbiasedness"><i class="fa fa-check"></i><b>7.2</b> Unbiasedness</a></li>
+<li class="chapter" data-level="7.3" data-path="linear-regression.html"><a href="linear-regression.html#variance-1"><i class="fa fa-check"></i><b>7.3</b> Variance</a></li>
+<li class="chapter" data-level="7.4" data-path="linear-regression.html"><a href="linear-regression.html#inference-in-bivariate-ols"><i class="fa fa-check"></i><b>7.4</b> Inference in bivariate OLS</a></li>
+<li class="chapter" data-level="7.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-5"><i class="fa fa-check"></i><b>7.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="linear-regression.html"><a href="linear-regression.html#municipal-expenditure"><i class="fa fa-check"></i><b>7.5.1</b> Municipal expenditure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html"><i class="fa fa-check"></i><b>8</b> The shape of the right-hand side</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#linear-regression-as-a-model-for-conditional-expectation"><i class="fa fa-check"></i><b>8.1</b> Linear regression as a model for conditional expectation</a></li>
+<li class="chapter" data-level="8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#an-example-dataset"><i class="fa fa-check"></i><b>8.2</b> An example dataset</a></li>
+<li class="chapter" data-level="8.3" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#marginal-effects"><i class="fa fa-check"></i><b>8.3</b> Marginal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#categorical-variables"><i class="fa fa-check"></i><b>8.4</b> Categorical variables</a></li>
+<li class="chapter" data-level="8.5" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#interactions"><i class="fa fa-check"></i><b>8.5</b> Interactions</a></li>
+<li class="chapter" data-level="8.6" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#logarithms"><i class="fa fa-check"></i><b>8.6</b> Logarithms</a></li>
+<li class="chapter" data-level="8.7" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#polynomials"><i class="fa fa-check"></i><b>8.7</b> Polynomials</a></li>
+<li class="chapter" data-level="8.8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#exercises-6"><i class="fa fa-check"></i><b>8.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#baking-a-cake"><i class="fa fa-check"></i><b>8.8.1</b> Baking a cake</a></li>
+<li class="chapter" data-level="8.8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#psid-earnings-panel-data"><i class="fa fa-check"></i><b>8.8.2</b> PSID Earnings Panel Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html"><i class="fa fa-check"></i><b>9</b> Linear regression - common misconceptions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#heteroskedasticity"><i class="fa fa-check"></i><b>9.1</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#multicolinearity"><i class="fa fa-check"></i><b>9.2</b> Multicolinearity</a></li>
+<li class="chapter" data-level="9.3" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#omitted-variables-are-always-a-problem"><i class="fa fa-check"></i><b>9.3</b> Omitted variables are <em>always</em> a problem</a></li>
+<li class="chapter" data-level="9.4" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#normal-errors"><i class="fa fa-check"></i><b>9.4</b> Normal errors</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Standard errors in linear regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#homoskedasticity-the-standard-standard-errors"><i class="fa fa-check"></i><b>10.1</b> Homoskedasticity: the “standard” standard errors</a></li>
+<li class="chapter" data-level="10.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#heteroskedasticity-1"><i class="fa fa-check"></i><b>10.2</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="10.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#clustered-standard-errors"><i class="fa fa-check"></i><b>10.3</b> Clustered standard errors</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#an-example"><i class="fa fa-check"></i><b>10.3.1</b> An example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#standard-errors-for-multivariate-linear-regression"><i class="fa fa-check"></i><b>10.4</b> Standard errors for multivariate linear regression</a></li>
+<li class="chapter" data-level="10.5" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#calculating-standard-errors-in-r"><i class="fa fa-check"></i><b>10.5</b> Calculating standard errors in <em>R</em></a></li>
+<li class="chapter" data-level="10.6" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#exercises-7"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#galtons-families"><i class="fa fa-check"></i><b>10.6.1</b> Galton’s families</a></li>
+<li class="chapter" data-level="10.6.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#simulation"><i class="fa fa-check"></i><b>10.6.2</b> Simulation</a></li>
+<li class="chapter" data-level="10.6.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#more-simulation"><i class="fa fa-check"></i><b>10.6.3</b> More simulation</a></li>
+<li class="chapter" data-level="10.6.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#instructor-ratings"><i class="fa fa-check"></i><b>10.6.4</b> Instructor ratings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html"><i class="fa fa-check"></i><b>11</b> Hypothesis tests about more than one parameter</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-restricted-model"><i class="fa fa-check"></i><b>11.1</b> The restricted model</a></li>
+<li class="chapter" data-level="11.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-test-using-r2-that-you-probably-shouldnt-use"><i class="fa fa-check"></i><b>11.2</b> A test using <span class="math inline">\(R^2\)</span> that you probably shouldn’t use</a></li>
+<li class="chapter" data-level="11.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-more-robust-test"><i class="fa fa-check"></i><b>11.3</b> A more robust test</a></li>
+<li class="chapter" data-level="11.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#another-example"><i class="fa fa-check"></i><b>11.4</b> Another example</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-whether-the-child-is-male-of-female"><i class="fa fa-check"></i><b>11.4.1</b> The height of a child does not depend on whether the child is male of female</a></li>
+<li class="chapter" data-level="11.4.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-the-height-of-their-parents"><i class="fa fa-check"></i><b>11.4.2</b> The height of a child does not depend on the height of their parents</a></li>
+<li class="chapter" data-level="11.4.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-mother-height-on-child-height-is-the-same-as-the-effect-of-father-height-on-child-height"><i class="fa fa-check"></i><b>11.4.3</b> The effect of mother height on child height is the same as the effect of father height on child height</a></li>
+<li class="chapter" data-level="11.4.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-male-childrens-height-is-the-same-as-the-effect-of-parent-height-on-female-childrens-height"><i class="fa fa-check"></i><b>11.4.4</b> The effect of parent height on male children’s height is the same as the effect of parent height on female children’s height</a></li>
+<li class="chapter" data-level="11.4.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-child-height-is-linear"><i class="fa fa-check"></i><b>11.4.5</b> The effect of parent height on child height is linear</a></li>
+<li class="chapter" data-level="11.4.6" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#parents-who-are-on-average-one-inch-taller-have-children-that-are-on-average-one-inch-taller"><i class="fa fa-check"></i><b>11.4.6</b> Parents who are on average one inch taller have children that are on average one inch taller</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#exercises-8"><i class="fa fa-check"></i><b>11.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#project-star-student-teacher-achievement-ratio"><i class="fa fa-check"></i><b>11.5.1</b> Project STAR: Student-Teacher Achievement Ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><i class="fa fa-check"></i><b>12</b> Limited dependent variable models and maximum likelihood estimation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#motivation-the-linear-probability-model-works-134-of-the-time"><i class="fa fa-check"></i><b>12.1</b> Motivation: The linear probability model works 134% of the time</a></li>
+<li class="chapter" data-level="12.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-practical-solution-ensure-that-predictions-are-always-valid"><i class="fa fa-check"></i><b>12.2</b> A practical solution: Ensure that predictions are always valid</a></li>
+<li class="chapter" data-level="12.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#interpreting-the-coefficients-of-the-probit-and-logit-models"><i class="fa fa-check"></i><b>12.3</b> Interpreting the coefficients of the probit and logit models</a></li>
+<li class="chapter" data-level="12.4" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#but-how-do-we-estimate-it-maximum-likelihood"><i class="fa fa-check"></i><b>12.4</b> But how do we estimate it? Maximum likelihood</a></li>
+<li class="chapter" data-level="12.5" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#doing-inference-with-maximum-likelihood"><i class="fa fa-check"></i><b>12.5</b> Doing inference with maximum likelihood</a></li>
+<li class="chapter" data-level="12.6" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#how-some-estimators-relate-to-maximum-likelihood"><i class="fa fa-check"></i><b>12.6</b> How some estimators relate to maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sample-mean-for-a-bernoulli-coin-flip-variable"><i class="fa fa-check"></i><b>12.6.1</b> Sample mean for a Bernoulli (coin flip) variable</a></li>
+<li class="chapter" data-level="12.6.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#linear-regression-1"><i class="fa fa-check"></i><b>12.6.2</b> Linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#some-examples-of-estimating-parameters-using-maximum-likelihood"><i class="fa fa-check"></i><b>12.7</b> Some examples of estimating parameters using maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#geometric-distribution"><i class="fa fa-check"></i><b>12.7.1</b> Geometric distribution</a></li>
+<li class="chapter" data-level="12.7.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#simplified-beta-distribution"><i class="fa fa-check"></i><b>12.7.2</b> Simplified Beta distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#an-extended-example"><i class="fa fa-check"></i><b>12.8</b> An extended example</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#data"><i class="fa fa-check"></i><b>12.8.1</b> Data</a></li>
+<li class="chapter" data-level="12.8.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-research-question"><i class="fa fa-check"></i><b>12.8.2</b> A research question</a></li>
+<li class="chapter" data-level="12.8.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#the-model-based-approach"><i class="fa fa-check"></i><b>12.8.3</b> The model-based approach</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#exercises-9"><i class="fa fa-check"></i><b>12.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.9.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#checking-that-we-rolled-a-die-correctly"><i class="fa fa-check"></i><b>12.9.1</b> Checking that we rolled a die correctly</a></li>
+<li class="chapter" data-level="12.9.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#galtons-heights-dataset"><i class="fa fa-check"></i><b>12.9.2</b> Galton’s heights dataset</a></li>
+<li class="chapter" data-level="12.9.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sumo-wrestling"><i class="fa fa-check"></i><b>12.9.3</b> Sumo wrestling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html"><i class="fa fa-check"></i><b>13</b> Combining and manipulating datasets</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#merging-data-join"><i class="fa fa-check"></i><b>13.1</b> Merging data (<code>join</code>)</a></li>
+<li class="chapter" data-level="13.2" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#wide-and-long-formats-pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>13.2</b> Wide and long formats (<code>pivot_longer</code> and <code>pivot_wider</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="time-series-introduction.html"><a href="time-series-introduction.html"><i class="fa fa-check"></i><b>14</b> Time series – Introduction</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#autoregressive-and-moving-average-arma-models-the-basic-building-blocks-of-time-series-models"><i class="fa fa-check"></i><b>14.1</b> Autoregressive and moving average (ARMA) models: the basic building blocks of time series models</a></li>
+<li class="chapter" data-level="14.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-properties-of-arma-processes"><i class="fa fa-check"></i><b>14.2</b> Stationarity and properties of ARMA processes</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#examples"><i class="fa fa-check"></i><b>14.2.1</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#diagnostics-autocorrelation-and-partial-autocorrelation-functions"><i class="fa fa-check"></i><b>14.3</b> Diagnostics: Autocorrelation and partial autocorrelation functions</a></li>
+<li class="chapter" data-level="14.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-unemployment"><i class="fa fa-check"></i><b>14.4</b> Example dataset – unemployment</a></li>
+<li class="chapter" data-level="14.5" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-testing-for-unit-roots"><i class="fa fa-check"></i><b>14.5</b> Stationarity and testing for unit roots</a></li>
+<li class="chapter" data-level="14.6" data-path="time-series-introduction.html"><a href="time-series-introduction.html#non-stationarity-and-spurious-correlation"><i class="fa fa-check"></i><b>14.6</b> Non-stationarity and spurious correlation</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-share-a-trend"><i class="fa fa-check"></i><b>14.6.1</b> Two variables share a trend</a></li>
+<li class="chapter" data-level="14.6.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-are-cyclical"><i class="fa fa-check"></i><b>14.6.2</b> Two variables are cyclical</a></li>
+<li class="chapter" data-level="14.6.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-have-a-unit-root"><i class="fa fa-check"></i><b>14.6.3</b> Two variables have a unit root</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="time-series-introduction.html"><a href="time-series-introduction.html#differencing-and-stationarity"><i class="fa fa-check"></i><b>14.7</b> Differencing and stationarity</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#some-examples-of-making-non-stationary-series-stationary-through-differencing"><i class="fa fa-check"></i><b>14.7.1</b> Some examples of making non-stationary series stationary through differencing</a></li>
+<li class="chapter" data-level="14.7.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-us-consumer-price-index"><i class="fa fa-check"></i><b>14.7.2</b> Example dataset: US Consumer Price Index</a></li>
+<li class="chapter" data-level="14.7.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-data-gdp-and-money-supply"><i class="fa fa-check"></i><b>14.7.3</b> Example data: GDP and money supply</a></li>
+<li class="chapter" data-level="14.7.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-peace-corps"><i class="fa fa-check"></i><b>14.7.4</b> Example: Peace Corps</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="time-series-introduction.html"><a href="time-series-introduction.html#estimating-arima-models"><i class="fa fa-check"></i><b>14.8</b> Estimating ARIMA models</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html"><i class="fa fa-check"></i><b>15</b> Time series – Forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#prediction-and-forecasting"><i class="fa fa-check"></i><b>15.1</b> Prediction and forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-with-univariate-problems"><i class="fa fa-check"></i><b>15.1.1</b> Example: Prediction with univariate problems</a></li>
+<li class="chapter" data-level="15.1.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-in-bivariate-ols"><i class="fa fa-check"></i><b>15.1.2</b> Example: Prediction in bivariate OLS</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#cross-validation"><i class="fa fa-check"></i><b>15.2</b> Cross-validation</a></li>
+<li class="chapter" data-level="15.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-cpi-and-ppi"><i class="fa fa-check"></i><b>15.3</b> Example: CPI and PPI</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#using-just-ar-and-ma-components"><i class="fa fa-check"></i><b>15.3.1</b> Using just AR and MA components</a></li>
+<li class="chapter" data-level="15.3.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-some-seasonality"><i class="fa fa-check"></i><b>15.3.2</b> Incorporating some seasonality</a></li>
+<li class="chapter" data-level="15.3.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-ppi-inflation"><i class="fa fa-check"></i><b>15.3.3</b> Incorporating PPI inflation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="additional-exercises.html"><a href="additional-exercises.html"><i class="fa fa-check"></i><b>16</b> Additional exercises</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="additional-exercises.html"><a href="additional-exercises.html#for-loops"><i class="fa fa-check"></i><b>16.1</b> For loops</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="additional-exercises.html"><a href="additional-exercises.html#determinants-of-wage-data-cps-1988"><i class="fa fa-check"></i><b>16.1.1</b> Determinants of wage data (CPS 1988)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="past-exam-questions.html"><a href="past-exam-questions.html"><i class="fa fa-check"></i><b>17</b> Past exam questions</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2023-5810-exam-1"><i class="fa fa-check"></i><b>17.1</b> Fall 2023 5810 Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability"><i class="fa fa-check"></i><b>17.1.1</b> Probability</a></li>
+<li class="chapter" data-level="17.1.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimation-and-inference"><i class="fa fa-check"></i><b>17.1.2</b> Estimation and inference</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2022-5810-exam-1"><i class="fa fa-check"></i><b>17.2</b> Fall 2022 5810, Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability-1"><i class="fa fa-check"></i><b>17.2.1</b> Probability</a></li>
+<li class="chapter" data-level="17.2.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#inference-1"><i class="fa fa-check"></i><b>17.2.2</b> Inference</a></li>
+<li class="chapter" data-level="17.2.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimators-and-large-sample-properties"><i class="fa fa-check"></i><b>17.2.3</b> Estimators and large-sample properties</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-2-2022"><i class="fa fa-check"></i><b>17.3</b> 5810 Exam 2 (2022)</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#directed-acyclic-graphs"><i class="fa fa-check"></i><b>17.3.1</b> Directed Acyclic Graphs</a></li>
+<li class="chapter" data-level="17.3.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#linear-regression-2"><i class="fa fa-check"></i><b>17.3.2</b> Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-1-2023"><i class="fa fa-check"></i><b>17.4</b> 5820, Exam 1 (2023)</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#maximum-likelihood"><i class="fa fa-check"></i><b>17.4.1</b> Maximum likelihood</a></li>
+<li class="chapter" data-level="17.4.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fire-trucks"><i class="fa fa-check"></i><b>17.4.2</b> Fire trucks</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Econometrics notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="inference-using-asymptotic-assumptions" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Inference using asymptotic assumptions<a href="inference-using-asymptotic-assumptions.html#inference-using-asymptotic-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>At this point, I am hoping that you have a rather grim view of hypothesis tests in the context of the previous chapter: we need to know a lot about our random variable in order to derive the distribution of our test statistic when <span class="math inline">\(H_0\)</span> is true, and even when we know all of this, the process is a difficult one. Fortunately, we have another tool that allows us to make the process much simpler: asymptotics. Even if we don’t know (or don’t care) enough about our random variable to derive exactly its sampling distribution, we can use this tool to work out what it would be as our sample size <span class="math inline">\(N\)</span> approached infinity. Then we take the leap of faith that our sample size is large enough that this distribution is a good approximation for our actual sample.</p>
+<p>To do this, we use two theorems about sample means. The Weak Law of Large Numbers tells that as our sample size <span class="math inline">\(N\to\infty\)</span>, the probability that we are arbitrarily close to the population mean (i.e. <span class="math inline">\(E[X]\)</span>) approaches 1. Then, central limit theorems tell us how we can appropriately scale things so that they are (usually) normally distributed as <span class="math inline">\(N\to\infty\)</span>. I introduce these concepts, then outline how we can use them to derive approximate properties of our estimator and/or test statistic if we can argue that our sample size is large enough. We then learn how these are useful for doing inference, and finish with a useful approximation of transformation of sample means.</p>
+<div id="large-sample-properties-of-estimators" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Large-sample properties of estimators<a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-estimators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the previous chapter, we learned that bias, variance, and mean squared error are useful quantities to summarize the performance of an estimator. These are sometimes referred to <em>small sample</em> properties of estimators, meaning that they are things that you might need to worry about if your sample size is small. You may also have to worry about them is <span class="math inline">\(N\)</span> is large, but there are some other properties that you might need to know about your estimators that relate to large samples.</p>
+<div id="consistency" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Consistency<a href="inference-using-asymptotic-assumptions.html#consistency" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose that there is a population parameter <span class="math inline">\(\theta\)</span> that you would like to estimate. You have a sample <span class="math inline">\(\{X_i\}_{i=1}^N\)</span>, and an estimator <span class="math inline">\(\hat\theta\)</span> which takes this sample and spits out a number (an estimate), which you hope is close to the true value, <span class="math inline">\(\theta\)</span>. You want to know if your estimating procedure is one in which obtaining more observations (i.e. increasing <span class="math inline">\(N\)</span>) gets your estimate closer to <span class="math inline">\(\theta\)</span>. Unfortunately, since your sample is random, so is your estimator <span class="math inline">\(\hat\theta\)</span>. This means that no matter how much data you collect, there is still a chance that your estimate is terrible. What we {} work out, though, is whether increasing <span class="math inline">\(N\)</span> will get us close enough to <span class="math inline">\(\theta\)</span>, with probability very close to 1. In math speak, what we want is:
+<span class="math display">\[\begin{align}
+\Pr\left(|\hat\theta-\theta|&gt;\epsilon\right)\to 0 \text{ as } N \to \infty, \text{ for all } \epsilon&gt;0\label{eq:AsymConsistent}
+\end{align}\]</span></p>
+<p>which we can write more compactly as <span class="math inline">\(\mathrm{plim}\hat\theta=\theta\)</span>, and say “the probability limit of <span class="math inline">\(\hat\theta\)</span> is <span class="math inline">\(\theta\)</span>,” or (since we know <span class="math inline">\(\hat\theta\)</span> is an estimator) “<span class="math inline">\(\hat\theta\)</span> is a consistent estimator (of <span class="math inline">\(\theta\)</span>).” Inspecting (<span class="math inline">\(\ref{eq:AsymConsistent}\)</span>), what is it telling us. <span class="math inline">\(|\hat\theta-\theta|\)</span> is the distance between our estimator and the true value, and <span class="math inline">\(\epsilon\)</span> is a positive number. So the probability that <span class="math inline">\(\hat\theta\)</span> is at least <span class="math inline">\(\epsilon\)</span> away from the thing we are trying to estimate goes to zero as our sample size goes to infinity. The “for all <span class="math inline">\(\epsilon&gt;0\)</span>” means that this probability goes to zero no matter what positive number you pick for <span class="math inline">\(\epsilon\)</span>. In other words, no matter how I define “close enough” (i.e. <span class="math inline">\(\epsilon\)</span>), I can get close enough to the true value with probability 1 by sending the sample size off to infinity. Loosely speaking, if you have a consistent estimator, collecting more data means that you are more likely to have a good estimate.</p>
+</div>
+<div id="asymptotic-distribution" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Asymptotic distribution<a href="inference-using-asymptotic-assumptions.html#asymptotic-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the previous chapter, probably the hardest thing to do computationally was to determine the sampling distribution of the estimator. In some special cases, such as Bernoulli (coin flip) and Normal random variables, we can work it out. For large samples, though, this is more of a classroom exercise rather than something that is done in practice (although if you deal with a lot of small samples, you may need this). Instead, much inference is based on determining the <em>asymptotic</em> distribution of an estimator. We may have no idea what the exact (small sample) distribution is, but we can work out what (a transformation of) it looks like when <span class="math inline">\(N\to\infty\)</span>. We then assume that this is a good enough approximation of our actual, finite sample size. For a lot of cases, we will be using estimators that are (sometimes fancy) sample means. In this case we can use the work of others (see below) to construct something that is approximately standard normal when <span class="math inline">\(N\)</span> is large. This is useful because we need to know <em>much</em> less about the data-generating process in order to work out the (approximate) distribution. I will leave further discussion of this to the next section.</p>
+</div>
+</div>
+<div id="large-sample-properties-of-sample-means" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Large-sample properties of sample means<a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-sample-means" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Fortunately for us, (i) many of our estimators and test statistics are just fancy sample means, and (ii) a lot of work has gone into understanding sample means. I present some of the results of (ii) below, which will make our life a lot easier.</p>
+<div id="the-weak-law-of-large-numbers-wlln" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> The Weak Law of Large Numbers (WLLN)<a href="inference-using-asymptotic-assumptions.html#the-weak-law-of-large-numbers-wlln" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The weak law of large numbers tells us (loosely) that a sample mean (i.e. <span class="math inline">\(\frac1N\sum_iX_i\)</span>) will get very close to the equivalent population mean (i.e. <span class="math inline">\(E[X]\)</span>) as our sample size (i.e. <span class="math inline">\(N\)</span>) becomes large. Formally:</p>
+<blockquote>
+<p><strong>Weak law of large numbers</strong>:
+Let <span class="math inline">\(X_i\)</span> be an infinite set of iid Lebesgue integrable random numbers satisfying <span class="math inline">\(E[X_i]=\mu\)</span> for all <span class="math inline">\(i\)</span>. Then:
+<span class="math display">\[\begin{align}
+\lim_{N\to\infty}\Pr\left(\left|\frac{1}{N}\sum_{i=1}^NX_i-\mu\right|&gt;\epsilon\right)=0, \quad\text{for all }\epsilon&gt;0\label{eq:WLLN}
+\end{align}\]</span>
+or:
+<span class="math display">\[\begin{align}
+\mathrm{plim}\left(\frac{1}{N}\sum_{i=1}^NX_i\right)=\mu
+\end{align}\]</span></p>
+</blockquote>
+<p>What does the Weak Law of Large Numbers (WLLN) mean in plain(er) English? Note that <span class="math inline">\(\left|\frac{1}{N}\sum_{i=1}^NX_i-\mu\right|\)</span> is the distance between our sample mean and the population mean. This is random because we have a random sample. Now we define <span class="math inline">\(\epsilon\)</span> as some arbitrary criterion for closeness, and ask the question: how likely are we to get a sample mean at least <span class="math inline">\(\epsilon\)</span> away from the population mean? WLLN tells us that no matter how we define this criterion closeness, as <span class="math inline">\(N\to\infty\)</span> our sample will be close to the population mean with probability approaching 1. Basically, sample means converge to population means as <span class="math inline">\(N\to\infty\)</span>. In other words: sample means are consistent estimators of population means!</p>
+</div>
+<div id="a-central-limit-theorem" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> A Central Limit Theorem<a href="inference-using-asymptotic-assumptions.html#a-central-limit-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>So the Weak Law of Large Numbers is useful for point estimates: if we have a sample mean with a large sample size, we are likely to get very close to the population mean. However this is not helpful for inference. How do we put a confidence interval around an estimate if the distribution of the estimator collapses to a point? The answer is to use an appropriate scaling of the estimator that {} collapse. To understand the problem, note that the variance of the sample mean for an iid sample is:
+<span class="math display">\[\begin{align}
+V[\bar x_N]=V\left[\frac1N\sum_{i=1}^NX_i\right]&amp;=\frac{1}{N^2}V\left[\sum_{i=1}^NX_i\right]=\frac{1}{N^2}\sum_{i=1}^NV[X]=\frac{1}{N^2} NV[X]=\frac{V[X]}{N}\label{eq:CH04:VXbar}
+\end{align}\]</span>
+So for finite <span class="math inline">\(V[X]\)</span>, <span class="math inline">\(V[\bar x_N]\to 0\)</span> as <span class="math inline">\(N\to\infty\)</span>. The solution to this can also be seen in Equation <span class="math inline">\(\ref{eq:CH04:VXbar}\)</span>: we need to multiply <span class="math inline">\(\bar x_N\)</span> by a fudge factor <span class="math inline">\(g(N)\)</span> (actually a fudge {} of <span class="math inline">\(N\)</span>) that increases in such a way that <span class="math inline">\(V[g(N)\bar x]\)</span> is a constant. Since <span class="math inline">\(g(N)\)</span> is not random, we can do the following:
+<span class="math display">\[\begin{align}
+V[g(N)\bar x_N]&amp;=V[g(N)\bar x_N]=[g(N)]^2V[\bar x_N]=[g(N)]^2\frac{V[X]}{N}
+\end{align}\]</span>
+So if <span class="math inline">\(g(N)=\sqrt N\)</span>, then:
+<span class="math display">\[\begin{align}
+V[g(N)\bar x_N]=V[\sqrt N\bar x_N]=N\frac{V[X]}{N}=V[X]
+\end{align}\]</span>
+a constant! That is, the variance of <span class="math inline">\(\sqrt N\bar x_N\)</span> does not depend on <span class="math inline">\(N\)</span>. Furthermore, we can scale this a little bit more so it has zero mean:
+<span class="math display">\[\begin{align}
+E\left[\sqrt N \left(\bar x_N-E[X]\right)\right]&amp;=0\\
+V\left[\sqrt N \left(\bar x_N-E[X]\right)\right]&amp;=V[X]
+\end{align}\]</span></p>
+<p>OK, so now we know that, no matter how large or small the sample size, <span class="math inline">\(\sqrt N(\bar x_N-E[X])\)</span> will always have mean zero and variance equal to <span class="math inline">\(V[X]\)</span>. This is <em>almost</em> useful. What is actually useful is the following:</p>
+<blockquote>
+<p><strong>Central Limit Theorem</strong>: Let <span class="math inline">\(X_i\)</span> be an iid random variable with mean <span class="math inline">\(E[X_i]=\mu\)</span> and variance <span class="math inline">\(V[X_i]=\sigma^2&lt;\infty\)</span>. Let:
+<span class="math display">\[\begin{align}
+Z_N&amp;=\frac{\sqrt{N}\left(\frac1N\sum_iX_i-\mu\right)}{\sigma}
+\end{align}\]</span>
+Then <span class="math inline">\(Z_N\)</span> converges in distribution to a standard normal distribution as <span class="math inline">\(N\to\infty\)</span>. that is:
+<span class="math display">\[\begin{align}
+\lim_{N\to\infty}\Pr[Z_N\leq z]=\Phi(z)
+\end{align}\]</span>
+where <span class="math inline">\(\Phi(z)\)</span> is the standard normal cdf evaluated at <span class="math inline">\(z\)</span>. Alternatively, we could write:
+<span class="math display">\[\begin{align}
+Z_N\xrightarrow[]{d} N(0,1)
+\end{align}\]</span></p>
+</blockquote>
+<p>That is, <em>no matter what the distribution of <span class="math inline">\(X\)</span> is</em>, as long as it is iid with finite variance, we know that the sampling distribution of the mean approaches a normal distribution as <span class="math inline">\(N\to\infty\)</span>. We then make the leap of faith that <span class="math inline">\(N\)</span> is “close enough” to infinity that <span class="math inline">\(\Pr[Z_N\leq z]\)</span> is “close enough” to <span class="math inline">\(\Phi(z)\)</span> that it is not too terrible to assume that it is equal to <span class="math inline">\(\Phi(z)\)</span>. Why is that useful? Perhaps I should re-iterate:</p>
+<blockquote>
+<p><em>no matter what the distribution of <span class="math inline">\(X\)</span> is</em></p>
+</blockquote>
+<p>This means that if we want to say something about the sample mean, we hardly need to know anything about the distribution of the individual <span class="math inline">\(X\)</span>s. Only that they are (i) independent and identically distributed, (ii) finite variance, and (iii) the sample size is sufficiently large that this is a good approximation. That’s it! Think about all of the hard work we put into working out a sampling distribution in the previous chapters. We needed to know the exact distribution of our <span class="math inline">\(X\)</span>s, and then we had to be lucky to find a monkey trick that got the distribution of the sample mean into a recognizable form. Now we only need to be able to do hypothesis tests and calculate <span class="math inline">\(p\)</span>-values and confidence intervals using just one distribution: the standard normal! This thing can be summarized on a single sheet of paper, and in reality you will most likely need to memorize maybe two or three numbers to never need this piece of paper again.</p>
+</div>
+</div>
+<div id="using-large-sample-properties-to-make-inference-easier" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Using large-sample properties to make inference easier<a href="inference-using-asymptotic-assumptions.html#using-large-sample-properties-to-make-inference-easier" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is quite likely that all of the work needed to do inference in Chapter <span class="math inline">\(\ref{ch:Inference}\)</span> made you wonder whether statistics and econometrics was always this hard. Fortunately, you now have a new tool that allows you to make a very useful shortcut. In this previous chapter, we spent a lot of time deriving the sampling properties of <span class="math inline">\(\sum_{i=1}^N H_i\)</span>, the sum of <span class="math inline">\(N\)</span> iid unfair coin flips, which came up heads (<span class="math inline">\(H_i=1\)</span>) with probability <span class="math inline">\(\theta\)</span>, and tails (<span class="math inline">\(H_i=0\)</span>) otherwise. If you’ve being paying attention in this chapter so far, you would have noticed that the WLLN and CLT told us things about sample means. Unfortunately, <span class="math inline">\(\sum_{i=1}^N H_i\)</span> is not a sample mean. Fortunately, if we divide by <span class="math inline">\(N\)</span>, it is <em>exactly</em> a sample mean! Let <span class="math inline">\(\bar h = \frac{1}{N}\sum_{i=1}^NH_i\)</span>. As we could already do from learning about how to describe random variables, we now know that:
+<span class="math display">\[\begin{align}
+E[H_i]&amp;=1\times \theta + 0\times (1-\theta)=\theta\\
+E[H^2_i]&amp;=1^2\times \theta +0^2\times(1-\theta)=\theta\\
+V[H_i]&amp;=E[H_i^2]-E[H_i]^2=\theta-\theta^2 = \theta(1-\theta)
+\end{align}\]</span>
+Since <span class="math inline">\(\bar h_N\)</span> is a sample mean, by the WLLN, we know that <span class="math inline">\(\mathrm{plim}\bar h_N=E[H_i]=\theta\)</span>. Awesome! the more we flip the coin, the more likely we are to have a good estimate of <span class="math inline">\(\theta\)</span>.</p>
+<div id="hypothesis-tests-with-asymptotic-approximations" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Hypothesis tests with asymptotic approximations<a href="inference-using-asymptotic-assumptions.html#hypothesis-tests-with-asymptotic-approximations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose again that you wish to test the following hypothesis:
+<span class="math display">\[\begin{align}
+H_0:\ \theta = \theta_0,\quad H_A:\ \theta\neq\theta_0
+\end{align}\]</span>
+That is, you are ding a 2-sided test, with the null being that the true value of <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\theta_0\)</span> (i.e.~if you were testing for a fair coin, you would substitute <span class="math inline">\(\theta_0=0.5\)</span>). Before we go ahead and derive the sampling distribution for <span class="math inline">\(\bar h_N\)</span>, which is what we would have done in the previous chapter, let’s substitute some of these properties of <span class="math inline">\(H_i\)</span> into the Central Limit Theorem as stated above. Specifically, for this coin flip variable, when the null hypothesis is true, we know that:</p>
+<ul>
+<li><span class="math inline">\(\frac{1}{N}\sum_{i=1}^NX_i\)</span> in this case is our sample mean <span class="math inline">\(\bar h_N\)</span></li>
+<li><span class="math inline">\(\mu\)</span>, the population mean, is equal to <span class="math inline">\(\theta_0\)</span>, and</li>
+<li><span class="math inline">\(\sigma\)</span>, the population standard deviation, is equal to <span class="math inline">\(\sqrt{\theta_0(1-\theta_0)}\)</span></li>
+</ul>
+<p>Here comes the part that will make inference <em>much</em> easier for you! Now we can define our test statistic as:
+<span class="math display">\[\begin{align}
+Z_N&amp;=\frac{\sqrt{N}(\bar h_N-\theta_0)}{\sqrt{\theta_0(1-\theta_0)}}\label{eq:AsymCoinFlipZ}
+\end{align}\]</span>
+and by the Theorem, we know that <span class="math inline">\(Z_N\xrightarrow[]{d}N(0,1)\)</span>. So we know the distribution of the test statistic when the null is true. Well actually we don’t. We know the <em>asymptotic</em> distribution of this test statistic when the null is true, and we are going to assume that our sample size <span class="math inline">\(N\)</span> is large enough that this asymptotic distribution is a good approximation of the actual distribution. If <span class="math inline">\(N=10\)</span>, it is probably a terrible assumption. <span class="math inline">\(N=10,000\)</span>? Go for it! Actually, have a good think first, but 10,000 is certainly much better than 10. There is no real rule of thumb (forget all of this <span class="math inline">\(N=30\)</span> stuff you may have been taught in earlier classes RIGHT NOW) for what <span class="math inline">\(N\)</span> is large enough, because it depends on the distribution of the random variable, but as you do more of this, you will probably have some intuition about when it is a good idea and when it’s not.</p>
+<p>So how do we use this? Well, we have (i) a null hypothesis and (2-sided) alternative; (ii) a test statistic, and (iii) a distribution (approximate) of this test statistic when <span class="math inline">\(H_0\)</span> is true. Suppose we want to do this test at the <span class="math inline">\(\alpha=0.05\)</span> level of significance. All we are left with is finding a rejection rule. Inspection of the above equation shows us that <span class="math inline">\(Z_N\approx 0\)</span> is (loosely speaking) support for <span class="math inline">\(H_0\)</span>, and <span class="math inline">\(Z_N\)</span> far away from 0 in either direction is support for <span class="math inline">\(H_A\)</span>. Hence, qualitatively, our rejection rule must therefore look something like “reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(Z_N\)</span> is large and negative, or if <span class="math inline">\(Z_N\)</span> is large and positive”. We want to find some critical values that define this rejection rule. As this is a 2-sided test, if the null is true we want to reject <span class="math inline">\(H_0\)</span> with probability <span class="math inline">\(\alpha/2=0.025\)</span> in the left tail, and the same 0.025 in the right tail (i.e. so they add up to 0.05). Fortunately for us, the normal distribution is symmetric about zero, so we only need to look up one value. Intuitively, you might want to find the left critical value, which you get by solving <span class="math inline">\(0.025=\Phi(z_{cL})\)</span>, where <span class="math inline">\(\Phi(\cdot)\)</span> is the standard normal cdf. Unfortunately, this is not provided in standard distribution tables, but we solve for the right critical value <span class="math inline">\(1-0.025=0.0975=\Phi(z_{cR})\)</span>. Then we can use symmetry to get <span class="math inline">\(z_{cL}=-z_{cR}\)</span>. If you go and look up your distribution tables, you will get <span class="math inline">\(z_{cR}\approx1.96\)</span> (accurate to 2 decimal places, which is almost always good enough). Hence, the rejection rule is:
+<span class="math display">\[\begin{align}
+\text{Reject $H_0$ if and only if } |Z_N|\geq 1.96
+\end{align}\]</span>
+To put this in perspective, suppose that you are doing a test for a fair coin: <span class="math inline">\(\theta_0=0.5\)</span>, this means that your rejection region, in terms of your sample mean <span class="math inline">\(h_N\)</span>, is equal to:
+<span class="math display">\[\begin{align}
+\frac{\sqrt N (\bar h_N-0.5)}{\sqrt{0.5(1-0.5)}}&amp;=2\sqrt N (\bar h_N-0.5)\\
+|Z_N| &gt; 1.96 &amp;\iff 2\sqrt N|\bar h_N-0.5| &gt; 1.96 \\
+&amp;\iff |\bar h_N-0.5| &gt; \frac{1.96}{2\sqrt N}\approx\frac{1}{\sqrt N}
+\end{align}\]</span></p>
+</div>
+<div id="even-more-of-a-shortcut" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Even more of a shortcut<a href="inference-using-asymptotic-assumptions.html#even-more-of-a-shortcut" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>At this point, you may be worried that even though getting an approximate distribution of the test statistic is really useful, you might still be stumped because you also need to know <span class="math inline">\(V[X]\)</span> to use this. What if you want to do a test about a mean, but you don’t know what the variance is (or can’t be bothered working it out, I won’t judge), and don’t want your test to based on a bad assumption about this thing <span class="math inline">\(V[X]\)</span>, that is not central to your research question?</p>
+<p>Let’s define <span class="math inline">\(D_i=(X_i-\mu)^2\)</span>, which is the squared deviation between our random variable <span class="math inline">\(X_i\)</span> and its population mean <span class="math inline">\(\mu\)</span>. We could always generate this variable if we already had <span class="math inline">\(X\)</span>, and after this, we could compute its sample mean. If we did this, we would be computing:
+<span class="math display">\[\begin{align}
+\bar d_N &amp;=\frac1N\sum_{i=1}^N D_i=\frac1N\sum_{i=1}^N(X_i-\mu)^2
+\end{align}\]</span>
+which is the sample analog of <span class="math inline">\(E[D_i]=E[(X_i-\mu)^2]=V[X_i]\)</span>, and hence by the WLLN <span class="math inline">\(\bar d_N\)</span> must converge in probability to <span class="math inline">\(V[X_i]\)</span>. Since we have already assumed <span class="math inline">\(N\)</span> is large enough that our test statistic is close enough to <span class="math inline">\(N(0,1)\)</span> that we can use it, there is not much more harm, if at all, in assuming that <span class="math inline">\(\bar d_N\)</span> is close enough to <span class="math inline">\(V[X]\)</span> to use it as a substitute for the denominator of the test statistic.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>
+What’s more, we could also replace <span class="math inline">\(\mu\)</span> with <span class="math inline">\(\bar x_N\)</span>, the sample mean, because <span class="math inline">\(\mathrm{plim}\bar x_N=\mu\)</span> (WLLN). If we make these substitutions, what we end up with is:
+<span class="math display">\[\begin{align}
+Z&#39;_N=\frac{\sqrt{N}(\bar x_N-\mu)}{\sqrt{\frac1N\sum_{i=1}^N\left(X_i-\bar x_N\right)^2}}\xrightarrow[]{d}N(0,1)\label{eq:AsymSubsXbar}
+\end{align}\]</span>
+which contains things that we either (i) can compute from the sample, or (ii) are directly making a hypothesis about. Note that the numerator is the square root of the sample variance. Usually we would divide by <span class="math inline">\(N-1\)</span> instead of <span class="math inline">\(N\)</span> for bias reasons. There’s nothing wrong with that, but note that (i) <span class="math inline">\(\frac{1}{N}\approx\frac{1}{N+1}\)</span> for large <span class="math inline">\(N\)</span>, which we have already assumed, and (ii) we are taking the square root of the thing, so even if you divide by <span class="math inline">\(N-1\)</span>, the thing will still be biased (look up Jensen’s inequality). With the formulation in the above equation, we don’t even need to know the relationship between <span class="math inline">\(\mu\)</span> and <span class="math inline">\(V[X]\)</span>. In practice, this is the one we will be using.</p>
+</div>
+<div id="confidence-intervals-with-asymptotic-approximations" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Confidence intervals with asymptotic approximations<a href="inference-using-asymptotic-assumptions.html#confidence-intervals-with-asymptotic-approximations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Confidence intervals with asymptotic approximations are, like hypothesis tests, exactly the same as confidence intervals without asymptotic approximations, except that we use an approximate distribution of the test statistic instead of an exact distribution. For our coin-flipping example, in working through the hypothesis test example above, we have already worked out that <span class="math inline">\(Z_N\)</span>, our test statistic, is approximately distributed <span class="math inline">\(N(0,1)\)</span> when the null hypothesis is true. Going back to the previous chapter, we know that confidence intervals ask the following question: For what values of <span class="math inline">\(\theta_0\)</span> would I fail to reject the null hypothesis? We have already worked out the rejection rule for our 5% test, so we would fail to reject the null whenever <span class="math inline">\(|Z_N| \leq 1.96\)</span>, or when:
+<span class="math display">\[\begin{align}
+Z_N=\frac{\sqrt N|\bar h_N-\theta_0|}{\sqrt{\theta_0(1-\theta_0)}}\leq 1.96
+\end{align}\]</span>
+which is somewhat of a headache to solve. However now we will take off our statistics and econometrics hats, and put on our math hat. Note that if <span class="math inline">\(N\)</span> is reasonably large (again, we’ve assumed this already, so yes, it is), we suspect that this confidence interval will be reasonably small. Therefore, we will make the same additional approximation that got us to this solution (namely that the asymptotic approximation is a good one), and instead look for solutions to:
+<span class="math display">\[\begin{align}
+Z&#39;_N&amp;=\frac{\sqrt N|\bar h_N-\theta_0|}{\hat\sigma}&lt;1.96,\quad \text{where: } \hat\sigma =\sqrt{ \frac1N\sum_{i=1}^N\left(H_i-\bar h_N\right)^2}\\
+|\bar h_N-\theta_0|&amp;&lt;1.96\frac{ \hat\sigma}{\sqrt{N}}\\
+\theta_0&amp;\in \left[\bar h_N-1.96\hat\sigma/\sqrt N,\ \bar h_N+1.96\hat\sigma/\sqrt N \right]
+\end{align}\]</span>
+hopefully this is starting to become a bit more familiar.</p>
+</div>
+<div id="p-values-with-asymptotic-approximations" class="section level3 hasAnchor" number="6.3.4">
+<h3><span class="header-section-number">6.3.4</span> <span class="math inline">\(p\)</span>-values with asymptotic approximations<a href="inference-using-asymptotic-assumptions.html#p-values-with-asymptotic-approximations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Again, we’re not doing much differently with <span class="math inline">\(p\)</span>-values in this chapter, we’re just looking up a different distribution. For a <span class="math inline">\(p\)</span>-value, our question is: what is the probability that we observed a test statistic providing at least as unfavorable support for the null hypothesis than the one we observed in the sample? We therefore want to know the probability:
+<span class="math display">\[\begin{align}
+\Pr&amp;\left(\left| \frac{\sqrt N (\bar h_N-\theta_0)}{\sqrt{\theta_0}(1-\theta_0)}\right|\geq z_N \right)\\
+&amp;=\Pr\left( \frac{\sqrt N (\bar h_N-\theta_0)}{\sqrt{\theta_0}(1-\theta_0)}\geq |z_N| \right)+
+\Pr\left(\frac{\sqrt N (\bar h_N-\theta_0)}{\sqrt{\theta_0}(1-\theta_0)}\leq -|z_N| \right)\\
+&amp;=1-\Phi(|z_N|)+\Phi(-|z_N|) \quad\quad\quad\text{note that these are standard normal cdfs}\\
+&amp;=1-\Phi(|z_N|)+(1-\Phi(|z_N|))\quad\quad\quad\text{the standard normal is symmetric}\\
+&amp;=2(1-\Phi(|z_N|))
+\end{align}\]</span>
+where <span class="math inline">\(z_N\)</span> is the realized value of our test statistic we computed in our sample. The last few lines get the expression into something we can look up in standard probability tables. Typically you are given the cdf for positive numbers only, then you have to use symmetry to get the number you want.</p>
+</div>
+<div id="tieing-this-in-with-the-previous-chapter" class="section level3 hasAnchor" number="6.3.5">
+<h3><span class="header-section-number">6.3.5</span> Tieing this in with the previous chapter<a href="inference-using-asymptotic-assumptions.html#tieing-this-in-with-the-previous-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here I present a “split-screen” example of inference done using an exact distribution (the previous chapter) and an asymptotic approximation (this chapter).</p>
+<div id="hypothesis-test" class="section level4 hasAnchor" number="6.3.5.1">
+<h4><span class="header-section-number">6.3.5.1</span> Hypothesis test<a href="inference-using-asymptotic-assumptions.html#hypothesis-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Suppose that we have data that follow a <a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson distribution</a>. We would like to test whether the “rate” parameter <span class="math inline">\(\lambda\)</span> is equal to one. Formally, we make the following assumptions about our data:</p>
+<p><span class="math display">\[
+\begin{aligned}
+X_i&amp;\sim iid\mathrm{Poisson}(\lambda)
+\end{aligned}
+\]</span>
+The null and (one-sided) alternative are:</p>
+<p><span class="math display">\[
+H_0:\ \lambda = 1\quad H_A:\ \lambda&gt;1
+\]</span></p>
+<p>We will use an <span class="math inline">\(\alpha=10\%\)</span> level of significance, and we will use the following properties of the Poisson distribution:</p>
+<p><span class="math display">\[
+E[X_i]=V[X_i]=\lambda\\
+\sum_{i=1}^NX_i\sim\mathrm{Poisson}(N\lambda)
+\]</span></p>
+<p>Suppose we observe <span class="math inline">\(N=100\)</span> draws from this distribution, with a sample mean of <span class="math inline">\(\frac1N\sum_{i=1}^NX_i=1.3\)</span></p>
+<p>From here, let’s define the trest statistic:</p>
+<div style="display: flex;">
+<div>
+<p><strong>Exact distribution</strong></p>
+<p><span class="math display">\[
+t=\sum_{i=1}^NX_i
+\]</span></p>
+<p>I chose this because I know that, given <span class="math inline">\(\lambda\)</span>, this will also follow a Poisson distrimution. Specifically:</p>
+<p><span class="math display">\[
+t\sim\mathrm{Poisson}(N\lambda)
+\]</span></p>
+</div>
+<div>
+<p><strong>Asymptotic approximation</strong></p>
+<p><span class="math display">\[
+t=\sqrt{\frac{N}{\lambda}}\left(\frac{1}{N}\sum_{i=1}^NX_i-\lambda\right)
+\]</span></p>
+<p>I chose this because, using the central limit theorem:</p>
+<p><span class="math display">\[
+\begin{aligned}
+t&amp;=\sqrt{N}\frac{\left(\frac{1}{N}\sum_{i=1}^NX_i-E(X)\right)}{\sqrt{V(X)}}\xrightarrow[]{d}N(0,1)
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+<p>What values of the test statistic would be evidence against the null? In this case, they would be large positive values (since it is a one-sided test). Hence, we would reject the null when <span class="math inline">\(t\)</span> is sufficiently large. Let <span class="math inline">\(t_c\)</span> be our critical value. We can calculate its value by setting the probability of rejecting the null when the null is true (i.e. a type I error) equal to our level of significance, <span class="math inline">\(\alpha=10\%\)</span>. In both cases the equation we need to solve is:</p>
+<p><span class="math display">\[
+\Pr\left(t&gt;t_c\right)=\alpha
+\]</span></p>
+<p>Noting that we have the probability that our test statistic is <em>greater</em> than a particular value (<span class="math inline">\(t_c\)</span>), we can write it in terms of <span class="math inline">\(F_{t\mid H_0}()\)</span>, the cdf of <span class="math inline">\(t\)</span> given that <span class="math inline">\(H_0\)</span> is true:</p>
+<p><span class="math display">\[
+\begin{aligned}
+1-\alpha&amp;=F_{t\mid H_0}(t_c)\\
+t_c&amp;=F^{-1}_{t\mid H_0}(1-\alpha)
+\end{aligned}
+\]</span></p>
+<div style="display: flex;">
+<div>
+<p><strong>Exact distribution</strong></p>
+<p>Given the null, we know that <span class="math inline">\(\lambda=1\)</span>, and so:</p>
+<p><span class="math display">\[
+t\mid H_0\sim\mathrm{Poisson}(N\times 1)=\mathrm{Poisson}(100)
+\]</span></p>
+<p>so we need to look up the inverse cdf of the <span class="math inline">\(\mathrm{Poisson}(100)\)</span> distribution to find our critical value:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="inference-using-asymptotic-assumptions.html#cb38-1" tabindex="-1"></a>(tcExact<span class="ot">&lt;-</span><span class="fu">qpois</span>(<span class="fl">0.9</span>,<span class="dv">100</span>))</span></code></pre></div>
+<pre><code>## [1] 113</code></pre>
+<p>So we would reject the null iff <span class="math inline">\(\sum_iX_i&gt;113\)</span>.</p>
+</div>
+<div>
+<p><strong>Asymptotic approximation</strong></p>
+<p>Given the null, we know that <span class="math inline">\(\lambda=1\)</span>, and so:</p>
+<p><span class="math display">\[
+\begin{aligned}
+t\mid H_0&amp;=\sqrt{\frac{N}{1}}\left(\frac{1}{N}\sum_{i=1}^NX_i-1\right)\xrightarrow[]{d}N(0,1)
+\end{aligned}
+\]</span></p>
+<p>so we need to look up the inverse cdf of the <span class="math inline">\(N(0,1)\)</span> distribution to find our critical value:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="inference-using-asymptotic-assumptions.html#cb40-1" tabindex="-1"></a>(tcAsymptotic<span class="ot">&lt;-</span><span class="fu">qnorm</span>(<span class="fl">0.9</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span></code></pre></div>
+<pre><code>## [1] 1.281552</code></pre>
+<p>So we would reject the null iff <span class="math inline">\(\sum_iX_i&gt;1.28\)</span>.</p>
+</div>
+</div>
+<p>So in both cases we reject the null.</p>
+<p>Before we move on, note that these critical values imply rejection regions that are actually quite similar. Specifically, for the asymptotic test, we would reject the null when <span class="math inline">\(\sum_{i}X_i&gt;112.82\)</span>, which is not by accident very close to the exact test’s criticial value. This is because the asymptotic approximation is working well here, and should work even better as our sample size gets larger.</p>
+</div>
+<div id="p-values-1" class="section level4 hasAnchor" number="6.3.5.2">
+<h4><span class="header-section-number">6.3.5.2</span> <span class="math inline">\(p\)</span>-values<a href="inference-using-asymptotic-assumptions.html#p-values-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>While a hypothesis test hold constant the level of significance <span class="math inline">\(\alpha\)</span> and the hypothesis (in this case the hypothesis that <span class="math inline">\(\lambda = 1\)</span>), <span class="math inline">\(p\)</span>-values tell us the level of significance <span class="math inline">\(\alpha\)</span> that would make us indifferent between rejecting and not rejecting the null hypothesis. That is, while for the hypothesis test we solved for <span class="math inline">\(t_c\)</span> in the equation:</p>
+<p><span class="math display">\[
+1-\alpha=F_{t\mid H_0}(t_c)
+\]</span>
+for <span class="math inline">\(p\)</span>-values, we let <span class="math inline">\(t\)</span> equal <span class="math inline">\(\hat t\)</span>, the test statistic calcualted from our data, and we solve for <span class="math inline">\(\alpha=p\)</span>. That is:</p>
+<div style="display: flex;">
+<div>
+<p><strong>Exact test</strong></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="inference-using-asymptotic-assumptions.html#cb42-1" tabindex="-1"></a>(pExact<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span><span class="fu">ppois</span>(<span class="dv">130</span>,<span class="dv">100</span>))</span></code></pre></div>
+<pre><code>## [1] 0.00170684</code></pre>
+</div>
+<div>
+<p><strong>Asymptotic approximation</strong></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="inference-using-asymptotic-assumptions.html#cb44-1" tabindex="-1"></a>(pAsymptotic<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="dv">10</span><span class="sc">*</span>(<span class="dv">130</span><span class="sc">/</span><span class="dv">100-1</span>),<span class="dv">0</span>,<span class="dv">1</span>))</span></code></pre></div>
+<pre><code>## [1] 0.001349898</code></pre>
+</div>
+</div>
+<p>Which are not too dissimilar from each other.</p>
+</div>
+<div id="confidence-intervals-1" class="section level4 hasAnchor" number="6.3.5.3">
+<h4><span class="header-section-number">6.3.5.3</span> Confidence intervals<a href="inference-using-asymptotic-assumptions.html#confidence-intervals-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Confidence intervals hold the level of significance <span class="math inline">\(\alpha\)</span> constant, and ask which null hypotheses we would fail to reject. We can work these out by calculating the <span class="math inline">\(p\)</span>-values for a range of <span class="math inline">\(\lambda\)</span>, and then working out which of these mean we lould fail to reject the null. Let’s explore a grid in <span class="math inline">\(\lambda\in[1,1.2]\)</span> (because this is where the interesting stuff happens), and calculate the <span class="math inline">\(p\)</span> value for these tests:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="inference-using-asymptotic-assumptions.html#cb46-1" tabindex="-1"></a>d<span class="ot">&lt;-</span>(</span>
+<span id="cb46-2"><a href="inference-using-asymptotic-assumptions.html#cb46-2" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">lambda=</span><span class="fu">seq</span>(<span class="dv">1</span>,<span class="fl">1.2</span>,<span class="at">length=</span><span class="dv">1001</span>))</span>
+<span id="cb46-3"><a href="inference-using-asymptotic-assumptions.html#cb46-3" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pExact=</span><span class="dv">1</span><span class="sc">-</span><span class="fu">ppois</span>(<span class="dv">130</span>,<span class="dv">100</span><span class="sc">*</span>lambda),</span>
+<span id="cb46-4"><a href="inference-using-asymptotic-assumptions.html#cb46-4" tabindex="-1"></a>             <span class="at">pAsymptotic =</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">sqrt</span>(<span class="dv">100</span><span class="sc">/</span>lambda)<span class="sc">*</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">100</span><span class="sc">*</span><span class="dv">130</span><span class="sc">-</span>lambda),<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb46-5"><a href="inference-using-asymptotic-assumptions.html#cb46-5" tabindex="-1"></a>             )</span>
+<span id="cb46-6"><a href="inference-using-asymptotic-assumptions.html#cb46-6" tabindex="-1"></a>)</span>
+<span id="cb46-7"><a href="inference-using-asymptotic-assumptions.html#cb46-7" tabindex="-1"></a></span>
+<span id="cb46-8"><a href="inference-using-asymptotic-assumptions.html#cb46-8" tabindex="-1"></a>(</span>
+<span id="cb46-9"><a href="inference-using-asymptotic-assumptions.html#cb46-9" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb46-10"><a href="inference-using-asymptotic-assumptions.html#cb46-10" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>lambda,<span class="at">y=</span>pExact,<span class="at">color=</span><span class="st">&quot;Exact test&quot;</span>))</span>
+<span id="cb46-11"><a href="inference-using-asymptotic-assumptions.html#cb46-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>lambda,<span class="at">y=</span>pAsymptotic,<span class="at">color=</span><span class="st">&quot;Asymptotic test&quot;</span>))</span>
+<span id="cb46-12"><a href="inference-using-asymptotic-assumptions.html#cb46-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="fl">0.1</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb46-13"><a href="inference-using-asymptotic-assumptions.html#cb46-13" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;lambda (H0)&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;p-value&quot;</span>)</span>
+<span id="cb46-14"><a href="inference-using-asymptotic-assumptions.html#cb46-14" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
+<p>The dashed horizontal line is drawn at <span class="math inline">\(\alpha=10\%\)</span>.
+Since we reject for small <span class="math inline">\(p\)</span>-values, this means that we fail to reject the null for <span class="math inline">\(\lambda\)</span> greater than about 1.5. We can get a much more accurate value for this with the data we used to plot this:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="inference-using-asymptotic-assumptions.html#cb47-1" tabindex="-1"></a>(</span>
+<span id="cb47-2"><a href="inference-using-asymptotic-assumptions.html#cb47-2" tabindex="-1"></a>CI_Exact<span class="ot">&lt;-</span>d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(pExact<span class="sc">&gt;</span><span class="fl">0.1</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(lambda) <span class="sc">%&gt;%</span> <span class="fu">min</span>()</span>
+<span id="cb47-3"><a href="inference-using-asymptotic-assumptions.html#cb47-3" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] 1.1658</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="inference-using-asymptotic-assumptions.html#cb49-1" tabindex="-1"></a>(</span>
+<span id="cb49-2"><a href="inference-using-asymptotic-assumptions.html#cb49-2" tabindex="-1"></a>CI_Asymptotic<span class="ot">&lt;-</span>d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(pAsymptotic<span class="sc">&gt;</span><span class="fl">0.1</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(lambda) <span class="sc">%&gt;%</span> <span class="fu">min</span>()</span>
+<span id="cb49-3"><a href="inference-using-asymptotic-assumptions.html#cb49-3" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] 1.162</code></pre>
+</div>
+</div>
+</div>
+<div id="transforming-variables" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Transforming variables<a href="inference-using-asymptotic-assumptions.html#transforming-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So now you know a lot about sample means. Great! A lot of things can be estimated using sample means. Unfortunately, sometimes the mean isn’t the thing you are directly interested in. Instead, you want to report a <em>transform</em> of the sample mean. To tie things in with our coin-flipping example, suppose that instead of wanting to report an estimate of the probability of the coin coming up heads (i.e. <span class="math inline">\(\theta\)</span>), you want to report how much more likely it is to flip heads than tails. The population quantity you want to report is therefore:
+<span class="math display">\[\begin{align}
+\rho\equiv\frac{\theta}{1-\theta}&amp;=\frac{\text{probability of flipping heads}}{\text{probability of flipping tails}}
+\end{align}\]</span>
+That is if <span class="math inline">\(\rho\)</span> is (say) two, this means that flipping heads is twice as likely as flipping tails (i.e.~<span class="math inline">\(\theta=2/3\)</span>). From here it seems reasonable to use the estimator:
+<span class="math display">\[\begin{align}
+\hat\rho&amp;=\frac{\hat\theta}{1-\hat\theta}
+\end{align}\]</span>
+That is, just use our estimator for <span class="math inline">\(\theta\)</span>, and transform it in the same way you transformed the population parameter <span class="math inline">\(\theta\)</span>. After all, <span class="math inline">\(\hat\theta\)</span> is a sample mean (earlier we worked out that it was the fraction of heads), and we know a lot about sample means. In this case:
+<span class="math display">\[\begin{align}
+E[\hat\theta]&amp;=\theta, \quad\text{i.e. it is unbiased}\\
+V[\hat\theta]&amp;=\frac1N\theta(1-\theta)\\
+\mathrm{plim}\hat\theta&amp;=\theta \quad\text{i.e. it is consistent}\\
+\sqrt{N}(\hat\theta-\theta)&amp;\xrightarrow[]{d} N(0,\theta(1-\theta))
+\end{align}\]</span>
+We know all of these things because <span class="math inline">\(\hat\theta\)</span> is a sample mean, but <span class="math inline">\(\hat\rho\)</span> is <em>not</em> a sample mean. Is it consistent? Biased? Can we put a confidence interval around it? To answer these questions, we will need the following results.</p>
+<div id="the-continuous-mapping-theorem" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> The continuous mapping theorem<a href="inference-using-asymptotic-assumptions.html#the-continuous-mapping-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In order to answer the consistency question, we will use the following result:</p>
+<blockquote>
+<p><strong>Continuous Mapping Theorem</strong> (loosely stated): If <span class="math inline">\(\mathrm{plim}\hat\theta=\theta\)</span>, and <span class="math inline">\(g(x)\)</span> is a continuous function, then <span class="math inline">\(\mathrm{plim}g(\hat\theta)=g(\theta)\)</span>.</p>
+</blockquote>
+<p>in words: If an estimator <span class="math inline">\(\hat\rho=g(\hat\theta)\)</span> is a continuous transformation of a consistent estimator <span class="math inline">\(\hat\theta\)</span>, then <span class="math inline">\(\hat\rho\)</span> is a consistent estimator of <span class="math inline">\(\rho=g(\theta)\)</span>.
+Basically, we’re done. We know that <span class="math inline">\(\hat\theta\)</span> is consistent (by the WLLN), and we want to report a continuous transform of it. Therefore <span class="math inline">\(\hat\rho\)</span> is a consistent estimator for <span class="math inline">\(\rho\)</span>.</p>
+</div>
+<div id="the-delta-method" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> The delta method<a href="inference-using-asymptotic-assumptions.html#the-delta-method" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now we know that we have a nice, consistent point estimate of <span class="math inline">\(\rho\)</span>. But now we want to put a confidence interval around it. To do that, we need to know, or approximate it. To do this, we will use the Delta method, which uses the following result:</p>
+<blockquote>
+<p><strong>The delta method</strong> (univariate):
+Let:
+<span class="math inline">\(\hat \theta\)</span> be a consistent estimator with a normal asymptotic distribution <span class="math inline">\(\sqrt N(\hat\theta-\theta)\xrightarrow[]{d} N(0,V)\)</span>, and <span class="math inline">\(g(\theta)\)</span> be a continuous function with a continuous first derivative <span class="math inline">\(g&#39;(\theta)\)</span>.
+then:
+<span class="math display">\[\begin{align}
+\sqrt{N}(g(\hat\theta)-g(\theta))\xrightarrow[]{d}N\left(0,(g&#39;(\theta))^2V\right)\label{eq:DeltaMethod}
+\end{align}\]</span></p>
+</blockquote>
+<p>Why is this useful? If <span class="math inline">\(\hat\theta\)</span> is asymptotically normal, we can work out the asymptotic distribution of <span class="math inline">\(g(\hat\theta)\)</span>, in our case <span class="math inline">\(\hat\rho\)</span>. For our example, we need the derivative of <span class="math inline">\(g\)</span>:
+<span class="math display">\[\begin{align}
+g&#39;(\theta)&amp;=\frac{\partial}{\partial \theta}\frac{\theta}{1-\theta}\\
+&amp;=\frac{1-\theta+\theta}{(1-\theta)^2}=\frac{1}{(1-\theta)^2}
+\end{align}\]</span>
+And so, substituting the particulars of our coin flip estimator <span class="math inline">\(\hat\theta\)</span>, namely <span class="math inline">\(V=\theta(1-\theta)\)</span>, into (<span class="math inline">\(\ref{eq:DeltaMethod}\)</span>):
+<span class="math display">\[\begin{align}
+\sqrt{N}(\hat\rho-\rho)&amp;\xrightarrow[]{d} N\left(0,\frac{\theta(1-\theta)}{(1-\theta)^4}\right)=N\left(0,\frac{\theta}{(1-\theta)^3}\right)
+\end{align}\]</span>
+Hence, a 2-sided, 95% confidence interval for <span class="math inline">\(\rho\)</span> would be:
+<span class="math display">\[\begin{align}
+\left[\frac{\hat\theta}{1-\hat\theta}-1.96\sqrt{\frac{\theta}{(1-\theta)^3N}},\ \frac{\hat\theta}{1-\hat\theta}+1.96\sqrt{\frac{\theta}{(1-\theta)^3N}}\ \right]
+\end{align}\]</span></p>
+</div>
+<div id="jensens-inequality" class="section level3 hasAnchor" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> Jensen’s inequality<a href="inference-using-asymptotic-assumptions.html#jensens-inequality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have established that our transformed estimator <span class="math inline">\(\hat\rho\)</span> is consistent, and we have worked out an approximation of its sampling distribution. These are some nice large sample properties to know, but what about bias? The original estimator <span class="math inline">\(\hat\theta\)</span> is unbiased because it is a sample mean. What about <span class="math inline">\(\hat\rho\)</span>. Is it, too, unbiased? Sadly, the answer is no: no specifically in this case, and no in general. This follows from Jensen’s inequality, which states that:</p>
+<blockquote>
+<p><strong>Jensen’s inequality</strong>: If <span class="math inline">\(g(x)\)</span> is a convex function, and <span class="math inline">\(X\)</span> is a random variable, then <span class="math inline">\(g\left(E[X]\right)\leq E\left[g(X)\right]\)</span>.</p>
+</blockquote>
+<p>In words: the function of the expectation of a random variable is less than the expectation of the function of the random variable. Conversely, if <span class="math inline">\(g\)</span> is a concave function, the direction of the inequality is reversed. Is our <span class="math inline">\(g(x)=x/(1-x)\)</span> concave of convex? Since it is differentiable, we can use the 2nd derivative to work it out:
+<span class="math display">\[\begin{align}
+g&#39;(x)&amp;=\frac{1}{(1-x)^2},\quad g&#39;&#39;(x) = 2(1-x)^{-3} &gt;0
+\end{align}\]</span>
+So it is convex. Hence <span class="math inline">\(E[\hat\rho]&lt;\rho\)</span>, so the estimator is biased. It is not all lost, though. Firstly, we know the direction of the bias, so that is somewhat helpful. Also, we have already established that <span class="math inline">\(\hat\rho\)</span> is a consistent estimator, so for large samples this is not so much of a problem.</p>
+</div>
+</div>
+<div id="exercises-4" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Exercises<a href="inference-using-asymptotic-assumptions.html#exercises-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exponential-distribution-2" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Exponential distribution<a href="inference-using-asymptotic-assumptions.html#exponential-distribution-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider the exponential distribution, which has the following properties:
+<span class="math display">\[\begin{align}
+F_X(x)&amp;=1-\exp(-\lambda x) I(x&gt;0)\\
+f_X(x)&amp;=\lambda \exp(-\lambda x)I(x&gt;0)\\
+E[X^k]&amp;=\frac{k!}{\lambda^k}\label{eq:exCH03Exponential}
+\end{align}\]</span>
+It can be used to model the time until an event occurs. We will consider the following two estimators for <span class="math inline">\(\lambda\)</span>:
+<span class="math display">\[\begin{align*}
+\hat\lambda =\frac{1}{\frac1N\sum_{i=1}^NX_i},\quad \tilde\lambda =\sqrt{\frac{2}{\frac1N\sum_{i=1}^NX_i^2}}
+\end{align*}\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Explain how these estimators can be motivated from the above properties.</li>
+<li>Load <code>ExpData.csv</code>, which is a dataset of exponential random numbers. Estimate <span class="math inline">\(\lambda\)</span> using both estimators described above.</li>
+<li>Are these consistent estimators for <span class="math inline">\(\lambda\)</span>? Explain.</li>
+<li>What are the asymptotic variances of these estimators? Which one would you prefer?</li>
+<li>Suppose that you wanted to report the probability that the event had not occurred after 1 unit of time. Write down this expression as a function of <span class="math inline">\(\lambda\)</span>.</li>
+</ol>
+<p><em>From now on, let’s just focus on <span class="math inline">\(\hat \lambda\)</span>, although you could do all of this with <span class="math inline">\(\tilde\lambda\)</span> as well.</em></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Replace <span class="math inline">\(\lambda\)</span> with <span class="math inline">\(\hat\lambda\)</span> in your answer to the previous part. This is an estimator of this probability. Is this estimator consistent?</li>
+<li>What is the asymptotic distribution of the estimator of this probability?</li>
+<li>Construct a 95% confidence interval for this probability.</li>
+<li>Is <span class="math inline">\(\hat\lambda\)</span> a biased estimator for <span class="math inline">\(\lambda\)</span>? Explain. If it is biased, can you say in which direction?</li>
+</ol>
+</div>
+<div id="a-simulation" class="section level3 hasAnchor" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> A simulation<a href="inference-using-asymptotic-assumptions.html#a-simulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>What is so magical about <span class="math inline">\(N=30\)</span>? In an undergraduate statistics course you may have been told that you need a sample size of at least 30 to justify looking up a normal distribution table. Plot the distribution of the test statistic <span class="math inline">\(t\)</span>, and evaluate the test size for the hypothesis test:
+<span class="math display">\[\begin{align*}
+H_0:\ E[X]=0,\quad H_A:\ E[X]\neq 0\\
+t=\frac{\sqrt{N}\bar X}{\sqrt{\frac{1}{N}\sum_i(X_i-\bar X)^2}}\\
+\text{reject } H_0 \text{ if and only if } |t|&gt;1.96
+\end{align*}\]</span>
+assuming that:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(X_i\sim iid N(0,1)\)</span></li>
+<li><span class="math inline">\(X_i\sim iid N(0,4)\)</span></li>
+<li><span class="math inline">\(X_i\sim iid\mathrm{Bernoulli}(0.5)-0.5\)</span> (you can draw this by generating a fair coin flip variable then subtracting 0.5 from it).</li>
+<li><span class="math inline">\(X_i\sim iid \chi^2_1 - 1\)</span>. Note that if <span class="math inline">\(Z\sim N(0,1)\)</span>, then <span class="math inline">\(X^2\sim \chi^2_1\)</span></li>
+</ol>
+</div>
+<div id="modeling-a-random-probability-2" class="section level3 hasAnchor" number="6.5.3">
+<h3><span class="header-section-number">6.5.3</span> Modeling a random probability<a href="inference-using-asymptotic-assumptions.html#modeling-a-random-probability-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider the distribution introduced in an earlier chapter in the problem of the same name.
+We will continue analyzing the properties of the following estimators for the parameter in this distribution.
+<span class="math display">\[\begin{align*}
+\hat\alpha&amp;=\frac{\frac1N\sum_{i=1}^NX_i}{1-\frac1N\sum_{i=1}^NX_i}\\
+\tilde\alpha &amp;=-\frac{N}{\sum_{i=1}^N\log(X_i)}
+\end{align*}\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>For each of these estimators, answer do the following questions. For simplicity, I refer to everything below as <span class="math inline">\(\hat\alpha\)</span>, but do this for both <span class="math inline">\(\hat\alpha\)</span> and <span class="math inline">\(\tilde\alpha\)</span>.
+<em>Hint:</em> for <span class="math inline">\(\tilde\alpha\)</span>, you will need to do some integration by parts, then use L’Hopital’s rule. Either that or use something like this</p>
+<ol style="list-style-type: lower-alpha">
+<li>Is <span class="math inline">\(\hat\alpha\)</span> a consistent estimator for <span class="math inline">\(\alpha\)</span>? Explain your answer.</li>
+<li>What is the delta method approximation of the variance of <span class="math inline">\(\hat\alpha\)</span>?</li>
+<li>Suppose that you wish to test:
+<span class="math display">\[\begin{align*}
+H_0:\ \alpha = 2\\
+\end{align*}\]</span>
+against:
+<span class="math display">\[\begin{align*}
+H_A:\ \alpha\neq 2\\
+\end{align*}\]</span>
+Under the null hypothesis, what is the asymptotic (large sample) distribution of <span class="math inline">\(\sqrt N(\hat\alpha - 2)\)</span>? That is, complete the right-hand side of:
+<span class="math display">\[\begin{align*}
+\sqrt N(\hat\alpha - 2)\xrightarrow[]{d}\ \text{?}
+\end{align*}\]</span></li>
+<li>Use your answer in the previous part to propose a function of <span class="math inline">\(\hat\alpha\)</span> and <span class="math inline">\(N\)</span> that at large enough samples is approximately distributed <span class="math inline">\(N(0,1)\)</span></li>
+<li>Suppose that you collected <span class="math inline">\(N=30\)</span> observations and estimated <span class="math inline">\(\hat\alpha = 2.2\)</span>. Use your answer in the previous parts to test this hypothesis. Use a 5% level of significance.</li>
+<li>What is the <span class="math inline">\(p\)</span>-value for this test?</li>
+<li>Construct a 2-sided 90% confidence interval around this point estimate.</li>
+</ol></li>
+<li><p>Based on their asymptotic variances alone, which estimator would you prefer to use?</p></li>
+<li><p>Propose an alternative method of testing <span class="math inline">\(\alpha = 2\)</span> using the sample mean instead of our estimate of <span class="math inline">\(\hat\alpha\)</span> (just outline the steps). Make sure you state the distribution of the test statistic under the null, if you made a large-sample approximation to get there, and the rejection rule.</p></li>
+<li><p>(Simulation exercise): In the a previous part of this exercise, you constructed a rejection rule for <span class="math inline">\(H_0\)</span> based on a large-sample approximation of the distribution of <span class="math inline">\(\hat\alpha\)</span>. Use a simulation to construct a rejection rule that does not need this approximation. Compare it to your large-sample approximation rejection rule. Do you think the probability of a Type II error using the large-sample approximation is close enough to 5% to be a good approximation? Briefly discuss your answer.
+<em>Hint</em>: To do this you should:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Simulate the distribution of <span class="math inline">\(\hat\alpha\)</span> when the null hypothesis is true</li>
+<li>Calculate two critical values (i.e. reject if <span class="math inline">\(\hat\alpha\)</span> is not between these critical values) from your simulated distribution. Think about how you calculated your critical values when you used the large sample approximation, and how they relate to the normal distribution.</li>
+</ol></li>
+</ol>
+</div>
+<div id="a-sort-of-simulation-exercise" class="section level3 hasAnchor" number="6.5.4">
+<h3><span class="header-section-number">6.5.4</span> A (sort-of) simulation exercise<a href="inference-using-asymptotic-assumptions.html#a-sort-of-simulation-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When we simulate a draw from the distribution of an estimator, say <span class="math inline">\(\hat\mu\)</span>, one thing we may want to ask is how accurate is our approximation of the bias? That is, how close is the simulated bias:
+<span class="math display">\[\begin{align*}
+\mathrm{Bias}^\text{S}(\hat\mu)&amp;=\frac{1}{S}\sum_{s=1}^S\left(\hat\mu^s-\mu\right)
+\end{align*}\]</span>
+to
+<span class="math display">\[\begin{align*}
+\mathrm{Bias}(\hat\mu)&amp;=E\left(\hat\mu-\mu\right)
+\end{align*}\]</span>
+Assume that we have correctly simulated <span class="math inline">\(\{\hat\mu^{s}\}_{s=1}^S\)</span>, such that each <span class="math inline">\(\hat\mu^s\)</span> is an iid draw from the sampling distribution of <span class="math inline">\(\hat\mu\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>What is the variance of our simulated bias?</li>
+<li>What is the approximate distribution of:
+<span class="math display">\[\begin{align*}
+\sqrt{S}\left(\mathrm{Bias}^\text{S}(\hat\mu)-\mathrm{Bias}(\hat\mu)\right)
+\end{align*}\]</span>
+for large <span class="math inline">\(S\)</span>?</li>
+<li>How can you use your previous answer to work out how accurate your simulation is?</li>
+<li>Assume that <span class="math inline">\(V[\hat\mu]=1\)</span>. How large doe <span class="math inline">\(S\)</span> be for your simulation to get the bias correct to the 2nd decimal place with probability 99%?</li>
+</ol>
+<p>Express your answers as a function of the actual bias, the simulation size <span class="math inline">\(S\)</span>, <span class="math inline">\(E[\hat\mu]\)</span> and <span class="math inline">\(V[\hat\mu]\)</span> (assuming these are all finite quantities).</p>
+</div>
+<div id="one-test-three-ways" class="section level3 hasAnchor" number="6.5.5">
+<h3><span class="header-section-number">6.5.5</span> One test, three ways<a href="inference-using-asymptotic-assumptions.html#one-test-three-ways" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You wish to determine whether a randomly selected dime in the population of dimes is fair or unfair. To this end, you decide to crowd-source your coin-flipping activities. Specifically, you reach out to 10 random individuals on the internet and ask them to flip a dime 200 times, and report to you the fraction of heads that they flipped. Let <span class="math inline">\(H_{i,t}\)</span> be the binary random variable, equal to one if person <span class="math inline">\(i\)</span>’s <span class="math inline">\(t\)</span>th flip is heads, and equal to zero otherwise. Your sample therefore consists of <span class="math inline">\(\{H_i\}_{i=1}^{10}\)</span>, where <span class="math inline">\(H_i=\frac{1}{200}\sum_{t=1}^{200}H_{i,t}\)</span> is the fraction of heads that random individual <span class="math inline">\(i\)</span> flipped.
+Your sample <span class="math inline">\(\{H_i\}_{i=1}^N\)</span> is contained in <code>dimeflips.csv</code>.</p>
+<ol style="list-style-type: decimal">
+<li>State a formal hypothesis that the average dime is fair, that is testable with your sample.</li>
+<li>Propose a justification for why <span class="math inline">\(H_i\)</span> is close enough to normally distributed (if the null is true) for us to reasonably assume that it is. State any other assumptions you need to get there. Derive a function of <span class="math inline">\(H_i\)</span> and <span class="math inline">\(T\)</span> that is approximately <span class="math inline">\(N(0,1)\)</span>.</li>
+<li>Use your answer to the previous part, and the following result to suggest a suitable test statistic that has a <span class="math inline">\(t\)</span> distribution (approximately) when the null is true. Calculate the <span class="math inline">\(p\)</span>-value of this test:</li>
+</ol>
+<blockquote>
+<p>If <span class="math inline">\(X_i\sim iid N(\mu,\sigma^2)\)</span>, then:
+<span class="math display">\[\begin{align*}
+t&amp;=\frac{\sqrt{N}(\bar x - \mu)}{\sqrt{\frac1N\sum_{i=1}^N(X_i-\bar x)^2}}\sim t_{N-1}
+\end{align*}\]</span>
+where <span class="math inline">\(t_k\)</span> is Student’s <span class="math inline">\(t\)</span> distribution with parameter <span class="math inline">\(k\)</span> (often referred to as the ``degrees of freedom’’).</p>
+</blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>Use your answers to questions above, and the following result to suggest a suitable test statistic that has a <span class="math inline">\(\chi^2\)</span> distribution (approximately) when the null is true. Perform this test at the 5% level of significance.:</li>
+</ol>
+<blockquote>
+<p>if <span class="math inline">\(Z_1, Z_2, Z_3, \ldots, Z_N\sim iidN(0,1)\)</span>, then <span class="math inline">\(X=\sum_{i=1}^NZ_i^2\sim\chi^2_N\)</span>. Where <span class="math inline">\(\chi^2_k\)</span> is the chi-squared distribution with parameter <span class="math inline">\(k\)</span> (often referred to as the “degrees of freedom”)</p>
+</blockquote>
+</div>
+<div id="deriving-properties-of-estimators" class="section level3 hasAnchor" number="6.5.6">
+<h3><span class="header-section-number">6.5.6</span> Deriving properties of estimators<a href="inference-using-asymptotic-assumptions.html#deriving-properties-of-estimators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This exercise covers a large range of things that you might want to find out about, or do with, an estimator using (mostly) large sample properties. If you are having trouble with a particular part, I suggest doing that part for all five distributions in the table below <em>in one go</em>. If you are confident with all of the steps, attempt working through all of them for one distribution.</p>
+<p>Consider the following distributions (you are just given the mean and variance, but you won’t need any more information):</p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="18%" />
+<col width="24%" />
+<col width="15%" />
+<col width="12%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Distribution</th>
+<th align="left"><span class="math inline">\(E[X]\)</span></th>
+<th align="left"><span class="math inline">\(V[X]\)</span></th>
+<th align="left">notes</th>
+<th align="left">sample mean</th>
+<th align="left"><span class="math inline">\(H_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Poisson</td>
+<td align="left"><span class="math inline">\(\lambda\)</span></td>
+<td align="left"><span class="math inline">\(\lambda\)</span></td>
+<td align="left"><span class="math inline">\(\lambda&gt;0\)</span></td>
+<td align="left">1.1</td>
+<td align="left"><span class="math inline">\(\lambda=1\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Exponential</td>
+<td align="left"><span class="math inline">\(\lambda^{-1}\)</span></td>
+<td align="left"><span class="math inline">\(\lambda^{-2}\)</span></td>
+<td align="left"><span class="math inline">\(\lambda&gt;0\)</span></td>
+<td align="left">1.1</td>
+<td align="left"><span class="math inline">\(\lambda=1\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\chi^2\)</span></td>
+<td align="left"><span class="math inline">\(k\)</span></td>
+<td align="left"><span class="math inline">\(2k\)</span></td>
+<td align="left"><span class="math inline">\(k&gt;0\)</span></td>
+<td align="left">2.8</td>
+<td align="left"><span class="math inline">\(k=3\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Borel</td>
+<td align="left"><span class="math inline">\(\frac{1}{1-\mu}\)</span></td>
+<td align="left"><span class="math inline">\(\frac{\mu}{(1-\mu)^3}\)</span></td>
+<td align="left"><span class="math inline">\(\mu\in(0,1)\)</span></td>
+<td align="left">2.5</td>
+<td align="left"><span class="math inline">\(\mu=\frac12\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Geometric</td>
+<td align="left"><span class="math inline">\(\frac{1}{\rho}\)</span></td>
+<td align="left"><span class="math inline">\(\frac{1-\rho}{\rho^2}\)</span></td>
+<td align="left"><span class="math inline">\(\rho\in(0,1)\)</span></td>
+<td align="left">1.9</td>
+<td align="left"><span class="math inline">\(\rho=\frac12\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>For each of these distributions:</p>
+<ol style="list-style-type: decimal">
+<li><p>Suppose you had an iid sample from this distribution, what is the asymptotic distribution of the sample mean? I.e.:
+<span class="math display">\[\begin{align*}
+\sqrt N \left(\frac{1}{N}\sum_{i=1}^NX_i-E[X]\right)\xrightarrow[]{d} \text{?}
+\end{align*}\]</span>
+That is, use a central limit theorem.</p></li>
+<li><p>You wish to test the hypothesis in the rightmost column of the table, against a 2-sided alternative. Use your a answer to the previous question to construct a test statistic for this hypothesis that is <span class="math inline">\(N(0,1)\)</span> when the null is true. Do not use the sample variance to construct your test statistic.</p></li>
+<li><p>State the rejection region for this test at the 5% level of significance.</p></li>
+<li><p>Use the sample mean provided in the table to test this hypothesis.</p></li>
+<li><p>Assign a <span class="math inline">\(p\)</span>-value to this hypothesis.</p>
+<p><em>what follows is somewhat trivial for the Poisson and <span class="math inline">\(\chi^2\)</span> distributions</em></p></li>
+<li><p>Construct an estimator for the parameter in the distribution based on the relationship between the parameter and the population mean (i.e. an analogy estimator).</p></li>
+<li><p>Use the sample mean provided to estimate this parameter.</p></li>
+<li><p>Is this a consistent estimator for the parameter? Explain your answer.</p></li>
+<li><p>What is the delta method approximation of the variance of your estimator? Note that since you don’t know the parameter, you will have to use your estimate of this parameter in your expression for the variance.</p></li>
+<li><p>Use this approximation to construct a 95% confidence interval for the parameter.</p></li>
+<li><p>Is this estimator biased? Explain your answer. If the estimator is biased, can you work out the direction of the bias?</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="10">
+<li id="fn10"><p>There are some results about the relationship between probability limits and asymptotic distributions that I am not going in to here, but they work in our favor.<a href="inference-using-asymptotic-assumptions.html#fnref10" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

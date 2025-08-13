@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>10 Standard errors in linear regression | Econometrics notes</title>
+  <meta name="description" content="10 Standard errors in linear regression | Econometrics notes" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="10 Standard errors in linear regression | Econometrics notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="10 Standard errors in linear regression | Econometrics notes" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2025-08-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="linear-regression---common-misconceptions.html"/>
+<link rel="next" href="hypothesis-tests-about-more-than-one-parameter.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>1</b> Introduction to the course</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#housekeeping"><i class="fa fa-check"></i><b>1.1</b> Housekeeping</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#two-important-skills-in-econometrics"><i class="fa fa-check"></i><b>1.2</b> Two important skills in econometrics</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#example-incumbency-advantage---lee-moretti-and-butler-2004"><i class="fa fa-check"></i><b>1.3</b> Example: incumbency advantage - Lee, Moretti, and Butler (2004)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>R</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#scripts"><i class="fa fa-check"></i><b>2.2</b> Scripts</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-working-directory"><i class="fa fa-check"></i><b>2.3</b> The working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#exercises"><i class="fa fa-check"></i><b>2.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#understanding-some-code"><i class="fa fa-check"></i><b>2.4.1</b> Understanding some code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html"><i class="fa fa-check"></i><b>3</b> Review of some mathmatical concepts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#summation"><i class="fa fa-check"></i><b>3.1</b> Summation</a></li>
+<li class="chapter" data-level="3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-random-variables"><i class="fa fa-check"></i><b>3.2</b> Describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#discrete-random-variables"><i class="fa fa-check"></i><b>3.2.1</b> Discrete random variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#continuous-random-variables"><i class="fa fa-check"></i><b>3.2.2</b> Continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#completely-describing-random-variables"><i class="fa fa-check"></i><b>3.3</b> Completely describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#cumulative-density-function"><i class="fa fa-check"></i><b>3.3.1</b> Cumulative density function</a></li>
+<li class="chapter" data-level="3.3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-mass-function"><i class="fa fa-check"></i><b>3.3.2</b> Probability mass function</a></li>
+<li class="chapter" data-level="3.3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-density-function"><i class="fa fa-check"></i><b>3.3.3</b> Probability density function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#ways-to-summarize-a-distribution"><i class="fa fa-check"></i><b>3.4</b> Ways to summarize a distribution</a></li>
+<li class="chapter" data-level="3.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-the-relationship-between-two-or-more-random-variables"><i class="fa fa-check"></i><b>3.5</b> Describing the relationship between two or more random variables</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#joint-distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Joint distribution functions</a></li>
+<li class="chapter" data-level="3.5.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#conditional-probability"><i class="fa fa-check"></i><b>3.5.2</b> Conditional probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exercises-1"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#four-sided-die-roll"><i class="fa fa-check"></i><b>3.6.1</b> Four-sided die roll</a></li>
+<li class="chapter" data-level="3.6.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exponential-distribution"><i class="fa fa-check"></i><b>3.6.2</b> Exponential distribution</a></li>
+<li class="chapter" data-level="3.6.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#modeling-a-random-probability"><i class="fa fa-check"></i><b>3.6.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="3.6.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#an-unfair-coin"><i class="fa fa-check"></i><b>3.6.4</b> An unfair coin</a></li>
+<li class="chapter" data-level="3.6.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#adding-two-random-variables"><i class="fa fa-check"></i><b>3.6.5</b> Adding two random variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estimators.html"><a href="estimators.html"><i class="fa fa-check"></i><b>4</b> Estimators</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="estimators.html"><a href="estimators.html#estimators-and-the-sampling-distribution"><i class="fa fa-check"></i><b>4.1</b> Estimators and the sampling distribution</a></li>
+<li class="chapter" data-level="4.2" data-path="estimators.html"><a href="estimators.html#small-sample-properties-of-estimators"><i class="fa fa-check"></i><b>4.2</b> Small sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="estimators.html"><a href="estimators.html#bias"><i class="fa fa-check"></i><b>4.2.1</b> Bias</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estimators.html"><a href="estimators.html#variance"><i class="fa fa-check"></i><b>4.2.2</b> Variance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="estimators.html"><a href="estimators.html#mean-squared-error"><i class="fa fa-check"></i><b>4.2.3</b> Mean squared error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="estimators.html"><a href="estimators.html#exercises-2"><i class="fa fa-check"></i><b>4.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="estimators.html"><a href="estimators.html#modeling-a-random-probability-1"><i class="fa fa-check"></i><b>4.3.1</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="4.3.2" data-path="estimators.html"><a href="estimators.html#exponential-distribution-1"><i class="fa fa-check"></i><b>4.3.2</b> Exponential distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>5</b> Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="inference.html"><a href="inference.html#hypothesis-tests"><i class="fa fa-check"></i><b>5.1</b> Hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="inference.html"><a href="inference.html#one-sided-hypothesis-tests"><i class="fa fa-check"></i><b>5.1.1</b> One-sided hypothesis tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="inference.html"><a href="inference.html#p-values"><i class="fa fa-check"></i><b>5.2</b> <span class="math inline">\(p\)</span>-values</a></li>
+<li class="chapter" data-level="5.3" data-path="inference.html"><a href="inference.html#confidence-intervals"><i class="fa fa-check"></i><b>5.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="5.4" data-path="inference.html"><a href="inference.html#test-power"><i class="fa fa-check"></i><b>5.4</b> Test power</a></li>
+<li class="chapter" data-level="5.5" data-path="inference.html"><a href="inference.html#the-take-away"><i class="fa fa-check"></i><b>5.5</b> The take-away</a></li>
+<li class="chapter" data-level="5.6" data-path="inference.html"><a href="inference.html#exercises-3"><i class="fa fa-check"></i><b>5.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="inference.html"><a href="inference.html#converting-a-continuous-variable-into-a-coin-flip"><i class="fa fa-check"></i><b>5.6.1</b> Converting a continuous variable into a coin flip</a></li>
+<li class="chapter" data-level="5.6.2" data-path="inference.html"><a href="inference.html#the-maximum-of-a-sample"><i class="fa fa-check"></i><b>5.6.2</b> The maximum of a sample</a></li>
+<li class="chapter" data-level="5.6.3" data-path="inference.html"><a href="inference.html#assessing-the-performance-of-a-cookbook-hypothesis-test"><i class="fa fa-check"></i><b>5.6.3</b> Assessing the performance of a “cookbook” hypothesis test</a></li>
+<li class="chapter" data-level="5.6.4" data-path="inference.html"><a href="inference.html#hypothesis-tests-using-graphs"><i class="fa fa-check"></i><b>5.6.4</b> Hypothesis tests using graphs</a></li>
+<li class="chapter" data-level="5.6.5" data-path="inference.html"><a href="inference.html#simulation-exercise"><i class="fa fa-check"></i><b>5.6.5</b> Simulation exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html"><i class="fa fa-check"></i><b>6</b> Inference using asymptotic assumptions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-estimators"><i class="fa fa-check"></i><b>6.1</b> Large-sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#consistency"><i class="fa fa-check"></i><b>6.1.1</b> Consistency</a></li>
+<li class="chapter" data-level="6.1.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#asymptotic-distribution"><i class="fa fa-check"></i><b>6.1.2</b> Asymptotic distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-sample-means"><i class="fa fa-check"></i><b>6.2</b> Large-sample properties of sample means</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-weak-law-of-large-numbers-wlln"><i class="fa fa-check"></i><b>6.2.1</b> The Weak Law of Large Numbers (WLLN)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-central-limit-theorem"><i class="fa fa-check"></i><b>6.2.2</b> A Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#using-large-sample-properties-to-make-inference-easier"><i class="fa fa-check"></i><b>6.3</b> Using large-sample properties to make inference easier</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#hypothesis-tests-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.1</b> Hypothesis tests with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#even-more-of-a-shortcut"><i class="fa fa-check"></i><b>6.3.2</b> Even more of a shortcut</a></li>
+<li class="chapter" data-level="6.3.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#confidence-intervals-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.3</b> Confidence intervals with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#p-values-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.4</b> <span class="math inline">\(p\)</span>-values with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#tieing-this-in-with-the-previous-chapter"><i class="fa fa-check"></i><b>6.3.5</b> Tieing this in with the previous chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#transforming-variables"><i class="fa fa-check"></i><b>6.4</b> Transforming variables</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-continuous-mapping-theorem"><i class="fa fa-check"></i><b>6.4.1</b> The continuous mapping theorem</a></li>
+<li class="chapter" data-level="6.4.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-delta-method"><i class="fa fa-check"></i><b>6.4.2</b> The delta method</a></li>
+<li class="chapter" data-level="6.4.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#jensens-inequality"><i class="fa fa-check"></i><b>6.4.3</b> Jensen’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exercises-4"><i class="fa fa-check"></i><b>6.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exponential-distribution-2"><i class="fa fa-check"></i><b>6.5.1</b> Exponential distribution</a></li>
+<li class="chapter" data-level="6.5.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-simulation"><i class="fa fa-check"></i><b>6.5.2</b> A simulation</a></li>
+<li class="chapter" data-level="6.5.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#modeling-a-random-probability-2"><i class="fa fa-check"></i><b>6.5.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="6.5.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-sort-of-simulation-exercise"><i class="fa fa-check"></i><b>6.5.4</b> A (sort-of) simulation exercise</a></li>
+<li class="chapter" data-level="6.5.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#one-test-three-ways"><i class="fa fa-check"></i><b>6.5.5</b> One test, three ways</a></li>
+<li class="chapter" data-level="6.5.6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#deriving-properties-of-estimators"><i class="fa fa-check"></i><b>6.5.6</b> Deriving properties of estimators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="linear-regression.html"><a href="linear-regression.html#derivation-of-the-bivariate-ols-slope-estimator"><i class="fa fa-check"></i><b>7.1</b> Derivation of the bivariate OLS slope estimator</a></li>
+<li class="chapter" data-level="7.2" data-path="linear-regression.html"><a href="linear-regression.html#unbiasedness"><i class="fa fa-check"></i><b>7.2</b> Unbiasedness</a></li>
+<li class="chapter" data-level="7.3" data-path="linear-regression.html"><a href="linear-regression.html#variance-1"><i class="fa fa-check"></i><b>7.3</b> Variance</a></li>
+<li class="chapter" data-level="7.4" data-path="linear-regression.html"><a href="linear-regression.html#inference-in-bivariate-ols"><i class="fa fa-check"></i><b>7.4</b> Inference in bivariate OLS</a></li>
+<li class="chapter" data-level="7.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-5"><i class="fa fa-check"></i><b>7.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="linear-regression.html"><a href="linear-regression.html#municipal-expenditure"><i class="fa fa-check"></i><b>7.5.1</b> Municipal expenditure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html"><i class="fa fa-check"></i><b>8</b> The shape of the right-hand side</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#linear-regression-as-a-model-for-conditional-expectation"><i class="fa fa-check"></i><b>8.1</b> Linear regression as a model for conditional expectation</a></li>
+<li class="chapter" data-level="8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#an-example-dataset"><i class="fa fa-check"></i><b>8.2</b> An example dataset</a></li>
+<li class="chapter" data-level="8.3" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#marginal-effects"><i class="fa fa-check"></i><b>8.3</b> Marginal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#categorical-variables"><i class="fa fa-check"></i><b>8.4</b> Categorical variables</a></li>
+<li class="chapter" data-level="8.5" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#interactions"><i class="fa fa-check"></i><b>8.5</b> Interactions</a></li>
+<li class="chapter" data-level="8.6" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#logarithms"><i class="fa fa-check"></i><b>8.6</b> Logarithms</a></li>
+<li class="chapter" data-level="8.7" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#polynomials"><i class="fa fa-check"></i><b>8.7</b> Polynomials</a></li>
+<li class="chapter" data-level="8.8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#exercises-6"><i class="fa fa-check"></i><b>8.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#baking-a-cake"><i class="fa fa-check"></i><b>8.8.1</b> Baking a cake</a></li>
+<li class="chapter" data-level="8.8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#psid-earnings-panel-data"><i class="fa fa-check"></i><b>8.8.2</b> PSID Earnings Panel Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html"><i class="fa fa-check"></i><b>9</b> Linear regression - common misconceptions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#heteroskedasticity"><i class="fa fa-check"></i><b>9.1</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#multicolinearity"><i class="fa fa-check"></i><b>9.2</b> Multicolinearity</a></li>
+<li class="chapter" data-level="9.3" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#omitted-variables-are-always-a-problem"><i class="fa fa-check"></i><b>9.3</b> Omitted variables are <em>always</em> a problem</a></li>
+<li class="chapter" data-level="9.4" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#normal-errors"><i class="fa fa-check"></i><b>9.4</b> Normal errors</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Standard errors in linear regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#homoskedasticity-the-standard-standard-errors"><i class="fa fa-check"></i><b>10.1</b> Homoskedasticity: the “standard” standard errors</a></li>
+<li class="chapter" data-level="10.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#heteroskedasticity-1"><i class="fa fa-check"></i><b>10.2</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="10.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#clustered-standard-errors"><i class="fa fa-check"></i><b>10.3</b> Clustered standard errors</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#an-example"><i class="fa fa-check"></i><b>10.3.1</b> An example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#standard-errors-for-multivariate-linear-regression"><i class="fa fa-check"></i><b>10.4</b> Standard errors for multivariate linear regression</a></li>
+<li class="chapter" data-level="10.5" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#calculating-standard-errors-in-r"><i class="fa fa-check"></i><b>10.5</b> Calculating standard errors in <em>R</em></a></li>
+<li class="chapter" data-level="10.6" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#exercises-7"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#galtons-families"><i class="fa fa-check"></i><b>10.6.1</b> Galton’s families</a></li>
+<li class="chapter" data-level="10.6.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#simulation"><i class="fa fa-check"></i><b>10.6.2</b> Simulation</a></li>
+<li class="chapter" data-level="10.6.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#more-simulation"><i class="fa fa-check"></i><b>10.6.3</b> More simulation</a></li>
+<li class="chapter" data-level="10.6.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#instructor-ratings"><i class="fa fa-check"></i><b>10.6.4</b> Instructor ratings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html"><i class="fa fa-check"></i><b>11</b> Hypothesis tests about more than one parameter</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-restricted-model"><i class="fa fa-check"></i><b>11.1</b> The restricted model</a></li>
+<li class="chapter" data-level="11.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-test-using-r2-that-you-probably-shouldnt-use"><i class="fa fa-check"></i><b>11.2</b> A test using <span class="math inline">\(R^2\)</span> that you probably shouldn’t use</a></li>
+<li class="chapter" data-level="11.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-more-robust-test"><i class="fa fa-check"></i><b>11.3</b> A more robust test</a></li>
+<li class="chapter" data-level="11.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#another-example"><i class="fa fa-check"></i><b>11.4</b> Another example</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-whether-the-child-is-male-of-female"><i class="fa fa-check"></i><b>11.4.1</b> The height of a child does not depend on whether the child is male of female</a></li>
+<li class="chapter" data-level="11.4.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-the-height-of-their-parents"><i class="fa fa-check"></i><b>11.4.2</b> The height of a child does not depend on the height of their parents</a></li>
+<li class="chapter" data-level="11.4.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-mother-height-on-child-height-is-the-same-as-the-effect-of-father-height-on-child-height"><i class="fa fa-check"></i><b>11.4.3</b> The effect of mother height on child height is the same as the effect of father height on child height</a></li>
+<li class="chapter" data-level="11.4.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-male-childrens-height-is-the-same-as-the-effect-of-parent-height-on-female-childrens-height"><i class="fa fa-check"></i><b>11.4.4</b> The effect of parent height on male children’s height is the same as the effect of parent height on female children’s height</a></li>
+<li class="chapter" data-level="11.4.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-child-height-is-linear"><i class="fa fa-check"></i><b>11.4.5</b> The effect of parent height on child height is linear</a></li>
+<li class="chapter" data-level="11.4.6" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#parents-who-are-on-average-one-inch-taller-have-children-that-are-on-average-one-inch-taller"><i class="fa fa-check"></i><b>11.4.6</b> Parents who are on average one inch taller have children that are on average one inch taller</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#exercises-8"><i class="fa fa-check"></i><b>11.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#project-star-student-teacher-achievement-ratio"><i class="fa fa-check"></i><b>11.5.1</b> Project STAR: Student-Teacher Achievement Ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><i class="fa fa-check"></i><b>12</b> Limited dependent variable models and maximum likelihood estimation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#motivation-the-linear-probability-model-works-134-of-the-time"><i class="fa fa-check"></i><b>12.1</b> Motivation: The linear probability model works 134% of the time</a></li>
+<li class="chapter" data-level="12.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-practical-solution-ensure-that-predictions-are-always-valid"><i class="fa fa-check"></i><b>12.2</b> A practical solution: Ensure that predictions are always valid</a></li>
+<li class="chapter" data-level="12.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#interpreting-the-coefficients-of-the-probit-and-logit-models"><i class="fa fa-check"></i><b>12.3</b> Interpreting the coefficients of the probit and logit models</a></li>
+<li class="chapter" data-level="12.4" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#but-how-do-we-estimate-it-maximum-likelihood"><i class="fa fa-check"></i><b>12.4</b> But how do we estimate it? Maximum likelihood</a></li>
+<li class="chapter" data-level="12.5" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#doing-inference-with-maximum-likelihood"><i class="fa fa-check"></i><b>12.5</b> Doing inference with maximum likelihood</a></li>
+<li class="chapter" data-level="12.6" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#how-some-estimators-relate-to-maximum-likelihood"><i class="fa fa-check"></i><b>12.6</b> How some estimators relate to maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sample-mean-for-a-bernoulli-coin-flip-variable"><i class="fa fa-check"></i><b>12.6.1</b> Sample mean for a Bernoulli (coin flip) variable</a></li>
+<li class="chapter" data-level="12.6.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#linear-regression-1"><i class="fa fa-check"></i><b>12.6.2</b> Linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#some-examples-of-estimating-parameters-using-maximum-likelihood"><i class="fa fa-check"></i><b>12.7</b> Some examples of estimating parameters using maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#geometric-distribution"><i class="fa fa-check"></i><b>12.7.1</b> Geometric distribution</a></li>
+<li class="chapter" data-level="12.7.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#simplified-beta-distribution"><i class="fa fa-check"></i><b>12.7.2</b> Simplified Beta distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#an-extended-example"><i class="fa fa-check"></i><b>12.8</b> An extended example</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#data"><i class="fa fa-check"></i><b>12.8.1</b> Data</a></li>
+<li class="chapter" data-level="12.8.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-research-question"><i class="fa fa-check"></i><b>12.8.2</b> A research question</a></li>
+<li class="chapter" data-level="12.8.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#the-model-based-approach"><i class="fa fa-check"></i><b>12.8.3</b> The model-based approach</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#exercises-9"><i class="fa fa-check"></i><b>12.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.9.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#checking-that-we-rolled-a-die-correctly"><i class="fa fa-check"></i><b>12.9.1</b> Checking that we rolled a die correctly</a></li>
+<li class="chapter" data-level="12.9.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#galtons-heights-dataset"><i class="fa fa-check"></i><b>12.9.2</b> Galton’s heights dataset</a></li>
+<li class="chapter" data-level="12.9.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sumo-wrestling"><i class="fa fa-check"></i><b>12.9.3</b> Sumo wrestling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html"><i class="fa fa-check"></i><b>13</b> Combining and manipulating datasets</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#merging-data-join"><i class="fa fa-check"></i><b>13.1</b> Merging data (<code>join</code>)</a></li>
+<li class="chapter" data-level="13.2" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#wide-and-long-formats-pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>13.2</b> Wide and long formats (<code>pivot_longer</code> and <code>pivot_wider</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="time-series-introduction.html"><a href="time-series-introduction.html"><i class="fa fa-check"></i><b>14</b> Time series – Introduction</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#autoregressive-and-moving-average-arma-models-the-basic-building-blocks-of-time-series-models"><i class="fa fa-check"></i><b>14.1</b> Autoregressive and moving average (ARMA) models: the basic building blocks of time series models</a></li>
+<li class="chapter" data-level="14.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-properties-of-arma-processes"><i class="fa fa-check"></i><b>14.2</b> Stationarity and properties of ARMA processes</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#examples"><i class="fa fa-check"></i><b>14.2.1</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#diagnostics-autocorrelation-and-partial-autocorrelation-functions"><i class="fa fa-check"></i><b>14.3</b> Diagnostics: Autocorrelation and partial autocorrelation functions</a></li>
+<li class="chapter" data-level="14.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-unemployment"><i class="fa fa-check"></i><b>14.4</b> Example dataset – unemployment</a></li>
+<li class="chapter" data-level="14.5" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-testing-for-unit-roots"><i class="fa fa-check"></i><b>14.5</b> Stationarity and testing for unit roots</a></li>
+<li class="chapter" data-level="14.6" data-path="time-series-introduction.html"><a href="time-series-introduction.html#non-stationarity-and-spurious-correlation"><i class="fa fa-check"></i><b>14.6</b> Non-stationarity and spurious correlation</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-share-a-trend"><i class="fa fa-check"></i><b>14.6.1</b> Two variables share a trend</a></li>
+<li class="chapter" data-level="14.6.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-are-cyclical"><i class="fa fa-check"></i><b>14.6.2</b> Two variables are cyclical</a></li>
+<li class="chapter" data-level="14.6.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-have-a-unit-root"><i class="fa fa-check"></i><b>14.6.3</b> Two variables have a unit root</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="time-series-introduction.html"><a href="time-series-introduction.html#differencing-and-stationarity"><i class="fa fa-check"></i><b>14.7</b> Differencing and stationarity</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#some-examples-of-making-non-stationary-series-stationary-through-differencing"><i class="fa fa-check"></i><b>14.7.1</b> Some examples of making non-stationary series stationary through differencing</a></li>
+<li class="chapter" data-level="14.7.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-us-consumer-price-index"><i class="fa fa-check"></i><b>14.7.2</b> Example dataset: US Consumer Price Index</a></li>
+<li class="chapter" data-level="14.7.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-data-gdp-and-money-supply"><i class="fa fa-check"></i><b>14.7.3</b> Example data: GDP and money supply</a></li>
+<li class="chapter" data-level="14.7.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-peace-corps"><i class="fa fa-check"></i><b>14.7.4</b> Example: Peace Corps</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="time-series-introduction.html"><a href="time-series-introduction.html#estimating-arima-models"><i class="fa fa-check"></i><b>14.8</b> Estimating ARIMA models</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html"><i class="fa fa-check"></i><b>15</b> Time series – Forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#prediction-and-forecasting"><i class="fa fa-check"></i><b>15.1</b> Prediction and forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-with-univariate-problems"><i class="fa fa-check"></i><b>15.1.1</b> Example: Prediction with univariate problems</a></li>
+<li class="chapter" data-level="15.1.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-in-bivariate-ols"><i class="fa fa-check"></i><b>15.1.2</b> Example: Prediction in bivariate OLS</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#cross-validation"><i class="fa fa-check"></i><b>15.2</b> Cross-validation</a></li>
+<li class="chapter" data-level="15.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-cpi-and-ppi"><i class="fa fa-check"></i><b>15.3</b> Example: CPI and PPI</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#using-just-ar-and-ma-components"><i class="fa fa-check"></i><b>15.3.1</b> Using just AR and MA components</a></li>
+<li class="chapter" data-level="15.3.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-some-seasonality"><i class="fa fa-check"></i><b>15.3.2</b> Incorporating some seasonality</a></li>
+<li class="chapter" data-level="15.3.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-ppi-inflation"><i class="fa fa-check"></i><b>15.3.3</b> Incorporating PPI inflation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="additional-exercises.html"><a href="additional-exercises.html"><i class="fa fa-check"></i><b>16</b> Additional exercises</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="additional-exercises.html"><a href="additional-exercises.html#for-loops"><i class="fa fa-check"></i><b>16.1</b> For loops</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="additional-exercises.html"><a href="additional-exercises.html#determinants-of-wage-data-cps-1988"><i class="fa fa-check"></i><b>16.1.1</b> Determinants of wage data (CPS 1988)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="past-exam-questions.html"><a href="past-exam-questions.html"><i class="fa fa-check"></i><b>17</b> Past exam questions</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2023-5810-exam-1"><i class="fa fa-check"></i><b>17.1</b> Fall 2023 5810 Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability"><i class="fa fa-check"></i><b>17.1.1</b> Probability</a></li>
+<li class="chapter" data-level="17.1.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimation-and-inference"><i class="fa fa-check"></i><b>17.1.2</b> Estimation and inference</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2022-5810-exam-1"><i class="fa fa-check"></i><b>17.2</b> Fall 2022 5810, Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability-1"><i class="fa fa-check"></i><b>17.2.1</b> Probability</a></li>
+<li class="chapter" data-level="17.2.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#inference-1"><i class="fa fa-check"></i><b>17.2.2</b> Inference</a></li>
+<li class="chapter" data-level="17.2.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimators-and-large-sample-properties"><i class="fa fa-check"></i><b>17.2.3</b> Estimators and large-sample properties</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-2-2022"><i class="fa fa-check"></i><b>17.3</b> 5810 Exam 2 (2022)</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#directed-acyclic-graphs"><i class="fa fa-check"></i><b>17.3.1</b> Directed Acyclic Graphs</a></li>
+<li class="chapter" data-level="17.3.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#linear-regression-2"><i class="fa fa-check"></i><b>17.3.2</b> Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-1-2023"><i class="fa fa-check"></i><b>17.4</b> 5820, Exam 1 (2023)</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#maximum-likelihood"><i class="fa fa-check"></i><b>17.4.1</b> Maximum likelihood</a></li>
+<li class="chapter" data-level="17.4.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fire-trucks"><i class="fa fa-check"></i><b>17.4.2</b> Fire trucks</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Econometrics notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="standard-errors-in-linear-regression" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">10</span> Standard errors in linear regression<a href="standard-errors-in-linear-regression.html#standard-errors-in-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>“He is in this, as in many other cases, led by an invisible hand to promote an end which was no part of his intention. But his standard errors, on the other hand, will always be wrong, for this is the nature of the applied economist.” - Adam Smith (actually Kevin DeLuca)</p>
+</blockquote>
+<p>For the basic OLS model, we assume that the error terms of our regressions, <span class="math inline">\(\{\epsilon_i\}_{i=1}^N\)</span>, (among other things):</p>
+<ul>
+<li>Have a constant variance. That is, no matter two rows of the data we are looking at, it must be that:
+<span class="math display">\[\begin{align}
+V[\epsilon_i]=V[\epsilon_j]=\sigma^2,\quad \text{for all } i,j\in\{1, 2, \ldots N\}
+\end{align}\]</span>
+This is the assumption of {}.</li>
+<li>Are uncorrelated with each other. That is, for any two rows <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> of our dataset:
+<span class="math display">\[\begin{align}
+\mathrm{corr}(\epsilon_i,\epsilon_j)=0,\quad \text{for all } i\neq j
+\end{align}\]</span></li>
+</ul>
+<p>Note that if either of these are not true, we needn’t worry about <em>all</em> of the nice properties of OLS breaking down. Importantly, if these are the only problems we have, then our slope estimator is still unbiased. What we <em>should</em> worry about, however, is that our standard errors are not calculated correctly, and so without any correction for this, we report the results of hypothesis tests at our own peril.
+If the former assumption is violated, we refer to this as <em>heteroskedasticity</em>: the variance of the error term is not constant across observations. This is eminently fixable without having any additional insights into your data. On the other hand, if the latter is not true, then we need to know a bit more about our data to fix the problem. For a thorough run-through of these procedures, have a look at <span class="citation">(<a href="#ref-Cameron2015"><strong>Cameron2015?</strong></a>)</span>. What follows is a simplification of that work to the realm of bivariate OLS. The extension to multivariate OLS, and some non-OLS techniques, is relatively straightforward with the right matrix algebra background.</p>
+<p>To begin with, let’s see how far we can get with <span class="math inline">\(V[\hat\beta_1]\)</span> without making any additional assumptions about the error term. The variance of <span class="math inline">\(\hat\beta_1\)</span> when you {} is:
+<span class="math display">\[\begin{align}
+V[\hat\beta_1]&amp;=V\left[\frac{\sum_i(X_i-\bar X)\epsilon_i}{\sum_i(X_i-\bar X)^2}\right]
+\end{align}\]</span>
+Noting that we are treating the <span class="math inline">\(X\)</span>s as fixed, without loss of generality, we can write this as:
+<span class="math display">\[\begin{align}
+V[\hat\beta_1]&amp;=\frac{V\left[\sum_i(X_i-\bar X)\epsilon_i\right]}{\left(\sum_i(X_i-\bar X)^2\right)^2}
+\label{eq:VBetaHat}
+\end{align}\]</span>
+The denominator of this is only a function of the data, so it is easily computable, and doesn’t depend on any assumptions about <span class="math inline">\(\epsilon\)</span>. The numerator, however, simplifies differently depending on our understanding of <span class="math inline">\(\epsilon\)</span>. Before we make any further assumptions about <span class="math inline">\(\epsilon\)</span>, note that we can express the denominator of <span class="math inline">\(\ref{eq:VBetaHat}\)</span>, without loss of generality, as follows:
+<span class="math display">\[\begin{align}
+V\left[\sum_i(X_i-\bar X)\epsilon_i\right]&amp;=
+E\left[\left(\sum_i(X_i-\bar X)\epsilon_i-E\left[\sum_j(X_j-\bar X)\epsilon_j\right]\right)^2\right]\label{eq:ClusterVarDiff}\\
+%%
+&amp;=E\left[\left(\sum_i(X_i-\bar X)\epsilon_i\right)^2\right]\label{eq:ClusterE0}\\
+&amp;=E\left[\sum_i\sum_j\left((X_i-\bar X)\epsilon_i\right)\left((X_j-\bar X)\epsilon_j\right)\right]\label{eq:clusterExpandSq}\\
+%%
+&amp;=E\left[\sum_i\sum_j(X_i-\bar X)(X_j-\bar X)\epsilon_i\epsilon_j\right]\\
+%%
+&amp;=\sum_i\sum_j(X_i-\bar X)(X_j-\bar X)E[\epsilon_i\epsilon_j]\label{eq:ClusterGeneralSimplified}
+\end{align}\]</span>
+where the first line follows by the definition of variance, the second line follows because the expectation of any <span class="math inline">\(\epsilon_i\)</span> is zero, and the third expands the squared term. What follows are further simplifications of the final line, after making various assumptions about <span class="math inline">\(E[\epsilon_i\epsilon_j]\)</span>.</p>
+<div id="homoskedasticity-the-standard-standard-errors" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Homoskedasticity: the “standard” standard errors<a href="standard-errors-in-linear-regression.html#homoskedasticity-the-standard-standard-errors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you have been estimating OLS with free abandon up to this point, this is what you have been doing. Depending on how deep your understanding of OLS is, you would have been implicitly, or (I really hope) explicitly, been making the assumption that the error term has constant variance, and that any two randomly selected errors are uncorrelated with each other. More formally, this means that:</p>
+<blockquote>
+<p><strong>Assumption (Homoskedasticity)</strong>
+<span class="math display">\[\begin{align*}
+V[\epsilon_i]=E[\epsilon_i^2]&amp;=\sigma^2 \text{ for all } i = 1, 2, \ldots N\\
+E[\epsilon_i\epsilon_j]&amp;=0 \text{ for all } i\neq j
+\end{align*}\]</span></p>
+</blockquote>
+<p>Note that these two restrictions allow us to say something about <em>all</em> of the terms in our expression for the variance. Specifically:
+<span class="math display">\[\begin{align}
+E[\epsilon_{i}\epsilon_j]&amp;=\begin{cases}
+\sigma^2 &amp;\text{ if } i=j\\
+0&amp;\text{ otherwise}
+\end{cases}
+\end{align}\]</span></p>
+<p>This means that we can simplify the numerator as follows:
+<span class="math display">\[\begin{align}
+\sum_i\sum_j(X_i-\bar X)(X_j-\bar X)E[\epsilon_i\epsilon_j]&amp;=\sum_i(X_i-\bar X)^2E[\epsilon_i^2]\\
+%%
+&amp;=\sum_i(X_i-\bar X)^2\sigma^2\\
+%%
+&amp;=\sigma^2\sum_i(X_i-\bar X)^2
+\end{align}\]</span>
+Substituting this into our expression of <span class="math inline">\(V(\hat\beta_1)\)</span> yields:
+<span class="math display">\[\begin{align}
+V[\hat\beta_1]&amp;=\frac{V\left[\sum_i(X_i-\bar X)\epsilon_i\right]}{\left(\sum_i(X_i-\bar X)^2\right)^2}\\
+&amp;=\frac{\sigma^2\sum_i(X_i-\bar X)^2}{\left(\sum_i(X_i-\bar X)^2\right)^2}\\
+&amp;=\frac{\sigma^2}{\sum_i(X_i-\bar X)^2}\label{eq:HomoskVar}
+\end{align}\]</span>
+The denominator of this is a problem for your computer (i.e. it can always be calculated): it is <span class="math inline">\(N\)</span> times the sample variance of <span class="math inline">\(X\)</span>. <span class="math inline">\(\sigma^2\)</span>, however, is an unknown. Fortunately we can consistently and unbiasedly estimate it using the residuals from the regression as follows:</p>
+<p><span class="math display">\[\begin{align}
+\hat\sigma^2&amp;=\frac{1}{N-k}\sum_i\hat\epsilon_i^2
+\end{align}\]</span>
+where <span class="math inline">\(k\)</span> is the number of parameters in our model (for bivariate OLS, <span class="math inline">\(k=2\)</span>). And so, if we are happy with the homoskedasticity assumption, we (or if we have something better than a pen and paper, our favorite statistical package) can compute our standard errors as follows:
+<span class="math display">\[\begin{align}
+\widehat{V[\hat\beta_1]}&amp;=\frac{\frac{1}{N-k}\sum_i\hat\epsilon_i^2}{\sum_i(X_i-\bar X)^2}\label{eq:HomoskVarHat}
+\end{align}\]</span></p>
+<p>At this point, we should make an important distinction between <span class="math inline">\(V(\hat\beta_1)\)</span> and <span class="math inline">\(\widehat{V(\hat\beta_1)}\)</span>. <span class="math inline">\(V(\hat\beta_1)\)</span> is the <em>actual</em> variance of <span class="math inline">\(\hat\beta_1\)</span>. However since we do not know the true value of <span class="math inline">\(\sigma^2\)</span>, we must estimate this variance. Therefore <span class="math inline">\(\widehat{V(\hat\beta_1)}\)</span> is an <em>estimator</em> of <span class="math inline">\(V(\hat\beta_1)\)</span>.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a></p>
+<p>Since we usually like to report things in the same units, we typically take the square root of this thing and report the standard error, rather than the variance:
+<span class="math display">\[\begin{align}
+\mathrm{se}[\hat\beta_1]&amp;=\sqrt{\frac{\frac{1}{N-k}\sum_i\hat\epsilon_i^2}{\sum_i(X_i-\bar X)^2}}
+\end{align}\]</span></p>
+</div>
+<div id="heteroskedasticity-1" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Heteroskedasticity<a href="standard-errors-in-linear-regression.html#heteroskedasticity-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>While the homoskedasticity may seem like a reasonable restriction, there are plenty of cases where we assume homoskedasticity at our own peril. The next step is to relax the “constant variance” part of the homoskedasticity assumption, while maintaining the assumption that the errors are independent. That is, we drop the “identically” from the iid assumption:</p>
+<blockquote>
+<p><strong>Assumption (Heteroskedasticity)</strong>
+<span class="math display">\[\begin{align*}
+V[\epsilon_i]&amp;=\sigma^2_i \quad\text{($\sigma^2_i$ is not necessarily equal to $\sigma^2_j$)}\\
+E[\epsilon_i\epsilon_j]&amp;=0 \text{ for all } i\neq j
+\end{align*}\]</span></p>
+</blockquote>
+<p>Going back to our expression of <span class="math inline">\(V(\hat\beta_1)\)</span>, the <span class="math inline">\(E[\epsilon_i\epsilon_j]\)</span> <span class="math inline">\((i\neq j)\)</span> part of this, as in the previous section, means that we can set all of the <span class="math inline">\(i\neq j\)</span> components of the double summation equal to zero, leaving us just with the <span class="math inline">\(i=j\)</span> terms:
+<span class="math display">\[\begin{align}
+\sum_i\sum_j(X_i-\bar X)(X_j-\bar X)E[\epsilon_i\epsilon_j]&amp;=\sum_i(X_i-\bar X)^2E[\epsilon_i^2]
+\end{align}\]</span></p>
+<p>However, unlike homoskedasticity, this is as far as we can get. Therefore we can simplify the expression for the variance to:
+<span class="math display">\[\begin{align}
+V[\hat\beta_1]&amp;=\frac{\sum_i(X_i-\bar X)^2E[\epsilon_i^2]}{\left(\sum_i(X_i-\bar X)^2\right)^2}\label{eq:HeteroVar}
+\end{align}\]</span>
+A quick glance of this expression suggests that we need an estimate for <span class="math inline">\(E[\epsilon_i^2]\)</span> for every <span class="math inline">\(i\)</span>. While <span class="math inline">\(\hat\epsilon_i^2\)</span> is a candidate for this, it is a terrible one because we only get one of those for each <span class="math inline">\(i\)</span>, and so <span class="math inline">\(\hat\epsilon_i^2\)</span> does not plim to <span class="math inline">\(E[\epsilon_i^2]\)</span>. Fortunately, {} inspection of (<span class="math inline">\(\ref{eq:HeteroVar}\)</span>) reveals that we need only estimate the numerator, specifically:
+<span class="math display">\[\begin{align}
+V[\hat\beta_1]&amp;=\frac{\sum_i(X_i-\bar X)^2E[\epsilon_i^2]}{\left(\sum_i(X_i-\bar X)^2\right)^2}\\
+&amp;=\frac{\frac1N\sum_i(X_i-\bar X)^2E[\epsilon_i^2]}{\frac1N\left(\sum_i(X_i-\bar X)^2\right)^2}
+\end{align}\]</span></p>
+<p>and by some law of large numbers arguments:<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
+<span class="math display">\[\begin{align}
+\frac1N\sum_i(X_i-\bar X)^2\hat\epsilon_i^2\xrightarrow[]{p} \frac1N\sum_i(X_i-\bar X)^2E[\epsilon_i^2]
+\end{align}\]</span>
+So we can estimate the variance of <span class="math inline">\(\hat\beta_1\)</span>, under Assumption <span class="math inline">\(\ref{ass:hetero}\)</span>, as follows:
+<span class="math display">\[\begin{align}
+\widehat{V[\hat\beta_1]}&amp;=\frac{\sum_i(X_i-\bar X)^2\hat\epsilon_i^2}{\left(\sum_i(X_i-\bar X)^2\right)^2}\label{eq:heteroVarHat}\\
+\mathrm{se}[\hat\beta_1]&amp;=\sqrt{\frac{\sum_i(X_i-\bar X)^2\hat\epsilon_i^2}{\left(\sum_i(X_i-\bar X)^2\right)^2}}
+\end{align}\]</span></p>
+<p>Importantly, this formula requires <em>no additional information</em> about the data generating process to compute it (although it requires stronger assumptions than some of the techniques in later sections of this chapter). Contrast this to later sections of this chapter. If you can estimate linear regression with homoskedastic standard errors, you can <em>always</em> estimate standard errors that are robust to heteroskedasticity.</p>
+</div>
+<div id="clustered-standard-errors" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Clustered standard errors<a href="standard-errors-in-linear-regression.html#clustered-standard-errors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Above, we explored the implications of assuming that our errors were independently and identically distributed. Then we relaxed the “identically” distributed part by allowing each <span class="math inline">\(\epsilon_i\)</span> to have a different variance. In this Section, we will work to relax the “independently” part of this. In relation to our expression for <span class="math inline">\(V(\hat\beta_1)\)</span>, this means that we can now allow for <span class="math inline">\(E[\epsilon_i\epsilon_j]\neq 0\)</span> for some <span class="math inline">\(i\neq j\)</span>.
+The “some” in the previous sentence is an important one: in particular, I was very deliberate in not using the word “all”. To understand this, and what is to come, it is important why we can’t do this for “all” <span class="math inline">\(i\neq j\)</span>. Note that the sample analog of the numerator in <span class="math inline">\(V(\hat\beta_1)\)</span> is:</p>
+<p><span class="math display">\[\begin{align}
+\sum_i\sum_j(X_i-\bar X)(X_j-\bar X)\hat\epsilon_i\hat\epsilon_j
+\end{align}\]</span></p>
+<p>That is, we have replaced <span class="math inline">\(E[\epsilon_i\epsilon_j]\)</span> with <span class="math inline">\(\hat\epsilon_i\hat\epsilon_j\)</span>.
+We can re-arrange this as follows:
+<span class="math display">\[\begin{align}
+\sum_i\sum_j(X_i-\bar X)(X_j-\bar X)\hat\epsilon_i\hat\epsilon_j
+&amp;=\sum_i\left[(X_i-\bar X)\hat\epsilon_i\right]\sum_j\left[(X_j-\bar X)\hat\epsilon_j\right]\label{eq:OneCluster}
+\end{align}\]</span></p>
+<p>Each one of these summation terms is the solution to the sum-of-squares minimization problem! In other words, when we do OLS, we are exactly setting these things equal to zero. Therefore, using just one big cluster for the (sample equivalent of) the denominator of <span class="math inline">\(V(\hat\beta_1)\)</span> means that we would compute standard errors of zero, and our <span class="math inline">\(t\)</span>-statistics would shoot off to infinity. This is no good: we need to do better! Unlike heteroskedasticity, where we could say “we can construct standard errors that are robust to any kind of hereoskedasticity without knowing what that heterskedasticity looks like”, we can’t make a similar statement of the form “we can construct standard errors that are robust to any kind of correlation between the error terms, without knowing what that correlation looks like.” But sometimes we <em>can</em> know a bit about the structure of this correlation, or at least have a good story about why the proposed structure is a believable one.</p>
+<p>One such instance of this is <em>clustering</em>. In this situation, we believe that the data are divided into distinct clusters. If two observations are not in the same cluster, then we have a good reason to believe that their errors are uncorrelated. On the other hand, for two observations within the same cluster, then we cannot make the argument that they are uncorrelated.</p>
+<div id="an-example" class="section level3 hasAnchor" number="10.3.1">
+<h3><span class="header-section-number">10.3.1</span> An example<a href="standard-errors-in-linear-regression.html#an-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider, for example, the task of estimating the mean height students on campus. The two following methods would achieve unbiased estimators of these quantities, both of which require the collection of 100 observations:</p>
+<ol style="list-style-type: decimal">
+<li>Randomly select <span class="math inline">\(N\)</span> students on campus, and measure their heights <span class="math inline">\(\{h_{i,1}\}_{i=1}^N\)</span>. Take the average of these heights. This is your estimate <span class="math inline">\(\hat\mu^1=\frac{1}{N}\sum_{i=1}^Nh_{i,1}\)</span>.</li>
+<li>Randomly select one student on campus. Measure his/her height on <span class="math inline">\(T\)</span> days over the course of the academic year <span class="math inline">\(\{h_{1,t}\}_{t=1}^T\)</span>. Take the average of these heights. This is your estimate <span class="math inline">\(\hat\mu^2=\frac{1}{T}\sum_{t=1}^Th_{1,t}\)</span>.</li>
+</ol>
+<p>Suppose that each sample contains the same number of observations: <span class="math inline">\(N=T=100\)</span>.
+Both sampling procedures generate a point estimate using 100 observations. As (by assumption) any randomly selected student’s height will on average be equal to the population mean, both procedures produce unbiased estimates. But what is generating the <em>variation</em> in measurements in these two procedures? Suppose that we can model a measurement of student <span class="math inline">\(i\)</span>’s height at time <span class="math inline">\(t\)</span> as follows:
+<span class="math display">\[\begin{align}
+h_{i,t}&amp;=\mu+\eta_i+\epsilon_{i,t}
+\end{align}\]</span></p>
+<p>Where <span class="math inline">\(\mu\)</span> is the population mean height (the thing we are trying to estimate), <span class="math inline">\(\eta_i\)</span> is student <span class="math inline">\(i\)</span>’s deviation from the mean height (i.e. how much taller/shorter is <span class="math inline">\(i\)</span> than the average height), and <span class="math inline">\(\epsilon_{i,t}\)</span> is an iid error in measurement for student <span class="math inline">\(i\)</span> on day <span class="math inline">\(i\)</span>. We assume without loss of generality that <span class="math inline">\(E[\eta_i]=E[\epsilon_i]=0\)</span>. With some loss of generality, let’s also assume that <span class="math inline">\(V[\eta_i]&lt;\infty\)</span> and <span class="math inline">\(V[\epsilon_{i,t}]&lt;\infty\)</span>.</p>
+<p>For sampling procedure 1, every row of our dataset belongs to a different student, so the variation in <span class="math inline">\(h_{i,t}\)</span> is driven by both <span class="math inline">\(\eta_i\)</span> and <span class="math inline">\(\epsilon_{i,t}\)</span>, so we could alternatively write this as <span class="math inline">\(h_{i,t}=\mu+\psi_{i,t}\)</span>, where <span class="math inline">\(\psi_{i,t}\)</span> is the combined error term <span class="math inline">\(\eta_i+\epsilon_{i,t}\)</span>. Hence <span class="math inline">\(\hat\mu^1\xrightarrow[]{p}\mu\)</span>, good! The more observations we collect in sampling procedure 1, the more likely we are to be arbitrarily close to <span class="math inline">\(\mu\)</span>. Additionally, by standard central limit arguments: <span class="math inline">\(\sqrt N (\hat\mu^1-\mu)\xrightarrow[]{d}N(0,V[\eta_i+\epsilon_{i,t}])\)</span>, and so all of our inference can be done in the <em>usual</em> way.</p>
+<p>For sampling procedure 2, things become more complicated. To see this, note that since we are repeatedly sampling the same student’s height, we always get the same <span class="math inline">\(\eta_i\)</span> in our equation. Therefore, instead of (loosely) converging to <span class="math inline">\(\mu\)</span>, we get a really good estimate of <span class="math inline">\(\mu+\eta_1\)</span>, the single student’s height. By ``really good’’ here, I don’t mean that we should be happy: we have a really good estimate of something we don’t want to know, and hence a really {} estimate of the population mean height. While in sampling procedure 1, increasing the sample size gets us closer (in the plim sense) to <span class="math inline">\(\mu\)</span>, increasing the sample size in sampling procedure 2 gets us closer to <span class="math inline">\(\mu+\eta_i\)</span>. This is {} equal to <span class="math inline">\(\mu\)</span>, but it does not have the same nice convergence properties (both <span class="math inline">\(\xrightarrow[]{p}\)</span> and <span class="math inline">\(\xrightarrow[]{d}\)</span>) as <span class="math inline">\(\hat\mu^1\)</span>. One way of looking at this problem is that sampling procedure 2 does not collect <em>statistically independent</em> observations:
+<span class="math display">\[\begin{align}
+\text{for } t\neq s: \quad\mathrm{cov}(h_{1,t},h_{1,s})&amp;=E\left[(\eta_1+\epsilon_{1,t})(\eta_1+\epsilon_{1,s})\right]\\
+&amp;=E\left[\eta_1^2+\epsilon_{1,s}\eta_1+\epsilon_{1,t}\eta_{1,t}+\eta_{i,t}\eta_{1,s}\right]\\
+&amp;=E\left[\eta_1^2\right]\neq 0
+\end{align}\]</span></p>
+<p>OK, so it seems reasonable, even before reading the above section, that any econometrician with half a brain should realize that procedure 2 is a terrible one for estimating <span class="math inline">\(\mu\)</span>. Why would we {} see such a procedure at all then? The answer is that we usually don’t, but we often see things that are a mix of procedures 1 and 2. In this context, this might be because it is cheaper to sample one person <span class="math inline">\(N\)</span> times than sample <span class="math inline">\(N\)</span> people once (perhaps the study requires getting consent from all of the participants, but only once per participant). Clearly we would never want to just sample 1 person, but maybe we settle for sampling a few people a few times. Therefore, it is reasonably common to see a sampling procedure like the following:</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Randomly select <span class="math inline">\(N\)</span> students on campus, and measure their heights on <span class="math inline">\(T\)</span> days over the course of the academic year <span class="math inline">\(\{h_{i,t}\}_{i=1,t=1}^{i=N,t=T}\)</span>. Take the average of these heights. This is your estimate <span class="math inline">\(\hat\mu^3=\frac{1}{NT}\sum_{t=1}^T\sum_{i=1}^Nh_{i,t}\)</span>.</li>
+</ol>
+<p>For the sake of simplicity, we have assumed that we have a <em>balanced panel</em>: each student is measured <span class="math inline">\(T\)</span> times, hence we have <span class="math inline">\(NT\)</span> observations. This assumption is unnecessary, and does not affect any of the discussion below.</p>
+<p>Again, <span class="math inline">\(\hat\mu^3\)</span> is an unbiased estimator of <span class="math inline">\(\mu\)</span> because everything that goes in to the average is on average equal to <span class="math inline">\(\mu\)</span>. Moreover, as <span class="math inline">\(N\to\infty\)</span> (i.e. as we sample more and more students), this thing will plim to <span class="math inline">\(\mu\)</span>, and will be asymptotically normal. However, we need to be careful about how we apply this second property when doing inference. Specifically, it is reckless to think, or apply a technique that assumes, that we have <span class="math inline">\(NT\)</span> statistically independent observations. To see this, note the following for two arbitrary observations in our dataset:</p>
+<p><span class="math display">\[\begin{align}
+\mathrm{cov}(h_{i,t},h_{j,s})&amp;=E\left[(\eta_i+\epsilon_{i,t})(\eta_j+\epsilon_{j,s})\right]\\
+&amp;=E\left[\eta_i\eta_j+\eta_i\epsilon_{j,s}+\eta_j\epsilon_{i,t}+\epsilon_{i,t}\epsilon_{j,s}\right]\\
+&amp;=E\left[\eta_i\eta_j\right]+0+0+0\\
+&amp;=\begin{cases}
+E\left[\eta_i^2\right]&gt;0 &amp;\text{ if } i=j\\
+0&amp;\text{ if } i\neq j
+\end{cases}\label{eq:studentCov}
+\end{align}\]</span>
+What this is telling us is that observations that correspond to the same student are not statistically independent, but observations that correspond to different students are statistically independent. Actually, this expression tells us more than this: observations corresponding to the same student are <em>correlated</em>, and we know that this correlation must be positive. The implications of this are as follows:</p>
+<ul>
+<li><span class="math inline">\(E[\hat\mu^3]=\mu\)</span> (good)</li>
+<li>As <span class="math inline">\(N\to\infty\)</span>, <span class="math inline">\(\hat\mu^3\to \mu\)</span> (good)</li>
+<li>As <span class="math inline">\(N\to\infty\)</span>, neither the standard, nor the heteroskedasticity-robust, standard errors approach the asymptotic standard deviation of <span class="math inline">\(\hat\mu^3\)</span>.</li>
+</ul>
+<p>The third point is really bad: we can get a good point estimate of <span class="math inline">\(\mu\)</span> quite easily, but unless you keep reading, you can’t do any hypothesis tests. Please keep reading!</p>
+<p>Formally, we have a variable <span class="math inline">\(c_i\)</span> which identifies the cluster that observation <span class="math inline">\(i\)</span> belongs to such that:
+<span class="math display">\[\begin{align}
+c_i=c_j &amp;\iff i \text{ and } j \text{ are in the same cluster}\\
+c_i\neq c_j &amp;\iff i \text{ and } j \text{ are not in the same cluster}
+\end{align}\]</span>
+So in terms of our estimator <span class="math inline">\(\hat\mu^3\)</span>, two rows of our dataset have the same <span class="math inline">\(c\)</span> if and only if they correspond to the same student. In the Galton Heights dataset, we may be worried that errors within families are correlated. For example, if one child in a family is a glutton for protein, then their siblings may be protein-starved. If protein consumption positively affects height, then the errors would be negatively correlated within families.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></p>
+<p>Now let’s go back to the equation for <span class="math inline">\(V(\hat\beta_1)\)</span>. Now our problem is that we have some <span class="math inline">\(i\)</span>s and <span class="math inline">\(j\)</span>s for which <span class="math inline">\(E[\epsilon_i\epsilon_j]\neq 0\)</span>. Specifically, if observations <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> correspond to the same student, then <span class="math inline">\(E[\epsilon_i\epsilon_j]=E[\eta_i^2]\neq 0\)</span>. Fortunately, we also have variable <span class="math inline">\(c\)</span> in our dataset that tells us which observations belong to the same student. Our solution to this problem is remarkably similar to the heteroskedastisity problem: we suspect that some errors are correlated, so we don’t assume that their correlation to zero. Specifically, note that we can (trivially) write Equation <span class="math inline">\(\ref{eq:ClusterGeneralSimplified}\)</span> as follows:
+<span class="math display">\[\begin{align}
+\sum_i\sum_j(X_i-\bar X)(X_j-\bar X)E[\epsilon_i\epsilon_j]&amp;=\sum_i\sum_j(X_i-\bar X)(X_j-\bar X)\left(E[\epsilon_i\epsilon_j]I(E[\epsilon_i\epsilon_j]\neq 0)\right)
+\end{align}\]</span>
+The sample analog of this is:
+<span class="math display">\[\begin{align}
+\sum_i\sum_j(X_i-\bar X)(X_j-\bar X)\left(\hat\epsilon_i\hat\epsilon_jI(E[\epsilon_i\epsilon_j]\neq 0)\right)
+\end{align}\]</span></p>
+<p>That is, we replace the thing we don’t know, <span class="math inline">\(E[\epsilon_i\epsilon_j]\)</span>, with something that we do know, <span class="math inline">\(\hat\epsilon_i\hat\epsilon_j\)</span>. Note that we haven’t replaced <span class="math inline">\(I(E[\epsilon_i\epsilon_j]\neq 0)\)</span> with anything. This is because we know what this is! We have made an argument that our data falls into groups, called clusters, such that if <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are in the same cluster, their errors could be correlated, but they could not be correlated if they were not in the same cluster. Hence:
+<span class="math display">\[\begin{align}
+I(E[\epsilon_i\epsilon_j]\neq 0)&amp;=\begin{cases}
+1 &amp;\text{if }c_i=c_j\\
+0&amp;\text{otherwise}
+\end{cases}
+\end{align}\]</span>
+Hence, we can calculate standard errors that respect this kind of dependence by substituting:
+<span class="math display">\[\begin{align}
+\sum_i\sum_j(X_i-\bar X)(X_j-\bar X)\left(\hat\epsilon_i\hat\epsilon_jI(c_i=c_j)\right)
+\end{align}\]</span>
+into the numerator of our equation for <span class="math inline">\(V[\hat\beta]\)</span>. Hence:
+<span class="math display">\[\begin{align}
+V^\text{clu}[\hat\beta_1]&amp;=
+\frac{\sum_i\sum_j(X_i-\bar X)(X_j-\bar X)\left(\hat\epsilon_i\hat\epsilon_jI(c_i=c_j)\right)}{\left(\sum_{i}(X_i-\bar X)^2\right)^2}\\
+\mathrm{se}^\text{clu}[\hat\beta_1]&amp;=\sqrt{
+\frac{\sum_i\sum_j(X_i-\bar X)(X_j-\bar X)\left(\hat\epsilon_i\hat\epsilon_jI(c_i=c_j)\right)}{\left(\sum_{i}(X_i-\bar X)^2\right)^2}}
+\end{align}\]</span></p>
+<p>This is often referred to as “cluster-robust standard errors”.
+Now compare this to the variance assuming heteroskedasticity, which is the estimator of the variance of <span class="math inline">\(\hat\beta_1\)</span> when we have heteroskedasticity (but not clustering). In particular, if there is only one observation per cluster (i.e.~<span class="math inline">\(c_i=i\)</span>, and hence all <span class="math inline">\(c_i\)</span>s are different), then <span class="math inline">\(V^\text{clu}[\hat\beta_1]\)</span> collapses to the variance assuming heteroskedasticity, because <span class="math inline">\(I(c_i=c_j)=1\)</span> only when <span class="math inline">\(i=j\)</span>. The implication of this is that the cluster-robust standard errors are also robust to heteroskedasticity.</p>
+</div>
+</div>
+<div id="standard-errors-for-multivariate-linear-regression" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Standard errors for multivariate linear regression<a href="standard-errors-in-linear-regression.html#standard-errors-for-multivariate-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Fortunately for us, the intuition about when and why we should (or should not) use a particular kind of standard error does not change when we have more than one variable on the right-hand side. While the formulas change a bit to account for more than one <span class="math inline">\(X\)</span>, the understanding about the assumptions we need to make to use them remains the same.</p>
+<p>Perhaps one new concept worth a mention here, though, is the introduction of “variance inflation”. To illustrate this, let’s focus just on the homoskedastic standard errors, which for bivariate OLS can be calculated as:</p>
+<p><span class="math display">\[
+\hat V[\hat\beta_1]=\frac{\hat\sigma^2}{\sum_i(X_i-\bar x)^2}
+\]</span></p>
+<p>When we introduce more than one <span class="math inline">\(X\)</span> to the right-hand side, (let’s call them <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, and so on), this formula becomes, for the coefficient on <span class="math inline">\(X_1\)</span>:</p>
+<p><span class="math display">\[
+\hat V[\beta_1]=\frac{\hat\sigma^2}{(1-R_1^2)\sum_i(X_{1,i}-\bar x_1)}
+\]</span></p>
+<p>which is not substantially different from the bivariate case, except that we are dividing by <span class="math inline">\(1-R_1^2\)</span>, which is the <span class="math inline">\(R^2\)</span> <em>not</em> of the regression we actually want to estimate, but of a regression with <span class="math inline">\(X_1\)</span> on the left-hand side, and all of the other <span class="math inline">\(X\)</span>s on the right-hand side. That is, this <span class="math inline">\(R_1^2\)</span> tells us how much of the variation in <span class="math inline">\(X_1\)</span> can be explained by <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3\)</span>, and so on.</p>
+<p>Since <span class="math inline">\(R^2\)</span> is positive but less than one, this means that the variance of <span class="math inline">\(\hat\beta_1\)</span> is larger if it is highly correlated with the other <span class="math inline">\(X\)</span>s. To illustrate, suppose we have two right-hand side variables that are highly correlated. Here is a simulated dataset that does this:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="standard-errors-in-linear-regression.html#cb68-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb68-2"><a href="standard-errors-in-linear-regression.html#cb68-2" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb68-3"><a href="standard-errors-in-linear-regression.html#cb68-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb68-4"><a href="standard-errors-in-linear-regression.html#cb68-4" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="dv">10000</span></span>
+<span id="cb68-5"><a href="standard-errors-in-linear-regression.html#cb68-5" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">tibble</span>(</span>
+<span id="cb68-6"><a href="standard-errors-in-linear-regression.html#cb68-6" tabindex="-1"></a>  <span class="at">Z=</span><span class="fu">rnorm</span>(n),</span>
+<span id="cb68-7"><a href="standard-errors-in-linear-regression.html#cb68-7" tabindex="-1"></a>  <span class="at">X1=</span>Z<span class="fl">+0.1</span><span class="sc">*</span><span class="fu">rnorm</span>(n),</span>
+<span id="cb68-8"><a href="standard-errors-in-linear-regression.html#cb68-8" tabindex="-1"></a>  <span class="at">X2=</span>Z<span class="fl">+0.1</span><span class="sc">*</span><span class="fu">rnorm</span>(n),</span>
+<span id="cb68-9"><a href="standard-errors-in-linear-regression.html#cb68-9" tabindex="-1"></a>  <span class="at">Y =</span> X1<span class="sc">+</span>X2<span class="sc">+</span><span class="fu">rnorm</span>(n)</span>
+<span id="cb68-10"><a href="standard-errors-in-linear-regression.html#cb68-10" tabindex="-1"></a>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(Y,X1,X2)</span>
+<span id="cb68-11"><a href="standard-errors-in-linear-regression.html#cb68-11" tabindex="-1"></a></span>
+<span id="cb68-12"><a href="standard-errors-in-linear-regression.html#cb68-12" tabindex="-1"></a>(</span>
+<span id="cb68-13"><a href="standard-errors-in-linear-regression.html#cb68-13" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">x=</span>X1,<span class="at">y=</span>X2))<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.1</span>,<span class="at">size=</span><span class="fl">0.2</span>)<span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb68-14"><a href="standard-errors-in-linear-regression.html#cb68-14" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-146-1.png" width="672" /></p>
+<p>Note here that I am plotting the relationship between <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, not the relationship between <span class="math inline">\(Y\)</span> and one of the <span class="math inline">\(X\)</span>s. There is clearly a strong correlation between <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>. So what does this mean about our regression model?</p>
+<p><span class="math display">\[
+Y_i=\beta_0+\beta_1X_{1,i}+\beta_2X_{2,i}+\epsilon_i
+\]</span></p>
+<p>Here are a few regressions to demonstrate the problem, which is called “multicollinearity”:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="standard-errors-in-linear-regression.html#cb69-1" tabindex="-1"></a><span class="co"># The equation we actually want to estimate</span></span>
+<span id="cb69-2"><a href="standard-errors-in-linear-regression.html#cb69-2" tabindex="-1"></a>reg1<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="at">data=</span>d,<span class="at">formula=</span>Y<span class="sc">~</span>X1<span class="sc">+</span>X2)</span>
+<span id="cb69-3"><a href="standard-errors-in-linear-regression.html#cb69-3" tabindex="-1"></a></span>
+<span id="cb69-4"><a href="standard-errors-in-linear-regression.html#cb69-4" tabindex="-1"></a><span class="co"># leaving out X2</span></span>
+<span id="cb69-5"><a href="standard-errors-in-linear-regression.html#cb69-5" tabindex="-1"></a>reg2<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="at">data=</span>d,<span class="at">formula=</span>Y<span class="sc">~</span>X1)</span>
+<span id="cb69-6"><a href="standard-errors-in-linear-regression.html#cb69-6" tabindex="-1"></a></span>
+<span id="cb69-7"><a href="standard-errors-in-linear-regression.html#cb69-7" tabindex="-1"></a><span class="co"># the relationship between X1 and X2</span></span>
+<span id="cb69-8"><a href="standard-errors-in-linear-regression.html#cb69-8" tabindex="-1"></a>reg3<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="at">data=</span>d,<span class="at">formula=</span>X2<span class="sc">~</span>X1)</span>
+<span id="cb69-9"><a href="standard-errors-in-linear-regression.html#cb69-9" tabindex="-1"></a></span>
+<span id="cb69-10"><a href="standard-errors-in-linear-regression.html#cb69-10" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,reg2,reg3,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+Y
+</td>
+<td>
+X2
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+X1
+</td>
+<td>
+1.054<sup>***</sup>
+</td>
+<td>
+1.992<sup>***</sup>
+</td>
+<td>
+0.991<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.071)
+</td>
+<td>
+(0.010)
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+X2
+</td>
+<td>
+0.946<sup>***</sup>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.071)
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-0.002
+</td>
+<td>
+-0.001
+</td>
+<td>
+0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.010)
+</td>
+<td>
+(0.010)
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+10,000
+</td>
+<td>
+10,000
+</td>
+<td>
+10,000
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.800
+</td>
+<td>
+0.796
+</td>
+<td>
+0.980
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.800
+</td>
+<td>
+0.796
+</td>
+<td>
+0.980
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+1.009 (df = 9997)
+</td>
+<td>
+1.018 (df = 9998)
+</td>
+<td>
+0.142 (df = 9998)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+19,994.180<sup>***</sup> (df = 2; 9997)
+</td>
+<td>
+39,121.270<sup>***</sup> (df = 1; 9998)
+</td>
+<td>
+497,741.500<sup>***</sup> (df = 1; 9998)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>Note that in column (1) we are getting fairly close to the true values of all coefficients (I set this up so that <span class="math inline">\(\beta_1=\beta_2=1\)</span> and <span class="math inline">\(\beta_0=0\)</span>). However when we estimate the model without <span class="math inline">\(X_2\)</span>, as we do in column (2), our standard error is about seven times smaller! Should we prefer model (2) to model (1) then? <strong>Absolutely not!</strong> In model (2), we have omitted <span class="math inline">\(X_2\)</span>, which both (i) affects <span class="math inline">\(Y\)</span>, and (ii) is <em>highly</em> correlated with <span class="math inline">\(X_1\)</span>. Therefore the estimator in column (2) is biased, and we can see the result of this bias because the coefficient on <span class="math inline">\(X_1\)</span> in this column is twice as large as it should be.</p>
+<p>So what do we do about this? The answer is to report the correctly specified model, which is column (1). The standard errors are larger because it is objectively difficult to determine the relative contributions of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> to <span class="math inline">\(Y\)</span> in this dataset. That is, this is a problem with the data, not a problem with regression. The standard errors in column (1) are accurately reflecting the uncertainty you have in these coefficients (assuming the homoskedasticity assumption is good).</p>
+</div>
+<div id="calculating-standard-errors-in-r" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Calculating standard errors in <em>R</em><a href="standard-errors-in-linear-regression.html#calculating-standard-errors-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>While the formulas formulas for standard errors may seem complicated, hopefully you can see that they are functions of the data (i.e. <span class="math inline">\(X\)</span>), and things that we can calculate from the data (i.e. <span class="math inline">\(\hat\epsilon\)</span>). Because of this, computing standard errors is very easy for your computer. All you have to do is to tell it which standard errors you want. Consider, for example, Galton’s data on families, (<a href="https://vincentarelbundock.github.io/Rdatasets/csv/HistData/GaltonFamilies.csv">available here</a>).</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="standard-errors-in-linear-regression.html#cb70-1" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;data/GaltonFamilies.csv&quot;</span>)</span>
+<span id="cb70-2"><a href="standard-errors-in-linear-regression.html#cb70-2" tabindex="-1"></a></span>
+<span id="cb70-3"><a href="standard-errors-in-linear-regression.html#cb70-3" tabindex="-1"></a>d <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">10</span>) <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="20%" />
+<col width="11%" />
+<col width="11%" />
+<col width="8%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">X</th>
+<th align="left">family</th>
+<th align="right">father</th>
+<th align="right">mother</th>
+<th align="right">midparentHeight</th>
+<th align="right">children</th>
+<th align="right">childNum</th>
+<th align="left">gender</th>
+<th align="right">childHeight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">682</td>
+<td align="left">149</td>
+<td align="right">68.2</td>
+<td align="right">63.5</td>
+<td align="right">68.39</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="left">male</td>
+<td align="right">69.0</td>
+</tr>
+<tr class="even">
+<td align="right">456</td>
+<td align="left">105</td>
+<td align="right">69.0</td>
+<td align="right">66.5</td>
+<td align="right">70.41</td>
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="left">male</td>
+<td align="right">71.0</td>
+</tr>
+<tr class="odd">
+<td align="right">192</td>
+<td align="left">051</td>
+<td align="right">71.2</td>
+<td align="right">63.0</td>
+<td align="right">69.62</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="left">female</td>
+<td align="right">67.5</td>
+</tr>
+<tr class="even">
+<td align="right">904</td>
+<td align="left">196</td>
+<td align="right">65.5</td>
+<td align="right">63.0</td>
+<td align="right">66.77</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="left">male</td>
+<td align="right">69.0</td>
+</tr>
+<tr class="odd">
+<td align="right">400</td>
+<td align="left">093</td>
+<td align="right">70.0</td>
+<td align="right">60.0</td>
+<td align="right">67.40</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="left">male</td>
+<td align="right">64.5</td>
+</tr>
+<tr class="even">
+<td align="right">840</td>
+<td align="left">183</td>
+<td align="right">66.0</td>
+<td align="right">60.0</td>
+<td align="right">65.40</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="left">male</td>
+<td align="right">68.0</td>
+</tr>
+<tr class="odd">
+<td align="right">235</td>
+<td align="left">060</td>
+<td align="right">71.0</td>
+<td align="right">58.0</td>
+<td align="right">66.82</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="left">male</td>
+<td align="right">71.5</td>
+</tr>
+<tr class="even">
+<td align="right">545</td>
+<td align="left">122</td>
+<td align="right">69.0</td>
+<td align="right">62.0</td>
+<td align="right">67.98</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="left">male</td>
+<td align="right">72.0</td>
+</tr>
+<tr class="odd">
+<td align="right">757</td>
+<td align="left">166</td>
+<td align="right">67.5</td>
+<td align="right">65.0</td>
+<td align="right">68.85</td>
+<td align="right">11</td>
+<td align="right">8</td>
+<td align="left">female</td>
+<td align="right">63.0</td>
+</tr>
+<tr class="even">
+<td align="right">98</td>
+<td align="left">027</td>
+<td align="right">72.0</td>
+<td align="right">63.0</td>
+<td align="right">70.02</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="left">male</td>
+<td align="right">69.0</td>
+</tr>
+</tbody>
+</table>
+<p>Homoskedastic standard errors are calculated by default when we use <code>lm</code>:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="standard-errors-in-linear-regression.html#cb71-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="at">data=</span>d,<span class="at">formula=</span>childHeight<span class="sc">~</span>mother<span class="sc">+</span>father<span class="sc">+</span><span class="fu">as.factor</span>(gender))</span>
+<span id="cb71-2"><a href="standard-errors-in-linear-regression.html#cb71-2" tabindex="-1"></a></span>
+<span id="cb71-3"><a href="standard-errors-in-linear-regression.html#cb71-3" tabindex="-1"></a>reg1 <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = childHeight ~ mother + father + as.factor(gender), 
+##     data = d)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -9.5247 -1.4653  0.0943  1.4860  9.1201 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)           16.52124    2.72720   6.058    2e-09 ***
+## mother                 0.31761    0.03100  10.245   &lt;2e-16 ***
+## father                 0.39284    0.02868  13.699   &lt;2e-16 ***
+## as.factor(gender)male  5.21499    0.14181  36.775   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.165 on 930 degrees of freedom
+## Multiple R-squared:  0.6354, Adjusted R-squared:  0.6342 
+## F-statistic: 540.3 on 3 and 930 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>We can use the <code>coeftest</code> function in the <code>lmtest</code> package to calculate the other standard errors. Here for clustered standard errors, it makes sense to cluster by family, as the errors may be correlated within families:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="standard-errors-in-linear-regression.html#cb73-1" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb73-2"><a href="standard-errors-in-linear-regression.html#cb73-2" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
+<span id="cb73-3"><a href="standard-errors-in-linear-regression.html#cb73-3" tabindex="-1"></a><span class="co"># this syntax also works:</span></span>
+<span id="cb73-4"><a href="standard-errors-in-linear-regression.html#cb73-4" tabindex="-1"></a><span class="co">#reg1heteroskedasticity &lt;- coeftest(reg1,vcovHC(reg1, type = &quot;HC0&quot;))</span></span>
+<span id="cb73-5"><a href="standard-errors-in-linear-regression.html#cb73-5" tabindex="-1"></a>reg1heteroskedasticity <span class="ot">&lt;-</span> <span class="fu">coeftest</span>(reg1,<span class="at">vcov=</span>vcovHC)</span>
+<span id="cb73-6"><a href="standard-errors-in-linear-regression.html#cb73-6" tabindex="-1"></a>reg1heteroskedasticity <span class="sc">%&gt;%</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## 
+## t test of coefficients:
+## 
+##                        Estimate Std. Error t value  Pr(&gt;|t|)    
+## (Intercept)           16.521240   2.728009  6.0562 2.021e-09 ***
+## mother                 0.317610   0.032154  9.8779 &lt; 2.2e-16 ***
+## father                 0.392843   0.028646 13.7138 &lt; 2.2e-16 ***
+## as.factor(gender)male  5.214989   0.141950 36.7383 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="standard-errors-in-linear-regression.html#cb75-1" tabindex="-1"></a>reg1cluster<span class="ot">&lt;-</span><span class="fu">coeftest</span>(reg1,<span class="at">vcov=</span>vcovCL,<span class="at">cluster=</span><span class="sc">~</span>family)</span>
+<span id="cb75-2"><a href="standard-errors-in-linear-regression.html#cb75-2" tabindex="-1"></a>reg1cluster <span class="sc">%&gt;%</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## 
+## t test of coefficients:
+## 
+##                        Estimate Std. Error t value  Pr(&gt;|t|)    
+## (Intercept)           16.521240   3.530077  4.6801 3.292e-06 ***
+## mother                 0.317610   0.042028  7.5571 9.861e-14 ***
+## father                 0.392843   0.036433 10.7827 &lt; 2.2e-16 ***
+## as.factor(gender)male  5.214989   0.152905 34.1062 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Let’s summarize these into a table:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="standard-errors-in-linear-regression.html#cb77-1" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,reg1heteroskedasticity,reg1cluster,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+childHeight
+</td>
+<td colspan="2">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>OLS</em>
+</td>
+<td colspan="2">
+<em>coefficient</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em></em>
+</td>
+<td colspan="2">
+<em>test</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+mother
+</td>
+<td>
+0.318<sup>***</sup>
+</td>
+<td>
+0.318<sup>***</sup>
+</td>
+<td>
+0.318<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.031)
+</td>
+<td>
+(0.032)
+</td>
+<td>
+(0.042)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+father
+</td>
+<td>
+0.393<sup>***</sup>
+</td>
+<td>
+0.393<sup>***</sup>
+</td>
+<td>
+0.393<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.029)
+</td>
+<td>
+(0.029)
+</td>
+<td>
+(0.036)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(gender)male
+</td>
+<td>
+5.215<sup>***</sup>
+</td>
+<td>
+5.215<sup>***</sup>
+</td>
+<td>
+5.215<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.142)
+</td>
+<td>
+(0.142)
+</td>
+<td>
+(0.153)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+16.521<sup>***</sup>
+</td>
+<td>
+16.521<sup>***</sup>
+</td>
+<td>
+16.521<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(2.727)
+</td>
+<td>
+(2.728)
+</td>
+<td>
+(3.530)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+934
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.635
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.634
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+2.165 (df = 930)
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+540.262<sup>***</sup> (df = 3; 930)
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>Some important things to note here:</p>
+<ol style="list-style-type: decimal">
+<li>The coefficients are the same across all three columns. This is not by chance! Note that we have used the same model, namely <code>reg1</code> for all three columns, but have only changed the formula for the standard errors. This is <em>really</em> important to understand: <strong>clustering and heteroskedasticity are only problems for standard errors, not for bias</strong>. Specifically, we get bias when we have <span class="math inline">\(E[X\epsilon]\neq 0\)</span>, and this says nothing about heteroskedasticity or clustering.</li>
+<li>The standard errors are getting larger as we move to the right of the table. This is very common, but not guaranteed. In this case, we probably have both heteroskedasticity and clustering in our data, so the larger standard errors are taking account of this. In particular, column (1) is understating the uncertainty we have in our coefficients.</li>
+</ol>
+</div>
+<div id="exercises-7" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> Exercises<a href="standard-errors-in-linear-regression.html#exercises-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="galtons-families" class="section level3 hasAnchor" number="10.6.1">
+<h3><span class="header-section-number">10.6.1</span> Galton’s families<a href="standard-errors-in-linear-regression.html#galtons-families" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider a constant-only model for Galton’s data on families, where we just model the mean of child height:
+<span class="math display">\[\begin{align}
+{\tt child\_height}_{i,f}&amp;=\beta_0+\epsilon_{i,f}\label{eq:clusterConst}
+\end{align}\]</span>
+where the “<span class="math inline">\(_{i,f}\)</span>” subscript indicates child <span class="math inline">\(i\)</span> in family <span class="math inline">\(f\)</span>.</p>
+<p>We will investigate the implications of error terms with the following property:
+<span class="math display">\[\begin{align}
+\epsilon_{i,f}&amp;=\eta_{i}+\frac{\rho}{F_i-1}\sum_{j\in f, i\neq j}\eta_j\\
+\eta_i&amp;\sim iid N(0,\sigma^2_\eta)
+\end{align}\]</span>
+Where <span class="math inline">\(F_i\)</span> is the number of children (including <span class="math inline">\(i\)</span>) in <span class="math inline">\(i\)</span>’s family.
+The normal assumption for <span class="math inline">\(\eta_i\)</span> is not necessary here, but we make it so it is clear what we are simulating.</p>
+<p>Here, the notation under the sum indicates that we are summing over all other children in the same family as <span class="math inline">\(i\)</span>. E.g. if the first 4 observations in out dataset were in the same family:
+<span class="math display">\[\begin{align*}
+\epsilon_{1,1}&amp;=\eta_1+\frac{\rho}{3}(\eta_2+\eta_3+\eta_4)\\
+\epsilon_{2,1}&amp;=\eta_2+\frac{\rho}{3}(\eta_1+\eta_3+\eta_4)\\
+\end{align*}\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Calculate <span class="math inline">\(E[\epsilon_{i,f}]\)</span> and <span class="math inline">\(V[\epsilon_{i,f}]\)</span></li>
+<li>Calculate <span class="math inline">\(\mathrm{cov}(\epsilon_{i,f}, \epsilon_{j,f})\)</span>, for <span class="math inline">\(i\neq j\)</span>. That is, what is the correlation between child <span class="math inline">\(i\)</span> and child <span class="math inline">\(j\)</span>’s error term if they have the same parents?</li>
+<li>Interpret the role of parameter <span class="math inline">\(\rho\)</span> in your expression for <span class="math inline">\(\mathrm{cov}(\epsilon_{i,f}, \epsilon_{j,f})\)</span>. What does it mean if <span class="math inline">\(\rho=0\)</span>? <span class="math inline">\(\rho&gt;0\)</span>? <span class="math inline">\(\rho&lt;0\)</span>?</li>
+<li>Would there be anything wrong with using OLS if this is how <span class="math inline">\(\epsilon\)</span> behaves? Will it affect bias? consistency? standard errors? What is wrong with the usual assumptions we make to do OLS?</li>
+</ol>
+</div>
+<div id="simulation" class="section level3 hasAnchor" number="10.6.2">
+<h3><span class="header-section-number">10.6.2</span> Simulation<a href="standard-errors-in-linear-regression.html#simulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Refer to the previous exercise using Galton’s families</p>
+<p>Fix <span class="math inline">\(\eta_i\sim iid N(0,1)\)</span>, assume that <span class="math inline">\(\beta_0=0\)</span> and investigate the role of <span class="math inline">\(\rho\)</span>. Specifically, suppose that you have a sample of 1,000 children, each in a family of four. That is, children <span class="math inline">\(i=1, 2, 3, 4\)</span> are in family 1, <span class="math inline">\(i=5, 6,7, 8\)</span> are in family 2, and so on. Simulate the test statistic of the following procedures for <span class="math inline">\(\rho=0, \ 0.5, -0.5\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li>Estimate a linear model, then test that <span class="math inline">\(\beta_0=0\)</span>, reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|t|&gt;1.96\)</span> (i.e. the usual way that you would test that <span class="math inline">\(\beta_0=0\)</span>)</li>
+<li>Estimate a linear model, restricting your sample to only one child per family (i.e. use child 1, 5, 9, 13, , 997). Reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|t|&gt;1.96\)</span>.</li>
+<li>Estimate a linear model, restricting your sample to only the first 250 observations in your sample. Reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|t|&gt;1.96\)</span>.</li>
+</ol>
+<p>Summarize your results in a table that shows how the rejection probabilities vary with these three procedures and the three values for <span class="math inline">\(\rho\)</span>.</p>
+<p>Given that you are simulating the distribution of the test statistic under the null, what should these rejection probabilities be equal to, and do they differ from this value? if so, how do they differ?</p>
+</div>
+<div id="more-simulation" class="section level3 hasAnchor" number="10.6.3">
+<h3><span class="header-section-number">10.6.3</span> More simulation<a href="standard-errors-in-linear-regression.html#more-simulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Modify your simulation from the previous question to show that appropriate clustering fixes the problem.</p>
+</div>
+<div id="instructor-ratings" class="section level3 hasAnchor" number="10.6.4">
+<h3><span class="header-section-number">10.6.4</span> Instructor ratings<a href="standard-errors-in-linear-regression.html#instructor-ratings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Download the TeacherRatings dataset from here: <a href="https://vincentarelbundock.github.io/Rdatasets/csv/AER/TeachingRatings.csv" class="uri">https://vincentarelbundock.github.io/Rdatasets/csv/AER/TeachingRatings.csv</a>. You can find documentation for this dataset <a href="https://vincentarelbundock.github.io/Rdatasets/doc/AER/TeachingRatings.html">here</a></p>
+<ol style="list-style-type: decimal">
+<li>Estimate a model that explains overall course evaluations (the variable <code>eval</code>) using the other variables in the dataset (except for <code>prof</code>).</li>
+<li>Interpret all of the coefficients in this model. Specifically, write a short sentence that puts each coefficient into context, so that the reader can understand the meaning of each coefficient.</li>
+<li>Plot a histogram of the variable <code>eval</code>. Using this plot, what do you think you would call a large change in evaluations? Also plot a histogram of the variable <code>beauty</code>. What so you think you would call a large change in beauty? Use these answers together to put the coefficient on <code>beauty</code> into context.</li>
+<li>Plot the residuals from your model (vertical axis) against <code>beauty</code> (horizontal axis). Do you see any evidence of heteroskedasticity?</li>
+<li>Calculate heteroskedasticity-robust standard errors for your model. Do they change anything meaningfully? Explain whether or not your plot in question (4) should be the sole basis of you using heteroskedasticity-robust standard errors.</li>
+<li>Explain why clustering standard errors based on the variable <code>prof</code> might make sense for this dataset. Specifically, explain why these standard errors should be preferred to heteroskedasticity-robust standard errors.</li>
+<li>Calculate cluster-robust standard errors for your model. Do they change anything meaningfully?</li>
+<li>Explain whether or not your cluster-robust standard errors change your interpretation of the coefficients in question (2)</li>
+<li>Suppose that (instead of what is actually true) professors only ever taught one course, and therefore only show up in one row of the dataset each. How would the heteroskedasticity-robust and cluster-robust standard errors compare to each other then?</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="14">
+<li id="fn14"><p>Put simply: <span class="math inline">\(\hat\beta_1\)</span> is the OLS estimator for <span class="math inline">\(\beta_1\)</span>. <span class="math inline">\(\widehat{V(\hat\beta_1)}\)</span> is the estimator of the variance of the OLS estimator for <span class="math inline">\(\beta_1\)</span>.:p<a href="standard-errors-in-linear-regression.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>I am being somewhat hand-wavy here.<a href="standard-errors-in-linear-regression.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>This story is not particularly plausible to me, but if true, the errors would be negatively correlated.<a href="standard-errors-in-linear-regression.html#fnref16" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="linear-regression---common-misconceptions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hypothesis-tests-about-more-than-one-parameter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

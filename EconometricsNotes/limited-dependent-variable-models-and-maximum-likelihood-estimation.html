@@ -1,0 +1,2322 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>12 Limited dependent variable models and maximum likelihood estimation | Econometrics notes</title>
+  <meta name="description" content="12 Limited dependent variable models and maximum likelihood estimation | Econometrics notes" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="12 Limited dependent variable models and maximum likelihood estimation | Econometrics notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="12 Limited dependent variable models and maximum likelihood estimation | Econometrics notes" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2025-08-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="hypothesis-tests-about-more-than-one-parameter.html"/>
+<link rel="next" href="combining-and-manipulating-datasets.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>1</b> Introduction to the course</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#housekeeping"><i class="fa fa-check"></i><b>1.1</b> Housekeeping</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#two-important-skills-in-econometrics"><i class="fa fa-check"></i><b>1.2</b> Two important skills in econometrics</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#example-incumbency-advantage---lee-moretti-and-butler-2004"><i class="fa fa-check"></i><b>1.3</b> Example: incumbency advantage - Lee, Moretti, and Butler (2004)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>R</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#scripts"><i class="fa fa-check"></i><b>2.2</b> Scripts</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-working-directory"><i class="fa fa-check"></i><b>2.3</b> The working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#exercises"><i class="fa fa-check"></i><b>2.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#understanding-some-code"><i class="fa fa-check"></i><b>2.4.1</b> Understanding some code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html"><i class="fa fa-check"></i><b>3</b> Review of some mathmatical concepts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#summation"><i class="fa fa-check"></i><b>3.1</b> Summation</a></li>
+<li class="chapter" data-level="3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-random-variables"><i class="fa fa-check"></i><b>3.2</b> Describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#discrete-random-variables"><i class="fa fa-check"></i><b>3.2.1</b> Discrete random variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#continuous-random-variables"><i class="fa fa-check"></i><b>3.2.2</b> Continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#completely-describing-random-variables"><i class="fa fa-check"></i><b>3.3</b> Completely describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#cumulative-density-function"><i class="fa fa-check"></i><b>3.3.1</b> Cumulative density function</a></li>
+<li class="chapter" data-level="3.3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-mass-function"><i class="fa fa-check"></i><b>3.3.2</b> Probability mass function</a></li>
+<li class="chapter" data-level="3.3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-density-function"><i class="fa fa-check"></i><b>3.3.3</b> Probability density function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#ways-to-summarize-a-distribution"><i class="fa fa-check"></i><b>3.4</b> Ways to summarize a distribution</a></li>
+<li class="chapter" data-level="3.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-the-relationship-between-two-or-more-random-variables"><i class="fa fa-check"></i><b>3.5</b> Describing the relationship between two or more random variables</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#joint-distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Joint distribution functions</a></li>
+<li class="chapter" data-level="3.5.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#conditional-probability"><i class="fa fa-check"></i><b>3.5.2</b> Conditional probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exercises-1"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#four-sided-die-roll"><i class="fa fa-check"></i><b>3.6.1</b> Four-sided die roll</a></li>
+<li class="chapter" data-level="3.6.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exponential-distribution"><i class="fa fa-check"></i><b>3.6.2</b> Exponential distribution</a></li>
+<li class="chapter" data-level="3.6.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#modeling-a-random-probability"><i class="fa fa-check"></i><b>3.6.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="3.6.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#an-unfair-coin"><i class="fa fa-check"></i><b>3.6.4</b> An unfair coin</a></li>
+<li class="chapter" data-level="3.6.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#adding-two-random-variables"><i class="fa fa-check"></i><b>3.6.5</b> Adding two random variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estimators.html"><a href="estimators.html"><i class="fa fa-check"></i><b>4</b> Estimators</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="estimators.html"><a href="estimators.html#estimators-and-the-sampling-distribution"><i class="fa fa-check"></i><b>4.1</b> Estimators and the sampling distribution</a></li>
+<li class="chapter" data-level="4.2" data-path="estimators.html"><a href="estimators.html#small-sample-properties-of-estimators"><i class="fa fa-check"></i><b>4.2</b> Small sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="estimators.html"><a href="estimators.html#bias"><i class="fa fa-check"></i><b>4.2.1</b> Bias</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estimators.html"><a href="estimators.html#variance"><i class="fa fa-check"></i><b>4.2.2</b> Variance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="estimators.html"><a href="estimators.html#mean-squared-error"><i class="fa fa-check"></i><b>4.2.3</b> Mean squared error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="estimators.html"><a href="estimators.html#exercises-2"><i class="fa fa-check"></i><b>4.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="estimators.html"><a href="estimators.html#modeling-a-random-probability-1"><i class="fa fa-check"></i><b>4.3.1</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="4.3.2" data-path="estimators.html"><a href="estimators.html#exponential-distribution-1"><i class="fa fa-check"></i><b>4.3.2</b> Exponential distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>5</b> Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="inference.html"><a href="inference.html#hypothesis-tests"><i class="fa fa-check"></i><b>5.1</b> Hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="inference.html"><a href="inference.html#one-sided-hypothesis-tests"><i class="fa fa-check"></i><b>5.1.1</b> One-sided hypothesis tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="inference.html"><a href="inference.html#p-values"><i class="fa fa-check"></i><b>5.2</b> <span class="math inline">\(p\)</span>-values</a></li>
+<li class="chapter" data-level="5.3" data-path="inference.html"><a href="inference.html#confidence-intervals"><i class="fa fa-check"></i><b>5.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="5.4" data-path="inference.html"><a href="inference.html#test-power"><i class="fa fa-check"></i><b>5.4</b> Test power</a></li>
+<li class="chapter" data-level="5.5" data-path="inference.html"><a href="inference.html#the-take-away"><i class="fa fa-check"></i><b>5.5</b> The take-away</a></li>
+<li class="chapter" data-level="5.6" data-path="inference.html"><a href="inference.html#exercises-3"><i class="fa fa-check"></i><b>5.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="inference.html"><a href="inference.html#converting-a-continuous-variable-into-a-coin-flip"><i class="fa fa-check"></i><b>5.6.1</b> Converting a continuous variable into a coin flip</a></li>
+<li class="chapter" data-level="5.6.2" data-path="inference.html"><a href="inference.html#the-maximum-of-a-sample"><i class="fa fa-check"></i><b>5.6.2</b> The maximum of a sample</a></li>
+<li class="chapter" data-level="5.6.3" data-path="inference.html"><a href="inference.html#assessing-the-performance-of-a-cookbook-hypothesis-test"><i class="fa fa-check"></i><b>5.6.3</b> Assessing the performance of a “cookbook” hypothesis test</a></li>
+<li class="chapter" data-level="5.6.4" data-path="inference.html"><a href="inference.html#hypothesis-tests-using-graphs"><i class="fa fa-check"></i><b>5.6.4</b> Hypothesis tests using graphs</a></li>
+<li class="chapter" data-level="5.6.5" data-path="inference.html"><a href="inference.html#simulation-exercise"><i class="fa fa-check"></i><b>5.6.5</b> Simulation exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html"><i class="fa fa-check"></i><b>6</b> Inference using asymptotic assumptions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-estimators"><i class="fa fa-check"></i><b>6.1</b> Large-sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#consistency"><i class="fa fa-check"></i><b>6.1.1</b> Consistency</a></li>
+<li class="chapter" data-level="6.1.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#asymptotic-distribution"><i class="fa fa-check"></i><b>6.1.2</b> Asymptotic distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-sample-means"><i class="fa fa-check"></i><b>6.2</b> Large-sample properties of sample means</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-weak-law-of-large-numbers-wlln"><i class="fa fa-check"></i><b>6.2.1</b> The Weak Law of Large Numbers (WLLN)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-central-limit-theorem"><i class="fa fa-check"></i><b>6.2.2</b> A Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#using-large-sample-properties-to-make-inference-easier"><i class="fa fa-check"></i><b>6.3</b> Using large-sample properties to make inference easier</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#hypothesis-tests-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.1</b> Hypothesis tests with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#even-more-of-a-shortcut"><i class="fa fa-check"></i><b>6.3.2</b> Even more of a shortcut</a></li>
+<li class="chapter" data-level="6.3.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#confidence-intervals-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.3</b> Confidence intervals with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#p-values-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.4</b> <span class="math inline">\(p\)</span>-values with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#tieing-this-in-with-the-previous-chapter"><i class="fa fa-check"></i><b>6.3.5</b> Tieing this in with the previous chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#transforming-variables"><i class="fa fa-check"></i><b>6.4</b> Transforming variables</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-continuous-mapping-theorem"><i class="fa fa-check"></i><b>6.4.1</b> The continuous mapping theorem</a></li>
+<li class="chapter" data-level="6.4.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-delta-method"><i class="fa fa-check"></i><b>6.4.2</b> The delta method</a></li>
+<li class="chapter" data-level="6.4.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#jensens-inequality"><i class="fa fa-check"></i><b>6.4.3</b> Jensen’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exercises-4"><i class="fa fa-check"></i><b>6.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exponential-distribution-2"><i class="fa fa-check"></i><b>6.5.1</b> Exponential distribution</a></li>
+<li class="chapter" data-level="6.5.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-simulation"><i class="fa fa-check"></i><b>6.5.2</b> A simulation</a></li>
+<li class="chapter" data-level="6.5.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#modeling-a-random-probability-2"><i class="fa fa-check"></i><b>6.5.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="6.5.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-sort-of-simulation-exercise"><i class="fa fa-check"></i><b>6.5.4</b> A (sort-of) simulation exercise</a></li>
+<li class="chapter" data-level="6.5.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#one-test-three-ways"><i class="fa fa-check"></i><b>6.5.5</b> One test, three ways</a></li>
+<li class="chapter" data-level="6.5.6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#deriving-properties-of-estimators"><i class="fa fa-check"></i><b>6.5.6</b> Deriving properties of estimators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="linear-regression.html"><a href="linear-regression.html#derivation-of-the-bivariate-ols-slope-estimator"><i class="fa fa-check"></i><b>7.1</b> Derivation of the bivariate OLS slope estimator</a></li>
+<li class="chapter" data-level="7.2" data-path="linear-regression.html"><a href="linear-regression.html#unbiasedness"><i class="fa fa-check"></i><b>7.2</b> Unbiasedness</a></li>
+<li class="chapter" data-level="7.3" data-path="linear-regression.html"><a href="linear-regression.html#variance-1"><i class="fa fa-check"></i><b>7.3</b> Variance</a></li>
+<li class="chapter" data-level="7.4" data-path="linear-regression.html"><a href="linear-regression.html#inference-in-bivariate-ols"><i class="fa fa-check"></i><b>7.4</b> Inference in bivariate OLS</a></li>
+<li class="chapter" data-level="7.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-5"><i class="fa fa-check"></i><b>7.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="linear-regression.html"><a href="linear-regression.html#municipal-expenditure"><i class="fa fa-check"></i><b>7.5.1</b> Municipal expenditure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html"><i class="fa fa-check"></i><b>8</b> The shape of the right-hand side</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#linear-regression-as-a-model-for-conditional-expectation"><i class="fa fa-check"></i><b>8.1</b> Linear regression as a model for conditional expectation</a></li>
+<li class="chapter" data-level="8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#an-example-dataset"><i class="fa fa-check"></i><b>8.2</b> An example dataset</a></li>
+<li class="chapter" data-level="8.3" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#marginal-effects"><i class="fa fa-check"></i><b>8.3</b> Marginal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#categorical-variables"><i class="fa fa-check"></i><b>8.4</b> Categorical variables</a></li>
+<li class="chapter" data-level="8.5" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#interactions"><i class="fa fa-check"></i><b>8.5</b> Interactions</a></li>
+<li class="chapter" data-level="8.6" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#logarithms"><i class="fa fa-check"></i><b>8.6</b> Logarithms</a></li>
+<li class="chapter" data-level="8.7" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#polynomials"><i class="fa fa-check"></i><b>8.7</b> Polynomials</a></li>
+<li class="chapter" data-level="8.8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#exercises-6"><i class="fa fa-check"></i><b>8.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#baking-a-cake"><i class="fa fa-check"></i><b>8.8.1</b> Baking a cake</a></li>
+<li class="chapter" data-level="8.8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#psid-earnings-panel-data"><i class="fa fa-check"></i><b>8.8.2</b> PSID Earnings Panel Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html"><i class="fa fa-check"></i><b>9</b> Linear regression - common misconceptions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#heteroskedasticity"><i class="fa fa-check"></i><b>9.1</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#multicolinearity"><i class="fa fa-check"></i><b>9.2</b> Multicolinearity</a></li>
+<li class="chapter" data-level="9.3" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#omitted-variables-are-always-a-problem"><i class="fa fa-check"></i><b>9.3</b> Omitted variables are <em>always</em> a problem</a></li>
+<li class="chapter" data-level="9.4" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#normal-errors"><i class="fa fa-check"></i><b>9.4</b> Normal errors</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Standard errors in linear regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#homoskedasticity-the-standard-standard-errors"><i class="fa fa-check"></i><b>10.1</b> Homoskedasticity: the “standard” standard errors</a></li>
+<li class="chapter" data-level="10.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#heteroskedasticity-1"><i class="fa fa-check"></i><b>10.2</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="10.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#clustered-standard-errors"><i class="fa fa-check"></i><b>10.3</b> Clustered standard errors</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#an-example"><i class="fa fa-check"></i><b>10.3.1</b> An example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#standard-errors-for-multivariate-linear-regression"><i class="fa fa-check"></i><b>10.4</b> Standard errors for multivariate linear regression</a></li>
+<li class="chapter" data-level="10.5" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#calculating-standard-errors-in-r"><i class="fa fa-check"></i><b>10.5</b> Calculating standard errors in <em>R</em></a></li>
+<li class="chapter" data-level="10.6" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#exercises-7"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#galtons-families"><i class="fa fa-check"></i><b>10.6.1</b> Galton’s families</a></li>
+<li class="chapter" data-level="10.6.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#simulation"><i class="fa fa-check"></i><b>10.6.2</b> Simulation</a></li>
+<li class="chapter" data-level="10.6.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#more-simulation"><i class="fa fa-check"></i><b>10.6.3</b> More simulation</a></li>
+<li class="chapter" data-level="10.6.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#instructor-ratings"><i class="fa fa-check"></i><b>10.6.4</b> Instructor ratings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html"><i class="fa fa-check"></i><b>11</b> Hypothesis tests about more than one parameter</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-restricted-model"><i class="fa fa-check"></i><b>11.1</b> The restricted model</a></li>
+<li class="chapter" data-level="11.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-test-using-r2-that-you-probably-shouldnt-use"><i class="fa fa-check"></i><b>11.2</b> A test using <span class="math inline">\(R^2\)</span> that you probably shouldn’t use</a></li>
+<li class="chapter" data-level="11.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-more-robust-test"><i class="fa fa-check"></i><b>11.3</b> A more robust test</a></li>
+<li class="chapter" data-level="11.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#another-example"><i class="fa fa-check"></i><b>11.4</b> Another example</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-whether-the-child-is-male-of-female"><i class="fa fa-check"></i><b>11.4.1</b> The height of a child does not depend on whether the child is male of female</a></li>
+<li class="chapter" data-level="11.4.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-the-height-of-their-parents"><i class="fa fa-check"></i><b>11.4.2</b> The height of a child does not depend on the height of their parents</a></li>
+<li class="chapter" data-level="11.4.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-mother-height-on-child-height-is-the-same-as-the-effect-of-father-height-on-child-height"><i class="fa fa-check"></i><b>11.4.3</b> The effect of mother height on child height is the same as the effect of father height on child height</a></li>
+<li class="chapter" data-level="11.4.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-male-childrens-height-is-the-same-as-the-effect-of-parent-height-on-female-childrens-height"><i class="fa fa-check"></i><b>11.4.4</b> The effect of parent height on male children’s height is the same as the effect of parent height on female children’s height</a></li>
+<li class="chapter" data-level="11.4.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-child-height-is-linear"><i class="fa fa-check"></i><b>11.4.5</b> The effect of parent height on child height is linear</a></li>
+<li class="chapter" data-level="11.4.6" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#parents-who-are-on-average-one-inch-taller-have-children-that-are-on-average-one-inch-taller"><i class="fa fa-check"></i><b>11.4.6</b> Parents who are on average one inch taller have children that are on average one inch taller</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#exercises-8"><i class="fa fa-check"></i><b>11.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#project-star-student-teacher-achievement-ratio"><i class="fa fa-check"></i><b>11.5.1</b> Project STAR: Student-Teacher Achievement Ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><i class="fa fa-check"></i><b>12</b> Limited dependent variable models and maximum likelihood estimation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#motivation-the-linear-probability-model-works-134-of-the-time"><i class="fa fa-check"></i><b>12.1</b> Motivation: The linear probability model works 134% of the time</a></li>
+<li class="chapter" data-level="12.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-practical-solution-ensure-that-predictions-are-always-valid"><i class="fa fa-check"></i><b>12.2</b> A practical solution: Ensure that predictions are always valid</a></li>
+<li class="chapter" data-level="12.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#interpreting-the-coefficients-of-the-probit-and-logit-models"><i class="fa fa-check"></i><b>12.3</b> Interpreting the coefficients of the probit and logit models</a></li>
+<li class="chapter" data-level="12.4" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#but-how-do-we-estimate-it-maximum-likelihood"><i class="fa fa-check"></i><b>12.4</b> But how do we estimate it? Maximum likelihood</a></li>
+<li class="chapter" data-level="12.5" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#doing-inference-with-maximum-likelihood"><i class="fa fa-check"></i><b>12.5</b> Doing inference with maximum likelihood</a></li>
+<li class="chapter" data-level="12.6" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#how-some-estimators-relate-to-maximum-likelihood"><i class="fa fa-check"></i><b>12.6</b> How some estimators relate to maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sample-mean-for-a-bernoulli-coin-flip-variable"><i class="fa fa-check"></i><b>12.6.1</b> Sample mean for a Bernoulli (coin flip) variable</a></li>
+<li class="chapter" data-level="12.6.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#linear-regression-1"><i class="fa fa-check"></i><b>12.6.2</b> Linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#some-examples-of-estimating-parameters-using-maximum-likelihood"><i class="fa fa-check"></i><b>12.7</b> Some examples of estimating parameters using maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#geometric-distribution"><i class="fa fa-check"></i><b>12.7.1</b> Geometric distribution</a></li>
+<li class="chapter" data-level="12.7.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#simplified-beta-distribution"><i class="fa fa-check"></i><b>12.7.2</b> Simplified Beta distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#an-extended-example"><i class="fa fa-check"></i><b>12.8</b> An extended example</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#data"><i class="fa fa-check"></i><b>12.8.1</b> Data</a></li>
+<li class="chapter" data-level="12.8.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-research-question"><i class="fa fa-check"></i><b>12.8.2</b> A research question</a></li>
+<li class="chapter" data-level="12.8.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#the-model-based-approach"><i class="fa fa-check"></i><b>12.8.3</b> The model-based approach</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#exercises-9"><i class="fa fa-check"></i><b>12.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.9.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#checking-that-we-rolled-a-die-correctly"><i class="fa fa-check"></i><b>12.9.1</b> Checking that we rolled a die correctly</a></li>
+<li class="chapter" data-level="12.9.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#galtons-heights-dataset"><i class="fa fa-check"></i><b>12.9.2</b> Galton’s heights dataset</a></li>
+<li class="chapter" data-level="12.9.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sumo-wrestling"><i class="fa fa-check"></i><b>12.9.3</b> Sumo wrestling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html"><i class="fa fa-check"></i><b>13</b> Combining and manipulating datasets</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#merging-data-join"><i class="fa fa-check"></i><b>13.1</b> Merging data (<code>join</code>)</a></li>
+<li class="chapter" data-level="13.2" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#wide-and-long-formats-pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>13.2</b> Wide and long formats (<code>pivot_longer</code> and <code>pivot_wider</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="time-series-introduction.html"><a href="time-series-introduction.html"><i class="fa fa-check"></i><b>14</b> Time series – Introduction</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#autoregressive-and-moving-average-arma-models-the-basic-building-blocks-of-time-series-models"><i class="fa fa-check"></i><b>14.1</b> Autoregressive and moving average (ARMA) models: the basic building blocks of time series models</a></li>
+<li class="chapter" data-level="14.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-properties-of-arma-processes"><i class="fa fa-check"></i><b>14.2</b> Stationarity and properties of ARMA processes</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#examples"><i class="fa fa-check"></i><b>14.2.1</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#diagnostics-autocorrelation-and-partial-autocorrelation-functions"><i class="fa fa-check"></i><b>14.3</b> Diagnostics: Autocorrelation and partial autocorrelation functions</a></li>
+<li class="chapter" data-level="14.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-unemployment"><i class="fa fa-check"></i><b>14.4</b> Example dataset – unemployment</a></li>
+<li class="chapter" data-level="14.5" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-testing-for-unit-roots"><i class="fa fa-check"></i><b>14.5</b> Stationarity and testing for unit roots</a></li>
+<li class="chapter" data-level="14.6" data-path="time-series-introduction.html"><a href="time-series-introduction.html#non-stationarity-and-spurious-correlation"><i class="fa fa-check"></i><b>14.6</b> Non-stationarity and spurious correlation</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-share-a-trend"><i class="fa fa-check"></i><b>14.6.1</b> Two variables share a trend</a></li>
+<li class="chapter" data-level="14.6.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-are-cyclical"><i class="fa fa-check"></i><b>14.6.2</b> Two variables are cyclical</a></li>
+<li class="chapter" data-level="14.6.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-have-a-unit-root"><i class="fa fa-check"></i><b>14.6.3</b> Two variables have a unit root</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="time-series-introduction.html"><a href="time-series-introduction.html#differencing-and-stationarity"><i class="fa fa-check"></i><b>14.7</b> Differencing and stationarity</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#some-examples-of-making-non-stationary-series-stationary-through-differencing"><i class="fa fa-check"></i><b>14.7.1</b> Some examples of making non-stationary series stationary through differencing</a></li>
+<li class="chapter" data-level="14.7.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-us-consumer-price-index"><i class="fa fa-check"></i><b>14.7.2</b> Example dataset: US Consumer Price Index</a></li>
+<li class="chapter" data-level="14.7.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-data-gdp-and-money-supply"><i class="fa fa-check"></i><b>14.7.3</b> Example data: GDP and money supply</a></li>
+<li class="chapter" data-level="14.7.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-peace-corps"><i class="fa fa-check"></i><b>14.7.4</b> Example: Peace Corps</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="time-series-introduction.html"><a href="time-series-introduction.html#estimating-arima-models"><i class="fa fa-check"></i><b>14.8</b> Estimating ARIMA models</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html"><i class="fa fa-check"></i><b>15</b> Time series – Forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#prediction-and-forecasting"><i class="fa fa-check"></i><b>15.1</b> Prediction and forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-with-univariate-problems"><i class="fa fa-check"></i><b>15.1.1</b> Example: Prediction with univariate problems</a></li>
+<li class="chapter" data-level="15.1.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-in-bivariate-ols"><i class="fa fa-check"></i><b>15.1.2</b> Example: Prediction in bivariate OLS</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#cross-validation"><i class="fa fa-check"></i><b>15.2</b> Cross-validation</a></li>
+<li class="chapter" data-level="15.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-cpi-and-ppi"><i class="fa fa-check"></i><b>15.3</b> Example: CPI and PPI</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#using-just-ar-and-ma-components"><i class="fa fa-check"></i><b>15.3.1</b> Using just AR and MA components</a></li>
+<li class="chapter" data-level="15.3.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-some-seasonality"><i class="fa fa-check"></i><b>15.3.2</b> Incorporating some seasonality</a></li>
+<li class="chapter" data-level="15.3.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-ppi-inflation"><i class="fa fa-check"></i><b>15.3.3</b> Incorporating PPI inflation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="additional-exercises.html"><a href="additional-exercises.html"><i class="fa fa-check"></i><b>16</b> Additional exercises</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="additional-exercises.html"><a href="additional-exercises.html#for-loops"><i class="fa fa-check"></i><b>16.1</b> For loops</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="additional-exercises.html"><a href="additional-exercises.html#determinants-of-wage-data-cps-1988"><i class="fa fa-check"></i><b>16.1.1</b> Determinants of wage data (CPS 1988)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="past-exam-questions.html"><a href="past-exam-questions.html"><i class="fa fa-check"></i><b>17</b> Past exam questions</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2023-5810-exam-1"><i class="fa fa-check"></i><b>17.1</b> Fall 2023 5810 Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability"><i class="fa fa-check"></i><b>17.1.1</b> Probability</a></li>
+<li class="chapter" data-level="17.1.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimation-and-inference"><i class="fa fa-check"></i><b>17.1.2</b> Estimation and inference</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2022-5810-exam-1"><i class="fa fa-check"></i><b>17.2</b> Fall 2022 5810, Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability-1"><i class="fa fa-check"></i><b>17.2.1</b> Probability</a></li>
+<li class="chapter" data-level="17.2.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#inference-1"><i class="fa fa-check"></i><b>17.2.2</b> Inference</a></li>
+<li class="chapter" data-level="17.2.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimators-and-large-sample-properties"><i class="fa fa-check"></i><b>17.2.3</b> Estimators and large-sample properties</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-2-2022"><i class="fa fa-check"></i><b>17.3</b> 5810 Exam 2 (2022)</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#directed-acyclic-graphs"><i class="fa fa-check"></i><b>17.3.1</b> Directed Acyclic Graphs</a></li>
+<li class="chapter" data-level="17.3.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#linear-regression-2"><i class="fa fa-check"></i><b>17.3.2</b> Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-1-2023"><i class="fa fa-check"></i><b>17.4</b> 5820, Exam 1 (2023)</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#maximum-likelihood"><i class="fa fa-check"></i><b>17.4.1</b> Maximum likelihood</a></li>
+<li class="chapter" data-level="17.4.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fire-trucks"><i class="fa fa-check"></i><b>17.4.2</b> Fire trucks</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Econometrics notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="limited-dependent-variable-models-and-maximum-likelihood-estimation" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">12</span> Limited dependent variable models and maximum likelihood estimation<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#limited-dependent-variable-models-and-maximum-likelihood-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="motivation-the-linear-probability-model-works-134-of-the-time" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Motivation: The linear probability model works 134% of the time<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#motivation-the-linear-probability-model-works-134-of-the-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider a standard linear regression model, except that our left-hand-side variable <span class="math inline">\(Y\)</span> is binary. That is, it can only take on values of 0 and 1:</p>
+<p><span class="math display">\[
+\begin{aligned}
+Y_i&amp;=\beta_0+\beta_1X_i+\epsilon_i\\
+E[\epsilon_i]&amp;=0\\
+E[\epsilon_i\mid X]&amp;=0\\
+V[\epsilon_i]&amp;=\sigma^2
+\end{aligned}
+\]</span></p>
+<p>Note that because this is a linear regression model, we can interpret its conditional mean just as we would if we had a continuous <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[
+E[Y_i\mid X_i]=\beta_0+\beta_1X_i
+\]</span></p>
+<p>However, since we have a binary variable, we can also interpret this expectation as the probability that <span class="math inline">\(Y_i=1\)</span> given <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+\Pr[Y_i=1\mid X_i]=E[Y_i\mid X_i]=\beta_0+\beta_1X_i
+\]</span></p>
+<p>This means that our model’s predictions of a probability can be out of the interval <span class="math inline">\((0,1)\)</span>, which goes against what we know about probabilities! This on its own may not be a problem for us if we are trying to do causal inference (because we are interested in getting an unbiased estimate of <span class="math inline">\(\beta_1\)</span>, not <span class="math inline">\(E[Y\mid X]\)</span>), but we can use this information to derive something somewhat more alarming. What about our “no endogenity” assumption <span class="math inline">\(E[\epsilon_i\mid X]=0\)</span>? We just assumed that it was true. Let’s see if we can work it out. Note that:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\epsilon_i&amp;=\begin{cases}
+1-\beta_0-\beta_1X_i&amp;\text{if }  Y_i=1\\
+-\beta_0-\beta_1X_i&amp;\text{if }Y_i=0
+\end{cases}
+\\
+E[\epsilon_i\mid X_i,Y_i]&amp;=\begin{cases}
+1-\beta_0-\beta_1X_i&amp;\text{if }  Y_i=1\\
+-\beta_0-\beta_1X_i&amp;\text{if }Y_i=0
+\end{cases}\\
+E[\epsilon_i\mid X_i]&amp;=\Pr(Y_i=1\mid X_i)(1-\beta_0-\beta_1X_i)+\Pr(Y_i=0\mid X_i)(-\beta_0-\beta_1X_i)\\
+&amp;=\Pr(Y_i=1\mid X_i)-\beta_0-\beta_1X_i
+\end{aligned}
+\]</span></p>
+<p>which <em>cannot</em> be zero for any <span class="math inline">\(X_i\)</span>, because <span class="math inline">\(\Pr(Y_i=1\mid X_i)\in(0,1)\)</span>, and <span class="math inline">\(\beta_0+\beta_1X_i\)</span> is unbounded. Therefore <span class="math inline">\(\hat\beta_1\)</span> is biased! That is, we would like to interpret <span class="math inline">\(\hat\beta_1\)</span> as “a 1-unit increase in <span class="math inline">\(X\)</span> will increase the probability that <span class="math inline">\(Y=1\)</span> by <span class="math inline">\(\hat\beta_1\)</span> units”, but this cannot be true. This is also a problem for consistency as well.</p>
+<p>Let’s do a quick simulation to see whether this checks out. Specifically, let</p>
+<p><span class="math display">\[
+\Pr(Y_i=1\mid X_i)=\min\{\max\{0+1X_i,0\},1\}
+\]</span>
+and then see if OLS gets us the correct <span class="math inline">\(\beta_1\)</span>:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb109-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb109-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb109-2" tabindex="-1"></a></span>
+<span id="cb109-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb109-3" tabindex="-1"></a>d<span class="ot">&lt;-</span>(<span class="fu">tibble</span>(<span class="at">X =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>))</span>
+<span id="cb109-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb109-4" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">rowwise</span>()</span>
+<span id="cb109-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb109-5" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PrY1 =</span> <span class="fu">min</span>(<span class="fu">max</span>(X,<span class="dv">0</span>),<span class="dv">1</span>),</span>
+<span id="cb109-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb109-6" tabindex="-1"></a>               <span class="at">Y =</span> <span class="dv">1</span><span class="sc">*</span>(PrY1<span class="sc">&gt;</span><span class="fu">runif</span>(<span class="dv">1</span>))</span>
+<span id="cb109-7"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb109-7" tabindex="-1"></a>               )   </span>
+<span id="cb109-8"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb109-8" tabindex="-1"></a>)</span>
+<span id="cb109-9"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb109-9" tabindex="-1"></a></span>
+<span id="cb109-10"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb109-10" tabindex="-1"></a>ols1<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="at">data=</span>d,<span class="at">formula=</span>Y<span class="sc">~</span>X)</span>
+<span id="cb109-11"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb109-11" tabindex="-1"></a></span>
+<span id="cb109-12"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb109-12" tabindex="-1"></a><span class="fu">stargazer</span>(ols1,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Y
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+X
+</td>
+<td>
+0.334<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.010)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+0.309<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.010)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+1,000
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.534
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.533
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+0.313 (df = 998)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+1,141.896<sup>***</sup> (df = 1; 998)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>Note that we set this up so that the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> should be 1, as long as <span class="math inline">\(X\in(0,1)\)</span>, but we get a much smaller answer. While we’re here, let’s check the predictions:</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb110-1" tabindex="-1"></a>( <span class="fu">ggplot</span>(<span class="at">data=</span><span class="fu">tibble</span>(<span class="at">fitted=</span>ols1<span class="sc">$</span>fitted.values),<span class="fu">aes</span>(<span class="at">x=</span>fitted))</span>
+<span id="cb110-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb110-2" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_histogram</span>()</span>
+<span id="cb110-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb110-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb110-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb110-4" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb110-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb110-5" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Fitted values&quot;</span>)</span>
+<span id="cb110-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb110-6" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-201-1.png" width="672" /></p>
+<p>So a substantial fraction of our predictions don’t make sense either.</p>
+<p>We have shown that this is a problem in theory, which is about as well as we can do for bias (i.e. we can never formally test the endogeneity condition), but what do the predictions look like for real data. For example, in the <a href="https://vincentarelbundock.github.io/Rdatasets/doc/carData/TitanicSurvival.html">Titanic survival datset</a>:</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb111-1" tabindex="-1"></a>d<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;https://vincentarelbundock.github.io/Rdatasets/csv/carData/TitanicSurvival.csv&quot;</span>)</span>
+<span id="cb111-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb111-2" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">survived=</span><span class="fu">ifelse</span>(survived<span class="sc">==</span><span class="st">&quot;yes&quot;</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span>
+<span id="cb111-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb111-3" tabindex="-1"></a>)</span>
+<span id="cb111-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb111-4" tabindex="-1"></a></span>
+<span id="cb111-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb111-5" tabindex="-1"></a>(</span>
+<span id="cb111-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb111-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">x=</span>age,<span class="at">y=</span>survived,<span class="at">color=</span>passengerClass))</span>
+<span id="cb111-7"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb111-7" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">formula=</span><span class="st">&quot;y~x&quot;</span>)</span>
+<span id="cb111-8"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb111-8" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>sex)</span>
+<span id="cb111-9"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb111-9" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb111-10"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb111-10" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb111-11"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb111-11" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-202-1.png" width="672" /></p>
+<p>So we are running into problems with predictions, especially for older males in 2nd and 3rd class.</p>
+</div>
+<div id="a-practical-solution-ensure-that-predictions-are-always-valid" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> A practical solution: Ensure that predictions are always valid<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-practical-solution-ensure-that-predictions-are-always-valid" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The solution to this problem is to estimate a model whose predictions <em>cannot</em> be (for the binary <span class="math inline">\(Y\)</span> case) less than zero or greater than one. Mathematically, we transform our linear model</p>
+<p><span class="math display">\[
+Y_i=\beta_0+\beta_1X_{1,i}+\beta_2X_{2,i}+\ldots+\epsilon_i
+\]</span>
+so that our new predictions can only be on the unit interval. How do we do this? What we need is a function that takes a real number, and returns a number on the unit interval. Fortunately in statistics we know about a lot of those, because cumulative density functions do exactly this! So instead of modeling our predictions as:</p>
+<p><span class="math display">\[
+\Pr(Y_i=1\mid X_i)=\beta_0+\beta_1X_i
+\]</span></p>
+<p>which we have shown to produce nonsensical predictions, we take this linear index <span class="math inline">\(\beta_0+\beta_1X_i\)</span>, and stick it inside a cumulative density function. For instance, one popular choice is the standard normal cumulative density function:</p>
+<p><span class="math display">\[
+\Pr(Y_i=1\mid X_i)=\Phi\left(\beta_0+\beta_1X_i\right)
+\]</span></p>
+<p>This way, no matter what values <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(X_i\)</span> take on, our predictions will always be in <span class="math inline">\((0,1)\)</span>. For example, if I take this model to the Titanic survival dataset, this is what the predictions look like:</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb112-1" tabindex="-1"></a>(</span>
+<span id="cb112-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb112-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">x=</span>age,<span class="at">y=</span>survived,<span class="at">color=</span>passengerClass))</span>
+<span id="cb112-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb112-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">formula=</span><span class="st">&quot;y~x&quot;</span>, <span class="at">method=</span><span class="st">&quot;glm&quot;</span>,<span class="at">method.args=</span><span class="fu">list</span>(<span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&quot;probit&quot;</span>)))</span>
+<span id="cb112-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb112-4" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>sex)</span>
+<span id="cb112-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb112-5" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb112-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb112-6" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb112-7"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb112-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-203-1.png" width="672" /></p>
+<p>Notice now how all of the predictions (and their confidence intervals) are in the unit interval.</p>
+<p>In order to estimate these models in <em>R</em>, we just use the <code>glm</code> (i.e. “generalized linear model”) command:</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb113-1" tabindex="-1"></a>reg<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb113-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb113-2" tabindex="-1"></a></span>
+<span id="cb113-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb113-3" tabindex="-1"></a>reg[[<span class="st">&quot;female&quot;</span>]]<span class="ot">&lt;-</span><span class="fu">glm</span>(<span class="at">data=</span>d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex<span class="sc">==</span><span class="st">&quot;female&quot;</span>),<span class="at">formula=</span>survived<span class="sc">~</span><span class="fu">as.factor</span>(passengerClass)<span class="sc">*</span>age,<span class="at">family=</span><span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb113-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb113-4" tabindex="-1"></a>reg[[<span class="st">&quot;male&quot;</span>]]<span class="ot">&lt;-</span><span class="fu">glm</span>(<span class="at">data=</span>d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex<span class="sc">==</span><span class="st">&quot;male&quot;</span>),<span class="at">formula=</span>survived<span class="sc">~</span><span class="fu">as.factor</span>(passengerClass)<span class="sc">*</span>age,<span class="at">family=</span><span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb113-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb113-5" tabindex="-1"></a></span>
+<span id="cb113-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb113-6" tabindex="-1"></a><span class="fu">stargazer</span>(reg,<span class="at">type=</span><span class="st">&quot;html&quot;</span>,<span class="at">column.labels=</span><span class="fu">names</span>(reg))</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+survived
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+female
+</td>
+<td>
+male
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(passengerClass)2nd
+</td>
+<td>
+0.304
+</td>
+<td>
+-0.226
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.715)
+</td>
+<td>
+(0.457)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(passengerClass)3rd
+</td>
+<td>
+-1.470<sup>**</sup>
+</td>
+<td>
+-1.016<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.593)
+</td>
+<td>
+(0.375)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+age
+</td>
+<td>
+0.004
+</td>
+<td>
+-0.023<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.014)
+</td>
+<td>
+(0.008)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(passengerClass)2nd:age
+</td>
+<td>
+-0.027
+</td>
+<td>
+-0.028<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.020)
+</td>
+<td>
+(0.014)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(passengerClass)3rd:age
+</td>
+<td>
+-0.015
+</td>
+<td>
+0.004
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.017)
+</td>
+<td>
+(0.011)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+1.649<sup>***</sup>
+</td>
+<td>
+0.529<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.553)
+</td>
+<td>
+(0.320)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+388
+</td>
+<td>
+658
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+-158.931
+</td>
+<td>
+-301.191
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+329.862
+</td>
+<td>
+614.381
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</div>
+<div id="interpreting-the-coefficients-of-the-probit-and-logit-models" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Interpreting the coefficients of the probit and logit models<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#interpreting-the-coefficients-of-the-probit-and-logit-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One drawback to the probit model is that we can no longer interpret the coefficients directly as the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>. To see this, let’s take the predicted probability from a probit and work out its derivative with respect to <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr(Y_i=1\mid X)&amp;=\Phi\left(\beta_0+\beta_1X_i\right)\\
+\frac{\partial\Pr(Y_i=1\mid X)}{\partial X_i}&amp;=\beta_1\Phi&#39;\left(\beta_0+\beta_1X_i\right)\\
+&amp;=\beta_1\phi\left(\beta_0+\beta_1X_i\right)
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\phi(x)=\Phi&#39;(x)\)</span> is the stndard normal density function. Since it is a density function, it is always positive, and so we can always interpret the <em>sign</em> of <span class="math inline">\(\beta_1\)</span> at the <em>direction</em> of the effect, but we cannot interpret it as the <em>magnitude</em> of the effect. Furthermore, our expression for the marginal effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is now a function of <span class="math inline">\(X\)</span>, so we have to take this into account somehow. Probably the most sensible solution, unless we’ve got a good reason to do otherwise, is to report the <em>average</em> marginal effect, but calculating this quantity for every row of our dataset, then taking the mean:</p>
+<p><span class="math display">\[
+\text{average marginal effect}=\frac{1}{N}\sum_{i=1}^N\beta_1\phi\left(\beta_0+\beta_1X_i\right)
+\]</span></p>
+<p>that is, if we randomly selected an observation in our dataset, this would be our estimat of its marginal effect.</p>
+<p>While this may seem like a complicated beast to compute, it is not for your computer, and is easily handled in the <code>mfx</code> package. For example, here is what we get for a simple bivariate probit using the Titanic dataset:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb114-1" tabindex="-1"></a><span class="fu">library</span>(mfx)</span>
+<span id="cb114-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb114-2" tabindex="-1"></a>reg<span class="ot">&lt;-</span><span class="fu">glm</span>(<span class="at">data=</span>d ,<span class="at">formula=</span>survived<span class="sc">~</span>age,<span class="at">family=</span><span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb114-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb114-3" tabindex="-1"></a>mfx1<span class="ot">&lt;-</span><span class="fu">probitmfx</span>(<span class="at">formula=</span>survived<span class="sc">~</span>age,<span class="at">data=</span>d,<span class="at">atmean=</span><span class="cn">FALSE</span>)</span>
+<span id="cb114-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb114-4" tabindex="-1"></a></span>
+<span id="cb114-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb114-5" tabindex="-1"></a>mfx1 <span class="sc">%&gt;%</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## Call:
+## probitmfx(formula = survived ~ age, data = d, atmean = FALSE)
+## 
+## Marginal Effects:
+##          dF/dx  Std. Err.       z   P&gt;|z|  
+## age -0.0018876  0.0010529 -1.7927 0.07302 .
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>In words: passanges who were 1 year older were 0.19 percentage points less likely to survive.</p>
+<p>For discrete variables, we need to make sure that <em>R</em> knows that these are discrete variables. This is done either with an indicator function <code>I()</code> or using <code>as.factor()</code>:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb116-1" tabindex="-1"></a><span class="fu">probitmfx</span>(<span class="at">formula=</span>survived<span class="sc">~</span><span class="fu">I</span>(age<span class="sc">&gt;=</span><span class="dv">18</span>),<span class="at">data=</span>d,<span class="at">atmean=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## Call:
+## probitmfx(formula = survived ~ I(age &gt;= 18), data = d, atmean = FALSE)
+## 
+## Marginal Effects:
+##                      dF/dx Std. Err.       z    P&gt;|z|   
+## I(age &gt;= 18)TRUE -0.138082  0.043419 -3.1802 0.001472 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## dF/dx is for discrete change for the following variables:
+## 
+## [1] &quot;I(age &gt;= 18)TRUE&quot;</code></pre>
+<p>In words: adults were 14 percentage points less likely to survive than children.</p>
+<p>Interaction terms make this even trickier, but not impossible. To see this, let’s take the derivative of a model’s predictions that has an interaction:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr(Y_i=1\mid X,Z)&amp;=\Phi(\beta_0+\beta_1 X_i+\beta_2 Z_i+\beta_3 X_iZ_i)\\
+\frac{\partial \Pr(Y_i=1\mid X,Z)}{\partial X}&amp;=(\beta_1+\beta_3 Z_i)\phi(\beta_0+\beta_1 X_i+\beta_2 Z_i+\beta_3 X_iZ_i)
+\end{aligned}
+\]</span></p>
+<p>Note the extra term <span class="math inline">\(\beta_3Z_i\)</span> at the front. We need to make sure that <em>R</em> understands that we have an interraction in our model for it to correctly compute this. For example:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb118-1" tabindex="-1"></a><span class="fu">probitmfx</span>(<span class="at">formula =</span> survived <span class="sc">~</span> sex<span class="sc">+</span>age<span class="sc">+</span>sex<span class="sc">*</span>age,<span class="at">data=</span>d,<span class="at">atmean=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## Call:
+## probitmfx(formula = survived ~ sex + age + sex * age, data = d, 
+##     atmean = FALSE)
+## 
+## Marginal Effects:
+##                  dF/dx  Std. Err.       z     P&gt;|z|    
+## sexmale     -0.2684774  0.0785128 -3.4195 0.0006273 ***
+## age          0.0038669  0.0014290  2.7061 0.0068086 ** 
+## sexmale:age -0.0076227  0.0018341 -4.1560 3.238e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## dF/dx is for discrete change for the following variables:
+## 
+## [1] &quot;sexmale&quot;</code></pre>
+<p>that is, the function <code>probitmfx</code> thinks that there are <em>three</em> marginal effects for this model, when there are only two variables on the right-hand side! We cannot interpret any of these marginal effects correctly.</p>
+</div>
+<div id="but-how-do-we-estimate-it-maximum-likelihood" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> But how do we estimate it? Maximum likelihood<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#but-how-do-we-estimate-it-maximum-likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Recall that when we derived the equation for the slope estimator of OLS, we motivated the problem by trying to minimize the sum of squared residuals of our estimated mode. That is, for bivariate OLS:</p>
+<p><span class="math display">\[
+\hat\beta_0,\hat\beta_1=\arg\min\left\{\sum_{i=1}^N\left(Y_i-\beta_0-\beta_1X_i\right)^2\right\}
+\]</span></p>
+<p>If we were to do the same for the probit model, we would minimize the squared difference between our model’s predictions (<span class="math inline">\(\Phi(\beta_0+\beta_1X_i)\)</span>), and our outcome:</p>
+<p><span class="math display">\[
+\hat\beta_0,\hat\beta_1=\arg\min\left\{\sum_{i=1}^N\left(Y_i-\Phi(\beta_0+\beta_1X_i)\right)^2\right\}
+\]</span></p>
+<p>This method is called <em>nonlinear least squares</em>, and while it might be an OK method of finding our estimates, for a variety of reasons that we will get into later, it is not how one typically estimates a probit model.</p>
+<p>Instead, we will be using <em>maximum likelihood estimation</em> (MLE). This technique takes a formal statement about how our outcome variable <span class="math inline">\(Y\)</span> is generated by our parameters <span class="math inline">\(\theta\)</span> and other observaed variables <span class="math inline">\(X\)</span>, and constructs a different optimization problem to solve.</p>
+<p>For the probit case, note that we know the following about our data-generating process:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr(Y_i=1\mid X_i)&amp;=\Phi(\beta_0+\beta_1X_i)\\
+\implies p(Y_i\mid X_i)&amp;=\begin{cases}
+\Phi(\beta_0+\beta_1X_i) &amp;\text{if } Y_i=1\\
+1-\Phi(\beta_0+\beta_1X_i)&amp;\text{otherwise}
+\end{cases}\\
+&amp;=\Phi(\beta_0+\beta_1X_i)^{Y_i}\left(1-\Phi(\beta_0+\beta_1X_i)\right)^{1-Y_i}
+\end{aligned}
+\]</span></p>
+<p>which is also equivalent to stating that:</p>
+<p><span class="math display">\[
+Y_i\mid X_i\sim\mathrm{Bernoulli}(\Phi(\beta_0+\beta_1X_i))
+\]</span></p>
+<p>That is, we have completely characterized the conditional distribution <span class="math inline">\(Y_i\mid X_i\)</span>. If from here, we are further able to assume that our data are independent, then we can write:</p>
+<p><span class="math display">\[
+Y_i\mid X_i\sim iid\ \mathrm{Bernoulli}(\Phi(\beta_0+\beta_1X_i))
+\]</span></p>
+<p>and we can write the joint probability mass function of our data conditional on <span class="math inline">\(X\)</span> and our parameters <span class="math inline">\(\theta=(\beta_1,\beta_2)\)</span> as:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(Y\mid \theta ,X)&amp;=\prod_{i=1}^Np(Y_i\mid \theta,X_i)\\
+&amp;=\prod_{i=1}^N\Phi(\beta_0+\beta_1X_i)^{Y_i}\left(1-\Phi(\beta_0+\beta_1X_i)\right)^{1-Y_i}
+\end{aligned}
+\]</span></p>
+<p>MLE takes this <em>likelihood function</em>, a formal statement of our data-generating process, and estimates the parameters <span class="math inline">\(\theta\)</span> by maximizing it. That is, while we typically think of <span class="math inline">\(p(Y\mid \theta ,X)\)</span> as a function of <span class="math inline">\(Y\)</span>, here we are thinking of it as a function of <span class="math inline">\(\theta\)</span>, and so:</p>
+<p><span class="math display">\[
+\hat\theta=\arg\max_\theta p(Y\mid \theta,X)
+\]</span></p>
+<p>Why are we doing this? Well, firstly, there are some nice mathematical results that state that if we correctly specify the distribution <span class="math inline">\(p(Y\mid \theta,X)\)</span>, then <span class="math inline">\(\hat\theta\)</span> (under a further set of technical assumptions) will be (i) consistent, and (ii) have the smallest possible variance. Practically though, it helps me to think about what small and large values of <span class="math inline">\(p(Y\mid \theta,X)\)</span> tell us about how well our model is fitting our data as we change <span class="math inline">\(\theta\)</span>. Specifically, note that if <span class="math inline">\(p(Y\mid \theta,X)\)</span> is large, then we can say that if the data were generated using parameters <span class="math inline">\(\theta\)</span>, we would not be too surprised by our dataset. On the other hand if <span class="math inline">\(p(Y\mid \theta,X)\)</span> is small, then it is unlikely that we would have observed our dataset <span class="math inline">\(Y\)</span> if <span class="math inline">\(\theta\)</span> was the true value. Hence, we are finding the <span class="math inline">\(\theta\)</span> that makes us the least surprised by our dataset <span class="math inline">\(Y\)</span>.</p>
+<p>In practice, we take one more step before attempting to maximize the likelihood, which is usually a task for our computer, not us. Since we have assumed that our data are independent, this has allowed us to write the likelihood as a product of the probability mass functions of each observation. Taking logs of this function yields the log-likelihood, which is usually much easier for your computer to maximize.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\log p(Y\mid \theta ,X)&amp;=\log\prod_{i=1}^Np(Y_i\mid\theta, X_i)\\
+&amp;=\sum_{i=1}^N\log p(Y_i\mid \theta,X_i)\\
+&amp;\equiv \mathcal L(\theta)
+\end{aligned}
+\]</span></p>
+<p>For our example of the probit model, this means that we can write:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathcal L(\theta)&amp;=\log\left(\prod_{i=1}^N\Phi(\beta_0+\beta_1X_i)^{Y_i}\left(1-\Phi(\beta_0+\beta_1X_i)\right)^{1-Y_i}\right)\\
+&amp;=\sum_{i=1}^N\left[Y_i\log\left(\Phi(\beta_0+\beta_1X_i)\right)+(1-Y_i)\log\left(1-\Phi(\beta_0+\beta_1X_i)\right)\right]\\
+\implies \hat\beta_0,\hat\beta_1&amp;=\arg\max_{\beta_1,\beta_2}\left\{\sum_{i=1}^N\left[Y_i\log\left(\Phi(\beta_0+\beta_1X_i)\right)+(1-Y_i)\log\left(1-\Phi(\beta_0+\beta_1X_i)\right)\right]\right\}
+\end{aligned}
+\]</span></p>
+<p>As mentioned above, this is not something that can be solved by hand, but your computer will not have much trouble with it most of the time.</p>
+</div>
+<div id="doing-inference-with-maximum-likelihood" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> Doing inference with maximum likelihood<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#doing-inference-with-maximum-likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As with linear regression, we will want to test parameter restrictions of our models. For example, with the Titanic datset, we might want to test whether being older than 18 years had any effect on survival. The restricted and unrestricted models for this test, with some reasonable controls added as well, are:</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb120-1" tabindex="-1"></a>reg1<span class="ot">&lt;-</span><span class="fu">glm</span>(<span class="at">data=</span>d,<span class="at">formula=</span>survived<span class="sc">~</span>age<span class="sc">+</span><span class="fu">I</span>(age<span class="sc">&gt;=</span><span class="dv">18</span>)<span class="sc">+</span>sex<span class="sc">+</span><span class="fu">as.factor</span>(passengerClass),<span class="at">family=</span><span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb120-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb120-2" tabindex="-1"></a>reg2<span class="ot">&lt;-</span><span class="fu">glm</span>(<span class="at">data=</span>d,<span class="at">formula=</span>survived<span class="sc">~</span>age<span class="sc">+</span>sex<span class="sc">+</span><span class="fu">as.factor</span>(passengerClass),<span class="at">family=</span><span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb120-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb120-3" tabindex="-1"></a></span>
+<span id="cb120-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb120-4" tabindex="-1"></a><span class="fu">stargazer</span>(reg1,reg2,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+survived
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+age
+</td>
+<td>
+-0.017<sup>***</sup>
+</td>
+<td>
+-0.019<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.004)
+</td>
+<td>
+(0.004)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+I(age &gt; = 18)
+</td>
+<td>
+-0.139
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.160)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+sexmale
+</td>
+<td>
+-1.481<sup>***</sup>
+</td>
+<td>
+-1.486<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.094)
+</td>
+<td>
+(0.094)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(passengerClass)2nd
+</td>
+<td>
+-0.744<sup>***</sup>
+</td>
+<td>
+-0.760<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.131)
+</td>
+<td>
+(0.130)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+as.factor(passengerClass)3rd
+</td>
+<td>
+-1.290<sup>***</sup>
+</td>
+<td>
+-1.303<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.127)
+</td>
+<td>
+(0.127)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+2.089<sup>***</sup>
+</td>
+<td>
+2.055<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.186)
+</td>
+<td>
+(0.181)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+1,046
+</td>
+<td>
+1,046
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+-491.901
+</td>
+<td>
+-492.276
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+995.802
+</td>
+<td>
+994.553
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>Just like in linear regression, one way to test this restriction is to compare the two models’ measures of goodness-of-fit. If the unrestricted model does not substatially fit the data better than the restricted model, then we fail to reject the null hypothesis. For maximum likelihood, we use the log-likelihood as the measure of goodness of fit, and the following result:</p>
+<p><span class="math display">\[
+2\left(\log L^{\text{unrestricted}}-\log L^{\text{restricted}}\right)\xrightarrow[]{d}\chi^2_q
+\]</span></p>
+<p>where <span class="math inline">\(q\)</span> is the number of parameter restrictions. Remember though, that since the maximized log-likelihoods are <em>only</em> a function of the parameter estimates, and <em>not</em> their standard errors, this test will not respect all the work you have done to accurately express the uncertainty in your parameters! This is just like using comparing <span class="math inline">\(R^2\)</span>s of the restricted and unrestricted models for linear regression. Fortunately, you can carry your standard error calculations through your hypothesis test using <code>waldtest</code>, just like you did with linear regression.</p>
+</div>
+<div id="how-some-estimators-relate-to-maximum-likelihood" class="section level2 hasAnchor" number="12.6">
+<h2><span class="header-section-number">12.6</span> How some estimators relate to maximum likelihood<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#how-some-estimators-relate-to-maximum-likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="sample-mean-for-a-bernoulli-coin-flip-variable" class="section level3 hasAnchor" number="12.6.1">
+<h3><span class="header-section-number">12.6.1</span> Sample mean for a Bernoulli (coin flip) variable<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sample-mean-for-a-bernoulli-coin-flip-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the early chapters of this material, we learned about why sample means were useful estimators. For Bernoulli random variables, we could estimate the probability of a success by taking the sample mean. Let’s see how we can do it with maximum likelihood.</p>
+<p>We start with the assumption that our data are distributed according to:
+<span class="math display">\[\begin{align}
+X_i&amp;\sim iid \mathrm{Bernoulli}(\theta)
+\end{align}\]</span>
+and wish to estimate <span class="math inline">\(\theta\)</span>. The probability mass function of one observation in our data is:
+<span class="math display">\[\begin{align}
+p_{X_i}(x)&amp;=\begin{cases}
+\theta &amp;\text{if } x = 1\\
+1-\theta &amp;\text{if } x = 0\\
+0&amp;\text{otherwise}
+\end{cases}\\
+&amp;=\theta^{I(x=1)}(1-\theta)^{I(x=0)}
+\end{align}\]</span>
+Since we have assumed that the <span class="math inline">\(X_i\)</span>s are iid, we can multiply the probability of each observation together to get the probability mass function for all rows of our data.
+<span class="math display">\[\begin{align}
+p_{X_1,X_2,\ldots,X_N}(x_1,x_2,\ldots,x_N;\theta)&amp;=\prod_{i=1}^Np_{X_i}(x_i)\\
+&amp;=\prod_{i=1}^N \theta^{I(x=1)}(1-\theta)^{I(x=0)}
+\end{align}\]</span>
+which is also the likelihood function evaluated at <span class="math inline">\(\theta\)</span>. We take logs to get the log-likelihood (because it is easier to maximize):
+<span class="math display">\[\begin{align}
+\log L(\theta)&amp;=\log\left[\prod_{i=1}^N \theta^{I(X_i=1)}(1-\theta)^{I(X_i=0)}\right]\\
+&amp;=\sum_{i=1}^N\log\left[\theta^{I(X_i=1)}(1-\theta)^{I(X_i=0)}\right]\\
+&amp;=\sum_{i=1}^N\left[I(X_i=1)\log(\theta)+I(X_i=0)\log(1-\theta)\right]\\
+&amp;=N\left[\bar X \log(\theta)+(1-\bar X)\log(1-\theta)\right]
+\end{align}\]</span>
+We find the maximum likelihood estimator by taking the derivative and setting it equal to zero:
+<span class="math display">\[\begin{align}
+\hat\theta &amp;=\arg\max_\theta \log L(\theta)\\
+\text{FOC:}\quad 0&amp;=N\left[\frac{\bar X}{\hat\theta}-\frac{1-\bar X}{1-\hat\theta}\right]\\
+\hat\theta&amp;=\bar X
+\end{align}\]</span>
+That is, the maximum likelihood estimator of <span class="math inline">\(\theta\)</span> is also the sample mean!</p>
+<p>Now suppose that we want to test that <span class="math inline">\(\theta\)</span> is equal to a specific value, say <span class="math inline">\(\theta_0\)</span>. Substituting <span class="math inline">\(\hat\theta\)</span> into the likelihood function yields:
+<span class="math display">\[\begin{align}
+L^U&amp;=N\left[\bar X\log(\bar X)+(1-\bar X)\log(1-\bar X)\right]
+\end{align}\]</span>
+and our restricted likelihood is:
+<span class="math display">\[\begin{align}
+L^R&amp;=N\left[\bar X\log(\theta_0)+(1-\bar X)\log(1-\theta_0)\right]
+\end{align}\]</span>
+So the likelihood ratio test statistic is:
+<span class="math display">\[\begin{align}
+LR&amp;=2\left[L^U-L^R\right]\\
+&amp;=2N\left[\bar X\log(\bar X)+(1-\bar X)\log(1-\bar X)
+-\bar X\log(\theta_0)-(1-\bar X)\log(1-\theta_0)\right]\\
+&amp;=2N\left[\bar X \log(\bar X/\theta_0)-(1-\bar X)\log((1-\bar X)/(1-\theta_0))\right]
+\end{align}\]</span>
+How do we know that this thing is distributed <span class="math inline">\(\chi^2_1\)</span> for large <span class="math inline">\(N\)</span>? Note that the likelihood ratio is a function of <span class="math inline">\(\bar X\)</span>, the sample mean, and <span class="math inline">\(\theta_0\)</span>, the value of <span class="math inline">\(\theta\)</span> if <span class="math inline">\(H_0\)</span> is true. <span class="math inline">\(\theta_0\)</span> is fixed for the hypothesis, so it is really only a function of <span class="math inline">\(\bar X\)</span>. Let’s make a 2nd-order Taylor series approximation of this function:
+<span class="math display">\[\begin{align}
+LR(\bar X) &amp;\approx LR(\theta_0)+(\bar X-\theta_0)\frac{\partial LR(x)}{\partial \bar X}\bigg|_{x=\theta_0}+\frac{1}{2}(\bar X-\theta_0)^2\frac{\partial^2 LR(x)}{\partial \bar X^2}\bigg|_{x=\theta_0}\\
+&amp;=0+(\bar X-\theta_0)2N\left[\log\left(\frac{x}{\theta_0}\right)+\frac{x}{x}-\log\left(\frac{1-x}{1-\theta_0}\right)+\frac{1-x}{1-x}\right]_{x=\theta_0}\label{eq:ML-bernoulliLR}\\
+&amp;\quad\quad+\frac{1}{2}(\bar X-\theta_0)^22N\left[\frac{1}{x}+\frac{1}{1-x}\right]_{x=\theta_0}\nonumber
+\end{align}\]</span>
+Noting that everything on the first line of the above expression is zero:
+<span class="math display">\[\begin{align}
+LR(\bar X) &amp;\approx \frac{1}{2}(\bar X-\theta_0)^2\frac{2N}{\theta_0(1-\theta_0)}\\
+&amp;=\left(\frac{\sqrt{N}(\bar X-\theta_0)}{\sqrt{\theta_0(1-\theta_0)}}\right)^2
+\end{align}\]</span>
+So when the null is true, the thing inside the parentheses is asymptotically standard normal. Since the LR is approximately this thing squared (the approximation gets better as <span class="math inline">\(N\to\infty\)</span>), it follows that:
+<span class="math display">\[\begin{align}
+LR(\bar X)\xrightarrow[]{d}\chi^2_1
+\end{align}\]</span></p>
+</div>
+<div id="linear-regression-1" class="section level3 hasAnchor" number="12.6.2">
+<h3><span class="header-section-number">12.6.2</span> Linear regression<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#linear-regression-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s restrict our attention to the bivariate linear regression model. The data-generating process is often described as:
+<span class="math display">\[\begin{align}
+Y_i&amp;=\beta_1+\beta_2X_i+\epsilon_i\\
+E[\epsilon_{i}\mid X]&amp;=0\quad&amp; \\
+V[\epsilon_i\mid X]&amp;=\sigma^2,\quad&amp;\text{(homoskedasticty)}\\
+E[\epsilon_iX_i]&amp;=0,\quad&amp;\text{(exogeneity)}
+\end{align}\]</span>
+Note that we have already assumed a few things here (specifically, homoskedasticity). Now, we are going to make a <em>very</em> restrictive assumption:
+<span class="math display">\[\begin{align}
+\epsilon_i\mid X_i &amp;\sim iid N(0,\sigma^2)
+\end{align}\]</span>
+We have seen lots of normals show up in our analysis, but this is not usually where they show up: usually we make an argument that a sample mean is approximately normal because <span class="math inline">\(N\)</span> is large. Here, on the other hand, we have assumed that the <em>errors</em> are normal. This is therefore a much more restrictive model than the one we write down when we do OLS, but let’s see where it gets us.</p>
+<p>The parameters we wish to estimate are the intercept and slope coefficients, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, as well as the variance parameter <span class="math inline">\(\sigma^2\)</span>. First note that:
+<span class="math display">\[\begin{align}
+Y_i\mid X_i &amp;\sim N(\beta_0+\beta_1X_i, \sigma^2)\quad \text{(independent)}
+\end{align}\]</span>
+Here I don’t write ``iid’’ because the distribution of $Y_iX_i $ changes with <span class="math inline">\(X_i\)</span>. Using the above result this information, we can construct the pdf of one observation;
+<span class="math display">\[\begin{align}
+f_{Y\mid X}(y;\beta_0,\beta_1,\sigma^2)&amp;=\phi(y;\beta_0+\beta_1X_i,\sigma^2)\\
+&amp;=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{1}{2\sigma^2}(y-\beta_0-\beta_1X_i)^2\right)
+\end{align}\]</span>
+Usually I would just leave this as the first line, with <span class="math inline">\(\phi(\cdot;\mu,\sigma^2)\)</span> representing the normal density function with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, however we need to use some properties of this to derive the estimator for <span class="math inline">\((\beta_0,\beta_1,\sigma^2)\)</span>. Thats the probability (density), or likelihood, of observing {} row of the data. Now we assume that each rows are independent, so we can multiply these densities together to get the probability density function of th data when the parameters are known:
+<span class="math display">\[\begin{align}
+f&amp;_{Y_1,Y_2,\ldots,Y_N; X_1,X_2,\ldots,X_N}(y; \beta_0,\beta_1,\sigma^2)=\prod_{i=1}^Nf_{Y_i\mid X_i}(Y_i;\beta_0,\beta_1,\sigma^2)\\
+&amp;=\prod_{i=1}^N\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{1}{2\sigma^2}(Y_i-\beta_0-\beta_1X_i)^2\right)
+\end{align}\]</span>
+This is the likelihood, which in principle you could go ahead and maximize, but it is much easier to maximize the log-likelihood:
+<span class="math display">\[\begin{align}
+\log L(\beta_0,\beta_1,\sigma^2)&amp;=\log\left(\prod_{i=1}^N\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{1}{2\sigma^2}(Y_i-\beta_0-\beta_1X_i)^2\right)\right)\\
+&amp;=\sum_{i=1}^N\log\left(\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{1}{2\sigma^2}(Y_i-\beta_0-\beta_1X_i)^2\right)\right)\\
+%%%
+&amp;=\sum_{i=1}^N\left[
+\log 0-\frac12\log(2\pi\sigma^2)-\frac{1}{2\sigma^2}(Y_i-\beta_0-\beta_1X_i)^2
+\right]\\
+&amp;=-\underbrace{\frac{N}{2}\log{2\pi\sigma^2}}_A-\underbrace{\frac{1}{2\sigma^2}\sum_{i=1}^N(Y_i-\beta_0-\beta_1X_i)^2}_B
+\end{align}\]</span>
+Note that the only component of this expression that contains <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> is <span class="math inline">\(B\)</span>. Therefore, we don’t need to consider <span class="math inline">\(A\)</span> if we just want to estimate <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. Furthermore, since <span class="math inline">\(1/2\sigma^2&gt;0\)</span>, we don’t need to consider this constant either. So maximizing th log-likelihood with respect to the slope and intercept term is equivalent to the following optimization problems:
+<span class="math display">\[\begin{align}
+(\hat\beta_0,\hat\beta_1)&amp;=\arg\max_{\beta_0,\beta_1}\left[-\sum_{i=1}^N(Y_i-\beta_0-\beta_1X_i)^2\right]\\
+(\hat\beta_0,\hat\beta_1)&amp;=\arg\min_{\beta_0,\beta_1}\left[\sum_{i=1}^N(Y_i-\beta_0-\beta_1X_i)^2\right]
+\end{align}\]</span>
+That is, <span class="math inline">\(\arg\max_x g(x)\)</span> returns the <span class="math inline">\(x\)</span> that maximizes <span class="math inline">\(g(x)\)</span> (i.e.~the {} of <span class="math inline">\(g\)</span> that maximizes <span class="math inline">\(g\)</span>), whereas <span class="math inline">\(\max_x g(x)\)</span> equals the maximum value of <span class="math inline">\(g(x)\)</span>. Importantly here, the second optimization problem is one that we’ve seen before: <span class="math inline">\(Y_i-\hat\beta+0-\hat\beta_1X_i\)</span> is the residual of observation <span class="math inline">\(i\)</span>, and so the above minimization problem is exactly the same minimization problem we used to derive the OLS estimator: we are minimizing the sum of squared residuals! Hence, without further derivations, we know that:
+<span class="math display">\[\begin{align}
+\hat\beta_1^\text{ML}=\hat\beta_1^\text{OLS}&amp;=\frac{\sum_{i=1}^N(Y_i-\bar Y)(X_i-\bar X)}{\sum_{i=1}^N(X_i-\bar X)^2}\\
+\hat\beta_0^\text{ML}=\hat\beta_0^\text{OLS}&amp;=\bar Y -\hat\beta_1^\text{OLS}\bar X
+\end{align}\]</span>
+Letting <span class="math inline">\(SSR\)</span> equal the (minimized) residual sum of squares, we can write the estimator for <span class="math inline">\(\sigma^2\)</span> as:
+<span class="math display">\[\begin{align}
+\hat\sigma^2&amp;=\arg\max_{\sigma^2}\left[-\frac{N}{2}\log{2\pi\sigma^2}-\frac{1}{2\sigma^2}SSR\right]\\
+\text{FOC:}\quad 0&amp;=-\frac{N}{2\hat\sigma^2}+\frac{SSR}{2(\hat\sigma^2)^2}\\
+0&amp;=-N\hat\sigma^2+SSR\\
+\hat\sigma^2&amp;=\frac{SSR}{N}=\frac 1N\sum_{i=1}^N(Y_i-\hat\beta_0-\hat \beta_1X_i)^2
+\end{align}\]</span>
+which is <em>almost</em> the equation we use for OLS (we usually divide by <span class="math inline">\(N-k\)</span> to eliminate bias).</p>
+<p>OK, that’s estimation. Now suppose that we wish to test a restriction. Note that the maximized log-likelihood can be simplified to:
+<span class="math display">\[\begin{align}
+\max \log L &amp;=-\frac{N}{2}\log(2\pi SSR/N)-\frac{N}{2 SSR} SSR\\
+&amp;=-\frac{N}{2}\left[\log(SSR)+\log(2\pi/N)+1\right]
+\end{align}\]</span>
+Letting <span class="math inline">\(RSS\)</span> and <span class="math inline">\(USS\)</span> be the restricted and unrestricted sum of squared residuals respectively, the likelihood ratio test statistic is:
+<span class="math display">\[\begin{align}
+LR&amp;=2\left[\log L^U-\log L^R\right]\\
+&amp;=-\frac{N}{2}\left[\log(USS)-\log(RSS)\right]\\
+&amp;=\frac{N}{2}\log(RSS/USS)
+\end{align}\]</span>
+Which is qualitatively what we’re doing with an <span class="math inline">\(F\)</span>-test in OLS: comparing how much worse our restricted model fits the data.</p>
+</div>
+</div>
+<div id="some-examples-of-estimating-parameters-using-maximum-likelihood" class="section level2 hasAnchor" number="12.7">
+<h2><span class="header-section-number">12.7</span> Some examples of estimating parameters using maximum likelihood<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#some-examples-of-estimating-parameters-using-maximum-likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="geometric-distribution" class="section level3 hasAnchor" number="12.7.1">
+<h3><span class="header-section-number">12.7.1</span> Geometric distribution<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#geometric-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Geometric_distribution">geometric distribution</a> can be motivated as the number of times you need to flip a weighted coin until you flip the first head. The one parameter <span class="math inline">\(\theta\)</span> is the probability that the coin comes up heads. Therefore, the probability mass function is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(k;\theta)&amp;=\begin{cases}
+(1-\theta)^{k-1}\theta&amp; k=1, 2, 3, \ldots\\
+0&amp;\text{otherwise}
+\end{cases}
+\end{aligned}
+\]</span></p>
+<p>Here is a simulated dataset of draws from the geometric distribution:</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb121-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb121-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb121-2" tabindex="-1"></a></span>
+<span id="cb121-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb121-3" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">k =</span> <span class="fu">rgeom</span>(<span class="dv">1000</span>,<span class="fl">0.1</span>)<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb121-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb121-4" tabindex="-1"></a></span>
+<span id="cb121-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb121-5" tabindex="-1"></a>(</span>
+<span id="cb121-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb121-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">x=</span>k))</span>
+<span id="cb121-7"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb121-7" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_histogram</span>()</span>
+<span id="cb121-8"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb121-8" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb121-9"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb121-9" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-209-1.png" width="672" /></p>
+<p>Let’s estimate <span class="math inline">\(\theta\)</span>.</p>
+<p>The likelihood of observing our data <span class="math inline">\(\{k_i\}_{i=1}^N\)</span> if <span class="math inline">\(\theta\)</span> was the true value, assuming independence, is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\prod_{k=1}^Np(k_i;\theta)&amp;=\prod_{k=1}^N(1-\theta)^{k_i-1}\theta
+\end{aligned}
+\]</span></p>
+<p>So the log-likelihood is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathcal L(\theta)&amp;=\sum_{i=1}^N\left[(k_i-1)\log(1-\theta)+\log(\theta)\right]
+\end{aligned}
+\]</span></p>
+<p>The first-order condition is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+0&amp;=\sum_{i=1}^N\left[-\frac{k_i-1}{1-\hat\theta}+\frac{1}{\hat\theta}\right]\\
+&amp;=-\frac{\sum_{i=1}^N(k_i-1)}{1-\hat\theta}+\frac{N}{\hat\theta}\\
+\frac{\sum_{i=1}^N(k_i-1)}{1-\hat\theta}&amp;=\frac{N}{\hat\theta}\\
+\hat\theta\sum_{i=1}^N(k_i-1)&amp;=N(1-\hat\theta)\\
+\hat\theta\left(N+\sum_{i=1}^N(k_i-1)\right)&amp;=N\\
+\hat\theta&amp;=\frac{N}{N+\sum_{i=1}^N(k_i-1)}
+\end{aligned}
+\]</span></p>
+<p>Using what we have, we can therefore calculate our estimate:</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb122-1" tabindex="-1"></a>k<span class="ot">&lt;-</span>d<span class="sc">$</span>k</span>
+<span id="cb122-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb122-2" tabindex="-1"></a><span class="fu">print</span>(</span>
+<span id="cb122-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb122-3" tabindex="-1"></a>   <span class="fu">length</span>(k)<span class="sc">/</span>(<span class="fu">length</span>(k)<span class="sc">+</span><span class="fu">sum</span>(k<span class="dv">-1</span>))</span>
+<span id="cb122-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb122-4" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] 0.0969744</code></pre>
+<p>Or, we could pass the likelihood function to <em>R</em>:</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb124-1" tabindex="-1"></a>nlogL<span class="ot">&lt;-</span><span class="cf">function</span>(theta) {</span>
+<span id="cb124-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb124-2" tabindex="-1"></a>  <span class="sc">-</span><span class="fu">sum</span>((k<span class="dv">-1</span>)<span class="sc">*</span><span class="fu">log</span>(<span class="dv">1</span><span class="sc">-</span>theta)<span class="sc">+</span><span class="fu">log</span>(theta))</span>
+<span id="cb124-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb124-3" tabindex="-1"></a>}</span>
+<span id="cb124-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb124-4" tabindex="-1"></a></span>
+<span id="cb124-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb124-5" tabindex="-1"></a>estimates<span class="ot">&lt;-</span>stats4<span class="sc">::</span><span class="fu">mle</span>(nlogL,<span class="at">start=</span><span class="fu">list</span>(<span class="at">theta=</span><span class="fl">0.5</span>))</span></code></pre></div>
+<pre><code>## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced
+
+## Warning in log(theta): NaNs produced</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb126-1" tabindex="-1"></a>estimates <span class="sc">%&gt;%</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## stats4::mle(minuslogl = nlogL, start = list(theta = 0.5))
+## 
+## Coefficients:
+##      theta 
+## 0.09697544</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb128-1" tabindex="-1"></a>estimates<span class="ot">&lt;-</span>stats4<span class="sc">::</span><span class="fu">mle</span>(nlogL,<span class="at">start=</span><span class="fu">list</span>(<span class="at">theta=</span><span class="fl">0.5</span>),<span class="at">lower=</span><span class="fu">list</span>(<span class="at">theta=</span><span class="dv">0</span>),<span class="at">upper=</span><span class="fu">list</span>(<span class="at">theta=</span><span class="dv">1</span>),<span class="at">method =</span> <span class="st">&quot;Brent&quot;</span>)</span>
+<span id="cb128-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb128-2" tabindex="-1"></a></span>
+<span id="cb128-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb128-3" tabindex="-1"></a>estimates <span class="sc">%&gt;%</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## stats4::mle(minuslogl = nlogL, start = list(theta = 0.5), method = &quot;Brent&quot;, 
+##     lower = list(theta = 0), upper = list(theta = 1))
+## 
+## Coefficients:
+##     theta 
+## 0.0969744</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb130-1" tabindex="-1"></a>nlogL2<span class="ot">&lt;-</span><span class="cf">function</span>(x) {</span>
+<span id="cb130-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb130-2" tabindex="-1"></a>  <span class="sc">-</span><span class="fu">sum</span>((k<span class="dv">-1</span>)<span class="sc">*</span><span class="fu">log</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(x))<span class="sc">+</span><span class="fu">log</span>(<span class="fu">pnorm</span>(x)))</span>
+<span id="cb130-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb130-3" tabindex="-1"></a>}</span>
+<span id="cb130-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb130-4" tabindex="-1"></a></span>
+<span id="cb130-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb130-5" tabindex="-1"></a>estimates<span class="ot">&lt;-</span>stats4<span class="sc">::</span><span class="fu">mle</span>(nlogL2,<span class="at">start=</span><span class="fu">list</span>(<span class="at">x=</span><span class="dv">0</span>))</span>
+<span id="cb130-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb130-6" tabindex="-1"></a></span>
+<span id="cb130-7"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb130-7" tabindex="-1"></a>estimates <span class="sc">%&gt;%</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## stats4::mle(minuslogl = nlogL2, start = list(x = 0))
+## 
+## Coefficients:
+##         x 
+## -1.298987</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb132-1" tabindex="-1"></a>estimates<span class="sc">@</span>coef <span class="sc">%&gt;%</span> <span class="fu">pnorm</span>() <span class="sc">%&gt;%</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>##          x 
+## 0.09697424</code></pre>
+</div>
+<div id="simplified-beta-distribution" class="section level3 hasAnchor" number="12.7.2">
+<h3><span class="header-section-number">12.7.2</span> Simplified Beta distribution<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#simplified-beta-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb134-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb134-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb134-2" tabindex="-1"></a></span>
+<span id="cb134-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb134-3" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">X =</span> <span class="fu">runif</span>(<span class="dv">1000</span>)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="fl">3.14</span>))</span>
+<span id="cb134-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb134-4" tabindex="-1"></a></span>
+<span id="cb134-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb134-5" tabindex="-1"></a><span class="fu">write.csv</span>(d,<span class="at">file=</span><span class="st">&quot;data/BetaSim2023.csv&quot;</span>)</span>
+<span id="cb134-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb134-6" tabindex="-1"></a></span>
+<span id="cb134-7"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb134-7" tabindex="-1"></a>nlogL<span class="ot">&lt;-</span><span class="cf">function</span>(alpha) {</span>
+<span id="cb134-8"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb134-8" tabindex="-1"></a>  <span class="sc">-</span><span class="fu">sum</span>(<span class="fu">log</span>(alpha)<span class="sc">+</span>(alpha<span class="dv">-1</span>)<span class="sc">*</span><span class="fu">log</span>(d<span class="sc">$</span>X))</span>
+<span id="cb134-9"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb134-9" tabindex="-1"></a>}</span>
+<span id="cb134-10"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb134-10" tabindex="-1"></a></span>
+<span id="cb134-11"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb134-11" tabindex="-1"></a><span class="fu">nlogL</span>(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 707.9252</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb136-1" tabindex="-1"></a>stats4<span class="sc">::</span><span class="fu">mle</span>(nlogL,<span class="at">start=</span><span class="fu">list</span>(<span class="at">alpha=</span><span class="dv">1</span>))</span></code></pre></div>
+<pre><code>## Warning in log(alpha): NaNs produced
+
+## Warning in log(alpha): NaNs produced
+
+## Warning in log(alpha): NaNs produced</code></pre>
+<pre><code>## 
+## Call:
+## stats4::mle(minuslogl = nlogL, start = list(alpha = 1))
+## 
+## Coefficients:
+##    alpha 
+## 2.989527</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-1" tabindex="-1"></a>dsim<span class="ot">&lt;-</span>(<span class="fu">expand.grid</span>(<span class="at">sim=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>,<span class="at">id=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb139-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-2" tabindex="-1"></a>       <span class="sc">%&gt;%</span> <span class="fu">rowwise</span>()</span>
+<span id="cb139-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-3" tabindex="-1"></a>       <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">X =</span> <span class="fu">runif</span>(<span class="dv">1</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb139-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-4" tabindex="-1"></a>       <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>()</span>
+<span id="cb139-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-5" tabindex="-1"></a>       <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(sim)</span>
+<span id="cb139-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-6" tabindex="-1"></a>       <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(</span>
+<span id="cb139-7"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-7" tabindex="-1"></a>         <span class="at">alphaHat1=</span><span class="fu">mean</span>(X)<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">mean</span>(X)),</span>
+<span id="cb139-8"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-8" tabindex="-1"></a>         <span class="at">alphaHat2 =</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="fu">mean</span>(<span class="fu">log</span>(X))</span>
+<span id="cb139-9"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-9" tabindex="-1"></a>       )</span>
+<span id="cb139-10"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-10" tabindex="-1"></a>  </span>
+<span id="cb139-11"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-11" tabindex="-1"></a>)</span>
+<span id="cb139-12"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-12" tabindex="-1"></a></span>
+<span id="cb139-13"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-13" tabindex="-1"></a></span>
+<span id="cb139-14"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-14" tabindex="-1"></a></span>
+<span id="cb139-15"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-15" tabindex="-1"></a>(</span>
+<span id="cb139-16"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-16" tabindex="-1"></a>  <span class="fu">ggplot</span>(dsim)</span>
+<span id="cb139-17"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-17" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>alphaHat1,<span class="at">color=</span><span class="st">&quot;analogy&quot;</span>),<span class="at">alpha=</span><span class="fl">0.5</span>)</span>
+<span id="cb139-18"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-18" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>alphaHat2,<span class="at">color=</span><span class="st">&quot;MLE&quot;</span>),<span class="at">alpha=</span><span class="fl">0.5</span>)</span>
+<span id="cb139-19"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-19" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb139-20"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb139-20" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-215-1.png" width="672" /></p>
+</div>
+</div>
+<div id="an-extended-example" class="section level2 hasAnchor" number="12.8">
+<h2><span class="header-section-number">12.8</span> An extended example<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#an-extended-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This example is motivated from David Card’s “Model-based or design-based” lecture.</p>
+<div id="data" class="section level3 hasAnchor" number="12.8.1">
+<h3><span class="header-section-number">12.8.1</span> Data<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Hey, John D. “Does repetition improve consistency?.” Experimental economics 4, no. 1 (2001): 5-54.</p>
+</blockquote>
+<p>This dataset comes from an economic experiment. Each participant made 500 decisions between a “<span class="math inline">\(q\)</span>-lottery” and a “<span class="math inline">\(p\)</span>-lottery”. One decision was randomly chosen for payment.</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb141-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb141-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb141-2" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb141-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb141-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb141-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb141-4" tabindex="-1"></a>D<span class="ot">&lt;-</span>(<span class="fu">read_dta</span>(<span class="st">&quot;data/Hey_data12.dta&quot;</span>)</span>
+<span id="cb141-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb141-5" tabindex="-1"></a>    <span class="co"># Just focus on the data from one decision-maker for now</span></span>
+<span id="cb141-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb141-6" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">filter</span>(id<span class="sc">==</span><span class="dv">2</span>)</span>
+<span id="cb141-7"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb141-7" tabindex="-1"></a>)</span>
+<span id="cb141-8"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb141-8" tabindex="-1"></a>D <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">10</span>) <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="right">t</th>
+<th align="right">q1</th>
+<th align="right">q2</th>
+<th align="right">q3</th>
+<th align="right">q4</th>
+<th align="right">p1</th>
+<th align="right">p2</th>
+<th align="right">p3</th>
+<th align="right">p4</th>
+<th align="right">y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">49</td>
+<td align="right">0.250</td>
+<td align="right">0.000</td>
+<td align="right">0.750</td>
+<td align="right">0.000</td>
+<td align="right">0.375</td>
+<td align="right">0.000</td>
+<td align="right">0.625</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">485</td>
+<td align="right">0.000</td>
+<td align="right">1.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.375</td>
+<td align="right">0.125</td>
+<td align="right">0.500</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">321</td>
+<td align="right">0.000</td>
+<td align="right">0.250</td>
+<td align="right">0.750</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.625</td>
+<td align="right">0.000</td>
+<td align="right">0.375</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">153</td>
+<td align="right">0.000</td>
+<td align="right">0.750</td>
+<td align="right">0.000</td>
+<td align="right">0.250</td>
+<td align="right">0.625</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.375</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">74</td>
+<td align="right">0.500</td>
+<td align="right">0.250</td>
+<td align="right">0.000</td>
+<td align="right">0.250</td>
+<td align="right">0.625</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.375</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">228</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.875</td>
+<td align="right">0.125</td>
+<td align="right">0.125</td>
+<td align="right">0.000</td>
+<td align="right">0.250</td>
+<td align="right">0.625</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">146</td>
+<td align="right">0.375</td>
+<td align="right">0.000</td>
+<td align="right">0.625</td>
+<td align="right">0.000</td>
+<td align="right">0.500</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.500</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">122</td>
+<td align="right">0.000</td>
+<td align="right">0.250</td>
+<td align="right">0.750</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.875</td>
+<td align="right">0.000</td>
+<td align="right">0.125</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">500</td>
+<td align="right">0.375</td>
+<td align="right">0.125</td>
+<td align="right">0.500</td>
+<td align="right">0.000</td>
+<td align="right">0.500</td>
+<td align="right">0.125</td>
+<td align="right">0.375</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">128</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.875</td>
+<td align="right">0.125</td>
+<td align="right">0.125</td>
+<td align="right">0.000</td>
+<td align="right">0.250</td>
+<td align="right">0.625</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<p>Our variables are:</p>
+<ul>
+<li><code>id</code>: The id of the participant (we’re just focusing on the first one for now)</li>
+<li><code>t</code>: The id for the question, this goes from 1 to 500</li>
+<li><code>q1-q4</code>: The probabilities for the <span class="math inline">\(q\)</span>-lottery</li>
+<li><code>p1-p4</code>: The probabilities for the <span class="math inline">\(p\)</span>-lottery</li>
+<li><code>y</code>: An indicator variable equal to 1 if they chose the <span class="math inline">\(q\)</span> lottery, and 0 if they chose the <span class="math inline">\(p\)</span> lottery</li>
+</ul>
+<p>We can think of the prizes as being the numbers 0, 1/3, 2/3, and 1, so the probability mass function of prizes for the <span class="math inline">\(q\)</span>-lottery in decision <span class="math inline">\(t=49\)</span> is:</p>
+<p><span class="math display">\[
+p(x)=\begin{cases}
+0.250 &amp;\text{if } x = 0\\
+0.000 &amp; \text{if } x =\frac{1}{3}\\
+0.750 &amp; \text{if } x = \frac{2}{3}\\
+0.000 &amp; \text{if } x = 1\\
+0 &amp;\text{otherwise}
+\end{cases}
+\]</span></p>
+</div>
+<div id="a-research-question" class="section level3 hasAnchor" number="12.8.2">
+<h3><span class="header-section-number">12.8.2</span> A research question<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-research-question" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Very broadly (we will narrow this down later)</p>
+<blockquote>
+<p>If the expected value of the <span class="math inline">\(q\)</span> lottery increases relative to the expected value of the <span class="math inline">\(p\)</span> lottery, how much more likely is it that the pariciapnt will choose the <span class="math inline">\(q\)</span> lottery?</p>
+</blockquote>
+<p>We can do a quick visualization of this:</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-1" tabindex="-1"></a>D<span class="ot">&lt;-</span>(D</span>
+<span id="cb142-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-2" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">EVq =</span> q2<span class="sc">/</span><span class="dv">3</span><span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>q3<span class="sc">/</span><span class="dv">3</span><span class="sc">+</span>q4,</span>
+<span id="cb142-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-3" tabindex="-1"></a>               <span class="at">EVp =</span> p2<span class="sc">/</span><span class="dv">3</span><span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>p3<span class="sc">/</span><span class="dv">3</span><span class="sc">+</span>p4,</span>
+<span id="cb142-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-4" tabindex="-1"></a>               <span class="at">DEV =</span> EVq<span class="sc">-</span>EVp</span>
+<span id="cb142-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-5" tabindex="-1"></a>    )</span>
+<span id="cb142-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-6" tabindex="-1"></a>    )</span>
+<span id="cb142-7"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-7" tabindex="-1"></a></span>
+<span id="cb142-8"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-8" tabindex="-1"></a>(</span>
+<span id="cb142-9"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>D,<span class="fu">aes</span>(<span class="at">x=</span>EVq<span class="sc">-</span>EVp,<span class="at">y=</span>y))</span>
+<span id="cb142-10"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-10" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_summary_bin</span>(<span class="at">fun=</span><span class="st">&quot;mean&quot;</span>,<span class="at">geom=</span><span class="st">&quot;point&quot;</span>,<span class="at">bins=</span><span class="dv">10</span>)</span>
+<span id="cb142-11"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">formula=</span><span class="st">&quot;y~x&quot;</span>)</span>
+<span id="cb142-12"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Difference in expected value&quot;</span>)</span>
+<span id="cb142-13"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-13" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Probability of choosing the q-lottery&quot;</span>)</span>
+<span id="cb142-14"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-14" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb142-15"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb142-15" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-217-1.png" width="672" /></p>
+<p>We are already running into a problem. What is it?</p>
+<p>But this line is exactly what we estimate when we do:</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb143-1" tabindex="-1"></a><span class="fu">stargazer</span>(<span class="fu">lm</span>(<span class="at">data=</span>D,<span class="at">formula=</span>y<span class="sc">~</span>DEV),<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+y
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+DEV
+</td>
+<td>
+0.890<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.108)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+0.825<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.015)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+500
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.121
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.119
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+0.336 (df = 498)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+68.243<sup>***</sup> (df = 1; 498)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</div>
+<div id="the-model-based-approach" class="section level3 hasAnchor" number="12.8.3">
+<h3><span class="header-section-number">12.8.3</span> The model-based approach<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#the-model-based-approach" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here is a model of decision-making under risk. We will estimate the parameters in it.</p>
+<p>Assume that participants have a utility function over money that looks like this:</p>
+<p><span class="math display">\[
+u(x)=x^r
+\]</span></p>
+<p>where <span class="math inline">\(r&gt;0\)</span> measures their risk preferences. If <span class="math inline">\(r&lt;1\)</span> they are risk-averse, and if <span class="math inline">\(r&gt;1\)</span> they are risk-loving. If they are expected utility maximizers, then they will choose the lottery <span class="math inline">\(L\)</span> that maximizes:</p>
+<p><span class="math display">\[
+E[u(X)\mid L]
+\]</span></p>
+<p>For our dataset, if we know <span class="math inline">\(r\)</span>, it is easy to work out <span class="math inline">\(u(x)\)</span> and then <span class="math inline">\(E[u(X)\mid L]\)</span></p>
+<p>We will also assume that the participant chooses according to the logistic choice rule:</p>
+<p><span class="math display">\[
+\Pr(\text{q-lottery})
+=\Lambda\left(\lambda(E(u(X)\mid q)-E(u(X)\mid p))\right)
+\]</span></p>
+<p>where <span class="math inline">\(\Lambda(x)=1/(1+\exp(-x))\)</span> is the logistic cdf. This performs a few useful functions. Firstly, it is unlikely that people will make decisions perfectly. This specification is a way of modeling random choice that still respects that choices are coming from a utility function: actions are more likely to be chosen if they yield greater utility. It is also useful because as the econometrician, our specipcation of <span class="math inline">\(u\)</span> is a simplifying assumption, so while our model assumes that the participants are choosing to maximize <span class="math inline">\(E(u(X)\mid p)\)</span>, it might be that they are in fact maximizing <span class="math inline">\(E(v(X)\mid p)\)</span>, and we do not know what <span class="math inline">\(v\)</span> is. This is similar to the interpretation of the error term in linear regression: we have a component of utility that, as the econometrician, we cannot model, and we call this “the error term”. Finally, on a technical note, since maximum likelihood requires that we specify a probability distribution over data (in this case choices), it had better be that it assigns probabilities greater than zero to both possible actions, otherwise our likelihood function will be zero everywhere, and we can’t maximize it. The logistic choice rule achieves this kind of randomization.</p>
+<p>The likelihood function is therefore:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\prod_{i=1}^N\Lambda\left(\lambda(E(u(X)\mid q)-E(u(X)\mid p))\right)^{y_i }\left(1-\Lambda\left(\lambda(E(u(X)\mid q)-E(u(X)\mid p))\right)\right)^{1-y_i}
+\end{aligned}
+\]</span></p>
+<p>so the log-likelihood function is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\log L
+&amp;=\sum_{i=1}^N\left[
+y_i\log \Lambda\left(\lambda(E(u(X)\mid q)-E(u(X)\mid p))\right)
++(1-y_i)\log\left(1-\Lambda\left(\lambda(E(u(X)\mid q)-E(u(X)\mid p))\right) \right)
+\right]
+\end{aligned}
+\]</span></p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-1" tabindex="-1"></a>probQ<span class="ot">&lt;-</span>D[,<span class="fu">c</span>(<span class="st">&quot;q1&quot;</span>,<span class="st">&quot;q2&quot;</span>,<span class="st">&quot;q3&quot;</span>,<span class="st">&quot;q4&quot;</span>)] <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span>
+<span id="cb144-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-2" tabindex="-1"></a>probP<span class="ot">&lt;-</span>D[,<span class="fu">c</span>(<span class="st">&quot;p1&quot;</span>,<span class="st">&quot;p2&quot;</span>,<span class="st">&quot;p3&quot;</span>,<span class="st">&quot;p4&quot;</span>)] <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span>
+<span id="cb144-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-3" tabindex="-1"></a>y<span class="ot">&lt;-</span>D<span class="sc">$</span>y <span class="sc">%&gt;%</span> <span class="fu">as.vector</span>()</span>
+<span id="cb144-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-4" tabindex="-1"></a>prizes<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>,<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>,<span class="dv">1</span>)</span>
+<span id="cb144-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-5" tabindex="-1"></a></span>
+<span id="cb144-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-6" tabindex="-1"></a>nlogL<span class="ot">&lt;-</span><span class="cf">function</span>(r,lambda) {</span>
+<span id="cb144-7"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-7" tabindex="-1"></a>    </span>
+<span id="cb144-8"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-8" tabindex="-1"></a>   uPrizes<span class="ot">&lt;-</span>prizes<span class="sc">^</span>r</span>
+<span id="cb144-9"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-9" tabindex="-1"></a>   EUq<span class="ot">&lt;-</span>probQ <span class="sc">%*%</span> uPrizes</span>
+<span id="cb144-10"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-10" tabindex="-1"></a>   EUp<span class="ot">&lt;-</span>probP <span class="sc">%*%</span> uPrizes</span>
+<span id="cb144-11"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-11" tabindex="-1"></a>   </span>
+<span id="cb144-12"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-12" tabindex="-1"></a>   PrQ<span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span> lambda<span class="sc">*</span>(EUq<span class="sc">-</span>EUp)))</span>
+<span id="cb144-13"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-13" tabindex="-1"></a>   </span>
+<span id="cb144-14"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-14" tabindex="-1"></a>   <span class="sc">-</span><span class="fu">sum</span>(</span>
+<span id="cb144-15"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-15" tabindex="-1"></a>     y<span class="sc">*</span><span class="fu">log</span>(PrQ)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>y)<span class="sc">*</span><span class="fu">log</span>(<span class="dv">1</span><span class="sc">-</span>PrQ)</span>
+<span id="cb144-16"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-16" tabindex="-1"></a>   )</span>
+<span id="cb144-17"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-17" tabindex="-1"></a>}</span>
+<span id="cb144-18"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-18" tabindex="-1"></a></span>
+<span id="cb144-19"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-19" tabindex="-1"></a>estimates<span class="ot">&lt;-</span>stats4<span class="sc">::</span><span class="fu">mle</span>(nlogL,<span class="at">start=</span><span class="fu">list</span>(<span class="at">r=</span><span class="fl">0.5</span>,<span class="at">lambda=</span><span class="dv">10</span>))</span>
+<span id="cb144-20"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-20" tabindex="-1"></a></span>
+<span id="cb144-21"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb144-21" tabindex="-1"></a>estimates <span class="sc">%&gt;%</span> <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## stats4::mle(minuslogl = nlogL, start = list(r = 0.5, lambda = 10))
+## 
+## Coefficients:
+##          r     lambda 
+##  0.2502351 33.3936736</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-1" tabindex="-1"></a><span class="co"># look at the predictions</span></span>
+<span id="cb146-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-2" tabindex="-1"></a></span>
+<span id="cb146-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-3" tabindex="-1"></a>uPrizes<span class="ot">&lt;-</span>prizes<span class="sc">^</span>estimates<span class="sc">@</span>coef[<span class="st">&quot;r&quot;</span>]</span>
+<span id="cb146-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-4" tabindex="-1"></a>   EUq<span class="ot">&lt;-</span>probQ <span class="sc">%*%</span> uPrizes</span>
+<span id="cb146-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-5" tabindex="-1"></a>   EUp<span class="ot">&lt;-</span>probP <span class="sc">%*%</span> uPrizes</span>
+<span id="cb146-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-6" tabindex="-1"></a>   </span>
+<span id="cb146-7"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-7" tabindex="-1"></a>   PrQ<span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span> estimates<span class="sc">@</span>coef[<span class="st">&quot;lambda&quot;</span>]<span class="sc">*</span>(EUq<span class="sc">-</span>EUp)))</span>
+<span id="cb146-8"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-8" tabindex="-1"></a>   </span>
+<span id="cb146-9"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-9" tabindex="-1"></a>D<span class="ot">&lt;-</span>(</span>
+<span id="cb146-10"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-10" tabindex="-1"></a>  D</span>
+<span id="cb146-11"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-11" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">PrQ =</span> PrQ <span class="sc">%&gt;%</span> <span class="fu">as.vector</span>())</span>
+<span id="cb146-12"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-12" tabindex="-1"></a>)</span>
+<span id="cb146-13"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-13" tabindex="-1"></a></span>
+<span id="cb146-14"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-14" tabindex="-1"></a>(</span>
+<span id="cb146-15"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-15" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>D,<span class="fu">aes</span>(<span class="at">x=</span>EVq<span class="sc">-</span>EVp,<span class="at">y=</span>PrQ))</span>
+<span id="cb146-16"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-16" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb146-17"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-17" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Difference in expected value&quot;</span>)</span>
+<span id="cb146-18"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-18" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Probability of choosing the q-lottery&quot;</span>)</span>
+<span id="cb146-19"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-19" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb146-20"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb146-20" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-219-1.png" width="672" /></p>
+<p>And because we can, let’s estimate the risk preferences of all the participants</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-1" tabindex="-1"></a>D<span class="ot">&lt;-</span>(<span class="fu">read_dta</span>(<span class="st">&quot;data/Hey_data12.dta&quot;</span>))</span>
+<span id="cb147-2"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-2" tabindex="-1"></a>idList<span class="ot">&lt;-</span>D<span class="sc">$</span>id <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span>
+<span id="cb147-3"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-3" tabindex="-1"></a></span>
+<span id="cb147-4"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-4" tabindex="-1"></a>ESTIMATES<span class="ot">&lt;-</span><span class="fu">c</span>()</span>
+<span id="cb147-5"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-5" tabindex="-1"></a><span class="cf">for</span> (ii <span class="cf">in</span> idList) { </span>
+<span id="cb147-6"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-6" tabindex="-1"></a>  </span>
+<span id="cb147-7"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-7" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">any</span>(ii<span class="sc">==</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">32</span>,<span class="dv">34</span>,<span class="dv">36</span>,<span class="dv">44</span>,<span class="dv">45</span>,<span class="dv">53</span>))) {</span>
+<span id="cb147-8"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-8" tabindex="-1"></a>    <span class="fu">print</span>(id)</span>
+<span id="cb147-9"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-9" tabindex="-1"></a>      d<span class="ot">&lt;-</span>D <span class="sc">%&gt;%</span> <span class="fu">filter</span>(id<span class="sc">==</span>ii)</span>
+<span id="cb147-10"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-10" tabindex="-1"></a>    </span>
+<span id="cb147-11"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-11" tabindex="-1"></a>    probQ<span class="ot">&lt;-</span>d[,<span class="fu">c</span>(<span class="st">&quot;q1&quot;</span>,<span class="st">&quot;q2&quot;</span>,<span class="st">&quot;q3&quot;</span>,<span class="st">&quot;q4&quot;</span>)] <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span>
+<span id="cb147-12"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-12" tabindex="-1"></a>  probP<span class="ot">&lt;-</span>d[,<span class="fu">c</span>(<span class="st">&quot;p1&quot;</span>,<span class="st">&quot;p2&quot;</span>,<span class="st">&quot;p3&quot;</span>,<span class="st">&quot;p4&quot;</span>)] <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span>
+<span id="cb147-13"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-13" tabindex="-1"></a>  y<span class="ot">&lt;-</span>d<span class="sc">$</span>y <span class="sc">%&gt;%</span> <span class="fu">as.vector</span>()</span>
+<span id="cb147-14"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-14" tabindex="-1"></a>  prizes<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>,<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>,<span class="dv">1</span>)</span>
+<span id="cb147-15"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-15" tabindex="-1"></a>  </span>
+<span id="cb147-16"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-16" tabindex="-1"></a>  nlogL<span class="ot">&lt;-</span><span class="cf">function</span>(r,lambda) {</span>
+<span id="cb147-17"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-17" tabindex="-1"></a>      </span>
+<span id="cb147-18"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-18" tabindex="-1"></a>     uPrizes<span class="ot">&lt;-</span>prizes<span class="sc">^</span>r</span>
+<span id="cb147-19"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-19" tabindex="-1"></a>     EUq<span class="ot">&lt;-</span>probQ <span class="sc">%*%</span> uPrizes</span>
+<span id="cb147-20"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-20" tabindex="-1"></a>     EUp<span class="ot">&lt;-</span>probP <span class="sc">%*%</span> uPrizes</span>
+<span id="cb147-21"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-21" tabindex="-1"></a>     </span>
+<span id="cb147-22"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-22" tabindex="-1"></a>     PrQ<span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span> lambda<span class="sc">*</span>(EUq<span class="sc">-</span>EUp)))</span>
+<span id="cb147-23"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-23" tabindex="-1"></a>     </span>
+<span id="cb147-24"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-24" tabindex="-1"></a>     <span class="sc">-</span><span class="fu">sum</span>(</span>
+<span id="cb147-25"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-25" tabindex="-1"></a>       y<span class="sc">*</span><span class="fu">log</span>(PrQ)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>y)<span class="sc">*</span><span class="fu">log</span>(<span class="dv">1</span><span class="sc">-</span>PrQ)</span>
+<span id="cb147-26"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-26" tabindex="-1"></a>     )</span>
+<span id="cb147-27"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-27" tabindex="-1"></a>  }</span>
+<span id="cb147-28"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-28" tabindex="-1"></a>  </span>
+<span id="cb147-29"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-29" tabindex="-1"></a>  estimates<span class="ot">&lt;-</span>stats4<span class="sc">::</span><span class="fu">mle</span>(nlogL,<span class="at">start=</span><span class="fu">list</span>(<span class="at">r=</span><span class="fl">0.5</span>,<span class="at">lambda=</span><span class="dv">10</span>))</span>
+<span id="cb147-30"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-30" tabindex="-1"></a>  ESTIMATES<span class="ot">&lt;-</span><span class="fu">rbind</span>(ESTIMATES,estimates<span class="sc">@</span>coef)</span>
+<span id="cb147-31"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-31" tabindex="-1"></a>  }</span>
+<span id="cb147-32"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-32" tabindex="-1"></a>}</span>
+<span id="cb147-33"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-33" tabindex="-1"></a></span>
+<span id="cb147-34"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-34" tabindex="-1"></a>(<span class="fu">ggplot</span>(ESTIMATES <span class="sc">%&gt;%</span> <span class="fu">data.frame</span>(),<span class="fu">aes</span>(<span class="at">x=</span>r,<span class="at">y=</span>lambda))</span>
+<span id="cb147-35"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-35" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb147-36"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-36" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>)</span>
+<span id="cb147-37"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-37" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb147-38"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#cb147-38" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-220-1.png" width="672" /></p>
+</div>
+</div>
+<div id="exercises-9" class="section level2 hasAnchor" number="12.9">
+<h2><span class="header-section-number">12.9</span> Exercises<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#exercises-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="checking-that-we-rolled-a-die-correctly" class="section level3 hasAnchor" number="12.9.1">
+<h3><span class="header-section-number">12.9.1</span> Checking that we rolled a die correctly<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#checking-that-we-rolled-a-die-correctly" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>n Game Theory, an indefinitely repeated game is one that is repeated until a random condition is met. One way to implement this in an economic experiment is to roll a die after every repetition: if a 6-sided die roll is (say) four or less, then the game is repeated for another round, otherwise there are no more repetitions. For this particular stopping rule, what we achieve is a stopping probability of <span class="math inline">\(\delta=1/3\)</span>. That is, if we roll a 1, 2, 3, or 4, we continue, and if we roll a 5 or 6, we stop.
+One concern an experimenter might have is that the number of repetitions that two subsets of the sample had were very different. This might happen if one group had unusually long game lengths, and another had unusually short game lengths. This could be a problem because we want to attribute differences in participants’ behavior to something else, like the different payoffs in the game. Therefore, it is common in situations like this to report the results of a hypothesis test that the two groups experienced similar game lengths.</p>
+<p><code>EndRound.csv</code> is a stripped-down dataset from an experiment of mine and some co-authors [note to self: insert citation when we actually publish it]. Each row of this file contains one instance of a repeated game. The file contains two variables: <code>EndRound</code> is the number of rounds that this game was played for, and <code>group</code> identifies whether this row correpsonds to Group 1 or Group 2 in the experiment. The <code>EndRound</code> variable was generated almost exactly as described above: during the experiment at the end of every repetition, I rolled a 20-sided die, and we played another one if the number was sufficiently low.</p>
+<p>Let <span class="math inline">\(X_i\)</span> be the number of rounds that participants play game <span class="math inline">\(i\)</span>. Given the description above, <span class="math inline">\(X_i\)</span> must follow a {} distribution, which has probability mass function:
+<span class="math display">\[\begin{align*}
+p(x)&amp;=\begin{cases}
+(1-\delta)^{x-1}\delta&amp;\text{if } x = 1, 2, 3, 4, \ldots\\
+0&amp;\text{otherwise}
+\end{cases}
+\end{align*}\]</span>
+You can think of this as <span class="math inline">\(X_i\)</span> is the number of times you have to flip an unfair coin that comes up heads with probability <span class="math inline">\(\delta\)</span>, until you have seen one head.</p>
+<ol style="list-style-type: decimal">
+<li>What is the likelihood of observing a sample <span class="math inline">\(\{x_i\}_{i=1}^N\)</span>?</li>
+<li>What is the log-likelihood function? Express your answer as a function of <span class="math inline">\(\delta\)</span>, <span class="math inline">\(N\)</span>, and the sample mean only.</li>
+<li>What is <span class="math inline">\(\hat\delta\)</span>, the maximum likelihood estimator for <span class="math inline">\(\delta\)</span>?</li>
+<li>Use the data to estimate <span class="math inline">\(\delta\)</span> for each group individually, and for both groups pooled.</li>
+<li>Report the <span class="math inline">\(p\)</span>-value for the test that the two groups have the same <span class="math inline">\(\delta\)</span> (do the Likelihood Ratio test).</li>
+<li>Suppose that you were unable to solve for <span class="math inline">\(\hat\delta\)</span> explicitly. Write a script that finds <span class="math inline">\(\hat\delta\)</span> (just for the pooled estimate) using:
+<ol style="list-style-type: lower-alpha">
+<li>Grid search. For this, use a grid of <span class="math inline">\(\{0.01, 0.02, 0.03, \ldots 0.99\}\)</span> (i.e. 99 evenly spaced points on the unit interval)</li>
+<li>Newton’s method.</li>
+</ol></li>
+<li>Do you encounter any problems with either of these? How many iterations does it take Newton’s method to converge to within 0.01 of <span class="math inline">\(\hat\delta\)</span>? Discuss one advantage and disadvantage of using Newton’s method over a grid search.</li>
+</ol>
+</div>
+<div id="galtons-heights-dataset" class="section level3 hasAnchor" number="12.9.2">
+<h3><span class="header-section-number">12.9.2</span> Galton’s heights dataset<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#galtons-heights-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Download the Galton heights dataset.
+Create a dummy variable that is equal to one if the child is taller than <em>both</em> parents, zero otherwise. This will be our LHS variable of interest.</p>
+<p>Estimate linear probability model and probit models using average parent height and the son dummy variable on the right-hand side. Include the log-likelihood of the probit models in this table</p>
+<ol style="list-style-type: decimal">
+<li>Using the <code>mfx</code> package, compute the marginal effects of average parent height and child sex on the probability of a child being taller than their parents.</li>
+<li>Plot the predicted values of the OLS model and the probit model. Comment on these predictions.</li>
+<li>Estimate another Probit model that tests whether the relationship between <span class="math inline">\(\Pr[{\tt taller}]\)</span> and average parent height is different between sons and daughters. Use a likelihood ratio test.</li>
+<li>Use this model to estimate (i) the probability that a son is taller than both his parents, and (ii) the probability that a daughter is taller than both of her partents. Put 95% confidence intervals around these numbers.</li>
+<li>(*) Report the difference in these probabilities, and a confidence interval for that number. Explain the interpretation of this number.</li>
+</ol>
+</div>
+<div id="sumo-wrestling" class="section level3 hasAnchor" number="12.9.3">
+<h3><span class="header-section-number">12.9.3</span> Sumo wrestling<a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sumo-wrestling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Download and read the following paper:</p>
+<blockquote>
+<p>Duggan, Mark, and Steven D. Levitt. “Winning Isn’t Everything: Corruption in Sumo Wrestling.” The American Economic Review 92.5 (2002): 1594-1605</p>
+</blockquote>
+<p>This is one of the papers discussed in <em>Freakonomics</em>.</p>
+<ol style="list-style-type: decimal">
+<li>Briefly explain why two Sumo wrestlers may face different incentives to win the same match.</li>
+<li>Consider a simplified version of the econometric model in their Equation (1).
+<span class="math display">\[\begin{align}
+\mathrm{Win}_{i,j,t,d}&amp;=\beta_0+\beta_1\mathrm{Bubble}_{i,j,t,d}+\gamma\mathrm{Rankdiff}_{i,j,t}+\epsilon_{i,j,t,d}\label{eq:Sumo}
+\end{align}\]</span></li>
+<li>Suppose instead that you estimated a Probit model:
+<span class="math display">\[\begin{align}
+\Pr[\mathrm{Win}_{i,j,t,d}=1]&amp;=\Phi\left(\beta_0+\beta_1\mathrm{Bubble}_{i,j,t,d}+\gamma\mathrm{Rankdiff}_{i,j,t}\right)
+\end{align}\]</span>
+and obtain estimates <span class="math inline">\(\tilde\beta_0\)</span>, <span class="math inline">\(\tilde\beta_1\)</span>, and <span class="math inline">\(\tilde\gamma\)</span>. Write down a functions of these estimates that has the same interpretations as your answer to part <span class="math inline">\(\ref{it:SumoMFX1}\)</span>. Note how Duggan and Levitt define the variable <span class="math inline">\(\mathrm{Bubble}_{i,j,t,d}\)</span>.</li>
+<li>Briefly explain what the data would look like if there was not any match fixing going on.</li>
+<li>Duggan and Levitt point out that it is plausible that effort could explain the Bubble effect. Re-write equation <span class="math inline">\(\ref{eq:Sumo}\)</span> with an ``effort’’ variable to reflect this. We typically don’t observe effort, so how will this affect the estimate of <span class="math inline">\(\beta_1\)</span>?</li>
+<li>Briefly explain one of the ways that Levitt and Duggan try to convince the reader that (at least some of the) bubble effect is due to match fixing.</li>
+</ol>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="hypothesis-tests-about-more-than-one-parameter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="combining-and-manipulating-datasets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

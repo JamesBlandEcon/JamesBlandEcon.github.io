@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Estimators | Econometrics notes</title>
+  <meta name="description" content="4 Estimators | Econometrics notes" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Estimators | Econometrics notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Estimators | Econometrics notes" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2025-08-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="review-of-some-mathmatical-concepts.html"/>
+<link rel="next" href="inference.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>1</b> Introduction to the course</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#housekeeping"><i class="fa fa-check"></i><b>1.1</b> Housekeeping</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#two-important-skills-in-econometrics"><i class="fa fa-check"></i><b>1.2</b> Two important skills in econometrics</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#example-incumbency-advantage---lee-moretti-and-butler-2004"><i class="fa fa-check"></i><b>1.3</b> Example: incumbency advantage - Lee, Moretti, and Butler (2004)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>R</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#scripts"><i class="fa fa-check"></i><b>2.2</b> Scripts</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-working-directory"><i class="fa fa-check"></i><b>2.3</b> The working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#exercises"><i class="fa fa-check"></i><b>2.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#understanding-some-code"><i class="fa fa-check"></i><b>2.4.1</b> Understanding some code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html"><i class="fa fa-check"></i><b>3</b> Review of some mathmatical concepts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#summation"><i class="fa fa-check"></i><b>3.1</b> Summation</a></li>
+<li class="chapter" data-level="3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-random-variables"><i class="fa fa-check"></i><b>3.2</b> Describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#discrete-random-variables"><i class="fa fa-check"></i><b>3.2.1</b> Discrete random variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#continuous-random-variables"><i class="fa fa-check"></i><b>3.2.2</b> Continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#completely-describing-random-variables"><i class="fa fa-check"></i><b>3.3</b> Completely describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#cumulative-density-function"><i class="fa fa-check"></i><b>3.3.1</b> Cumulative density function</a></li>
+<li class="chapter" data-level="3.3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-mass-function"><i class="fa fa-check"></i><b>3.3.2</b> Probability mass function</a></li>
+<li class="chapter" data-level="3.3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-density-function"><i class="fa fa-check"></i><b>3.3.3</b> Probability density function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#ways-to-summarize-a-distribution"><i class="fa fa-check"></i><b>3.4</b> Ways to summarize a distribution</a></li>
+<li class="chapter" data-level="3.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-the-relationship-between-two-or-more-random-variables"><i class="fa fa-check"></i><b>3.5</b> Describing the relationship between two or more random variables</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#joint-distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Joint distribution functions</a></li>
+<li class="chapter" data-level="3.5.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#conditional-probability"><i class="fa fa-check"></i><b>3.5.2</b> Conditional probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exercises-1"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#four-sided-die-roll"><i class="fa fa-check"></i><b>3.6.1</b> Four-sided die roll</a></li>
+<li class="chapter" data-level="3.6.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exponential-distribution"><i class="fa fa-check"></i><b>3.6.2</b> Exponential distribution</a></li>
+<li class="chapter" data-level="3.6.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#modeling-a-random-probability"><i class="fa fa-check"></i><b>3.6.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="3.6.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#an-unfair-coin"><i class="fa fa-check"></i><b>3.6.4</b> An unfair coin</a></li>
+<li class="chapter" data-level="3.6.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#adding-two-random-variables"><i class="fa fa-check"></i><b>3.6.5</b> Adding two random variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estimators.html"><a href="estimators.html"><i class="fa fa-check"></i><b>4</b> Estimators</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="estimators.html"><a href="estimators.html#estimators-and-the-sampling-distribution"><i class="fa fa-check"></i><b>4.1</b> Estimators and the sampling distribution</a></li>
+<li class="chapter" data-level="4.2" data-path="estimators.html"><a href="estimators.html#small-sample-properties-of-estimators"><i class="fa fa-check"></i><b>4.2</b> Small sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="estimators.html"><a href="estimators.html#bias"><i class="fa fa-check"></i><b>4.2.1</b> Bias</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estimators.html"><a href="estimators.html#variance"><i class="fa fa-check"></i><b>4.2.2</b> Variance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="estimators.html"><a href="estimators.html#mean-squared-error"><i class="fa fa-check"></i><b>4.2.3</b> Mean squared error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="estimators.html"><a href="estimators.html#exercises-2"><i class="fa fa-check"></i><b>4.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="estimators.html"><a href="estimators.html#modeling-a-random-probability-1"><i class="fa fa-check"></i><b>4.3.1</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="4.3.2" data-path="estimators.html"><a href="estimators.html#exponential-distribution-1"><i class="fa fa-check"></i><b>4.3.2</b> Exponential distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>5</b> Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="inference.html"><a href="inference.html#hypothesis-tests"><i class="fa fa-check"></i><b>5.1</b> Hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="inference.html"><a href="inference.html#one-sided-hypothesis-tests"><i class="fa fa-check"></i><b>5.1.1</b> One-sided hypothesis tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="inference.html"><a href="inference.html#p-values"><i class="fa fa-check"></i><b>5.2</b> <span class="math inline">\(p\)</span>-values</a></li>
+<li class="chapter" data-level="5.3" data-path="inference.html"><a href="inference.html#confidence-intervals"><i class="fa fa-check"></i><b>5.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="5.4" data-path="inference.html"><a href="inference.html#test-power"><i class="fa fa-check"></i><b>5.4</b> Test power</a></li>
+<li class="chapter" data-level="5.5" data-path="inference.html"><a href="inference.html#the-take-away"><i class="fa fa-check"></i><b>5.5</b> The take-away</a></li>
+<li class="chapter" data-level="5.6" data-path="inference.html"><a href="inference.html#exercises-3"><i class="fa fa-check"></i><b>5.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="inference.html"><a href="inference.html#converting-a-continuous-variable-into-a-coin-flip"><i class="fa fa-check"></i><b>5.6.1</b> Converting a continuous variable into a coin flip</a></li>
+<li class="chapter" data-level="5.6.2" data-path="inference.html"><a href="inference.html#the-maximum-of-a-sample"><i class="fa fa-check"></i><b>5.6.2</b> The maximum of a sample</a></li>
+<li class="chapter" data-level="5.6.3" data-path="inference.html"><a href="inference.html#assessing-the-performance-of-a-cookbook-hypothesis-test"><i class="fa fa-check"></i><b>5.6.3</b> Assessing the performance of a “cookbook” hypothesis test</a></li>
+<li class="chapter" data-level="5.6.4" data-path="inference.html"><a href="inference.html#hypothesis-tests-using-graphs"><i class="fa fa-check"></i><b>5.6.4</b> Hypothesis tests using graphs</a></li>
+<li class="chapter" data-level="5.6.5" data-path="inference.html"><a href="inference.html#simulation-exercise"><i class="fa fa-check"></i><b>5.6.5</b> Simulation exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html"><i class="fa fa-check"></i><b>6</b> Inference using asymptotic assumptions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-estimators"><i class="fa fa-check"></i><b>6.1</b> Large-sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#consistency"><i class="fa fa-check"></i><b>6.1.1</b> Consistency</a></li>
+<li class="chapter" data-level="6.1.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#asymptotic-distribution"><i class="fa fa-check"></i><b>6.1.2</b> Asymptotic distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-sample-means"><i class="fa fa-check"></i><b>6.2</b> Large-sample properties of sample means</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-weak-law-of-large-numbers-wlln"><i class="fa fa-check"></i><b>6.2.1</b> The Weak Law of Large Numbers (WLLN)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-central-limit-theorem"><i class="fa fa-check"></i><b>6.2.2</b> A Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#using-large-sample-properties-to-make-inference-easier"><i class="fa fa-check"></i><b>6.3</b> Using large-sample properties to make inference easier</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#hypothesis-tests-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.1</b> Hypothesis tests with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#even-more-of-a-shortcut"><i class="fa fa-check"></i><b>6.3.2</b> Even more of a shortcut</a></li>
+<li class="chapter" data-level="6.3.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#confidence-intervals-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.3</b> Confidence intervals with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#p-values-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.4</b> <span class="math inline">\(p\)</span>-values with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#tieing-this-in-with-the-previous-chapter"><i class="fa fa-check"></i><b>6.3.5</b> Tieing this in with the previous chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#transforming-variables"><i class="fa fa-check"></i><b>6.4</b> Transforming variables</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-continuous-mapping-theorem"><i class="fa fa-check"></i><b>6.4.1</b> The continuous mapping theorem</a></li>
+<li class="chapter" data-level="6.4.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-delta-method"><i class="fa fa-check"></i><b>6.4.2</b> The delta method</a></li>
+<li class="chapter" data-level="6.4.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#jensens-inequality"><i class="fa fa-check"></i><b>6.4.3</b> Jensen’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exercises-4"><i class="fa fa-check"></i><b>6.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exponential-distribution-2"><i class="fa fa-check"></i><b>6.5.1</b> Exponential distribution</a></li>
+<li class="chapter" data-level="6.5.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-simulation"><i class="fa fa-check"></i><b>6.5.2</b> A simulation</a></li>
+<li class="chapter" data-level="6.5.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#modeling-a-random-probability-2"><i class="fa fa-check"></i><b>6.5.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="6.5.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-sort-of-simulation-exercise"><i class="fa fa-check"></i><b>6.5.4</b> A (sort-of) simulation exercise</a></li>
+<li class="chapter" data-level="6.5.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#one-test-three-ways"><i class="fa fa-check"></i><b>6.5.5</b> One test, three ways</a></li>
+<li class="chapter" data-level="6.5.6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#deriving-properties-of-estimators"><i class="fa fa-check"></i><b>6.5.6</b> Deriving properties of estimators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="linear-regression.html"><a href="linear-regression.html#derivation-of-the-bivariate-ols-slope-estimator"><i class="fa fa-check"></i><b>7.1</b> Derivation of the bivariate OLS slope estimator</a></li>
+<li class="chapter" data-level="7.2" data-path="linear-regression.html"><a href="linear-regression.html#unbiasedness"><i class="fa fa-check"></i><b>7.2</b> Unbiasedness</a></li>
+<li class="chapter" data-level="7.3" data-path="linear-regression.html"><a href="linear-regression.html#variance-1"><i class="fa fa-check"></i><b>7.3</b> Variance</a></li>
+<li class="chapter" data-level="7.4" data-path="linear-regression.html"><a href="linear-regression.html#inference-in-bivariate-ols"><i class="fa fa-check"></i><b>7.4</b> Inference in bivariate OLS</a></li>
+<li class="chapter" data-level="7.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-5"><i class="fa fa-check"></i><b>7.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="linear-regression.html"><a href="linear-regression.html#municipal-expenditure"><i class="fa fa-check"></i><b>7.5.1</b> Municipal expenditure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html"><i class="fa fa-check"></i><b>8</b> The shape of the right-hand side</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#linear-regression-as-a-model-for-conditional-expectation"><i class="fa fa-check"></i><b>8.1</b> Linear regression as a model for conditional expectation</a></li>
+<li class="chapter" data-level="8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#an-example-dataset"><i class="fa fa-check"></i><b>8.2</b> An example dataset</a></li>
+<li class="chapter" data-level="8.3" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#marginal-effects"><i class="fa fa-check"></i><b>8.3</b> Marginal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#categorical-variables"><i class="fa fa-check"></i><b>8.4</b> Categorical variables</a></li>
+<li class="chapter" data-level="8.5" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#interactions"><i class="fa fa-check"></i><b>8.5</b> Interactions</a></li>
+<li class="chapter" data-level="8.6" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#logarithms"><i class="fa fa-check"></i><b>8.6</b> Logarithms</a></li>
+<li class="chapter" data-level="8.7" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#polynomials"><i class="fa fa-check"></i><b>8.7</b> Polynomials</a></li>
+<li class="chapter" data-level="8.8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#exercises-6"><i class="fa fa-check"></i><b>8.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#baking-a-cake"><i class="fa fa-check"></i><b>8.8.1</b> Baking a cake</a></li>
+<li class="chapter" data-level="8.8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#psid-earnings-panel-data"><i class="fa fa-check"></i><b>8.8.2</b> PSID Earnings Panel Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html"><i class="fa fa-check"></i><b>9</b> Linear regression - common misconceptions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#heteroskedasticity"><i class="fa fa-check"></i><b>9.1</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#multicolinearity"><i class="fa fa-check"></i><b>9.2</b> Multicolinearity</a></li>
+<li class="chapter" data-level="9.3" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#omitted-variables-are-always-a-problem"><i class="fa fa-check"></i><b>9.3</b> Omitted variables are <em>always</em> a problem</a></li>
+<li class="chapter" data-level="9.4" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#normal-errors"><i class="fa fa-check"></i><b>9.4</b> Normal errors</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Standard errors in linear regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#homoskedasticity-the-standard-standard-errors"><i class="fa fa-check"></i><b>10.1</b> Homoskedasticity: the “standard” standard errors</a></li>
+<li class="chapter" data-level="10.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#heteroskedasticity-1"><i class="fa fa-check"></i><b>10.2</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="10.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#clustered-standard-errors"><i class="fa fa-check"></i><b>10.3</b> Clustered standard errors</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#an-example"><i class="fa fa-check"></i><b>10.3.1</b> An example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#standard-errors-for-multivariate-linear-regression"><i class="fa fa-check"></i><b>10.4</b> Standard errors for multivariate linear regression</a></li>
+<li class="chapter" data-level="10.5" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#calculating-standard-errors-in-r"><i class="fa fa-check"></i><b>10.5</b> Calculating standard errors in <em>R</em></a></li>
+<li class="chapter" data-level="10.6" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#exercises-7"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#galtons-families"><i class="fa fa-check"></i><b>10.6.1</b> Galton’s families</a></li>
+<li class="chapter" data-level="10.6.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#simulation"><i class="fa fa-check"></i><b>10.6.2</b> Simulation</a></li>
+<li class="chapter" data-level="10.6.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#more-simulation"><i class="fa fa-check"></i><b>10.6.3</b> More simulation</a></li>
+<li class="chapter" data-level="10.6.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#instructor-ratings"><i class="fa fa-check"></i><b>10.6.4</b> Instructor ratings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html"><i class="fa fa-check"></i><b>11</b> Hypothesis tests about more than one parameter</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-restricted-model"><i class="fa fa-check"></i><b>11.1</b> The restricted model</a></li>
+<li class="chapter" data-level="11.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-test-using-r2-that-you-probably-shouldnt-use"><i class="fa fa-check"></i><b>11.2</b> A test using <span class="math inline">\(R^2\)</span> that you probably shouldn’t use</a></li>
+<li class="chapter" data-level="11.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-more-robust-test"><i class="fa fa-check"></i><b>11.3</b> A more robust test</a></li>
+<li class="chapter" data-level="11.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#another-example"><i class="fa fa-check"></i><b>11.4</b> Another example</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-whether-the-child-is-male-of-female"><i class="fa fa-check"></i><b>11.4.1</b> The height of a child does not depend on whether the child is male of female</a></li>
+<li class="chapter" data-level="11.4.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-the-height-of-their-parents"><i class="fa fa-check"></i><b>11.4.2</b> The height of a child does not depend on the height of their parents</a></li>
+<li class="chapter" data-level="11.4.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-mother-height-on-child-height-is-the-same-as-the-effect-of-father-height-on-child-height"><i class="fa fa-check"></i><b>11.4.3</b> The effect of mother height on child height is the same as the effect of father height on child height</a></li>
+<li class="chapter" data-level="11.4.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-male-childrens-height-is-the-same-as-the-effect-of-parent-height-on-female-childrens-height"><i class="fa fa-check"></i><b>11.4.4</b> The effect of parent height on male children’s height is the same as the effect of parent height on female children’s height</a></li>
+<li class="chapter" data-level="11.4.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-child-height-is-linear"><i class="fa fa-check"></i><b>11.4.5</b> The effect of parent height on child height is linear</a></li>
+<li class="chapter" data-level="11.4.6" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#parents-who-are-on-average-one-inch-taller-have-children-that-are-on-average-one-inch-taller"><i class="fa fa-check"></i><b>11.4.6</b> Parents who are on average one inch taller have children that are on average one inch taller</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#exercises-8"><i class="fa fa-check"></i><b>11.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#project-star-student-teacher-achievement-ratio"><i class="fa fa-check"></i><b>11.5.1</b> Project STAR: Student-Teacher Achievement Ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><i class="fa fa-check"></i><b>12</b> Limited dependent variable models and maximum likelihood estimation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#motivation-the-linear-probability-model-works-134-of-the-time"><i class="fa fa-check"></i><b>12.1</b> Motivation: The linear probability model works 134% of the time</a></li>
+<li class="chapter" data-level="12.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-practical-solution-ensure-that-predictions-are-always-valid"><i class="fa fa-check"></i><b>12.2</b> A practical solution: Ensure that predictions are always valid</a></li>
+<li class="chapter" data-level="12.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#interpreting-the-coefficients-of-the-probit-and-logit-models"><i class="fa fa-check"></i><b>12.3</b> Interpreting the coefficients of the probit and logit models</a></li>
+<li class="chapter" data-level="12.4" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#but-how-do-we-estimate-it-maximum-likelihood"><i class="fa fa-check"></i><b>12.4</b> But how do we estimate it? Maximum likelihood</a></li>
+<li class="chapter" data-level="12.5" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#doing-inference-with-maximum-likelihood"><i class="fa fa-check"></i><b>12.5</b> Doing inference with maximum likelihood</a></li>
+<li class="chapter" data-level="12.6" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#how-some-estimators-relate-to-maximum-likelihood"><i class="fa fa-check"></i><b>12.6</b> How some estimators relate to maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sample-mean-for-a-bernoulli-coin-flip-variable"><i class="fa fa-check"></i><b>12.6.1</b> Sample mean for a Bernoulli (coin flip) variable</a></li>
+<li class="chapter" data-level="12.6.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#linear-regression-1"><i class="fa fa-check"></i><b>12.6.2</b> Linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#some-examples-of-estimating-parameters-using-maximum-likelihood"><i class="fa fa-check"></i><b>12.7</b> Some examples of estimating parameters using maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#geometric-distribution"><i class="fa fa-check"></i><b>12.7.1</b> Geometric distribution</a></li>
+<li class="chapter" data-level="12.7.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#simplified-beta-distribution"><i class="fa fa-check"></i><b>12.7.2</b> Simplified Beta distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#an-extended-example"><i class="fa fa-check"></i><b>12.8</b> An extended example</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#data"><i class="fa fa-check"></i><b>12.8.1</b> Data</a></li>
+<li class="chapter" data-level="12.8.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-research-question"><i class="fa fa-check"></i><b>12.8.2</b> A research question</a></li>
+<li class="chapter" data-level="12.8.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#the-model-based-approach"><i class="fa fa-check"></i><b>12.8.3</b> The model-based approach</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#exercises-9"><i class="fa fa-check"></i><b>12.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.9.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#checking-that-we-rolled-a-die-correctly"><i class="fa fa-check"></i><b>12.9.1</b> Checking that we rolled a die correctly</a></li>
+<li class="chapter" data-level="12.9.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#galtons-heights-dataset"><i class="fa fa-check"></i><b>12.9.2</b> Galton’s heights dataset</a></li>
+<li class="chapter" data-level="12.9.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sumo-wrestling"><i class="fa fa-check"></i><b>12.9.3</b> Sumo wrestling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html"><i class="fa fa-check"></i><b>13</b> Combining and manipulating datasets</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#merging-data-join"><i class="fa fa-check"></i><b>13.1</b> Merging data (<code>join</code>)</a></li>
+<li class="chapter" data-level="13.2" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#wide-and-long-formats-pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>13.2</b> Wide and long formats (<code>pivot_longer</code> and <code>pivot_wider</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="time-series-introduction.html"><a href="time-series-introduction.html"><i class="fa fa-check"></i><b>14</b> Time series – Introduction</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#autoregressive-and-moving-average-arma-models-the-basic-building-blocks-of-time-series-models"><i class="fa fa-check"></i><b>14.1</b> Autoregressive and moving average (ARMA) models: the basic building blocks of time series models</a></li>
+<li class="chapter" data-level="14.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-properties-of-arma-processes"><i class="fa fa-check"></i><b>14.2</b> Stationarity and properties of ARMA processes</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#examples"><i class="fa fa-check"></i><b>14.2.1</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#diagnostics-autocorrelation-and-partial-autocorrelation-functions"><i class="fa fa-check"></i><b>14.3</b> Diagnostics: Autocorrelation and partial autocorrelation functions</a></li>
+<li class="chapter" data-level="14.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-unemployment"><i class="fa fa-check"></i><b>14.4</b> Example dataset – unemployment</a></li>
+<li class="chapter" data-level="14.5" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-testing-for-unit-roots"><i class="fa fa-check"></i><b>14.5</b> Stationarity and testing for unit roots</a></li>
+<li class="chapter" data-level="14.6" data-path="time-series-introduction.html"><a href="time-series-introduction.html#non-stationarity-and-spurious-correlation"><i class="fa fa-check"></i><b>14.6</b> Non-stationarity and spurious correlation</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-share-a-trend"><i class="fa fa-check"></i><b>14.6.1</b> Two variables share a trend</a></li>
+<li class="chapter" data-level="14.6.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-are-cyclical"><i class="fa fa-check"></i><b>14.6.2</b> Two variables are cyclical</a></li>
+<li class="chapter" data-level="14.6.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-have-a-unit-root"><i class="fa fa-check"></i><b>14.6.3</b> Two variables have a unit root</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="time-series-introduction.html"><a href="time-series-introduction.html#differencing-and-stationarity"><i class="fa fa-check"></i><b>14.7</b> Differencing and stationarity</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#some-examples-of-making-non-stationary-series-stationary-through-differencing"><i class="fa fa-check"></i><b>14.7.1</b> Some examples of making non-stationary series stationary through differencing</a></li>
+<li class="chapter" data-level="14.7.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-us-consumer-price-index"><i class="fa fa-check"></i><b>14.7.2</b> Example dataset: US Consumer Price Index</a></li>
+<li class="chapter" data-level="14.7.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-data-gdp-and-money-supply"><i class="fa fa-check"></i><b>14.7.3</b> Example data: GDP and money supply</a></li>
+<li class="chapter" data-level="14.7.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-peace-corps"><i class="fa fa-check"></i><b>14.7.4</b> Example: Peace Corps</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="time-series-introduction.html"><a href="time-series-introduction.html#estimating-arima-models"><i class="fa fa-check"></i><b>14.8</b> Estimating ARIMA models</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html"><i class="fa fa-check"></i><b>15</b> Time series – Forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#prediction-and-forecasting"><i class="fa fa-check"></i><b>15.1</b> Prediction and forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-with-univariate-problems"><i class="fa fa-check"></i><b>15.1.1</b> Example: Prediction with univariate problems</a></li>
+<li class="chapter" data-level="15.1.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-in-bivariate-ols"><i class="fa fa-check"></i><b>15.1.2</b> Example: Prediction in bivariate OLS</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#cross-validation"><i class="fa fa-check"></i><b>15.2</b> Cross-validation</a></li>
+<li class="chapter" data-level="15.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-cpi-and-ppi"><i class="fa fa-check"></i><b>15.3</b> Example: CPI and PPI</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#using-just-ar-and-ma-components"><i class="fa fa-check"></i><b>15.3.1</b> Using just AR and MA components</a></li>
+<li class="chapter" data-level="15.3.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-some-seasonality"><i class="fa fa-check"></i><b>15.3.2</b> Incorporating some seasonality</a></li>
+<li class="chapter" data-level="15.3.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-ppi-inflation"><i class="fa fa-check"></i><b>15.3.3</b> Incorporating PPI inflation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="additional-exercises.html"><a href="additional-exercises.html"><i class="fa fa-check"></i><b>16</b> Additional exercises</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="additional-exercises.html"><a href="additional-exercises.html#for-loops"><i class="fa fa-check"></i><b>16.1</b> For loops</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="additional-exercises.html"><a href="additional-exercises.html#determinants-of-wage-data-cps-1988"><i class="fa fa-check"></i><b>16.1.1</b> Determinants of wage data (CPS 1988)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="past-exam-questions.html"><a href="past-exam-questions.html"><i class="fa fa-check"></i><b>17</b> Past exam questions</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2023-5810-exam-1"><i class="fa fa-check"></i><b>17.1</b> Fall 2023 5810 Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability"><i class="fa fa-check"></i><b>17.1.1</b> Probability</a></li>
+<li class="chapter" data-level="17.1.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimation-and-inference"><i class="fa fa-check"></i><b>17.1.2</b> Estimation and inference</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2022-5810-exam-1"><i class="fa fa-check"></i><b>17.2</b> Fall 2022 5810, Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability-1"><i class="fa fa-check"></i><b>17.2.1</b> Probability</a></li>
+<li class="chapter" data-level="17.2.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#inference-1"><i class="fa fa-check"></i><b>17.2.2</b> Inference</a></li>
+<li class="chapter" data-level="17.2.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimators-and-large-sample-properties"><i class="fa fa-check"></i><b>17.2.3</b> Estimators and large-sample properties</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-2-2022"><i class="fa fa-check"></i><b>17.3</b> 5810 Exam 2 (2022)</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#directed-acyclic-graphs"><i class="fa fa-check"></i><b>17.3.1</b> Directed Acyclic Graphs</a></li>
+<li class="chapter" data-level="17.3.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#linear-regression-2"><i class="fa fa-check"></i><b>17.3.2</b> Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-1-2023"><i class="fa fa-check"></i><b>17.4</b> 5820, Exam 1 (2023)</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#maximum-likelihood"><i class="fa fa-check"></i><b>17.4.1</b> Maximum likelihood</a></li>
+<li class="chapter" data-level="17.4.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fire-trucks"><i class="fa fa-check"></i><b>17.4.2</b> Fire trucks</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Econometrics notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estimators" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Estimators<a href="estimators.html#estimators" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>An <em>estimator</em> is a mathematical function that takes data and gives you an <em>estimate</em> of something. While this course will mainly focus on numerical examples, I would like you to remember that we take in information, and use this information to make educated guesses about things <em>all the time</em>. For example, before I go grocery shopping, I have a peek into the fridge and decide how much food I will need to buy this week: an estimate. When I drive to work, I pay attention to the traffic conditions (i.e. data), in part so I have an estimate of how fast I should be driving.
+In what will follow, our analysis will look somewhat more formal than this, but be mindful that there are similarities: (i) we gather information and use it to make a prediction or guess about something, (ii) there are some ways of using the information that are more useful than others, (iii) some types of information are better than other types, (iv) if we know more about how we are gathering our information, we can sometimes use this to make a better guess, and (v) more information usually makes our guess more accurate.</p>
+<p>The Frequentist approach in econometrics<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+starts with the premise that there is a <em>population parameter</em> (or collection of parameters, the distinction is not important at all), say <span class="math inline">\(\theta\)</span>, that determines how we observe data. We observe a <em>sample</em> of data, say <span class="math inline">\(\{x_i\}_{i=1}^N\)</span>, and use this sample to produce an <em>estimate</em> of <span class="math inline">\(\theta\)</span>, the property of the population that we would like to know about. Our prime objective in econometrics is to estimate properties of the population, using a sample and an estimator.</p>
+<p>As an example, suppose that you wish to estimate the probability that tossing a particular coin results in it landing heads up.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
+You decide to model the data-generating process as follows:</p>
+<p><span class="math display">\[
+\begin{aligned}
+H_i&amp;=\begin{cases}
+1 &amp;\text{if coin flip $i$ lands heads up}\\
+0 &amp;\text{otherwise}
+\end{cases}\\
+\Pr[H_i=1]&amp;=\theta,\quad \theta\in[0,1]\label{eq:sampling:pr}\\
+H_i&amp;\sim iid \mathrm{Bernoulli}(\theta)\label{eq:sampling:formal}
+\end{aligned}
+\]</span>
+Here the first line defines a random variable that can take on two values, 0 and 1 (we implicitly assume that the coin has exactly two sides, and so <span class="math inline">\(H_i\neq 1 \iff H_i=0 \iff \mathrm{tails}\)</span>). The second line tells us that the probability of the coin flip coming up heads is equal to <span class="math inline">\(\theta\)</span>: this is the population parameter that we want to estimate. The third line formalizes this further, by (i) using the formal name for a coin-flip variable (Bernoulli), and (ii) formally stating the assumption that each coin flip is an independent draw from the same distribution.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
+These are all statements about the population.</p>
+<p>Now we collect a <em>sample</em> from this population. In this example, this could involve flipping the coin (say) 100 times, and recording the result of each coin flip. Let’s denote this sample as <span class="math inline">\(\{h_i\}_{i=1}^{100}\)</span>. This last bit of notation denotes the collection of coin flip outcomes for 100 coin flips. We could write this out long-hand as:
+<span class="math display">\[\begin{align}
+\{h_i\}_{i=1}^{100} = \{h_1, h_2, h_3, \ldots, h_{99}, h_{100}\}
+\end{align}\]</span>
+but we have better things to do (or at least I do).</p>
+<p>At this point (and forever into the future) it is very important to be clear about when we are talking about properties of the sample and properties of the population. We will be using the former to tell us something about the latter, but they are two different things. <span class="math inline">\(\{h_i\}_{i=1}^N\)</span>, the sample, is the thing we will be importing into our statistical package, then calculating means, variances, etc. of. We know the sample mean <em>because we can calculate it</em>. We can never know the population mean: that’s why the sample is useful!</p>
+<div id="estimators-and-the-sampling-distribution" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Estimators and the sampling distribution<a href="estimators.html#estimators-and-the-sampling-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We now take our sample, and stick it into our estimator. Out comes an estimate. Here’s the thing: our sample is random. If we put something random into a function, in general we should expect to get something random out. In the context of our coin-flipping example starting in this section, we have a sample of 100 coin flips, and wish to use this to estimate <span class="math inline">\(\theta\)</span>, the probability that our coin comes up heads. For a lot of reasons that we will get to later on, a good estimator to use in this situation is:
+<span class="math display">\[\begin{align}
+\hat\theta &amp;=\frac{1}{N}\sum_{i=1}^Nh_i
+\end{align}\]</span>
+which happens to be the sample mean.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
+Although it is not stated explicitly on the left-hand side of the above equation, <span class="math inline">\(\hat\theta\)</span> is a function of the sample: <span class="math inline">\(\hat\theta = f\left(\{h_i\}_{i=1}^N\right)=\frac{1}{N}\sum_{i=1}^Nh_i\)</span>, but that is overly cumbersome, so we will stick with the notation <span class="math inline">\(\hat\theta\)</span>. We have also gone a bit more general, and written this for an arbitrary sample size <span class="math inline">\(N\)</span>, rather than our <span class="math inline">\(N=100\)</span> observations in the above example.</p>
+<p>Before exploring the properties of <span class="math inline">\(\hat\theta\)</span> when <span class="math inline">\(N=100\)</span>, it is instructive to understand how <span class="math inline">\(\hat\theta\)</span> behaves with stupidly small samples. Each row of the following Table shows a possible sample that we could have observed, if we only tossed the coin <span class="math inline">\(N=3\)</span> times:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><span class="math inline">\(h_1\)</span></th>
+<th align="left"><span class="math inline">\(h_2\)</span></th>
+<th align="left"><span class="math inline">\(h_3\)</span></th>
+<th align="left"><span class="math inline">\(\hat\theta\)</span></th>
+<th align="left">probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left"><span class="math inline">\(0\)</span></td>
+<td align="left"><span class="math inline">\((1-\theta)^3\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left"><span class="math inline">\(\frac13\)</span></td>
+<td align="left"><span class="math inline">\(\theta(1-\theta)^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left"><span class="math inline">\(\frac13\)</span></td>
+<td align="left"><span class="math inline">\(\theta(1-\theta)^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left"><span class="math inline">\(\frac23\)</span></td>
+<td align="left"><span class="math inline">\(\theta^2(1-\theta)\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left"><span class="math inline">\(\frac13\)</span></td>
+<td align="left"><span class="math inline">\(\theta(1-\theta)^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left"><span class="math inline">\(\frac23\)</span></td>
+<td align="left"><span class="math inline">\(\theta^2(1-\theta)\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left"><span class="math inline">\(\frac23\)</span></td>
+<td align="left"><span class="math inline">\(\theta^2(1-\theta)\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left"><span class="math inline">\(1\)</span></td>
+<td align="left"><span class="math inline">\(\theta^3\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The rightmost column shows the probability of observing that sample, as a function of the population parameter <span class="math inline">\(\theta\)</span>. Note that we pay attention to the order of coin flips, and hence we don’t think of the sample <span class="math inline">\(\{1,0,1\}\)</span> as being the same as <span class="math inline">\(\{1,1,0\}\)</span>, even though they both have 2 heads and 1 tail. This is an important distinction for later on, but at the moment just be aware that there are <span class="math inline">\(2^3=8\)</span> possible samples that we could have observed, with varying probability of being observed.
+That said, the sample mean doesn’t give a hoot about which order in which the heads and tails came, so we can add up the cells in the ``Probability’’ column of this Table to get the probability mass function of the sample mean, as a function of <span class="math inline">\(\theta\)</span>:
+<span class="math display">\[\begin{align}
+\Pr[\hat\theta=x]&amp;=\begin{cases}
+(1-\theta)^3 &amp;\text{if }x=0\\
+3\theta(1-\theta)^2 &amp;\text{if }x=1/3\\
+3\theta^2(1-\theta) &amp;\text{if }x=2/3\\
+\theta^3 &amp;\text{if }x=1\\
+0&amp;\text{otherwise}
+\end{cases}\label{eq:BernoulliHat3}
+\end{align}\]</span>
+which characterizes the distribution of our estimator <span class="math inline">\(\hat\theta\)</span>, as a function of the population parameter <span class="math inline">\(\theta\)</span>. We call this the <em>sampling distribution</em> of <span class="math inline">\(\hat\theta\)</span>.
+If one can see the matrix when it comes to probability mass functions, one may realize this that we can write (<span class="math inline">\(\ref{eq:BernoulliHat3}\)</span>) more compactly as:
+<span class="math display">\[\begin{align}
+\Pr[\hat\theta=x]&amp;=
+\begin{cases}\binom{3}{3x}\theta^{3x}(1-\theta)^{3(1-x)}
+&amp;\text{if } x\in\{0,1/3,2/3, 1\}\\
+0&amp;\text{otherwise}
+\end{cases}
+\end{align}\]</span>
+which if you squint hard enough, looks {} like the Binomial distribution. In fact, if you substitute in <span class="math inline">\(k=3x\)</span>, this is exactly what you get: the number of heads for this sampling process is distributed <span class="math inline">\(\mathrm{Binomial}(3,\theta)\)</span>. For a sample size of <span class="math inline">\(N\)</span>, this generalizes to <span class="math inline">\(\mathrm{Binomial}(N,\theta)\)</span>. To illustrate this,
+The following figure shows the sampling distribution for the same estimator for a much more reasonable sample of <span class="math inline">\(N=100\)</span> coin flips.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="estimators.html#cb29-1" tabindex="-1"></a>x<span class="ot">=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb29-2"><a href="estimators.html#cb29-2" tabindex="-1"></a>d<span class="ot">&lt;-</span>(<span class="fu">tibble</span>(<span class="at">x=</span>x,<span class="at">pmf =</span> <span class="fu">dbinom</span>(x,<span class="dv">100</span>,<span class="fl">0.2</span>),<span class="at">theta=</span><span class="fl">0.2</span>)</span>
+<span id="cb29-3"><a href="estimators.html#cb29-3" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">rbind</span>(</span>
+<span id="cb29-4"><a href="estimators.html#cb29-4" tabindex="-1"></a>      <span class="fu">tibble</span>(<span class="at">x=</span>x,<span class="at">pmf =</span> <span class="fu">dbinom</span>(x,<span class="dv">100</span>,<span class="fl">0.4</span>),<span class="at">theta=</span><span class="fl">0.4</span>)</span>
+<span id="cb29-5"><a href="estimators.html#cb29-5" tabindex="-1"></a>    )</span>
+<span id="cb29-6"><a href="estimators.html#cb29-6" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">rbind</span>(</span>
+<span id="cb29-7"><a href="estimators.html#cb29-7" tabindex="-1"></a>      <span class="fu">tibble</span>(<span class="at">x=</span>x,<span class="at">pmf =</span> <span class="fu">dbinom</span>(x,<span class="dv">100</span>,<span class="fl">0.6</span>),<span class="at">theta=</span><span class="fl">0.6</span>)</span>
+<span id="cb29-8"><a href="estimators.html#cb29-8" tabindex="-1"></a>    )</span>
+<span id="cb29-9"><a href="estimators.html#cb29-9" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">rbind</span>(</span>
+<span id="cb29-10"><a href="estimators.html#cb29-10" tabindex="-1"></a>      <span class="fu">tibble</span>(<span class="at">x=</span>x,<span class="at">pmf =</span> <span class="fu">dbinom</span>(x,<span class="dv">100</span>,<span class="fl">0.8</span>),<span class="at">theta=</span><span class="fl">0.8</span>)</span>
+<span id="cb29-11"><a href="estimators.html#cb29-11" tabindex="-1"></a>    )</span>
+<span id="cb29-12"><a href="estimators.html#cb29-12" tabindex="-1"></a>)</span>
+<span id="cb29-13"><a href="estimators.html#cb29-13" tabindex="-1"></a>(</span>
+<span id="cb29-14"><a href="estimators.html#cb29-14" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>pmf))</span>
+<span id="cb29-15"><a href="estimators.html#cb29-15" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb29-16"><a href="estimators.html#cb29-16" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb29-17"><a href="estimators.html#cb29-17" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>theta)</span>
+<span id="cb29-18"><a href="estimators.html#cb29-18" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<p>As the sample size gets larger, there are more values that <span class="math inline">\(\hat\theta\)</span> can take on. For example, when <span class="math inline">\(N=4\)</span> we will get one of $=$0, 1/4, 2/4, 3/4, 4/4, and as <span class="math inline">\(N\)</span> gets <em>really</em> large, we struggle to see that the distribution is still discrete. However note that since we are always taking a ratio of two integers, the number of heads divided by the sample size, there are some values of <span class="math inline">\(\hat\theta\)</span> that we could <em>never</em> get: <span class="math inline">\(\frac{\pi}{4}\)</span>, for example.</p>
+<p>Unfortunately, in general, the sampling distribution of an estimator is not easy to work out. Most of the time, however, we can determine a few properties of this distribution. In particular, we may be interested in knowing the expected value of <span class="math inline">\(\hat\theta\)</span> (i.e.: “on average, do I get right number?”), the variance (i.e.: “how precise is my estimator?”), and how these things change with sample size (i.e.: “if my sample size gets bigger, how much better is my estimator?”). We explore some of these properties in the next section.</p>
+</div>
+<div id="small-sample-properties-of-estimators" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Small sample properties of estimators<a href="estimators.html#small-sample-properties-of-estimators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>While it is usually infeasible to determine the exact sampling distribution of our estimator, we can usually derive, or at least approximate (more on this later), some properties of its distribution. That is, we might not be able to write down the cdf of <span class="math inline">\(\hat\theta\)</span>, but we may be able to work out a few things, like its mean and variance. This is especially easy when our estimator is a sample mean, because we know a lot about sample means, and is particularly useful when there is more than one estimator that could do the job for you. If there is more than one option, it usually pays to think at least a bit about which one will work best for you.</p>
+<p>To illustrate this, suppose for example that a friend of yours was rolling a fair die, and calling out the numbers. Your problem is that you don’t know how many sides the die has, and you would like to estimate it. Let <span class="math inline">\(\eta\)</span> be the number of sides on the die. Your data <span class="math inline">\(\{k_i\}_{i=1}^N\)</span> consists of the outcomes of the <span class="math inline">\(N\)</span> die rolls that your friend has called out.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
+<p>Here are two estimators that you may want to consider:</p>
+<ol style="list-style-type: decimal">
+<li>Noting that for an <span class="math inline">\(\eta\)</span>-sided die, the expected value of a roll is <span class="math inline">\(E[k_i]=\frac{\eta+1}{2}\)</span>, you replace <span class="math inline">\(E[k_i]\)</span> with its sample analog, <span class="math inline">\(\bar k=\frac{1}{N}\sum_ik_i\)</span> and solve for <span class="math inline">\(\eta\)</span>:
+<span class="math display">\[\begin{align}
+\hat\eta&amp;=2\bar k -1, \quad \text{i.e.:}\
+\bar k=\frac{\hat\eta+1}{2}
+\end{align}\]</span>c{+1}{2}
+\end{align}</li>
+<li>Noting that the highest possible value of <span class="math inline">\(k_i\)</span> that you could observe is <span class="math inline">\(k_i=\eta\)</span>, you use the maximum:
+<span class="math display">\[\begin{align}
+\tilde\eta&amp;=\max_i\{k_i\}
+\end{align}\]</span></li>
+</ol>
+<p>Both of these take a property of the population (the mean and maximum respectively), and then use the* <em>sample analog</em> of this. Unsurprisingly, this is often referred to as an <em>analogy</em> estimation strategy.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
+We will be introduced to some important properties of estimators below, in the context of <span class="math inline">\(\hat\eta\)</span> and <span class="math inline">\(\tilde \eta\)</span>. Neither will come out as unambiguously better. Get used to it! If we (economists) assume people can make trade-offs, we’d better be able to make them ourselves. But before getting into this, suppose that you observed the following sample:
+<span class="math display">\[\begin{align*}
+\{1,1,1,1,1,6\}\implies \quad \hat\theta=2\frac{11}{6}-1\approx 2.7,\quad \tilde\eta=6
+\end{align*}\]</span>
+One alarming property of <span class="math inline">\(\hat\theta\)</span> (that is not discussed below) is that our estimate of 2.7, even if we round it up to the nearest integer, could not <em>possibly</em> be believable, because we observe a 6 in our sample! We would never run into this problem for <span class="math inline">\(\tilde\theta\)</span>.</p>
+<div id="bias" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Bias<a href="estimators.html#bias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>While we have no guarantee that our estimator gives us the right number (i.e. <span class="math inline">\(\hat\theta=\theta\)</span>) <em>for sure</em>, we can assess whether we get the right number {}. Specifically, we can compare <span class="math inline">\(E[\hat\theta]\)</span> to <span class="math inline">\(\theta\)</span>. If they are equal, i.e.~<span class="math inline">\(E[\hat\theta]=\theta\)</span>, then we say that our estimator is <em>unbiased</em>. On the other hand, if <span class="math inline">\(E[\hat\theta]\neq\theta\)</span>, then our estimator is <em>biased</em>, and we might want to worry.</p>
+<p>Now let’s evaluate the properties of our estimators <span class="math inline">\(\hat\eta\)</span> and <span class="math inline">\(\tilde \eta\)</span> described earlier. For the estimator based on the population mean:
+<span class="math display">\[\begin{align}
+E[\hat\eta]&amp;=E\left[2\bar k-1\right]\\
+&amp;=2E[\bar k] -1\\
+&amp;=2E\left[\frac{1}{N}\sum_{i}k_i\right]-1\\
+&amp;=\frac2N\sum_iE[k_i]-1\\
+&amp;=\frac{2}{N}NE[k_i]-1\\
+&amp;=2E[k_i]-1\\
+&amp;=2\frac{\eta+1}{2}-1\\
+&amp;=\eta
+\end{align}\]</span>
+In short, <span class="math inline">\(E[\hat\eta]=\eta\iff \hat\eta\)</span> is unbiased. Good! In expectation (loosely: “on average”) we get the right number.</p>
+<p>Now let’s look at the estimator based on the maximum:
+<span class="math display">\[\begin{align}
+E[\tilde\eta]&amp;=E[\max_ik_i]
+\end{align}\]</span>
+This opens up a bit more of a can of worms, because now we need to take an expectation over the maximum of the <span class="math inline">\(k_i\)</span>s in our sample. Welcome to the wonderful world of <em>order statistics</em>! Specifically, the first order statistic (i.e. the maximum of a sample).
+We first need to derive the distribution of <span class="math inline">\(\max_ik_i\)</span>. Let <span class="math inline">\(M\)</span> be this maximum, to make notation easier. What is the probability that <span class="math inline">\(M\)</span> is equal to a particular value <span class="math inline">\(m\)</span>? That is, what is the pmf of <span class="math inline">\(M\)</span>?
+<span class="math display">\[\begin{align}
+p(m)&amp;=\Pr[N-1\text { observations are less than or equal to } m \nonumber \\
+&amp;\quad\quad\quad\quad \text{ and at least one is equal to } m]\\
+&amp;=\binom{N}{1}\left(\frac{m}{\eta}\right)^{N-1}\frac{1}{\eta}=\frac{Nm^{N-1}}{\eta^N}
+\end{align}\]</span>
+if <span class="math inline">\(m=1, 2, 3,\ldots,\eta\)</span>, and zero otherwise. We can now take the expectation of <span class="math inline">\(M\)</span>:
+<span class="math display">\[\begin{align}
+E[\tilde\eta]=E[M]&amp;=\sum_{m=1}^\eta\left[m\frac{Nm^{N-1}}{\eta^N}\right]\\
+&amp;=\frac{N\eta}{N+1}\sum_{m=1}^\eta\left[\frac{(N+1)m^{N+1-1}}{\eta^{N+1}}\right]\\
+&amp;=\eta\frac{N}{N+1}\label{eq:biasEtaTilde}
+\end{align}\]</span></p>
+<p>Where the last line follows by noting that the thingy that we are summing is the pmf of <span class="math inline">\(M\)</span>, if we have one extra observation in our sample, and so it must sum to 1. Remember this monkey trick, it will come in handy!
+Inspection of the previous equation yields some sad news: <span class="math inline">\(\tilde\eta\)</span> is biased. On average we will under-estimate <span class="math inline">\(\eta\)</span> by the fraction <span class="math inline">\(\frac{N}{N+1}\)</span>. This should not be too surprising: For any sample size, there is a non-zero probability that the maximum is not equal to <span class="math inline">\(\eta\)</span>, and so some of the terms in the above expectation calculation put positive weight on outcomes that are less than <span class="math inline">\(\eta\)</span>. Further inspection of this and a bit of thinking (!), however, shows that all is not lost. Firstly, as our sample size gets large, <span class="math inline">\(\frac{N}{N+1}\to 1\)</span>, and so the bias disappears. This is a common property of many (but by no means all) biased estimators, and may be why we might prefer one to an unbiased estimator if we think our sample size is large enough. Secondly, since the bias is only a function of <span class="math inline">\(N\)</span>, we can easily correct for this by multiplying the maximum by <span class="math inline">\(\frac{N+1}{N}\)</span>, that is:</p>
+<p><span class="math display">\[\begin{align}
+\check\eta&amp;=\frac{N+1}{N}\max_ik_i=\frac{N+1}{N}\tilde\eta\\
+E[\check\eta]&amp;=E\left[\frac{N+1}{N}\tilde\eta\right]=\frac{N+1}{N}E[\tilde\eta]=\frac{N+1}{N}\frac{N}{N+1}\eta=\eta
+\end{align}\]</span>
+By deriving the bias of this estimator we were not only able to say something about the direction of the bias (i.e.~<span class="math inline">\(\tilde\eta\)</span> under-estimates the population parameter on average), but we also came up with another one that was unbiased! You should probably remember that.</p>
+</div>
+<div id="variance" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Variance<a href="estimators.html#variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If our estimator is unbiased, or at least if the bias is something that we can cope with, the next question we might ask is: how <em>precise</em> is our estimator? That is, through the sampling process, do our estimates all fall nice and close to their mean, or are they all over the place? We typically use variance to evaluate this. After checking bias, we found that while <span class="math inline">\(\hat\eta\)</span> was the only unbiased estimator in consideration, we could easily correct the bias in <span class="math inline">\(\tilde\eta\)</span>. Therefore this should be the next thing to check in our die-rolling example. Firstly, for <span class="math inline">\(\hat\eta:\)</span></p>
+<p><span class="math display">\[\begin{align}
+V[\hat\eta]&amp;=V\left[2\bar k-1\right]\\
+&amp;=\frac{4}{N}V[k_i],&amp;\quad\text{(assumed independence here)}\\
+&amp;=\frac{4}{N}\frac{\eta^2-1}{12}\\
+&amp;=\frac{\eta^2-1}{3N}\label{eq:varianceHatEta}
+\end{align}\]</span></p>
+<p>Inspection of this tells us a few things. Firstly, if <span class="math inline">\(\eta=1\)</span>, then <span class="math inline">\(V[\hat\eta]=0\)</span>. This should not be surprising, but it is comforting: if we have a one-sided “die”, then we will always get the same number, and hence have zero variance. Perhaps of more use is that the variance is (i) increasing in <span class="math inline">\(\eta\)</span>, and (ii) decreasing in <span class="math inline">\(N\)</span>. (ii) is typical of almost anything you will end up using, and loosely can be interpreted as “bigger samples are better”.</p>
+<p>Now let’s move to our second estimator, <span class="math inline">\(\tilde\eta\)</span>. For reasons that should become obvious after you do this over and over again, we are going to use the relationship <span class="math inline">\(V[X]=E[X^2]-E[X]^2\)</span>. In case they are not obvious now, these reasons are (i) we already know <span class="math inline">\(E[X]\)</span>, and (ii) it is easier to evaluate <span class="math inline">\(E[X^2]\)</span> on its own than try to do <span class="math inline">\(V[X]\)</span> in one fell swoop.
+<span class="math display">\[\begin{align}
+E[\tilde\eta^2]&amp;=E\left[M^2\right]\\
+&amp;=\sum_{m=1}^\eta\left[m^2\frac{Nm^{N-1}}{\eta^N}\right]\\
+&amp;=\sum_{m=1}^\eta\left[\frac{Nm^{N+1}}{\eta^N}\right]\\
+%
+&amp;=\frac{N\eta^{N+2}}{\eta^N(N+2)}\sum_{m=1}^N
+\left[
+\frac{(N+2)m^{N+1}}{\eta^{N+2}}
+\right]\\
+&amp;=\eta^2\frac{N}{N+2}\\
+V[\tilde\eta]&amp;=\eta^2\left[\frac{N}{N+2}-\left(\frac{N}{N+1}\right)^2\right]\\
+&amp;=\eta^2\frac{N^3+2N^2+N-N^3-2N^2}{(N+2)(N+1)^2}\\
+&amp;=\frac{N\eta^2}{(N+2)(N+1)^2}
+\end{align}\]</span>
+as with <span class="math inline">\(\hat\eta\)</span>, the variance of <span class="math inline">\(\tilde\eta\)</span> decreases as sample size increases. To see this, note that we have <span class="math inline">\(N\)</span> in the numerator, and a cubic in the denominator, so the denominator grows much faster.</p>
+<p>But which of <span class="math inline">\(\hat\eta\)</span> and <span class="math inline">\(\tilde\eta\)</span> is better based on variance? It turns out that for almost all reasonable values of <span class="math inline">\(\eta\)</span> and <span class="math inline">\(N\)</span>, <span class="math inline">\(V[\tilde\eta]&lt;V[\hat\eta]\)</span>, which can be shown as follows:
+<span class="math display">\[\begin{align}
+\frac{V[\tilde\eta]}{V[\hat\eta]}&amp;=\frac{N\eta^2}{(N+2)(N+1)^2}\times\frac{3N}{\eta^2-1}\\
+&amp;=\frac{N\eta^2}{(N+2)(N^2+2N+1)}\times\frac{3N}{\eta^2-1}\\
+&amp;=\frac{N\eta^2}{N^3+2N^2+N+2N^2+4N+2}\times\frac{3N}{\eta^2-1}\\
+&amp;=\frac{N\eta^2}{N^3+4N^2+5N+2}\times\frac{3N}{\eta^2-1}\\
+&amp;=\frac{\eta^2}{N+4+5/N+2/N^2}\times\frac{3}{\eta^2-1}
+\end{align}\]</span>
+which <span class="math inline">\(\to 0\)</span> as <span class="math inline">\(N\to\infty\)</span>.
+Furthermore, the denominator in the first fraction is at least 5, so we can say that:
+<span class="math display">\[\begin{align}
+\frac{V[\tilde\eta]}{V[\hat\eta]}&amp;&lt;\frac{3\eta^2}{5(\eta^2-1)}
+\end{align}\]</span>
+and when is this fraction less than one?
+<span class="math display">\[\begin{align}
+\frac{3\eta^2}{5(\eta^2-1)}&amp;\leq 1\\
+3\eta^2&amp;\leq5\eta^2-5\\
+5&amp;\leq 2\eta^2\label{eq:etaTildeVNeq}\\
+\eta&amp;\geq 2
+\end{align}\]</span></p>
+<p>Note that the mathematical solution to the above equation is <span class="math inline">\(\eta\in(-\infty,-\sqrt{2.5}]\cup[\sqrt{2.5},\infty)\)</span>, however we can discard the negative part of this because our die can only take on positive numbers, and we can round up the lower bound of <span class="math inline">\(\sqrt{2.5}\)</span> to 2 because our die has an integer number of sides. Hence <span class="math inline">\(\eta\geq 2\)</span> is the econometric solution to the problem. In short, <span class="math inline">\(\tilde\eta\)</span> has a smaller variance than <span class="math inline">\(\hat\eta\)</span>, as long as we don’t have a one-sided die.</p>
+</div>
+<div id="mean-squared-error" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Mean squared error<a href="estimators.html#mean-squared-error" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A small variance is a good thing, but only if the estimator’s distribution is centered (at least roughly) around the true value. That is, if the estimator is substantially biased, why should be care that the variance is small? We shouldn’t! To see this, let’s construct a silly but illustrative example. Suppose that you can use estimators for population parameter <span class="math inline">\(\theta\)</span> with the following sampling distributions:<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>
+<span class="math display">\[\begin{align}
+\Pr[\hat\theta=x]&amp;=\begin{cases}
+1 &amp;\text{if } x = 2\\
+0 &amp;\text{otherwise}
+\end{cases}\\
+\Pr[\tilde\theta = x]&amp;=\begin{cases}
+\frac{1}{5}&amp;\text{if } x\in\{\theta-2,\theta-1,\theta,\theta+1,\theta+2\}\\
+0&amp;\text{otherwise}
+\end{cases}
+\end{align}\]</span>
+The first estimator <span class="math inline">\(\hat\theta\)</span> returns an estimate of 2 no matter what data we get. This should look like a silly choice, but <span class="math inline">\(\hat\theta\)</span> {} have the following desirable property: <span class="math inline">\(V[\hat\theta]=0\)</span>. If we were to judge estimators based only on their variance, we could do no better than <span class="math inline">\(\hat\theta\)</span>! The problem with this estimator is that it is biased: <span class="math inline">\(E[\hat\theta]=2\neq\theta\)</span> (unless the true value <span class="math inline">\(\theta\)</span> is also equal to 2, but we can’t know that). <span class="math inline">\(\tilde\theta\)</span>, on the other hand, is unbiased, because:
+<span class="math display">\[\begin{align}
+E[\tilde\theta]&amp;=\sum_{k=-2}^2\frac{\theta+k}{5}=\theta
+\end{align}\]</span>
+but has a non-zero (hence realistic) variance of:
+<span class="math display">\[\begin{align}
+V[\tilde\theta]&amp;=\sum_{k=-2}^2\frac{1}{5}(\theta+k-\theta)^2=\frac15(2^2+1^2+0^2+1^2+2^2)=\frac{10}{2}=5
+\end{align}\]</span>
+One useful measure to use in these cases is <em>mean squared error</em> (MSE). Unlike variance, which asks how far away (in terms of squared distance) on average is an estimator from its <em>expected</em> value, MSE asks how far away our estimator is from its <em>true</em> value. Let’s put these side-by-side to see the difference:
+<span class="math display">\[\begin{align}
+V[\hat\theta]&amp;=E\left[\left(\hat\theta-E[\hat\theta]\right)^2\right]\label{eq:MSEV}\\
+MSE[\hat\theta]&amp;=E\left[\left(\hat\theta-\theta\right)^2\right]\label{eq:MSE}
+\end{align}\]</span>
+Comparing the two, note the only difference is that for the MSE equation, we replace the expected value of the estimator, <span class="math inline">\(E[\hat\theta]\)</span>, with population parameter that we are trying to estimate, <span class="math inline">\(\theta\)</span>. Hence, these two things will be equal if and only if <span class="math inline">\(E[\hat\theta]=\theta\)</span>. To see the “only if” part of this, we can decompose MSE as follows:
+<span class="math display">\[\begin{align}
+MSE[\hat\theta]&amp;=E\left[\left(\hat\theta-\theta+E[\hat\theta]-E[\hat\theta]\right)^2\right]\\
+&amp;=E\left[\left(\left(\hat\theta-E[\hat\theta]\right)+\left(E[\hat\theta]-\theta\right)\right)^2\right]\\
+%%%%%
+&amp;=E\left[\left(\hat\theta-E[\hat\theta]\right)^2\right]
++E\left[\left(E[\hat\theta]-\theta\right)^2\right]
++2E\left[\left(\hat\theta-E[\hat\theta]\right)\left(E[\hat\theta]-\theta\right)\right]\label{eq:MSEtempZero}\\
+&amp;=V[\hat\theta]+\mathrm{Bias}^2[\hat\theta]+0
+\end{align}\]</span>
+The third term in this expression is equal to zero because <span class="math inline">\(E[\hat\theta]\)</span> and <span class="math inline">\(\theta\)</span> are constants, and <span class="math inline">\(E\left[\hat\theta-E[\hat\theta]\right]=0\)</span>. Hence the MSE of an estimator is equal to the estimator’s bias squared plus its variance. How well do our estimators <span class="math inline">\(\hat\eta\)</span> and <span class="math inline">\(\tilde\eta\)</span> from the previous section stack up based on MSE? Using this formula, we already have the hard part done:
+<span class="math display">\[\begin{align}
+MSE[\hat\eta]&amp;=\frac{\eta^2-1}{3N}+0\\
+MSE[\tilde\eta]&amp;=\frac{N\eta^2}{(N+2)(N+1)^2}+\eta^2\left(\frac{1}{N+1}\right)^2\\
+&amp;=\eta^2\frac{2N+2}{(N+2)(N+1)^2}\\
+&amp;=\eta^2\frac{2}{(N+2)(N+1)}
+\\
+\frac{MSE[\tilde\eta]}{MSE[\hat\eta]}&amp;=\eta^2\frac{2}{(N+2)(N+1)}\times\frac{3N}{\eta^2-1}\\
+&amp;=\frac{\eta^2}{\eta^2-1}\times\frac{6}{(N+2)(1+1/N)}
+\end{align}\]</span>
+This leads to some ambiguity, but none that can’t be dealt with with a bit of thinking. To begin with, the fraction <span class="math inline">\(\frac{6}{(N+2)(1+1/N)}\to 0\)</span> as <span class="math inline">\(N\to\infty\)</span>, so as long as our sample is large enough we should probably use <span class="math inline">\(\tilde\eta\)</span>. Additionally, the first term <span class="math inline">\(\frac{\eta^2}{\eta^2-1}\)</span> is reasonably close to 1 for any integer greater than about <span class="math inline">\(\eta=3\)</span>,<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> so we need not fret too much about it.</p>
+</div>
+</div>
+<div id="exercises-2" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Exercises<a href="estimators.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="modeling-a-random-probability-1" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Modeling a random probability<a href="estimators.html#modeling-a-random-probability-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider the distribution studied in Exercise (with the same name) in a previous chapter.
+<span class="math display">\[
+\begin{aligned}
+F_X(x)&amp;=\begin{cases}
+0 &amp;\text{if } x\leq 0\\
+x^\alpha &amp;\text{if } 0&lt;x&lt;1\\
+1 &amp;\text{if } x\geq 1
+\end{cases}
+\end{aligned}
+\]</span></p>
+<p>Suppose that you have an iid sample <span class="math inline">\(\{X_i\}_{i=1}^N\)</span> drawn from this distribution, and consider the following estimators for the parameter <span class="math inline">\(\alpha\)</span>:
+<span class="math display">\[
+\begin{aligned}
+\hat\alpha&amp;=\frac{\frac1N\sum_{i=1}^NX_i}{1-\frac1N\sum_{i=1}^NX_i}\\
+\tilde\alpha &amp;=-\frac{1}{\frac{1}{N}\sum_{i=1}^N\log(X_i)}
+\end{aligned}
+\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Explain how these estimators relate to your answers to the Exercise in the previous chapter.</p></li>
+<li><p>Download the dataset <code>ExBetaSim_1.csv</code> from the data folder, which contains a simulated sample from this distribution. Use both estimators to estimate <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>Plot the cdf implied by your estimates, and also show the “empirical cumulative density function” of your data, which you can do in <code>ggplot2</code> using <code>stat_ecdf</code>.</p></li>
+<li><p>(Simulation exercise) Fix <span class="math inline">\(\alpha = 0.7\)</span>. Simulate some properties of these estimators for a sample size of <span class="math inline">\(N=30\)</span>. Are the estimators biased? Does one stand out as better than the other? <em>Hint</em>: You can simulate the distribution of <span class="math inline">\(X\)</span> by transforming uniform random numbers. Specifically, if <span class="math inline">\(U\sim\mathrm U[0,1]\)</span>, then:</p></li>
+</ol>
+<p><span class="math display">\[
+X = U^\frac{1}{\alpha}
+\]</span></p>
+<p>will have the correct distribution.</p>
+</div>
+<div id="exponential-distribution-1" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Exponential distribution<a href="estimators.html#exponential-distribution-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The exponential distribution can be characterized by the pdf:
+<span class="math display">\[\begin{align}
+f_X(x) &amp;= \begin{cases}
+\mu^{-1}\exp(- x/\mu)&amp;\text{if }x&gt;0\\
+0&amp;\text{otherwise}
+\end{cases}
+\end{align}\]</span>
+where <span class="math inline">\(\mu&gt;0\)</span> is a scale parameter. This distribution has the following properties:
+<span class="math display">\[\begin{align}
+E[X^k]&amp;=k!\mu^k\label{eq:exExpMoments}
+\end{align}\]</span>
+<span class="math display">\[\begin{align}
+X_i\sim iid\mathrm{Exponential}(\mu)\implies\min\{X_1, X_2, X_3,\ldots,X_N\}&amp;\sim \mathrm{Exponential}(\mu/N)
+\end{align}\]</span>
+We could plug in <span class="math inline">\(k=1\)</span> to the first property, and use:
+<span class="math display">\[\begin{align}
+\hat\mu &amp;= \frac{1}{N}\sum_{i=1}^NX_i,\quad&amp; \text{analogy of: }\mu=E[X]
+\end{align}\]</span>
+Alternatively, we could use the second property to construct the estimator:
+<span class="math display">\[\begin{align}
+\tilde \mu&amp;= N\min_i\{X_i\},\quad&amp; \text{analogy of: }\frac\mu N =E\left[\min_i\{X_i\}\right]
+\end{align}\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Derive the bias, variance, and MSE of these two estimators. Which one would you prefer to use? <em>Hint:</em> use the first property extensively!</li>
+<li>Download the datset <code>ExExponential_1.csv</code> from the data folder and estimate <span class="math inline">\(\mu\)</span> using both <span class="math inline">\(\bar\mu\)</span> and <span class="math inline">\(\hat\mu\)</span></li>
+<li>(Simulation exercise) Simulate the properties of both estimators when <span class="math inline">\(\mu=1\)</span> and <span class="math inline">\(N=30\)</span>. Your answer should include your approximation of the bias, variance, and MSE of the estimators, as well as a plot showing the pdfs of both estimators. <em>Hint:</em> If <span class="math inline">\(U\sim U[0,1]\)</span>, then <span class="math inline">\(X=-\mu\log U\sim \mathrm{Exponential}(\mu)\)</span></li>
+<li>(Simulation exercise) In principle, you could have plugged <em>any</em> <span class="math inline">\(k\)</span> into the equation <span class="math inline">\(E[X^k]=k!\mu^k\)</span> to get an analogy estimator. plug in <span class="math inline">\(k=1\)</span> and derive the analogy estimator. Don’t try to work out the bias, variance, and MSE of this analytically, just modify your code to also simulate the properties of this third estimator, say <span class="math inline">\(\check\mu\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Statistics and econometrics can be divided into two philosophies: Frequentist and Bayesian. This is a course in Frequentist econometrics. Whenever econometrics is mentioned without clarifying whether it is Frequentist or Bayesian, it is usually safe to assume Frequentist.<a href="estimators.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>It is at this point that I feel some need to apologize for a seemingly endless string of examples involving coin flipping. There are many reasons for my choice of this type of example. Most importantly, coin-flip random variables (formally: <em>Bernoulli</em> random variables), are very simple to understand. Because of this, they allow for introduction of simple concepts, without the need for you to get your head around anything else that could be complicated. Additionally, coin-flip variables show up <em>everywhere</em>: get used to it. <a href="estimators.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>The “independent” part of this means (among other things) that if I toss two coins, knowing the outcome of one tells me <em>nothing</em> about whether the other outcome is heads or tails.
+While for practical reasons we might not give a hoot about whether the <span class="math inline">\(H_i\)</span>s are independent, we usually need to make an assumption about this when we estimate things. It is best to state it (and any other assumption we make) formally. That way, it is more obvious when we are doing something stupid.<a href="estimators.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p> and here is one of the first good reasons to use this: we know a lot about sample means, so we can use them to derive properties of this estimator. More on this later.<a href="estimators.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>At this point, you may be telling me “But James, almost all dice are 6-sided, and there are a few 20-sided dice out there, but it’s really hard to get your hands on a 42-sided die. Isn’t this some information that we shouldn’t be ignoring?” To which my response would be: “Yes, go and learn Bayesian econometrics.”<a href="estimators.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Analogy estimators are reasonably easy to come up with, but there is no guarantee that they have any nice properties. Later on you will learn about maximum likelihood (ML) estimation, which is a systematic way to come up with an estimator that has some very nice properties. Another example of this is a Generalized Method of Moments (GMM) estimator.<a href="estimators.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Note here that I have abstracted away from the sampling process and just written down a probability distribution for each estimator. In the background, there may be a function taking data and returning an estimate, but this is unnecessary for the example. If you prefer, you can think about these as signals containing information about <span class="math inline">\(\theta\)</span> (which is pretty much what an estimator is, anyway).<a href="estimators.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>“Close” is a judgment call on my part, but plug in some numbers an see for yourself.<a href="estimators.html#fnref8" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="review-of-some-mathmatical-concepts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

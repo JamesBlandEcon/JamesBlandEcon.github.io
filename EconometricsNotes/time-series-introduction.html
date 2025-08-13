@@ -1,0 +1,2675 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>14 Time series – Introduction | Econometrics notes</title>
+  <meta name="description" content="14 Time series – Introduction | Econometrics notes" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="14 Time series – Introduction | Econometrics notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="14 Time series – Introduction | Econometrics notes" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2025-08-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="combining-and-manipulating-datasets.html"/>
+<link rel="next" href="time-series-forecasting.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>1</b> Introduction to the course</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#housekeeping"><i class="fa fa-check"></i><b>1.1</b> Housekeeping</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#two-important-skills-in-econometrics"><i class="fa fa-check"></i><b>1.2</b> Two important skills in econometrics</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#example-incumbency-advantage---lee-moretti-and-butler-2004"><i class="fa fa-check"></i><b>1.3</b> Example: incumbency advantage - Lee, Moretti, and Butler (2004)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>R</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#scripts"><i class="fa fa-check"></i><b>2.2</b> Scripts</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-working-directory"><i class="fa fa-check"></i><b>2.3</b> The working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#exercises"><i class="fa fa-check"></i><b>2.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#understanding-some-code"><i class="fa fa-check"></i><b>2.4.1</b> Understanding some code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html"><i class="fa fa-check"></i><b>3</b> Review of some mathmatical concepts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#summation"><i class="fa fa-check"></i><b>3.1</b> Summation</a></li>
+<li class="chapter" data-level="3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-random-variables"><i class="fa fa-check"></i><b>3.2</b> Describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#discrete-random-variables"><i class="fa fa-check"></i><b>3.2.1</b> Discrete random variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#continuous-random-variables"><i class="fa fa-check"></i><b>3.2.2</b> Continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#completely-describing-random-variables"><i class="fa fa-check"></i><b>3.3</b> Completely describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#cumulative-density-function"><i class="fa fa-check"></i><b>3.3.1</b> Cumulative density function</a></li>
+<li class="chapter" data-level="3.3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-mass-function"><i class="fa fa-check"></i><b>3.3.2</b> Probability mass function</a></li>
+<li class="chapter" data-level="3.3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-density-function"><i class="fa fa-check"></i><b>3.3.3</b> Probability density function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#ways-to-summarize-a-distribution"><i class="fa fa-check"></i><b>3.4</b> Ways to summarize a distribution</a></li>
+<li class="chapter" data-level="3.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-the-relationship-between-two-or-more-random-variables"><i class="fa fa-check"></i><b>3.5</b> Describing the relationship between two or more random variables</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#joint-distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Joint distribution functions</a></li>
+<li class="chapter" data-level="3.5.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#conditional-probability"><i class="fa fa-check"></i><b>3.5.2</b> Conditional probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exercises-1"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#four-sided-die-roll"><i class="fa fa-check"></i><b>3.6.1</b> Four-sided die roll</a></li>
+<li class="chapter" data-level="3.6.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exponential-distribution"><i class="fa fa-check"></i><b>3.6.2</b> Exponential distribution</a></li>
+<li class="chapter" data-level="3.6.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#modeling-a-random-probability"><i class="fa fa-check"></i><b>3.6.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="3.6.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#an-unfair-coin"><i class="fa fa-check"></i><b>3.6.4</b> An unfair coin</a></li>
+<li class="chapter" data-level="3.6.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#adding-two-random-variables"><i class="fa fa-check"></i><b>3.6.5</b> Adding two random variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estimators.html"><a href="estimators.html"><i class="fa fa-check"></i><b>4</b> Estimators</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="estimators.html"><a href="estimators.html#estimators-and-the-sampling-distribution"><i class="fa fa-check"></i><b>4.1</b> Estimators and the sampling distribution</a></li>
+<li class="chapter" data-level="4.2" data-path="estimators.html"><a href="estimators.html#small-sample-properties-of-estimators"><i class="fa fa-check"></i><b>4.2</b> Small sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="estimators.html"><a href="estimators.html#bias"><i class="fa fa-check"></i><b>4.2.1</b> Bias</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estimators.html"><a href="estimators.html#variance"><i class="fa fa-check"></i><b>4.2.2</b> Variance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="estimators.html"><a href="estimators.html#mean-squared-error"><i class="fa fa-check"></i><b>4.2.3</b> Mean squared error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="estimators.html"><a href="estimators.html#exercises-2"><i class="fa fa-check"></i><b>4.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="estimators.html"><a href="estimators.html#modeling-a-random-probability-1"><i class="fa fa-check"></i><b>4.3.1</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="4.3.2" data-path="estimators.html"><a href="estimators.html#exponential-distribution-1"><i class="fa fa-check"></i><b>4.3.2</b> Exponential distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>5</b> Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="inference.html"><a href="inference.html#hypothesis-tests"><i class="fa fa-check"></i><b>5.1</b> Hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="inference.html"><a href="inference.html#one-sided-hypothesis-tests"><i class="fa fa-check"></i><b>5.1.1</b> One-sided hypothesis tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="inference.html"><a href="inference.html#p-values"><i class="fa fa-check"></i><b>5.2</b> <span class="math inline">\(p\)</span>-values</a></li>
+<li class="chapter" data-level="5.3" data-path="inference.html"><a href="inference.html#confidence-intervals"><i class="fa fa-check"></i><b>5.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="5.4" data-path="inference.html"><a href="inference.html#test-power"><i class="fa fa-check"></i><b>5.4</b> Test power</a></li>
+<li class="chapter" data-level="5.5" data-path="inference.html"><a href="inference.html#the-take-away"><i class="fa fa-check"></i><b>5.5</b> The take-away</a></li>
+<li class="chapter" data-level="5.6" data-path="inference.html"><a href="inference.html#exercises-3"><i class="fa fa-check"></i><b>5.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="inference.html"><a href="inference.html#converting-a-continuous-variable-into-a-coin-flip"><i class="fa fa-check"></i><b>5.6.1</b> Converting a continuous variable into a coin flip</a></li>
+<li class="chapter" data-level="5.6.2" data-path="inference.html"><a href="inference.html#the-maximum-of-a-sample"><i class="fa fa-check"></i><b>5.6.2</b> The maximum of a sample</a></li>
+<li class="chapter" data-level="5.6.3" data-path="inference.html"><a href="inference.html#assessing-the-performance-of-a-cookbook-hypothesis-test"><i class="fa fa-check"></i><b>5.6.3</b> Assessing the performance of a “cookbook” hypothesis test</a></li>
+<li class="chapter" data-level="5.6.4" data-path="inference.html"><a href="inference.html#hypothesis-tests-using-graphs"><i class="fa fa-check"></i><b>5.6.4</b> Hypothesis tests using graphs</a></li>
+<li class="chapter" data-level="5.6.5" data-path="inference.html"><a href="inference.html#simulation-exercise"><i class="fa fa-check"></i><b>5.6.5</b> Simulation exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html"><i class="fa fa-check"></i><b>6</b> Inference using asymptotic assumptions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-estimators"><i class="fa fa-check"></i><b>6.1</b> Large-sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#consistency"><i class="fa fa-check"></i><b>6.1.1</b> Consistency</a></li>
+<li class="chapter" data-level="6.1.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#asymptotic-distribution"><i class="fa fa-check"></i><b>6.1.2</b> Asymptotic distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-sample-means"><i class="fa fa-check"></i><b>6.2</b> Large-sample properties of sample means</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-weak-law-of-large-numbers-wlln"><i class="fa fa-check"></i><b>6.2.1</b> The Weak Law of Large Numbers (WLLN)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-central-limit-theorem"><i class="fa fa-check"></i><b>6.2.2</b> A Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#using-large-sample-properties-to-make-inference-easier"><i class="fa fa-check"></i><b>6.3</b> Using large-sample properties to make inference easier</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#hypothesis-tests-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.1</b> Hypothesis tests with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#even-more-of-a-shortcut"><i class="fa fa-check"></i><b>6.3.2</b> Even more of a shortcut</a></li>
+<li class="chapter" data-level="6.3.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#confidence-intervals-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.3</b> Confidence intervals with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#p-values-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.4</b> <span class="math inline">\(p\)</span>-values with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#tieing-this-in-with-the-previous-chapter"><i class="fa fa-check"></i><b>6.3.5</b> Tieing this in with the previous chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#transforming-variables"><i class="fa fa-check"></i><b>6.4</b> Transforming variables</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-continuous-mapping-theorem"><i class="fa fa-check"></i><b>6.4.1</b> The continuous mapping theorem</a></li>
+<li class="chapter" data-level="6.4.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-delta-method"><i class="fa fa-check"></i><b>6.4.2</b> The delta method</a></li>
+<li class="chapter" data-level="6.4.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#jensens-inequality"><i class="fa fa-check"></i><b>6.4.3</b> Jensen’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exercises-4"><i class="fa fa-check"></i><b>6.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exponential-distribution-2"><i class="fa fa-check"></i><b>6.5.1</b> Exponential distribution</a></li>
+<li class="chapter" data-level="6.5.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-simulation"><i class="fa fa-check"></i><b>6.5.2</b> A simulation</a></li>
+<li class="chapter" data-level="6.5.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#modeling-a-random-probability-2"><i class="fa fa-check"></i><b>6.5.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="6.5.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-sort-of-simulation-exercise"><i class="fa fa-check"></i><b>6.5.4</b> A (sort-of) simulation exercise</a></li>
+<li class="chapter" data-level="6.5.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#one-test-three-ways"><i class="fa fa-check"></i><b>6.5.5</b> One test, three ways</a></li>
+<li class="chapter" data-level="6.5.6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#deriving-properties-of-estimators"><i class="fa fa-check"></i><b>6.5.6</b> Deriving properties of estimators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="linear-regression.html"><a href="linear-regression.html#derivation-of-the-bivariate-ols-slope-estimator"><i class="fa fa-check"></i><b>7.1</b> Derivation of the bivariate OLS slope estimator</a></li>
+<li class="chapter" data-level="7.2" data-path="linear-regression.html"><a href="linear-regression.html#unbiasedness"><i class="fa fa-check"></i><b>7.2</b> Unbiasedness</a></li>
+<li class="chapter" data-level="7.3" data-path="linear-regression.html"><a href="linear-regression.html#variance-1"><i class="fa fa-check"></i><b>7.3</b> Variance</a></li>
+<li class="chapter" data-level="7.4" data-path="linear-regression.html"><a href="linear-regression.html#inference-in-bivariate-ols"><i class="fa fa-check"></i><b>7.4</b> Inference in bivariate OLS</a></li>
+<li class="chapter" data-level="7.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-5"><i class="fa fa-check"></i><b>7.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="linear-regression.html"><a href="linear-regression.html#municipal-expenditure"><i class="fa fa-check"></i><b>7.5.1</b> Municipal expenditure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html"><i class="fa fa-check"></i><b>8</b> The shape of the right-hand side</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#linear-regression-as-a-model-for-conditional-expectation"><i class="fa fa-check"></i><b>8.1</b> Linear regression as a model for conditional expectation</a></li>
+<li class="chapter" data-level="8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#an-example-dataset"><i class="fa fa-check"></i><b>8.2</b> An example dataset</a></li>
+<li class="chapter" data-level="8.3" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#marginal-effects"><i class="fa fa-check"></i><b>8.3</b> Marginal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#categorical-variables"><i class="fa fa-check"></i><b>8.4</b> Categorical variables</a></li>
+<li class="chapter" data-level="8.5" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#interactions"><i class="fa fa-check"></i><b>8.5</b> Interactions</a></li>
+<li class="chapter" data-level="8.6" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#logarithms"><i class="fa fa-check"></i><b>8.6</b> Logarithms</a></li>
+<li class="chapter" data-level="8.7" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#polynomials"><i class="fa fa-check"></i><b>8.7</b> Polynomials</a></li>
+<li class="chapter" data-level="8.8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#exercises-6"><i class="fa fa-check"></i><b>8.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#baking-a-cake"><i class="fa fa-check"></i><b>8.8.1</b> Baking a cake</a></li>
+<li class="chapter" data-level="8.8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#psid-earnings-panel-data"><i class="fa fa-check"></i><b>8.8.2</b> PSID Earnings Panel Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html"><i class="fa fa-check"></i><b>9</b> Linear regression - common misconceptions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#heteroskedasticity"><i class="fa fa-check"></i><b>9.1</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#multicolinearity"><i class="fa fa-check"></i><b>9.2</b> Multicolinearity</a></li>
+<li class="chapter" data-level="9.3" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#omitted-variables-are-always-a-problem"><i class="fa fa-check"></i><b>9.3</b> Omitted variables are <em>always</em> a problem</a></li>
+<li class="chapter" data-level="9.4" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#normal-errors"><i class="fa fa-check"></i><b>9.4</b> Normal errors</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Standard errors in linear regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#homoskedasticity-the-standard-standard-errors"><i class="fa fa-check"></i><b>10.1</b> Homoskedasticity: the “standard” standard errors</a></li>
+<li class="chapter" data-level="10.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#heteroskedasticity-1"><i class="fa fa-check"></i><b>10.2</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="10.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#clustered-standard-errors"><i class="fa fa-check"></i><b>10.3</b> Clustered standard errors</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#an-example"><i class="fa fa-check"></i><b>10.3.1</b> An example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#standard-errors-for-multivariate-linear-regression"><i class="fa fa-check"></i><b>10.4</b> Standard errors for multivariate linear regression</a></li>
+<li class="chapter" data-level="10.5" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#calculating-standard-errors-in-r"><i class="fa fa-check"></i><b>10.5</b> Calculating standard errors in <em>R</em></a></li>
+<li class="chapter" data-level="10.6" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#exercises-7"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#galtons-families"><i class="fa fa-check"></i><b>10.6.1</b> Galton’s families</a></li>
+<li class="chapter" data-level="10.6.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#simulation"><i class="fa fa-check"></i><b>10.6.2</b> Simulation</a></li>
+<li class="chapter" data-level="10.6.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#more-simulation"><i class="fa fa-check"></i><b>10.6.3</b> More simulation</a></li>
+<li class="chapter" data-level="10.6.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#instructor-ratings"><i class="fa fa-check"></i><b>10.6.4</b> Instructor ratings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html"><i class="fa fa-check"></i><b>11</b> Hypothesis tests about more than one parameter</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-restricted-model"><i class="fa fa-check"></i><b>11.1</b> The restricted model</a></li>
+<li class="chapter" data-level="11.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-test-using-r2-that-you-probably-shouldnt-use"><i class="fa fa-check"></i><b>11.2</b> A test using <span class="math inline">\(R^2\)</span> that you probably shouldn’t use</a></li>
+<li class="chapter" data-level="11.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-more-robust-test"><i class="fa fa-check"></i><b>11.3</b> A more robust test</a></li>
+<li class="chapter" data-level="11.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#another-example"><i class="fa fa-check"></i><b>11.4</b> Another example</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-whether-the-child-is-male-of-female"><i class="fa fa-check"></i><b>11.4.1</b> The height of a child does not depend on whether the child is male of female</a></li>
+<li class="chapter" data-level="11.4.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-the-height-of-their-parents"><i class="fa fa-check"></i><b>11.4.2</b> The height of a child does not depend on the height of their parents</a></li>
+<li class="chapter" data-level="11.4.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-mother-height-on-child-height-is-the-same-as-the-effect-of-father-height-on-child-height"><i class="fa fa-check"></i><b>11.4.3</b> The effect of mother height on child height is the same as the effect of father height on child height</a></li>
+<li class="chapter" data-level="11.4.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-male-childrens-height-is-the-same-as-the-effect-of-parent-height-on-female-childrens-height"><i class="fa fa-check"></i><b>11.4.4</b> The effect of parent height on male children’s height is the same as the effect of parent height on female children’s height</a></li>
+<li class="chapter" data-level="11.4.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-child-height-is-linear"><i class="fa fa-check"></i><b>11.4.5</b> The effect of parent height on child height is linear</a></li>
+<li class="chapter" data-level="11.4.6" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#parents-who-are-on-average-one-inch-taller-have-children-that-are-on-average-one-inch-taller"><i class="fa fa-check"></i><b>11.4.6</b> Parents who are on average one inch taller have children that are on average one inch taller</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#exercises-8"><i class="fa fa-check"></i><b>11.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#project-star-student-teacher-achievement-ratio"><i class="fa fa-check"></i><b>11.5.1</b> Project STAR: Student-Teacher Achievement Ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><i class="fa fa-check"></i><b>12</b> Limited dependent variable models and maximum likelihood estimation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#motivation-the-linear-probability-model-works-134-of-the-time"><i class="fa fa-check"></i><b>12.1</b> Motivation: The linear probability model works 134% of the time</a></li>
+<li class="chapter" data-level="12.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-practical-solution-ensure-that-predictions-are-always-valid"><i class="fa fa-check"></i><b>12.2</b> A practical solution: Ensure that predictions are always valid</a></li>
+<li class="chapter" data-level="12.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#interpreting-the-coefficients-of-the-probit-and-logit-models"><i class="fa fa-check"></i><b>12.3</b> Interpreting the coefficients of the probit and logit models</a></li>
+<li class="chapter" data-level="12.4" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#but-how-do-we-estimate-it-maximum-likelihood"><i class="fa fa-check"></i><b>12.4</b> But how do we estimate it? Maximum likelihood</a></li>
+<li class="chapter" data-level="12.5" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#doing-inference-with-maximum-likelihood"><i class="fa fa-check"></i><b>12.5</b> Doing inference with maximum likelihood</a></li>
+<li class="chapter" data-level="12.6" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#how-some-estimators-relate-to-maximum-likelihood"><i class="fa fa-check"></i><b>12.6</b> How some estimators relate to maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sample-mean-for-a-bernoulli-coin-flip-variable"><i class="fa fa-check"></i><b>12.6.1</b> Sample mean for a Bernoulli (coin flip) variable</a></li>
+<li class="chapter" data-level="12.6.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#linear-regression-1"><i class="fa fa-check"></i><b>12.6.2</b> Linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#some-examples-of-estimating-parameters-using-maximum-likelihood"><i class="fa fa-check"></i><b>12.7</b> Some examples of estimating parameters using maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#geometric-distribution"><i class="fa fa-check"></i><b>12.7.1</b> Geometric distribution</a></li>
+<li class="chapter" data-level="12.7.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#simplified-beta-distribution"><i class="fa fa-check"></i><b>12.7.2</b> Simplified Beta distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#an-extended-example"><i class="fa fa-check"></i><b>12.8</b> An extended example</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#data"><i class="fa fa-check"></i><b>12.8.1</b> Data</a></li>
+<li class="chapter" data-level="12.8.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-research-question"><i class="fa fa-check"></i><b>12.8.2</b> A research question</a></li>
+<li class="chapter" data-level="12.8.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#the-model-based-approach"><i class="fa fa-check"></i><b>12.8.3</b> The model-based approach</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#exercises-9"><i class="fa fa-check"></i><b>12.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.9.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#checking-that-we-rolled-a-die-correctly"><i class="fa fa-check"></i><b>12.9.1</b> Checking that we rolled a die correctly</a></li>
+<li class="chapter" data-level="12.9.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#galtons-heights-dataset"><i class="fa fa-check"></i><b>12.9.2</b> Galton’s heights dataset</a></li>
+<li class="chapter" data-level="12.9.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sumo-wrestling"><i class="fa fa-check"></i><b>12.9.3</b> Sumo wrestling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html"><i class="fa fa-check"></i><b>13</b> Combining and manipulating datasets</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#merging-data-join"><i class="fa fa-check"></i><b>13.1</b> Merging data (<code>join</code>)</a></li>
+<li class="chapter" data-level="13.2" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#wide-and-long-formats-pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>13.2</b> Wide and long formats (<code>pivot_longer</code> and <code>pivot_wider</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="time-series-introduction.html"><a href="time-series-introduction.html"><i class="fa fa-check"></i><b>14</b> Time series – Introduction</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#autoregressive-and-moving-average-arma-models-the-basic-building-blocks-of-time-series-models"><i class="fa fa-check"></i><b>14.1</b> Autoregressive and moving average (ARMA) models: the basic building blocks of time series models</a></li>
+<li class="chapter" data-level="14.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-properties-of-arma-processes"><i class="fa fa-check"></i><b>14.2</b> Stationarity and properties of ARMA processes</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#examples"><i class="fa fa-check"></i><b>14.2.1</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#diagnostics-autocorrelation-and-partial-autocorrelation-functions"><i class="fa fa-check"></i><b>14.3</b> Diagnostics: Autocorrelation and partial autocorrelation functions</a></li>
+<li class="chapter" data-level="14.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-unemployment"><i class="fa fa-check"></i><b>14.4</b> Example dataset – unemployment</a></li>
+<li class="chapter" data-level="14.5" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-testing-for-unit-roots"><i class="fa fa-check"></i><b>14.5</b> Stationarity and testing for unit roots</a></li>
+<li class="chapter" data-level="14.6" data-path="time-series-introduction.html"><a href="time-series-introduction.html#non-stationarity-and-spurious-correlation"><i class="fa fa-check"></i><b>14.6</b> Non-stationarity and spurious correlation</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-share-a-trend"><i class="fa fa-check"></i><b>14.6.1</b> Two variables share a trend</a></li>
+<li class="chapter" data-level="14.6.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-are-cyclical"><i class="fa fa-check"></i><b>14.6.2</b> Two variables are cyclical</a></li>
+<li class="chapter" data-level="14.6.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-have-a-unit-root"><i class="fa fa-check"></i><b>14.6.3</b> Two variables have a unit root</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="time-series-introduction.html"><a href="time-series-introduction.html#differencing-and-stationarity"><i class="fa fa-check"></i><b>14.7</b> Differencing and stationarity</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#some-examples-of-making-non-stationary-series-stationary-through-differencing"><i class="fa fa-check"></i><b>14.7.1</b> Some examples of making non-stationary series stationary through differencing</a></li>
+<li class="chapter" data-level="14.7.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-us-consumer-price-index"><i class="fa fa-check"></i><b>14.7.2</b> Example dataset: US Consumer Price Index</a></li>
+<li class="chapter" data-level="14.7.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-data-gdp-and-money-supply"><i class="fa fa-check"></i><b>14.7.3</b> Example data: GDP and money supply</a></li>
+<li class="chapter" data-level="14.7.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-peace-corps"><i class="fa fa-check"></i><b>14.7.4</b> Example: Peace Corps</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="time-series-introduction.html"><a href="time-series-introduction.html#estimating-arima-models"><i class="fa fa-check"></i><b>14.8</b> Estimating ARIMA models</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html"><i class="fa fa-check"></i><b>15</b> Time series – Forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#prediction-and-forecasting"><i class="fa fa-check"></i><b>15.1</b> Prediction and forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-with-univariate-problems"><i class="fa fa-check"></i><b>15.1.1</b> Example: Prediction with univariate problems</a></li>
+<li class="chapter" data-level="15.1.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-in-bivariate-ols"><i class="fa fa-check"></i><b>15.1.2</b> Example: Prediction in bivariate OLS</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#cross-validation"><i class="fa fa-check"></i><b>15.2</b> Cross-validation</a></li>
+<li class="chapter" data-level="15.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-cpi-and-ppi"><i class="fa fa-check"></i><b>15.3</b> Example: CPI and PPI</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#using-just-ar-and-ma-components"><i class="fa fa-check"></i><b>15.3.1</b> Using just AR and MA components</a></li>
+<li class="chapter" data-level="15.3.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-some-seasonality"><i class="fa fa-check"></i><b>15.3.2</b> Incorporating some seasonality</a></li>
+<li class="chapter" data-level="15.3.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-ppi-inflation"><i class="fa fa-check"></i><b>15.3.3</b> Incorporating PPI inflation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="additional-exercises.html"><a href="additional-exercises.html"><i class="fa fa-check"></i><b>16</b> Additional exercises</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="additional-exercises.html"><a href="additional-exercises.html#for-loops"><i class="fa fa-check"></i><b>16.1</b> For loops</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="additional-exercises.html"><a href="additional-exercises.html#determinants-of-wage-data-cps-1988"><i class="fa fa-check"></i><b>16.1.1</b> Determinants of wage data (CPS 1988)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="past-exam-questions.html"><a href="past-exam-questions.html"><i class="fa fa-check"></i><b>17</b> Past exam questions</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2023-5810-exam-1"><i class="fa fa-check"></i><b>17.1</b> Fall 2023 5810 Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability"><i class="fa fa-check"></i><b>17.1.1</b> Probability</a></li>
+<li class="chapter" data-level="17.1.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimation-and-inference"><i class="fa fa-check"></i><b>17.1.2</b> Estimation and inference</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2022-5810-exam-1"><i class="fa fa-check"></i><b>17.2</b> Fall 2022 5810, Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability-1"><i class="fa fa-check"></i><b>17.2.1</b> Probability</a></li>
+<li class="chapter" data-level="17.2.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#inference-1"><i class="fa fa-check"></i><b>17.2.2</b> Inference</a></li>
+<li class="chapter" data-level="17.2.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimators-and-large-sample-properties"><i class="fa fa-check"></i><b>17.2.3</b> Estimators and large-sample properties</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-2-2022"><i class="fa fa-check"></i><b>17.3</b> 5810 Exam 2 (2022)</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#directed-acyclic-graphs"><i class="fa fa-check"></i><b>17.3.1</b> Directed Acyclic Graphs</a></li>
+<li class="chapter" data-level="17.3.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#linear-regression-2"><i class="fa fa-check"></i><b>17.3.2</b> Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-1-2023"><i class="fa fa-check"></i><b>17.4</b> 5820, Exam 1 (2023)</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#maximum-likelihood"><i class="fa fa-check"></i><b>17.4.1</b> Maximum likelihood</a></li>
+<li class="chapter" data-level="17.4.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fire-trucks"><i class="fa fa-check"></i><b>17.4.2</b> Fire trucks</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Econometrics notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="time-series-introduction" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">14</span> Time series – Introduction<a href="time-series-introduction.html#time-series-introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="autoregressive-and-moving-average-arma-models-the-basic-building-blocks-of-time-series-models" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> Autoregressive and moving average (ARMA) models: the basic building blocks of time series models<a href="time-series-introduction.html#autoregressive-and-moving-average-arma-models-the-basic-building-blocks-of-time-series-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>While there are many ways in which observations in a time series <span class="math inline">\(\{Y_t\}_{t=1}^T\)</span> could be dependent on each other, we almost always start with dependence due to an autoregressive process, a moving average process, or a combination thereof. The autoregressive model assumes that <span class="math inline">\(Y_t\)</span> depends on the variable’s lags, for example:
+<span class="math display">\[\begin{align}
+Y_t&amp;=1+0.2Y_{t-1}+\epsilon_t, \quad \epsilon_t\sim iid, \ E[\epsilon_t]=0,\ V[\epsilon_t]=\sigma^2
+\end{align}\]</span>
+Is an AR(1) process, which means that the deterministic component of <span class="math inline">\(Y_t\)</span> is a (linear) function of the realization of same variable in the previous period.</p>
+<p>In general, we can write an autoregresive process as:
+<span class="math display">\[\begin{align}
+Y_t&amp;=\alpha+\sum_{\tau=1}^k\phi_\tau Y_{t-\tau}+\epsilon_t
+\end{align}\]</span>
+where <span class="math inline">\(k\)</span> is the number of lags of <span class="math inline">\(Y_t\)</span> included in the model, and <span class="math inline">\(\{\phi_\tau\}_{\tau=1}^k\)</span> are the coefficients on these lags. If there are <span class="math inline">\(k\)</span> lags in the model, we call this an ``AR(<span class="math inline">\(k\)</span>)’’ model.</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="time-series-introduction.html#cb172-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb172-2"><a href="time-series-introduction.html#cb172-2" tabindex="-1"></a>simSize<span class="ot">&lt;-</span><span class="dv">1000</span></span>
+<span id="cb172-3"><a href="time-series-introduction.html#cb172-3" tabindex="-1"></a></span>
+<span id="cb172-4"><a href="time-series-introduction.html#cb172-4" tabindex="-1"></a><span class="fu">library</span>(weakARMA)</span>
+<span id="cb172-5"><a href="time-series-introduction.html#cb172-5" tabindex="-1"></a></span>
+<span id="cb172-6"><a href="time-series-introduction.html#cb172-6" tabindex="-1"></a>y1<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">y=</span><span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">ar=</span><span class="dv">0</span>,<span class="at">ma=</span><span class="dv">0</span>),<span class="at">type=</span><span class="st">&quot;(a) White noise&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">t=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb172-7"><a href="time-series-introduction.html#cb172-7" tabindex="-1"></a>y2<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">y=</span><span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">ar=</span><span class="fl">0.7</span>,<span class="at">ma=</span><span class="dv">0</span>),<span class="at">type=</span><span class="st">&quot;(b) AR(1)&quot;</span>)<span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">t=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb172-8"><a href="time-series-introduction.html#cb172-8" tabindex="-1"></a>y3<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">y=</span><span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">ar=</span><span class="fu">c</span>(<span class="fl">0.2</span>,<span class="fl">0.5</span>),<span class="at">ma=</span><span class="dv">0</span>),<span class="at">type=</span><span class="st">&quot;(c) AR(2)&quot;</span>)<span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">t=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb172-9"><a href="time-series-introduction.html#cb172-9" tabindex="-1"></a>y4<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">y=</span><span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">ar=</span><span class="sc">-</span><span class="fl">0.8</span>,<span class="at">ma=</span><span class="dv">0</span>),<span class="at">type=</span><span class="st">&quot;(d) AR(1) (negative autocorrelation)&quot;</span>)<span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">t=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb172-10"><a href="time-series-introduction.html#cb172-10" tabindex="-1"></a></span>
+<span id="cb172-11"><a href="time-series-introduction.html#cb172-11" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">rbind</span>(y1,y2,y3,y4)</span>
+<span id="cb172-12"><a href="time-series-introduction.html#cb172-12" tabindex="-1"></a></span>
+<span id="cb172-13"><a href="time-series-introduction.html#cb172-13" tabindex="-1"></a>(</span>
+<span id="cb172-14"><a href="time-series-introduction.html#cb172-14" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">x=</span>t,<span class="at">y=</span>y))</span>
+<span id="cb172-15"><a href="time-series-introduction.html#cb172-15" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb172-16"><a href="time-series-introduction.html#cb172-16" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb172-17"><a href="time-series-introduction.html#cb172-17" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>type)</span>
+<span id="cb172-18"><a href="time-series-introduction.html#cb172-18" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:TSARk"></span>
+<img src="index_files/figure-html/TSARk-1.png" alt="Some simulated AR data" width="672" />
+<p class="caption">
+Figure 14.1: Some simulated AR data
+</p>
+</div>
+<p>Figure <a href="#figTS-ARk"><strong>??</strong></a> shows a white noise process (panel (a), basically just iid errors with no dependence), followed by three autoregressive processes. Panel (b) shows an AR(1) process with <span class="math inline">\(\alpha = 0\)</span> and <span class="math inline">\(\phi_1=0.7\)</span>. Compared to panel (a), in this plot large values of <span class="math inline">\(Y\)</span> are likely to be followed by another large value. This is because, on average, <span class="math inline">\(E[Y_t\mid Y_{t-1}]=0.7Y_{t-1}&gt;0\)</span>.</p>
+<p>The other building block of time series processes is the moving average. An example of this is:
+<span class="math display">\[\begin{align}
+Y_t&amp;=\psi\epsilon_{t-1}+\epsilon_{t}
+\end{align}\]</span></p>
+<p>which is an MA(1) process. The “MA” part means “moving average”, in that <span class="math inline">\(Y_t\)</span> is a (weighted) average of errors that have occurred in the past. The “(1): part means that only the error that occurred one time period into the past (i.e. <span class="math inline">\(\epsilon_{t-1}\)</span>) shows up in this process. In general, we can write an arbitrary MA(<span class="math inline">\(k\)</span>) process as:
+<span class="math display">\[\begin{align}
+Y_t&amp;=\alpha + \sum_{\tau=1}^k\psi_\tau\epsilon_{t-\tau}+\epsilon_t
+\end{align}\]</span>
+Note that while these processes look almost exactly the same, except that for the moving average process, we are lagging the errors, instead of the <span class="math inline">\(Y\)</span>.</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="time-series-introduction.html#cb173-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb173-2"><a href="time-series-introduction.html#cb173-2" tabindex="-1"></a>simSize<span class="ot">&lt;-</span><span class="dv">1000</span></span>
+<span id="cb173-3"><a href="time-series-introduction.html#cb173-3" tabindex="-1"></a></span>
+<span id="cb173-4"><a href="time-series-introduction.html#cb173-4" tabindex="-1"></a><span class="fu">library</span>(weakARMA)</span>
+<span id="cb173-5"><a href="time-series-introduction.html#cb173-5" tabindex="-1"></a></span>
+<span id="cb173-6"><a href="time-series-introduction.html#cb173-6" tabindex="-1"></a>y1<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">y=</span><span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">ar=</span><span class="dv">0</span>,<span class="at">ma=</span><span class="dv">0</span>),<span class="at">type=</span><span class="st">&quot;(a) White noise&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">t=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb173-7"><a href="time-series-introduction.html#cb173-7" tabindex="-1"></a>y2<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">y=</span><span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">ar=</span><span class="dv">0</span>,<span class="at">ma=</span><span class="fl">0.7</span>),<span class="at">type=</span><span class="st">&quot;(b) MA(1)&quot;</span>)<span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">t=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb173-8"><a href="time-series-introduction.html#cb173-8" tabindex="-1"></a>y3<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">y=</span><span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">ma=</span><span class="fu">c</span>(<span class="fl">0.2</span>,<span class="fl">0.5</span>),<span class="at">ar=</span><span class="dv">0</span>),<span class="at">type=</span><span class="st">&quot;(c) MA(2)&quot;</span>)<span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">t=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb173-9"><a href="time-series-introduction.html#cb173-9" tabindex="-1"></a>y4<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">y=</span><span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">ma=</span><span class="sc">-</span><span class="fl">0.8</span>,<span class="at">ar=</span><span class="dv">0</span>),<span class="at">type=</span><span class="st">&quot;(d) MA(1) (negative autocorrelation)&quot;</span>)<span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">t=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb173-10"><a href="time-series-introduction.html#cb173-10" tabindex="-1"></a></span>
+<span id="cb173-11"><a href="time-series-introduction.html#cb173-11" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">rbind</span>(y1,y2,y3,y4)</span>
+<span id="cb173-12"><a href="time-series-introduction.html#cb173-12" tabindex="-1"></a></span>
+<span id="cb173-13"><a href="time-series-introduction.html#cb173-13" tabindex="-1"></a>(</span>
+<span id="cb173-14"><a href="time-series-introduction.html#cb173-14" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">x=</span>t,<span class="at">y=</span>y))</span>
+<span id="cb173-15"><a href="time-series-introduction.html#cb173-15" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb173-16"><a href="time-series-introduction.html#cb173-16" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb173-17"><a href="time-series-introduction.html#cb173-17" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>type)</span>
+<span id="cb173-18"><a href="time-series-introduction.html#cb173-18" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:TSMAk"></span>
+<img src="index_files/figure-html/TSMAk-1.png" alt="Some simulated MA data" width="672" />
+<p class="caption">
+Figure 14.2: Some simulated MA data
+</p>
+</div>
+<p>Some simple moving average processes are shown in Figure <a href="time-series-introduction.html#fig:TSMAk">14.2</a> It might be difficult to spot the difference between these and the autoregressive processes in Figure <a href="time-series-introduction.html#fig:TSARk">14.1</a>, this is why the autocorrelation function and partial autocorrelation function are useful.</p>
+</div>
+<div id="stationarity-and-properties-of-arma-processes" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> Stationarity and properties of ARMA processes<a href="time-series-introduction.html#stationarity-and-properties-of-arma-processes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Until we get to the unit root problem, we are going to implicitly assume that we are dealing with <em>stationary</em> processes. Intuitively, this means that if you pick two time periods, say <span class="math inline">\(t\)</span> and <span class="math inline">\(s\)</span>, then any <em>unconditional</em> beliefs you have about <span class="math inline">\(Y_t\)</span> and <span class="math inline">\(Y_{s}\)</span> are going to be the same. Additionally, any <em>unconditional</em> beliefs you have about <span class="math inline">\(Y_{t+1}\)</span> and <span class="math inline">\(Y_{s+1}\)</span> sill be the same. In fact any <em>unconditional</em> beliefs you have about <span class="math inline">\(Y_{t+\tau}\)</span> and <span class="math inline">\(Y_{s+\tau}\)</span> for any <span class="math inline">\(\tau\)</span> will be the same.</p>
+<p>Please read through this again and underline, highlight, etc. the “unconditional” part. Here’s an example. Consider the AR(1) process:
+<span class="math display">\[\begin{align}
+Y_{t}&amp;=0.5Y_{t-1}+\epsilon_t
+\end{align}\]</span>
+which happens to be stationary. If I asked you to make a forecast of <span class="math inline">\(Y_t\)</span> at a particular time, but gave you no more information than the above equation, then you’d probably (and quite rightly) note that since you don’t know <span class="math inline">\(Y_{t-1}\)</span>, or any of the other <span class="math inline">\(Y\)</span>s that came before it, and you know the errors are all mean zero, that a good point prediction would be to choose <span class="math inline">\(E[Y_t]=0\)</span>. But if I asked you to make a prediction for some other time period <span class="math inline">\(s\)</span>, you would have done exactly the same thing: since I’ve given you nothing to refine your beliefs, this is the best you can do. Now if I told you the actual value of <span class="math inline">\(Y_{t-1}\)</span>, you’d be able to make a better forecast of <span class="math inline">\(Y_t\)</span>, namely <span class="math inline">\(E[Y_t\mid Y_{t-1}]=0.5Y_{t-1}\)</span>, but then you’d be conditioning on something.</p>
+<p>For our purposes, we will think about stationary time series as follows:</p>
+<blockquote>
+<p>If a process <span class="math inline">\(Y_t\)</span> is <strong>stationary</strong>, then (among other things):
+<span class="math display">\[\begin{align}
+E[Y_t]&amp;=E[Y_{t+1}]=E[Y_{t-1}]=E[Y_{t+\tau}]\quad &amp;\text{for all } \tau\in\mathbb N\\
+V[Y_t]&amp;=V[Y_{t+1}]=V[Y_{t-1}]=V[Y_{t+\tau}]\quad &amp;\text{for all } \tau\in\mathbb N\\
+\mathrm{cov}(Y_t,Y_{t+1})&amp;=\mathrm{cov}(Y_{t+1},Y_{t+2}) =\mathrm{cov}(Y_{t+\tau},Y_{t+1+\tau})&amp;\text{for all } \tau\in\mathbb N\\
+\mathrm{cov}(Y_t,Y_{t+s})&amp;=\mathrm{cov}(Y_{t+\tau},Y_{t+\tau+s})&amp;\text{for all } \tau, s\in\mathbb N
+\end{align}\]</span></p>
+</blockquote>
+<p>Basically all of those things are constant. Importantly, note that in general:
+<span class="math display">\[\begin{align}
+\mathrm{cov}(Y_t,Y_{t+s})&amp;\neq\mathrm{cov}(Y_t,Y_{t+\tau})&amp;\text{for all } \tau, s\in\mathbb N
+\end{align}\]</span>
+which of course isn’t even true for our AR(1) process above, because the effect of <span class="math inline">\(Y_t\)</span> on <span class="math inline">\(Y_{t+s}\)</span> diminishes as <span class="math inline">\(s\)</span> gets larger. In fact, this is another property of stationary processes: as we want to forecast further and further into the future, any information we have now becomes more and more useless.</p>
+<div id="examples" class="section level3 hasAnchor" number="14.2.1">
+<h3><span class="header-section-number">14.2.1</span> Examples<a href="time-series-introduction.html#examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here are some worked examples showing how to derive some properties of stationary time series. I will focus on determining the expectation, variance, and covariances of each series. For all of the errors <span class="math inline">\(\epsilon_t\)</span> we will assume:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\epsilon_t&amp;\sim iid\quad\text{not necessarily normally distributed}\\
+E(\epsilon_t)&amp;=0\\
+V(\epsilon_t)&amp;=\sigma^2\\
+\mathrm{cov}(\epsilon_t,\epsilon_{t+\tau})&amp;=0\ \forall \tau\neq 0
+\end{aligned}
+\]</span></p>
+<p>The last property is an implication of the iid assumption, and so is not an additional assumption.</p>
+<p>In each of these examples, note where we assume stationarity in order to simplify the problem.</p>
+<div id="ar1-process" class="section level4 hasAnchor" number="14.2.1.1">
+<h4><span class="header-section-number">14.2.1.1</span> <span class="math inline">\(AR(1)\)</span> process<a href="time-series-introduction.html#ar1-process" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\begin{aligned}
+y_{t}&amp;=\alpha y_{t-1}+\epsilon_t
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+E(y_t)&amp;=E(\alpha y_{t-1}+\epsilon_t)\\
+&amp;=\alpha E(y_{t-1})+E(\epsilon_t)\\
+&amp;=\alpha E(y_t)+0\quad \text{stationarity assumed here}\\
+(1-\alpha)E(y_t)&amp;=0\\
+E(y_t)&amp;=0
+\end{aligned}
+\]</span>
+<span class="math display">\[
+\begin{aligned}
+V(y_t)&amp;=V(\alpha y_{t-1}+\epsilon_t)\\
+&amp;=\alpha^2V(y_{t-1})+V(\epsilon_t)\\
+&amp;=\alpha^2 V(y_t)+\sigma^2\quad\text{stationarity assumed here}\\
+(1-\alpha^2)V(y_t)&amp;=\sigma^2\\
+V(y_t)&amp;=\frac{\sigma^2}{1-\alpha^2}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{cov}(y_t,y_{t-1})&amp;=E(y_ty_{t-1})\\
+&amp;=E((\alpha y_{t-1}+\epsilon_t)y_{t-1})\\
+&amp;=\alpha E(y_{t-1}^2)+E(\epsilon_ty_{t-1})\\
+&amp;=\alpha V(y_{t-1})+0\\
+&amp;=\frac{\alpha\sigma^2}{1-\alpha^2}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{cov}(y_t,y_{t-k})&amp;=E(y_ty_{t-k})\\
+&amp;=E((\alpha y_{t-1}+\epsilon_t)y_{t-k})\\
+&amp;=\alpha E(y_{t-1}y_{t-k})+E(\epsilon_ty_{t-k})\\
+&amp;=\alpha E(y_ty_{t-k+1})+0\quad\text{stationarity assumed here}\\
+&amp;=\alpha\mathrm{cov}(y_t,y_{t-k+1})
+\end{aligned}
+\]</span></p>
+<p>So we have:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{cov}(y_t,y_{t-1})&amp;=\alpha\frac{\sigma^2}{1-\alpha^2}\\
+\mathrm{cov}(y_t,y_{t-2})&amp;=\alpha^2\frac{\sigma^2}{1-\alpha^2}\\
+&amp;\ldots\\
+\mathrm{cov}(y_t,y_{t-k})&amp;=\alpha^k\frac{\sigma^2}{1-\alpha^2}
+\end{aligned}
+\]</span></p>
+</div>
+<div id="ma1-process" class="section level4 hasAnchor" number="14.2.1.2">
+<h4><span class="header-section-number">14.2.1.2</span> <span class="math inline">\(MA(1)\)</span> process<a href="time-series-introduction.html#ma1-process" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+y_t=\epsilon_t+\gamma\epsilon_{t-1}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+E(y_t)&amp;=E(\epsilon_t+\gamma\epsilon_{t-1})\\
+&amp;=E(\epsilon_t)+\gamma E(\epsilon_{t-1})\\
+&amp;=0+\gamma 0\\
+&amp;=0
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+V(y_{t})&amp;=E(y_t^2)\\
+&amp;=E(\epsilon_t^2+2\gamma\epsilon_t\epsilon_{t-1}+\gamma^2\epsilon_{t-1}^2)\\
+&amp;=E(\epsilon_t^2)+2\gamma E(\epsilon_t\epsilon_{t-1})+\gamma^2E(\epsilon_{t-1})\\
+&amp;=\sigma^2+2\gamma0+\gamma^2\sigma^2\\
+&amp;=\sigma^2(1+\gamma^2)
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{cov}(y_t,y_{t-1})&amp;=E(y_ty_{t-1})\\
+&amp;=E((\epsilon_t+\gamma\epsilon_{t-1})(\epsilon_{t-1}+\gamma\epsilon_{t-2}))\\
+&amp;=E\left(\epsilon_t\epsilon_{t-1}+\gamma\epsilon_t\epsilon_{t-2}+\gamma\epsilon_{t-1}^2+\gamma^2\epsilon_t\epsilon_{t-2}\right)\\
+&amp;=E(\epsilon_t\epsilon_{t-1})+\gamma E(\epsilon_t\epsilon_{t-2})+\gamma E(\epsilon_{t-1}^2)+\gamma^2E(\epsilon_t\epsilon_{t-2})\\
+&amp;=0+\gamma0+\gamma\sigma^2+\gamma^20\\
+&amp;=\gamma\sigma^2
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(k\geq 2\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{cov}(y_t,y_{t-k})&amp;=E(y_t,y_{t-k})\\
+&amp;=E\left((\epsilon_t+\gamma\epsilon_{t-1})(\epsilon_{t-k}+\gamma\epsilon_{t-k-1})\right)\\
+&amp;=E\left(\epsilon_t\epsilon_{t-k}+\gamma\epsilon_t\epsilon_{t-k-1}+\gamma\epsilon_{t-1}\epsilon_{t-k}+\gamma^2\epsilon_{t-1}\epsilon_{t-k-1}\right)\\
+&amp;=E(\epsilon_t\epsilon_{t-k})+\gamma E(\epsilon_t\epsilon_{t-k-1})+\gamma E(\epsilon_{t-1}\epsilon_{t-k})+\gamma^2E(\epsilon_{t-1}\epsilon_{t-k-1})\\
+&amp;=0
+\end{aligned}
+\]</span></p>
+<p>This is a big distinction between an AR and an MA process: the AR process will always “remember” <span class="math inline">\(y_{t-k}\)</span> (although it is diluted over time if the process is stationary), while no component of <span class="math inline">\(y_{t-\tau}\)</span> appears in <span class="math inline">\(y_t\)</span> for an <span class="math inline">\(MA(k)\)</span> process with <span class="math inline">\(\tau&gt;k\)</span></p>
+</div>
+<div id="ma11-process" class="section level4 hasAnchor" number="14.2.1.3">
+<h4><span class="header-section-number">14.2.1.3</span> <span class="math inline">\(MA(1,1)\)</span> process<a href="time-series-introduction.html#ma11-process" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\begin{aligned}
+y_t&amp;=\alpha y_{t-1}+\epsilon_t+\gamma\epsilon_{t-1}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+E(y_t)&amp;=E(\alpha y_{t-1}+\epsilon_t+\gamma\epsilon_{t-1})\\
+&amp;=\alpha E(y_{t-1})+E(\epsilon_t)+\gamma E(\epsilon_{t-1})\\
+&amp;=\alpha E(y_{t-1})+0+\gamma0\\
+&amp;=\alpha E(y_t)\quad\text{stationarity assumed here}\\
+(1-\alpha)E(y_t)&amp;=0\\
+E(y_t)&amp;=0
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(V(y_t)\)</span>, note that <span class="math inline">\(\epsilon_{t-1}\)</span> shows up in the equation for <span class="math inline">\(y_{t-1}\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+V(y_t)&amp;=V(\alpha y_{t-1}+\epsilon_t+\gamma\epsilon_{t-1})\\
+&amp;=E\left((\alpha y_{t-1}+\epsilon_t+\gamma\epsilon_{t-1})^2\right)\\
+&amp;=E\left(\alpha^2y_{t-1}^2+\epsilon_t^2+\gamma^2\epsilon_{t-1}^2+2\alpha y_{t-1}\epsilon_t+2\alpha\gamma y_{t-1}\epsilon_{t-1}+2\gamma\epsilon_t\epsilon_{t-1}\right)
+\\
+&amp;=\alpha^2 E(y_{t-1}^2)+E(\epsilon_t^2)+\gamma^2E(\epsilon_{t-1}^2)+2\alpha E(y_{t-1}\epsilon_{t})
++2\alpha\gamma E(y_{t-1}\epsilon_{t-1})+2\gamma E(\epsilon_t\epsilon_{t-1})
+\\
+&amp;=\alpha^2 E(y_{t-1}^2)+E(\epsilon_t^2)+\gamma^2E(\epsilon_{t-1}^2)+2\alpha 0
++2\alpha\gamma E(y_{t-1}\epsilon_{t-1})+2\gamma0\\
+&amp;=\alpha^2 V(y_t)+\sigma^2+\gamma^2\sigma^2+2\alpha\gamma E((\alpha y_{t-2}\epsilon_{t-1}+\epsilon_{t-1}^2+\gamma\epsilon_{t-2}\epsilon_{t-1}))
+\quad\text{stationarity assumed here}\\
+&amp;=\alpha^2 V(y_t)+\sigma^2+\gamma^2\sigma^2+2\alpha\gamma \left[\alpha \overbrace{E(y_{t-2}\epsilon_{t-1})}^{=0}+E(\epsilon_{t-1}^2)+\gamma \overbrace{E(\epsilon_{t-2}\epsilon_{t-1})}^{=0}\right]
+\\
+(1-\alpha^2)V(y_t)&amp;=\sigma^2+\gamma^2\sigma^2+2\alpha\gamma\sigma^2
+\\
+&amp;=\sigma^2(1+\gamma^2+2\alpha\gamma)\\
+V(y_t)&amp;=\frac{\sigma^2(1+\gamma^2+2\alpha\gamma)}{1-\alpha^2}
+\end{aligned}
+\]</span>
+which we can check by:</p>
+<ul>
+<li>substituting in <span class="math inline">\(\gamma=0\)</span> and comparing it to the AR(1) derivation</li>
+<li>substituting in <span class="math inline">\(\alpha=0\)</span> and comparing it to the MA(1) derivation</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{cov}(y_t,y_{t-1})&amp;=E(y_ty_{t-1})\\
+&amp;=E((\alpha y_{t-1}+\epsilon_t+\gamma\epsilon_{t-1})y_{t-1})\\
+&amp;=\alpha E(y_{t-1}^2)+E(\epsilon_t y_{t-1})+\gamma E(\epsilon_{t-1}y_{t-1})\\
+&amp;=\alpha V(y_{t})+0+\gamma E(\epsilon_{t-1}(\alpha y_{t-2}+\epsilon_{t-1}+\gamma\epsilon_{t-2}))\\
+&amp;=\alpha V(y_t)+\gamma E(\epsilon_{t-1}^2)\\
+&amp;=\sigma^2\left[\frac{1+\gamma^2+2\alpha\gamma}{1-\alpha^2}+\gamma\right]
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(k\geq 2\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{cov}(y_t,y_{t-k})&amp;=E(y_t,y_{t-k})\\
+&amp;=E\left((\alpha y_{t-1}+\epsilon_t+\gamma\epsilon_{t-1})y_{t-k}\right)\\
+&amp;=\alpha E(y_{t-1}y_{t-k})+E(\epsilon_ty_{t-k})+\gamma E(\epsilon_{t-1}y_{t-k})\\
+&amp;=\alpha\mathrm{cov}(y_{t-1}y_{t-k})+0+0\\
+&amp;=\alpha\mathrm{cov}(y_t,y_{t-k+1})
+\end{aligned}
+\]</span></p>
+<p>But here, compared to the <span class="math inline">\(AR(1)\)</span> model, we can’t build up the sequence from <span class="math inline">\(\mathrm{cov}(y_t,y_{t-1})\)</span>. We need to do it from:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{cov}(y_t,y_{t-2})&amp;=E(y_ty_{t-2})\\
+&amp;=E\left((\alpha y_{t-1}+\epsilon_t+\gamma\epsilon_{t-1})y_{t-2}\right)\\
+&amp;=E\left((\alpha(\alpha y_{t-2}+\epsilon_{t-1}+\gamma\epsilon_{t-2})+\epsilon_t+\gamma\epsilon_{t-1})y_{t-2}\right)\\
+&amp;=\alpha^2 E(y_{t-2}^2)+\alpha E(\epsilon_{t-1}y_{t-2})+\alpha\gamma E(\epsilon_{t-2}y_{t-2})+E(\epsilon_ty_{t-2})+\gamma E(\epsilon_{t-1}y_{t-2})\\
+&amp;=\alpha^2V(y_t)+0+\alpha\gamma E(\epsilon_{t-2}(\alpha y_{t-3}+\epsilon_{t-2}+\gamma\epsilon_{t-3}))+0\\
+&amp;=\alpha^2 V(y_t)+\alpha\gamma\sigma^2
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="diagnostics-autocorrelation-and-partial-autocorrelation-functions" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> Diagnostics: Autocorrelation and partial autocorrelation functions<a href="time-series-introduction.html#diagnostics-autocorrelation-and-partial-autocorrelation-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Autocorrelation and partial autocorrelation functions are useful ways to graphically represent the serial correlation in a time series. For stationary time series, the autocorrelation function (ACF) is defined as:
+<span class="math display">\[\begin{align}
+R(\tau)&amp;=\frac{E[(Y_t-\mu)(Y_{t-\tau}-\mu)]}{\sigma^2}
+\end{align}\]</span>
+In words, this is the correlation between our random variable, and its value <span class="math inline">\(\tau\)</span> periods in the past, or <span class="math inline">\(\mathrm{corr}(Y_t,Y_{t-\tau})\)</span>. If <span class="math inline">\(Y_t\)</span> is an <span class="math inline">\(\mathrm{MA}(k)\)</span> process, then <span class="math inline">\(R(\tau)\neq 0\)</span> for <span class="math inline">\(\tau= k\)</span>, and zero for <span class="math inline">\(\tau&gt;k\)</span>.</p>
+<p>The partial autocorrelation function is defined recursively, and involves projection matrices. In upholding my promise to not go into matrix algebra, I will hold off on the formal definition, and provide this intuition instead:
+You estimate the model:
+<span class="math display">\[\begin{align}
+Y_t&amp;=\beta_0+\beta_1Y_{t-1}+\beta_2Y_{t-2}+\ldots+\beta_\tau Y_{t-\tau}+\epsilon_t
+\end{align}\]</span>
+The partial autocorrelation function is equal to:
+<span class="math display">\[\begin{align}
+\alpha(\tau)=\mathrm{plim}\hat\beta_\tau
+\end{align}\]</span>
+That is, after controlling for all lags of lower order, how much additional explanatory power does <span class="math inline">\(Y_{t-\tau}\)</span> provide for <span class="math inline">\(Y_t\)</span>. An <span class="math inline">\(\mathrm{AR}(k)\)</span> process will have <span class="math inline">\(\alpha(\tau)\neq 0\)</span> for <span class="math inline">\(\tau= k\)</span>, and zero for <span class="math inline">\(\tau&gt;k\)</span>.</p>
+<p>We can therefore use the sample analog of these to diagnose the presence of autocorrelation, and maybe even the <em>type</em> of autocorrelation present (if it is not too fancy).</p>
+<p>Sometimes these are reasonably easy to spot. For example the following Figures show these functions for an AR(2) and MA(2) process respectively.</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="time-series-introduction.html#cb174-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">10000</span>,<span class="at">ar=</span><span class="fu">c</span>(<span class="fl">0.2</span>,<span class="fl">0.3</span>),<span class="at">ma=</span><span class="dv">0</span>))</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-264-1.png" width="672" /></p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="time-series-introduction.html#cb175-1" tabindex="-1"></a><span class="fu">pacf</span>(<span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">10000</span>,<span class="at">ar=</span><span class="fu">c</span>(<span class="fl">0.2</span>,<span class="fl">0.3</span>),<span class="at">ma=</span><span class="dv">0</span>))</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-264-2.png" width="672" /></p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="time-series-introduction.html#cb176-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">10000</span>,<span class="at">ma=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.7</span>),<span class="at">ar=</span><span class="dv">0</span>))</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="time-series-introduction.html#cb177-1" tabindex="-1"></a><span class="fu">pacf</span>(<span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">10000</span>,<span class="at">ma=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.7</span>),<span class="at">ar=</span><span class="dv">0</span>))</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-265-2.png" width="672" /></p>
+<p>However things get more messy when there are both MA and AR components present</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="time-series-introduction.html#cb178-1" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">sim.ARMA</span>(<span class="at">n=</span><span class="dv">10000</span>,<span class="at">ar=</span><span class="fu">c</span>(<span class="fl">0.2</span>,<span class="fl">0.3</span>),<span class="at">ma=</span><span class="fu">c</span>(<span class="fl">0.7</span>,<span class="fl">0.1</span>))</span>
+<span id="cb178-2"><a href="time-series-introduction.html#cb178-2" tabindex="-1"></a><span class="fu">acf</span>(y)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-266-1.png" width="672" /></p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="time-series-introduction.html#cb179-1" tabindex="-1"></a><span class="fu">pacf</span>(y)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-266-2.png" width="672" /></p>
+</div>
+<div id="example-dataset-unemployment" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">14.4</span> Example dataset – unemployment<a href="time-series-introduction.html#example-dataset-unemployment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Source: <a href="https://fred.stlouisfed.org/series/UNRATE" class="uri">https://fred.stlouisfed.org/series/UNRATE</a></p>
+<p>downloaded on 2023-03-22</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="time-series-introduction.html#cb180-1" tabindex="-1"></a>unemp<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;data/UNRATE.csv&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">tibble</span>() <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">t=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>(), <span class="at">date=</span>DATE <span class="sc">|&gt;</span> <span class="fu">ymd</span>()) <span class="sc">|&gt;</span> <span class="fu">filter</span>(date<span class="sc">&lt;</span><span class="st">&quot;2020-03-01&quot;</span>)</span>
+<span id="cb180-2"><a href="time-series-introduction.html#cb180-2" tabindex="-1"></a></span>
+<span id="cb180-3"><a href="time-series-introduction.html#cb180-3" tabindex="-1"></a>(</span>
+<span id="cb180-4"><a href="time-series-introduction.html#cb180-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(unemp,<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>UNRATE))</span>
+<span id="cb180-5"><a href="time-series-introduction.html#cb180-5" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb180-6"><a href="time-series-introduction.html#cb180-6" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb180-7"><a href="time-series-introduction.html#cb180-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-267-1.png" width="672" /></p>
+<p>Differenced unemployment rate</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="time-series-introduction.html#cb181-1" tabindex="-1"></a>unemp<span class="ot">&lt;-</span>(</span>
+<span id="cb181-2"><a href="time-series-introduction.html#cb181-2" tabindex="-1"></a>  unemp</span>
+<span id="cb181-3"><a href="time-series-introduction.html#cb181-3" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">dUNRATE =</span> UNRATE<span class="sc">-</span><span class="fu">lag</span>(UNRATE))</span>
+<span id="cb181-4"><a href="time-series-introduction.html#cb181-4" tabindex="-1"></a>)</span>
+<span id="cb181-5"><a href="time-series-introduction.html#cb181-5" tabindex="-1"></a></span>
+<span id="cb181-6"><a href="time-series-introduction.html#cb181-6" tabindex="-1"></a>(</span>
+<span id="cb181-7"><a href="time-series-introduction.html#cb181-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(unemp,<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>dUNRATE))</span>
+<span id="cb181-8"><a href="time-series-introduction.html#cb181-8" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb181-9"><a href="time-series-introduction.html#cb181-9" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb181-10"><a href="time-series-introduction.html#cb181-10" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 1 row containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-268-1.png" width="672" /></p>
+<p>Log-differenced unemployment rate:</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="time-series-introduction.html#cb183-1" tabindex="-1"></a>unemp<span class="ot">&lt;-</span>(</span>
+<span id="cb183-2"><a href="time-series-introduction.html#cb183-2" tabindex="-1"></a>  unemp</span>
+<span id="cb183-3"><a href="time-series-introduction.html#cb183-3" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">ldUNRATE =</span> <span class="fu">log</span>(UNRATE)<span class="sc">-</span><span class="fu">log</span>(<span class="fu">lag</span>(UNRATE)))</span>
+<span id="cb183-4"><a href="time-series-introduction.html#cb183-4" tabindex="-1"></a>)</span>
+<span id="cb183-5"><a href="time-series-introduction.html#cb183-5" tabindex="-1"></a> </span>
+<span id="cb183-6"><a href="time-series-introduction.html#cb183-6" tabindex="-1"></a>(</span>
+<span id="cb183-7"><a href="time-series-introduction.html#cb183-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(unemp,<span class="fu">aes</span>(<span class="at">x=</span>date,<span class="at">y=</span>ldUNRATE))</span>
+<span id="cb183-8"><a href="time-series-introduction.html#cb183-8" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb183-9"><a href="time-series-introduction.html#cb183-9" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb183-10"><a href="time-series-introduction.html#cb183-10" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 1 row containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
+<p>The ACF and PACF of log-differenced unemployment</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="time-series-introduction.html#cb185-1" tabindex="-1"></a>unemp<span class="ot">&lt;-</span>unemp<span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ldUNRATE))</span>
+<span id="cb185-2"><a href="time-series-introduction.html#cb185-2" tabindex="-1"></a></span>
+<span id="cb185-3"><a href="time-series-introduction.html#cb185-3" tabindex="-1"></a><span class="fu">acf</span>(unemp<span class="sc">$</span>ldUNRATE)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="time-series-introduction.html#cb186-1" tabindex="-1"></a><span class="fu">pacf</span>(unemp<span class="sc">$</span>ldUNRATE)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-270-2.png" width="672" /></p>
+</div>
+<div id="stationarity-and-testing-for-unit-roots" class="section level2 hasAnchor" number="14.5">
+<h2><span class="header-section-number">14.5</span> Stationarity and testing for unit roots<a href="time-series-introduction.html#stationarity-and-testing-for-unit-roots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One sign of a non-stationary distribution is a “unit root”. For an AR(1) process, this occurs when the coefficient on lagged <span class="math inline">\(Y\)</span> is equal to one. If this is the case, the <span class="math inline">\(Y_t\)</span>’s effect of <span class="math inline">\(Y_{t+\tau}\)</span> will always be the same, and we will run into some problems with spurious regressions. It is therefore important to recognize unit roots when we have them, because it indicates that our data are non-stationary, and so we will need to difference them before analyzing them. Unfortunately we can have a non-stationary dataset even without a unit root (I will have an example of this soon).</p>
+<p>Here I present two tests for unit roots. The first, the <em>Dickey-Fuller</em> test, has a null of a unit root. Specifically, if we have an AR(1) process with a unit root, then:</p>
+<p><span class="math display">\[
+\begin{aligned}
+Y_t&amp;=Y_{t-1}+\epsilon_t\\
+Y_{t}-Y_{t-1}&amp;=\gamma Y_{t-1}-Y_{t-1}+\epsilon_t\\
+&amp;=(\gamma-1)Y_{t-1}+\epsilon_t\\
+&amp;=\alpha Y_{t-1}+\epsilon_t
+\end{aligned}
+\]</span></p>
+<p>That is, if we have a unit root, then <span class="math inline">\(\alpha=0\)</span>, which is our null. We therefore hope to reject this null. The <em>augmented Dickey-Fuller</em> includes some extra lagged <span class="math inline">\(\Delta Y_{t-k}\)</span>s and a time trend. Since the null hypothesis is that we have a unit root, we hope to reject the null.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="time-series-introduction.html#cb187-1" tabindex="-1"></a><span class="fu">library</span>(tseries)</span>
+<span id="cb187-2"><a href="time-series-introduction.html#cb187-2" tabindex="-1"></a></span>
+<span id="cb187-3"><a href="time-series-introduction.html#cb187-3" tabindex="-1"></a>unemp<span class="sc">$</span>UNRATE <span class="sc">|&gt;</span> <span class="fu">adf.test</span>()</span></code></pre></div>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  unemp$UNRATE
+## Dickey-Fuller = -3.6944, Lag order = 9, p-value = 0.02427
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="time-series-introduction.html#cb189-1" tabindex="-1"></a>unemp<span class="sc">$</span>dUNRATE <span class="sc">|&gt;</span> <span class="fu">adf.test</span>()</span></code></pre></div>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  unemp$dUNRATE
+## Dickey-Fuller = -8.4335, Lag order = 9, p-value = 0.01
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="time-series-introduction.html#cb191-1" tabindex="-1"></a>unemp<span class="sc">$</span>ldUNRATE <span class="sc">|&gt;</span> <span class="fu">adf.test</span>()</span></code></pre></div>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  unemp$ldUNRATE
+## Dickey-Fuller = -8.4713, Lag order = 9, p-value = 0.01
+## alternative hypothesis: stationary</code></pre>
+<p>The <a href="https://en.wikipedia.org/wiki/KPSS_test">KPSS (Kwiatkowski–Phillips–Schmidt–Shin) test</a> on the other hand has a null that the data are stationary (around a deterministic trend). The alternative is that there is a unit root. Therefor we hope to fail to reject this null.</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="time-series-introduction.html#cb193-1" tabindex="-1"></a>unemp<span class="sc">$</span>UNRATE<span class="sc">|&gt;</span> <span class="fu">kpss.test</span>()</span></code></pre></div>
+<pre><code>## Warning in kpss.test(unemp$UNRATE): p-value smaller than printed p-value</code></pre>
+<pre><code>## 
+##  KPSS Test for Level Stationarity
+## 
+## data:  unemp$UNRATE
+## KPSS Level = 1.2718, Truncation lag parameter = 6, p-value = 0.01</code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="time-series-introduction.html#cb196-1" tabindex="-1"></a>unemp<span class="sc">$</span>dUNRATE<span class="sc">|&gt;</span> <span class="fu">kpss.test</span>()</span></code></pre></div>
+<pre><code>## Warning in kpss.test(unemp$dUNRATE): p-value greater than printed p-value</code></pre>
+<pre><code>## 
+##  KPSS Test for Level Stationarity
+## 
+## data:  unemp$dUNRATE
+## KPSS Level = 0.098479, Truncation lag parameter = 6, p-value = 0.1</code></pre>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="time-series-introduction.html#cb199-1" tabindex="-1"></a>unemp<span class="sc">$</span>ldUNRATE<span class="sc">|&gt;</span> <span class="fu">kpss.test</span>()</span></code></pre></div>
+<pre><code>## Warning in kpss.test(unemp$ldUNRATE): p-value greater than printed p-value</code></pre>
+<pre><code>## 
+##  KPSS Test for Level Stationarity
+## 
+## data:  unemp$ldUNRATE
+## KPSS Level = 0.11827, Truncation lag parameter = 6, p-value = 0.1</code></pre>
+</div>
+<div id="non-stationarity-and-spurious-correlation" class="section level2 hasAnchor" number="14.6">
+<h2><span class="header-section-number">14.6</span> Non-stationarity and spurious correlation<a href="time-series-introduction.html#non-stationarity-and-spurious-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="two-variables-share-a-trend" class="section level3 hasAnchor" number="14.6.1">
+<h3><span class="header-section-number">14.6.1</span> Two variables share a trend<a href="time-series-introduction.html#two-variables-share-a-trend" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="time-series-introduction.html#cb202-1" tabindex="-1"></a>simSize<span class="ot">&lt;-</span><span class="dv">1000</span></span>
+<span id="cb202-2"><a href="time-series-introduction.html#cb202-2" tabindex="-1"></a></span>
+<span id="cb202-3"><a href="time-series-introduction.html#cb202-3" tabindex="-1"></a>d<span class="ot">&lt;-</span>(<span class="fu">tibble</span>(<span class="at">t =</span> <span class="dv">1</span><span class="sc">:</span>simSize)</span>
+<span id="cb202-4"><a href="time-series-introduction.html#cb202-4" tabindex="-1"></a>      <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">x =</span> <span class="dv">30</span><span class="sc">*</span><span class="fu">rnorm</span>(simSize)<span class="sc">+</span>t,</span>
+<span id="cb202-5"><a href="time-series-introduction.html#cb202-5" tabindex="-1"></a>                <span class="at">y =</span> <span class="dv">30</span><span class="sc">*</span><span class="fu">rnorm</span>(simSize)<span class="sc">-</span><span class="dv">3</span><span class="sc">*</span>t</span>
+<span id="cb202-6"><a href="time-series-introduction.html#cb202-6" tabindex="-1"></a>                )   </span>
+<span id="cb202-7"><a href="time-series-introduction.html#cb202-7" tabindex="-1"></a>)</span>
+<span id="cb202-8"><a href="time-series-introduction.html#cb202-8" tabindex="-1"></a></span>
+<span id="cb202-9"><a href="time-series-introduction.html#cb202-9" tabindex="-1"></a>(</span>
+<span id="cb202-10"><a href="time-series-introduction.html#cb202-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y))</span>
+<span id="cb202-11"><a href="time-series-introduction.html#cb202-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb202-12"><a href="time-series-introduction.html#cb202-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb202-13"><a href="time-series-introduction.html#cb202-13" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">formula=</span><span class="st">&quot;y~x&quot;</span>)</span>
+<span id="cb202-14"><a href="time-series-introduction.html#cb202-14" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-273-1.png" width="672" /></p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="time-series-introduction.html#cb203-1" tabindex="-1"></a>(</span>
+<span id="cb203-2"><a href="time-series-introduction.html#cb203-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span>
+<span id="cb203-3"><a href="time-series-introduction.html#cb203-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>t,<span class="at">y=</span>x,<span class="at">color=</span><span class="st">&quot;X&quot;</span>))</span>
+<span id="cb203-4"><a href="time-series-introduction.html#cb203-4" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>t,<span class="at">y=</span>y,<span class="at">color=</span><span class="st">&quot;Y&quot;</span>))</span>
+<span id="cb203-5"><a href="time-series-introduction.html#cb203-5" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb203-6"><a href="time-series-introduction.html#cb203-6" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-273-2.png" width="672" /></p>
+</div>
+<div id="two-variables-are-cyclical" class="section level3 hasAnchor" number="14.6.2">
+<h3><span class="header-section-number">14.6.2</span> Two variables are cyclical<a href="time-series-introduction.html#two-variables-are-cyclical" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="time-series-introduction.html#cb204-1" tabindex="-1"></a>d<span class="ot">&lt;-</span>(<span class="fu">tibble</span>(<span class="at">t =</span> <span class="dv">1</span><span class="sc">:</span>simSize)</span>
+<span id="cb204-2"><a href="time-series-introduction.html#cb204-2" tabindex="-1"></a>      <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(simSize)<span class="sc">+</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sin</span>(t<span class="sc">/</span><span class="dv">50</span>),</span>
+<span id="cb204-3"><a href="time-series-introduction.html#cb204-3" tabindex="-1"></a>                <span class="at">y =</span> <span class="fu">rnorm</span>(simSize)<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sin</span>(t<span class="sc">/</span><span class="dv">50</span>)</span>
+<span id="cb204-4"><a href="time-series-introduction.html#cb204-4" tabindex="-1"></a>                )   </span>
+<span id="cb204-5"><a href="time-series-introduction.html#cb204-5" tabindex="-1"></a>)</span>
+<span id="cb204-6"><a href="time-series-introduction.html#cb204-6" tabindex="-1"></a></span>
+<span id="cb204-7"><a href="time-series-introduction.html#cb204-7" tabindex="-1"></a>(</span>
+<span id="cb204-8"><a href="time-series-introduction.html#cb204-8" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y))</span>
+<span id="cb204-9"><a href="time-series-introduction.html#cb204-9" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb204-10"><a href="time-series-introduction.html#cb204-10" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb204-11"><a href="time-series-introduction.html#cb204-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">formula=</span><span class="st">&quot;y~x&quot;</span>)</span>
+<span id="cb204-12"><a href="time-series-introduction.html#cb204-12" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-274-1.png" width="672" /></p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="time-series-introduction.html#cb205-1" tabindex="-1"></a>(</span>
+<span id="cb205-2"><a href="time-series-introduction.html#cb205-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span>
+<span id="cb205-3"><a href="time-series-introduction.html#cb205-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>t,<span class="at">y=</span>x,<span class="at">color=</span><span class="st">&quot;X&quot;</span>))</span>
+<span id="cb205-4"><a href="time-series-introduction.html#cb205-4" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>t,<span class="at">y=</span>y,<span class="at">color=</span><span class="st">&quot;Y&quot;</span>))</span>
+<span id="cb205-5"><a href="time-series-introduction.html#cb205-5" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb205-6"><a href="time-series-introduction.html#cb205-6" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-274-2.png" width="672" /></p>
+</div>
+<div id="two-variables-have-a-unit-root" class="section level3 hasAnchor" number="14.6.3">
+<h3><span class="header-section-number">14.6.3</span> Two variables have a unit root<a href="time-series-introduction.html#two-variables-have-a-unit-root" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="time-series-introduction.html#cb206-1" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">tibble</span>(</span>
+<span id="cb206-2"><a href="time-series-introduction.html#cb206-2" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">sim.ARMA</span>(<span class="at">n=</span>simSize,<span class="at">ar=</span><span class="dv">1</span>),</span>
+<span id="cb206-3"><a href="time-series-introduction.html#cb206-3" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">sim.ARMA</span>(<span class="at">n=</span>simSize,<span class="at">ar=</span><span class="dv">1</span>),</span>
+<span id="cb206-4"><a href="time-series-introduction.html#cb206-4" tabindex="-1"></a>  <span class="at">t =</span> <span class="dv">1</span><span class="sc">:</span>simSize</span>
+<span id="cb206-5"><a href="time-series-introduction.html#cb206-5" tabindex="-1"></a>)</span>
+<span id="cb206-6"><a href="time-series-introduction.html#cb206-6" tabindex="-1"></a></span>
+<span id="cb206-7"><a href="time-series-introduction.html#cb206-7" tabindex="-1"></a>(</span>
+<span id="cb206-8"><a href="time-series-introduction.html#cb206-8" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y))</span>
+<span id="cb206-9"><a href="time-series-introduction.html#cb206-9" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb206-10"><a href="time-series-introduction.html#cb206-10" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb206-11"><a href="time-series-introduction.html#cb206-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">formula=</span><span class="st">&quot;y~x&quot;</span>)</span>
+<span id="cb206-12"><a href="time-series-introduction.html#cb206-12" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="time-series-introduction.html#cb207-1" tabindex="-1"></a>(</span>
+<span id="cb207-2"><a href="time-series-introduction.html#cb207-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span>
+<span id="cb207-3"><a href="time-series-introduction.html#cb207-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>t,<span class="at">y=</span>x,<span class="at">color=</span><span class="st">&quot;X&quot;</span>))</span>
+<span id="cb207-4"><a href="time-series-introduction.html#cb207-4" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>t,<span class="at">y=</span>y,<span class="at">color=</span><span class="st">&quot;Y&quot;</span>))</span>
+<span id="cb207-5"><a href="time-series-introduction.html#cb207-5" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb207-6"><a href="time-series-introduction.html#cb207-6" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-275-2.png" width="672" /></p>
+</div>
+</div>
+<div id="differencing-and-stationarity" class="section level2 hasAnchor" number="14.7">
+<h2><span class="header-section-number">14.7</span> Differencing and stationarity<a href="time-series-introduction.html#differencing-and-stationarity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A non-stationary time series can often be made stationary using differencing. Therefore, if we have identified a non-stationary distribution, perhaps through one of the tests described above, in order to analyze it with techniques that assume stationarity, we need to transform the series into a stationary one.</p>
+<div id="some-examples-of-making-non-stationary-series-stationary-through-differencing" class="section level3 hasAnchor" number="14.7.1">
+<h3><span class="header-section-number">14.7.1</span> Some examples of making non-stationary series stationary through differencing<a href="time-series-introduction.html#some-examples-of-making-non-stationary-series-stationary-through-differencing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ar1-with-unit-root" class="section level4 hasAnchor" number="14.7.1.1">
+<h4><span class="header-section-number">14.7.1.1</span> AR(1) with unit root<a href="time-series-introduction.html#ar1-with-unit-root" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\begin{aligned}
+y_t&amp;=y_{t-1}+\epsilon_{t}\quad &amp;\text{is not stationary}\\
+y_{t}-y_{t-1}&amp;=\epsilon_t\quad&amp;\text{is stationary}
+\end{aligned}
+\]</span></p>
+</div>
+<div id="example-a-linear-trend" class="section level4 hasAnchor" number="14.7.1.2">
+<h4><span class="header-section-number">14.7.1.2</span> Example: A linear trend<a href="time-series-introduction.html#example-a-linear-trend" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\begin{aligned}
+y_t&amp;=t+\epsilon_t\quad &amp;\text{is not stationary}\\
+y_t-y_{t-1}&amp;=(t+\epsilon_t)-(t-1+\epsilon_{t-1})\\
+&amp;=1+\epsilon_t-\epsilon_{t-1}\quad &amp; \text{is stationary}
+\end{aligned}
+\]</span></p>
+<p>Note here that the process is now MA(1)</p>
+</div>
+</div>
+<div id="example-dataset-us-consumer-price-index" class="section level3 hasAnchor" number="14.7.2">
+<h3><span class="header-section-number">14.7.2</span> Example dataset: US Consumer Price Index<a href="time-series-introduction.html#example-dataset-us-consumer-price-index" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>“Consumer Price Index for All Urban Consumers: All Items in U.S. City Average”</li>
+<li>Source: <a href="https://fred.stlouisfed.org/series/CPIAUCSL" class="uri">https://fred.stlouisfed.org/series/CPIAUCSL</a> downloaded on 2023-03-29</li>
+</ul>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="time-series-introduction.html#cb208-1" tabindex="-1"></a>CPI<span class="ot">&lt;-</span>(</span>
+<span id="cb208-2"><a href="time-series-introduction.html#cb208-2" tabindex="-1"></a>  <span class="fu">read.csv</span>(<span class="st">&quot;data/CPIAUCSL.csv&quot;</span>)</span>
+<span id="cb208-3"><a href="time-series-introduction.html#cb208-3" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">DATE =</span> DATE <span class="sc">|&gt;</span> <span class="fu">ymd</span>())</span>
+<span id="cb208-4"><a href="time-series-introduction.html#cb208-4" tabindex="-1"></a>)</span>
+<span id="cb208-5"><a href="time-series-introduction.html#cb208-5" tabindex="-1"></a></span>
+<span id="cb208-6"><a href="time-series-introduction.html#cb208-6" tabindex="-1"></a>(</span>
+<span id="cb208-7"><a href="time-series-introduction.html#cb208-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(CPI,<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>CPIAUCSL))</span>
+<span id="cb208-8"><a href="time-series-introduction.html#cb208-8" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb208-9"><a href="time-series-introduction.html#cb208-9" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb208-10"><a href="time-series-introduction.html#cb208-10" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;CPI in levels&quot;</span>)</span>
+<span id="cb208-11"><a href="time-series-introduction.html#cb208-11" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
+<p>We can test for a unit root (which implies non-stationarity, but is not the only kind of non-stationarity).</p>
+<p>Using the Augmented Dickey-Fuller test (recall that the null hypothesis is that there <em>is</em> a unit root):</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="time-series-introduction.html#cb209-1" tabindex="-1"></a>CPI<span class="sc">$</span>CPIAUCSL <span class="sc">|&gt;</span> <span class="fu">adf.test</span>()</span></code></pre></div>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  CPI$CPIAUCSL
+## Dickey-Fuller = -0.74897, Lag order = 9, p-value = 0.9662
+## alternative hypothesis: stationary</code></pre>
+<p>Using the KPSS test (recall the the null hypothesis is that there is <em>not</em> a unit root):</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="time-series-introduction.html#cb211-1" tabindex="-1"></a>CPI<span class="sc">$</span>CPIAUCSL <span class="sc">|&gt;</span> <span class="fu">kpss.test</span>()</span></code></pre></div>
+<pre><code>## Warning in kpss.test(CPI$CPIAUCSL): p-value smaller than printed p-value</code></pre>
+<pre><code>## 
+##  KPSS Test for Level Stationarity
+## 
+## data:  CPI$CPIAUCSL
+## KPSS Level = 13.039, Truncation lag parameter = 6, p-value = 0.01</code></pre>
+<p>So both tests suggest that we have a unit root, and so the data are non-stationary. Let’s see what happens with first differences:</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="time-series-introduction.html#cb214-1" tabindex="-1"></a>CPI<span class="ot">&lt;-</span>(CPI <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">CPIAUCSL_D1 =</span>  CPIAUCSL<span class="sc">-</span><span class="fu">lag</span>( CPIAUCSL,<span class="at">n=</span><span class="dv">1</span>)))</span>
+<span id="cb214-2"><a href="time-series-introduction.html#cb214-2" tabindex="-1"></a></span>
+<span id="cb214-3"><a href="time-series-introduction.html#cb214-3" tabindex="-1"></a></span>
+<span id="cb214-4"><a href="time-series-introduction.html#cb214-4" tabindex="-1"></a>(</span>
+<span id="cb214-5"><a href="time-series-introduction.html#cb214-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(CPI,<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>CPIAUCSL_D1))</span>
+<span id="cb214-6"><a href="time-series-introduction.html#cb214-6" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb214-7"><a href="time-series-introduction.html#cb214-7" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb214-8"><a href="time-series-introduction.html#cb214-8" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;CPI in first differences&quot;</span>)</span>
+<span id="cb214-9"><a href="time-series-introduction.html#cb214-9" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 1 row containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
+<p>This looks like there is no trend in the mean (good), but there <em>is</em> a trend in the variance (not good). Let’s see what the unit root tests tell us:</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="time-series-introduction.html#cb216-1" tabindex="-1"></a>cpi<span class="ot">&lt;-</span>CPI <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(CPIAUCSL_D1))</span>
+<span id="cb216-2"><a href="time-series-introduction.html#cb216-2" tabindex="-1"></a></span>
+<span id="cb216-3"><a href="time-series-introduction.html#cb216-3" tabindex="-1"></a>cpi<span class="sc">$</span>CPIAUCSL_D1 <span class="sc">|&gt;</span> <span class="fu">adf.test</span>()</span></code></pre></div>
+<pre><code>## Warning in adf.test(cpi$CPIAUCSL_D1): p-value smaller than printed p-value</code></pre>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  cpi$CPIAUCSL_D1
+## Dickey-Fuller = -5.5009, Lag order = 9, p-value = 0.01
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="time-series-introduction.html#cb219-1" tabindex="-1"></a>cpi<span class="sc">$</span>CPIAUCSL_D1 <span class="sc">|&gt;</span> <span class="fu">kpss.test</span>()</span></code></pre></div>
+<pre><code>## Warning in kpss.test(cpi$CPIAUCSL_D1): p-value smaller than printed p-value</code></pre>
+<pre><code>## 
+##  KPSS Test for Level Stationarity
+## 
+## data:  cpi$CPIAUCSL_D1
+## KPSS Level = 3.7684, Truncation lag parameter = 6, p-value = 0.01</code></pre>
+<p>so we have conflicting results.</p>
+<p>Sometimes, working in log-differences can stabilize a trend in the variance:</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="time-series-introduction.html#cb222-1" tabindex="-1"></a>CPI<span class="ot">&lt;-</span>CPI <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">CPIAUCSL_logD1 =</span> <span class="fu">log</span>(CPIAUCSL)<span class="sc">-</span><span class="fu">log</span>(<span class="fu">lag</span>(CPIAUCSL,<span class="at">n=</span><span class="dv">1</span>)))</span>
+<span id="cb222-2"><a href="time-series-introduction.html#cb222-2" tabindex="-1"></a></span>
+<span id="cb222-3"><a href="time-series-introduction.html#cb222-3" tabindex="-1"></a>(</span>
+<span id="cb222-4"><a href="time-series-introduction.html#cb222-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(CPI,<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>CPIAUCSL_logD1))</span>
+<span id="cb222-5"><a href="time-series-introduction.html#cb222-5" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb222-6"><a href="time-series-introduction.html#cb222-6" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb222-7"><a href="time-series-introduction.html#cb222-7" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;CPI in log first differences&quot;</span>)</span>
+<span id="cb222-8"><a href="time-series-introduction.html#cb222-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 1 row containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-281-1.png" width="672" /></p>
+<p>So it looks like the variance problem is mitigated.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="time-series-introduction.html#cb224-1" tabindex="-1"></a>cpi<span class="ot">&lt;-</span>CPI <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(CPIAUCSL_logD1))</span>
+<span id="cb224-2"><a href="time-series-introduction.html#cb224-2" tabindex="-1"></a>cpi<span class="sc">$</span>CPIAUCSL_logD1 <span class="sc">|&gt;</span> <span class="fu">adf.test</span>()</span></code></pre></div>
+<pre><code>## Warning in adf.test(cpi$CPIAUCSL_logD1): p-value smaller than printed p-value</code></pre>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  cpi$CPIAUCSL_logD1
+## Dickey-Fuller = -4.3264, Lag order = 9, p-value = 0.01
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="time-series-introduction.html#cb227-1" tabindex="-1"></a>cpi<span class="sc">$</span>CPIAUCSL_logD1 <span class="sc">|&gt;</span> <span class="fu">kpss.test</span>()</span></code></pre></div>
+<pre><code>## Warning in kpss.test(cpi$CPIAUCSL_logD1): p-value smaller than printed p-value</code></pre>
+<pre><code>## 
+##  KPSS Test for Level Stationarity
+## 
+## data:  cpi$CPIAUCSL_logD1
+## KPSS Level = 0.88213, Truncation lag parameter = 6, p-value = 0.01</code></pre>
+<p>However the two tests are giving conflicting results. Specifically ADF <span class="math inline">\(\implies\)</span> stationarity, but KPSS <span class="math inline">\(\implies\)</span> non-stationarity.</p>
+<p>Let’s try second-order differencing in logs:</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="time-series-introduction.html#cb230-1" tabindex="-1"></a>CPI<span class="ot">&lt;-</span>(</span>
+<span id="cb230-2"><a href="time-series-introduction.html#cb230-2" tabindex="-1"></a>  CPI</span>
+<span id="cb230-3"><a href="time-series-introduction.html#cb230-3" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">CPIAUCSL_logD2 =</span> CPIAUCSL_logD1<span class="sc">-</span><span class="fu">lag</span>(CPIAUCSL_logD1,<span class="at">n=</span><span class="dv">1</span>))</span>
+<span id="cb230-4"><a href="time-series-introduction.html#cb230-4" tabindex="-1"></a>)</span>
+<span id="cb230-5"><a href="time-series-introduction.html#cb230-5" tabindex="-1"></a></span>
+<span id="cb230-6"><a href="time-series-introduction.html#cb230-6" tabindex="-1"></a>(</span>
+<span id="cb230-7"><a href="time-series-introduction.html#cb230-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(CPI,<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>CPIAUCSL_logD2))</span>
+<span id="cb230-8"><a href="time-series-introduction.html#cb230-8" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb230-9"><a href="time-series-introduction.html#cb230-9" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb230-10"><a href="time-series-introduction.html#cb230-10" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;CPI in log second differences&quot;</span>)</span>
+<span id="cb230-11"><a href="time-series-introduction.html#cb230-11" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-283-1.png" width="672" /></p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="time-series-introduction.html#cb232-1" tabindex="-1"></a>cpi<span class="ot">&lt;-</span>CPI <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(CPIAUCSL_logD2))</span>
+<span id="cb232-2"><a href="time-series-introduction.html#cb232-2" tabindex="-1"></a>cpi<span class="sc">$</span>CPIAUCSL_logD2 <span class="sc">|&gt;</span> <span class="fu">adf.test</span>()</span></code></pre></div>
+<pre><code>## Warning in adf.test(cpi$CPIAUCSL_logD2): p-value smaller than printed p-value</code></pre>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  cpi$CPIAUCSL_logD2
+## Dickey-Fuller = -15.139, Lag order = 9, p-value = 0.01
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="time-series-introduction.html#cb235-1" tabindex="-1"></a>cpi<span class="sc">$</span>CPIAUCSL_logD2 <span class="sc">|&gt;</span> <span class="fu">kpss.test</span>()</span></code></pre></div>
+<pre><code>## Warning in kpss.test(cpi$CPIAUCSL_logD2): p-value greater than printed p-value</code></pre>
+<pre><code>## 
+##  KPSS Test for Level Stationarity
+## 
+## data:  cpi$CPIAUCSL_logD2
+## KPSS Level = 0.008577, Truncation lag parameter = 6, p-value = 0.1</code></pre>
+<p>So now the conclusions from the tests are in agreement at the 5% level of significance.</p>
+<p>Comment from Dr. Black: look at 12-month lags, becuase there should be seasonality</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="time-series-introduction.html#cb238-1" tabindex="-1"></a>CPI<span class="ot">&lt;-</span>(</span>
+<span id="cb238-2"><a href="time-series-introduction.html#cb238-2" tabindex="-1"></a>  CPI</span>
+<span id="cb238-3"><a href="time-series-introduction.html#cb238-3" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">CPIAUCSL_log12 =</span> <span class="fu">log</span>(CPIAUCSL)<span class="sc">-</span><span class="fu">log</span>(<span class="fu">lag</span>(CPIAUCSL,<span class="at">n=</span><span class="dv">12</span>)))</span>
+<span id="cb238-4"><a href="time-series-introduction.html#cb238-4" tabindex="-1"></a>)</span>
+<span id="cb238-5"><a href="time-series-introduction.html#cb238-5" tabindex="-1"></a></span>
+<span id="cb238-6"><a href="time-series-introduction.html#cb238-6" tabindex="-1"></a>(</span>
+<span id="cb238-7"><a href="time-series-introduction.html#cb238-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(CPI,<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>CPIAUCSL_log12))</span>
+<span id="cb238-8"><a href="time-series-introduction.html#cb238-8" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb238-9"><a href="time-series-introduction.html#cb238-9" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb238-10"><a href="time-series-introduction.html#cb238-10" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;CPI in log 12-month differences&quot;</span>)</span>
+<span id="cb238-11"><a href="time-series-introduction.html#cb238-11" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 12 rows containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-285-1.png" width="672" /></p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="time-series-introduction.html#cb240-1" tabindex="-1"></a>cpi<span class="ot">&lt;-</span>CPI <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(CPIAUCSL_log12))</span>
+<span id="cb240-2"><a href="time-series-introduction.html#cb240-2" tabindex="-1"></a>cpi<span class="sc">$</span>CPIAUCSL_log12 <span class="sc">|&gt;</span> <span class="fu">adf.test</span>()</span></code></pre></div>
+<pre><code>## Warning in adf.test(cpi$CPIAUCSL_log12): p-value smaller than printed p-value</code></pre>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  cpi$CPIAUCSL_log12
+## Dickey-Fuller = -5.3155, Lag order = 9, p-value = 0.01
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="time-series-introduction.html#cb243-1" tabindex="-1"></a>cpi<span class="sc">$</span>CPIAUCSL_log12 <span class="sc">|&gt;</span> <span class="fu">kpss.test</span>()</span></code></pre></div>
+<pre><code>## Warning in kpss.test(cpi$CPIAUCSL_log12): p-value smaller than printed p-value</code></pre>
+<pre><code>## 
+##  KPSS Test for Level Stationarity
+## 
+## data:  cpi$CPIAUCSL_log12
+## KPSS Level = 1.0897, Truncation lag parameter = 6, p-value = 0.01</code></pre>
+</div>
+<div id="example-data-gdp-and-money-supply" class="section level3 hasAnchor" number="14.7.3">
+<h3><span class="header-section-number">14.7.3</span> Example data: GDP and money supply<a href="time-series-introduction.html#example-data-gdp-and-money-supply" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Real Gross Domestic Product (GDPC1): <a href="https://fred.stlouisfed.org/series/GDPC1" class="uri">https://fred.stlouisfed.org/series/GDPC1</a></li>
+<li>Real M2 Money Stock (M2REAL): <a href="https://fred.stlouisfed.org/series/M2REAL" class="uri">https://fred.stlouisfed.org/series/M2REAL</a></li>
+</ul>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="time-series-introduction.html#cb246-1" tabindex="-1"></a>gdp<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;data/GDPC1.csv&quot;</span>)</span>
+<span id="cb246-2"><a href="time-series-introduction.html#cb246-2" tabindex="-1"></a>m2<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;data/M2REAL.csv&quot;</span>)</span>
+<span id="cb246-3"><a href="time-series-introduction.html#cb246-3" tabindex="-1"></a></span>
+<span id="cb246-4"><a href="time-series-introduction.html#cb246-4" tabindex="-1"></a>D<span class="ot">&lt;-</span> gdp <span class="sc">|&gt;</span> <span class="fu">left_join</span>(m2,<span class="at">by=</span><span class="st">&quot;DATE&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">DATE =</span> DATE <span class="sc">|&gt;</span> <span class="fu">ymd</span>())</span>
+<span id="cb246-5"><a href="time-series-introduction.html#cb246-5" tabindex="-1"></a></span>
+<span id="cb246-6"><a href="time-series-introduction.html#cb246-6" tabindex="-1"></a>(</span>
+<span id="cb246-7"><a href="time-series-introduction.html#cb246-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(D)</span>
+<span id="cb246-8"><a href="time-series-introduction.html#cb246-8" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>GDPC1,<span class="at">color=</span><span class="st">&quot;GDP&quot;</span>))</span>
+<span id="cb246-9"><a href="time-series-introduction.html#cb246-9" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>M2REAL,<span class="at">color=</span><span class="st">&quot;M2&quot;</span>))</span>
+<span id="cb246-10"><a href="time-series-introduction.html#cb246-10" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Real US dollars&quot;</span>)</span>
+<span id="cb246-11"><a href="time-series-introduction.html#cb246-11" tabindex="-1"></a>  <span class="co">#+scale_y_continuous(trans=&quot;log10&quot;)</span></span>
+<span id="cb246-12"><a href="time-series-introduction.html#cb246-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb246-13"><a href="time-series-introduction.html#cb246-13" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 48 rows containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-287-1.png" width="672" /></p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="time-series-introduction.html#cb248-1" tabindex="-1"></a>D <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##         DATE    GDPC1 M2REAL
+## 1 1947-01-01 2034.450     NA
+## 2 1947-04-01 2029.024     NA
+## 3 1947-07-01 2024.834     NA
+## 4 1947-10-01 2056.508     NA
+## 5 1948-01-01 2087.442     NA
+## 6 1948-04-01 2121.899     NA</code></pre>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="time-series-introduction.html#cb250-1" tabindex="-1"></a>D<span class="ot">&lt;-</span>(</span>
+<span id="cb250-2"><a href="time-series-introduction.html#cb250-2" tabindex="-1"></a>  D</span>
+<span id="cb250-3"><a href="time-series-introduction.html#cb250-3" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
+<span id="cb250-4"><a href="time-series-introduction.html#cb250-4" tabindex="-1"></a>    <span class="at">logGDP_D1 =</span> <span class="fu">log</span>(GDPC1)<span class="sc">-</span><span class="fu">log</span>(<span class="fu">lag</span>(GDPC1,<span class="at">n=</span><span class="dv">1</span>)),</span>
+<span id="cb250-5"><a href="time-series-introduction.html#cb250-5" tabindex="-1"></a>    <span class="at">logM2_D1 =</span> <span class="fu">log</span>(M2REAL)<span class="sc">-</span><span class="fu">log</span>(<span class="fu">lag</span>(M2REAL,<span class="at">n=</span><span class="dv">1</span>))</span>
+<span id="cb250-6"><a href="time-series-introduction.html#cb250-6" tabindex="-1"></a>  )</span>
+<span id="cb250-7"><a href="time-series-introduction.html#cb250-7" tabindex="-1"></a>)</span>
+<span id="cb250-8"><a href="time-series-introduction.html#cb250-8" tabindex="-1"></a></span>
+<span id="cb250-9"><a href="time-series-introduction.html#cb250-9" tabindex="-1"></a>(</span>
+<span id="cb250-10"><a href="time-series-introduction.html#cb250-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(D)</span>
+<span id="cb250-11"><a href="time-series-introduction.html#cb250-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>logGDP_D1,<span class="at">color=</span><span class="st">&quot;GDP&quot;</span>))</span>
+<span id="cb250-12"><a href="time-series-introduction.html#cb250-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>logM2_D1,<span class="at">color=</span><span class="st">&quot;M2&quot;</span>))</span>
+<span id="cb250-13"><a href="time-series-introduction.html#cb250-13" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Real US dollars&quot;</span>)</span>
+<span id="cb250-14"><a href="time-series-introduction.html#cb250-14" tabindex="-1"></a>  <span class="co">#+scale_y_continuous(trans=&quot;log10&quot;)</span></span>
+<span id="cb250-15"><a href="time-series-introduction.html#cb250-15" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb250-16"><a href="time-series-introduction.html#cb250-16" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 1 row containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<pre><code>## Warning: Removed 49 rows containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-288-1.png" width="672" /></p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="time-series-introduction.html#cb253-1" tabindex="-1"></a>D<span class="sc">$</span>logGDP_D1[<span class="sc">!</span><span class="fu">is.na</span>(D<span class="sc">$</span>logGDP_D1)] <span class="sc">|&gt;</span> <span class="fu">adf.test</span>()</span></code></pre></div>
+<pre><code>## Warning in adf.test(D$logGDP_D1[!is.na(D$logGDP_D1)]): p-value smaller than
+## printed p-value</code></pre>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  D$logGDP_D1[!is.na(D$logGDP_D1)]
+## Dickey-Fuller = -7.3793, Lag order = 6, p-value = 0.01
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="time-series-introduction.html#cb256-1" tabindex="-1"></a>D<span class="sc">$</span>logGDP_D1[<span class="sc">!</span><span class="fu">is.na</span>(D<span class="sc">$</span>logGDP_D1)] <span class="sc">|&gt;</span> <span class="fu">kpss.test</span>()</span></code></pre></div>
+<pre><code>## 
+##  KPSS Test for Level Stationarity
+## 
+## data:  D$logGDP_D1[!is.na(D$logGDP_D1)]
+## KPSS Level = 0.50654, Truncation lag parameter = 5, p-value = 0.04019</code></pre>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="time-series-introduction.html#cb258-1" tabindex="-1"></a>D<span class="sc">$</span>logM2_D1[<span class="sc">!</span><span class="fu">is.na</span>(D<span class="sc">$</span>logM2_D1)] <span class="sc">|&gt;</span> <span class="fu">adf.test</span>()</span></code></pre></div>
+<pre><code>## Warning in adf.test(D$logM2_D1[!is.na(D$logM2_D1)]): p-value smaller than
+## printed p-value</code></pre>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  D$logM2_D1[!is.na(D$logM2_D1)]
+## Dickey-Fuller = -5.0855, Lag order = 6, p-value = 0.01
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="time-series-introduction.html#cb261-1" tabindex="-1"></a>D<span class="sc">$</span>logM2_D1[<span class="sc">!</span><span class="fu">is.na</span>(D<span class="sc">$</span>logM2_D1)] <span class="sc">|&gt;</span> <span class="fu">kpss.test</span>()</span></code></pre></div>
+<pre><code>## Warning in kpss.test(D$logM2_D1[!is.na(D$logM2_D1)]): p-value greater than
+## printed p-value</code></pre>
+<pre><code>## 
+##  KPSS Test for Level Stationarity
+## 
+## data:  D$logM2_D1[!is.na(D$logM2_D1)]
+## KPSS Level = 0.19665, Truncation lag parameter = 5, p-value = 0.1</code></pre>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="time-series-introduction.html#cb264-1" tabindex="-1"></a>(</span>
+<span id="cb264-2"><a href="time-series-introduction.html#cb264-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(D)</span>
+<span id="cb264-3"><a href="time-series-introduction.html#cb264-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>logGDP_D1,<span class="at">color=</span><span class="st">&quot;GDP&quot;</span>))</span>
+<span id="cb264-4"><a href="time-series-introduction.html#cb264-4" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>logM2_D1,<span class="at">color=</span><span class="st">&quot;M2&quot;</span>))</span>
+<span id="cb264-5"><a href="time-series-introduction.html#cb264-5" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Real US dollars&quot;</span>)</span>
+<span id="cb264-6"><a href="time-series-introduction.html#cb264-6" tabindex="-1"></a>  <span class="co">#+scale_y_continuous(trans=&quot;log10&quot;)</span></span>
+<span id="cb264-7"><a href="time-series-introduction.html#cb264-7" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb264-8"><a href="time-series-introduction.html#cb264-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 1 row containing missing values or values outside the scale range
+## (`geom_line()`).
+## Removed 49 rows containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-288-2.png" width="672" /></p>
+<p>Now, looking at seasonal lags</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="time-series-introduction.html#cb266-1" tabindex="-1"></a>D<span class="ot">&lt;-</span>(</span>
+<span id="cb266-2"><a href="time-series-introduction.html#cb266-2" tabindex="-1"></a>  D</span>
+<span id="cb266-3"><a href="time-series-introduction.html#cb266-3" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
+<span id="cb266-4"><a href="time-series-introduction.html#cb266-4" tabindex="-1"></a>    <span class="at">logGDP_D4 =</span> <span class="fu">log</span>(GDPC1)<span class="sc">-</span><span class="fu">log</span>(<span class="fu">lag</span>(GDPC1,<span class="at">n=</span><span class="dv">4</span>)),</span>
+<span id="cb266-5"><a href="time-series-introduction.html#cb266-5" tabindex="-1"></a>    <span class="at">logM2_D4 =</span> <span class="fu">log</span>(M2REAL)<span class="sc">-</span><span class="fu">log</span>(<span class="fu">lag</span>(M2REAL,<span class="at">n=</span><span class="dv">4</span>))</span>
+<span id="cb266-6"><a href="time-series-introduction.html#cb266-6" tabindex="-1"></a>  )</span>
+<span id="cb266-7"><a href="time-series-introduction.html#cb266-7" tabindex="-1"></a>)</span>
+<span id="cb266-8"><a href="time-series-introduction.html#cb266-8" tabindex="-1"></a></span>
+<span id="cb266-9"><a href="time-series-introduction.html#cb266-9" tabindex="-1"></a>(</span>
+<span id="cb266-10"><a href="time-series-introduction.html#cb266-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(D)</span>
+<span id="cb266-11"><a href="time-series-introduction.html#cb266-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>logGDP_D4,<span class="at">color=</span><span class="st">&quot;GDP&quot;</span>))</span>
+<span id="cb266-12"><a href="time-series-introduction.html#cb266-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>DATE,<span class="at">y=</span>logM2_D4,<span class="at">color=</span><span class="st">&quot;M2&quot;</span>))</span>
+<span id="cb266-13"><a href="time-series-introduction.html#cb266-13" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Real US dollars&quot;</span>)</span>
+<span id="cb266-14"><a href="time-series-introduction.html#cb266-14" tabindex="-1"></a>  <span class="co">#+scale_y_continuous(trans=&quot;log10&quot;)</span></span>
+<span id="cb266-15"><a href="time-series-introduction.html#cb266-15" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb266-16"><a href="time-series-introduction.html#cb266-16" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 4 rows containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<pre><code>## Warning: Removed 52 rows containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-289-1.png" width="672" /></p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="time-series-introduction.html#cb269-1" tabindex="-1"></a>D<span class="sc">$</span>logGDP_D4[<span class="sc">!</span><span class="fu">is.na</span>(D<span class="sc">$</span>logGDP_D4)] <span class="sc">|&gt;</span> <span class="fu">adf.test</span>()</span></code></pre></div>
+<pre><code>## Warning in adf.test(D$logGDP_D4[!is.na(D$logGDP_D4)]): p-value smaller than
+## printed p-value</code></pre>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  D$logGDP_D4[!is.na(D$logGDP_D4)]
+## Dickey-Fuller = -6.3762, Lag order = 6, p-value = 0.01
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="time-series-introduction.html#cb272-1" tabindex="-1"></a>D<span class="sc">$</span>logGDP_D4[<span class="sc">!</span><span class="fu">is.na</span>(D<span class="sc">$</span>logGDP_D4)] <span class="sc">|&gt;</span> <span class="fu">kpss.test</span>()</span></code></pre></div>
+<pre><code>## 
+##  KPSS Test for Level Stationarity
+## 
+## data:  D$logGDP_D4[!is.na(D$logGDP_D4)]
+## KPSS Level = 0.65998, Truncation lag parameter = 5, p-value = 0.01718</code></pre>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="time-series-introduction.html#cb274-1" tabindex="-1"></a>D<span class="sc">$</span>logM2_D4[<span class="sc">!</span><span class="fu">is.na</span>(D<span class="sc">$</span>logM2_D4)] <span class="sc">|&gt;</span> <span class="fu">adf.test</span>()</span></code></pre></div>
+<pre><code>## Warning in adf.test(D$logM2_D4[!is.na(D$logM2_D4)]): p-value smaller than
+## printed p-value</code></pre>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  D$logM2_D4[!is.na(D$logM2_D4)]
+## Dickey-Fuller = -6.0073, Lag order = 6, p-value = 0.01
+## alternative hypothesis: stationary</code></pre>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="time-series-introduction.html#cb277-1" tabindex="-1"></a>D<span class="sc">$</span>logM2_D4[<span class="sc">!</span><span class="fu">is.na</span>(D<span class="sc">$</span>logM2_D4)] <span class="sc">|&gt;</span> <span class="fu">kpss.test</span>()</span></code></pre></div>
+<pre><code>## Warning in kpss.test(D$logM2_D4[!is.na(D$logM2_D4)]): p-value greater than
+## printed p-value</code></pre>
+<pre><code>## 
+##  KPSS Test for Level Stationarity
+## 
+## data:  D$logM2_D4[!is.na(D$logM2_D4)]
+## KPSS Level = 0.28434, Truncation lag parameter = 5, p-value = 0.1</code></pre>
+<p>With the raw data:</p>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="time-series-introduction.html#cb280-1" tabindex="-1"></a>(</span>
+<span id="cb280-2"><a href="time-series-introduction.html#cb280-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(D,<span class="fu">aes</span>(<span class="at">x=</span>M2REAL,<span class="at">y=</span>GDPC1))</span>
+<span id="cb280-3"><a href="time-series-introduction.html#cb280-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb280-4"><a href="time-series-introduction.html#cb280-4" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>()</span>
+<span id="cb280-5"><a href="time-series-introduction.html#cb280-5" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb280-6"><a href="time-series-introduction.html#cb280-6" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>()</span>
+<span id="cb280-7"><a href="time-series-introduction.html#cb280-7" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## Warning: Removed 48 rows containing non-finite outside the scale range
+## (`stat_smooth()`).</code></pre>
+<pre><code>## Warning: Removed 48 rows containing missing values or values outside the scale range
+## (`geom_point()`).</code></pre>
+<pre><code>## Warning: Removed 48 rows containing missing values or values outside the scale range
+## (`geom_path()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-290-1.png" width="672" /></p>
+<p>Using the seasonally-adjusted data</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="time-series-introduction.html#cb285-1" tabindex="-1"></a>(</span>
+<span id="cb285-2"><a href="time-series-introduction.html#cb285-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(D,<span class="fu">aes</span>(<span class="at">x=</span>logM2_D4,<span class="at">y=</span>logGDP_D4))</span>
+<span id="cb285-3"><a href="time-series-introduction.html#cb285-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb285-4"><a href="time-series-introduction.html#cb285-4" tabindex="-1"></a>  <span class="co">#+geom_path()</span></span>
+<span id="cb285-5"><a href="time-series-introduction.html#cb285-5" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb285-6"><a href="time-series-introduction.html#cb285-6" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)</span>
+<span id="cb285-7"><a href="time-series-introduction.html#cb285-7" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<pre><code>## Warning: Removed 52 rows containing non-finite outside the scale range
+## (`stat_smooth()`).</code></pre>
+<pre><code>## Warning: Removed 52 rows containing missing values or values outside the scale range
+## (`geom_point()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="time-series-introduction.html#cb289-1" tabindex="-1"></a>reg<span class="ot">&lt;-</span>D <span class="sc">|&gt;</span> <span class="fu">lm</span>(<span class="at">formula =</span> logGDP_D4<span class="sc">~</span>logM2_D4)</span>
+<span id="cb289-2"><a href="time-series-introduction.html#cb289-2" tabindex="-1"></a></span>
+<span id="cb289-3"><a href="time-series-introduction.html#cb289-3" tabindex="-1"></a><span class="fu">stargazer</span>(reg,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+logGDP_D4
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+logM2_D4
+</td>
+<td>
+0.082<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.037)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+0.027<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.002)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+252
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.020
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.016
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+0.023 (df = 250)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+5.034<sup>**</sup> (df = 1; 250)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</div>
+<div id="example-peace-corps" class="section level3 hasAnchor" number="14.7.4">
+<h3><span class="header-section-number">14.7.4</span> Example: Peace Corps<a href="time-series-introduction.html#example-peace-corps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Do our conclusions change if we estimate the model in first differences?</p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="time-series-introduction.html#cb290-1" tabindex="-1"></a><span class="fu">library</span>(lfe)</span></code></pre></div>
+<pre><code>## Loading required package: Matrix</code></pre>
+<pre><code>## 
+## Attaching package: &#39;Matrix&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:tidyr&#39;:
+## 
+##     expand, pack, unpack</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lfe&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:lmtest&#39;:
+## 
+##     waldtest</code></pre>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="time-series-introduction.html#cb296-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb296-2"><a href="time-series-introduction.html#cb296-2" tabindex="-1"></a></span>
+<span id="cb296-3"><a href="time-series-introduction.html#cb296-3" tabindex="-1"></a>D<span class="ot">&lt;-</span>(<span class="fu">read_dta</span>(<span class="st">&quot;data/Peace_Corps.dta&quot;</span>)  <span class="sc">|&gt;</span> <span class="fu">arrange</span>(state,year)</span>
+<span id="cb296-4"><a href="time-series-introduction.html#cb296-4" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">group_by</span>(state)</span>
+<span id="cb296-5"><a href="time-series-introduction.html#cb296-5" tabindex="-1"></a>    </span>
+<span id="cb296-6"><a href="time-series-introduction.html#cb296-6" tabindex="-1"></a> <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">appspc_D1=</span>appspc<span class="sc">-</span><span class="fu">lag</span>(appspc,<span class="at">n=</span><span class="dv">1</span>),</span>
+<span id="cb296-7"><a href="time-series-introduction.html#cb296-7" tabindex="-1"></a>           <span class="at">unemployrate_D1 =</span> unemployrate<span class="sc">-</span><span class="fu">lag</span>(unemployrate,<span class="at">n=</span><span class="dv">1</span>)</span>
+<span id="cb296-8"><a href="time-series-introduction.html#cb296-8" tabindex="-1"></a>           )</span>
+<span id="cb296-9"><a href="time-series-introduction.html#cb296-9" tabindex="-1"></a> </span>
+<span id="cb296-10"><a href="time-series-introduction.html#cb296-10" tabindex="-1"></a>)</span>
+<span id="cb296-11"><a href="time-series-introduction.html#cb296-11" tabindex="-1"></a></span>
+<span id="cb296-12"><a href="time-series-introduction.html#cb296-12" tabindex="-1"></a>FE<span class="ot">&lt;-</span><span class="fu">felm</span>(<span class="at">formula =</span> appspc<span class="sc">~</span>unemployrate <span class="sc">|</span> state <span class="sc">|</span> <span class="dv">0</span><span class="sc">|</span> state,<span class="at">data=</span>D)</span>
+<span id="cb296-13"><a href="time-series-introduction.html#cb296-13" tabindex="-1"></a></span>
+<span id="cb296-14"><a href="time-series-introduction.html#cb296-14" tabindex="-1"></a>FE_D1<span class="ot">&lt;-</span><span class="fu">felm</span>(<span class="at">formula =</span> appspc_D1<span class="sc">~</span>unemployrate_D1 <span class="sc">|</span> state <span class="sc">|</span> <span class="dv">0</span><span class="sc">|</span> state,<span class="at">data=</span>D)</span>
+<span id="cb296-15"><a href="time-series-introduction.html#cb296-15" tabindex="-1"></a></span>
+<span id="cb296-16"><a href="time-series-introduction.html#cb296-16" tabindex="-1"></a><span class="fu">stargazer</span>(FE,FE_D1,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+appspc
+</td>
+<td>
+appspc_D1
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+unemployrate
+</td>
+<td>
+0.657<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.177)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+unemployrate_D1
+</td>
+<td>
+</td>
+<td>
+3.294<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.351)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+306
+</td>
+<td>
+255
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.971
+</td>
+<td>
+0.225
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.966
+</td>
+<td>
+0.031
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+8.391 (df = 254)
+</td>
+<td>
+10.878 (df = 203)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="estimating-arima-models" class="section level2 hasAnchor" number="14.8">
+<h2><span class="header-section-number">14.8</span> Estimating ARIMA models<a href="time-series-introduction.html#estimating-arima-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s start with the raw CPI data first , and focus only on the pre-COVID observations.</p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="time-series-introduction.html#cb297-1" tabindex="-1"></a>CPI<span class="ot">&lt;-</span>(</span>
+<span id="cb297-2"><a href="time-series-introduction.html#cb297-2" tabindex="-1"></a>  <span class="fu">read.csv</span>(<span class="st">&quot;data/CPIAUCSL.csv&quot;</span>)</span>
+<span id="cb297-3"><a href="time-series-introduction.html#cb297-3" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">DATE =</span> DATE <span class="sc">|&gt;</span> <span class="fu">ymd</span>())</span>
+<span id="cb297-4"><a href="time-series-introduction.html#cb297-4" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">filter</span>(DATE<span class="sc">&lt;</span><span class="st">&quot;2020-03-01&quot;</span>)</span>
+<span id="cb297-5"><a href="time-series-introduction.html#cb297-5" tabindex="-1"></a>)</span>
+<span id="cb297-6"><a href="time-series-introduction.html#cb297-6" tabindex="-1"></a></span>
+<span id="cb297-7"><a href="time-series-introduction.html#cb297-7" tabindex="-1"></a>models<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb297-8"><a href="time-series-introduction.html#cb297-8" tabindex="-1"></a></span>
+<span id="cb297-9"><a href="time-series-introduction.html#cb297-9" tabindex="-1"></a><span class="cf">for</span> (kk <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb297-10"><a href="time-series-introduction.html#cb297-10" tabindex="-1"></a>  models[[kk]]<span class="ot">&lt;-</span><span class="fu">arima</span>(CPI<span class="sc">$</span>CPIAUCSL <span class="sc">|&gt;</span> <span class="fu">log</span>() ,<span class="at">order=</span><span class="fu">c</span>(kk,<span class="dv">1</span>,kk))</span>
+<span id="cb297-11"><a href="time-series-introduction.html#cb297-11" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## Warning in arima(log(CPI$CPIAUCSL), order = c(kk, 1, kk)): possible convergence
+## problem: optim gave code = 1</code></pre>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="time-series-introduction.html#cb299-1" tabindex="-1"></a><span class="fu">stargazer</span>(models,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="5">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="5" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+log
+</td>
+<td>
+log
+</td>
+<td>
+log
+</td>
+<td>
+log
+</td>
+<td>
+log
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ar1
+</td>
+<td>
+0.977<sup>***</sup>
+</td>
+<td>
+1.136<sup>***</sup>
+</td>
+<td>
+0.295
+</td>
+<td>
+0.286
+</td>
+<td>
+0.830
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.009)
+</td>
+<td>
+(0.152)
+</td>
+<td>
+(0.181)
+</td>
+<td>
+</td>
+<td>
+(0.585)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ar2
+</td>
+<td>
+</td>
+<td>
+-0.144
+</td>
+<td>
+0.888<sup>***</sup>
+</td>
+<td>
+-0.088<sup>***</sup>
+</td>
+<td>
+-0.918
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.150)
+</td>
+<td>
+(0.067)
+</td>
+<td>
+(0.030)
+</td>
+<td>
+(0.801)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ar3
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-0.196
+</td>
+<td>
+0.961<sup>***</sup>
+</td>
+<td>
+1.103
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.143)
+</td>
+<td>
+(0.032)
+</td>
+<td>
+(0.716)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ar4
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-0.176
+</td>
+<td>
+-0.147
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.845)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ar5
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+0.110
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.293)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ma1
+</td>
+<td>
+-0.706<sup>***</sup>
+</td>
+<td>
+-0.704<sup>***</sup>
+</td>
+<td>
+0.140
+</td>
+<td>
+0.151
+</td>
+<td>
+-0.396
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.042)
+</td>
+<td>
+(0.152)
+</td>
+<td>
+(0.182)
+</td>
+<td>
+</td>
+<td>
+(0.592)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ma2
+</td>
+<td>
+</td>
+<td>
+-0.140
+</td>
+<td>
+-0.814<sup>***</sup>
+</td>
+<td>
+0.180
+</td>
+<td>
+0.794
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.114)
+</td>
+<td>
+(0.048)
+</td>
+<td>
+</td>
+<td>
+(0.529)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ma3
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-0.057
+</td>
+<td>
+-0.835
+</td>
+<td>
+-0.726
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.124)
+</td>
+<td>
+</td>
+<td>
+(0.549)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ma4
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-0.080
+</td>
+<td>
+-0.110
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.653)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ma5
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-0.114
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+877
+</td>
+<td>
+877
+</td>
+<td>
+877
+</td>
+<td>
+877
+</td>
+<td>
+877
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+3,923.312
+</td>
+<td>
+3,947.874
+</td>
+<td>
+3,949.363
+</td>
+<td>
+3,952.424
+</td>
+<td>
+3,957.360
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+sigma<sup>2</sup>
+</td>
+<td>
+0.00001
+</td>
+<td>
+0.00001
+</td>
+<td>
+0.00001
+</td>
+<td>
+0.00001
+</td>
+<td>
+0.00001
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+-7,840.623
+</td>
+<td>
+-7,885.747
+</td>
+<td>
+-7,884.727
+</td>
+<td>
+-7,886.847
+</td>
+<td>
+-7,892.719
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="5" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="time-series-introduction.html#cb300-1" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb300-2"><a href="time-series-introduction.html#cb300-2" tabindex="-1"></a>model<span class="ot">&lt;-</span><span class="fu">arima</span>(<span class="fu">log</span>(CPI<span class="sc">$</span>CPIAUCSL) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">lag</span>(CPI<span class="sc">$</span>CPIAUCSL,<span class="at">n=</span><span class="dv">12</span>)) ,<span class="at">order=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## Warning in arima(log(CPI$CPIAUCSL) - log(lag(CPI$CPIAUCSL, n = 12)), order =
+## c(3, : possible convergence problem: optim gave code = 1</code></pre>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="time-series-introduction.html#cb302-1" tabindex="-1"></a><span class="fu">stargazer</span>(model,<span class="at">type=</span><span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+-
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ar1
+</td>
+<td>
+1.274<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.358)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ar2
+</td>
+<td>
+0.209
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.649)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ar3
+</td>
+<td>
+-0.493<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.298)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ma1
+</td>
+<td>
+0.078
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.351)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ma2
+</td>
+<td>
+-0.472<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.190)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ma3
+</td>
+<td>
+-0.131<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.056)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+intercept
+</td>
+<td>
+0.034<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.006)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+866
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+3,573.462
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+sigma<sup>2</sup>
+</td>
+<td>
+0.00002
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+-7,130.924
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="time-series-introduction.html#cb303-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">forecast</span>(model,<span class="at">h=</span><span class="dv">120</span>))</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-295-1.png" width="672" /></p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="time-series-introduction.html#cb304-1" tabindex="-1"></a>models<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb304-2"><a href="time-series-introduction.html#cb304-2" tabindex="-1"></a></span>
+<span id="cb304-3"><a href="time-series-introduction.html#cb304-3" tabindex="-1"></a>AIC<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
+<span id="cb304-4"><a href="time-series-introduction.html#cb304-4" tabindex="-1"></a></span>
+<span id="cb304-5"><a href="time-series-introduction.html#cb304-5" tabindex="-1"></a><span class="cf">for</span> (kk <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) {</span>
+<span id="cb304-6"><a href="time-series-introduction.html#cb304-6" tabindex="-1"></a>  models[[kk]]<span class="ot">&lt;-</span><span class="fu">arima</span>(<span class="fu">log</span>(CPI<span class="sc">$</span>CPIAUCSL) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">lag</span>(CPI<span class="sc">$</span>CPIAUCSL,<span class="at">n=</span><span class="dv">12</span>)) ,<span class="at">order=</span><span class="fu">c</span>(kk,<span class="dv">0</span>,kk))</span>
+<span id="cb304-7"><a href="time-series-introduction.html#cb304-7" tabindex="-1"></a>  AIC<span class="ot">&lt;-</span><span class="fu">rbind</span>(AIC,<span class="fu">tibble</span>(<span class="at">lags =</span> kk,<span class="at">AIC =</span> models[[kk]]<span class="sc">$</span>aic))</span>
+<span id="cb304-8"><a href="time-series-introduction.html#cb304-8" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## Warning in arima(log(CPI$CPIAUCSL) - log(lag(CPI$CPIAUCSL, n = 12)), order =
+## c(kk, : possible convergence problem: optim gave code = 1</code></pre>
+<pre><code>## Warning in log(s2): NaNs produced</code></pre>
+<pre><code>## Warning in arima(log(CPI$CPIAUCSL) - log(lag(CPI$CPIAUCSL, n = 12)), order =
+## c(kk, : possible convergence problem: optim gave code = 1
+
+## Warning in arima(log(CPI$CPIAUCSL) - log(lag(CPI$CPIAUCSL, n = 12)), order =
+## c(kk, : possible convergence problem: optim gave code = 1
+
+## Warning in arima(log(CPI$CPIAUCSL) - log(lag(CPI$CPIAUCSL, n = 12)), order =
+## c(kk, : possible convergence problem: optim gave code = 1</code></pre>
+<pre><code>## Warning in log(s2): NaNs produced</code></pre>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="time-series-introduction.html#cb309-1" tabindex="-1"></a>(</span>
+<span id="cb309-2"><a href="time-series-introduction.html#cb309-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>AIC,<span class="fu">aes</span>(<span class="at">x=</span>lags,<span class="at">y=</span>AIC))</span>
+<span id="cb309-3"><a href="time-series-introduction.html#cb309-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>()</span>
+<span id="cb309-4"><a href="time-series-introduction.html#cb309-4" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-296-1.png" width="672" /></p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="time-series-introduction.html#cb310-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">forecast</span>(models[[<span class="dv">12</span>]],<span class="at">h=</span><span class="dv">100</span>))</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-297-1.png" width="672" /></p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="time-series-introduction.html#cb311-1" tabindex="-1"></a>CPI_ALL<span class="ot">&lt;-</span>(</span>
+<span id="cb311-2"><a href="time-series-introduction.html#cb311-2" tabindex="-1"></a>  <span class="fu">read.csv</span>(<span class="st">&quot;data/CPIAUCSL.csv&quot;</span>)</span>
+<span id="cb311-3"><a href="time-series-introduction.html#cb311-3" tabindex="-1"></a>  <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">DATE =</span> DATE <span class="sc">|&gt;</span> <span class="fu">ymd</span>())</span>
+<span id="cb311-4"><a href="time-series-introduction.html#cb311-4" tabindex="-1"></a>) </span>
+<span id="cb311-5"><a href="time-series-introduction.html#cb311-5" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">log</span>(CPI<span class="sc">$</span>CPIAUCSL) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">lag</span>(CPI<span class="sc">$</span>CPIAUCSL,<span class="at">n=</span><span class="dv">12</span>))</span>
+<span id="cb311-6"><a href="time-series-introduction.html#cb311-6" tabindex="-1"></a>model<span class="ot">&lt;-</span><span class="fu">arima</span>(Y ,<span class="at">order=</span><span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">0</span>,<span class="dv">12</span>))</span>
+<span id="cb311-7"><a href="time-series-introduction.html#cb311-7" tabindex="-1"></a></span>
+<span id="cb311-8"><a href="time-series-introduction.html#cb311-8" tabindex="-1"></a>FC<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span> <span class="fu">forecast</span>(<span class="at">h=</span><span class="dv">36</span>)</span>
+<span id="cb311-9"><a href="time-series-introduction.html#cb311-9" tabindex="-1"></a></span>
+<span id="cb311-10"><a href="time-series-introduction.html#cb311-10" tabindex="-1"></a></span>
+<span id="cb311-11"><a href="time-series-introduction.html#cb311-11" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">CPI =</span> <span class="fu">c</span>(Y,FC<span class="sc">$</span>mean)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">t =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb311-12"><a href="time-series-introduction.html#cb311-12" tabindex="-1"></a></span>
+<span id="cb311-13"><a href="time-series-introduction.html#cb311-13" tabindex="-1"></a>Yactual<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">CPI =</span> <span class="fu">log</span>(CPI_ALL<span class="sc">$</span>CPIAUCSL)<span class="sc">-</span><span class="fu">lag</span>(<span class="fu">log</span>(CPI_ALL<span class="sc">$</span>CPIAUCSL),<span class="at">n=</span><span class="dv">12</span>)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">t =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb311-14"><a href="time-series-introduction.html#cb311-14" tabindex="-1"></a></span>
+<span id="cb311-15"><a href="time-series-introduction.html#cb311-15" tabindex="-1"></a>(</span>
+<span id="cb311-16"><a href="time-series-introduction.html#cb311-16" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span>
+<span id="cb311-17"><a href="time-series-introduction.html#cb311-17" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="at">data=</span>Y,<span class="fu">aes</span>(<span class="at">x=</span>t,<span class="at">y=</span>CPI),<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb311-18"><a href="time-series-introduction.html#cb311-18" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="at">data=</span>Yactual,<span class="fu">aes</span>(<span class="at">x=</span>t,<span class="at">y=</span>CPI))</span>
+<span id="cb311-19"><a href="time-series-introduction.html#cb311-19" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb311-20"><a href="time-series-introduction.html#cb311-20" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Inflation&quot;</span>)</span>
+<span id="cb311-21"><a href="time-series-introduction.html#cb311-21" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Removed 12 rows containing missing values or values outside the scale range
+## (`geom_line()`).
+## Removed 12 rows containing missing values or values outside the scale range
+## (`geom_line()`).</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-298-1.png" width="672" /></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="combining-and-manipulating-datasets.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="time-series-forecasting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

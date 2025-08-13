@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Inference | Econometrics notes</title>
+  <meta name="description" content="5 Inference | Econometrics notes" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Inference | Econometrics notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Inference | Econometrics notes" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2025-08-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="estimators.html"/>
+<link rel="next" href="inference-using-asymptotic-assumptions.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html"><i class="fa fa-check"></i><b>1</b> Introduction to the course</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#housekeeping"><i class="fa fa-check"></i><b>1.1</b> Housekeeping</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#two-important-skills-in-econometrics"><i class="fa fa-check"></i><b>1.2</b> Two important skills in econometrics</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-the-course.html"><a href="introduction-to-the-course.html#example-incumbency-advantage---lee-moretti-and-butler-2004"><i class="fa fa-check"></i><b>1.3</b> Example: incumbency advantage - Lee, Moretti, and Butler (2004)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>R</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#installation"><i class="fa fa-check"></i><b>2.1</b> Installation</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#scripts"><i class="fa fa-check"></i><b>2.2</b> Scripts</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#the-working-directory"><i class="fa fa-check"></i><b>2.3</b> The working directory</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#exercises"><i class="fa fa-check"></i><b>2.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-in-r.html"><a href="getting-started-in-r.html#understanding-some-code"><i class="fa fa-check"></i><b>2.4.1</b> Understanding some code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html"><i class="fa fa-check"></i><b>3</b> Review of some mathmatical concepts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#summation"><i class="fa fa-check"></i><b>3.1</b> Summation</a></li>
+<li class="chapter" data-level="3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-random-variables"><i class="fa fa-check"></i><b>3.2</b> Describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#discrete-random-variables"><i class="fa fa-check"></i><b>3.2.1</b> Discrete random variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#continuous-random-variables"><i class="fa fa-check"></i><b>3.2.2</b> Continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#completely-describing-random-variables"><i class="fa fa-check"></i><b>3.3</b> Completely describing random variables</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#cumulative-density-function"><i class="fa fa-check"></i><b>3.3.1</b> Cumulative density function</a></li>
+<li class="chapter" data-level="3.3.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-mass-function"><i class="fa fa-check"></i><b>3.3.2</b> Probability mass function</a></li>
+<li class="chapter" data-level="3.3.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#probability-density-function"><i class="fa fa-check"></i><b>3.3.3</b> Probability density function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#ways-to-summarize-a-distribution"><i class="fa fa-check"></i><b>3.4</b> Ways to summarize a distribution</a></li>
+<li class="chapter" data-level="3.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#describing-the-relationship-between-two-or-more-random-variables"><i class="fa fa-check"></i><b>3.5</b> Describing the relationship between two or more random variables</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#joint-distribution-functions"><i class="fa fa-check"></i><b>3.5.1</b> Joint distribution functions</a></li>
+<li class="chapter" data-level="3.5.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#conditional-probability"><i class="fa fa-check"></i><b>3.5.2</b> Conditional probability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exercises-1"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#four-sided-die-roll"><i class="fa fa-check"></i><b>3.6.1</b> Four-sided die roll</a></li>
+<li class="chapter" data-level="3.6.2" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#exponential-distribution"><i class="fa fa-check"></i><b>3.6.2</b> Exponential distribution</a></li>
+<li class="chapter" data-level="3.6.3" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#modeling-a-random-probability"><i class="fa fa-check"></i><b>3.6.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="3.6.4" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#an-unfair-coin"><i class="fa fa-check"></i><b>3.6.4</b> An unfair coin</a></li>
+<li class="chapter" data-level="3.6.5" data-path="review-of-some-mathmatical-concepts.html"><a href="review-of-some-mathmatical-concepts.html#adding-two-random-variables"><i class="fa fa-check"></i><b>3.6.5</b> Adding two random variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estimators.html"><a href="estimators.html"><i class="fa fa-check"></i><b>4</b> Estimators</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="estimators.html"><a href="estimators.html#estimators-and-the-sampling-distribution"><i class="fa fa-check"></i><b>4.1</b> Estimators and the sampling distribution</a></li>
+<li class="chapter" data-level="4.2" data-path="estimators.html"><a href="estimators.html#small-sample-properties-of-estimators"><i class="fa fa-check"></i><b>4.2</b> Small sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="estimators.html"><a href="estimators.html#bias"><i class="fa fa-check"></i><b>4.2.1</b> Bias</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estimators.html"><a href="estimators.html#variance"><i class="fa fa-check"></i><b>4.2.2</b> Variance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="estimators.html"><a href="estimators.html#mean-squared-error"><i class="fa fa-check"></i><b>4.2.3</b> Mean squared error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="estimators.html"><a href="estimators.html#exercises-2"><i class="fa fa-check"></i><b>4.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="estimators.html"><a href="estimators.html#modeling-a-random-probability-1"><i class="fa fa-check"></i><b>4.3.1</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="4.3.2" data-path="estimators.html"><a href="estimators.html#exponential-distribution-1"><i class="fa fa-check"></i><b>4.3.2</b> Exponential distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>5</b> Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="inference.html"><a href="inference.html#hypothesis-tests"><i class="fa fa-check"></i><b>5.1</b> Hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="inference.html"><a href="inference.html#one-sided-hypothesis-tests"><i class="fa fa-check"></i><b>5.1.1</b> One-sided hypothesis tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="inference.html"><a href="inference.html#p-values"><i class="fa fa-check"></i><b>5.2</b> <span class="math inline">\(p\)</span>-values</a></li>
+<li class="chapter" data-level="5.3" data-path="inference.html"><a href="inference.html#confidence-intervals"><i class="fa fa-check"></i><b>5.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="5.4" data-path="inference.html"><a href="inference.html#test-power"><i class="fa fa-check"></i><b>5.4</b> Test power</a></li>
+<li class="chapter" data-level="5.5" data-path="inference.html"><a href="inference.html#the-take-away"><i class="fa fa-check"></i><b>5.5</b> The take-away</a></li>
+<li class="chapter" data-level="5.6" data-path="inference.html"><a href="inference.html#exercises-3"><i class="fa fa-check"></i><b>5.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="inference.html"><a href="inference.html#converting-a-continuous-variable-into-a-coin-flip"><i class="fa fa-check"></i><b>5.6.1</b> Converting a continuous variable into a coin flip</a></li>
+<li class="chapter" data-level="5.6.2" data-path="inference.html"><a href="inference.html#the-maximum-of-a-sample"><i class="fa fa-check"></i><b>5.6.2</b> The maximum of a sample</a></li>
+<li class="chapter" data-level="5.6.3" data-path="inference.html"><a href="inference.html#assessing-the-performance-of-a-cookbook-hypothesis-test"><i class="fa fa-check"></i><b>5.6.3</b> Assessing the performance of a “cookbook” hypothesis test</a></li>
+<li class="chapter" data-level="5.6.4" data-path="inference.html"><a href="inference.html#hypothesis-tests-using-graphs"><i class="fa fa-check"></i><b>5.6.4</b> Hypothesis tests using graphs</a></li>
+<li class="chapter" data-level="5.6.5" data-path="inference.html"><a href="inference.html#simulation-exercise"><i class="fa fa-check"></i><b>5.6.5</b> Simulation exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html"><i class="fa fa-check"></i><b>6</b> Inference using asymptotic assumptions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-estimators"><i class="fa fa-check"></i><b>6.1</b> Large-sample properties of estimators</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#consistency"><i class="fa fa-check"></i><b>6.1.1</b> Consistency</a></li>
+<li class="chapter" data-level="6.1.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#asymptotic-distribution"><i class="fa fa-check"></i><b>6.1.2</b> Asymptotic distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#large-sample-properties-of-sample-means"><i class="fa fa-check"></i><b>6.2</b> Large-sample properties of sample means</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-weak-law-of-large-numbers-wlln"><i class="fa fa-check"></i><b>6.2.1</b> The Weak Law of Large Numbers (WLLN)</a></li>
+<li class="chapter" data-level="6.2.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-central-limit-theorem"><i class="fa fa-check"></i><b>6.2.2</b> A Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#using-large-sample-properties-to-make-inference-easier"><i class="fa fa-check"></i><b>6.3</b> Using large-sample properties to make inference easier</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#hypothesis-tests-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.1</b> Hypothesis tests with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#even-more-of-a-shortcut"><i class="fa fa-check"></i><b>6.3.2</b> Even more of a shortcut</a></li>
+<li class="chapter" data-level="6.3.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#confidence-intervals-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.3</b> Confidence intervals with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#p-values-with-asymptotic-approximations"><i class="fa fa-check"></i><b>6.3.4</b> <span class="math inline">\(p\)</span>-values with asymptotic approximations</a></li>
+<li class="chapter" data-level="6.3.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#tieing-this-in-with-the-previous-chapter"><i class="fa fa-check"></i><b>6.3.5</b> Tieing this in with the previous chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#transforming-variables"><i class="fa fa-check"></i><b>6.4</b> Transforming variables</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-continuous-mapping-theorem"><i class="fa fa-check"></i><b>6.4.1</b> The continuous mapping theorem</a></li>
+<li class="chapter" data-level="6.4.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#the-delta-method"><i class="fa fa-check"></i><b>6.4.2</b> The delta method</a></li>
+<li class="chapter" data-level="6.4.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#jensens-inequality"><i class="fa fa-check"></i><b>6.4.3</b> Jensen’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exercises-4"><i class="fa fa-check"></i><b>6.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#exponential-distribution-2"><i class="fa fa-check"></i><b>6.5.1</b> Exponential distribution</a></li>
+<li class="chapter" data-level="6.5.2" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-simulation"><i class="fa fa-check"></i><b>6.5.2</b> A simulation</a></li>
+<li class="chapter" data-level="6.5.3" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#modeling-a-random-probability-2"><i class="fa fa-check"></i><b>6.5.3</b> Modeling a random probability</a></li>
+<li class="chapter" data-level="6.5.4" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#a-sort-of-simulation-exercise"><i class="fa fa-check"></i><b>6.5.4</b> A (sort-of) simulation exercise</a></li>
+<li class="chapter" data-level="6.5.5" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#one-test-three-ways"><i class="fa fa-check"></i><b>6.5.5</b> One test, three ways</a></li>
+<li class="chapter" data-level="6.5.6" data-path="inference-using-asymptotic-assumptions.html"><a href="inference-using-asymptotic-assumptions.html#deriving-properties-of-estimators"><i class="fa fa-check"></i><b>6.5.6</b> Deriving properties of estimators</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="linear-regression.html"><a href="linear-regression.html#derivation-of-the-bivariate-ols-slope-estimator"><i class="fa fa-check"></i><b>7.1</b> Derivation of the bivariate OLS slope estimator</a></li>
+<li class="chapter" data-level="7.2" data-path="linear-regression.html"><a href="linear-regression.html#unbiasedness"><i class="fa fa-check"></i><b>7.2</b> Unbiasedness</a></li>
+<li class="chapter" data-level="7.3" data-path="linear-regression.html"><a href="linear-regression.html#variance-1"><i class="fa fa-check"></i><b>7.3</b> Variance</a></li>
+<li class="chapter" data-level="7.4" data-path="linear-regression.html"><a href="linear-regression.html#inference-in-bivariate-ols"><i class="fa fa-check"></i><b>7.4</b> Inference in bivariate OLS</a></li>
+<li class="chapter" data-level="7.5" data-path="linear-regression.html"><a href="linear-regression.html#exercises-5"><i class="fa fa-check"></i><b>7.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="linear-regression.html"><a href="linear-regression.html#municipal-expenditure"><i class="fa fa-check"></i><b>7.5.1</b> Municipal expenditure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html"><i class="fa fa-check"></i><b>8</b> The shape of the right-hand side</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#linear-regression-as-a-model-for-conditional-expectation"><i class="fa fa-check"></i><b>8.1</b> Linear regression as a model for conditional expectation</a></li>
+<li class="chapter" data-level="8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#an-example-dataset"><i class="fa fa-check"></i><b>8.2</b> An example dataset</a></li>
+<li class="chapter" data-level="8.3" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#marginal-effects"><i class="fa fa-check"></i><b>8.3</b> Marginal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#categorical-variables"><i class="fa fa-check"></i><b>8.4</b> Categorical variables</a></li>
+<li class="chapter" data-level="8.5" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#interactions"><i class="fa fa-check"></i><b>8.5</b> Interactions</a></li>
+<li class="chapter" data-level="8.6" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#logarithms"><i class="fa fa-check"></i><b>8.6</b> Logarithms</a></li>
+<li class="chapter" data-level="8.7" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#polynomials"><i class="fa fa-check"></i><b>8.7</b> Polynomials</a></li>
+<li class="chapter" data-level="8.8" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#exercises-6"><i class="fa fa-check"></i><b>8.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#baking-a-cake"><i class="fa fa-check"></i><b>8.8.1</b> Baking a cake</a></li>
+<li class="chapter" data-level="8.8.2" data-path="the-shape-of-the-right-hand-side.html"><a href="the-shape-of-the-right-hand-side.html#psid-earnings-panel-data"><i class="fa fa-check"></i><b>8.8.2</b> PSID Earnings Panel Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html"><i class="fa fa-check"></i><b>9</b> Linear regression - common misconceptions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#heteroskedasticity"><i class="fa fa-check"></i><b>9.1</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#multicolinearity"><i class="fa fa-check"></i><b>9.2</b> Multicolinearity</a></li>
+<li class="chapter" data-level="9.3" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#omitted-variables-are-always-a-problem"><i class="fa fa-check"></i><b>9.3</b> Omitted variables are <em>always</em> a problem</a></li>
+<li class="chapter" data-level="9.4" data-path="linear-regression---common-misconceptions.html"><a href="linear-regression---common-misconceptions.html#normal-errors"><i class="fa fa-check"></i><b>9.4</b> Normal errors</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html"><i class="fa fa-check"></i><b>10</b> Standard errors in linear regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#homoskedasticity-the-standard-standard-errors"><i class="fa fa-check"></i><b>10.1</b> Homoskedasticity: the “standard” standard errors</a></li>
+<li class="chapter" data-level="10.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#heteroskedasticity-1"><i class="fa fa-check"></i><b>10.2</b> Heteroskedasticity</a></li>
+<li class="chapter" data-level="10.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#clustered-standard-errors"><i class="fa fa-check"></i><b>10.3</b> Clustered standard errors</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#an-example"><i class="fa fa-check"></i><b>10.3.1</b> An example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#standard-errors-for-multivariate-linear-regression"><i class="fa fa-check"></i><b>10.4</b> Standard errors for multivariate linear regression</a></li>
+<li class="chapter" data-level="10.5" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#calculating-standard-errors-in-r"><i class="fa fa-check"></i><b>10.5</b> Calculating standard errors in <em>R</em></a></li>
+<li class="chapter" data-level="10.6" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#exercises-7"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#galtons-families"><i class="fa fa-check"></i><b>10.6.1</b> Galton’s families</a></li>
+<li class="chapter" data-level="10.6.2" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#simulation"><i class="fa fa-check"></i><b>10.6.2</b> Simulation</a></li>
+<li class="chapter" data-level="10.6.3" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#more-simulation"><i class="fa fa-check"></i><b>10.6.3</b> More simulation</a></li>
+<li class="chapter" data-level="10.6.4" data-path="standard-errors-in-linear-regression.html"><a href="standard-errors-in-linear-regression.html#instructor-ratings"><i class="fa fa-check"></i><b>10.6.4</b> Instructor ratings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html"><i class="fa fa-check"></i><b>11</b> Hypothesis tests about more than one parameter</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-restricted-model"><i class="fa fa-check"></i><b>11.1</b> The restricted model</a></li>
+<li class="chapter" data-level="11.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-test-using-r2-that-you-probably-shouldnt-use"><i class="fa fa-check"></i><b>11.2</b> A test using <span class="math inline">\(R^2\)</span> that you probably shouldn’t use</a></li>
+<li class="chapter" data-level="11.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#a-more-robust-test"><i class="fa fa-check"></i><b>11.3</b> A more robust test</a></li>
+<li class="chapter" data-level="11.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#another-example"><i class="fa fa-check"></i><b>11.4</b> Another example</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-whether-the-child-is-male-of-female"><i class="fa fa-check"></i><b>11.4.1</b> The height of a child does not depend on whether the child is male of female</a></li>
+<li class="chapter" data-level="11.4.2" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-height-of-a-child-does-not-depend-on-the-height-of-their-parents"><i class="fa fa-check"></i><b>11.4.2</b> The height of a child does not depend on the height of their parents</a></li>
+<li class="chapter" data-level="11.4.3" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-mother-height-on-child-height-is-the-same-as-the-effect-of-father-height-on-child-height"><i class="fa fa-check"></i><b>11.4.3</b> The effect of mother height on child height is the same as the effect of father height on child height</a></li>
+<li class="chapter" data-level="11.4.4" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-male-childrens-height-is-the-same-as-the-effect-of-parent-height-on-female-childrens-height"><i class="fa fa-check"></i><b>11.4.4</b> The effect of parent height on male children’s height is the same as the effect of parent height on female children’s height</a></li>
+<li class="chapter" data-level="11.4.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#the-effect-of-parent-height-on-child-height-is-linear"><i class="fa fa-check"></i><b>11.4.5</b> The effect of parent height on child height is linear</a></li>
+<li class="chapter" data-level="11.4.6" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#parents-who-are-on-average-one-inch-taller-have-children-that-are-on-average-one-inch-taller"><i class="fa fa-check"></i><b>11.4.6</b> Parents who are on average one inch taller have children that are on average one inch taller</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#exercises-8"><i class="fa fa-check"></i><b>11.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="hypothesis-tests-about-more-than-one-parameter.html"><a href="hypothesis-tests-about-more-than-one-parameter.html#project-star-student-teacher-achievement-ratio"><i class="fa fa-check"></i><b>11.5.1</b> Project STAR: Student-Teacher Achievement Ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><i class="fa fa-check"></i><b>12</b> Limited dependent variable models and maximum likelihood estimation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#motivation-the-linear-probability-model-works-134-of-the-time"><i class="fa fa-check"></i><b>12.1</b> Motivation: The linear probability model works 134% of the time</a></li>
+<li class="chapter" data-level="12.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-practical-solution-ensure-that-predictions-are-always-valid"><i class="fa fa-check"></i><b>12.2</b> A practical solution: Ensure that predictions are always valid</a></li>
+<li class="chapter" data-level="12.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#interpreting-the-coefficients-of-the-probit-and-logit-models"><i class="fa fa-check"></i><b>12.3</b> Interpreting the coefficients of the probit and logit models</a></li>
+<li class="chapter" data-level="12.4" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#but-how-do-we-estimate-it-maximum-likelihood"><i class="fa fa-check"></i><b>12.4</b> But how do we estimate it? Maximum likelihood</a></li>
+<li class="chapter" data-level="12.5" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#doing-inference-with-maximum-likelihood"><i class="fa fa-check"></i><b>12.5</b> Doing inference with maximum likelihood</a></li>
+<li class="chapter" data-level="12.6" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#how-some-estimators-relate-to-maximum-likelihood"><i class="fa fa-check"></i><b>12.6</b> How some estimators relate to maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sample-mean-for-a-bernoulli-coin-flip-variable"><i class="fa fa-check"></i><b>12.6.1</b> Sample mean for a Bernoulli (coin flip) variable</a></li>
+<li class="chapter" data-level="12.6.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#linear-regression-1"><i class="fa fa-check"></i><b>12.6.2</b> Linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#some-examples-of-estimating-parameters-using-maximum-likelihood"><i class="fa fa-check"></i><b>12.7</b> Some examples of estimating parameters using maximum likelihood</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#geometric-distribution"><i class="fa fa-check"></i><b>12.7.1</b> Geometric distribution</a></li>
+<li class="chapter" data-level="12.7.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#simplified-beta-distribution"><i class="fa fa-check"></i><b>12.7.2</b> Simplified Beta distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#an-extended-example"><i class="fa fa-check"></i><b>12.8</b> An extended example</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#data"><i class="fa fa-check"></i><b>12.8.1</b> Data</a></li>
+<li class="chapter" data-level="12.8.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#a-research-question"><i class="fa fa-check"></i><b>12.8.2</b> A research question</a></li>
+<li class="chapter" data-level="12.8.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#the-model-based-approach"><i class="fa fa-check"></i><b>12.8.3</b> The model-based approach</a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#exercises-9"><i class="fa fa-check"></i><b>12.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.9.1" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#checking-that-we-rolled-a-die-correctly"><i class="fa fa-check"></i><b>12.9.1</b> Checking that we rolled a die correctly</a></li>
+<li class="chapter" data-level="12.9.2" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#galtons-heights-dataset"><i class="fa fa-check"></i><b>12.9.2</b> Galton’s heights dataset</a></li>
+<li class="chapter" data-level="12.9.3" data-path="limited-dependent-variable-models-and-maximum-likelihood-estimation.html"><a href="limited-dependent-variable-models-and-maximum-likelihood-estimation.html#sumo-wrestling"><i class="fa fa-check"></i><b>12.9.3</b> Sumo wrestling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html"><i class="fa fa-check"></i><b>13</b> Combining and manipulating datasets</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#merging-data-join"><i class="fa fa-check"></i><b>13.1</b> Merging data (<code>join</code>)</a></li>
+<li class="chapter" data-level="13.2" data-path="combining-and-manipulating-datasets.html"><a href="combining-and-manipulating-datasets.html#wide-and-long-formats-pivot_longer-and-pivot_wider"><i class="fa fa-check"></i><b>13.2</b> Wide and long formats (<code>pivot_longer</code> and <code>pivot_wider</code>)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="time-series-introduction.html"><a href="time-series-introduction.html"><i class="fa fa-check"></i><b>14</b> Time series – Introduction</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#autoregressive-and-moving-average-arma-models-the-basic-building-blocks-of-time-series-models"><i class="fa fa-check"></i><b>14.1</b> Autoregressive and moving average (ARMA) models: the basic building blocks of time series models</a></li>
+<li class="chapter" data-level="14.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-properties-of-arma-processes"><i class="fa fa-check"></i><b>14.2</b> Stationarity and properties of ARMA processes</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#examples"><i class="fa fa-check"></i><b>14.2.1</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#diagnostics-autocorrelation-and-partial-autocorrelation-functions"><i class="fa fa-check"></i><b>14.3</b> Diagnostics: Autocorrelation and partial autocorrelation functions</a></li>
+<li class="chapter" data-level="14.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-unemployment"><i class="fa fa-check"></i><b>14.4</b> Example dataset – unemployment</a></li>
+<li class="chapter" data-level="14.5" data-path="time-series-introduction.html"><a href="time-series-introduction.html#stationarity-and-testing-for-unit-roots"><i class="fa fa-check"></i><b>14.5</b> Stationarity and testing for unit roots</a></li>
+<li class="chapter" data-level="14.6" data-path="time-series-introduction.html"><a href="time-series-introduction.html#non-stationarity-and-spurious-correlation"><i class="fa fa-check"></i><b>14.6</b> Non-stationarity and spurious correlation</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-share-a-trend"><i class="fa fa-check"></i><b>14.6.1</b> Two variables share a trend</a></li>
+<li class="chapter" data-level="14.6.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-are-cyclical"><i class="fa fa-check"></i><b>14.6.2</b> Two variables are cyclical</a></li>
+<li class="chapter" data-level="14.6.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#two-variables-have-a-unit-root"><i class="fa fa-check"></i><b>14.6.3</b> Two variables have a unit root</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="time-series-introduction.html"><a href="time-series-introduction.html#differencing-and-stationarity"><i class="fa fa-check"></i><b>14.7</b> Differencing and stationarity</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="time-series-introduction.html"><a href="time-series-introduction.html#some-examples-of-making-non-stationary-series-stationary-through-differencing"><i class="fa fa-check"></i><b>14.7.1</b> Some examples of making non-stationary series stationary through differencing</a></li>
+<li class="chapter" data-level="14.7.2" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-dataset-us-consumer-price-index"><i class="fa fa-check"></i><b>14.7.2</b> Example dataset: US Consumer Price Index</a></li>
+<li class="chapter" data-level="14.7.3" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-data-gdp-and-money-supply"><i class="fa fa-check"></i><b>14.7.3</b> Example data: GDP and money supply</a></li>
+<li class="chapter" data-level="14.7.4" data-path="time-series-introduction.html"><a href="time-series-introduction.html#example-peace-corps"><i class="fa fa-check"></i><b>14.7.4</b> Example: Peace Corps</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="time-series-introduction.html"><a href="time-series-introduction.html#estimating-arima-models"><i class="fa fa-check"></i><b>14.8</b> Estimating ARIMA models</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html"><i class="fa fa-check"></i><b>15</b> Time series – Forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#prediction-and-forecasting"><i class="fa fa-check"></i><b>15.1</b> Prediction and forecasting</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-with-univariate-problems"><i class="fa fa-check"></i><b>15.1.1</b> Example: Prediction with univariate problems</a></li>
+<li class="chapter" data-level="15.1.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-prediction-in-bivariate-ols"><i class="fa fa-check"></i><b>15.1.2</b> Example: Prediction in bivariate OLS</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#cross-validation"><i class="fa fa-check"></i><b>15.2</b> Cross-validation</a></li>
+<li class="chapter" data-level="15.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#example-cpi-and-ppi"><i class="fa fa-check"></i><b>15.3</b> Example: CPI and PPI</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#using-just-ar-and-ma-components"><i class="fa fa-check"></i><b>15.3.1</b> Using just AR and MA components</a></li>
+<li class="chapter" data-level="15.3.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-some-seasonality"><i class="fa fa-check"></i><b>15.3.2</b> Incorporating some seasonality</a></li>
+<li class="chapter" data-level="15.3.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#incorporating-ppi-inflation"><i class="fa fa-check"></i><b>15.3.3</b> Incorporating PPI inflation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="additional-exercises.html"><a href="additional-exercises.html"><i class="fa fa-check"></i><b>16</b> Additional exercises</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="additional-exercises.html"><a href="additional-exercises.html#for-loops"><i class="fa fa-check"></i><b>16.1</b> For loops</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="additional-exercises.html"><a href="additional-exercises.html#determinants-of-wage-data-cps-1988"><i class="fa fa-check"></i><b>16.1.1</b> Determinants of wage data (CPS 1988)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="past-exam-questions.html"><a href="past-exam-questions.html"><i class="fa fa-check"></i><b>17</b> Past exam questions</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2023-5810-exam-1"><i class="fa fa-check"></i><b>17.1</b> Fall 2023 5810 Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability"><i class="fa fa-check"></i><b>17.1.1</b> Probability</a></li>
+<li class="chapter" data-level="17.1.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimation-and-inference"><i class="fa fa-check"></i><b>17.1.2</b> Estimation and inference</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fall-2022-5810-exam-1"><i class="fa fa-check"></i><b>17.2</b> Fall 2022 5810, Exam 1</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#probability-1"><i class="fa fa-check"></i><b>17.2.1</b> Probability</a></li>
+<li class="chapter" data-level="17.2.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#inference-1"><i class="fa fa-check"></i><b>17.2.2</b> Inference</a></li>
+<li class="chapter" data-level="17.2.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#estimators-and-large-sample-properties"><i class="fa fa-check"></i><b>17.2.3</b> Estimators and large-sample properties</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-2-2022"><i class="fa fa-check"></i><b>17.3</b> 5810 Exam 2 (2022)</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#directed-acyclic-graphs"><i class="fa fa-check"></i><b>17.3.1</b> Directed Acyclic Graphs</a></li>
+<li class="chapter" data-level="17.3.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#linear-regression-2"><i class="fa fa-check"></i><b>17.3.2</b> Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="past-exam-questions.html"><a href="past-exam-questions.html#exam-1-2023"><i class="fa fa-check"></i><b>17.4</b> 5820, Exam 1 (2023)</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="past-exam-questions.html"><a href="past-exam-questions.html#maximum-likelihood"><i class="fa fa-check"></i><b>17.4.1</b> Maximum likelihood</a></li>
+<li class="chapter" data-level="17.4.2" data-path="past-exam-questions.html"><a href="past-exam-questions.html#fire-trucks"><i class="fa fa-check"></i><b>17.4.2</b> Fire trucks</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Econometrics notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="inference" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Inference<a href="inference.html#inference" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In Chapter the previous chapter, we introduced the concept of an estimator, and some important properties of it. In econometrics, you will be estimating stuff all the time, but equally importantly, you will be making statements about your confidence in your estimates. Formally, such a statement will take the form of a hypothesis test, a <span class="math inline">\(p\)</span>-value, or a confidence interval.</p>
+<p>In many textbooks, the material that follows is presented alongside asymptotic theory, which tells us how estimators behave when the sample size approaches infinity. This is where your text will have a lot of <span class="math inline">\(\xrightarrow[]{p}\)</span>, <span class="math inline">\(\xrightarrow[]{d}\)</span>, and normal, <span class="math inline">\(F\)</span>, and <span class="math inline">\(\chi^2\)</span> distributions. These are very useful ideas, but I have found that they can be confusing when presented at the same time as the material I wish to teach you in this chapter. Therefore, what follows is a run-through of statistical inference in the absence of asymptotic theory, which we will get to in the next chapter. For the rest of this chapter, please note the absence of normal distribution tables, dividing mans by standard deviations, and the magic number 1.96.</p>
+<p>To illustrate these concepts, let us go back to the coin-flipping example in the previous chapter. We have a data-generating process:
+<span class="math display">\[\begin{align}
+H_i&amp;\sim iid\mathrm{Bernoulli}(\theta)\label{eq:CH03:Bernoulli}
+\end{align}\]</span>
+and wish to estimate <span class="math inline">\(\theta\)</span>, the probability that a coin flip will come up heads. Our research question is as follows:
+Is the coin a fair one?
+I hope that you never have to research a question as mundane as this, but once you’re done with this chapter, go and do Exercise~<span class="math inline">\(\ref{ex:CH2GaltonCoinFlip}\)</span>. Hopefully by then you can see the point of it.
+This research question can be formalized as <span class="math inline">\(\theta=0.5\)</span>. We collect a sample <span class="math inline">\(\{H_i\}_{i=1}^N\)</span> of <span class="math inline">\(N\)</span> flips of the same coin, which we assume to be independent draws from the Bernoulli distribution. We then use the sample mean <span class="math inline">\(\bar h\)</span> as an estimator for <span class="math inline">\(\theta\)</span>:
+<span class="math display">\[\begin{align}
+\hat\theta&amp;=\frac1N\sum_{i=1}^NH_i
+\end{align}\]</span>
+On its own, this gives us a point estimate of <span class="math inline">\(\theta\)</span>, which is somewhat useful, but at this point we have no idea how close our sample is to one that would come from fair coin flip.
+The next sections of this chapter approach the research question (is <span class="math inline">\(\theta\)</span> equal to 0.5?) three different ways.</p>
+<div id="hypothesis-tests" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Hypothesis tests<a href="inference.html#hypothesis-tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Loosely, this first approach asks whether our sample looks close enough to one that would come from a coin-flipping process with <span class="math inline">\(\theta=0.5\)</span>. To do this, we need a formal definition of “looks close enough to one that would come from a coin-flipping process with <span class="math inline">\(\theta=0.5\)</span>”. Specifically, we ask whether our estimate of <span class="math inline">\(\theta\)</span> is close enough to the <em>hypothesized value</em> of <span class="math inline">\(\frac12\)</span>. Therefore we state the <em>null hypothesis</em>:
+<span class="math display">\[\begin{align}
+H_0:\ \theta=0.5
+\end{align}\]</span>
+and an <em>alternative hypothesis</em>:
+<span class="math display">\[\begin{align}
+H_A:\ \theta\neq0.5
+\end{align}\]</span>
+This is a <em>two-sided</em> alternative hypothesis, because <span class="math inline">\(H_A\)</span> permits <span class="math inline">\(\theta\)</span> to be either greater than or less than the value in the null. We will get to one-sided tests later.</p>
+<p>Next we need a <em>test statistic</em>. This is a function of our sample, and should tell us something about <span class="math inline">\(\theta\)</span>. For the purposes of this application, we can just use our estimator for <span class="math inline">\(\theta\)</span> itself: <span class="math inline">\(\hat\theta=\frac1N\sum_{i=1}^NH_i\)</span>. Using this, we can start to build up our definition of “looks close enough to one that would come from a coin-flipping process with <span class="math inline">\(\theta=0.5\)</span>”. A natural measure of how close our sample is to one that would come from a <span class="math inline">\(\theta=0.5\)</span> coin-flipping process is <span class="math inline">\(t=\hat\theta-0.5\)</span>: if <span class="math inline">\(t\)</span> is close to zero, then this seems like good support for the coin being a fair one. On the other hand, it is unlikely that <span class="math inline">\(t\)</span> is close to zero if the sample was generated by some other <span class="math inline">\(\theta\neq 0.5\)</span>. This is illustrated in the following Figure. If <span class="math inline">\(H_0\)</span> is true, then our test statistic will have the distribution shown with the green lines. Notice here that there is a lot of probability for events where <span class="math inline">\(t\)</span> is close to zero. On the other hand, if <span class="math inline">\(\theta\neq0.5\)</span>, then the distribution will look something like the red (<span class="math inline">\(\theta=0.2\)</span>) or blue (<span class="math inline">\(\theta=0.9\)</span>) lines. Note however, that we only get one realization of <span class="math inline">\(t\)</span>, we next need to map this in a decision rule.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="inference.html#cb30-1" tabindex="-1"></a>N<span class="ot">&lt;-</span><span class="dv">20</span></span>
+<span id="cb30-2"><a href="inference.html#cb30-2" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">2</span>,N<span class="sc">+</span><span class="dv">2</span>,<span class="at">length=</span>(N<span class="sc">+</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">1000</span>)</span>
+<span id="cb30-3"><a href="inference.html#cb30-3" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">rbind</span>(<span class="fu">tibble</span>(X,<span class="at">FX=</span><span class="fu">pbinom</span>(X,<span class="at">size=</span>N,<span class="at">prob=</span><span class="fl">0.5</span>),<span class="at">theta=</span><span class="st">&quot;50%&quot;</span>),</span>
+<span id="cb30-4"><a href="inference.html#cb30-4" tabindex="-1"></a>         <span class="fu">tibble</span>(X,<span class="at">FX=</span><span class="fu">pbinom</span>(X,<span class="at">size=</span>N,<span class="at">prob=</span><span class="fl">0.2</span>),<span class="at">theta=</span><span class="st">&quot;20%&quot;</span>),</span>
+<span id="cb30-5"><a href="inference.html#cb30-5" tabindex="-1"></a>         <span class="fu">tibble</span>(X,<span class="at">FX=</span><span class="fu">pbinom</span>(X,<span class="at">size=</span>N,<span class="at">prob=</span><span class="fl">0.9</span>),<span class="at">theta=</span><span class="st">&quot;90%&quot;</span>)</span>
+<span id="cb30-6"><a href="inference.html#cb30-6" tabindex="-1"></a>         </span>
+<span id="cb30-7"><a href="inference.html#cb30-7" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">t=</span>(X<span class="fl">-0.5</span>)<span class="sc">/</span>N)</span>
+<span id="cb30-8"><a href="inference.html#cb30-8" tabindex="-1"></a>(pltCDF<span class="ot">&lt;-</span></span>
+<span id="cb30-9"><a href="inference.html#cb30-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(d,<span class="fu">aes</span>(<span class="at">x=</span>X,<span class="at">y=</span>FX,<span class="at">group=</span><span class="fu">paste</span>(<span class="fu">floor</span>(X),theta),<span class="at">color=</span>theta))</span>
+<span id="cb30-10"><a href="inference.html#cb30-10" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_line</span>(<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb30-11"><a href="inference.html#cb30-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;X&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;cumulative density&quot;</span>)</span>
+<span id="cb30-12"><a href="inference.html#cb30-12" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<p><span class="math inline">\(t\)</span> tells us “how close” the sample is, but how close is close “enough” for us to conclude that <span class="math inline">\(\theta=0.5\)</span>? To answer this, we need to make a trade-off about how often we want to be wrong, and what type of wrong that will be. Since there are two possible truths (either <span class="math inline">\(H_0\)</span> is true or <span class="math inline">\(H_0\)</span> is not true), and two possible decisions (either we reject <span class="math inline">\(H_0\)</span> or do not reject <span class="math inline">\(H_0\)</span>), then there are <span class="math inline">\(2\times 2=4\)</span> possible outcomes of the test, half of which have us making the wrong conclusion. Table <span class="math inline">\(\ref{tab:HypTest}\)</span> summarizes the two types of wrong that we could be: we should be worried about either failing to reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_A\)</span> is true, a type II error, or rejecting <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_0\)</span> is true, a type I error. Since we are basing our decisions on the test statistic, which is random, there will always be a trade-off between these two errors. For practical reasons, we focus on targeting an acceptable probability of making a type I error: incorrectly rejecting the null hypothesis. One good reason for this is that this probability is a function of the null distribution (i.e. <span class="math inline">\(\mathrm{Binomial}(N,0.5)\)</span>). In our case, we know this exactly, and in most cases, we can approximate it if <span class="math inline">\(N\)</span> is large enough (see the next chapter to learn about this). Compare this to evaluating the probability of a type II error: if <span class="math inline">\(H_A\)</span> is true, then all we know is that <span class="math inline">\(\theta\neq0.5\)</span>. How do we assess the distribution of <span class="math inline">\(t\)</span> if we don’t know the actual value of <span class="math inline">\(\theta\)</span>? That’s a hard one, and one that we avoid entirely if we focus on targeting the probability of making a type I error.</p>
+<p>To do this, we need to work out when we need to define a {} about rejecting <span class="math inline">\(H_0\)</span> based on <span class="math inline">\(t\)</span>. As large <span class="math inline">\(|t|\)</span> is evidence against <span class="math inline">\(H_0\)</span>, we will therefore use:
+<span class="math display">\[\begin{align}
+\text{Reject } H_0 \text{ if and only if } |t|&gt;t_c
+\end{align}\]</span>
+where <span class="math inline">\(t_c&gt;0\)</span> is a critical value. Note that as <span class="math inline">\(t_c\)</span> gets larger, the more evidence we require against <span class="math inline">\(H_0\)</span> to reject it. When <span class="math inline">\(H_0\)</span> is true, the probability of rejecting <span class="math inline">\(H_0\)</span> based on this decision rule is the probability of making a type II error, and equal to:
+<span class="math display">\[\begin{align}
+\Pr[\text{reject } H_0\mid \theta=0.5]
+&amp;=\Pr[|t|\geq t_c\mid \theta=0.5]\label{eq:CH03PrReject}\\
+&amp;=\Pr\left[\left|\frac1N\sum_{i=1}^NH_i-0.5\right|&gt;t_c\right]\\
+&amp;=\Pr\left[\left|\sum_{i=1}^NH_i-0.5N\right|&gt;Nt_c\right]\\
+&amp;=\Pr\left[\left(\sum_{i=1}^NH_i&gt;N(t_c+0.5)\right)
+\cup
+\left(\sum_{i=1}^NH_i&lt;N(t_c-0.5)\right)
+\right]\\
+&amp;=\Pr\left(\sum_{i=1}^NH_i&gt;N(t_c+0.5)\right)
++
+\left(\sum_{i=1}^NH_i&lt;N(t_c-0.5)\right)
+\end{align}\]</span>
+where the last line follows because <span class="math inline">\(\sum_{i=1}^NH_i&gt;N(t_c+0.5)\)</span> and <span class="math inline">\(\sum_{i=1}^NH_i&lt;N(t_c-0.5)\)</span> are mutually exclusive events. But we can simplify this further, because we know that <span class="math inline">\(\sum_{i=1}^NH_i\sim\mathrm{Binomial}(0.5,N)\)</span>: we just need to add up all of the bits of its pmf that satisfy <span class="math inline">\(\sum_{i=1}^NH_i&gt;N(t_c+0.5)\)</span> or <span class="math inline">\(\sum_{i=1}^NH_i&lt;N(t_c-0.5)\)</span>:
+<span class="math display">\[\begin{align}
+\Pr[\text{reject } H_0\mid \theta=0.5]
+&amp;=\sum_{k : k&gt;N(t_c+0.5)}p(k) + \sum_{k : k&lt;N(t_c-0.5)}p(k)\\
+&amp;=\sum_{k : k&gt;N(t_c+0.5)}\frac{N!}{k!(N-k!)}0.5^N+\sum_{k : k&lt;N(t_c-0.5)}\frac{N!}{k!(N-k!)}0.5^N
+\end{align}\]</span>
+where the “<span class="math inline">\(k : k&gt;N(t_c+0.5)\)</span>” bit means “sum over all <span class="math inline">\(k\)</span>s satisfying <span class="math inline">\(k&gt;N(t_c+0.5)\)</span>”. We are looking to set this probability equal to <span class="math inline">\(\alpha=5\%\)</span>. <span class="math inline">\(\alpha\)</span>, the probability of rejecting <span class="math inline">\(H_0\)</span> when it is true, is referred to the test <em>size</em>. Actually, we can’t in general set this probability to <em>exactly</em> 5% for the binomial distribution, because we have no guarantee that there is a place in the pmf where we can stop adding and get 5%. Let’s pick smallest <span class="math inline">\(t_c\)</span> such that this thing is less than 5%.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="inference.html#cb32-1" tabindex="-1"></a>d<span class="ot">&lt;-</span>(<span class="fu">tibble</span>(<span class="at">X=</span><span class="fu">seq</span>(<span class="dv">0</span>,N,<span class="at">length=</span>N<span class="sc">+</span><span class="dv">1</span>))</span>
+<span id="cb32-2"><a href="inference.html#cb32-2" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">t=</span>(X<span class="sc">/</span>N<span class="fl">-0.5</span>),</span>
+<span id="cb32-3"><a href="inference.html#cb32-3" tabindex="-1"></a>               <span class="at">pmf =</span> <span class="fu">dbinom</span>(X,<span class="at">size=</span>N,<span class="at">prob=</span><span class="fl">0.5</span>),</span>
+<span id="cb32-4"><a href="inference.html#cb32-4" tabindex="-1"></a>               <span class="at">cdf =</span> <span class="fu">pbinom</span>(X,<span class="at">size=</span>N,<span class="at">prob=</span><span class="fl">0.5</span>)</span>
+<span id="cb32-5"><a href="inference.html#cb32-5" tabindex="-1"></a>               )</span>
+<span id="cb32-6"><a href="inference.html#cb32-6" tabindex="-1"></a>)</span>
+<span id="cb32-7"><a href="inference.html#cb32-7" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(d <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">4</span>))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">X</th>
+<th align="right">t</th>
+<th align="right">pmf</th>
+<th align="right">cdf</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">-0.50</td>
+<td align="right">0.0000</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">-0.45</td>
+<td align="right">0.0000</td>
+<td align="right">0.0000</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">-0.40</td>
+<td align="right">0.0002</td>
+<td align="right">0.0002</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">-0.35</td>
+<td align="right">0.0011</td>
+<td align="right">0.0013</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">-0.30</td>
+<td align="right">0.0046</td>
+<td align="right">0.0059</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">-0.25</td>
+<td align="right">0.0148</td>
+<td align="right">0.0207</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="right">-0.20</td>
+<td align="right">0.0370</td>
+<td align="right">0.0577</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">-0.15</td>
+<td align="right">0.0739</td>
+<td align="right">0.1316</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="right">-0.10</td>
+<td align="right">0.1201</td>
+<td align="right">0.2517</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">-0.05</td>
+<td align="right">0.1602</td>
+<td align="right">0.4119</td>
+</tr>
+<tr class="odd">
+<td align="right">10</td>
+<td align="right">0.00</td>
+<td align="right">0.1762</td>
+<td align="right">0.5881</td>
+</tr>
+<tr class="even">
+<td align="right">11</td>
+<td align="right">0.05</td>
+<td align="right">0.1602</td>
+<td align="right">0.7483</td>
+</tr>
+<tr class="odd">
+<td align="right">12</td>
+<td align="right">0.10</td>
+<td align="right">0.1201</td>
+<td align="right">0.8684</td>
+</tr>
+<tr class="even">
+<td align="right">13</td>
+<td align="right">0.15</td>
+<td align="right">0.0739</td>
+<td align="right">0.9423</td>
+</tr>
+<tr class="odd">
+<td align="right">14</td>
+<td align="right">0.20</td>
+<td align="right">0.0370</td>
+<td align="right">0.9793</td>
+</tr>
+<tr class="even">
+<td align="right">15</td>
+<td align="right">0.25</td>
+<td align="right">0.0148</td>
+<td align="right">0.9941</td>
+</tr>
+<tr class="odd">
+<td align="right">16</td>
+<td align="right">0.30</td>
+<td align="right">0.0046</td>
+<td align="right">0.9987</td>
+</tr>
+<tr class="even">
+<td align="right">17</td>
+<td align="right">0.35</td>
+<td align="right">0.0011</td>
+<td align="right">0.9998</td>
+</tr>
+<tr class="odd">
+<td align="right">18</td>
+<td align="right">0.40</td>
+<td align="right">0.0002</td>
+<td align="right">1.0000</td>
+</tr>
+<tr class="even">
+<td align="right">19</td>
+<td align="right">0.45</td>
+<td align="right">0.0000</td>
+<td align="right">1.0000</td>
+</tr>
+<tr class="odd">
+<td align="right">20</td>
+<td align="right">0.50</td>
+<td align="right">0.0000</td>
+<td align="right">1.0000</td>
+</tr>
+</tbody>
+</table>
+<p>The obove table shows the relevant pdf and cdf. Since the <span class="math inline">\(Binomial(N,0.5)\)</span> distribution is symmetric (i.e. <span class="math inline">\(p(X)=p(N-X)\)</span>), we can look for one cutoff <span class="math inline">\(k_c\)</span> at the left tail such that <span class="math inline">\(\Pr[X&lt;k_c]\)</span> is just less than 2.5%, and then the other cutoff will be at the corresponding point of the right tail: i.e. <span class="math inline">\(N-k_c\)</span>. Looking at the Table, we see that 2.1% of the samples will have 5 or fewer heads, and 5.8% of samples will have 6 or fewer heads. Therefore we can choose <span class="math inline">\(k_c=5\)</span> and have a probability of rejecting <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_0\)</span> is true of <span class="math inline">\(2\times 2.1\%=4.2\%\)</span>, which is reasonably close to the standard number of 5%. Hence, we will reject <span class="math inline">\(H_0\)</span> if and only if we observe a sample with 5 or fewer heads, or 16 or more heads. Note that we found these cutoffs from the Table by finding the (approximate) solutions to <span class="math inline">\(F_X(x)=0.025\)</span> and <span class="math inline">\(F_X(x) = 0.975\)</span>. Note that graphically, this means that we are looking for points on the cdf with hight equal to 0.025 and 0.975:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="inference.html#cb33-1" tabindex="-1"></a>(</span>
+<span id="cb33-2"><a href="inference.html#cb33-2" tabindex="-1"></a>  pltCDF</span>
+<span id="cb33-3"><a href="inference.html#cb33-3" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="fu">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>),<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb33-4"><a href="inference.html#cb33-4" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+<p>We’re almost there. In fact, we could do the hypothesis test without going any further, but since we specified things in terms of our test statistic <span class="math inline">\(t\)</span> instead of the sum of heads, for completeness we should work out <span class="math inline">\(t_c\)</span>. Graphically this is exactly the same problem as solving for the rejection rule in terms of the sum of heads. To see this, have a look at Figure <span class="math inline">\(\ref{fig:BinomialTest}\)</span>. The dashed lines have horizontal coordinates of 0.025 and 0.975. What we need to do is look at the cdf of <span class="math inline">\(t\)</span> when <span class="math inline">\(H_0\)</span> is true (the black line), and read off these points. These points are when <span class="math inline">\(t=-0.2\)</span> and <span class="math inline">\(t=0.2\)</span>. So our rejection rule becomes:
+<span class="math display">\[\begin{align*}
+\text{Reject $H_0$ if and only if: } |t|&gt;0.2
+\end{align*}\]</span>
+Hence, we would reject <span class="math inline">\(H_0\)</span> if we observed, say, 3 or 19 heads in our sample, but would not reject <span class="math inline">\(H_0\)</span> if we observed 8 or 11 heads in our sample.</p>
+<p>At this point it should be pretty obvious to you that you will need to compute a lot of probabilities associated with the Binomial distribution. To learn about how to do this in <em>R</em>, a good place to start would be by typing <code>dbinom</code> into the command line, then pressing <code>F1</code>.</p>
+<div id="one-sided-hypothesis-tests" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> One-sided hypothesis tests<a href="inference.html#one-sided-hypothesis-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The previous section presented a <em>two-sided” hypothesis test: it was done under the assumption that the coin could possibly be unfair because either <span class="math inline">\(\theta\)</span> was more or less than 0.5. Sometimes, we have reason to rule out a portion of the alternative hypothesis space, and usually this means that if <span class="math inline">\(H_0\)</span> is not true, then we know which side of the hypothesized value (in our case 0.5) the true value of <span class="math inline">\(\theta\)</span> is. Suppose, for example, that instead of “are we are flipping a fair coin?”, our research question was “is the coin biased towards heads?”. Formally, we could state a null and alternative as:
+<span class="math display">\[\begin{align}
+H_0:\ \theta=0.5
+,\quad
+H_A:\ \theta&gt;0.5
+\end{align}\]</span>
+that is, our research question motivates a (dogmatic) belief that <span class="math inline">\(\theta\)</span> could </em>never* be less than 0.5. The procedure for such a test is exactly the same, but we just need to think a bit more about what realizations of <span class="math inline">\(\hat\theta\)</span> (or <span class="math inline">\(t\)</span>) would provide us with support for <span class="math inline">\(H_A\)</span> in favor of <span class="math inline">\(H_0\)</span>. For example, observing 2 heads, and so calculating <span class="math inline">\(\hat\theta=0.1\)</span> and <span class="math inline">\(t=0.4\)</span> would not be very convincing that <span class="math inline">\(\theta&gt;0.5\)</span>, however we would have rejected <span class="math inline">\(H_0\)</span> for the two-sided test outlined in the previous section. Hence, we need a rejection rule that only rejects <span class="math inline">\(H_0\)</span> when we observe a sufficiently large <span class="math inline">\(\hat\theta\)</span>, or sufficiently positive <span class="math inline">\(t\)</span>. Other than that, we approach the problem in exactly the same way.</p>
+<p>We need to choose a critical value <span class="math inline">\(t_c\)</span> such that the rejection rule:
+<span class="math display">\[\begin{align}
+\text{Reject } H_0 \text{ if and only if } t&gt;t_c
+\end{align}\]</span>
+so that the probability of this event, if <span class="math inline">\(H_0\)</span> was true, is equal to <span class="math inline">\(\alpha=0.05\)</span>, or at least close to 0.05, since <span class="math inline">\(t\)</span> is a discrete random variable. We need to solve for:
+<span class="math display">\[\begin{align}
+\alpha&amp;=\Pr\left[t&gt;t_c\right]\\
+&amp;=\Pr\left[\frac{1}{N}\sum_{i=1}^NH_i-0.5&gt;t_c\right]\\
+&amp;=\Pr\left[\sum_{i=1}^NH_i&gt;N(t_c+0.5)\right]\\
+&amp;=\Pr\left[\mathrm{Binomial(N,\theta)&gt;N(t_c+0.5)}\right]\\
+&amp;=1-F_X\left(N(t_c+0.5)\right)
+\end{align}\]</span>
+where <span class="math inline">\(F_X(\cdot)\)</span> is the binomial cdf shown in the above Table. Therefore we are looking for a cell in the <span class="math inline">\(F_X(x)\)</span> column of this table corresponding to (roughly) <span class="math inline">\(F_X(x)=1-\alpha=0.95\)</span>. The probability of drawing 13 or fewer heads is 0.942, and the probability of drawing 14 or fewer heads is 0.979, so we can’t get exactly <span class="math inline">\(\alpha=0.05\)</span>, but the following decision rule:
+<span class="math display">\[\begin{align}
+\text{Reject } H_0 \text{ if and only if } t&gt;0.15
+\end{align}\]</span>
+gets reasonably close: <span class="math inline">\(\alpha=1-0.9423=0.0577\)</span>.</p>
+</div>
+</div>
+<div id="p-values" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> <span class="math inline">\(p\)</span>-values<a href="inference.html#p-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Another popular way of reporting statistical significance is with a <span class="math inline">\(p\)</span>-value. The <span class="math inline">\(p\)</span>-value associated with a hypothesis test is defined as the probability of observing a test statistic at least as extreme as the one we actually observed, assuming that <span class="math inline">\(H_0\)</span> is true. If this <em>almost</em> seems like <span class="math inline">\(\alpha\)</span>, the test size, then you have made an important connection! <span class="math inline">\(p\)</span> is equal to the test size <span class="math inline">\(\alpha\)</span> that would put you on the margin between rejecting and not rejecting <span class="math inline">\(H_0\)</span> for your observed sample.</p>
+<p>The benefit of reporting a <span class="math inline">\(p\)</span>-value is that it allows your reader to test your hypothesis at their choice of <span class="math inline">\(\alpha\)</span>, rather than the one that you selected. For example, if you calculated <span class="math inline">\(p=0.03\)</span>, then you would reject <span class="math inline">\(H_0\)</span> if you wanted to do an <span class="math inline">\(\alpha=0.05\)</span> test, but fail to reject <span class="math inline">\(H_0\)</span> for an <span class="math inline">\(\alpha=0.01\)</span> test. A smaller <span class="math inline">\(p\)</span>-value means that the data would pass a more stringent hypothesis test.</p>
+<p>For example, suppose that you observed 3 heads in your sample. Since we’ve learned about how to do hypothesis tests with coin flips, you know that you would reject the two-sided test that <span class="math inline">\(\theta=0.5\)</span>. However what if a pesky audience member at a seminar is in the mood for a more conservative test. By reporting the <span class="math inline">\(p\)</span>-value, this may avoid an annoying question. So let’s calculate it. Since we are doing a two sided test, there are eight samples that are at least as unlikely to occur when <span class="math inline">\(H_0\)</span> is true. These the samples that include either 0, 1, 2, 3, 17, 18, 19, or 20 heads. Hence the <span class="math inline">\(p\)</span>-value is the sum of the probabilities of these events occurring, assuming that <span class="math inline">\(H_0\)</span> is true, i.e.~<span class="math inline">\(\theta=0.5\)</span>:
+<span class="math display">\[\begin{align}
+p&amp;=\sum_{k=0}^3\frac{20!}{k!(20-k)!}\frac{1}{2^{20}} + \sum_{k=17}^{20}\frac{20!}{k!(20-k)!}\frac{1}{2^{20}}\approx 0.0015
+\end{align}\]</span>
+so we would reject <span class="math inline">\(H_0\)</span> at most reasonable levels of significance (including <span class="math inline">\(\alpha=0.05\)</span>).
+The black circles in the following Figure show the <span class="math inline">\(p\)</span>-values associated with the 2-sided test for all 21 possible realizations of <span class="math inline">\(\sum_iH_i\)</span>.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="inference.html#cb34-1" tabindex="-1"></a>N<span class="ot">&lt;-</span><span class="dv">20</span></span>
+<span id="cb34-2"><a href="inference.html#cb34-2" tabindex="-1"></a>d<span class="ot">&lt;-</span>(<span class="fu">tibble</span>(<span class="at">X=</span><span class="fu">seq</span>(<span class="dv">0</span>,N,<span class="at">length=</span>N<span class="sc">+</span><span class="dv">1</span>))</span>
+<span id="cb34-3"><a href="inference.html#cb34-3" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">rowwise</span>()</span>
+<span id="cb34-4"><a href="inference.html#cb34-4" tabindex="-1"></a>    <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">cdf=</span><span class="fu">pbinom</span>(X,<span class="at">size=</span>N,<span class="at">prob=</span><span class="fl">0.5</span>),</span>
+<span id="cb34-5"><a href="inference.html#cb34-5" tabindex="-1"></a>               <span class="at">pval2 =</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">min</span>(cdf,<span class="dv">1</span><span class="sc">-</span>cdf),</span>
+<span id="cb34-6"><a href="inference.html#cb34-6" tabindex="-1"></a>               <span class="at">pval1 =</span> <span class="dv">1</span><span class="sc">-</span>cdf)    </span>
+<span id="cb34-7"><a href="inference.html#cb34-7" tabindex="-1"></a>)</span>
+<span id="cb34-8"><a href="inference.html#cb34-8" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="inference.html#cb34-9" tabindex="-1"></a>( pltPvals<span class="ot">&lt;-</span></span>
+<span id="cb34-10"><a href="inference.html#cb34-10" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb34-11"><a href="inference.html#cb34-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>X,<span class="at">y=</span>pval2,<span class="at">color=</span><span class="st">&quot;two-sided p-value&quot;</span>))</span>
+<span id="cb34-12"><a href="inference.html#cb34-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>X,<span class="at">y=</span>pval1,<span class="at">color=</span><span class="st">&quot;one-sided p-value&quot;</span>))</span>
+<span id="cb34-13"><a href="inference.html#cb34-13" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="st">&quot;two-sided p-value&quot;</span>,<span class="st">&quot;one-sided p-value&quot;</span>),<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb34-14"><a href="inference.html#cb34-14" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;&quot;</span>)</span>
+<span id="cb34-15"><a href="inference.html#cb34-15" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+<p>For the one-sided test in the previous section, note that observing 3 heads is terrible support for <span class="math inline">\(H_A\)</span>, so before we actually calculate this thing, note that it should be close to 1. We need to add up the probabilities of all the samples we could have observed, that would have supplied at least as much support for <span class="math inline">\(H_A:\ \theta&gt;0\)</span> as did our observed sample of 3 heads. These the samples that include either 3, 4, 5, , or 20 heads:
+<span class="math display">\[\begin{align}
+p&amp;=\sum_{k=3}^{20}\frac{20!}{k!(20-k)!}\frac{1}{2^{20}} \approx 0.9987
+\end{align}\]</span>
+The blue circles in the above Figure show the <span class="math inline">\(p\)</span>-values associated with this 1-sided test for all 21 possible realizations of <span class="math inline">\(\sum_iH_i\)</span>.</p>
+<p>For the other 1-sided test, with <span class="math inline">\(H_A:\ \theta&lt;0.5\)</span>, we up all of the probabilities associated with getting <em>at most</em> 3 heads in our sample. In this case, observing 3 out of 20 heads is somewhat strong support for <span class="math inline">\(H_A\)</span> in favor of <span class="math inline">\(H_0\)</span>, because we shouldn’t expect this to happen too often assuming <span class="math inline">\(H_0\)</span> is true. In this case:
+<span class="math display">\[\begin{align}
+p&amp;=\sum_{k=0}^{3}\frac{20!}{k!(20-k)!}\frac{1}{2^{20}} \approx 0.0013
+\end{align}\]</span>
+so we would reject <span class="math inline">\(H_0\)</span> at for any test with <span class="math inline">\(\alpha&gt;0.0013\)</span>.</p>
+<p>It is important to interpret <span class="math inline">\(p\)</span>-values correctly. It is tempting to claim that <span class="math inline">\(p\)</span> is the probability that <span class="math inline">\(H_0\)</span> is not true. However this is false.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>
+Remember that we derived the <span class="math inline">\(p\)</span>-value {} that <span class="math inline">\(H_0\)</span> was true. Hence, you are permitted to interpret it in the following ways:</p>
+<ul>
+<li><span class="math inline">\(p\)</span> is the probability of calculating a test statistic at least as extreme as the one you actually calculated, assuming <span class="math inline">\(H_0\)</span> is true.</li>
+<li>Assuming <span class="math inline">\(H_0\)</span> is true (and all other distributional assumptions about the data-generating process are correct), <span class="math inline">\(p\)</span> will be uniformly distributed (think about this when/if you learn about the method of inversion for generating random numbers).</li>
+<li>When <span class="math inline">\(H_0\)</span> is true, rejecting <span class="math inline">\(H_0\)</span> when <span class="math inline">\(p&lt;\alpha\)</span> implements the same decision rule as testing <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(\alpha\)</span> level of significance.</li>
+</ul>
+<p>It tells you something, just be aware of what it doesn’t tell you.</p>
+</div>
+<div id="confidence-intervals" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Confidence intervals<a href="inference.html#confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The third way we might want to report the statistical significance of our results is a {}. This reports all of the values of <span class="math inline">\(\theta_0\)</span> for which we would fail to reject <span class="math inline">\(H_0\)</span> in the test:
+<span class="math display">\[\begin{align*}
+H_0:\ \theta=\theta_0,\quad H_A:\ \theta\neq\theta_0
+\end{align*}\]</span>
+(this also applies to one-sided hypothesis tests).</p>
+<p>This is useful because it reports, holding <span class="math inline">\(\alpha\)</span> constant, <em>all</em> of the null hypotheses that would not be rejected. The following Figure shows the confidence intervals we would assign after observing each of the 21 possible samples we could observe from flipping 20 coins. The black lines show the 2-sided confidence intervals. The red dots show the lower bound of the one-sided confidence intervals with alternative <span class="math inline">\(H_A:\ \theta&lt;\theta_0\)</span>; the upper bound of all of these is <span class="math inline">\(\theta=0\)</span>. and the blue crosses show the upper bound of the one-sided confidence intervals with alternative <span class="math inline">\(H_A:\ \theta&gt;\theta_0\)</span>; the lower bound of all of these is <span class="math inline">\(\theta=1\)</span>.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="inference.html#cb35-1" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="dv">0</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb35-2"><a href="inference.html#cb35-2" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="inference.html#cb35-3" tabindex="-1"></a>PGRID<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="fl">0.001</span>,<span class="fl">0.999</span>,<span class="at">length=</span><span class="dv">999</span>)</span>
+<span id="cb35-4"><a href="inference.html#cb35-4" tabindex="-1"></a> </span>
+<span id="cb35-5"><a href="inference.html#cb35-5" tabindex="-1"></a>CI<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="fu">length</span>(X),<span class="dv">2</span>)</span>
+<span id="cb35-6"><a href="inference.html#cb35-6" tabindex="-1"></a>CIoneSided<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="fu">length</span>(X),<span class="dv">2</span>)</span>
+<span id="cb35-7"><a href="inference.html#cb35-7" tabindex="-1"></a>a<span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
+<span id="cb35-8"><a href="inference.html#cb35-8" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="inference.html#cb35-9" tabindex="-1"></a>notRejectRegion<span class="ot">&lt;-</span><span class="fu">cbind</span>(<span class="fu">c</span>(<span class="fu">qbinom</span>(a<span class="sc">/</span><span class="dv">2</span>,N,PGRID)),<span class="fu">qbinom</span>(<span class="dv">1</span><span class="sc">-</span>a<span class="sc">/</span><span class="dv">2</span>,N,PGRID))</span>
+<span id="cb35-10"><a href="inference.html#cb35-10" tabindex="-1"></a></span>
+<span id="cb35-11"><a href="inference.html#cb35-11" tabindex="-1"></a>notRejectRegionOneSided<span class="ot">&lt;-</span><span class="fu">cbind</span>(<span class="fu">c</span>(<span class="fu">qbinom</span>(a,N,PGRID)),<span class="fu">qbinom</span>(<span class="dv">1</span><span class="sc">-</span>a,N,PGRID))</span>
+<span id="cb35-12"><a href="inference.html#cb35-12" tabindex="-1"></a></span>
+<span id="cb35-13"><a href="inference.html#cb35-13" tabindex="-1"></a></span>
+<span id="cb35-14"><a href="inference.html#cb35-14" tabindex="-1"></a><span class="cf">for</span> (xx <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(X)) {</span>
+<span id="cb35-15"><a href="inference.html#cb35-15" tabindex="-1"></a>  <span class="co"># Two-sided CIs</span></span>
+<span id="cb35-16"><a href="inference.html#cb35-16" tabindex="-1"></a>  notReject <span class="ot">&lt;-</span> (X[xx]<span class="sc">&gt;=</span>notRejectRegion[,<span class="dv">1</span>]) <span class="sc">&amp;</span> (X[xx]<span class="sc">&lt;=</span>notRejectRegion[,<span class="dv">2</span>])</span>
+<span id="cb35-17"><a href="inference.html#cb35-17" tabindex="-1"></a>  pKeep<span class="ot">&lt;-</span>PGRID[notReject]</span>
+<span id="cb35-18"><a href="inference.html#cb35-18" tabindex="-1"></a>  CI[xx,]<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">min</span>(pKeep),<span class="fu">max</span>(pKeep))</span>
+<span id="cb35-19"><a href="inference.html#cb35-19" tabindex="-1"></a>  </span>
+<span id="cb35-20"><a href="inference.html#cb35-20" tabindex="-1"></a>  <span class="co"># One-sided</span></span>
+<span id="cb35-21"><a href="inference.html#cb35-21" tabindex="-1"></a>  notReject <span class="ot">&lt;-</span> (X[xx]<span class="sc">&gt;=</span>notRejectRegionOneSided[,<span class="dv">1</span>]) <span class="sc">&amp;</span> (X[xx]<span class="sc">&lt;=</span>notRejectRegionOneSided[,<span class="dv">2</span>])</span>
+<span id="cb35-22"><a href="inference.html#cb35-22" tabindex="-1"></a>  pKeep<span class="ot">&lt;-</span>PGRID[notReject]</span>
+<span id="cb35-23"><a href="inference.html#cb35-23" tabindex="-1"></a>  CIoneSided[xx,]<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">min</span>(pKeep),<span class="fu">max</span>(pKeep))</span>
+<span id="cb35-24"><a href="inference.html#cb35-24" tabindex="-1"></a>}</span>
+<span id="cb35-25"><a href="inference.html#cb35-25" tabindex="-1"></a></span>
+<span id="cb35-26"><a href="inference.html#cb35-26" tabindex="-1"></a>twoSidedCI<span class="ot">&lt;-</span><span class="fu">tibble</span>(<span class="at">x=</span>X,<span class="at">lp=</span>CI[,<span class="dv">1</span>],<span class="at">up=</span>CI[,<span class="dv">2</span>])</span>
+<span id="cb35-27"><a href="inference.html#cb35-27" tabindex="-1"></a></span>
+<span id="cb35-28"><a href="inference.html#cb35-28" tabindex="-1"></a>(</span>
+<span id="cb35-29"><a href="inference.html#cb35-29" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span>
+<span id="cb35-30"><a href="inference.html#cb35-30" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_segment</span>(<span class="at">data=</span>twoSidedCI,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>lp,<span class="at">xend=</span>x,<span class="at">yend=</span>up,<span class="at">linetype=</span><span class="st">&quot;two-sided CI&quot;</span>))</span>
+<span id="cb35-31"><a href="inference.html#cb35-31" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span><span class="fu">tibble</span>(<span class="at">x=</span>X,<span class="at">y=</span>CIoneSided[,<span class="dv">1</span>]),<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y,<span class="at">color=</span><span class="st">&quot;Lower bound CI&quot;</span>))</span>
+<span id="cb35-32"><a href="inference.html#cb35-32" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">data=</span><span class="fu">tibble</span>(<span class="at">x=</span>X,<span class="at">y=</span>CIoneSided[,<span class="dv">2</span>]),<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y,<span class="at">color=</span><span class="st">&quot;Upper bound CI&quot;</span>))</span>
+<span id="cb35-33"><a href="inference.html#cb35-33" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb35-34"><a href="inference.html#cb35-34" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;x (number of heads)&quot;</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">paste0</span>(a<span class="sc">*</span><span class="dv">100</span>,<span class="st">&quot;% Confidence interval&quot;</span>))</span>
+<span id="cb35-35"><a href="inference.html#cb35-35" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
+</div>
+<div id="test-power" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Test power<a href="inference.html#test-power" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Up to this point, all of our calculations were done assuming that <span class="math inline">\(H_0\)</span> was true (remember this, it’s important). But what about <span class="math inline">\(H_A\)</span>? Often we will be testing something with the expectation that <span class="math inline">\(H_0\)</span> is {} true. For example, maybe some economic theory tells us that we are not flipping a fair coin (maybe more on this later). <span class="math inline">\(\alpha\)</span> tells us the probability that we are wrong when <span class="math inline">\(H_0\)</span> is true, but what about being wrong when <span class="math inline">\(H_A\)</span> is true? That is, what is the probability of a Type I error? The reason it is (relatively) easy to work out things when <span class="math inline">\(H_0\)</span> is true is that <span class="math inline">\(H_0\)</span> completely pins down the distribution of our test statistic. In our case in this Chapter, we know that <span class="math inline">\(\sum_iH_i\sim\mathrm{Binomial}(N,0.5)\)</span>. But for the alternative, all we know is that <span class="math inline">\(\theta\)</span> falls in a range: the distribution of the test statistic when <span class="math inline">\(H_A\)</span> is true is not known! That being said, we can answer a simple question: what is the probability of rejecting the null when <span class="math inline">\(\theta\)</span> is equal to a particular value? If this seems similar to <span class="math inline">\(\alpha\)</span>, good! <span class="math inline">\(\alpha\)</span> is the answer to this question if we plug in <span class="math inline">\(\theta\)</span> equal to the value set in <span class="math inline">\(H_0\)</span> (in this example, <span class="math inline">\(\theta=0.5\)</span>). If we instead plugged in a value consistent with <span class="math inline">\(H_A\)</span>, we would be calculating the test’s <em>power</em>. That is, if <span class="math inline">\(H_0\)</span> is <em>not</em> true, how good is our test at telling us this?</p>
+<p>To get this, let’s go back to the rejection rule, but substitute in another value of <span class="math inline">\(\theta\)</span>, say 0.6 (i.e. the coin comes up heads with probability 60%):
+<span class="math display">\[\begin{align}
+\Pr[\text{reject } H_0\mid \theta]
+&amp;=\Pr\left(\sum_{i=1}^NH_i&gt;N(t_c+0.5)\mid \theta\right)
++
+\left(\sum_{i=1}^NH_i&lt;N(t_c-0.5)\mid \theta\right)
+\end{align}\]</span>
+So we know that <span class="math inline">\(\sum_{i}H_i\sim\mathrm{Binomial}(N,\theta)\)</span>, so this thing is equal to:
+<span class="math display">\[\begin{align}
+\Pr[\text{reject } H_0\mid \theta]&amp;=1-F\left(N(t_c+0.5); N,\theta\right)+F\left(N(t_c-0.5)-1; N,\theta\right)
+\end{align}\]</span>
+where <span class="math inline">\(F(\cdot;N,\theta)\)</span> is the cdf of the <span class="math inline">\(\mathrm{Binomial}(N,\theta)\)</span> distribution.
+For our 5% test calculated earlier, we had <span class="math inline">\(t_c=0.2\)</span>, so this reduces to calculating the probability of getting 6 or fewer heads, or 16 or more heads. We have already worked out that this is equal to <span class="math inline">\(\alpha=4.2\%\)</span> when <span class="math inline">\(H_0\)</span> is true, but now we evaluate the same probability for a different <span class="math inline">\(\theta\)</span>. The probability of rejecting <span class="math inline">\(H_0\)</span> when <span class="math inline">\(\theta=0.6\)</span> is:
+<span class="math display">\[\begin{align}
+Pr\left[\text{reject } H_0\mid \theta=0.6\right]&amp;=\sum_{k=0}^6\frac{20!}{k!(20-k)!}0.6^k0.4^{20-k}+\sum_{k=15}^{20}\frac{20!}{k!(20-k)!}0.6^k0.4^{20-k}\\
+&amp;\approx 13\%
+\end{align}\]</span></p>
+<p>We we want this number to be as big as possible because we want to be able to reject <span class="math inline">\(H_0\)</span> whenever it is false. I hope 13% seems reasonably bad to you. This means that 87% of the time, we fail to reject <span class="math inline">\(H_0\)</span>. But this is what we accept when we pin down <span class="math inline">\(\alpha=0.05\)</span>. As long as we want to do a 5% test, the only variable we can play with is the sample size, <span class="math inline">\(N\)</span>. Unsurprisingly, the test power gets bigger (which is better) as <span class="math inline">\(N\)</span> increases. The following figure shows this relationship. The black line shows the test size, which we have set to 5%. This and the other lines are jagged because the Binomial distribution is discrete: this wouldn’t happen with a continuous distribution. The colored lines show the test power for 3 different values of <span class="math inline">\(\theta\)</span>. Looking at each line individually, it is comforting that they are upward-sloping (outside of the jagged shape due to the discrete distribution). Furthermore, as <span class="math inline">\(\theta\)</span> becomes further away from the <span class="math inline">\(H_0\)</span> value, the power increases: it is easier to spot the difference between <span class="math inline">\(\theta=0.5\)</span> and <span class="math inline">\(\theta=0.8\)</span> than it is to spot the difference between <span class="math inline">\(\theta=0.5\)</span> and <span class="math inline">\(\theta=0.6\)</span>.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="inference.html#cb36-1" tabindex="-1"></a>NN<span class="ot">&lt;-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">300</span></span>
+<span id="cb36-2"><a href="inference.html#cb36-2" tabindex="-1"></a>THETA<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">0.6</span>,<span class="fl">0.7</span>,<span class="fl">0.8</span>)</span>
+<span id="cb36-3"><a href="inference.html#cb36-3" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="inference.html#cb36-4" tabindex="-1"></a>POWER<span class="ot">&lt;-</span><span class="fu">expand.grid</span>(NN,THETA)</span>
+<span id="cb36-5"><a href="inference.html#cb36-5" tabindex="-1"></a><span class="fu">colnames</span>(POWER)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;N&quot;</span>,<span class="st">&quot;theta&quot;</span>)</span>
+<span id="cb36-6"><a href="inference.html#cb36-6" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="inference.html#cb36-7" tabindex="-1"></a>POWER<span class="ot">&lt;-</span>(POWER</span>
+<span id="cb36-8"><a href="inference.html#cb36-8" tabindex="-1"></a>  <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">l=</span><span class="fu">qbinom</span>(<span class="fl">0.025</span>,N,<span class="fl">0.5</span>),</span>
+<span id="cb36-9"><a href="inference.html#cb36-9" tabindex="-1"></a>             <span class="at">r=</span><span class="fu">qbinom</span>(<span class="fl">0.975</span>,N,<span class="fl">0.5</span>),</span>
+<span id="cb36-10"><a href="inference.html#cb36-10" tabindex="-1"></a>             <span class="at">power =</span> <span class="fu">pbinom</span>(l,N,theta)<span class="sc">+</span><span class="dv">1</span><span class="sc">-</span><span class="fu">pbinom</span>(r,N,theta),</span>
+<span id="cb36-11"><a href="inference.html#cb36-11" tabindex="-1"></a>             <span class="at">theta =</span> <span class="fu">paste</span>(<span class="st">&quot;\u03B8 =&quot;</span>,theta)</span>
+<span id="cb36-12"><a href="inference.html#cb36-12" tabindex="-1"></a>             )       </span>
+<span id="cb36-13"><a href="inference.html#cb36-13" tabindex="-1"></a>)</span>
+<span id="cb36-14"><a href="inference.html#cb36-14" tabindex="-1"></a></span>
+<span id="cb36-15"><a href="inference.html#cb36-15" tabindex="-1"></a>(</span>
+<span id="cb36-16"><a href="inference.html#cb36-16" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span>
+<span id="cb36-17"><a href="inference.html#cb36-17" tabindex="-1"></a>    <span class="sc">+</span><span class="fu">geom_path</span>(<span class="at">data=</span>POWER <span class="sc">%&gt;%</span> <span class="fu">filter</span>(theta<span class="sc">!=</span><span class="fu">paste</span>(<span class="st">&quot;\u03B8 =&quot;</span>,<span class="fl">0.5</span>)),<span class="fu">aes</span>(<span class="at">x=</span>N,<span class="at">y=</span>power,<span class="at">color=</span>theta))<span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb36-18"><a href="inference.html#cb36-18" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>(<span class="at">data=</span>POWER <span class="sc">%&gt;%</span> <span class="fu">filter</span>(theta<span class="sc">==</span><span class="fu">paste</span>(<span class="st">&quot;\u03B8 =&quot;</span>,<span class="fl">0.5</span>)),<span class="fu">aes</span>(<span class="at">x=</span>N,<span class="at">y=</span>power),<span class="at">color=</span><span class="st">&quot;black&quot;</span>)</span>
+<span id="cb36-19"><a href="inference.html#cb36-19" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">200</span>,<span class="at">y=</span><span class="fl">0.12</span>,<span class="at">label=</span><span class="st">&quot;test size&quot;</span>))</span>
+<span id="cb36-20"><a href="inference.html#cb36-20" tabindex="-1"></a>  <span class="co">#+scale_color_manual(breaks=c(paste(&quot;\u03B8 =&quot;,0.5)),values=&quot;black&quot;)</span></span>
+<span id="cb36-21"><a href="inference.html#cb36-21" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+</div>
+<div id="the-take-away" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> The take-away<a href="inference.html#the-take-away" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>I write these notes assuming that my students have been introduced to hypothesis tests, <span class="math inline">\(p\)</span>-values and confidence intervals at an introductory statistics/quantitative methods level. That is, you have probably seen a mechanical, plug-and-chug (“cookbook”), explanation of <em>what to do</em>. I intend for this to be a chapter on <em>what you’re doing</em>, and <em>why you’re doing it</em>. So what should you take away from this?</p>
+<p>Firstly, here’s what we did:</p>
+<ul>
+<li>Stated formal null and alternative hypotheses</li>
+<li>Defined a test statistic</li>
+<li>Worked out the distribution of the test statistic assuming <span class="math inline">\(H_0\)</span> is true</li>
+<li>Used this distribution to work out a decision rule</li>
+<li>Reported at least one of (i) the result and conclusion from a hypothesis test, (ii) reported and interpreted a <span class="math inline">\(p\)</span>-value, and (iii) reported and interpreted a confidence interval.</li>
+<li>Commented on our test’s power of identifying the alternative hypothesis when it is true</li>
+</ul>
+<p>But be aware that we did none of the following:</p>
+<ul>
+<li>Divide by the sample standard deviation</li>
+<li>Look up a normal, <span class="math inline">\(\chi^2\)</span>, Student’s <span class="math inline">\(t\)</span>, or <span class="math inline">\(F\)</span> distribution</li>
+<li>1.96</li>
+</ul>
+<p>although we <em>did</em> look up a distribution table, but this was the Binomial distribution. Don’t worry, what you were taught in the past (probably) wasn’t wrong. Just be aware that hypothesis tests and the like can be done without assuming that <em>anything</em> is normally distributed. The reason that we so often do make a normal approximation is that it makes working out the distribution of the test statistic a whole lot easier, and often doesn’t change things too much.</p>
+</div>
+<div id="exercises-3" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Exercises<a href="inference.html#exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="converting-a-continuous-variable-into-a-coin-flip" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Converting a continuous variable into a coin flip<a href="inference.html#converting-a-continuous-variable-into-a-coin-flip" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Load the Galton heights dataset. Just focus on parent height. We have a working hypothesis that within a randomly selected couple, the father is more likely to be taller than the mother.</p>
+<ol style="list-style-type: decimal">
+<li>Formally define a population parameter that speaks to this test, and state a formal null and alternative hypothesis about this parameter that addresses the working hypothesis above.</li>
+<li>Define a test statistic for this hypothesis.</li>
+<li>What is the distribution of the test statistic when the null hypothesis is true?</li>
+<li>Calculate the <span class="math inline">\(p\)</span>-value associated with your null and alternative hypotheses. State any additional assumptions you needed to make for your procedure to be valid (and don’t make any assumptions that you don’t need to). Produce a graph to illustrate what you’re doing. <em>Hint:</em> This is a computationally intensive exercise (for humans) that will take you too long and waste too much paper if you do it by hand.</li>
+</ol>
+</div>
+<div id="the-maximum-of-a-sample" class="section level3 hasAnchor" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> The maximum of a sample<a href="inference.html#the-maximum-of-a-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose that you are interested in data drawn from a uniform distribution with unknown maximum. That is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+X_i&amp;\sim iid \mathrm{Uniform}(0,\alpha)\\
+\text{pdf: }\ f(x)&amp;=\begin{cases}
+1/\alpha &amp; \text{if } x\in(0,1)\\
+0&amp; text{ otherwise}
+\end{cases}\\
+\text{cdf: }\ F(x)&amp;=\begin{cases}
+0&amp;\text{if }x\leq 0\\
+\frac{x}{\alpha} &amp;\text{if }0&lt;x&lt;\alpha\\
+1&amp;\text{if } x\geq \alpha
+\end{cases}
+\end{aligned}
+\]</span></p>
+<ol style="list-style-type: decimal">
+<li>The data in <code>ExUniformInference.csv</code> are drawn from this distribution. Using the maximum of your sample as a test statistic, perform a hypothesis test at the 5% level of significance that <span class="math inline">\(\alpha = 3.2\)</span>. Your alternative hypothesis should be <span class="math inline">\(\alpha&gt;3.2\)</span></li>
+<li>What is the <span class="math inline">\(p\)</span>-value for this hypothesis test?</li>
+<li>Construct a one-sided 90% confidence interval for <span class="math inline">\(\alpha\)</span> based on the above null and alternative hypotheses.</li>
+<li>If the true value of <span class="math inline">\(\alpha\)</span> is 5, what is the power of your test in part 1?</li>
+</ol>
+</div>
+<div id="assessing-the-performance-of-a-cookbook-hypothesis-test" class="section level3 hasAnchor" number="5.6.3">
+<h3><span class="header-section-number">5.6.3</span> Assessing the performance of a “cookbook” hypothesis test<a href="inference.html#assessing-the-performance-of-a-cookbook-hypothesis-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider the following procedure for a hypothesis test for a dataset of <span class="math inline">\(N\)</span> iid coin flips <span class="math inline">\(\{X_i\}_{i=1}^N\)</span>:
+<span class="math display">\[\begin{align*}
+H_0:\ \Pr[X_i=1]=0.5, \quad H_A:\Pr[X_i=1]\neq0.5\\
+t = 2\sqrt N(\bar x-0.5), \quad \bar x=\frac1N\sum_{i=1}^NX_i\\
+\text{Reject } H_0 \text{ if and only if } |t|&gt;1.96
+\end{align*}\]</span>
+(We will understand why this might be a good approach in some circumstances in the next chapter.)
+Evaluate the actual size (i.e. <span class="math inline">\(\alpha\)</span>) of this hypothesis test. How does the actual size change with sample size <span class="math inline">\(N\)</span>?</p>
+<p>You may want to break this problem up into answer the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>What component of <span class="math inline">\(t\)</span> is random due to the random sampling procedure (<em>Hint</em> there are two possible answers: <span class="math inline">\(\bar x\)</span> and <span class="math inline">\(N\)</span>. Work out which is correct.)</li>
+<li>What is the distribution of this random component when <span class="math inline">\(H_0\)</span> is true?</li>
+<li>What values of <span class="math inline">\(\bar x\)</span> mean that you would reject the null? (draw a graph)</li>
+<li>What is the probability that <span class="math inline">\(\bar x\)</span> falls in to this range?</li>
+<li>How does this probability relate to <span class="math inline">\(\alpha\)</span>?</li>
+</ol>
+</div>
+<div id="hypothesis-tests-using-graphs" class="section level3 hasAnchor" number="5.6.4">
+<h3><span class="header-section-number">5.6.4</span> Hypothesis tests using graphs<a href="inference.html#hypothesis-tests-using-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>These questions ask you to annotate figures. If you need to find an area, shade an area (and tell me what that area is equal to), if you need to find a horizontal and/or vertical coordinate, label it (and tell me what it is equal to); and so on.</p>
+<div id="finding-a-p-value" class="section level4 hasAnchor" number="5.6.4.1">
+<h4><span class="header-section-number">5.6.4.1</span> Finding a <span class="math inline">\(p\)</span>-value<a href="inference.html#finding-a-p-value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You perform the following hypothesis test:
+<span class="math display">\[\begin{align*}
+&amp;H_0:\ E[X]=4, \quad H_A:\ E[X]&gt; 4\\
+\text{test size} = &amp; \alpha = 0.1 \\
+\text{test statistic:}\ z &amp;= \frac1N\sum_{i=1}^NX_i-4
+\end{align*}\]</span>The following figure shows the pdf of <span class="math inline">\(z\)</span> when <span class="math inline">\(H_0\)</span> is true. Annotate this figure to show how you would find the <span class="math inline">\(p\)</span>-value for this test if your test statistic was <span class="math inline">\(z=1\)</span>:</p>
+<p><img src="index_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
+</div>
+<div id="finding-critical-values" class="section level4 hasAnchor" number="5.6.4.2">
+<h4><span class="header-section-number">5.6.4.2</span> Finding critical values<a href="inference.html#finding-critical-values" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You perform the following hypothesis test:
+<span class="math display">\[\begin{align*}
+&amp;H_0:\ E[X]=4, \quad H_A:\ E[X]\neq 4\\
+\text{test size} = &amp; \alpha = 0.2 \\
+\text{test statistic:}\ z &amp;= \left(\frac1N\sum_{i=1}^NX_i-4\right)^2
+\end{align*}\]</span>
+The following figure shows the pdf of <span class="math inline">\(z\)</span> when <span class="math inline">\(H_0\)</span> is true. Annotate this figure to show how you would find the critical value (or values) for this test:</p>
+<p><img src="index_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+</div>
+<div id="finding-critical-values-1" class="section level4 hasAnchor" number="5.6.4.3">
+<h4><span class="header-section-number">5.6.4.3</span> Finding critical values<a href="inference.html#finding-critical-values-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You perform the following hypothesis test:
+<span class="math display">\[\begin{align*}
+&amp;H_0:\ E[X] = 0,\quad H_A:\ E[X]&lt; 0\\
+\text{test size} = &amp; \alpha = 0.1 \\
+\text{test statistic:}\ z &amp;= \frac1N\sum_{i=1}^NX_i-0
+\end{align*}\]</span>
+The following figure shows the cdf of <span class="math inline">\(z\)</span> when <span class="math inline">\(H_0\)</span> is true. Annotate this figure to show how you would find the critical value (or values) for this test:</p>
+<p><img src="index_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
+</div>
+<div id="finding-a-p-value-1" class="section level4 hasAnchor" number="5.6.4.4">
+<h4><span class="header-section-number">5.6.4.4</span> Finding a <span class="math inline">\(p\)</span>-value<a href="inference.html#finding-a-p-value-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You perform the following test:
+<span class="math display">\[\begin{align*}
+&amp;H_0:\ E[X] = 1,\quad H_A:\ E[X]\neq 1\\
+\text{test size} = &amp; \alpha = 0.1 \\
+\text{test statistic:}\ z &amp;= \frac1N\sum_{i=1}^NX_i - 1
+\end{align*}\]</span>
+The following figure shows the cdf of <span class="math inline">\(z\)</span> when <span class="math inline">\(H_0\)</span> is true. The test statistic for your sample is <span class="math inline">\(z=6\)</span>. Annotate this figure to show how you would find the <span class="math inline">\(p\)</span>-value (or values) for this test.</p>
+<p><img src="index_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+</div>
+<div id="power" class="section level4 hasAnchor" number="5.6.4.5">
+<h4><span class="header-section-number">5.6.4.5</span> Power<a href="inference.html#power" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You are testing the hypothesis:
+<span class="math display">\[\begin{align*}
+&amp;H_0:\ \beta_1 = 0,\quad H_A:\ \beta_1&gt; 0\\
+\text{test size} = &amp; \alpha = 0.1 \\
+\text{test statistic:}\ z &amp;= \hat\beta_1
+\end{align*}\]</span>
+The dashed line shows the distribution of <span class="math inline">\(z=\hat\beta_1\)</span> when <span class="math inline">\(H_0\)</span> is true. The solid line shows the distribution of <span class="math inline">\(z=\hat\beta_1\)</span> when <span class="math inline">\(\beta_1=1\)</span> (i.e. a special case within <span class="math inline">\(H_A\)</span>). Annotate this figure to show how you would work out the the power of this test when <span class="math inline">\(\beta_1=1\)</span>.</p>
+<p><img src="index_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+</div>
+</div>
+<div id="simulation-exercise" class="section level3 hasAnchor" number="5.6.5">
+<h3><span class="header-section-number">5.6.5</span> Simulation exercise<a href="inference.html#simulation-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="inference.html#cb37-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb37-2"><a href="inference.html#cb37-2" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="fu">tibble</span>(<span class="at">X=</span><span class="fu">rexp</span>(<span class="dv">30</span>,<span class="at">rate=</span><span class="dv">1</span>)),<span class="at">file=</span><span class="st">&quot;data/ExponentialInference.csv&quot;</span>)</span></code></pre></div>
+<p><code>ExponentialInference.csv</code> contains a sample of draws from the exponential distribution.</p>
+<ol style="list-style-type: decimal">
+<li>Perform a two-sided hypothesis test at the 5% level of significance that the rate parameter <span class="math inline">\(\lambda=1\)</span>. Use the sample mean as your test statistic. Use simulation to work out the critical values for this test.</li>
+<li>Calculate the <span class="math inline">\(p\)</span>-value of this test using your simulated draws.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="9">
+<li id="fn9"><p>Do Bayesian econometrics if you want to make claims like this.<a href="inference.html#fnref9" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estimators.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inference-using-asymptotic-assumptions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
