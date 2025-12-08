@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Filling in the blanks: Imputation | Structural Bayesian Techniques for Experimental and Behavioral Economics</title>
+  <meta name="description" content="8 Filling in the blanks: Imputation | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Filling in the blanks: Imputation | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Filling in the blanks: Imputation | Structural Bayesian Techniques for Experimental and Behavioral Economics" />
+  
+  
+  
+
+<meta name="author" content="James R. Bland" />
+
+
+<meta name="date" content="2025-12-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="mixture-models.html"/>
+<link rel="next" href="model-evaluation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="section.html#section" id="toc-section"></a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="setting-the-stage.html"><a href="setting-the-stage.html"><i class="fa fa-check"></i>Setting the stage</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-does-your-theory-say-about-your-data"><i class="fa fa-check"></i><b>1.1</b> What does your theory say about your data?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#what-do-your-data-say-about-your-theory"><i class="fa fa-check"></i><b>1.2</b> What do your data say about your theory?</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-do-your-parameters-say-about-other-things"><i class="fa fa-check"></i><b>1.3</b> What do your parameters say about other things?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#what-does-your-expertise-say-about-your-parameters"><i class="fa fa-check"></i><b>1.4</b> What does your expertise say about your parameters?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html"><i class="fa fa-check"></i><b>2</b> Getting started in <em>Stan</em></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#installation-in-r"><i class="fa fa-check"></i><b>2.1</b> Installation in <em>R</em></a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-anatomy-of-a-stan-program"><i class="fa fa-check"></i><b>2.2</b> The anatomy of a <em>Stan</em> program</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#data-block"><i class="fa fa-check"></i><b>2.2.1</b> Data block</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#transformed-data-block"><i class="fa fa-check"></i><b>2.2.2</b> Transformed data block</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#parameters-block"><i class="fa fa-check"></i><b>2.2.3</b> Parameters block</a></li>
+<li class="chapter" data-level="2.2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#model-block"><i class="fa fa-check"></i><b>2.2.4</b> Model block</a></li>
+<li class="chapter" data-level="2.2.5" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#generated-quantities-block"><i class="fa fa-check"></i><b>2.2.5</b> Generated quantities block</a></li>
+<li class="chapter" data-level="2.2.6" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#the-final-product"><i class="fa fa-check"></i><b>2.2.6</b> The final product</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#estimating-a-model"><i class="fa fa-check"></i><b>2.3</b> Estimating a model</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-in-stan.html"><a href="getting-started-in-stan.html#looking-at-the-results"><i class="fa fa-check"></i><b>2.4</b> Looking at the results</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html"><i class="fa fa-check"></i><b>3</b> Probabilistic models of behavior</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#the-problem-with-deterministic-models"><i class="fa fa-check"></i><b>3.1</b> The problem with deterministic models</a></li>
+<li class="chapter" data-level="3.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#what-is-a-probabilistic-model"><i class="fa fa-check"></i><b>3.2</b> What <em>is</em> a probabilistic model?</a></li>
+<li class="chapter" data-level="3.3" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#example-dataset-and-model"><i class="fa fa-check"></i><b>3.3</b> Example dataset and model</a></li>
+<li class="chapter" data-level="3.4" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#optimal-choice-plus-an-error"><i class="fa fa-check"></i><b>3.4</b> Optimal choice plus an error</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-1"><i class="fa fa-check"></i><b>3.4.1</b> Estimating a model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#utility-based-models"><i class="fa fa-check"></i><b>3.5</b> Utility-based models</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#estimating-a-model-2"><i class="fa fa-check"></i><b>3.5.1</b> Estimating a model</a></li>
+<li class="chapter" data-level="3.5.2" data-path="probabilistic-models-of-behavior.html"><a href="probabilistic-models-of-behavior.html#doing-something-with-the-estimates"><i class="fa fa-check"></i><b>3.5.2</b> Doing something with the estimates</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html"><i class="fa fa-check"></i><b>4</b> Considerations for choosing a prior</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#example-model-and-experiment"><i class="fa fa-check"></i><b>4.1</b> Example model and experiment</a></li>
+<li class="chapter" data-level="4.2" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#getting-the-support-right"><i class="fa fa-check"></i><b>4.2</b> Getting the support right</a></li>
+<li class="chapter" data-level="4.3" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#eliciting-reasonable-priors"><i class="fa fa-check"></i><b>4.3</b> Eliciting reasonable priors</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#parameter-values-and-the-prior-pushforward-check"><i class="fa fa-check"></i><b>4.3.1</b> Parameter values and the prior pushforward check</a></li>
+<li class="chapter" data-level="4.3.2" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#predictions-and-other-derived-quantities-the-prior-predictive-check"><i class="fa fa-check"></i><b>4.3.2</b> Predictions and other derived quantities: The prior predictive check</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#assessing-the-sampling-performance-of-a-prior"><i class="fa fa-check"></i><b>4.4</b> Assessing the sampling performance of a prior</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#does-our-model-recover-its-parameters-well"><i class="fa fa-check"></i><b>4.4.1</b> Does our model recover its parameters well?</a></li>
+<li class="chapter" data-level="4.4.2" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#do-we-see-any-pathologies-in-the-estimation-process"><i class="fa fa-check"></i><b>4.4.2</b> Do we see any pathologies in the estimation process?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="considerations-for-choosing-a-prior.html"><a href="considerations-for-choosing-a-prior.html#r-code-used-for-this-chapter"><i class="fa fa-check"></i><b>4.5</b> <em>R</em> code used for this chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="building-blocks.html"><a href="building-blocks.html"><i class="fa fa-check"></i>Building blocks</a></li>
+<li class="chapter" data-level="5" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html"><i class="fa fa-check"></i><b>5</b> Representative agent and participant-specific models</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#participant-specific-models"><i class="fa fa-check"></i><b>5.1</b> Participant-specific models</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#example-data-and-economic-model"><i class="fa fa-check"></i><b>5.1.1</b> Example data and economic model</a></li>
+<li class="chapter" data-level="5.1.2" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#going-to-the-probabilistic-model"><i class="fa fa-check"></i><b>5.1.2</b> Going to the probabilistic model</a></li>
+<li class="chapter" data-level="5.1.3" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#a-short-side-quest-into-canned-estimation-techniques"><i class="fa fa-check"></i><b>5.1.3</b> A short side quest into canned estimation techniques</a></li>
+<li class="chapter" data-level="5.1.4" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#assigning-priors"><i class="fa fa-check"></i><b>5.1.4</b> Assigning priors</a></li>
+<li class="chapter" data-level="5.1.5" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#estimating-the-model-for-one-participant"><i class="fa fa-check"></i><b>5.1.5</b> Estimating the model for one participant</a></li>
+<li class="chapter" data-level="5.1.6" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#estimating-the-model-for-all-participants"><i class="fa fa-check"></i><b>5.1.6</b> Estimating the model for all participants</a></li>
+<li class="chapter" data-level="5.1.7" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#but-we-could-be-learning-more"><i class="fa fa-check"></i><b>5.1.7</b> But we could be learning more!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="representative-agent-and-participant-specific-models.html"><a href="representative-agent-and-participant-specific-models.html#actual-representative-agent-models-pooled-models"><i class="fa fa-check"></i><b>5.2</b> Actual representative agent models (pooled models)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="hierarchical-models.html"><a href="hierarchical-models.html"><i class="fa fa-check"></i><b>6</b> Hierarchical models</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#a-random-sample-of-participants-walks-into-your-lab"><i class="fa fa-check"></i><b>6.1</b> A random sample of participants walks into your lab</a></li>
+<li class="chapter" data-level="6.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#the-anatomy-of-a-basic-hierarchical-model"><i class="fa fa-check"></i><b>6.2</b> The anatomy of a basic hierarchical model</a></li>
+<li class="chapter" data-level="6.3" data-path="hierarchical-models.html"><a href="hierarchical-models.html#accounting-for-unobserved-heterogeneity"><i class="fa fa-check"></i><b>6.3</b> Accounting for unobserved heterogeneity</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#the-last-time-you-will-integrate-the-likelihood-probably"><i class="fa fa-check"></i><b>6.3.1</b> The last time you will integrate the likelihood, probably</a></li>
+<li class="chapter" data-level="6.3.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#data-augmentation"><i class="fa fa-check"></i><b>6.3.2</b> Data augmentation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="hierarchical-models.html"><a href="hierarchical-models.html#a-multivariate-normal-hierarchical-model"><i class="fa fa-check"></i><b>6.4</b> A multivariate normal hierarchical model</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#decomposing-the-variance-covariance-matrix"><i class="fa fa-check"></i><b>6.4.1</b> Decomposing the variance-covariance matrix</a></li>
+<li class="chapter" data-level="6.4.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#transformed-parameters-and-normal-distributions"><i class="fa fa-check"></i><b>6.4.2</b> Transformed parameters and normal distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="hierarchical-models.html"><a href="hierarchical-models.html#example-again-with-bfs2019"><i class="fa fa-check"></i><b>6.5</b> Example: again with <span class="citation">Bruhin, Fehr, and Schunk (2019)</span></a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="hierarchical-models.html"><a href="hierarchical-models.html#no-correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>6.5.1</b> No correlation between individual-level parameters</a></li>
+<li class="chapter" data-level="6.5.2" data-path="hierarchical-models.html"><a href="hierarchical-models.html#correlation-between-individual-level-parameters"><i class="fa fa-check"></i><b>6.5.2</b> Correlation between individual-level parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="mixture-models.html"><a href="mixture-models.html"><i class="fa fa-check"></i><b>7</b> Mixture models</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="mixture-models.html"><a href="mixture-models.html#a-menu-of-models"><i class="fa fa-check"></i><b>7.1</b> A menu of models</a></li>
+<li class="chapter" data-level="7.2" data-path="mixture-models.html"><a href="mixture-models.html#dichotomous-and-toolbox-mixture-models"><i class="fa fa-check"></i><b>7.2</b> Dichotomous and toolbox mixture models</a></li>
+<li class="chapter" data-level="7.3" data-path="mixture-models.html"><a href="mixture-models.html#coding-peculearities"><i class="fa fa-check"></i><b>7.3</b> Coding peculearities</a></li>
+<li class="chapter" data-level="7.4" data-path="mixture-models.html"><a href="mixture-models.html#example-experiment-av2001"><i class="fa fa-check"></i><b>7.4</b> Example experiment: <span class="citation">Andreoni and Vesterlund (2001)</span></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="mixture-models.html"><a href="mixture-models.html#as-basic-as-it-gets"><i class="fa fa-check"></i><b>7.4.1</b> As basic as it gets</a></li>
+<li class="chapter" data-level="7.4.2" data-path="mixture-models.html"><a href="mixture-models.html#adding-some-heterogeneity"><i class="fa fa-check"></i><b>7.4.2</b> Adding some heterogeneity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="mixture-models.html"><a href="mixture-models.html#some-code-used-to-estimate-the-models"><i class="fa fa-check"></i><b>7.5</b> Some code used to estimate the models</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="filling-in-the-blanks-imputation.html"><a href="filling-in-the-blanks-imputation.html"><i class="fa fa-check"></i><b>8</b> Filling in the blanks: Imputation</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="filling-in-the-blanks-imputation.html"><a href="filling-in-the-blanks-imputation.html#example-model-and-dataset-yet-again-with-bfs2019"><i class="fa fa-check"></i><b>8.1</b> Example model and dataset: yet again with <span class="citation">Bruhin, Fehr, and Schunk (2019)</span></a></li>
+<li class="chapter" data-level="8.2" data-path="filling-in-the-blanks-imputation.html"><a href="filling-in-the-blanks-imputation.html#how-is-this-going-to-work"><i class="fa fa-check"></i><b>8.2</b> How is this going to work?</a></li>
+<li class="chapter" data-level="8.3" data-path="filling-in-the-blanks-imputation.html"><a href="filling-in-the-blanks-imputation.html#implementation"><i class="fa fa-check"></i><b>8.3</b> Implementation</a></li>
+<li class="chapter" data-level="8.4" data-path="filling-in-the-blanks-imputation.html"><a href="filling-in-the-blanks-imputation.html#results"><i class="fa fa-check"></i><b>8.4</b> Results</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="filling-in-the-blanks-imputation.html"><a href="filling-in-the-blanks-imputation.html#using-the-correlation-matrix"><i class="fa fa-check"></i><b>8.4.1</b> Using the correlation matrix</a></li>
+<li class="chapter" data-level="8.4.2" data-path="filling-in-the-blanks-imputation.html"><a href="filling-in-the-blanks-imputation.html#the-correlation-matrix-is-doing-a-lot-of-heavy-lifting-here"><i class="fa fa-check"></i><b>8.4.2</b> The correlation matrix is doing a lot of heavy lifting here</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="filling-in-the-blanks-imputation.html"><a href="filling-in-the-blanks-imputation.html#conclusion"><i class="fa fa-check"></i><b>8.5</b> Conclusion</a></li>
+<li class="chapter" data-level="8.6" data-path="filling-in-the-blanks-imputation.html"><a href="filling-in-the-blanks-imputation.html#r-code-used-for-this-chapter-1"><i class="fa fa-check"></i><b>8.6</b> <em>R</em> code used for this chapter</a></li>
+<li class="chapter" data-level="" data-path="filling-in-the-blanks-imputation.html"><a href="filling-in-the-blanks-imputation.html#acknowedgements"><i class="fa fa-check"></i>Acknowedgements</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="model-evaluation.html"><a href="model-evaluation.html"><i class="fa fa-check"></i><b>9</b> Model evaluation</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="model-evaluation.html"><a href="model-evaluation.html#example-dataset-and-models"><i class="fa fa-check"></i><b>9.1</b> Example dataset and models</a></li>
+<li class="chapter" data-level="9.2" data-path="model-evaluation.html"><a href="model-evaluation.html#model-posterior-probabilities"><i class="fa fa-check"></i><b>9.2</b> Model posterior probabilities</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="model-evaluation.html"><a href="model-evaluation.html#implementation-using-bridge-sampling-and-the-bridgesampling-library"><i class="fa fa-check"></i><b>9.2.1</b> Implementation using bridge sampling and the <code>bridgesampling</code> library</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="model-evaluation.html"><a href="model-evaluation.html#cross-validation"><i class="fa fa-check"></i><b>9.3</b> Cross-validation</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="model-evaluation.html"><a href="model-evaluation.html#expected-log-predicted-density-elpd-and-other-measures-of-goodness-of-fit"><i class="fa fa-check"></i><b>9.3.1</b> Expected Log Predicted Density (ELPD) and other measures of goodness of fit</a></li>
+<li class="chapter" data-level="9.3.2" data-path="model-evaluation.html"><a href="model-evaluation.html#round-cross-validation"><i class="fa fa-check"></i><b>9.3.2</b> 1-round cross-validation</a></li>
+<li class="chapter" data-level="9.3.3" data-path="model-evaluation.html"><a href="model-evaluation.html#leave-one-out-cross-validation-loo"><i class="fa fa-check"></i><b>9.3.3</b> Leave-one-out cross-validation (LOO)</a></li>
+<li class="chapter" data-level="9.3.4" data-path="model-evaluation.html"><a href="model-evaluation.html#approximate-loo"><i class="fa fa-check"></i><b>9.3.4</b> Approximate LOO</a></li>
+<li class="chapter" data-level="9.3.5" data-path="model-evaluation.html"><a href="model-evaluation.html#k-fold-cross-validation"><i class="fa fa-check"></i><b>9.3.5</b> <span class="math inline">\(k\)</span>-fold cross-validation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html"><i class="fa fa-check"></i><b>10</b> Speeding up your <em>Stan</em> code</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#example-dataset-and-model-1"><i class="fa fa-check"></i><b>10.1</b> Example dataset and model</a></li>
+<li class="chapter" data-level="10.2" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#a-really-slow-way-to-estimate-the-model"><i class="fa fa-check"></i><b>10.2</b> A really slow way to estimate the model</a></li>
+<li class="chapter" data-level="10.3" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#pre-computing-things"><i class="fa fa-check"></i><b>10.3</b> Pre-computing things</a></li>
+<li class="chapter" data-level="10.4" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#vectorization"><i class="fa fa-check"></i><b>10.4</b> Vectorization</a></li>
+<li class="chapter" data-level="10.5" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#within-chain-parallelization-with-reduce_sum"><i class="fa fa-check"></i><b>10.5</b> Within-chain parallelization with <code>reduce_sum()</code></a></li>
+<li class="chapter" data-level="10.6" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#evaluating-the-implementations"><i class="fa fa-check"></i><b>10.6</b> Evaluating the implementations</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#pre-computing-and-vectorization"><i class="fa fa-check"></i><b>10.6.1</b> Pre-computing and vectorization</a></li>
+<li class="chapter" data-level="10.6.2" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#within-chain-parallelization"><i class="fa fa-check"></i><b>10.6.2</b> Within-chain parallelization</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#r-code-to-estimate-models"><i class="fa fa-check"></i><b>10.7</b> <em>R</em> code to estimate models</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#slow-pre-computed-and-vectorized-models"><i class="fa fa-check"></i><b>10.7.1</b> Slow, pre-computed, and vectorized models</a></li>
+<li class="chapter" data-level="10.7.2" data-path="speeding-up-your-stan-code.html"><a href="speeding-up-your-stan-code.html#parallelized-model"><i class="fa fa-check"></i><b>10.7.2</b> Parallelized model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i>Applications</a></li>
+<li class="chapter" data-level="11" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html"><i class="fa fa-check"></i><b>11</b> Application: Experience-Weighted Attraction</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-model-at-the-individual-level"><i class="fa fa-check"></i><b>11.1</b> The model at the individual level</a></li>
+<li class="chapter" data-level="11.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-computational-and-coding-issues"><i class="fa fa-check"></i><b>11.2</b> Some computational and coding issues</a></li>
+<li class="chapter" data-level="11.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#representative-agent-models"><i class="fa fa-check"></i><b>11.3</b> Representative agent models</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration"><i class="fa fa-check"></i><b>11.3.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="11.3.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model"><i class="fa fa-check"></i><b>11.3.2</b> The <em>Stan</em> model</a></li>
+<li class="chapter" data-level="11.3.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results-1"><i class="fa fa-check"></i><b>11.3.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#hierarchical-model"><i class="fa fa-check"></i><b>11.4</b> Hierarchical model</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#prior-calibration-1"><i class="fa fa-check"></i><b>11.4.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="11.4.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#the-stan-model-1"><i class="fa fa-check"></i><b>11.4.2</b> The <em>Stan</em> model</a></li>
+<li class="chapter" data-level="11.4.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#results-2"><i class="fa fa-check"></i><b>11.4.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-code-used-to-estimate-the-models-1"><i class="fa fa-check"></i><b>11.5</b> Some code used to estimate the models</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#loading-the-data"><i class="fa fa-check"></i><b>11.5.1</b> Loading the data</a></li>
+<li class="chapter" data-level="11.5.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-representative-agent-models"><i class="fa fa-check"></i><b>11.5.2</b> Estimating the representative agent models</a></li>
+<li class="chapter" data-level="11.5.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-hierarchical-model"><i class="fa fa-check"></i><b>11.5.3</b> Estimating the hierarchical model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html"><i class="fa fa-check"></i><b>12</b> Application: Strategy Frequency Estimation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#simplifying-the-individual-likelihood-functions"><i class="fa fa-check"></i><b>12.1</b> Simplifying the individual likelihood functions</a></li>
+<li class="chapter" data-level="12.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#example-experiment-dbf2011"><i class="fa fa-check"></i><b>12.2</b> Example experiment: <span class="citation">Dal Bó and Fréchette (2011)</span></a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#the-sfem-with-homogeneous-trembles"><i class="fa fa-check"></i><b>12.2.1</b> The SFEM with homogeneous trembles</a></li>
+<li class="chapter" data-level="12.2.2" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#adding-heterogeneous-trembles-and-integrating-the-likelihood"><i class="fa fa-check"></i><b>12.2.2</b> Adding heterogeneous trembles and integrating the likelihood</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="application-strategy-frequency-estimation.html"><a href="application-strategy-frequency-estimation.html#r-code-to-do-these-estimations"><i class="fa fa-check"></i><b>12.3</b> <em>R</em> code to do these estimations</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="application-strategy-frequency-estimation-with-a-mixed-strategy.html"><a href="application-strategy-frequency-estimation-with-a-mixed-strategy.html"><i class="fa fa-check"></i><b>13</b> Application: Strategy frequency estimation with a mixed strategy</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="application-strategy-frequency-estimation-with-a-mixed-strategy.html"><a href="application-strategy-frequency-estimation-with-a-mixed-strategy.html#example-dataset-and-strategies"><i class="fa fa-check"></i><b>13.1</b> Example dataset and strategies</a></li>
+<li class="chapter" data-level="13.2" data-path="application-strategy-frequency-estimation-with-a-mixed-strategy.html"><a href="application-strategy-frequency-estimation-with-a-mixed-strategy.html#the-likelihood-function"><i class="fa fa-check"></i><b>13.2</b> The likelihood function</a></li>
+<li class="chapter" data-level="13.3" data-path="application-strategy-frequency-estimation-with-a-mixed-strategy.html"><a href="application-strategy-frequency-estimation-with-a-mixed-strategy.html#implementation-in-stan"><i class="fa fa-check"></i><b>13.3</b> Implementation in <em>Stan</em></a></li>
+<li class="chapter" data-level="13.4" data-path="application-strategy-frequency-estimation-with-a-mixed-strategy.html"><a href="application-strategy-frequency-estimation-with-a-mixed-strategy.html#results-3"><i class="fa fa-check"></i><b>13.4</b> Results</a></li>
+<li class="chapter" data-level="13.5" data-path="application-strategy-frequency-estimation-with-a-mixed-strategy.html"><a href="application-strategy-frequency-estimation-with-a-mixed-strategy.html#r-code-used-to-estimate-the-models"><i class="fa fa-check"></i><b>13.5</b> <em>R</em> code used to estimate the models</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html"><i class="fa fa-check"></i><b>14</b> Computing Quantal Response Equilibrium</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#overview-of-quantal-response-equilibrium"><i class="fa fa-check"></i><b>14.1</b> Overview of quantal response equilibrium</a></li>
+<li class="chapter" data-level="14.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#computing-quantal-response-equilibrium-1"><i class="fa fa-check"></i><b>14.2</b> Computing Quantal Response Equilibrium</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#setting-up-the-problem"><i class="fa fa-check"></i><b>14.2.1</b> Setting up the problem</a></li>
+<li class="chapter" data-level="14.2.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#a-predictor-corrector-algorithm"><i class="fa fa-check"></i><b>14.2.2</b> A predictor-corrector algorithm</a></li>
+<li class="chapter" data-level="14.2.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#initial-conditions"><i class="fa fa-check"></i><b>14.2.3</b> Initial conditions</a></li>
+<li class="chapter" data-level="14.2.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#algorithm-tuning"><i class="fa fa-check"></i><b>14.2.4</b> Algorithm tuning</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#the-predictor-corrector-algorithm-in-r"><i class="fa fa-check"></i><b>14.3</b> The predictor-corrector algorithm in <em>R</em></a></li>
+<li class="chapter" data-level="14.4" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#some-example-games"><i class="fa fa-check"></i><b>14.4</b> Some example games</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#generalized-matching-pennies-ochs1995"><i class="fa fa-check"></i><b>14.4.1</b> Generalized matching pennies <span class="citation">(Ochs 1995)</span></a></li>
+<li class="chapter" data-level="14.4.2" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#stag-hunt"><i class="fa fa-check"></i><b>14.4.2</b> Stag hunt</a></li>
+<li class="chapter" data-level="14.4.3" data-path="computing-quantal-response-equilibrium.html"><a href="computing-quantal-response-equilibrium.html#n-player-volunteers-dilemma-imposing-symmetric-strategies"><i class="fa fa-check"></i><b>14.4.3</b> <span class="math inline">\(n\)</span>-player Volunteer’s Dilemma imposing symmetric strategies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><i class="fa fa-check"></i><b>15</b> Application: Quantal Response Equilibrium and the Volunteer’s Dilemma <span class="citation">(Goeree, Holt, and Smith 2017)</span></a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#solving-logit-qre-and-estimating-the-model"><i class="fa fa-check"></i><b>15.1</b> Solving logit QRE and estimating the model</a></li>
+<li class="chapter" data-level="15.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#adding-some-heterogeneity-1"><i class="fa fa-check"></i><b>15.2</b> Adding some heterogeneity</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#computing-quantal-response-equilibrium-with-heterogeneous-parameters"><i class="fa fa-check"></i><b>15.2.1</b> Computing quantal response equilibrium with heterogeneous parameters</a></li>
+<li class="chapter" data-level="15.2.2" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#warm-glow-volunteering"><i class="fa fa-check"></i><b>15.2.2</b> Warm glow volunteering</a></li>
+<li class="chapter" data-level="15.2.3" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#duplicate-aversion"><i class="fa fa-check"></i><b>15.2.3</b> Duplicate aversion</a></li>
+<li class="chapter" data-level="15.2.4" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#results-4"><i class="fa fa-check"></i><b>15.2.4</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html"><a href="application-quantal-response-equilibrium-and-the-volunteers-dilemma-goeree2017.html#r-code-to-run-estimations"><i class="fa fa-check"></i><b>15.3</b> <em>R</em> code to run estimations</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="application-a-quantal-response-equilibrium-with-discrete-types.html"><a href="application-a-quantal-response-equilibrium-with-discrete-types.html"><i class="fa fa-check"></i><b>16</b> Application: A Quantal Response Equilibrium with discrete types</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="application-a-quantal-response-equilibrium-with-discrete-types.html"><a href="application-a-quantal-response-equilibrium-with-discrete-types.html#example-dataset-and-models-1"><i class="fa fa-check"></i><b>16.1</b> Example dataset and models</a></li>
+<li class="chapter" data-level="16.2" data-path="application-a-quantal-response-equilibrium-with-discrete-types.html"><a href="application-a-quantal-response-equilibrium-with-discrete-types.html#a-note-on-replication"><i class="fa fa-check"></i><b>16.2</b> A note on replication</a></li>
+<li class="chapter" data-level="16.3" data-path="application-a-quantal-response-equilibrium-with-discrete-types.html"><a href="application-a-quantal-response-equilibrium-with-discrete-types.html#three-models-that-make-different-assumptions-about-bracketing"><i class="fa fa-check"></i><b>16.3</b> Three models that make different assumptions about bracketing</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="application-a-quantal-response-equilibrium-with-discrete-types.html"><a href="application-a-quantal-response-equilibrium-with-discrete-types.html#broad-bracketing-only"><i class="fa fa-check"></i><b>16.3.1</b> Broad bracketing only</a></li>
+<li class="chapter" data-level="16.3.2" data-path="application-a-quantal-response-equilibrium-with-discrete-types.html"><a href="application-a-quantal-response-equilibrium-with-discrete-types.html#narrow-bracketing-only"><i class="fa fa-check"></i><b>16.3.2</b> Narrow bracketing only</a></li>
+<li class="chapter" data-level="16.3.3" data-path="application-a-quantal-response-equilibrium-with-discrete-types.html"><a href="application-a-quantal-response-equilibrium-with-discrete-types.html#a-mixture-of-broad-and-narrow-bracketing"><i class="fa fa-check"></i><b>16.3.3</b> A mixture of broad and narrow bracketing</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="application-a-quantal-response-equilibrium-with-discrete-types.html"><a href="application-a-quantal-response-equilibrium-with-discrete-types.html#results-5"><i class="fa fa-check"></i><b>16.4</b> Results</a></li>
+<li class="chapter" data-level="16.5" data-path="application-a-quantal-response-equilibrium-with-discrete-types.html"><a href="application-a-quantal-response-equilibrium-with-discrete-types.html#r-code-used-to-estimate-these-models"><i class="fa fa-check"></i><b>16.5</b> <em>R</em> code used to estimate these models</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html"><a href="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html"><i class="fa fa-check"></i><b>17</b> Application: QRE in a Bayesian game and cursed equilibrium</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html"><a href="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html#example-game-and-dataset"><i class="fa fa-check"></i><b>17.1</b> Example game and dataset</a></li>
+<li class="chapter" data-level="17.2" data-path="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html"><a href="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html#solving-for-qre"><i class="fa fa-check"></i><b>17.2</b> Solving for QRE</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html"><a href="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html#baseline-model"><i class="fa fa-check"></i><b>17.2.1</b> Baseline model</a></li>
+<li class="chapter" data-level="17.2.2" data-path="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html"><a href="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html#cursed-equilibrium"><i class="fa fa-check"></i><b>17.2.2</b> Cursed equilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html"><a href="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html#a-quick-prior-calibration-1"><i class="fa fa-check"></i><b>17.3</b> A quick prior calibration</a></li>
+<li class="chapter" data-level="17.4" data-path="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html"><a href="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html#model-results"><i class="fa fa-check"></i><b>17.4</b> Model results</a></li>
+<li class="chapter" data-level="17.5" data-path="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html"><a href="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html#model-evaluation-1"><i class="fa fa-check"></i><b>17.5</b> Model evaluation</a></li>
+<li class="chapter" data-level="17.6" data-path="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html"><a href="application-qre-in-a-bayesian-game-and-cursed-equilibrium.html#r-code-used-in-this-chapter"><i class="fa fa-check"></i><b>17.6</b> <em>R</em> code used in this chapter</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="application-level-k-models.html"><a href="application-level-k-models.html"><i class="fa fa-check"></i><b>18</b> Application: Level-<span class="math inline">\(k\)</span> models</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#data-and-game"><i class="fa fa-check"></i><b>18.1</b> Data and game</a></li>
+<li class="chapter" data-level="18.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-level-k-model"><i class="fa fa-check"></i><b>18.2</b> The level-<span class="math inline">\(k\)</span> model</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-deterministic-component-of-the-model"><i class="fa fa-check"></i><b>18.2.1</b> The deterministic component of the model</a></li>
+<li class="chapter" data-level="18.2.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#exact-and-probabilistic-play"><i class="fa fa-check"></i><b>18.2.2</b> Exact and probabilistic play</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#assigning-probabilities-to-types-for-each-participant-separately"><i class="fa fa-check"></i><b>18.3</b> Assigning probabilities to types for each participant separately</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-stan-program"><i class="fa fa-check"></i><b>18.3.1</b> The <em>Stan</em> program</a></li>
+<li class="chapter" data-level="18.3.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#prior-calibration-2"><i class="fa fa-check"></i><b>18.3.2</b> Prior calibration</a></li>
+<li class="chapter" data-level="18.3.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-6"><i class="fa fa-check"></i><b>18.3.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="application-level-k-models.html"><a href="application-level-k-models.html#doing-the-averaging-within-one-program"><i class="fa fa-check"></i><b>18.4</b> Doing the averaging within one program</a>
+<ul>
+<li class="chapter" data-level="18.4.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#the-stan-program-1"><i class="fa fa-check"></i><b>18.4.1</b> The <em>Stan</em> program</a></li>
+<li class="chapter" data-level="18.4.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-7"><i class="fa fa-check"></i><b>18.4.2</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="18.5" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-mixture-model"><i class="fa fa-check"></i><b>18.5</b> A mixture model</a>
+<ul>
+<li class="chapter" data-level="18.5.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#stan-program"><i class="fa fa-check"></i><b>18.5.1</b> <em>Stan</em> program</a></li>
+<li class="chapter" data-level="18.5.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-prior-for-psi"><i class="fa fa-check"></i><b>18.5.2</b> A prior for <span class="math inline">\(\psi\)</span></a></li>
+<li class="chapter" data-level="18.5.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-8"><i class="fa fa-check"></i><b>18.5.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-mixture-over-levels-and-hierarchical-nuisance-parameters"><i class="fa fa-check"></i><b>18.6</b> A mixture over levels and hierarchical nuisance parameters</a>
+<ul>
+<li class="chapter" data-level="18.6.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#prior-calibration-3"><i class="fa fa-check"></i><b>18.6.1</b> Prior calibration</a></li>
+<li class="chapter" data-level="18.6.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#stan-program-1"><i class="fa fa-check"></i><b>18.6.2</b> <em>Stan</em> program</a></li>
+<li class="chapter" data-level="18.6.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-9"><i class="fa fa-check"></i><b>18.6.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="application-level-k-models.html"><a href="application-level-k-models.html#a-different-assumption-about-mixing"><i class="fa fa-check"></i><b>18.7</b> A different assumption about mixing</a>
+<ul>
+<li class="chapter" data-level="18.7.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#stan-program-2"><i class="fa fa-check"></i><b>18.7.1</b> <em>Stan</em> program</a></li>
+<li class="chapter" data-level="18.7.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#results-10"><i class="fa fa-check"></i><b>18.7.2</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8" data-path="application-level-k-models.html"><a href="application-level-k-models.html#r-code-to-estimate-the-models"><i class="fa fa-check"></i><b>18.8</b> <em>R</em> code to estimate the models</a>
+<ul>
+<li class="chapter" data-level="18.8.1" data-path="application-level-k-models.html"><a href="application-level-k-models.html#participant-specific-estimation-conditional-on-k-with-bayesian-model-averaging"><i class="fa fa-check"></i><b>18.8.1</b> Participant-specific estimation conditional on <span class="math inline">\(k\)</span> with Bayesian model averaging</a></li>
+<li class="chapter" data-level="18.8.2" data-path="application-level-k-models.html"><a href="application-level-k-models.html#participant-specific-estimation-with-a-prior-over-k"><i class="fa fa-check"></i><b>18.8.2</b> Participant-specific estimation with a prior over <span class="math inline">\(k\)</span></a></li>
+<li class="chapter" data-level="18.8.3" data-path="application-level-k-models.html"><a href="application-level-k-models.html#mixture-model"><i class="fa fa-check"></i><b>18.8.3</b> Mixture model</a></li>
+<li class="chapter" data-level="18.8.4" data-path="application-level-k-models.html"><a href="application-level-k-models.html#hierarchical-model-1"><i class="fa fa-check"></i><b>18.8.4</b> Hierarchical model</a></li>
+<li class="chapter" data-level="18.8.5" data-path="application-level-k-models.html"><a href="application-level-k-models.html#mixture-model-with-beliefs-consistent-with-truncated-type-distribution"><i class="fa fa-check"></i><b>18.8.5</b> Mixture model with beliefs consistent with truncated type distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html"><i class="fa fa-check"></i><b>19</b> Application: Estimating risk preferences</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#example-dataset"><i class="fa fa-check"></i><b>19.1</b> Example dataset</a></li>
+<li class="chapter" data-level="19.2" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#we-might-not-just-be-interested-in-the-parameters"><i class="fa fa-check"></i><b>19.2</b> We might not just be interested in the parameters</a></li>
+<li class="chapter" data-level="19.3" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#introducing-some-important-models"><i class="fa fa-check"></i><b>19.3</b> Introducing some important models</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#expected-utility-theory"><i class="fa fa-check"></i><b>19.3.1</b> Expected utility theory</a></li>
+<li class="chapter" data-level="19.3.2" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#rank-dependent-utility-quiggin1982"><i class="fa fa-check"></i><b>19.3.2</b> Rank-dependent utility <span class="citation">(Quiggin 1982)</span></a></li>
+<li class="chapter" data-level="19.3.3" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#comparing-the-certainty-equivalents-estimated-using-eut-and-rdu"><i class="fa fa-check"></i><b>19.3.3</b> Comparing the certainty equivalents estimated using EUT and RDU</a></li>
+</ul></li>
+<li class="chapter" data-level="19.4" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#a-hierarchical-specification"><i class="fa fa-check"></i><b>19.4</b> A hierarchical specification</a>
+<ul>
+<li class="chapter" data-level="19.4.1" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#population-level-estimates"><i class="fa fa-check"></i><b>19.4.1</b> Population-level estimates</a></li>
+<li class="chapter" data-level="19.4.2" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#participant-level-estimates"><i class="fa fa-check"></i><b>19.4.2</b> Participant-level estimates</a></li>
+</ul></li>
+<li class="chapter" data-level="19.5" data-path="application-estimating-risk-preferences.html"><a href="application-estimating-risk-preferences.html#r-code-used-to-estimate-these-models-1"><i class="fa fa-check"></i><b>19.5</b> <em>R</em> code used to estimate these models</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html"><i class="fa fa-check"></i><b>20</b> Application: Meta-analysis using (some of) the METARET data</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#data"><i class="fa fa-check"></i><b>20.1</b> Data</a></li>
+<li class="chapter" data-level="20.2" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#a-basic-model"><i class="fa fa-check"></i><b>20.2</b> A basic model</a></li>
+<li class="chapter" data-level="20.3" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#but-the-data-are-really-interval-valued"><i class="fa fa-check"></i><b>20.3</b> But the data are really interval-valued!</a></li>
+<li class="chapter" data-level="20.4" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#heterogeneous-standard-deviations"><i class="fa fa-check"></i><b>20.4</b> Heterogeneous standard deviations</a></li>
+<li class="chapter" data-level="20.5" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#student-t-distributions-because-why-not"><i class="fa fa-check"></i><b>20.5</b> Student-<span class="math inline">\(t\)</span> distributions, because why not?</a></li>
+<li class="chapter" data-level="20.6" data-path="application-meta-analysis-using-some-of-the-metaret-data.html"><a href="application-meta-analysis-using-some-of-the-metaret-data.html#r-code-to-estimate-the-models-1"><i class="fa fa-check"></i><b>20.6</b> <em>R</em> code to estimate the models</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="application-choice-bracketing.html"><a href="application-choice-bracketing.html"><i class="fa fa-check"></i><b>21</b> Application: choice bracketing</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="application-choice-bracketing.html"><a href="application-choice-bracketing.html#data-and-model"><i class="fa fa-check"></i><b>21.1</b> Data and model</a></li>
+<li class="chapter" data-level="21.2" data-path="application-choice-bracketing.html"><a href="application-choice-bracketing.html#representative-agent-and-individual-estimation"><i class="fa fa-check"></i><b>21.2</b> Representative agent and individual estimation</a></li>
+<li class="chapter" data-level="21.3" data-path="application-choice-bracketing.html"><a href="application-choice-bracketing.html#hierarchical-model-2"><i class="fa fa-check"></i><b>21.3</b> Hierarchical model</a></li>
+<li class="chapter" data-level="21.4" data-path="application-choice-bracketing.html"><a href="application-choice-bracketing.html#a-mixture-model-1"><i class="fa fa-check"></i><b>21.4</b> A mixture model</a></li>
+<li class="chapter" data-level="21.5" data-path="application-choice-bracketing.html"><a href="application-choice-bracketing.html#what-do-we-get-out-of-the-structural-models-and-what-could-we-miss"><i class="fa fa-check"></i><b>21.5</b> What do we get out of the structural models, and what could we miss?</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="application-ranked-choices-and-the-thurstonian-model.html"><a href="application-ranked-choices-and-the-thurstonian-model.html"><i class="fa fa-check"></i><b>22</b> Application: Ranked choices and the Thurstonian model</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="application-ranked-choices-and-the-thurstonian-model.html"><a href="application-ranked-choices-and-the-thurstonian-model.html#the-thurstonian-model"><i class="fa fa-check"></i><b>22.1</b> The Thurstonian model</a></li>
+<li class="chapter" data-level="22.2" data-path="application-ranked-choices-and-the-thurstonian-model.html"><a href="application-ranked-choices-and-the-thurstonian-model.html#computational-issues"><i class="fa fa-check"></i><b>22.2</b> Computational issues</a></li>
+<li class="chapter" data-level="22.3" data-path="application-ranked-choices-and-the-thurstonian-model.html"><a href="application-ranked-choices-and-the-thurstonian-model.html#example-dataset-and-model-2"><i class="fa fa-check"></i><b>22.3</b> Example dataset and model</a></li>
+<li class="chapter" data-level="22.4" data-path="application-ranked-choices-and-the-thurstonian-model.html"><a href="application-ranked-choices-and-the-thurstonian-model.html#a-representative-agent-model"><i class="fa fa-check"></i><b>22.4</b> A representative agent model</a></li>
+<li class="chapter" data-level="22.5" data-path="application-ranked-choices-and-the-thurstonian-model.html"><a href="application-ranked-choices-and-the-thurstonian-model.html#a-hierarchical-model"><i class="fa fa-check"></i><b>22.5</b> A hierarchical model</a></li>
+<li class="chapter" data-level="22.6" data-path="application-ranked-choices-and-the-thurstonian-model.html"><a href="application-ranked-choices-and-the-thurstonian-model.html#r-code-used-to-run-this"><i class="fa fa-check"></i><b>22.6</b> <em>R</em> code used to run this</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="links-to-data.html"><a href="links-to-data.html"><i class="fa fa-check"></i>Links to data</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Structural Bayesian Techniques for Experimental and Behavioral Economics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="filling-in-the-blanks-imputation" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Filling in the blanks: Imputation<a href="filling-in-the-blanks-imputation.html#filling-in-the-blanks-imputation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Sometimes our data don’t tell us much, if anything, about the parameters we would like to estimate. If this is the case <em>in general</em>, then there is not much we can do about it. On the other hand, if this is only a problem <em>for specific participants</em>, then something is salvageable.</p>
+<p>For example, consider the hierarchical model we took to the <span class="citation">Bruhin, Fehr, and Schunk (<a href="#ref-BFS2019">2019</a>)</span> dictator game data. In this, there were two parameters of interest: aversion to disadvantageous inequality <span class="math inline">\(\alpha_i\)</span> and aversion to advantageous inequality <span class="math inline">\(\beta_i\)</span> (assuming we were not interested in choice precision <span class="math inline">\(\lambda_i\)</span>). What if for some (but not all) participants, we didn’t have any data to identify <span class="math inline">\(\beta_i\)</span>, but we still needed to estimate it? That is, all we have for these subjects are our posterior draws of <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\lambda_i\)</span>. Fortunately, our hierarchical model will naturally fill in the blanks. The reason it can do this is because the hierarchical model has an understanding of the underlying population distribution of <span class="math inline">\(\begin{pmatrix}\alpha_i &amp; \beta_i &amp; \lambda_i \end{pmatrix}^\top\)</span>, and can use this to make an informed guess about <em>all</em> of the individual-level parameters, even if there is no information in the likelihood about specific individual-level parameters. At the very least it can fill in the blanks with the marginal population means. But if there is information about <em>some</em> of the individual-level parameters in the likelihood, and our assumption about the population distribution permits it, it can also use this information to make a more precise estimate of the missing parameter.</p>
+<div id="example-model-and-dataset-yet-again-with-bfs2019" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Example model and dataset: yet again with <span class="citation">Bruhin, Fehr, and Schunk (<a href="#ref-BFS2019">2019</a>)</span><a href="filling-in-the-blanks-imputation.html#example-model-and-dataset-yet-again-with-bfs2019" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To fix ideas, let’s have a quick refresher on my favorite example dataset: the <span class="citation">Bruhin, Fehr, and Schunk (<a href="#ref-BFS2019">2019</a>)</span> dictator game data. Here, we will again be trying to estimate the inequality-aversion model of <span class="citation">Fehr and Schmidt (<a href="#ref-FS1999">1999</a>)</span>, which for two people is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+U_i(x,y)&amp;=x-\alpha_i\underbrace{\max\{0,y-x\}}_{\text{disadvantageous inequality}}-\beta_i\underbrace{\max\{0,x-y\}}_{\text{advantageous inequality}}
+\end{aligned}
+\]</span></p>
+<p>Furthermore, as with all of the other applications so far, I will assume a logit probabilistic choice rule with precision parameter <span class="math inline">\(\lambda_i\)</span>.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="filling-in-the-blanks-imputation.html#cb102-1" tabindex="-1"></a>d1<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp1.csv&quot;</span>)</span>
+<span id="cb102-2"><a href="filling-in-the-blanks-imputation.html#cb102-2" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">1</span>)</span>
+<span id="cb102-3"><a href="filling-in-the-blanks-imputation.html#cb102-3" tabindex="-1"></a>)</span>
+<span id="cb102-4"><a href="filling-in-the-blanks-imputation.html#cb102-4" tabindex="-1"></a>d2<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp2.csv&quot;</span>)</span>
+<span id="cb102-5"><a href="filling-in-the-blanks-imputation.html#cb102-5" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">2</span>)    </span>
+<span id="cb102-6"><a href="filling-in-the-blanks-imputation.html#cb102-6" tabindex="-1"></a>)</span>
+<span id="cb102-7"><a href="filling-in-the-blanks-imputation.html#cb102-7" tabindex="-1"></a>D<span class="ot">&lt;-</span>(<span class="fu">rbind</span>(d1,d2)</span>
+<span id="cb102-8"><a href="filling-in-the-blanks-imputation.html#cb102-8" tabindex="-1"></a>    <span class="co"># Just use the dictator game data</span></span>
+<span id="cb102-9"><a href="filling-in-the-blanks-imputation.html#cb102-9" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">filter</span>(dg<span class="sc">==</span><span class="dv">1</span>)  </span>
+<span id="cb102-10"><a href="filling-in-the-blanks-imputation.html#cb102-10" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
+<span id="cb102-11"><a href="filling-in-the-blanks-imputation.html#cb102-11" tabindex="-1"></a>      <span class="at">self_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,self_x,self_y),</span>
+<span id="cb102-12"><a href="filling-in-the-blanks-imputation.html#cb102-12" tabindex="-1"></a>      <span class="at">other_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,other_x,other_y)</span>
+<span id="cb102-13"><a href="filling-in-the-blanks-imputation.html#cb102-13" tabindex="-1"></a>    )</span>
+<span id="cb102-14"><a href="filling-in-the-blanks-imputation.html#cb102-14" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb102-15"><a href="filling-in-the-blanks-imputation.html#cb102-15" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb102-16"><a href="filling-in-the-blanks-imputation.html#cb102-16" tabindex="-1"></a>    <span class="at">domain.x =</span> <span class="fu">ifelse</span>(self_x<span class="sc">&gt;</span>other_x,<span class="st">&quot;adv&quot;</span>,<span class="st">&quot;disadv&quot;</span>),</span>
+<span id="cb102-17"><a href="filling-in-the-blanks-imputation.html#cb102-17" tabindex="-1"></a>    <span class="at">domain.y =</span> <span class="fu">ifelse</span>(self_y<span class="sc">&gt;</span>other_y,<span class="st">&quot;adv&quot;</span>,<span class="st">&quot;disadv&quot;</span>),</span>
+<span id="cb102-18"><a href="filling-in-the-blanks-imputation.html#cb102-18" tabindex="-1"></a>    <span class="at">domain =</span> <span class="fu">ifelse</span>(domain.x <span class="sc">==</span> <span class="st">&quot;adv&quot;</span> <span class="sc">&amp;</span> domain.y <span class="sc">==</span> <span class="st">&quot;adv&quot;</span>,<span class="st">&quot;advantageous inequality&quot;</span>,</span>
+<span id="cb102-19"><a href="filling-in-the-blanks-imputation.html#cb102-19" tabindex="-1"></a>                            <span class="fu">ifelse</span>(domain.x <span class="sc">==</span> <span class="st">&quot;disadv&quot;</span> <span class="sc">&amp;</span> domain.y <span class="sc">==</span> <span class="st">&quot;disadv&quot;</span>,<span class="st">&quot;disadvantageous inequality&quot;</span>,</span>
+<span id="cb102-20"><a href="filling-in-the-blanks-imputation.html#cb102-20" tabindex="-1"></a>                            <span class="st">&quot;mixed&quot;</span>)</span>
+<span id="cb102-21"><a href="filling-in-the-blanks-imputation.html#cb102-21" tabindex="-1"></a>                            )</span>
+<span id="cb102-22"><a href="filling-in-the-blanks-imputation.html#cb102-22" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb102-23"><a href="filling-in-the-blanks-imputation.html#cb102-23" tabindex="-1"></a>  <span class="fu">filter</span>(sid<span class="sc">==</span>sid[<span class="dv">1</span>])</span>
+<span id="cb102-24"><a href="filling-in-the-blanks-imputation.html#cb102-24" tabindex="-1"></a></span>
+<span id="cb102-25"><a href="filling-in-the-blanks-imputation.html#cb102-25" tabindex="-1"></a>(</span>
+<span id="cb102-26"><a href="filling-in-the-blanks-imputation.html#cb102-26" tabindex="-1"></a>  <span class="fu">ggplot</span>(D,<span class="fu">aes</span>(<span class="at">x=</span>self_x,<span class="at">y=</span>other_x,<span class="at">xend=</span>self_y,<span class="at">yend=</span>other_y,<span class="at">color=</span>domain))</span>
+<span id="cb102-27"><a href="filling-in-the-blanks-imputation.html#cb102-27" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_segment</span>()</span>
+<span id="cb102-28"><a href="filling-in-the-blanks-imputation.html#cb102-28" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb102-29"><a href="filling-in-the-blanks-imputation.html#cb102-29" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">coord_fixed</span>()</span>
+<span id="cb102-30"><a href="filling-in-the-blanks-imputation.html#cb102-30" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Payoff to self&quot;</span>)</span>
+<span id="cb102-31"><a href="filling-in-the-blanks-imputation.html#cb102-31" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Payoff to other&quot;</span>)</span>
+<span id="cb102-32"><a href="filling-in-the-blanks-imputation.html#cb102-32" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>,<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb102-33"><a href="filling-in-the-blanks-imputation.html#cb102-33" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:imputingBFS2019"></span>
+<img src="index_files/figure-html/imputingBFS2019-1.png" alt="Choices presented to participants in @BFS2019. Each line segment represents a binary choice, where the two allocations are the endpoints of the line segment. Black dashed line is a $45^\circ$ line." width="672" />
+<p class="caption">
+Figure 8.1: Choices presented to participants in <span class="citation">Bruhin, Fehr, and Schunk (<a href="#ref-BFS2019">2019</a>)</span>. Each line segment represents a binary choice, where the two allocations are the endpoints of the line segment. Black dashed line is a <span class="math inline">\(45^\circ\)</span> line.
+</p>
+</div>
+<p>Figure <a href="filling-in-the-blanks-imputation.html#fig:imputingBFS2019">8.1</a> shows the choices presented to participants in this dictator game task. Importantly here, I have divided up the choices (represented by line segments) into three “domains” (represented by colors). First, the green line segments represent choices that were made exclusively in the disadvantageous inequality domain. For these choices, the payoff to the other person is always greater than the payoff to the self. If we only had these data to work with, we could only reliably estimate <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\lambda_i\)</span>. Next, the red line segments show choices that were made exclusively in the advantageous inequality domain. That is, all of these choices had the self earning more than the other. If all we had were data from these choices, we would only be able to identify <span class="math inline">\(\beta_i\)</span> and <span class="math inline">\(\lambda_i\)</span>. Finally, the blue line segments all cut the <span class="math inline">\(45^\circ\)</span> line, and are therefore <em>mixed</em>. That is, for one option the self earns more than the other, and for the other option the other earns more than the self. For these choices, we could reasonably identify all of the parameters.</p>
+<p>For this exercise, I will assume that we don’t have all of the data. Specifically, for the first half of the participants in the data, I will throw out all decisions made in the advantageous inequality (red) and mixed (blue) domains. Therefore we will not have any information <em>in their data</em> about parameter <span class="math inline">\(\beta_i\)</span>. As you will see, though, if we appropriately construct the hierarchical model, that does not mean that there is no information about their <span class="math inline">\(\beta_i\)</span> in <em>other participants’ data</em>.</p>
+</div>
+<div id="how-is-this-going-to-work" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> How is this going to work?<a href="filling-in-the-blanks-imputation.html#how-is-this-going-to-work" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider again the individual-level estimates of <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\beta_i\)</span> from the hierarchical models chapter (specifically the estimates from the hierarchical model with an explicit correlation matrix <span class="math inline">\(\Omega\)</span> assumed in the specification). I reproduce these posterior mean estimates in Figure <a href="filling-in-the-blanks-imputation.html#fig:imputingFullModelPosteriors">8.2</a>.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="filling-in-the-blanks-imputation.html#cb103-1" tabindex="-1"></a>AllData<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_alldata.csv&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb103-2"><a href="filling-in-the-blanks-imputation.html#cb103-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb103-3"><a href="filling-in-the-blanks-imputation.html#cb103-3" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb103-4"><a href="filling-in-the-blanks-imputation.html#cb103-4" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
+<span id="cb103-5"><a href="filling-in-the-blanks-imputation.html#cb103-5" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb103-6"><a href="filling-in-the-blanks-imputation.html#cb103-6" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb103-7"><a href="filling-in-the-blanks-imputation.html#cb103-7" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
+<span id="cb103-8"><a href="filling-in-the-blanks-imputation.html#cb103-8" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
+<span id="cb103-9"><a href="filling-in-the-blanks-imputation.html#cb103-9" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb103-10"><a href="filling-in-the-blanks-imputation.html#cb103-10" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb103-11"><a href="filling-in-the-blanks-imputation.html#cb103-11" tabindex="-1"></a>    <span class="at">id_cols =</span> id,</span>
+<span id="cb103-12"><a href="filling-in-the-blanks-imputation.html#cb103-12" tabindex="-1"></a>    <span class="at">names_from =</span> parameter,</span>
+<span id="cb103-13"><a href="filling-in-the-blanks-imputation.html#cb103-13" tabindex="-1"></a>    <span class="at">values_from =</span> mean</span>
+<span id="cb103-14"><a href="filling-in-the-blanks-imputation.html#cb103-14" tabindex="-1"></a>  )</span>
+<span id="cb103-15"><a href="filling-in-the-blanks-imputation.html#cb103-15" tabindex="-1"></a></span>
+<span id="cb103-16"><a href="filling-in-the-blanks-imputation.html#cb103-16" tabindex="-1"></a>(</span>
+<span id="cb103-17"><a href="filling-in-the-blanks-imputation.html#cb103-17" tabindex="-1"></a>  <span class="fu">ggplot</span>(AllData, <span class="fu">aes</span>(<span class="at">x=</span>alpha,<span class="at">y=</span>beta,<span class="at">color=</span><span class="fu">log</span>(lambda)))</span>
+<span id="cb103-18"><a href="filling-in-the-blanks-imputation.html#cb103-18" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb103-19"><a href="filling-in-the-blanks-imputation.html#cb103-19" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_viridis</span>()</span>
+<span id="cb103-20"><a href="filling-in-the-blanks-imputation.html#cb103-20" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb103-21"><a href="filling-in-the-blanks-imputation.html#cb103-21" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(alpha[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
+<span id="cb103-22"><a href="filling-in-the-blanks-imputation.html#cb103-22" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
+<span id="cb103-23"><a href="filling-in-the-blanks-imputation.html#cb103-23" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:imputingFullModelPosteriors"></span>
+<img src="index_files/figure-html/imputingFullModelPosteriors-1.png" alt="Posterior means of the individual-level parameters from the hierarchical model using the full dataset and a correlation matrix" width="672" />
+<p class="caption">
+Figure 8.2: Posterior means of the individual-level parameters from the hierarchical model using the full dataset and a correlation matrix
+</p>
+</div>
+<p>Suppose I showed you this plot, and told you that another participant had an <span class="math inline">\(\alpha_i=-0.2\)</span>. How could you use this plot to get an estimate of <span class="math inline">\(\beta_i\)</span>? Well, a good first pass would be to look at the posterior means in this plot that were close to the horizontal coordinate of <span class="math inline">\(\alpha_i=-0.2\)</span> and pick out a vertical coordinate near these points (say, about <span class="math inline">\(\beta_i=0.6\)</span>). Loosely here you are <em>conditioning your estimate of <span class="math inline">\(\beta_i\)</span> on <span class="math inline">\(\alpha_i\)</span>.</em> That is, you are taking advantage of the known correlation between <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\beta_i\)</span> to note that the distribution <span class="math inline">\(\beta_i\mid\alpha_i\)</span> is <em>much</em> more precise than just the marginal distribution of <span class="math inline">\(\beta_i\)</span> (i.e. conditional on nothing). In other words, <em>you can do better than just guessing the population mean of <span class="math inline">\(\beta_i\)</span> by exploiting the correlation between <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\beta_i\)</span>.</em> In fact, if I had given you one, you could also have used an estimate of <span class="math inline">\(\lambda_i\)</span>. For example it looks like greater values of <span class="math inline">\(\lambda_i\)</span> are associated with smaller values of <span class="math inline">\(\beta_i\)</span>, so this could be something else you could condition on.</p>
+<p>What we are doing here is using our understanding of the <em>correlation</em> between the parameters to get a better estimate of <span class="math inline">\(\beta_i\)</span> by conditioning on some things that we know. However this is not necessarily the norm for hierarchical models at the moment. Formally, when we go to estimate our model, we need to allow our model to take advantage of that correlation. By this, I mean that we need to actually have a correlation matrix in our hierarchical model.<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a></p>
+</div>
+<div id="implementation" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Implementation<a href="filling-in-the-blanks-imputation.html#implementation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here the implementation is almost exactly the same as the hierarchical model I already took to these data (with the demand for giving bit in the <code>generated quantities</code> block taken out). Instead, we just feed it different data (i.e. taking out half of the mixed and advantageous inequality decisions). But in order to demonstrate the heavy lifting that the correlation matrix is doing for this task, I wanted to have a <em>Stan</em> program that could estimate a model both with and without a correlation matrix. Here is that program, where the <code>UseCorr</code> data variable turns on or off the use of the correlation matrix:</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb104-1"><a href="filling-in-the-blanks-imputation.html#cb104-1" tabindex="-1"></a></span>
+<span id="cb104-2"><a href="filling-in-the-blanks-imputation.html#cb104-2" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb104-3"><a href="filling-in-the-blanks-imputation.html#cb104-3" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> n<span class="op">;</span> <span class="co">// number of observations</span></span>
+<span id="cb104-4"><a href="filling-in-the-blanks-imputation.html#cb104-4" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> self_x<span class="op">;</span> <span class="co">// payoff to self with allocation x</span></span>
+<span id="cb104-5"><a href="filling-in-the-blanks-imputation.html#cb104-5" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> other_x<span class="op">;</span> <span class="co">// payoff to other with allocation x</span></span>
+<span id="cb104-6"><a href="filling-in-the-blanks-imputation.html#cb104-6" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> self_y<span class="op">;</span> <span class="co">// payoff to self with allocation y</span></span>
+<span id="cb104-7"><a href="filling-in-the-blanks-imputation.html#cb104-7" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> other_y<span class="op">;</span> <span class="co">// payoff to other with allocation y</span></span>
+<span id="cb104-8"><a href="filling-in-the-blanks-imputation.html#cb104-8" tabindex="-1"></a>  array<span class="op">[</span>n<span class="op">]</span> <span class="dt">int</span> choice_x<span class="op">;</span> <span class="co">// =1 iff allocation x is chosen</span></span>
+<span id="cb104-9"><a href="filling-in-the-blanks-imputation.html#cb104-9" tabindex="-1"></a>  </span>
+<span id="cb104-10"><a href="filling-in-the-blanks-imputation.html#cb104-10" tabindex="-1"></a>  array<span class="op">[</span>n<span class="op">]</span> <span class="dt">int</span> id<span class="op">;</span></span>
+<span id="cb104-11"><a href="filling-in-the-blanks-imputation.html#cb104-11" tabindex="-1"></a>  <span class="dt">int</span> nParticipants<span class="op">;</span></span>
+<span id="cb104-12"><a href="filling-in-the-blanks-imputation.html#cb104-12" tabindex="-1"></a>  </span>
+<span id="cb104-13"><a href="filling-in-the-blanks-imputation.html#cb104-13" tabindex="-1"></a></span>
+<span id="cb104-14"><a href="filling-in-the-blanks-imputation.html#cb104-14" tabindex="-1"></a>  </span>
+<span id="cb104-15"><a href="filling-in-the-blanks-imputation.html#cb104-15" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_mu<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span>
+<span id="cb104-16"><a href="filling-in-the-blanks-imputation.html#cb104-16" tabindex="-1"></a>  real prior_tau<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span>
+<span id="cb104-17"><a href="filling-in-the-blanks-imputation.html#cb104-17" tabindex="-1"></a>  real prior_LKJ<span class="op">;</span></span>
+<span id="cb104-18"><a href="filling-in-the-blanks-imputation.html#cb104-18" tabindex="-1"></a>  </span>
+<span id="cb104-19"><a href="filling-in-the-blanks-imputation.html#cb104-19" tabindex="-1"></a>  <span class="dt">int</span> UseCorr<span class="op">;</span> <span class="co">// &gt;0 iff we are using the correlation matrix</span></span>
+<span id="cb104-20"><a href="filling-in-the-blanks-imputation.html#cb104-20" tabindex="-1"></a>  </span>
+<span id="cb104-21"><a href="filling-in-the-blanks-imputation.html#cb104-21" tabindex="-1"></a>  </span>
+<span id="cb104-22"><a href="filling-in-the-blanks-imputation.html#cb104-22" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb104-23"><a href="filling-in-the-blanks-imputation.html#cb104-23" tabindex="-1"></a></span>
+<span id="cb104-24"><a href="filling-in-the-blanks-imputation.html#cb104-24" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb104-25"><a href="filling-in-the-blanks-imputation.html#cb104-25" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dX<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation x</span></span>
+<span id="cb104-26"><a href="filling-in-the-blanks-imputation.html#cb104-26" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dY<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation y</span></span>
+<span id="cb104-27"><a href="filling-in-the-blanks-imputation.html#cb104-27" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aX<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
+<span id="cb104-28"><a href="filling-in-the-blanks-imputation.html#cb104-28" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aY<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
+<span id="cb104-29"><a href="filling-in-the-blanks-imputation.html#cb104-29" tabindex="-1"></a>  </span>
+<span id="cb104-30"><a href="filling-in-the-blanks-imputation.html#cb104-30" tabindex="-1"></a>  dX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_x<span class="op">-</span>self_x<span class="op">);</span></span>
+<span id="cb104-31"><a href="filling-in-the-blanks-imputation.html#cb104-31" tabindex="-1"></a>  dY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_y<span class="op">-</span>self_y<span class="op">);</span></span>
+<span id="cb104-32"><a href="filling-in-the-blanks-imputation.html#cb104-32" tabindex="-1"></a>  aX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_x<span class="op">-</span>other_x<span class="op">);</span></span>
+<span id="cb104-33"><a href="filling-in-the-blanks-imputation.html#cb104-33" tabindex="-1"></a>  aY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_y<span class="op">-</span>other_y<span class="op">);</span></span>
+<span id="cb104-34"><a href="filling-in-the-blanks-imputation.html#cb104-34" tabindex="-1"></a>  </span>
+<span id="cb104-35"><a href="filling-in-the-blanks-imputation.html#cb104-35" tabindex="-1"></a>  </span>
+<span id="cb104-36"><a href="filling-in-the-blanks-imputation.html#cb104-36" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb104-37"><a href="filling-in-the-blanks-imputation.html#cb104-37" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb104-38"><a href="filling-in-the-blanks-imputation.html#cb104-38" tabindex="-1"></a>  </span>
+<span id="cb104-39"><a href="filling-in-the-blanks-imputation.html#cb104-39" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> mu<span class="op">;</span> <span class="co">// population mean</span></span>
+<span id="cb104-40"><a href="filling-in-the-blanks-imputation.html#cb104-40" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;[</span><span class="dv">3</span><span class="op">]</span> tau<span class="op">;</span> <span class="co">// population standard deviation</span></span>
+<span id="cb104-41"><a href="filling-in-the-blanks-imputation.html#cb104-41" tabindex="-1"></a>  cholesky_factor_corr<span class="op">[</span><span class="dv">3</span><span class="op">]</span> L_Omega<span class="op">;</span> <span class="co">// Cholesky factorization of the correlation matrix</span></span>
+<span id="cb104-42"><a href="filling-in-the-blanks-imputation.html#cb104-42" tabindex="-1"></a>  </span>
+<span id="cb104-43"><a href="filling-in-the-blanks-imputation.html#cb104-43" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> z<span class="op">;</span> <span class="co">// standard normals determinig participants&#39; parameters</span></span>
+<span id="cb104-44"><a href="filling-in-the-blanks-imputation.html#cb104-44" tabindex="-1"></a>  </span>
+<span id="cb104-45"><a href="filling-in-the-blanks-imputation.html#cb104-45" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb104-46"><a href="filling-in-the-blanks-imputation.html#cb104-46" tabindex="-1"></a></span>
+<span id="cb104-47"><a href="filling-in-the-blanks-imputation.html#cb104-47" tabindex="-1"></a>transformed parameters <span class="op">{</span></span>
+<span id="cb104-48"><a href="filling-in-the-blanks-imputation.html#cb104-48" tabindex="-1"></a>  </span>
+<span id="cb104-49"><a href="filling-in-the-blanks-imputation.html#cb104-49" tabindex="-1"></a>  vector<span class="op">[</span>nParticipants<span class="op">]</span> alpha<span class="op">;</span></span>
+<span id="cb104-50"><a href="filling-in-the-blanks-imputation.html#cb104-50" tabindex="-1"></a>  vector<span class="op">[</span>nParticipants<span class="op">]</span> beta<span class="op">;</span></span>
+<span id="cb104-51"><a href="filling-in-the-blanks-imputation.html#cb104-51" tabindex="-1"></a>  vector<span class="op">[</span>nParticipants<span class="op">]</span> lambda<span class="op">;</span></span>
+<span id="cb104-52"><a href="filling-in-the-blanks-imputation.html#cb104-52" tabindex="-1"></a>  </span>
+<span id="cb104-53"><a href="filling-in-the-blanks-imputation.html#cb104-53" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb104-54"><a href="filling-in-the-blanks-imputation.html#cb104-54" tabindex="-1"></a>    matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> theta<span class="op">;</span></span>
+<span id="cb104-55"><a href="filling-in-the-blanks-imputation.html#cb104-55" tabindex="-1"></a>    </span>
+<span id="cb104-56"><a href="filling-in-the-blanks-imputation.html#cb104-56" tabindex="-1"></a>    </span>
+<span id="cb104-57"><a href="filling-in-the-blanks-imputation.html#cb104-57" tabindex="-1"></a>    </span>
+<span id="cb104-58"><a href="filling-in-the-blanks-imputation.html#cb104-58" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>UseCorr<span class="op">&gt;</span><span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb104-59"><a href="filling-in-the-blanks-imputation.html#cb104-59" tabindex="-1"></a>      <span class="co">// if we are using the correlation matrix</span></span>
+<span id="cb104-60"><a href="filling-in-the-blanks-imputation.html#cb104-60" tabindex="-1"></a>      </span>
+<span id="cb104-61"><a href="filling-in-the-blanks-imputation.html#cb104-61" tabindex="-1"></a>      theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
+<span id="cb104-62"><a href="filling-in-the-blanks-imputation.html#cb104-62" tabindex="-1"></a>                    <span class="op">+</span>diag_pre_multiply<span class="op">(</span>tau<span class="op">,</span>L_Omega<span class="op">)*</span>z<span class="op">;</span></span>
+<span id="cb104-63"><a href="filling-in-the-blanks-imputation.html#cb104-63" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb104-64"><a href="filling-in-the-blanks-imputation.html#cb104-64" tabindex="-1"></a>      <span class="co">// if we are not using the correlation matrix</span></span>
+<span id="cb104-65"><a href="filling-in-the-blanks-imputation.html#cb104-65" tabindex="-1"></a>      theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
+<span id="cb104-66"><a href="filling-in-the-blanks-imputation.html#cb104-66" tabindex="-1"></a>                    <span class="op">+</span>diag_matrix<span class="op">(</span>tau<span class="op">)*</span>z<span class="op">;</span></span>
+<span id="cb104-67"><a href="filling-in-the-blanks-imputation.html#cb104-67" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb104-68"><a href="filling-in-the-blanks-imputation.html#cb104-68" tabindex="-1"></a>                    </span>
+<span id="cb104-69"><a href="filling-in-the-blanks-imputation.html#cb104-69" tabindex="-1"></a>    alpha  <span class="op">=</span> theta<span class="op">[</span><span class="dv">1</span><span class="op">,]</span><span class="ch">&#39;;</span></span>
+<span id="cb104-70"><a href="filling-in-the-blanks-imputation.html#cb104-70" tabindex="-1"></a>    beta   <span class="op">=</span> theta<span class="op">[</span><span class="dv">2</span><span class="op">,]</span><span class="ch">&#39;;</span></span>
+<span id="cb104-71"><a href="filling-in-the-blanks-imputation.html#cb104-71" tabindex="-1"></a>    lambda <span class="op">=</span> exp<span class="op">(</span>theta<span class="op">[</span><span class="dv">3</span><span class="op">,]</span><span class="ch">&#39;)</span><span class="er">;</span></span>
+<span id="cb104-72"><a href="filling-in-the-blanks-imputation.html#cb104-72" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb104-73"><a href="filling-in-the-blanks-imputation.html#cb104-73" tabindex="-1"></a>  </span>
+<span id="cb104-74"><a href="filling-in-the-blanks-imputation.html#cb104-74" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb104-75"><a href="filling-in-the-blanks-imputation.html#cb104-75" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb104-76"><a href="filling-in-the-blanks-imputation.html#cb104-76" tabindex="-1"></a>  </span>
+<span id="cb104-77"><a href="filling-in-the-blanks-imputation.html#cb104-77" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Ux<span class="op">;</span> <span class="co">// utility of allocation x</span></span>
+<span id="cb104-78"><a href="filling-in-the-blanks-imputation.html#cb104-78" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Uy<span class="op">;</span> <span class="co">// utility of allocation y</span></span>
+<span id="cb104-79"><a href="filling-in-the-blanks-imputation.html#cb104-79" tabindex="-1"></a></span>
+<span id="cb104-80"><a href="filling-in-the-blanks-imputation.html#cb104-80" tabindex="-1"></a></span>
+<span id="cb104-81"><a href="filling-in-the-blanks-imputation.html#cb104-81" tabindex="-1"></a>  Ux <span class="op">=</span> self_x<span class="op">-</span>alpha<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> dX<span class="op">-</span>beta<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> aX<span class="op">;</span></span>
+<span id="cb104-82"><a href="filling-in-the-blanks-imputation.html#cb104-82" tabindex="-1"></a>  Uy <span class="op">=</span> self_y<span class="op">-</span>alpha<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> dY<span class="op">-</span>beta<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> aY<span class="op">;</span></span>
+<span id="cb104-83"><a href="filling-in-the-blanks-imputation.html#cb104-83" tabindex="-1"></a>  </span>
+<span id="cb104-84"><a href="filling-in-the-blanks-imputation.html#cb104-84" tabindex="-1"></a>  </span>
+<span id="cb104-85"><a href="filling-in-the-blanks-imputation.html#cb104-85" tabindex="-1"></a></span>
+<span id="cb104-86"><a href="filling-in-the-blanks-imputation.html#cb104-86" tabindex="-1"></a>  choice_x <span class="op">~</span> bernoulli_logit<span class="op">(</span>lambda<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> <span class="op">(</span>Ux<span class="op">-</span>Uy<span class="op">));</span></span>
+<span id="cb104-87"><a href="filling-in-the-blanks-imputation.html#cb104-87" tabindex="-1"></a>      </span>
+<span id="cb104-88"><a href="filling-in-the-blanks-imputation.html#cb104-88" tabindex="-1"></a>  to_vector<span class="op">(</span>z<span class="op">)</span> <span class="op">~</span> std_normal<span class="op">();</span></span>
+<span id="cb104-89"><a href="filling-in-the-blanks-imputation.html#cb104-89" tabindex="-1"></a>  </span>
+<span id="cb104-90"><a href="filling-in-the-blanks-imputation.html#cb104-90" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>pp in <span class="dv">1</span><span class="op">:</span><span class="dv">3</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb104-91"><a href="filling-in-the-blanks-imputation.html#cb104-91" tabindex="-1"></a>    mu<span class="op">[</span>pp<span class="op">]</span> <span class="op">~</span> normal<span class="op">(</span>prior_mu<span class="op">[</span>pp<span class="op">][</span><span class="dv">1</span><span class="op">],</span>prior_mu<span class="op">[</span>pp<span class="op">][</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb104-92"><a href="filling-in-the-blanks-imputation.html#cb104-92" tabindex="-1"></a>    tau<span class="op">[</span>pp<span class="op">]</span> <span class="op">~</span> cauchy<span class="op">(</span><span class="fl">0.0</span><span class="op">,</span>prior_tau<span class="op">[</span>pp<span class="op">]);</span></span>
+<span id="cb104-93"><a href="filling-in-the-blanks-imputation.html#cb104-93" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb104-94"><a href="filling-in-the-blanks-imputation.html#cb104-94" tabindex="-1"></a>  </span>
+<span id="cb104-95"><a href="filling-in-the-blanks-imputation.html#cb104-95" tabindex="-1"></a>   L_Omega <span class="op">~</span> lkj_corr_cholesky<span class="op">(</span>prior_LKJ<span class="op">);</span></span>
+<span id="cb104-96"><a href="filling-in-the-blanks-imputation.html#cb104-96" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb104-97"><a href="filling-in-the-blanks-imputation.html#cb104-97" tabindex="-1"></a></span>
+<span id="cb104-98"><a href="filling-in-the-blanks-imputation.html#cb104-98" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
+<span id="cb104-99"><a href="filling-in-the-blanks-imputation.html#cb104-99" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span><span class="dv">3</span><span class="op">]</span> Omega<span class="op">;</span></span>
+<span id="cb104-100"><a href="filling-in-the-blanks-imputation.html#cb104-100" tabindex="-1"></a>  Omega <span class="op">=</span> L_Omega<span class="op">*</span>L_Omega<span class="ch">&#39;;</span></span>
+<span id="cb104-101"><a href="filling-in-the-blanks-imputation.html#cb104-101" tabindex="-1"></a>  </span>
+<span id="cb104-102"><a href="filling-in-the-blanks-imputation.html#cb104-102" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</div>
+<div id="results" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Results<a href="filling-in-the-blanks-imputation.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="using-the-correlation-matrix" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Using the correlation matrix<a href="filling-in-the-blanks-imputation.html#using-the-correlation-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First, I estimate the model with the correlation matrix. This model is able to extrapolate estimates beyond their marginal population means. Figure <a href="filling-in-the-blanks-imputation.html#fig:ImputingThingsCorr">8.3</a> shows the individual posterior means for <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\beta_i\)</span> for the missing data (imputed for <span class="math inline">\(\beta_i\)</span>, blue) and not missing data (red).<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a> While there is quite a lot of overlap between these two slices of the data, one noticeable difference is that the blue (imputed) dots are pulled to the center vertically. This is to be expected, as they are shrinkage estimates. In particular, since there is no information about <span class="math inline">\(\beta_i\)</span> in the likelihood for these subjects there is more shrinkage to the mean.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a></p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="filling-in-the-blanks-imputation.html#cb105-1" tabindex="-1"></a>dcorr<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_corr.csv&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb105-2"><a href="filling-in-the-blanks-imputation.html#cb105-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb105-3"><a href="filling-in-the-blanks-imputation.html#cb105-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb105-4"><a href="filling-in-the-blanks-imputation.html#cb105-4" tabindex="-1"></a>    <span class="at">data =</span> <span class="st">&quot;missing&quot;</span></span>
+<span id="cb105-5"><a href="filling-in-the-blanks-imputation.html#cb105-5" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb105-6"><a href="filling-in-the-blanks-imputation.html#cb105-6" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb105-7"><a href="filling-in-the-blanks-imputation.html#cb105-7" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
+<span id="cb105-8"><a href="filling-in-the-blanks-imputation.html#cb105-8" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb105-9"><a href="filling-in-the-blanks-imputation.html#cb105-9" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb105-10"><a href="filling-in-the-blanks-imputation.html#cb105-10" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb105-11"><a href="filling-in-the-blanks-imputation.html#cb105-11" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
+<span id="cb105-12"><a href="filling-in-the-blanks-imputation.html#cb105-12" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
+<span id="cb105-13"><a href="filling-in-the-blanks-imputation.html#cb105-13" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb105-14"><a href="filling-in-the-blanks-imputation.html#cb105-14" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb105-15"><a href="filling-in-the-blanks-imputation.html#cb105-15" tabindex="-1"></a>    <span class="at">id_cols =</span> id,</span>
+<span id="cb105-16"><a href="filling-in-the-blanks-imputation.html#cb105-16" tabindex="-1"></a>    <span class="at">names_from =</span> parameter,</span>
+<span id="cb105-17"><a href="filling-in-the-blanks-imputation.html#cb105-17" tabindex="-1"></a>    <span class="at">values_from =</span> mean</span>
+<span id="cb105-18"><a href="filling-in-the-blanks-imputation.html#cb105-18" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb105-19"><a href="filling-in-the-blanks-imputation.html#cb105-19" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb105-20"><a href="filling-in-the-blanks-imputation.html#cb105-20" tabindex="-1"></a>    <span class="at">imputed =</span> <span class="fu">ifelse</span>(id<span class="sc">&lt;=</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>),<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>)</span>
+<span id="cb105-21"><a href="filling-in-the-blanks-imputation.html#cb105-21" tabindex="-1"></a>  )</span>
+<span id="cb105-22"><a href="filling-in-the-blanks-imputation.html#cb105-22" tabindex="-1"></a></span>
+<span id="cb105-23"><a href="filling-in-the-blanks-imputation.html#cb105-23" tabindex="-1"></a>(</span>
+<span id="cb105-24"><a href="filling-in-the-blanks-imputation.html#cb105-24" tabindex="-1"></a>  <span class="fu">ggplot</span>(dcorr, <span class="fu">aes</span>(<span class="at">x=</span>alpha,<span class="at">y=</span>beta,<span class="at">color=</span>imputed))</span>
+<span id="cb105-25"><a href="filling-in-the-blanks-imputation.html#cb105-25" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb105-26"><a href="filling-in-the-blanks-imputation.html#cb105-26" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb105-27"><a href="filling-in-the-blanks-imputation.html#cb105-27" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb105-28"><a href="filling-in-the-blanks-imputation.html#cb105-28" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(alpha[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
+<span id="cb105-29"><a href="filling-in-the-blanks-imputation.html#cb105-29" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
+<span id="cb105-30"><a href="filling-in-the-blanks-imputation.html#cb105-30" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:ImputingThingsCorr"></span>
+<img src="index_files/figure-html/ImputingThingsCorr-1.png" alt="Posterior mean estimates of individual-level parameters using data with missing mixed and advantageous inequality participants. " width="672" />
+<p class="caption">
+Figure 8.3: Posterior mean estimates of individual-level parameters using data with missing mixed and advantageous inequality participants.
+</p>
+</div>
+<p>Next, I do something that we can only do because we actually have the full dataset. In Figure <a href="filling-in-the-blanks-imputation.html#fig:imputingThingsCorrCompare">8.4</a> I compare the estimates of <span class="math inline">\(\beta_i\)</span> from the data with missing observations (vertical coordinate) to the same estimates when the full dataset is used (horizontal coordinate). Here we can see that the red posterior means, which correspond to participants whose observations were not dropped, are in very strong agreement. On the other hand, the imputed <span class="math inline">\(\beta_i\)</span>s are, understandably, shrunk toward their population mean vertically. Again, this is a feature of the model: we are using the population quantities <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\tau\)</span>, and <span class="math inline">\(\Omega\)</span> to get better estimates of <span class="math inline">\(\beta_i\)</span> when there is no information in the likelihood for these participants. Here we can see a general upward trend, meaning that participants with larger <span class="math inline">\(\beta_i\)</span>s are typically imputed as such, but there is substantial noise.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="filling-in-the-blanks-imputation.html#cb106-1" tabindex="-1"></a>dcorr<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_corr.csv&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb106-2"><a href="filling-in-the-blanks-imputation.html#cb106-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb106-3"><a href="filling-in-the-blanks-imputation.html#cb106-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb106-4"><a href="filling-in-the-blanks-imputation.html#cb106-4" tabindex="-1"></a>    <span class="at">data =</span> <span class="st">&quot;missing&quot;</span></span>
+<span id="cb106-5"><a href="filling-in-the-blanks-imputation.html#cb106-5" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb106-6"><a href="filling-in-the-blanks-imputation.html#cb106-6" tabindex="-1"></a>  <span class="fu">rbind</span>(</span>
+<span id="cb106-7"><a href="filling-in-the-blanks-imputation.html#cb106-7" tabindex="-1"></a>    <span class="st">&quot;Code/ImputingStuff/00_run_alldata.csv&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb106-8"><a href="filling-in-the-blanks-imputation.html#cb106-8" tabindex="-1"></a>      <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb106-9"><a href="filling-in-the-blanks-imputation.html#cb106-9" tabindex="-1"></a>      <span class="fu">mutate</span>(</span>
+<span id="cb106-10"><a href="filling-in-the-blanks-imputation.html#cb106-10" tabindex="-1"></a>        <span class="at">data =</span> <span class="st">&quot;full&quot;</span></span>
+<span id="cb106-11"><a href="filling-in-the-blanks-imputation.html#cb106-11" tabindex="-1"></a>      )</span>
+<span id="cb106-12"><a href="filling-in-the-blanks-imputation.html#cb106-12" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb106-13"><a href="filling-in-the-blanks-imputation.html#cb106-13" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb106-14"><a href="filling-in-the-blanks-imputation.html#cb106-14" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
+<span id="cb106-15"><a href="filling-in-the-blanks-imputation.html#cb106-15" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb106-16"><a href="filling-in-the-blanks-imputation.html#cb106-16" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb106-17"><a href="filling-in-the-blanks-imputation.html#cb106-17" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
+<span id="cb106-18"><a href="filling-in-the-blanks-imputation.html#cb106-18" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
+<span id="cb106-19"><a href="filling-in-the-blanks-imputation.html#cb106-19" tabindex="-1"></a>  )  <span class="sc">|&gt;</span></span>
+<span id="cb106-20"><a href="filling-in-the-blanks-imputation.html#cb106-20" tabindex="-1"></a>  <span class="fu">filter</span>(parameter <span class="sc">==</span> <span class="st">&quot;beta&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb106-21"><a href="filling-in-the-blanks-imputation.html#cb106-21" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb106-22"><a href="filling-in-the-blanks-imputation.html#cb106-22" tabindex="-1"></a>    <span class="at">id_cols =</span> id,</span>
+<span id="cb106-23"><a href="filling-in-the-blanks-imputation.html#cb106-23" tabindex="-1"></a>    <span class="at">names_from =</span> data,</span>
+<span id="cb106-24"><a href="filling-in-the-blanks-imputation.html#cb106-24" tabindex="-1"></a>    <span class="at">values_from =</span> mean</span>
+<span id="cb106-25"><a href="filling-in-the-blanks-imputation.html#cb106-25" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb106-26"><a href="filling-in-the-blanks-imputation.html#cb106-26" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb106-27"><a href="filling-in-the-blanks-imputation.html#cb106-27" tabindex="-1"></a>    <span class="at">imputed =</span> <span class="fu">ifelse</span>(id<span class="sc">&lt;=</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>),<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>)</span>
+<span id="cb106-28"><a href="filling-in-the-blanks-imputation.html#cb106-28" tabindex="-1"></a>  )</span>
+<span id="cb106-29"><a href="filling-in-the-blanks-imputation.html#cb106-29" tabindex="-1"></a></span>
+<span id="cb106-30"><a href="filling-in-the-blanks-imputation.html#cb106-30" tabindex="-1"></a></span>
+<span id="cb106-31"><a href="filling-in-the-blanks-imputation.html#cb106-31" tabindex="-1"></a>(</span>
+<span id="cb106-32"><a href="filling-in-the-blanks-imputation.html#cb106-32" tabindex="-1"></a>  <span class="fu">ggplot</span>(dcorr,<span class="fu">aes</span>(<span class="at">x=</span>full,<span class="at">y=</span>missing,<span class="at">color=</span>imputed))</span>
+<span id="cb106-33"><a href="filling-in-the-blanks-imputation.html#cb106-33" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb106-34"><a href="filling-in-the-blanks-imputation.html#cb106-34" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb106-35"><a href="filling-in-the-blanks-imputation.html#cb106-35" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb106-36"><a href="filling-in-the-blanks-imputation.html#cb106-36" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>, <span class="at">intercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb106-37"><a href="filling-in-the-blanks-imputation.html#cb106-37" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;estimated using full dataset (posterior means)&quot;</span>))</span>
+<span id="cb106-38"><a href="filling-in-the-blanks-imputation.html#cb106-38" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;estimated with missing data (posterior means)&quot;</span>))</span>
+<span id="cb106-39"><a href="filling-in-the-blanks-imputation.html#cb106-39" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:imputingThingsCorrCompare"></span>
+<img src="index_files/figure-html/imputingThingsCorrCompare-1.png" alt="Comparison between estimates of $\beta_i$ using the full dataset (horizontal coordinate) to those using the dataset with missing data (vertical coordinate). Dashed black line is a $45^\circ$ line." width="672" />
+<p class="caption">
+Figure 8.4: Comparison between estimates of <span class="math inline">\(\beta_i\)</span> using the full dataset (horizontal coordinate) to those using the dataset with missing data (vertical coordinate). Dashed black line is a <span class="math inline">\(45^\circ\)</span> line.
+</p>
+</div>
+<p>Of course, looking just at the posterior means masks any sense of uncertainty we have in these estimates, and there is a <em>lot</em> of uncertainty. Fortunately, since we have a full posterior simulation, it is easy to investigate that uncertainty as well. Figure <a href="filling-in-the-blanks-imputation.html#fig:imputingThingsPostSD">8.5</a> plots the kernel-smoothed density of the individual-level posterior standard deviations. Here we can see that especially for <span class="math inline">\(\beta_i\)</span> (middle panel), the imputed posteriors (blue) are much more spread out than those that had an informative likelihood (red). This is to be expected because we have less information for these observations.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="filling-in-the-blanks-imputation.html#cb107-1" tabindex="-1"></a>dcorr<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_corr.csv&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb107-2"><a href="filling-in-the-blanks-imputation.html#cb107-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb107-3"><a href="filling-in-the-blanks-imputation.html#cb107-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb107-4"><a href="filling-in-the-blanks-imputation.html#cb107-4" tabindex="-1"></a>    <span class="at">data =</span> <span class="st">&quot;missing&quot;</span></span>
+<span id="cb107-5"><a href="filling-in-the-blanks-imputation.html#cb107-5" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb107-6"><a href="filling-in-the-blanks-imputation.html#cb107-6" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb107-7"><a href="filling-in-the-blanks-imputation.html#cb107-7" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
+<span id="cb107-8"><a href="filling-in-the-blanks-imputation.html#cb107-8" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb107-9"><a href="filling-in-the-blanks-imputation.html#cb107-9" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb107-10"><a href="filling-in-the-blanks-imputation.html#cb107-10" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb107-11"><a href="filling-in-the-blanks-imputation.html#cb107-11" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
+<span id="cb107-12"><a href="filling-in-the-blanks-imputation.html#cb107-12" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
+<span id="cb107-13"><a href="filling-in-the-blanks-imputation.html#cb107-13" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb107-14"><a href="filling-in-the-blanks-imputation.html#cb107-14" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb107-15"><a href="filling-in-the-blanks-imputation.html#cb107-15" tabindex="-1"></a>    <span class="at">imputed =</span> <span class="fu">ifelse</span>(id<span class="sc">&lt;=</span>(<span class="fu">max</span>(id)<span class="sc">/</span><span class="dv">2</span>),<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>)</span>
+<span id="cb107-16"><a href="filling-in-the-blanks-imputation.html#cb107-16" tabindex="-1"></a>  )</span>
+<span id="cb107-17"><a href="filling-in-the-blanks-imputation.html#cb107-17" tabindex="-1"></a></span>
+<span id="cb107-18"><a href="filling-in-the-blanks-imputation.html#cb107-18" tabindex="-1"></a>(</span>
+<span id="cb107-19"><a href="filling-in-the-blanks-imputation.html#cb107-19" tabindex="-1"></a>  <span class="fu">ggplot</span>(dcorr,<span class="fu">aes</span>(<span class="at">x=</span>sd,<span class="at">color=</span>imputed))</span>
+<span id="cb107-20"><a href="filling-in-the-blanks-imputation.html#cb107-20" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_density</span>(<span class="at">linewidth=</span><span class="dv">1</span>) </span>
+<span id="cb107-21"><a href="filling-in-the-blanks-imputation.html#cb107-21" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>parameter,<span class="at">labeller =</span> label_parsed)</span>
+<span id="cb107-22"><a href="filling-in-the-blanks-imputation.html#cb107-22" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb107-23"><a href="filling-in-the-blanks-imputation.html#cb107-23" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb107-24"><a href="filling-in-the-blanks-imputation.html#cb107-24" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;posterior standard deviation&quot;</span>)</span>
+<span id="cb107-25"><a href="filling-in-the-blanks-imputation.html#cb107-25" tabindex="-1"></a>  </span>
+<span id="cb107-26"><a href="filling-in-the-blanks-imputation.html#cb107-26" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:imputingThingsPostSD"></span>
+<img src="index_files/figure-html/imputingThingsPostSD-1.png" alt="Distribution of posterior standard deviations of individual-level parameters from the model with a corelation matrix, leaving out half of the decisions in the mixed and advantageous inequality domains." width="672" />
+<p class="caption">
+Figure 8.5: Distribution of posterior standard deviations of individual-level parameters from the model with a corelation matrix, leaving out half of the decisions in the mixed and advantageous inequality domains.
+</p>
+</div>
+</div>
+<div id="the-correlation-matrix-is-doing-a-lot-of-heavy-lifting-here" class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> The correlation matrix is doing a lot of heavy lifting here<a href="filling-in-the-blanks-imputation.html#the-correlation-matrix-is-doing-a-lot-of-heavy-lifting-here" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>So what happens if we leave out the correlation matrix? This is why in my <em>Stan</em> program above I added the <code>UseCorr</code> data variable so it could easily be turned on or off. In this case, the model has no understanding of the correlation between the individual-level parameters. In fact, it has a <em>lot</em> of understanding, but that understanding is wrong. It <em>knows</em> dogmatically that there is no correlation between these parameters! Therefore, it is going to ignore all the information we give it about <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\lambda_i\)</span> when trying to impute <span class="math inline">\(\beta_i\)</span>, because according to the model there is nothing we could possibly learn about <span class="math inline">\(\beta_i\)</span> from these other parameters.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="filling-in-the-blanks-imputation.html#cb108-1" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_nocorr.csv&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb108-2"><a href="filling-in-the-blanks-imputation.html#cb108-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb108-3"><a href="filling-in-the-blanks-imputation.html#cb108-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb108-4"><a href="filling-in-the-blanks-imputation.html#cb108-4" tabindex="-1"></a>    <span class="at">data =</span> <span class="st">&quot;missing&quot;</span></span>
+<span id="cb108-5"><a href="filling-in-the-blanks-imputation.html#cb108-5" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb108-6"><a href="filling-in-the-blanks-imputation.html#cb108-6" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb108-7"><a href="filling-in-the-blanks-imputation.html#cb108-7" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
+<span id="cb108-8"><a href="filling-in-the-blanks-imputation.html#cb108-8" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb108-9"><a href="filling-in-the-blanks-imputation.html#cb108-9" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb108-10"><a href="filling-in-the-blanks-imputation.html#cb108-10" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb108-11"><a href="filling-in-the-blanks-imputation.html#cb108-11" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
+<span id="cb108-12"><a href="filling-in-the-blanks-imputation.html#cb108-12" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
+<span id="cb108-13"><a href="filling-in-the-blanks-imputation.html#cb108-13" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb108-14"><a href="filling-in-the-blanks-imputation.html#cb108-14" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb108-15"><a href="filling-in-the-blanks-imputation.html#cb108-15" tabindex="-1"></a>    <span class="at">id_cols =</span> id,</span>
+<span id="cb108-16"><a href="filling-in-the-blanks-imputation.html#cb108-16" tabindex="-1"></a>    <span class="at">names_from =</span> parameter,</span>
+<span id="cb108-17"><a href="filling-in-the-blanks-imputation.html#cb108-17" tabindex="-1"></a>    <span class="at">values_from =</span> mean</span>
+<span id="cb108-18"><a href="filling-in-the-blanks-imputation.html#cb108-18" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb108-19"><a href="filling-in-the-blanks-imputation.html#cb108-19" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb108-20"><a href="filling-in-the-blanks-imputation.html#cb108-20" tabindex="-1"></a>    <span class="at">imputed =</span> <span class="fu">ifelse</span>(id<span class="sc">&lt;=</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>),<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>)</span>
+<span id="cb108-21"><a href="filling-in-the-blanks-imputation.html#cb108-21" tabindex="-1"></a>  )</span>
+<span id="cb108-22"><a href="filling-in-the-blanks-imputation.html#cb108-22" tabindex="-1"></a></span>
+<span id="cb108-23"><a href="filling-in-the-blanks-imputation.html#cb108-23" tabindex="-1"></a>(</span>
+<span id="cb108-24"><a href="filling-in-the-blanks-imputation.html#cb108-24" tabindex="-1"></a>  <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x=</span>alpha,<span class="at">y=</span>beta,<span class="at">color=</span>imputed))</span>
+<span id="cb108-25"><a href="filling-in-the-blanks-imputation.html#cb108-25" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb108-26"><a href="filling-in-the-blanks-imputation.html#cb108-26" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb108-27"><a href="filling-in-the-blanks-imputation.html#cb108-27" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb108-28"><a href="filling-in-the-blanks-imputation.html#cb108-28" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(alpha[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
+<span id="cb108-29"><a href="filling-in-the-blanks-imputation.html#cb108-29" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
+<span id="cb108-30"><a href="filling-in-the-blanks-imputation.html#cb108-30" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:ImputingThingsNoCorr"></span>
+<img src="index_files/figure-html/ImputingThingsNoCorr-1.png" alt="Posterior mean estimates of individual-level parameters using data with missing mixed and advantageous inequality participants. Model assumes identity correlation matrix (i.e. no correlation between the individual-level parameters). " width="672" />
+<p class="caption">
+Figure 8.6: Posterior mean estimates of individual-level parameters using data with missing mixed and advantageous inequality participants. Model assumes identity correlation matrix (i.e. no correlation between the individual-level parameters).
+</p>
+</div>
+<p>Figure <a href="filling-in-the-blanks-imputation.html#fig:ImputingThingsNoCorr">8.6</a> shows the posterior mean estimates of <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\beta_i\)</span> for this model. This should be compared with Figure <a href="filling-in-the-blanks-imputation.html#fig:ImputingThingsCorr">8.3</a> (which includes the correlation matrix in the model). Here we can see that the imputed posterior means for <span class="math inline">\(\beta_i\)</span> are basically the same number. They are in fact centered on the population mean parameter <span class="math inline">\(\mu_\beta\)</span>. Importantly, they do not vary with <span class="math inline">\(\alpha_i\)</span> or <span class="math inline">\(\lambda_i\)</span> becuase the model “knows” for sure that they don’t, and so any actual correlation between these parameters must be spurious (in the dogmatic eyes of the correlation-less model, at least).</p>
+</div>
+</div>
+<div id="conclusion" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Conclusion<a href="filling-in-the-blanks-imputation.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we have a framework for filling in the gaps. Hopefully you can see the big picture in that all we really did was feed an appropriate hierarchical model the all data we had to work with, and then the hierarchical model filled in the gaps for us. In this application it was helpful to have <em>some</em> participants make decisions in all of the domains, because that helps pin down the correlation matrix. This correlation matrix is very important, because without it we would just be imputing marginal population means.</p>
+<p>In other applications, there may be even more to condition on than the parameters themselves. For example, suppose an experiment also had a demographics survey. Allowing (say) the population means to vary by these demographics could provide even more information for the model to condition on. That is, if men and women are different in their mean <span class="math inline">\(\beta_i\)</span>s, this information could also be conditioned on, <em>but only if we estimate a model that allows for this at the population level</em>.</p>
+<p>For experiments that already exist, the ability to impute parameters that aren’t well-informed by the likelihood could be a useful tool for filling the gaps in the data. Additionally, for experiments in the design stage, there is perhaps work to be done in determining the optimal decisions to present to subjects in order to estimate the desired parameters. With imputation, it is not clear that it is optimal to present all participants with the <em>same</em> decisions, for example. Alternatively, suppose estimates of <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\beta_i\)</span> are something that we would like to include on the right-hand-side of a regression, where the dependent variable is behavior in another task.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a> Perhaps due to time constraints, it may not be feasible to give the participants that do this second task all of the decisions in the <span class="citation">Bruhin, Fehr, and Schunk (<a href="#ref-BFS2019">2019</a>)</span> dictator task. Instead, we could give them a subset of them (ideally, though, across all three domains), and rely on imputation to construct more reliable estimates using data from a second set of subjects who <em>did</em> make all of these choices (but did not participate in the second task).<a href="#fn38" class="footnote-ref" id="fnref38"><sup>38</sup></a></p>
+</div>
+<div id="r-code-used-for-this-chapter-1" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> <em>R</em> code used for this chapter<a href="filling-in-the-blanks-imputation.html#r-code-used-for-this-chapter-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="filling-in-the-blanks-imputation.html#cb109-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb109-2"><a href="filling-in-the-blanks-imputation.html#cb109-2" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb109-3"><a href="filling-in-the-blanks-imputation.html#cb109-3" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb109-4"><a href="filling-in-the-blanks-imputation.html#cb109-4" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb109-5"><a href="filling-in-the-blanks-imputation.html#cb109-5" tabindex="-1"></a></span>
+<span id="cb109-6"><a href="filling-in-the-blanks-imputation.html#cb109-6" tabindex="-1"></a>RERUN<span class="ot">&lt;-</span><span class="cn">TRUE</span></span>
+<span id="cb109-7"><a href="filling-in-the-blanks-imputation.html#cb109-7" tabindex="-1"></a></span>
+<span id="cb109-8"><a href="filling-in-the-blanks-imputation.html#cb109-8" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb109-9"><a href="filling-in-the-blanks-imputation.html#cb109-9" tabindex="-1"></a></span>
+<span id="cb109-10"><a href="filling-in-the-blanks-imputation.html#cb109-10" tabindex="-1"></a>d1<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp1.csv&quot;</span>)</span>
+<span id="cb109-11"><a href="filling-in-the-blanks-imputation.html#cb109-11" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">1</span>)</span>
+<span id="cb109-12"><a href="filling-in-the-blanks-imputation.html#cb109-12" tabindex="-1"></a>)</span>
+<span id="cb109-13"><a href="filling-in-the-blanks-imputation.html#cb109-13" tabindex="-1"></a>d2<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp2.csv&quot;</span>)</span>
+<span id="cb109-14"><a href="filling-in-the-blanks-imputation.html#cb109-14" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">2</span>)    </span>
+<span id="cb109-15"><a href="filling-in-the-blanks-imputation.html#cb109-15" tabindex="-1"></a>)</span>
+<span id="cb109-16"><a href="filling-in-the-blanks-imputation.html#cb109-16" tabindex="-1"></a>D<span class="ot">&lt;-</span>(<span class="fu">rbind</span>(d1,d2)</span>
+<span id="cb109-17"><a href="filling-in-the-blanks-imputation.html#cb109-17" tabindex="-1"></a>    <span class="co"># Just use the dictator game data</span></span>
+<span id="cb109-18"><a href="filling-in-the-blanks-imputation.html#cb109-18" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">filter</span>(dg<span class="sc">==</span><span class="dv">1</span>)  </span>
+<span id="cb109-19"><a href="filling-in-the-blanks-imputation.html#cb109-19" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
+<span id="cb109-20"><a href="filling-in-the-blanks-imputation.html#cb109-20" tabindex="-1"></a>      <span class="at">self_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,self_x,self_y),</span>
+<span id="cb109-21"><a href="filling-in-the-blanks-imputation.html#cb109-21" tabindex="-1"></a>      <span class="at">other_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,other_x,other_y)</span>
+<span id="cb109-22"><a href="filling-in-the-blanks-imputation.html#cb109-22" tabindex="-1"></a>    )</span>
+<span id="cb109-23"><a href="filling-in-the-blanks-imputation.html#cb109-23" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb109-24"><a href="filling-in-the-blanks-imputation.html#cb109-24" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb109-25"><a href="filling-in-the-blanks-imputation.html#cb109-25" tabindex="-1"></a>    <span class="at">domain.x =</span> <span class="fu">ifelse</span>(self_x<span class="sc">&gt;</span>other_x,<span class="st">&quot;adv&quot;</span>,<span class="st">&quot;disadv&quot;</span>),</span>
+<span id="cb109-26"><a href="filling-in-the-blanks-imputation.html#cb109-26" tabindex="-1"></a>    <span class="at">domain.y =</span> <span class="fu">ifelse</span>(self_y<span class="sc">&gt;</span>other_y,<span class="st">&quot;adv&quot;</span>,<span class="st">&quot;disadv&quot;</span>),</span>
+<span id="cb109-27"><a href="filling-in-the-blanks-imputation.html#cb109-27" tabindex="-1"></a>    <span class="at">domain.overall =</span> <span class="fu">ifelse</span>(domain.x <span class="sc">==</span> <span class="st">&quot;adv&quot;</span> <span class="sc">&amp;</span> domain.y <span class="sc">==</span> <span class="st">&quot;adv&quot;</span>,<span class="st">&quot;adv&quot;</span>,</span>
+<span id="cb109-28"><a href="filling-in-the-blanks-imputation.html#cb109-28" tabindex="-1"></a>                            <span class="fu">ifelse</span>(domain.x <span class="sc">==</span> <span class="st">&quot;disadv&quot;</span> <span class="sc">&amp;</span> domain.y <span class="sc">==</span> <span class="st">&quot;disadv&quot;</span>,<span class="st">&quot;disadv&quot;</span>,</span>
+<span id="cb109-29"><a href="filling-in-the-blanks-imputation.html#cb109-29" tabindex="-1"></a>                            <span class="st">&quot;mixed&quot;</span>)</span>
+<span id="cb109-30"><a href="filling-in-the-blanks-imputation.html#cb109-30" tabindex="-1"></a>                            )</span>
+<span id="cb109-31"><a href="filling-in-the-blanks-imputation.html#cb109-31" tabindex="-1"></a>  )</span>
+<span id="cb109-32"><a href="filling-in-the-blanks-imputation.html#cb109-32" tabindex="-1"></a></span>
+<span id="cb109-33"><a href="filling-in-the-blanks-imputation.html#cb109-33" tabindex="-1"></a>sid.list<span class="ot">&lt;-</span>D <span class="sc">|&gt;</span></span>
+<span id="cb109-34"><a href="filling-in-the-blanks-imputation.html#cb109-34" tabindex="-1"></a>  <span class="fu">select</span>(sid) <span class="sc">|&gt;</span></span>
+<span id="cb109-35"><a href="filling-in-the-blanks-imputation.html#cb109-35" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb109-36"><a href="filling-in-the-blanks-imputation.html#cb109-36" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb109-37"><a href="filling-in-the-blanks-imputation.html#cb109-37" tabindex="-1"></a>    <span class="at">i =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()</span>
+<span id="cb109-38"><a href="filling-in-the-blanks-imputation.html#cb109-38" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb109-39"><a href="filling-in-the-blanks-imputation.html#cb109-39" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb109-40"><a href="filling-in-the-blanks-imputation.html#cb109-40" tabindex="-1"></a>    <span class="at">holdout =</span> i<span class="sc">&lt;=</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb109-41"><a href="filling-in-the-blanks-imputation.html#cb109-41" tabindex="-1"></a>  )</span>
+<span id="cb109-42"><a href="filling-in-the-blanks-imputation.html#cb109-42" tabindex="-1"></a></span>
+<span id="cb109-43"><a href="filling-in-the-blanks-imputation.html#cb109-43" tabindex="-1"></a>D<span class="ot">&lt;-</span>D <span class="sc">|&gt;</span></span>
+<span id="cb109-44"><a href="filling-in-the-blanks-imputation.html#cb109-44" tabindex="-1"></a>  <span class="fu">full_join</span>(sid.list,</span>
+<span id="cb109-45"><a href="filling-in-the-blanks-imputation.html#cb109-45" tabindex="-1"></a>        <span class="at">by =</span> <span class="st">&quot;sid&quot;</span>    </span>
+<span id="cb109-46"><a href="filling-in-the-blanks-imputation.html#cb109-46" tabindex="-1"></a>            ) <span class="sc">|&gt;</span></span>
+<span id="cb109-47"><a href="filling-in-the-blanks-imputation.html#cb109-47" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb109-48"><a href="filling-in-the-blanks-imputation.html#cb109-48" tabindex="-1"></a>    <span class="at">drop =</span> (holdout <span class="sc">&amp;</span> domain.overall <span class="sc">==</span> <span class="st">&quot;mixed&quot;</span>) <span class="sc">|</span> (holdout <span class="sc">&amp;</span> domain.overall <span class="sc">==</span><span class="st">&quot;adv&quot;</span>) </span>
+<span id="cb109-49"><a href="filling-in-the-blanks-imputation.html#cb109-49" tabindex="-1"></a>  )</span>
+<span id="cb109-50"><a href="filling-in-the-blanks-imputation.html#cb109-50" tabindex="-1"></a></span>
+<span id="cb109-51"><a href="filling-in-the-blanks-imputation.html#cb109-51" tabindex="-1"></a></span>
+<span id="cb109-52"><a href="filling-in-the-blanks-imputation.html#cb109-52" tabindex="-1"></a>model<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/Hierarchical_BFS2019_correlated_onoff.stan&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb109-53"><a href="filling-in-the-blanks-imputation.html#cb109-53" tabindex="-1"></a>  <span class="fu">stan_model</span>()</span>
+<span id="cb109-54"><a href="filling-in-the-blanks-imputation.html#cb109-54" tabindex="-1"></a></span>
+<span id="cb109-55"><a href="filling-in-the-blanks-imputation.html#cb109-55" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_nocorr.csv&quot;</span></span>
+<span id="cb109-56"><a href="filling-in-the-blanks-imputation.html#cb109-56" tabindex="-1"></a></span>
+<span id="cb109-57"><a href="filling-in-the-blanks-imputation.html#cb109-57" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file) <span class="sc">|</span> RERUN) {</span>
+<span id="cb109-58"><a href="filling-in-the-blanks-imputation.html#cb109-58" tabindex="-1"></a>  </span>
+<span id="cb109-59"><a href="filling-in-the-blanks-imputation.html#cb109-59" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Estimating model with held-out data and no correlation matrix&quot;</span>)</span>
+<span id="cb109-60"><a href="filling-in-the-blanks-imputation.html#cb109-60" tabindex="-1"></a>  </span>
+<span id="cb109-61"><a href="filling-in-the-blanks-imputation.html#cb109-61" tabindex="-1"></a>  d<span class="ot">&lt;-</span> D <span class="sc">|&gt;</span></span>
+<span id="cb109-62"><a href="filling-in-the-blanks-imputation.html#cb109-62" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>drop)</span>
+<span id="cb109-63"><a href="filling-in-the-blanks-imputation.html#cb109-63" tabindex="-1"></a>  </span>
+<span id="cb109-64"><a href="filling-in-the-blanks-imputation.html#cb109-64" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb109-65"><a href="filling-in-the-blanks-imputation.html#cb109-65" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">dim</span>(d)[<span class="dv">1</span>],</span>
+<span id="cb109-66"><a href="filling-in-the-blanks-imputation.html#cb109-66" tabindex="-1"></a>    <span class="at">self_x =</span> d<span class="sc">$</span>self_x,</span>
+<span id="cb109-67"><a href="filling-in-the-blanks-imputation.html#cb109-67" tabindex="-1"></a>    <span class="at">other_x =</span> d<span class="sc">$</span>other_x,</span>
+<span id="cb109-68"><a href="filling-in-the-blanks-imputation.html#cb109-68" tabindex="-1"></a>    <span class="at">self_y =</span> d<span class="sc">$</span>self_y,</span>
+<span id="cb109-69"><a href="filling-in-the-blanks-imputation.html#cb109-69" tabindex="-1"></a>    <span class="at">other_y =</span> d<span class="sc">$</span>other_y,</span>
+<span id="cb109-70"><a href="filling-in-the-blanks-imputation.html#cb109-70" tabindex="-1"></a>    <span class="at">choice_x =</span> d<span class="sc">$</span>choice_x,</span>
+<span id="cb109-71"><a href="filling-in-the-blanks-imputation.html#cb109-71" tabindex="-1"></a>    </span>
+<span id="cb109-72"><a href="filling-in-the-blanks-imputation.html#cb109-72" tabindex="-1"></a>    <span class="at">id =</span> d<span class="sc">$</span>i,</span>
+<span id="cb109-73"><a href="filling-in-the-blanks-imputation.html#cb109-73" tabindex="-1"></a>    <span class="at">nParticipants =</span> <span class="fu">max</span>(d<span class="sc">$</span>i),</span>
+<span id="cb109-74"><a href="filling-in-the-blanks-imputation.html#cb109-74" tabindex="-1"></a>    </span>
+<span id="cb109-75"><a href="filling-in-the-blanks-imputation.html#cb109-75" tabindex="-1"></a>    <span class="at">prior_mu =</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb109-76"><a href="filling-in-the-blanks-imputation.html#cb109-76" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb109-77"><a href="filling-in-the-blanks-imputation.html#cb109-77" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>)</span>
+<span id="cb109-78"><a href="filling-in-the-blanks-imputation.html#cb109-78" tabindex="-1"></a>    ),</span>
+<span id="cb109-79"><a href="filling-in-the-blanks-imputation.html#cb109-79" tabindex="-1"></a>    <span class="at">prior_tau =</span> <span class="fu">c</span>(<span class="fl">0.79</span>,<span class="fl">0.79</span>,<span class="fl">0.24</span>),</span>
+<span id="cb109-80"><a href="filling-in-the-blanks-imputation.html#cb109-80" tabindex="-1"></a>    <span class="at">prior_LKJ =</span> <span class="dv">2</span>,</span>
+<span id="cb109-81"><a href="filling-in-the-blanks-imputation.html#cb109-81" tabindex="-1"></a>    </span>
+<span id="cb109-82"><a href="filling-in-the-blanks-imputation.html#cb109-82" tabindex="-1"></a>    <span class="at">UseCorr =</span> <span class="dv">0</span></span>
+<span id="cb109-83"><a href="filling-in-the-blanks-imputation.html#cb109-83" tabindex="-1"></a>    </span>
+<span id="cb109-84"><a href="filling-in-the-blanks-imputation.html#cb109-84" tabindex="-1"></a>  )</span>
+<span id="cb109-85"><a href="filling-in-the-blanks-imputation.html#cb109-85" tabindex="-1"></a>  </span>
+<span id="cb109-86"><a href="filling-in-the-blanks-imputation.html#cb109-86" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span></span>
+<span id="cb109-87"><a href="filling-in-the-blanks-imputation.html#cb109-87" tabindex="-1"></a>    <span class="fu">sampling</span>(<span class="at">data=</span>dStan,</span>
+<span id="cb109-88"><a href="filling-in-the-blanks-imputation.html#cb109-88" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">10000</span>, <span class="at">chains=</span><span class="dv">8</span>,</span>
+<span id="cb109-89"><a href="filling-in-the-blanks-imputation.html#cb109-89" tabindex="-1"></a>             <span class="at">par =</span> <span class="st">&quot;z&quot;</span>, <span class="at">include =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb109-90"><a href="filling-in-the-blanks-imputation.html#cb109-90" tabindex="-1"></a>             <span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb109-91"><a href="filling-in-the-blanks-imputation.html#cb109-91" tabindex="-1"></a>  </span>
+<span id="cb109-92"><a href="filling-in-the-blanks-imputation.html#cb109-92" tabindex="-1"></a>  <span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
+<span id="cb109-93"><a href="filling-in-the-blanks-imputation.html#cb109-93" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb109-94"><a href="filling-in-the-blanks-imputation.html#cb109-94" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;par&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb109-95"><a href="filling-in-the-blanks-imputation.html#cb109-95" tabindex="-1"></a>    <span class="fu">write.csv</span>(file)</span>
+<span id="cb109-96"><a href="filling-in-the-blanks-imputation.html#cb109-96" tabindex="-1"></a>  </span>
+<span id="cb109-97"><a href="filling-in-the-blanks-imputation.html#cb109-97" tabindex="-1"></a>  </span>
+<span id="cb109-98"><a href="filling-in-the-blanks-imputation.html#cb109-98" tabindex="-1"></a>}</span>
+<span id="cb109-99"><a href="filling-in-the-blanks-imputation.html#cb109-99" tabindex="-1"></a></span>
+<span id="cb109-100"><a href="filling-in-the-blanks-imputation.html#cb109-100" tabindex="-1"></a></span>
+<span id="cb109-101"><a href="filling-in-the-blanks-imputation.html#cb109-101" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_corr.csv&quot;</span></span>
+<span id="cb109-102"><a href="filling-in-the-blanks-imputation.html#cb109-102" tabindex="-1"></a></span>
+<span id="cb109-103"><a href="filling-in-the-blanks-imputation.html#cb109-103" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file) <span class="sc">|</span> RERUN) {</span>
+<span id="cb109-104"><a href="filling-in-the-blanks-imputation.html#cb109-104" tabindex="-1"></a>  </span>
+<span id="cb109-105"><a href="filling-in-the-blanks-imputation.html#cb109-105" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Estimating model with held-out data and correlation matrix&quot;</span>)</span>
+<span id="cb109-106"><a href="filling-in-the-blanks-imputation.html#cb109-106" tabindex="-1"></a>  </span>
+<span id="cb109-107"><a href="filling-in-the-blanks-imputation.html#cb109-107" tabindex="-1"></a>  d<span class="ot">&lt;-</span> D <span class="sc">|&gt;</span></span>
+<span id="cb109-108"><a href="filling-in-the-blanks-imputation.html#cb109-108" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>drop)</span>
+<span id="cb109-109"><a href="filling-in-the-blanks-imputation.html#cb109-109" tabindex="-1"></a>  </span>
+<span id="cb109-110"><a href="filling-in-the-blanks-imputation.html#cb109-110" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb109-111"><a href="filling-in-the-blanks-imputation.html#cb109-111" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">dim</span>(d)[<span class="dv">1</span>],</span>
+<span id="cb109-112"><a href="filling-in-the-blanks-imputation.html#cb109-112" tabindex="-1"></a>    <span class="at">self_x =</span> d<span class="sc">$</span>self_x,</span>
+<span id="cb109-113"><a href="filling-in-the-blanks-imputation.html#cb109-113" tabindex="-1"></a>    <span class="at">other_x =</span> d<span class="sc">$</span>other_x,</span>
+<span id="cb109-114"><a href="filling-in-the-blanks-imputation.html#cb109-114" tabindex="-1"></a>    <span class="at">self_y =</span> d<span class="sc">$</span>self_y,</span>
+<span id="cb109-115"><a href="filling-in-the-blanks-imputation.html#cb109-115" tabindex="-1"></a>    <span class="at">other_y =</span> d<span class="sc">$</span>other_y,</span>
+<span id="cb109-116"><a href="filling-in-the-blanks-imputation.html#cb109-116" tabindex="-1"></a>    <span class="at">choice_x =</span> d<span class="sc">$</span>choice_x,</span>
+<span id="cb109-117"><a href="filling-in-the-blanks-imputation.html#cb109-117" tabindex="-1"></a>    </span>
+<span id="cb109-118"><a href="filling-in-the-blanks-imputation.html#cb109-118" tabindex="-1"></a>    <span class="at">id =</span> d<span class="sc">$</span>i,</span>
+<span id="cb109-119"><a href="filling-in-the-blanks-imputation.html#cb109-119" tabindex="-1"></a>    <span class="at">nParticipants =</span> <span class="fu">max</span>(d<span class="sc">$</span>i),</span>
+<span id="cb109-120"><a href="filling-in-the-blanks-imputation.html#cb109-120" tabindex="-1"></a>    </span>
+<span id="cb109-121"><a href="filling-in-the-blanks-imputation.html#cb109-121" tabindex="-1"></a>    <span class="at">prior_mu =</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb109-122"><a href="filling-in-the-blanks-imputation.html#cb109-122" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb109-123"><a href="filling-in-the-blanks-imputation.html#cb109-123" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>)</span>
+<span id="cb109-124"><a href="filling-in-the-blanks-imputation.html#cb109-124" tabindex="-1"></a>    ),</span>
+<span id="cb109-125"><a href="filling-in-the-blanks-imputation.html#cb109-125" tabindex="-1"></a>    <span class="at">prior_tau =</span> <span class="fu">c</span>(<span class="fl">0.79</span>,<span class="fl">0.79</span>,<span class="fl">0.24</span>),</span>
+<span id="cb109-126"><a href="filling-in-the-blanks-imputation.html#cb109-126" tabindex="-1"></a>    <span class="at">prior_LKJ =</span> <span class="dv">2</span>,</span>
+<span id="cb109-127"><a href="filling-in-the-blanks-imputation.html#cb109-127" tabindex="-1"></a>    </span>
+<span id="cb109-128"><a href="filling-in-the-blanks-imputation.html#cb109-128" tabindex="-1"></a>    <span class="at">UseCorr =</span> <span class="dv">1</span></span>
+<span id="cb109-129"><a href="filling-in-the-blanks-imputation.html#cb109-129" tabindex="-1"></a>    </span>
+<span id="cb109-130"><a href="filling-in-the-blanks-imputation.html#cb109-130" tabindex="-1"></a>  )</span>
+<span id="cb109-131"><a href="filling-in-the-blanks-imputation.html#cb109-131" tabindex="-1"></a>  </span>
+<span id="cb109-132"><a href="filling-in-the-blanks-imputation.html#cb109-132" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span></span>
+<span id="cb109-133"><a href="filling-in-the-blanks-imputation.html#cb109-133" tabindex="-1"></a>    <span class="fu">sampling</span>(<span class="at">data=</span>dStan,</span>
+<span id="cb109-134"><a href="filling-in-the-blanks-imputation.html#cb109-134" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">10000</span>, <span class="at">chains=</span><span class="dv">8</span>,</span>
+<span id="cb109-135"><a href="filling-in-the-blanks-imputation.html#cb109-135" tabindex="-1"></a>             <span class="at">par =</span> <span class="st">&quot;z&quot;</span>, <span class="at">include =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb109-136"><a href="filling-in-the-blanks-imputation.html#cb109-136" tabindex="-1"></a>             <span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb109-137"><a href="filling-in-the-blanks-imputation.html#cb109-137" tabindex="-1"></a>  </span>
+<span id="cb109-138"><a href="filling-in-the-blanks-imputation.html#cb109-138" tabindex="-1"></a>  <span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
+<span id="cb109-139"><a href="filling-in-the-blanks-imputation.html#cb109-139" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb109-140"><a href="filling-in-the-blanks-imputation.html#cb109-140" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;par&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb109-141"><a href="filling-in-the-blanks-imputation.html#cb109-141" tabindex="-1"></a>    <span class="fu">write.csv</span>(file)</span>
+<span id="cb109-142"><a href="filling-in-the-blanks-imputation.html#cb109-142" tabindex="-1"></a>  </span>
+<span id="cb109-143"><a href="filling-in-the-blanks-imputation.html#cb109-143" tabindex="-1"></a>  </span>
+<span id="cb109-144"><a href="filling-in-the-blanks-imputation.html#cb109-144" tabindex="-1"></a>}</span>
+<span id="cb109-145"><a href="filling-in-the-blanks-imputation.html#cb109-145" tabindex="-1"></a></span>
+<span id="cb109-146"><a href="filling-in-the-blanks-imputation.html#cb109-146" tabindex="-1"></a></span>
+<span id="cb109-147"><a href="filling-in-the-blanks-imputation.html#cb109-147" tabindex="-1"></a></span>
+<span id="cb109-148"><a href="filling-in-the-blanks-imputation.html#cb109-148" tabindex="-1"></a></span>
+<span id="cb109-149"><a href="filling-in-the-blanks-imputation.html#cb109-149" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_alldata.csv&quot;</span></span>
+<span id="cb109-150"><a href="filling-in-the-blanks-imputation.html#cb109-150" tabindex="-1"></a></span>
+<span id="cb109-151"><a href="filling-in-the-blanks-imputation.html#cb109-151" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file) <span class="sc">|</span> RERUN) {</span>
+<span id="cb109-152"><a href="filling-in-the-blanks-imputation.html#cb109-152" tabindex="-1"></a>  </span>
+<span id="cb109-153"><a href="filling-in-the-blanks-imputation.html#cb109-153" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Estimating model with all data&quot;</span>)</span>
+<span id="cb109-154"><a href="filling-in-the-blanks-imputation.html#cb109-154" tabindex="-1"></a>  </span>
+<span id="cb109-155"><a href="filling-in-the-blanks-imputation.html#cb109-155" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb109-156"><a href="filling-in-the-blanks-imputation.html#cb109-156" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">dim</span>(D)[<span class="dv">1</span>],</span>
+<span id="cb109-157"><a href="filling-in-the-blanks-imputation.html#cb109-157" tabindex="-1"></a>    <span class="at">self_x =</span> D<span class="sc">$</span>self_x,</span>
+<span id="cb109-158"><a href="filling-in-the-blanks-imputation.html#cb109-158" tabindex="-1"></a>    <span class="at">other_x =</span> D<span class="sc">$</span>other_x,</span>
+<span id="cb109-159"><a href="filling-in-the-blanks-imputation.html#cb109-159" tabindex="-1"></a>    <span class="at">self_y =</span> D<span class="sc">$</span>self_y,</span>
+<span id="cb109-160"><a href="filling-in-the-blanks-imputation.html#cb109-160" tabindex="-1"></a>    <span class="at">other_y =</span> D<span class="sc">$</span>other_y,</span>
+<span id="cb109-161"><a href="filling-in-the-blanks-imputation.html#cb109-161" tabindex="-1"></a>    <span class="at">choice_x =</span> D<span class="sc">$</span>choice_x,</span>
+<span id="cb109-162"><a href="filling-in-the-blanks-imputation.html#cb109-162" tabindex="-1"></a>    </span>
+<span id="cb109-163"><a href="filling-in-the-blanks-imputation.html#cb109-163" tabindex="-1"></a>    <span class="at">id =</span> D<span class="sc">$</span>i,</span>
+<span id="cb109-164"><a href="filling-in-the-blanks-imputation.html#cb109-164" tabindex="-1"></a>    <span class="at">nParticipants =</span> <span class="fu">max</span>(D<span class="sc">$</span>i),</span>
+<span id="cb109-165"><a href="filling-in-the-blanks-imputation.html#cb109-165" tabindex="-1"></a>    </span>
+<span id="cb109-166"><a href="filling-in-the-blanks-imputation.html#cb109-166" tabindex="-1"></a>    <span class="at">prior_mu =</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb109-167"><a href="filling-in-the-blanks-imputation.html#cb109-167" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb109-168"><a href="filling-in-the-blanks-imputation.html#cb109-168" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>)</span>
+<span id="cb109-169"><a href="filling-in-the-blanks-imputation.html#cb109-169" tabindex="-1"></a>    ),</span>
+<span id="cb109-170"><a href="filling-in-the-blanks-imputation.html#cb109-170" tabindex="-1"></a>    <span class="at">prior_tau =</span> <span class="fu">c</span>(<span class="fl">0.79</span>,<span class="fl">0.79</span>,<span class="fl">0.24</span>),</span>
+<span id="cb109-171"><a href="filling-in-the-blanks-imputation.html#cb109-171" tabindex="-1"></a>    <span class="at">prior_LKJ =</span> <span class="dv">2</span>,</span>
+<span id="cb109-172"><a href="filling-in-the-blanks-imputation.html#cb109-172" tabindex="-1"></a>    </span>
+<span id="cb109-173"><a href="filling-in-the-blanks-imputation.html#cb109-173" tabindex="-1"></a>    <span class="at">UseCorr =</span> <span class="dv">1</span></span>
+<span id="cb109-174"><a href="filling-in-the-blanks-imputation.html#cb109-174" tabindex="-1"></a>    </span>
+<span id="cb109-175"><a href="filling-in-the-blanks-imputation.html#cb109-175" tabindex="-1"></a>  )</span>
+<span id="cb109-176"><a href="filling-in-the-blanks-imputation.html#cb109-176" tabindex="-1"></a>  </span>
+<span id="cb109-177"><a href="filling-in-the-blanks-imputation.html#cb109-177" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span></span>
+<span id="cb109-178"><a href="filling-in-the-blanks-imputation.html#cb109-178" tabindex="-1"></a>    <span class="fu">sampling</span>(<span class="at">data=</span>dStan,</span>
+<span id="cb109-179"><a href="filling-in-the-blanks-imputation.html#cb109-179" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">10000</span>, <span class="at">chains=</span><span class="dv">8</span>,</span>
+<span id="cb109-180"><a href="filling-in-the-blanks-imputation.html#cb109-180" tabindex="-1"></a>             <span class="at">par =</span> <span class="st">&quot;z&quot;</span>, <span class="at">include =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb109-181"><a href="filling-in-the-blanks-imputation.html#cb109-181" tabindex="-1"></a>             <span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb109-182"><a href="filling-in-the-blanks-imputation.html#cb109-182" tabindex="-1"></a>  </span>
+<span id="cb109-183"><a href="filling-in-the-blanks-imputation.html#cb109-183" tabindex="-1"></a>  <span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
+<span id="cb109-184"><a href="filling-in-the-blanks-imputation.html#cb109-184" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb109-185"><a href="filling-in-the-blanks-imputation.html#cb109-185" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;par&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb109-186"><a href="filling-in-the-blanks-imputation.html#cb109-186" tabindex="-1"></a>    <span class="fu">write.csv</span>(file)</span>
+<span id="cb109-187"><a href="filling-in-the-blanks-imputation.html#cb109-187" tabindex="-1"></a>  </span>
+<span id="cb109-188"><a href="filling-in-the-blanks-imputation.html#cb109-188" tabindex="-1"></a>  </span>
+<span id="cb109-189"><a href="filling-in-the-blanks-imputation.html#cb109-189" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="acknowedgements" class="section level2 unnumbered hasAnchor">
+<h2>Acknowedgements<a href="filling-in-the-blanks-imputation.html#acknowedgements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This chapter could not have been possible had it not been for a very thought-provoking conversation between Glenn Harrison, Brian Monroe, and myself.</p>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-BFS2019" class="csl-entry">
+Bruhin, Adrian, Ernst Fehr, and Daniel Schunk. 2019. <span>“The Many Faces of Human Sociality: Uncovering the Distribution and Stability of Social Preferences.”</span> <em>Journal of the European Economic Association</em> 17 (4): 1025–69.
+</div>
+<div id="ref-FS1999" class="csl-entry">
+Fehr, Ernst, and Klaus M Schmidt. 1999. <span>“A Theory of Fairness, Competition, and Cooperation.”</span> <em>The Quarterly Journal of Economics</em> 114 (3): 817–68.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="34">
+<li id="fn34"><p>If you’ve been reading this book, you’re probably wondering why anyone <em>wouldn’t</em> put a correlation matrix into a hierarchical model, because I almost always put one into mine. I must say that until I started writing this chapter, I hadn’t thought much about <em>why</em> I was doing it, other than that I believe that parameters are correlated, and so I should estimate a model that permits this. In other words, I include correlation matrices in my models because … why not? More recently, I have walked this back a bit. For one thing, if you have informative enough data on all of the parameters, <strong>and</strong> you want to make inference about individuals (not the population), then there is a growing evidence showing that it really doesn’t matter practically, and a model without a covariance matrix will probably converge easier. But if you want to make statements about the population, then the correlation matrix itself might be interesting. Furthermore, if you are doing imputation, then it allows you to better condition your estimates on properties of the population. <a href="filling-in-the-blanks-imputation.html#fnref34" class="footnote-back">↩︎</a></p></li>
+<li id="fn35"><p>Here I color the dots based on imputation rather than <span class="math inline">\(\lambda_i\)</span>. The estimates of <span class="math inline">\(\lambda_i\)</span> are of course still there, but just not shown in the plot. <a href="filling-in-the-blanks-imputation.html#fnref35" class="footnote-back">↩︎</a></p></li>
+<li id="fn36"><p>In fact there is also <em>much</em> less information about <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\lambda_i\)</span> because I threw out the mixed choices as well. Therefore if you squint enough you might see some more shrinkage for the blue dots horizontally as well. <a href="filling-in-the-blanks-imputation.html#fnref36" class="footnote-back">↩︎</a></p></li>
+<li id="fn37"><p>Really we should be jointly estimating this. Perhaps I will write another chapter on joint estimation of this form. <a href="filling-in-the-blanks-imputation.html#fnref37" class="footnote-back">↩︎</a></p></li>
+<li id="fn38"><p>This suggests that it could be useful to have a pool of well-collected data for a laboratory that is very informative of “standard” preference parameters (e.g. perhaps risk, time, other-regarding, and so on). These data could be used in multiple other experiments to help provide more precise estimates of the desired individual-level parameters. The trick here would be to make sure that these data are generated by a similar-enough subject pool that including them in the imputation is meaningful. Furthermore, as many experiments are moving online, and so the subject pools for (say) Prolific across different experiments may look very similar, this means that there may be great public good value in producing these datasets, and that these datasets should be well-cited if these methods are adopted, <em>hint hint!</em> <a href="filling-in-the-blanks-imputation.html#fnref38" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mixture-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="model-evaluation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": false,
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
