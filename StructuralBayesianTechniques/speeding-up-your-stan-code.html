@@ -292,6 +292,11 @@ div.csl-indent {
 <li class="chapter" data-level="9.2.4" data-path="more-filling-in-the-blanks-data-augmentation.html"><a href="more-filling-in-the-blanks-data-augmentation.html#augmenting-the-data"><i class="fa fa-check"></i><b>9.2.4</b> Augmenting the data</a></li>
 <li class="chapter" data-level="9.2.5" data-path="more-filling-in-the-blanks-data-augmentation.html"><a href="more-filling-in-the-blanks-data-augmentation.html#results-1"><i class="fa fa-check"></i><b>9.2.5</b> Results</a></li>
 </ul></li>
+<li class="chapter" data-level="9.3" data-path="more-filling-in-the-blanks-data-augmentation.html"><a href="more-filling-in-the-blanks-data-augmentation.html#r-code-used-for-this-chapter-2"><i class="fa fa-check"></i><b>9.3</b> <em>R</em> code used for this chapter</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="more-filling-in-the-blanks-data-augmentation.html"><a href="more-filling-in-the-blanks-data-augmentation.html#loading-the-data"><i class="fa fa-check"></i><b>9.3.1</b> Loading the data</a></li>
+<li class="chapter" data-level="9.3.2" data-path="more-filling-in-the-blanks-data-augmentation.html"><a href="more-filling-in-the-blanks-data-augmentation.html#estimating-the-models"><i class="fa fa-check"></i><b>9.3.2</b> Estimating the models</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html"><a href="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html"><i class="fa fa-check"></i><b>10</b> Using your structural estimates as explanatory variables in regression models</a>
 <ul>
@@ -300,7 +305,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.3" data-path="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html"><a href="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html#example-3-logit-and-ordered-logit-with-risk-preferences-from-gneezy1997"><i class="fa fa-check"></i><b>10.3</b> Example 3: Logit and ordered logit with risk preferences from <span class="citation">Gneezy and Potters (1997)</span></a></li>
 <li class="chapter" data-level="10.4" data-path="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html"><a href="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html#a-note-of-caution"><i class="fa fa-check"></i><b>10.4</b> A note of caution</a></li>
 <li class="chapter" data-level="10.5" data-path="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html"><a href="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html#conclusion-1"><i class="fa fa-check"></i><b>10.5</b> Conclusion</a></li>
-<li class="chapter" data-level="10.6" data-path="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html"><a href="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html#r-code-used-for-this-chapter-2"><i class="fa fa-check"></i><b>10.6</b> <em>R</em> code used for this chapter</a>
+<li class="chapter" data-level="10.6" data-path="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html"><a href="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html#r-code-used-for-this-chapter-3"><i class="fa fa-check"></i><b>10.6</b> <em>R</em> code used for this chapter</a>
 <ul>
 <li class="chapter" data-level="10.6.1" data-path="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html"><a href="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html#example-1"><i class="fa fa-check"></i><b>10.6.1</b> Example 1</a></li>
 <li class="chapter" data-level="10.6.2" data-path="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html"><a href="using-your-structural-estimates-as-explanatory-variables-in-regression-models.html#example-2"><i class="fa fa-check"></i><b>10.6.2</b> Example 2</a></li>
@@ -360,7 +365,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="13.5" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#some-code-used-to-estimate-the-models-1"><i class="fa fa-check"></i><b>13.5</b> Some code used to estimate the models</a>
 <ul>
-<li class="chapter" data-level="13.5.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#loading-the-data"><i class="fa fa-check"></i><b>13.5.1</b> Loading the data</a></li>
+<li class="chapter" data-level="13.5.1" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#loading-the-data-1"><i class="fa fa-check"></i><b>13.5.1</b> Loading the data</a></li>
 <li class="chapter" data-level="13.5.2" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-representative-agent-models"><i class="fa fa-check"></i><b>13.5.2</b> Estimating the representative agent models</a></li>
 <li class="chapter" data-level="13.5.3" data-path="application-experience-weighted-attraction.html"><a href="application-experience-weighted-attraction.html#estimating-the-hierarchical-model"><i class="fa fa-check"></i><b>13.5.3</b> Estimating the hierarchical model</a></li>
 </ul></li>
@@ -574,52 +579,52 @@ r&amp;\sim N(0.27,0.36^2)\\
 <div id="a-really-slow-way-to-estimate-the-model" class="section level2 hasAnchor" number="12.2">
 <h2><span class="header-section-number">12.2</span> A really slow way to estimate the model<a href="speeding-up-your-stan-code.html#a-really-slow-way-to-estimate-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>I start out with a <em>Stan</em> program that looks like how I would code in <em>Matlab</em> in 2010: completely unaware of what makes code fast, but with a good understanding of how a <code>for</code> loop works! Here I compute the expected utility difference for each decision separately (in the <code>for (ii in 1:N)</code> loop), <em>and</em> for good measure also compute the sums in the expected utility formula using a <code>for</code> loop. There is nothing mathematically wrong with any of this, but as you will see below, we can speed things up considerably.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb155-1"><a href="speeding-up-your-stan-code.html#cb155-1" tabindex="-1"></a>data <span class="op">{</span></span>
-<span id="cb155-2"><a href="speeding-up-your-stan-code.html#cb155-2" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span> <span class="co">// number of decisions</span></span>
-<span id="cb155-3"><a href="speeding-up-your-stan-code.html#cb155-3" tabindex="-1"></a>  </span>
-<span id="cb155-4"><a href="speeding-up-your-stan-code.html#cb155-4" tabindex="-1"></a>  <span class="dt">int</span> Left<span class="op">[</span>N<span class="op">];</span> <span class="co">// logical =1 if left lottery was chosen</span></span>
-<span id="cb155-5"><a href="speeding-up-your-stan-code.html#cb155-5" tabindex="-1"></a>  </span>
-<span id="cb155-6"><a href="speeding-up-your-stan-code.html#cb155-6" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> prizes<span class="op">;</span> <span class="co">// the 3 monetary prizes</span></span>
-<span id="cb155-7"><a href="speeding-up-your-stan-code.html#cb155-7" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">2</span><span class="op">]</span> prizerange<span class="op">;</span> <span class="co">// The minimum and maximum prize</span></span>
-<span id="cb155-8"><a href="speeding-up-your-stan-code.html#cb155-8" tabindex="-1"></a>  </span>
-<span id="cb155-9"><a href="speeding-up-your-stan-code.html#cb155-9" tabindex="-1"></a>  </span>
-<span id="cb155-10"><a href="speeding-up-your-stan-code.html#cb155-10" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probL<span class="op">;</span> <span class="co">// prob. distribution for Left lottery</span></span>
-<span id="cb155-11"><a href="speeding-up-your-stan-code.html#cb155-11" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probR<span class="op">;</span> <span class="co">// prob. distribution for Right lottery</span></span>
-<span id="cb155-12"><a href="speeding-up-your-stan-code.html#cb155-12" tabindex="-1"></a>  </span>
-<span id="cb155-13"><a href="speeding-up-your-stan-code.html#cb155-13" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_r<span class="op">;</span> <span class="co">// normal prior on CRRA parameter</span></span>
-<span id="cb155-14"><a href="speeding-up-your-stan-code.html#cb155-14" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_lambda<span class="op">;</span> <span class="co">// log-normal prior on logit choice precision</span></span>
-<span id="cb155-15"><a href="speeding-up-your-stan-code.html#cb155-15" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb155-16"><a href="speeding-up-your-stan-code.html#cb155-16" tabindex="-1"></a></span>
-<span id="cb155-17"><a href="speeding-up-your-stan-code.html#cb155-17" tabindex="-1"></a>parameters <span class="op">{</span></span>
-<span id="cb155-18"><a href="speeding-up-your-stan-code.html#cb155-18" tabindex="-1"></a>  real r<span class="op">;</span></span>
-<span id="cb155-19"><a href="speeding-up-your-stan-code.html#cb155-19" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
-<span id="cb155-20"><a href="speeding-up-your-stan-code.html#cb155-20" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb155-21"><a href="speeding-up-your-stan-code.html#cb155-21" tabindex="-1"></a>model <span class="op">{</span></span>
-<span id="cb155-22"><a href="speeding-up-your-stan-code.html#cb155-22" tabindex="-1"></a>  </span>
-<span id="cb155-23"><a href="speeding-up-your-stan-code.html#cb155-23" tabindex="-1"></a>  <span class="co">// priors</span></span>
-<span id="cb155-24"><a href="speeding-up-your-stan-code.html#cb155-24" tabindex="-1"></a>  r <span class="op">~</span> normal<span class="op">(</span>prior_r<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_r<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb155-25"><a href="speeding-up-your-stan-code.html#cb155-25" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb155-26"><a href="speeding-up-your-stan-code.html#cb155-26" tabindex="-1"></a>  </span>
-<span id="cb155-27"><a href="speeding-up-your-stan-code.html#cb155-27" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span> <span class="co">// loop over lottery pairs</span></span>
-<span id="cb155-28"><a href="speeding-up-your-stan-code.html#cb155-28" tabindex="-1"></a>  </span>
-<span id="cb155-29"><a href="speeding-up-your-stan-code.html#cb155-29" tabindex="-1"></a>    real EUleft <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span></span>
-<span id="cb155-30"><a href="speeding-up-your-stan-code.html#cb155-30" tabindex="-1"></a>    real EUright <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span></span>
-<span id="cb155-31"><a href="speeding-up-your-stan-code.html#cb155-31" tabindex="-1"></a>  </span>
-<span id="cb155-32"><a href="speeding-up-your-stan-code.html#cb155-32" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>kk in <span class="dv">1</span><span class="op">:</span><span class="dv">3</span><span class="op">)</span> <span class="op">{</span> <span class="co">// loop over lottery pairs</span></span>
-<span id="cb155-33"><a href="speeding-up-your-stan-code.html#cb155-33" tabindex="-1"></a>      <span class="co">// add each component of the sum individually</span></span>
-<span id="cb155-34"><a href="speeding-up-your-stan-code.html#cb155-34" tabindex="-1"></a>      EUleft <span class="op">+=</span> probL<span class="op">[</span>ii<span class="op">,</span>kk<span class="op">]*</span>pow<span class="op">(</span>prizes<span class="op">[</span>ii<span class="op">,</span>kk<span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">);</span></span>
-<span id="cb155-35"><a href="speeding-up-your-stan-code.html#cb155-35" tabindex="-1"></a>      EUright <span class="op">+=</span> probR<span class="op">[</span>ii<span class="op">,</span>kk<span class="op">]*</span>pow<span class="op">(</span>prizes<span class="op">[</span>ii<span class="op">,</span>kk<span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">);</span></span>
-<span id="cb155-36"><a href="speeding-up-your-stan-code.html#cb155-36" tabindex="-1"></a>      </span>
-<span id="cb155-37"><a href="speeding-up-your-stan-code.html#cb155-37" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb155-38"><a href="speeding-up-your-stan-code.html#cb155-38" tabindex="-1"></a>    <span class="co">// contextual utility normalization</span></span>
-<span id="cb155-39"><a href="speeding-up-your-stan-code.html#cb155-39" tabindex="-1"></a>    real normalizedUtility <span class="op">=</span> <span class="op">(</span>EUleft<span class="op">-</span>EUright<span class="op">)/</span></span>
-<span id="cb155-40"><a href="speeding-up-your-stan-code.html#cb155-40" tabindex="-1"></a>                            <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[</span>ii<span class="op">,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[</span>ii<span class="op">,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">));</span></span>
-<span id="cb155-41"><a href="speeding-up-your-stan-code.html#cb155-41" tabindex="-1"></a>                            </span>
-<span id="cb155-42"><a href="speeding-up-your-stan-code.html#cb155-42" tabindex="-1"></a>    target <span class="op">+=</span> bernoulli_logit_lpmf<span class="op">(</span>Left<span class="op">[</span>ii<span class="op">]</span> <span class="op">|</span> lambda<span class="op">*</span>normalizedUtility<span class="op">);</span></span>
-<span id="cb155-43"><a href="speeding-up-your-stan-code.html#cb155-43" tabindex="-1"></a>    </span>
-<span id="cb155-44"><a href="speeding-up-your-stan-code.html#cb155-44" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb155-45"><a href="speeding-up-your-stan-code.html#cb155-45" tabindex="-1"></a>  </span>
-<span id="cb155-46"><a href="speeding-up-your-stan-code.html#cb155-46" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb157-1"><a href="speeding-up-your-stan-code.html#cb157-1" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb157-2"><a href="speeding-up-your-stan-code.html#cb157-2" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span> <span class="co">// number of decisions</span></span>
+<span id="cb157-3"><a href="speeding-up-your-stan-code.html#cb157-3" tabindex="-1"></a>  </span>
+<span id="cb157-4"><a href="speeding-up-your-stan-code.html#cb157-4" tabindex="-1"></a>  <span class="dt">int</span> Left<span class="op">[</span>N<span class="op">];</span> <span class="co">// logical =1 if left lottery was chosen</span></span>
+<span id="cb157-5"><a href="speeding-up-your-stan-code.html#cb157-5" tabindex="-1"></a>  </span>
+<span id="cb157-6"><a href="speeding-up-your-stan-code.html#cb157-6" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> prizes<span class="op">;</span> <span class="co">// the 3 monetary prizes</span></span>
+<span id="cb157-7"><a href="speeding-up-your-stan-code.html#cb157-7" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">2</span><span class="op">]</span> prizerange<span class="op">;</span> <span class="co">// The minimum and maximum prize</span></span>
+<span id="cb157-8"><a href="speeding-up-your-stan-code.html#cb157-8" tabindex="-1"></a>  </span>
+<span id="cb157-9"><a href="speeding-up-your-stan-code.html#cb157-9" tabindex="-1"></a>  </span>
+<span id="cb157-10"><a href="speeding-up-your-stan-code.html#cb157-10" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probL<span class="op">;</span> <span class="co">// prob. distribution for Left lottery</span></span>
+<span id="cb157-11"><a href="speeding-up-your-stan-code.html#cb157-11" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probR<span class="op">;</span> <span class="co">// prob. distribution for Right lottery</span></span>
+<span id="cb157-12"><a href="speeding-up-your-stan-code.html#cb157-12" tabindex="-1"></a>  </span>
+<span id="cb157-13"><a href="speeding-up-your-stan-code.html#cb157-13" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_r<span class="op">;</span> <span class="co">// normal prior on CRRA parameter</span></span>
+<span id="cb157-14"><a href="speeding-up-your-stan-code.html#cb157-14" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_lambda<span class="op">;</span> <span class="co">// log-normal prior on logit choice precision</span></span>
+<span id="cb157-15"><a href="speeding-up-your-stan-code.html#cb157-15" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb157-16"><a href="speeding-up-your-stan-code.html#cb157-16" tabindex="-1"></a></span>
+<span id="cb157-17"><a href="speeding-up-your-stan-code.html#cb157-17" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb157-18"><a href="speeding-up-your-stan-code.html#cb157-18" tabindex="-1"></a>  real r<span class="op">;</span></span>
+<span id="cb157-19"><a href="speeding-up-your-stan-code.html#cb157-19" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
+<span id="cb157-20"><a href="speeding-up-your-stan-code.html#cb157-20" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb157-21"><a href="speeding-up-your-stan-code.html#cb157-21" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb157-22"><a href="speeding-up-your-stan-code.html#cb157-22" tabindex="-1"></a>  </span>
+<span id="cb157-23"><a href="speeding-up-your-stan-code.html#cb157-23" tabindex="-1"></a>  <span class="co">// priors</span></span>
+<span id="cb157-24"><a href="speeding-up-your-stan-code.html#cb157-24" tabindex="-1"></a>  r <span class="op">~</span> normal<span class="op">(</span>prior_r<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_r<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb157-25"><a href="speeding-up-your-stan-code.html#cb157-25" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb157-26"><a href="speeding-up-your-stan-code.html#cb157-26" tabindex="-1"></a>  </span>
+<span id="cb157-27"><a href="speeding-up-your-stan-code.html#cb157-27" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span> <span class="co">// loop over lottery pairs</span></span>
+<span id="cb157-28"><a href="speeding-up-your-stan-code.html#cb157-28" tabindex="-1"></a>  </span>
+<span id="cb157-29"><a href="speeding-up-your-stan-code.html#cb157-29" tabindex="-1"></a>    real EUleft <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span></span>
+<span id="cb157-30"><a href="speeding-up-your-stan-code.html#cb157-30" tabindex="-1"></a>    real EUright <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span></span>
+<span id="cb157-31"><a href="speeding-up-your-stan-code.html#cb157-31" tabindex="-1"></a>  </span>
+<span id="cb157-32"><a href="speeding-up-your-stan-code.html#cb157-32" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>kk in <span class="dv">1</span><span class="op">:</span><span class="dv">3</span><span class="op">)</span> <span class="op">{</span> <span class="co">// loop over lottery pairs</span></span>
+<span id="cb157-33"><a href="speeding-up-your-stan-code.html#cb157-33" tabindex="-1"></a>      <span class="co">// add each component of the sum individually</span></span>
+<span id="cb157-34"><a href="speeding-up-your-stan-code.html#cb157-34" tabindex="-1"></a>      EUleft <span class="op">+=</span> probL<span class="op">[</span>ii<span class="op">,</span>kk<span class="op">]*</span>pow<span class="op">(</span>prizes<span class="op">[</span>ii<span class="op">,</span>kk<span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">);</span></span>
+<span id="cb157-35"><a href="speeding-up-your-stan-code.html#cb157-35" tabindex="-1"></a>      EUright <span class="op">+=</span> probR<span class="op">[</span>ii<span class="op">,</span>kk<span class="op">]*</span>pow<span class="op">(</span>prizes<span class="op">[</span>ii<span class="op">,</span>kk<span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">);</span></span>
+<span id="cb157-36"><a href="speeding-up-your-stan-code.html#cb157-36" tabindex="-1"></a>      </span>
+<span id="cb157-37"><a href="speeding-up-your-stan-code.html#cb157-37" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb157-38"><a href="speeding-up-your-stan-code.html#cb157-38" tabindex="-1"></a>    <span class="co">// contextual utility normalization</span></span>
+<span id="cb157-39"><a href="speeding-up-your-stan-code.html#cb157-39" tabindex="-1"></a>    real normalizedUtility <span class="op">=</span> <span class="op">(</span>EUleft<span class="op">-</span>EUright<span class="op">)/</span></span>
+<span id="cb157-40"><a href="speeding-up-your-stan-code.html#cb157-40" tabindex="-1"></a>                            <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[</span>ii<span class="op">,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[</span>ii<span class="op">,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">));</span></span>
+<span id="cb157-41"><a href="speeding-up-your-stan-code.html#cb157-41" tabindex="-1"></a>                            </span>
+<span id="cb157-42"><a href="speeding-up-your-stan-code.html#cb157-42" tabindex="-1"></a>    target <span class="op">+=</span> bernoulli_logit_lpmf<span class="op">(</span>Left<span class="op">[</span>ii<span class="op">]</span> <span class="op">|</span> lambda<span class="op">*</span>normalizedUtility<span class="op">);</span></span>
+<span id="cb157-43"><a href="speeding-up-your-stan-code.html#cb157-43" tabindex="-1"></a>    </span>
+<span id="cb157-44"><a href="speeding-up-your-stan-code.html#cb157-44" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb157-45"><a href="speeding-up-your-stan-code.html#cb157-45" tabindex="-1"></a>  </span>
+<span id="cb157-46"><a href="speeding-up-your-stan-code.html#cb157-46" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <div id="pre-computing-things" class="section level2 hasAnchor" number="12.3">
 <h2><span class="header-section-number">12.3</span> Pre-computing things<a href="speeding-up-your-stan-code.html#pre-computing-things" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -632,56 +637,56 @@ p(y_t=\mathrm{Left}\mid r,\lambda)&amp;=\Lambda\left(\lambda\frac{\sum_{k=1}^3q_
 \end{aligned}
 \]</span></p>
 <p>That is, an EUT participant only cares about the <em>difference</em> in probabilities between two lotteries, and since these probabilities are not a function of the model’s parameters, we can compute their difference in the <code>transformed data</code> block. Here is my modification to the program that does this (the new data variable is called <code>dprob</code>):</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb156-1"><a href="speeding-up-your-stan-code.html#cb156-1" tabindex="-1"></a>data <span class="op">{</span></span>
-<span id="cb156-2"><a href="speeding-up-your-stan-code.html#cb156-2" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span> <span class="co">// number of decisions</span></span>
-<span id="cb156-3"><a href="speeding-up-your-stan-code.html#cb156-3" tabindex="-1"></a>  </span>
-<span id="cb156-4"><a href="speeding-up-your-stan-code.html#cb156-4" tabindex="-1"></a>  <span class="dt">int</span> Left<span class="op">[</span>N<span class="op">];</span> <span class="co">// logical =1 if left lottery was chosen</span></span>
-<span id="cb156-5"><a href="speeding-up-your-stan-code.html#cb156-5" tabindex="-1"></a>  </span>
-<span id="cb156-6"><a href="speeding-up-your-stan-code.html#cb156-6" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> prizes<span class="op">;</span> <span class="co">// the 3 monetary prizes</span></span>
-<span id="cb156-7"><a href="speeding-up-your-stan-code.html#cb156-7" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">2</span><span class="op">]</span> prizerange<span class="op">;</span> <span class="co">// The minimum and maximum prize</span></span>
-<span id="cb156-8"><a href="speeding-up-your-stan-code.html#cb156-8" tabindex="-1"></a>  </span>
-<span id="cb156-9"><a href="speeding-up-your-stan-code.html#cb156-9" tabindex="-1"></a>  </span>
-<span id="cb156-10"><a href="speeding-up-your-stan-code.html#cb156-10" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probL<span class="op">;</span> <span class="co">// prob. distribution for Left lottery</span></span>
-<span id="cb156-11"><a href="speeding-up-your-stan-code.html#cb156-11" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probR<span class="op">;</span> <span class="co">// prob. distribution for Right lottery</span></span>
-<span id="cb156-12"><a href="speeding-up-your-stan-code.html#cb156-12" tabindex="-1"></a>  </span>
-<span id="cb156-13"><a href="speeding-up-your-stan-code.html#cb156-13" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_r<span class="op">;</span> <span class="co">// normal prior on CRRA parameter</span></span>
-<span id="cb156-14"><a href="speeding-up-your-stan-code.html#cb156-14" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_lambda<span class="op">;</span> <span class="co">// log-normal prior on logit choice precision</span></span>
-<span id="cb156-15"><a href="speeding-up-your-stan-code.html#cb156-15" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb156-16"><a href="speeding-up-your-stan-code.html#cb156-16" tabindex="-1"></a></span>
-<span id="cb156-17"><a href="speeding-up-your-stan-code.html#cb156-17" tabindex="-1"></a>transformed data <span class="op">{</span></span>
-<span id="cb156-18"><a href="speeding-up-your-stan-code.html#cb156-18" tabindex="-1"></a>  </span>
-<span id="cb156-19"><a href="speeding-up-your-stan-code.html#cb156-19" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> dprob <span class="op">=</span> probL<span class="op">-</span>probR<span class="op">;</span></span>
-<span id="cb156-20"><a href="speeding-up-your-stan-code.html#cb156-20" tabindex="-1"></a>  </span>
-<span id="cb156-21"><a href="speeding-up-your-stan-code.html#cb156-21" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb156-22"><a href="speeding-up-your-stan-code.html#cb156-22" tabindex="-1"></a></span>
-<span id="cb156-23"><a href="speeding-up-your-stan-code.html#cb156-23" tabindex="-1"></a>parameters <span class="op">{</span></span>
-<span id="cb156-24"><a href="speeding-up-your-stan-code.html#cb156-24" tabindex="-1"></a>  real r<span class="op">;</span></span>
-<span id="cb156-25"><a href="speeding-up-your-stan-code.html#cb156-25" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
-<span id="cb156-26"><a href="speeding-up-your-stan-code.html#cb156-26" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb156-27"><a href="speeding-up-your-stan-code.html#cb156-27" tabindex="-1"></a>model <span class="op">{</span></span>
-<span id="cb156-28"><a href="speeding-up-your-stan-code.html#cb156-28" tabindex="-1"></a>  </span>
-<span id="cb156-29"><a href="speeding-up-your-stan-code.html#cb156-29" tabindex="-1"></a>  <span class="co">// priors</span></span>
-<span id="cb156-30"><a href="speeding-up-your-stan-code.html#cb156-30" tabindex="-1"></a>  r <span class="op">~</span> normal<span class="op">(</span>prior_r<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_r<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb156-31"><a href="speeding-up-your-stan-code.html#cb156-31" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb156-32"><a href="speeding-up-your-stan-code.html#cb156-32" tabindex="-1"></a>  </span>
-<span id="cb156-33"><a href="speeding-up-your-stan-code.html#cb156-33" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span> <span class="co">// loop over lottery pairs</span></span>
-<span id="cb156-34"><a href="speeding-up-your-stan-code.html#cb156-34" tabindex="-1"></a>  </span>
-<span id="cb156-35"><a href="speeding-up-your-stan-code.html#cb156-35" tabindex="-1"></a>    real DEU <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span></span>
-<span id="cb156-36"><a href="speeding-up-your-stan-code.html#cb156-36" tabindex="-1"></a>  </span>
-<span id="cb156-37"><a href="speeding-up-your-stan-code.html#cb156-37" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>kk in <span class="dv">1</span><span class="op">:</span><span class="dv">3</span><span class="op">)</span> <span class="op">{</span> <span class="co">// loop over lottery pairs</span></span>
-<span id="cb156-38"><a href="speeding-up-your-stan-code.html#cb156-38" tabindex="-1"></a>      <span class="co">// add each component of the sum individually</span></span>
-<span id="cb156-39"><a href="speeding-up-your-stan-code.html#cb156-39" tabindex="-1"></a>      DEU <span class="op">+=</span> dprob<span class="op">[</span>ii<span class="op">,</span>kk<span class="op">]*</span>pow<span class="op">(</span>prizes<span class="op">[</span>ii<span class="op">,</span>kk<span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">);</span></span>
-<span id="cb156-40"><a href="speeding-up-your-stan-code.html#cb156-40" tabindex="-1"></a>      </span>
-<span id="cb156-41"><a href="speeding-up-your-stan-code.html#cb156-41" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb156-42"><a href="speeding-up-your-stan-code.html#cb156-42" tabindex="-1"></a>    <span class="co">// contextual utility normalization</span></span>
-<span id="cb156-43"><a href="speeding-up-your-stan-code.html#cb156-43" tabindex="-1"></a>    real normalizedUtility <span class="op">=</span> DEU<span class="op">/</span></span>
-<span id="cb156-44"><a href="speeding-up-your-stan-code.html#cb156-44" tabindex="-1"></a>                            <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[</span>ii<span class="op">,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[</span>ii<span class="op">,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">));</span></span>
-<span id="cb156-45"><a href="speeding-up-your-stan-code.html#cb156-45" tabindex="-1"></a>                            </span>
-<span id="cb156-46"><a href="speeding-up-your-stan-code.html#cb156-46" tabindex="-1"></a>    target <span class="op">+=</span> bernoulli_logit_lpmf<span class="op">(</span>Left<span class="op">[</span>ii<span class="op">]</span> <span class="op">|</span> lambda<span class="op">*</span>normalizedUtility<span class="op">);</span></span>
-<span id="cb156-47"><a href="speeding-up-your-stan-code.html#cb156-47" tabindex="-1"></a>    </span>
-<span id="cb156-48"><a href="speeding-up-your-stan-code.html#cb156-48" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb156-49"><a href="speeding-up-your-stan-code.html#cb156-49" tabindex="-1"></a>  </span>
-<span id="cb156-50"><a href="speeding-up-your-stan-code.html#cb156-50" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb158-1"><a href="speeding-up-your-stan-code.html#cb158-1" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb158-2"><a href="speeding-up-your-stan-code.html#cb158-2" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span> <span class="co">// number of decisions</span></span>
+<span id="cb158-3"><a href="speeding-up-your-stan-code.html#cb158-3" tabindex="-1"></a>  </span>
+<span id="cb158-4"><a href="speeding-up-your-stan-code.html#cb158-4" tabindex="-1"></a>  <span class="dt">int</span> Left<span class="op">[</span>N<span class="op">];</span> <span class="co">// logical =1 if left lottery was chosen</span></span>
+<span id="cb158-5"><a href="speeding-up-your-stan-code.html#cb158-5" tabindex="-1"></a>  </span>
+<span id="cb158-6"><a href="speeding-up-your-stan-code.html#cb158-6" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> prizes<span class="op">;</span> <span class="co">// the 3 monetary prizes</span></span>
+<span id="cb158-7"><a href="speeding-up-your-stan-code.html#cb158-7" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">2</span><span class="op">]</span> prizerange<span class="op">;</span> <span class="co">// The minimum and maximum prize</span></span>
+<span id="cb158-8"><a href="speeding-up-your-stan-code.html#cb158-8" tabindex="-1"></a>  </span>
+<span id="cb158-9"><a href="speeding-up-your-stan-code.html#cb158-9" tabindex="-1"></a>  </span>
+<span id="cb158-10"><a href="speeding-up-your-stan-code.html#cb158-10" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probL<span class="op">;</span> <span class="co">// prob. distribution for Left lottery</span></span>
+<span id="cb158-11"><a href="speeding-up-your-stan-code.html#cb158-11" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probR<span class="op">;</span> <span class="co">// prob. distribution for Right lottery</span></span>
+<span id="cb158-12"><a href="speeding-up-your-stan-code.html#cb158-12" tabindex="-1"></a>  </span>
+<span id="cb158-13"><a href="speeding-up-your-stan-code.html#cb158-13" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_r<span class="op">;</span> <span class="co">// normal prior on CRRA parameter</span></span>
+<span id="cb158-14"><a href="speeding-up-your-stan-code.html#cb158-14" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_lambda<span class="op">;</span> <span class="co">// log-normal prior on logit choice precision</span></span>
+<span id="cb158-15"><a href="speeding-up-your-stan-code.html#cb158-15" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb158-16"><a href="speeding-up-your-stan-code.html#cb158-16" tabindex="-1"></a></span>
+<span id="cb158-17"><a href="speeding-up-your-stan-code.html#cb158-17" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb158-18"><a href="speeding-up-your-stan-code.html#cb158-18" tabindex="-1"></a>  </span>
+<span id="cb158-19"><a href="speeding-up-your-stan-code.html#cb158-19" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> dprob <span class="op">=</span> probL<span class="op">-</span>probR<span class="op">;</span></span>
+<span id="cb158-20"><a href="speeding-up-your-stan-code.html#cb158-20" tabindex="-1"></a>  </span>
+<span id="cb158-21"><a href="speeding-up-your-stan-code.html#cb158-21" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb158-22"><a href="speeding-up-your-stan-code.html#cb158-22" tabindex="-1"></a></span>
+<span id="cb158-23"><a href="speeding-up-your-stan-code.html#cb158-23" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb158-24"><a href="speeding-up-your-stan-code.html#cb158-24" tabindex="-1"></a>  real r<span class="op">;</span></span>
+<span id="cb158-25"><a href="speeding-up-your-stan-code.html#cb158-25" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
+<span id="cb158-26"><a href="speeding-up-your-stan-code.html#cb158-26" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb158-27"><a href="speeding-up-your-stan-code.html#cb158-27" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb158-28"><a href="speeding-up-your-stan-code.html#cb158-28" tabindex="-1"></a>  </span>
+<span id="cb158-29"><a href="speeding-up-your-stan-code.html#cb158-29" tabindex="-1"></a>  <span class="co">// priors</span></span>
+<span id="cb158-30"><a href="speeding-up-your-stan-code.html#cb158-30" tabindex="-1"></a>  r <span class="op">~</span> normal<span class="op">(</span>prior_r<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_r<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb158-31"><a href="speeding-up-your-stan-code.html#cb158-31" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb158-32"><a href="speeding-up-your-stan-code.html#cb158-32" tabindex="-1"></a>  </span>
+<span id="cb158-33"><a href="speeding-up-your-stan-code.html#cb158-33" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span> <span class="co">// loop over lottery pairs</span></span>
+<span id="cb158-34"><a href="speeding-up-your-stan-code.html#cb158-34" tabindex="-1"></a>  </span>
+<span id="cb158-35"><a href="speeding-up-your-stan-code.html#cb158-35" tabindex="-1"></a>    real DEU <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span></span>
+<span id="cb158-36"><a href="speeding-up-your-stan-code.html#cb158-36" tabindex="-1"></a>  </span>
+<span id="cb158-37"><a href="speeding-up-your-stan-code.html#cb158-37" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>kk in <span class="dv">1</span><span class="op">:</span><span class="dv">3</span><span class="op">)</span> <span class="op">{</span> <span class="co">// loop over lottery pairs</span></span>
+<span id="cb158-38"><a href="speeding-up-your-stan-code.html#cb158-38" tabindex="-1"></a>      <span class="co">// add each component of the sum individually</span></span>
+<span id="cb158-39"><a href="speeding-up-your-stan-code.html#cb158-39" tabindex="-1"></a>      DEU <span class="op">+=</span> dprob<span class="op">[</span>ii<span class="op">,</span>kk<span class="op">]*</span>pow<span class="op">(</span>prizes<span class="op">[</span>ii<span class="op">,</span>kk<span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">);</span></span>
+<span id="cb158-40"><a href="speeding-up-your-stan-code.html#cb158-40" tabindex="-1"></a>      </span>
+<span id="cb158-41"><a href="speeding-up-your-stan-code.html#cb158-41" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb158-42"><a href="speeding-up-your-stan-code.html#cb158-42" tabindex="-1"></a>    <span class="co">// contextual utility normalization</span></span>
+<span id="cb158-43"><a href="speeding-up-your-stan-code.html#cb158-43" tabindex="-1"></a>    real normalizedUtility <span class="op">=</span> DEU<span class="op">/</span></span>
+<span id="cb158-44"><a href="speeding-up-your-stan-code.html#cb158-44" tabindex="-1"></a>                            <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[</span>ii<span class="op">,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[</span>ii<span class="op">,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">));</span></span>
+<span id="cb158-45"><a href="speeding-up-your-stan-code.html#cb158-45" tabindex="-1"></a>                            </span>
+<span id="cb158-46"><a href="speeding-up-your-stan-code.html#cb158-46" tabindex="-1"></a>    target <span class="op">+=</span> bernoulli_logit_lpmf<span class="op">(</span>Left<span class="op">[</span>ii<span class="op">]</span> <span class="op">|</span> lambda<span class="op">*</span>normalizedUtility<span class="op">);</span></span>
+<span id="cb158-47"><a href="speeding-up-your-stan-code.html#cb158-47" tabindex="-1"></a>    </span>
+<span id="cb158-48"><a href="speeding-up-your-stan-code.html#cb158-48" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb158-49"><a href="speeding-up-your-stan-code.html#cb158-49" tabindex="-1"></a>  </span>
+<span id="cb158-50"><a href="speeding-up-your-stan-code.html#cb158-50" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <div id="vectorization" class="section level2 hasAnchor" number="12.4">
 <h2><span class="header-section-number">12.4</span> Vectorization<a href="speeding-up-your-stan-code.html#vectorization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -700,65 +705,65 @@ Eu(x,q^L\mid r)=\left(q^L \cdot \frac{x^{1-r}}{1-r}\right)\begin{pmatrix}1\\1\\1
 Eu(x,q^L\mid r)-Eu(x,p^R\mid r)=\left((q^L-q^R) \cdot \frac{x^{1-r}}{1-r}\right)\begin{pmatrix}1\\1\\1\end{pmatrix}
 \]</span></p>
 <p>Here is how I implement this in the <em>Stan</em> program:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb157-1"><a href="speeding-up-your-stan-code.html#cb157-1" tabindex="-1"></a> vector<span class="op">[</span>N<span class="op">]</span> DEU <span class="op">=</span> <span class="op">(</span></span>
-<span id="cb157-2"><a href="speeding-up-your-stan-code.html#cb157-2" tabindex="-1"></a>      dprob </span>
-<span id="cb157-3"><a href="speeding-up-your-stan-code.html#cb157-3" tabindex="-1"></a>      <span class="op">.*</span>pow<span class="op">(</span>prizes<span class="op">,</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)</span>  </span>
-<span id="cb157-4"><a href="speeding-up-your-stan-code.html#cb157-4" tabindex="-1"></a>    <span class="op">)*</span>rep_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span><span class="dv">3</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb159-1"><a href="speeding-up-your-stan-code.html#cb159-1" tabindex="-1"></a> vector<span class="op">[</span>N<span class="op">]</span> DEU <span class="op">=</span> <span class="op">(</span></span>
+<span id="cb159-2"><a href="speeding-up-your-stan-code.html#cb159-2" tabindex="-1"></a>      dprob </span>
+<span id="cb159-3"><a href="speeding-up-your-stan-code.html#cb159-3" tabindex="-1"></a>      <span class="op">.*</span>pow<span class="op">(</span>prizes<span class="op">,</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)</span>  </span>
+<span id="cb159-4"><a href="speeding-up-your-stan-code.html#cb159-4" tabindex="-1"></a>    <span class="op">)*</span>rep_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span><span class="dv">3</span><span class="op">);</span></span></code></pre></div>
 <p>Note the use of <code>.*</code> for the element-wise multiplication, and that the <code>pow(.,.)</code> function also does an element-wise operation (raising every element of <code>prizes</code> to the power of <code>1-r</code>).</p>
 <p>Finally, we can take advantage of the fact that <code>bernoulli_logit_lpmf(.|.)</code> is a <em>reduction</em>, so instead of writing a <code>for</code> loop to increment the likelihood:</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb158-1"><a href="speeding-up-your-stan-code.html#cb158-1" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb158-2"><a href="speeding-up-your-stan-code.html#cb158-2" tabindex="-1"></a>  target <span class="op">+=</span> bernoulli_logit_lpmf<span class="op">(</span>Left<span class="op">[</span>ii<span class="op">]</span> <span class="op">|</span> lambda <span class="op">*</span> DEU<span class="op">[</span>ii<span class="op">]</span> <span class="op">./</span> </span>
-<span id="cb158-3"><a href="speeding-up-your-stan-code.html#cb158-3" tabindex="-1"></a>          <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[</span>ii<span class="op">,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[</span>ii<span class="op">,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)</span></span>
-<span id="cb158-4"><a href="speeding-up-your-stan-code.html#cb158-4" tabindex="-1"></a>      <span class="op">);</span></span>
-<span id="cb158-5"><a href="speeding-up-your-stan-code.html#cb158-5" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb160-1"><a href="speeding-up-your-stan-code.html#cb160-1" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb160-2"><a href="speeding-up-your-stan-code.html#cb160-2" tabindex="-1"></a>  target <span class="op">+=</span> bernoulli_logit_lpmf<span class="op">(</span>Left<span class="op">[</span>ii<span class="op">]</span> <span class="op">|</span> lambda <span class="op">*</span> DEU<span class="op">[</span>ii<span class="op">]</span> <span class="op">./</span> </span>
+<span id="cb160-3"><a href="speeding-up-your-stan-code.html#cb160-3" tabindex="-1"></a>          <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[</span>ii<span class="op">,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[</span>ii<span class="op">,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)</span></span>
+<span id="cb160-4"><a href="speeding-up-your-stan-code.html#cb160-4" tabindex="-1"></a>      <span class="op">);</span></span>
+<span id="cb160-5"><a href="speeding-up-your-stan-code.html#cb160-5" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>We can just input the whole vector <code>DEU</code> and integer array <code>Left</code>, and it will compute the sum of the individual log-likelihoods.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb159-1"><a href="speeding-up-your-stan-code.html#cb159-1" tabindex="-1"></a>target <span class="op">+=</span> bernoulli_logit_lpmf<span class="op">(</span>Left <span class="op">|</span> lambda <span class="op">*</span> DEU <span class="op">./</span> </span>
-<span id="cb159-2"><a href="speeding-up-your-stan-code.html#cb159-2" tabindex="-1"></a>        <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)</span></span>
-<span id="cb159-3"><a href="speeding-up-your-stan-code.html#cb159-3" tabindex="-1"></a>    <span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb161-1"><a href="speeding-up-your-stan-code.html#cb161-1" tabindex="-1"></a>target <span class="op">+=</span> bernoulli_logit_lpmf<span class="op">(</span>Left <span class="op">|</span> lambda <span class="op">*</span> DEU <span class="op">./</span> </span>
+<span id="cb161-2"><a href="speeding-up-your-stan-code.html#cb161-2" tabindex="-1"></a>        <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)</span></span>
+<span id="cb161-3"><a href="speeding-up-your-stan-code.html#cb161-3" tabindex="-1"></a>    <span class="op">);</span></span></code></pre></div>
 <p>Here is the whole <em>Stan</em> program:</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb160-1"><a href="speeding-up-your-stan-code.html#cb160-1" tabindex="-1"></a>data <span class="op">{</span></span>
-<span id="cb160-2"><a href="speeding-up-your-stan-code.html#cb160-2" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span> <span class="co">// number of decisions</span></span>
-<span id="cb160-3"><a href="speeding-up-your-stan-code.html#cb160-3" tabindex="-1"></a>  </span>
-<span id="cb160-4"><a href="speeding-up-your-stan-code.html#cb160-4" tabindex="-1"></a>  <span class="dt">int</span> Left<span class="op">[</span>N<span class="op">];</span> <span class="co">// logical =1 if left lottery was chosen</span></span>
-<span id="cb160-5"><a href="speeding-up-your-stan-code.html#cb160-5" tabindex="-1"></a>  </span>
-<span id="cb160-6"><a href="speeding-up-your-stan-code.html#cb160-6" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> prizes<span class="op">;</span> <span class="co">// the 3 monetary prizes</span></span>
-<span id="cb160-7"><a href="speeding-up-your-stan-code.html#cb160-7" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">2</span><span class="op">]</span> prizerange<span class="op">;</span> <span class="co">// The minimum and maximum prize</span></span>
-<span id="cb160-8"><a href="speeding-up-your-stan-code.html#cb160-8" tabindex="-1"></a>  </span>
-<span id="cb160-9"><a href="speeding-up-your-stan-code.html#cb160-9" tabindex="-1"></a>  </span>
-<span id="cb160-10"><a href="speeding-up-your-stan-code.html#cb160-10" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probL<span class="op">;</span> <span class="co">// prob. distribution for Left lottery</span></span>
-<span id="cb160-11"><a href="speeding-up-your-stan-code.html#cb160-11" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probR<span class="op">;</span> <span class="co">// prob. distribution for Right lottery</span></span>
-<span id="cb160-12"><a href="speeding-up-your-stan-code.html#cb160-12" tabindex="-1"></a>  </span>
-<span id="cb160-13"><a href="speeding-up-your-stan-code.html#cb160-13" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_r<span class="op">;</span> <span class="co">// normal prior on CRRA parameter</span></span>
-<span id="cb160-14"><a href="speeding-up-your-stan-code.html#cb160-14" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_lambda<span class="op">;</span> <span class="co">// log-normal prior on logit choice precision</span></span>
-<span id="cb160-15"><a href="speeding-up-your-stan-code.html#cb160-15" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb160-16"><a href="speeding-up-your-stan-code.html#cb160-16" tabindex="-1"></a></span>
-<span id="cb160-17"><a href="speeding-up-your-stan-code.html#cb160-17" tabindex="-1"></a>transformed data <span class="op">{</span></span>
-<span id="cb160-18"><a href="speeding-up-your-stan-code.html#cb160-18" tabindex="-1"></a>  </span>
-<span id="cb160-19"><a href="speeding-up-your-stan-code.html#cb160-19" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> dprob <span class="op">=</span> probL<span class="op">-</span>probR<span class="op">;</span></span>
-<span id="cb160-20"><a href="speeding-up-your-stan-code.html#cb160-20" tabindex="-1"></a>  </span>
-<span id="cb160-21"><a href="speeding-up-your-stan-code.html#cb160-21" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb160-22"><a href="speeding-up-your-stan-code.html#cb160-22" tabindex="-1"></a></span>
-<span id="cb160-23"><a href="speeding-up-your-stan-code.html#cb160-23" tabindex="-1"></a>parameters <span class="op">{</span></span>
-<span id="cb160-24"><a href="speeding-up-your-stan-code.html#cb160-24" tabindex="-1"></a>  real r<span class="op">;</span></span>
-<span id="cb160-25"><a href="speeding-up-your-stan-code.html#cb160-25" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
-<span id="cb160-26"><a href="speeding-up-your-stan-code.html#cb160-26" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb160-27"><a href="speeding-up-your-stan-code.html#cb160-27" tabindex="-1"></a>model <span class="op">{</span></span>
-<span id="cb160-28"><a href="speeding-up-your-stan-code.html#cb160-28" tabindex="-1"></a>  </span>
-<span id="cb160-29"><a href="speeding-up-your-stan-code.html#cb160-29" tabindex="-1"></a>  <span class="co">// priors</span></span>
-<span id="cb160-30"><a href="speeding-up-your-stan-code.html#cb160-30" tabindex="-1"></a>  r <span class="op">~</span> normal<span class="op">(</span>prior_r<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_r<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb160-31"><a href="speeding-up-your-stan-code.html#cb160-31" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb160-32"><a href="speeding-up-your-stan-code.html#cb160-32" tabindex="-1"></a>  </span>
-<span id="cb160-33"><a href="speeding-up-your-stan-code.html#cb160-33" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> DEU <span class="op">=</span> <span class="op">(</span></span>
-<span id="cb160-34"><a href="speeding-up-your-stan-code.html#cb160-34" tabindex="-1"></a>    dprob </span>
-<span id="cb160-35"><a href="speeding-up-your-stan-code.html#cb160-35" tabindex="-1"></a>    <span class="op">.*</span>pow<span class="op">(</span>prizes<span class="op">,</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)</span>  </span>
-<span id="cb160-36"><a href="speeding-up-your-stan-code.html#cb160-36" tabindex="-1"></a>    </span>
-<span id="cb160-37"><a href="speeding-up-your-stan-code.html#cb160-37" tabindex="-1"></a>    <span class="op">)*</span>rep_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span><span class="dv">3</span><span class="op">);</span></span>
-<span id="cb160-38"><a href="speeding-up-your-stan-code.html#cb160-38" tabindex="-1"></a>    </span>
-<span id="cb160-39"><a href="speeding-up-your-stan-code.html#cb160-39" tabindex="-1"></a>    target <span class="op">+=</span> bernoulli_logit_lpmf<span class="op">(</span>Left <span class="op">|</span> lambda <span class="op">*</span> DEU <span class="op">./</span> </span>
-<span id="cb160-40"><a href="speeding-up-your-stan-code.html#cb160-40" tabindex="-1"></a>        <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)</span></span>
-<span id="cb160-41"><a href="speeding-up-your-stan-code.html#cb160-41" tabindex="-1"></a>    <span class="op">);</span></span>
-<span id="cb160-42"><a href="speeding-up-your-stan-code.html#cb160-42" tabindex="-1"></a>  </span>
-<span id="cb160-43"><a href="speeding-up-your-stan-code.html#cb160-43" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb162-1"><a href="speeding-up-your-stan-code.html#cb162-1" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb162-2"><a href="speeding-up-your-stan-code.html#cb162-2" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span> <span class="co">// number of decisions</span></span>
+<span id="cb162-3"><a href="speeding-up-your-stan-code.html#cb162-3" tabindex="-1"></a>  </span>
+<span id="cb162-4"><a href="speeding-up-your-stan-code.html#cb162-4" tabindex="-1"></a>  <span class="dt">int</span> Left<span class="op">[</span>N<span class="op">];</span> <span class="co">// logical =1 if left lottery was chosen</span></span>
+<span id="cb162-5"><a href="speeding-up-your-stan-code.html#cb162-5" tabindex="-1"></a>  </span>
+<span id="cb162-6"><a href="speeding-up-your-stan-code.html#cb162-6" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> prizes<span class="op">;</span> <span class="co">// the 3 monetary prizes</span></span>
+<span id="cb162-7"><a href="speeding-up-your-stan-code.html#cb162-7" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">2</span><span class="op">]</span> prizerange<span class="op">;</span> <span class="co">// The minimum and maximum prize</span></span>
+<span id="cb162-8"><a href="speeding-up-your-stan-code.html#cb162-8" tabindex="-1"></a>  </span>
+<span id="cb162-9"><a href="speeding-up-your-stan-code.html#cb162-9" tabindex="-1"></a>  </span>
+<span id="cb162-10"><a href="speeding-up-your-stan-code.html#cb162-10" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probL<span class="op">;</span> <span class="co">// prob. distribution for Left lottery</span></span>
+<span id="cb162-11"><a href="speeding-up-your-stan-code.html#cb162-11" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probR<span class="op">;</span> <span class="co">// prob. distribution for Right lottery</span></span>
+<span id="cb162-12"><a href="speeding-up-your-stan-code.html#cb162-12" tabindex="-1"></a>  </span>
+<span id="cb162-13"><a href="speeding-up-your-stan-code.html#cb162-13" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_r<span class="op">;</span> <span class="co">// normal prior on CRRA parameter</span></span>
+<span id="cb162-14"><a href="speeding-up-your-stan-code.html#cb162-14" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_lambda<span class="op">;</span> <span class="co">// log-normal prior on logit choice precision</span></span>
+<span id="cb162-15"><a href="speeding-up-your-stan-code.html#cb162-15" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb162-16"><a href="speeding-up-your-stan-code.html#cb162-16" tabindex="-1"></a></span>
+<span id="cb162-17"><a href="speeding-up-your-stan-code.html#cb162-17" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb162-18"><a href="speeding-up-your-stan-code.html#cb162-18" tabindex="-1"></a>  </span>
+<span id="cb162-19"><a href="speeding-up-your-stan-code.html#cb162-19" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> dprob <span class="op">=</span> probL<span class="op">-</span>probR<span class="op">;</span></span>
+<span id="cb162-20"><a href="speeding-up-your-stan-code.html#cb162-20" tabindex="-1"></a>  </span>
+<span id="cb162-21"><a href="speeding-up-your-stan-code.html#cb162-21" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb162-22"><a href="speeding-up-your-stan-code.html#cb162-22" tabindex="-1"></a></span>
+<span id="cb162-23"><a href="speeding-up-your-stan-code.html#cb162-23" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb162-24"><a href="speeding-up-your-stan-code.html#cb162-24" tabindex="-1"></a>  real r<span class="op">;</span></span>
+<span id="cb162-25"><a href="speeding-up-your-stan-code.html#cb162-25" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
+<span id="cb162-26"><a href="speeding-up-your-stan-code.html#cb162-26" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb162-27"><a href="speeding-up-your-stan-code.html#cb162-27" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb162-28"><a href="speeding-up-your-stan-code.html#cb162-28" tabindex="-1"></a>  </span>
+<span id="cb162-29"><a href="speeding-up-your-stan-code.html#cb162-29" tabindex="-1"></a>  <span class="co">// priors</span></span>
+<span id="cb162-30"><a href="speeding-up-your-stan-code.html#cb162-30" tabindex="-1"></a>  r <span class="op">~</span> normal<span class="op">(</span>prior_r<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_r<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb162-31"><a href="speeding-up-your-stan-code.html#cb162-31" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb162-32"><a href="speeding-up-your-stan-code.html#cb162-32" tabindex="-1"></a>  </span>
+<span id="cb162-33"><a href="speeding-up-your-stan-code.html#cb162-33" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> DEU <span class="op">=</span> <span class="op">(</span></span>
+<span id="cb162-34"><a href="speeding-up-your-stan-code.html#cb162-34" tabindex="-1"></a>    dprob </span>
+<span id="cb162-35"><a href="speeding-up-your-stan-code.html#cb162-35" tabindex="-1"></a>    <span class="op">.*</span>pow<span class="op">(</span>prizes<span class="op">,</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)</span>  </span>
+<span id="cb162-36"><a href="speeding-up-your-stan-code.html#cb162-36" tabindex="-1"></a>    </span>
+<span id="cb162-37"><a href="speeding-up-your-stan-code.html#cb162-37" tabindex="-1"></a>    <span class="op">)*</span>rep_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb162-38"><a href="speeding-up-your-stan-code.html#cb162-38" tabindex="-1"></a>    </span>
+<span id="cb162-39"><a href="speeding-up-your-stan-code.html#cb162-39" tabindex="-1"></a>    target <span class="op">+=</span> bernoulli_logit_lpmf<span class="op">(</span>Left <span class="op">|</span> lambda <span class="op">*</span> DEU <span class="op">./</span> </span>
+<span id="cb162-40"><a href="speeding-up-your-stan-code.html#cb162-40" tabindex="-1"></a>        <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))/(</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)</span></span>
+<span id="cb162-41"><a href="speeding-up-your-stan-code.html#cb162-41" tabindex="-1"></a>    <span class="op">);</span></span>
+<span id="cb162-42"><a href="speeding-up-your-stan-code.html#cb162-42" tabindex="-1"></a>  </span>
+<span id="cb162-43"><a href="speeding-up-your-stan-code.html#cb162-43" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <div id="within-chain-parallelization-with-reduce_sum" class="section level2 hasAnchor" number="12.5">
 <h2><span class="header-section-number">12.5</span> Within-chain parallelization with <code>reduce_sum()</code><a href="speeding-up-your-stan-code.html#within-chain-parallelization-with-reduce_sum" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -783,120 +788,120 @@ Eu(x,q^L\mid r)-Eu(x,p^R\mid r)=\left((q^L-q^R) \cdot \frac{x^{1-r}}{1-r}\right)
 <li>Any remaining quantities we need to compute the sum</li>
 </ol>
 <p>Here is the user-defined function I wrote to compute this chunk:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb161-1"><a href="speeding-up-your-stan-code.html#cb161-1" tabindex="-1"></a>  real sum_likelihood<span class="op">(</span></span>
-<span id="cb161-2"><a href="speeding-up-your-stan-code.html#cb161-2" tabindex="-1"></a>    <span class="dt">int</span><span class="op">[]</span> Left<span class="op">,</span> </span>
-<span id="cb161-3"><a href="speeding-up-your-stan-code.html#cb161-3" tabindex="-1"></a>    <span class="dt">int</span> start<span class="op">,</span> <span class="dt">int</span> end<span class="op">,</span></span>
-<span id="cb161-4"><a href="speeding-up-your-stan-code.html#cb161-4" tabindex="-1"></a>    real lambda<span class="op">,</span> real r<span class="op">,</span></span>
-<span id="cb161-5"><a href="speeding-up-your-stan-code.html#cb161-5" tabindex="-1"></a>    matrix dprob<span class="op">,</span> matrix prizes<span class="op">,</span> matrix prizerange</span>
-<span id="cb161-6"><a href="speeding-up-your-stan-code.html#cb161-6" tabindex="-1"></a>  <span class="op">)</span> <span class="op">{</span></span>
-<span id="cb161-7"><a href="speeding-up-your-stan-code.html#cb161-7" tabindex="-1"></a>    </span>
-<span id="cb161-8"><a href="speeding-up-your-stan-code.html#cb161-8" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> end<span class="op">-</span>start<span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
-<span id="cb161-9"><a href="speeding-up-your-stan-code.html#cb161-9" tabindex="-1"></a>    </span>
-<span id="cb161-10"><a href="speeding-up-your-stan-code.html#cb161-10" tabindex="-1"></a>    vector<span class="op">[</span>n<span class="op">]</span> lambdaDEU <span class="op">=</span> lambda<span class="op">*((</span>dprob<span class="op">[</span>start<span class="op">:</span>end<span class="op">,]</span> <span class="op">.*</span>pow<span class="op">(</span>prizes<span class="op">[</span>start<span class="op">:</span>end<span class="op">,],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))*</span>rep_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span><span class="dv">3</span><span class="op">))</span></span>
-<span id="cb161-11"><a href="speeding-up-your-stan-code.html#cb161-11" tabindex="-1"></a>                                  <span class="op">./</span></span>
-<span id="cb161-12"><a href="speeding-up-your-stan-code.html#cb161-12" tabindex="-1"></a>                                  <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[</span>start<span class="op">:</span>end<span class="op">,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[</span>start<span class="op">:</span>end<span class="op">,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))</span></span>
-<span id="cb161-13"><a href="speeding-up-your-stan-code.html#cb161-13" tabindex="-1"></a>    <span class="op">;</span></span>
-<span id="cb161-14"><a href="speeding-up-your-stan-code.html#cb161-14" tabindex="-1"></a>    </span>
-<span id="cb161-15"><a href="speeding-up-your-stan-code.html#cb161-15" tabindex="-1"></a>    <span class="cf">return</span> bernoulli_logit_lpmf<span class="op">(</span>Left <span class="op">|</span> lambdaDEU<span class="op">);</span></span>
-<span id="cb161-16"><a href="speeding-up-your-stan-code.html#cb161-16" tabindex="-1"></a>    </span>
-<span id="cb161-17"><a href="speeding-up-your-stan-code.html#cb161-17" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb163-1"><a href="speeding-up-your-stan-code.html#cb163-1" tabindex="-1"></a>  real sum_likelihood<span class="op">(</span></span>
+<span id="cb163-2"><a href="speeding-up-your-stan-code.html#cb163-2" tabindex="-1"></a>    <span class="dt">int</span><span class="op">[]</span> Left<span class="op">,</span> </span>
+<span id="cb163-3"><a href="speeding-up-your-stan-code.html#cb163-3" tabindex="-1"></a>    <span class="dt">int</span> start<span class="op">,</span> <span class="dt">int</span> end<span class="op">,</span></span>
+<span id="cb163-4"><a href="speeding-up-your-stan-code.html#cb163-4" tabindex="-1"></a>    real lambda<span class="op">,</span> real r<span class="op">,</span></span>
+<span id="cb163-5"><a href="speeding-up-your-stan-code.html#cb163-5" tabindex="-1"></a>    matrix dprob<span class="op">,</span> matrix prizes<span class="op">,</span> matrix prizerange</span>
+<span id="cb163-6"><a href="speeding-up-your-stan-code.html#cb163-6" tabindex="-1"></a>  <span class="op">)</span> <span class="op">{</span></span>
+<span id="cb163-7"><a href="speeding-up-your-stan-code.html#cb163-7" tabindex="-1"></a>    </span>
+<span id="cb163-8"><a href="speeding-up-your-stan-code.html#cb163-8" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> end<span class="op">-</span>start<span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb163-9"><a href="speeding-up-your-stan-code.html#cb163-9" tabindex="-1"></a>    </span>
+<span id="cb163-10"><a href="speeding-up-your-stan-code.html#cb163-10" tabindex="-1"></a>    vector<span class="op">[</span>n<span class="op">]</span> lambdaDEU <span class="op">=</span> lambda<span class="op">*((</span>dprob<span class="op">[</span>start<span class="op">:</span>end<span class="op">,]</span> <span class="op">.*</span>pow<span class="op">(</span>prizes<span class="op">[</span>start<span class="op">:</span>end<span class="op">,],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))*</span>rep_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span><span class="dv">3</span><span class="op">))</span></span>
+<span id="cb163-11"><a href="speeding-up-your-stan-code.html#cb163-11" tabindex="-1"></a>                                  <span class="op">./</span></span>
+<span id="cb163-12"><a href="speeding-up-your-stan-code.html#cb163-12" tabindex="-1"></a>                                  <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[</span>start<span class="op">:</span>end<span class="op">,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[</span>start<span class="op">:</span>end<span class="op">,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))</span></span>
+<span id="cb163-13"><a href="speeding-up-your-stan-code.html#cb163-13" tabindex="-1"></a>    <span class="op">;</span></span>
+<span id="cb163-14"><a href="speeding-up-your-stan-code.html#cb163-14" tabindex="-1"></a>    </span>
+<span id="cb163-15"><a href="speeding-up-your-stan-code.html#cb163-15" tabindex="-1"></a>    <span class="cf">return</span> bernoulli_logit_lpmf<span class="op">(</span>Left <span class="op">|</span> lambdaDEU<span class="op">);</span></span>
+<span id="cb163-16"><a href="speeding-up-your-stan-code.html#cb163-16" tabindex="-1"></a>    </span>
+<span id="cb163-17"><a href="speeding-up-your-stan-code.html#cb163-17" tabindex="-1"></a>  <span class="op">}</span></span></code></pre></div>
 <p>That is, we could use this function <em>without</em> any within-chain parallelization to increment the likelihood as follows:</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb162-1"><a href="speeding-up-your-stan-code.html#cb162-1" tabindex="-1"></a>target <span class="op">+=</span> sum_likelihood<span class="op">(</span>Left<span class="op">,</span></span>
-<span id="cb162-2"><a href="speeding-up-your-stan-code.html#cb162-2" tabindex="-1"></a>                         <span class="dv">1</span><span class="op">,</span>N<span class="op">,</span></span>
-<span id="cb162-3"><a href="speeding-up-your-stan-code.html#cb162-3" tabindex="-1"></a>                         lambda<span class="op">,</span>r<span class="op">,</span></span>
-<span id="cb162-4"><a href="speeding-up-your-stan-code.html#cb162-4" tabindex="-1"></a>                         dprob<span class="op">,</span>prizes<span class="op">,</span>prizerange</span>
-<span id="cb162-5"><a href="speeding-up-your-stan-code.html#cb162-5" tabindex="-1"></a>                           <span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb164-1"><a href="speeding-up-your-stan-code.html#cb164-1" tabindex="-1"></a>target <span class="op">+=</span> sum_likelihood<span class="op">(</span>Left<span class="op">,</span></span>
+<span id="cb164-2"><a href="speeding-up-your-stan-code.html#cb164-2" tabindex="-1"></a>                         <span class="dv">1</span><span class="op">,</span>N<span class="op">,</span></span>
+<span id="cb164-3"><a href="speeding-up-your-stan-code.html#cb164-3" tabindex="-1"></a>                         lambda<span class="op">,</span>r<span class="op">,</span></span>
+<span id="cb164-4"><a href="speeding-up-your-stan-code.html#cb164-4" tabindex="-1"></a>                         dprob<span class="op">,</span>prizes<span class="op">,</span>prizerange</span>
+<span id="cb164-5"><a href="speeding-up-your-stan-code.html#cb164-5" tabindex="-1"></a>                           <span class="op">);</span></span></code></pre></div>
 <p>But since we <em>do</em> want to use within-chain paralleloization, we input this user-defined function into <code>reduce_sum()</code> like this:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb163-1"><a href="speeding-up-your-stan-code.html#cb163-1" tabindex="-1"></a>target <span class="op">+=</span> reduce_sum<span class="op">(</span></span>
-<span id="cb163-2"><a href="speeding-up-your-stan-code.html#cb163-2" tabindex="-1"></a>      sum_likelihood<span class="op">,</span></span>
-<span id="cb163-3"><a href="speeding-up-your-stan-code.html#cb163-3" tabindex="-1"></a>      Left<span class="op">,</span></span>
-<span id="cb163-4"><a href="speeding-up-your-stan-code.html#cb163-4" tabindex="-1"></a>      grainsize<span class="op">,</span></span>
-<span id="cb163-5"><a href="speeding-up-your-stan-code.html#cb163-5" tabindex="-1"></a>      lambda<span class="op">,</span> r<span class="op">,</span> </span>
-<span id="cb163-6"><a href="speeding-up-your-stan-code.html#cb163-6" tabindex="-1"></a>      dprob<span class="op">,</span> prizes<span class="op">,</span> prizerange</span>
-<span id="cb163-7"><a href="speeding-up-your-stan-code.html#cb163-7" tabindex="-1"></a>    <span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb165-1"><a href="speeding-up-your-stan-code.html#cb165-1" tabindex="-1"></a>target <span class="op">+=</span> reduce_sum<span class="op">(</span></span>
+<span id="cb165-2"><a href="speeding-up-your-stan-code.html#cb165-2" tabindex="-1"></a>      sum_likelihood<span class="op">,</span></span>
+<span id="cb165-3"><a href="speeding-up-your-stan-code.html#cb165-3" tabindex="-1"></a>      Left<span class="op">,</span></span>
+<span id="cb165-4"><a href="speeding-up-your-stan-code.html#cb165-4" tabindex="-1"></a>      grainsize<span class="op">,</span></span>
+<span id="cb165-5"><a href="speeding-up-your-stan-code.html#cb165-5" tabindex="-1"></a>      lambda<span class="op">,</span> r<span class="op">,</span> </span>
+<span id="cb165-6"><a href="speeding-up-your-stan-code.html#cb165-6" tabindex="-1"></a>      dprob<span class="op">,</span> prizes<span class="op">,</span> prizerange</span>
+<span id="cb165-7"><a href="speeding-up-your-stan-code.html#cb165-7" tabindex="-1"></a>    <span class="op">);</span></span></code></pre></div>
 <p>Here <code>grainsize</code> is a (positive integer) tuning parameter for <code>reduce_sum()</code>, and refers to the maximum number of elements in a chunk of the sum to be sent off to a processor.
 <em>Stan</em>’s <a href="https://mc-stan.org/docs/stan-users-guide/reduce-sum.html#reduce-sum-grainsize">documentation for choosing <code>grainsize</code></a> recommends choosing <code>grainsize = 1</code> unless you spend some time investigating how this parameter affects performance. With this option selected, <em>Stan</em> will try to find a good way to split up the sum. For any other <code>grainsize &gt; 1</code>, it follows your recommendation.</p>
 <p>Here is the entire <em>Stan</em> program. I have coded it with an option <code>doparallel</code>, which allows for toggling whether or not within-chain parallelization is used. That way when I look for any improvements due to parallelization, I will be running everything from the same <em>Stan</em> program.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb164-1"><a href="speeding-up-your-stan-code.html#cb164-1" tabindex="-1"></a>functions <span class="op">{</span></span>
-<span id="cb164-2"><a href="speeding-up-your-stan-code.html#cb164-2" tabindex="-1"></a>  </span>
-<span id="cb164-3"><a href="speeding-up-your-stan-code.html#cb164-3" tabindex="-1"></a>  real sum_likelihood<span class="op">(</span></span>
-<span id="cb164-4"><a href="speeding-up-your-stan-code.html#cb164-4" tabindex="-1"></a>    <span class="dt">int</span><span class="op">[]</span> Left<span class="op">,</span> </span>
-<span id="cb164-5"><a href="speeding-up-your-stan-code.html#cb164-5" tabindex="-1"></a>    <span class="dt">int</span> start<span class="op">,</span> <span class="dt">int</span> end<span class="op">,</span></span>
-<span id="cb164-6"><a href="speeding-up-your-stan-code.html#cb164-6" tabindex="-1"></a>    real lambda<span class="op">,</span> real r<span class="op">,</span></span>
-<span id="cb164-7"><a href="speeding-up-your-stan-code.html#cb164-7" tabindex="-1"></a>    matrix dprob<span class="op">,</span> matrix prizes<span class="op">,</span> matrix prizerange</span>
-<span id="cb164-8"><a href="speeding-up-your-stan-code.html#cb164-8" tabindex="-1"></a>  <span class="op">)</span> <span class="op">{</span></span>
-<span id="cb164-9"><a href="speeding-up-your-stan-code.html#cb164-9" tabindex="-1"></a>    </span>
-<span id="cb164-10"><a href="speeding-up-your-stan-code.html#cb164-10" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> end<span class="op">-</span>start<span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
-<span id="cb164-11"><a href="speeding-up-your-stan-code.html#cb164-11" tabindex="-1"></a>    </span>
-<span id="cb164-12"><a href="speeding-up-your-stan-code.html#cb164-12" tabindex="-1"></a>    vector<span class="op">[</span>n<span class="op">]</span> lambdaDEU <span class="op">=</span> lambda<span class="op">*((</span>dprob<span class="op">[</span>start<span class="op">:</span>end<span class="op">,]</span> <span class="op">.*</span>pow<span class="op">(</span>prizes<span class="op">[</span>start<span class="op">:</span>end<span class="op">,],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))*</span>rep_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span><span class="dv">3</span><span class="op">))</span></span>
-<span id="cb164-13"><a href="speeding-up-your-stan-code.html#cb164-13" tabindex="-1"></a>                                  <span class="op">./</span></span>
-<span id="cb164-14"><a href="speeding-up-your-stan-code.html#cb164-14" tabindex="-1"></a>                                  <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[</span>start<span class="op">:</span>end<span class="op">,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[</span>start<span class="op">:</span>end<span class="op">,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))</span></span>
-<span id="cb164-15"><a href="speeding-up-your-stan-code.html#cb164-15" tabindex="-1"></a>    <span class="op">;</span></span>
-<span id="cb164-16"><a href="speeding-up-your-stan-code.html#cb164-16" tabindex="-1"></a>    </span>
-<span id="cb164-17"><a href="speeding-up-your-stan-code.html#cb164-17" tabindex="-1"></a>    </span>
-<span id="cb164-18"><a href="speeding-up-your-stan-code.html#cb164-18" tabindex="-1"></a>    </span>
-<span id="cb164-19"><a href="speeding-up-your-stan-code.html#cb164-19" tabindex="-1"></a>    </span>
-<span id="cb164-20"><a href="speeding-up-your-stan-code.html#cb164-20" tabindex="-1"></a>    <span class="cf">return</span> bernoulli_logit_lpmf<span class="op">(</span>Left <span class="op">|</span> lambdaDEU<span class="op">);</span></span>
-<span id="cb164-21"><a href="speeding-up-your-stan-code.html#cb164-21" tabindex="-1"></a>    </span>
-<span id="cb164-22"><a href="speeding-up-your-stan-code.html#cb164-22" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb164-23"><a href="speeding-up-your-stan-code.html#cb164-23" tabindex="-1"></a>  </span>
-<span id="cb164-24"><a href="speeding-up-your-stan-code.html#cb164-24" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb164-25"><a href="speeding-up-your-stan-code.html#cb164-25" tabindex="-1"></a>data <span class="op">{</span></span>
-<span id="cb164-26"><a href="speeding-up-your-stan-code.html#cb164-26" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span> <span class="co">// number of decisions</span></span>
-<span id="cb164-27"><a href="speeding-up-your-stan-code.html#cb164-27" tabindex="-1"></a>  </span>
-<span id="cb164-28"><a href="speeding-up-your-stan-code.html#cb164-28" tabindex="-1"></a>  <span class="dt">int</span> Left<span class="op">[</span>N<span class="op">];</span> <span class="co">// logical =1 if left lottery was chosen</span></span>
-<span id="cb164-29"><a href="speeding-up-your-stan-code.html#cb164-29" tabindex="-1"></a>  </span>
-<span id="cb164-30"><a href="speeding-up-your-stan-code.html#cb164-30" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> prizes<span class="op">;</span> <span class="co">// the 3 monetary prizes</span></span>
-<span id="cb164-31"><a href="speeding-up-your-stan-code.html#cb164-31" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">2</span><span class="op">]</span> prizerange<span class="op">;</span> <span class="co">// The minimum and maximum prize</span></span>
-<span id="cb164-32"><a href="speeding-up-your-stan-code.html#cb164-32" tabindex="-1"></a>  </span>
-<span id="cb164-33"><a href="speeding-up-your-stan-code.html#cb164-33" tabindex="-1"></a>  </span>
-<span id="cb164-34"><a href="speeding-up-your-stan-code.html#cb164-34" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probL<span class="op">;</span> <span class="co">// prob. distribution for Left lottery</span></span>
-<span id="cb164-35"><a href="speeding-up-your-stan-code.html#cb164-35" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probR<span class="op">;</span> <span class="co">// prob. distribution for Right lottery</span></span>
-<span id="cb164-36"><a href="speeding-up-your-stan-code.html#cb164-36" tabindex="-1"></a>  </span>
-<span id="cb164-37"><a href="speeding-up-your-stan-code.html#cb164-37" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_r<span class="op">;</span> <span class="co">// normal prior on CRRA parameter</span></span>
-<span id="cb164-38"><a href="speeding-up-your-stan-code.html#cb164-38" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_lambda<span class="op">;</span> <span class="co">// log-normal prior on logit choice precision</span></span>
-<span id="cb164-39"><a href="speeding-up-your-stan-code.html#cb164-39" tabindex="-1"></a>  </span>
-<span id="cb164-40"><a href="speeding-up-your-stan-code.html#cb164-40" tabindex="-1"></a>  <span class="dt">int</span> grainsize<span class="op">;</span></span>
-<span id="cb164-41"><a href="speeding-up-your-stan-code.html#cb164-41" tabindex="-1"></a>  </span>
-<span id="cb164-42"><a href="speeding-up-your-stan-code.html#cb164-42" tabindex="-1"></a>  <span class="dt">int</span> doparallel<span class="op">;</span> <span class="co">// if ==1 then do within-chain parallelization</span></span>
-<span id="cb164-43"><a href="speeding-up-your-stan-code.html#cb164-43" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb164-44"><a href="speeding-up-your-stan-code.html#cb164-44" tabindex="-1"></a></span>
-<span id="cb164-45"><a href="speeding-up-your-stan-code.html#cb164-45" tabindex="-1"></a>transformed data <span class="op">{</span></span>
-<span id="cb164-46"><a href="speeding-up-your-stan-code.html#cb164-46" tabindex="-1"></a>  </span>
-<span id="cb164-47"><a href="speeding-up-your-stan-code.html#cb164-47" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> dprob <span class="op">=</span> probL<span class="op">-</span>probR<span class="op">;</span></span>
-<span id="cb164-48"><a href="speeding-up-your-stan-code.html#cb164-48" tabindex="-1"></a>  </span>
-<span id="cb164-49"><a href="speeding-up-your-stan-code.html#cb164-49" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb164-50"><a href="speeding-up-your-stan-code.html#cb164-50" tabindex="-1"></a></span>
-<span id="cb164-51"><a href="speeding-up-your-stan-code.html#cb164-51" tabindex="-1"></a>parameters <span class="op">{</span></span>
-<span id="cb164-52"><a href="speeding-up-your-stan-code.html#cb164-52" tabindex="-1"></a>  real r<span class="op">;</span></span>
-<span id="cb164-53"><a href="speeding-up-your-stan-code.html#cb164-53" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
-<span id="cb164-54"><a href="speeding-up-your-stan-code.html#cb164-54" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb164-55"><a href="speeding-up-your-stan-code.html#cb164-55" tabindex="-1"></a>model <span class="op">{</span></span>
-<span id="cb164-56"><a href="speeding-up-your-stan-code.html#cb164-56" tabindex="-1"></a>  </span>
-<span id="cb164-57"><a href="speeding-up-your-stan-code.html#cb164-57" tabindex="-1"></a>  <span class="co">// priors</span></span>
-<span id="cb164-58"><a href="speeding-up-your-stan-code.html#cb164-58" tabindex="-1"></a>  r <span class="op">~</span> normal<span class="op">(</span>prior_r<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_r<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb164-59"><a href="speeding-up-your-stan-code.html#cb164-59" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb164-60"><a href="speeding-up-your-stan-code.html#cb164-60" tabindex="-1"></a>    </span>
-<span id="cb164-61"><a href="speeding-up-your-stan-code.html#cb164-61" tabindex="-1"></a>    </span>
-<span id="cb164-62"><a href="speeding-up-your-stan-code.html#cb164-62" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>doparallel<span class="op">==</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb164-63"><a href="speeding-up-your-stan-code.html#cb164-63" tabindex="-1"></a>    </span>
-<span id="cb164-64"><a href="speeding-up-your-stan-code.html#cb164-64" tabindex="-1"></a>    target <span class="op">+=</span> reduce_sum<span class="op">(</span></span>
-<span id="cb164-65"><a href="speeding-up-your-stan-code.html#cb164-65" tabindex="-1"></a>      sum_likelihood<span class="op">,</span></span>
-<span id="cb164-66"><a href="speeding-up-your-stan-code.html#cb164-66" tabindex="-1"></a>      Left<span class="op">,</span></span>
-<span id="cb164-67"><a href="speeding-up-your-stan-code.html#cb164-67" tabindex="-1"></a>      grainsize<span class="op">,</span></span>
-<span id="cb164-68"><a href="speeding-up-your-stan-code.html#cb164-68" tabindex="-1"></a>      lambda<span class="op">,</span> r<span class="op">,</span> </span>
-<span id="cb164-69"><a href="speeding-up-your-stan-code.html#cb164-69" tabindex="-1"></a>      dprob<span class="op">,</span> prizes<span class="op">,</span> prizerange</span>
-<span id="cb164-70"><a href="speeding-up-your-stan-code.html#cb164-70" tabindex="-1"></a>    <span class="op">);</span></span>
-<span id="cb164-71"><a href="speeding-up-your-stan-code.html#cb164-71" tabindex="-1"></a>  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb164-72"><a href="speeding-up-your-stan-code.html#cb164-72" tabindex="-1"></a>    </span>
-<span id="cb164-73"><a href="speeding-up-your-stan-code.html#cb164-73" tabindex="-1"></a>    target <span class="op">+=</span> sum_likelihood<span class="op">(</span>Left<span class="op">,</span></span>
-<span id="cb164-74"><a href="speeding-up-your-stan-code.html#cb164-74" tabindex="-1"></a>                         <span class="dv">1</span><span class="op">,</span>N<span class="op">,</span></span>
-<span id="cb164-75"><a href="speeding-up-your-stan-code.html#cb164-75" tabindex="-1"></a>                         lambda<span class="op">,</span>r<span class="op">,</span></span>
-<span id="cb164-76"><a href="speeding-up-your-stan-code.html#cb164-76" tabindex="-1"></a>                         dprob<span class="op">,</span>prizes<span class="op">,</span>prizerange</span>
-<span id="cb164-77"><a href="speeding-up-your-stan-code.html#cb164-77" tabindex="-1"></a>                           <span class="op">);</span></span>
-<span id="cb164-78"><a href="speeding-up-your-stan-code.html#cb164-78" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb164-79"><a href="speeding-up-your-stan-code.html#cb164-79" tabindex="-1"></a>  </span>
-<span id="cb164-80"><a href="speeding-up-your-stan-code.html#cb164-80" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb166-1"><a href="speeding-up-your-stan-code.html#cb166-1" tabindex="-1"></a>functions <span class="op">{</span></span>
+<span id="cb166-2"><a href="speeding-up-your-stan-code.html#cb166-2" tabindex="-1"></a>  </span>
+<span id="cb166-3"><a href="speeding-up-your-stan-code.html#cb166-3" tabindex="-1"></a>  real sum_likelihood<span class="op">(</span></span>
+<span id="cb166-4"><a href="speeding-up-your-stan-code.html#cb166-4" tabindex="-1"></a>    <span class="dt">int</span><span class="op">[]</span> Left<span class="op">,</span> </span>
+<span id="cb166-5"><a href="speeding-up-your-stan-code.html#cb166-5" tabindex="-1"></a>    <span class="dt">int</span> start<span class="op">,</span> <span class="dt">int</span> end<span class="op">,</span></span>
+<span id="cb166-6"><a href="speeding-up-your-stan-code.html#cb166-6" tabindex="-1"></a>    real lambda<span class="op">,</span> real r<span class="op">,</span></span>
+<span id="cb166-7"><a href="speeding-up-your-stan-code.html#cb166-7" tabindex="-1"></a>    matrix dprob<span class="op">,</span> matrix prizes<span class="op">,</span> matrix prizerange</span>
+<span id="cb166-8"><a href="speeding-up-your-stan-code.html#cb166-8" tabindex="-1"></a>  <span class="op">)</span> <span class="op">{</span></span>
+<span id="cb166-9"><a href="speeding-up-your-stan-code.html#cb166-9" tabindex="-1"></a>    </span>
+<span id="cb166-10"><a href="speeding-up-your-stan-code.html#cb166-10" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> end<span class="op">-</span>start<span class="op">+</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb166-11"><a href="speeding-up-your-stan-code.html#cb166-11" tabindex="-1"></a>    </span>
+<span id="cb166-12"><a href="speeding-up-your-stan-code.html#cb166-12" tabindex="-1"></a>    vector<span class="op">[</span>n<span class="op">]</span> lambdaDEU <span class="op">=</span> lambda<span class="op">*((</span>dprob<span class="op">[</span>start<span class="op">:</span>end<span class="op">,]</span> <span class="op">.*</span>pow<span class="op">(</span>prizes<span class="op">[</span>start<span class="op">:</span>end<span class="op">,],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))*</span>rep_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span><span class="dv">3</span><span class="op">))</span></span>
+<span id="cb166-13"><a href="speeding-up-your-stan-code.html#cb166-13" tabindex="-1"></a>                                  <span class="op">./</span></span>
+<span id="cb166-14"><a href="speeding-up-your-stan-code.html#cb166-14" tabindex="-1"></a>                                  <span class="op">(</span>pow<span class="op">(</span>prizerange<span class="op">[</span>start<span class="op">:</span>end<span class="op">,</span><span class="dv">2</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">)-</span>pow<span class="op">(</span>prizerange<span class="op">[</span>start<span class="op">:</span>end<span class="op">,</span><span class="dv">1</span><span class="op">],</span><span class="fl">1.0</span><span class="op">-</span>r<span class="op">))</span></span>
+<span id="cb166-15"><a href="speeding-up-your-stan-code.html#cb166-15" tabindex="-1"></a>    <span class="op">;</span></span>
+<span id="cb166-16"><a href="speeding-up-your-stan-code.html#cb166-16" tabindex="-1"></a>    </span>
+<span id="cb166-17"><a href="speeding-up-your-stan-code.html#cb166-17" tabindex="-1"></a>    </span>
+<span id="cb166-18"><a href="speeding-up-your-stan-code.html#cb166-18" tabindex="-1"></a>    </span>
+<span id="cb166-19"><a href="speeding-up-your-stan-code.html#cb166-19" tabindex="-1"></a>    </span>
+<span id="cb166-20"><a href="speeding-up-your-stan-code.html#cb166-20" tabindex="-1"></a>    <span class="cf">return</span> bernoulli_logit_lpmf<span class="op">(</span>Left <span class="op">|</span> lambdaDEU<span class="op">);</span></span>
+<span id="cb166-21"><a href="speeding-up-your-stan-code.html#cb166-21" tabindex="-1"></a>    </span>
+<span id="cb166-22"><a href="speeding-up-your-stan-code.html#cb166-22" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb166-23"><a href="speeding-up-your-stan-code.html#cb166-23" tabindex="-1"></a>  </span>
+<span id="cb166-24"><a href="speeding-up-your-stan-code.html#cb166-24" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb166-25"><a href="speeding-up-your-stan-code.html#cb166-25" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb166-26"><a href="speeding-up-your-stan-code.html#cb166-26" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span> <span class="co">// number of decisions</span></span>
+<span id="cb166-27"><a href="speeding-up-your-stan-code.html#cb166-27" tabindex="-1"></a>  </span>
+<span id="cb166-28"><a href="speeding-up-your-stan-code.html#cb166-28" tabindex="-1"></a>  <span class="dt">int</span> Left<span class="op">[</span>N<span class="op">];</span> <span class="co">// logical =1 if left lottery was chosen</span></span>
+<span id="cb166-29"><a href="speeding-up-your-stan-code.html#cb166-29" tabindex="-1"></a>  </span>
+<span id="cb166-30"><a href="speeding-up-your-stan-code.html#cb166-30" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> prizes<span class="op">;</span> <span class="co">// the 3 monetary prizes</span></span>
+<span id="cb166-31"><a href="speeding-up-your-stan-code.html#cb166-31" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">2</span><span class="op">]</span> prizerange<span class="op">;</span> <span class="co">// The minimum and maximum prize</span></span>
+<span id="cb166-32"><a href="speeding-up-your-stan-code.html#cb166-32" tabindex="-1"></a>  </span>
+<span id="cb166-33"><a href="speeding-up-your-stan-code.html#cb166-33" tabindex="-1"></a>  </span>
+<span id="cb166-34"><a href="speeding-up-your-stan-code.html#cb166-34" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probL<span class="op">;</span> <span class="co">// prob. distribution for Left lottery</span></span>
+<span id="cb166-35"><a href="speeding-up-your-stan-code.html#cb166-35" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> probR<span class="op">;</span> <span class="co">// prob. distribution for Right lottery</span></span>
+<span id="cb166-36"><a href="speeding-up-your-stan-code.html#cb166-36" tabindex="-1"></a>  </span>
+<span id="cb166-37"><a href="speeding-up-your-stan-code.html#cb166-37" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_r<span class="op">;</span> <span class="co">// normal prior on CRRA parameter</span></span>
+<span id="cb166-38"><a href="speeding-up-your-stan-code.html#cb166-38" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_lambda<span class="op">;</span> <span class="co">// log-normal prior on logit choice precision</span></span>
+<span id="cb166-39"><a href="speeding-up-your-stan-code.html#cb166-39" tabindex="-1"></a>  </span>
+<span id="cb166-40"><a href="speeding-up-your-stan-code.html#cb166-40" tabindex="-1"></a>  <span class="dt">int</span> grainsize<span class="op">;</span></span>
+<span id="cb166-41"><a href="speeding-up-your-stan-code.html#cb166-41" tabindex="-1"></a>  </span>
+<span id="cb166-42"><a href="speeding-up-your-stan-code.html#cb166-42" tabindex="-1"></a>  <span class="dt">int</span> doparallel<span class="op">;</span> <span class="co">// if ==1 then do within-chain parallelization</span></span>
+<span id="cb166-43"><a href="speeding-up-your-stan-code.html#cb166-43" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb166-44"><a href="speeding-up-your-stan-code.html#cb166-44" tabindex="-1"></a></span>
+<span id="cb166-45"><a href="speeding-up-your-stan-code.html#cb166-45" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb166-46"><a href="speeding-up-your-stan-code.html#cb166-46" tabindex="-1"></a>  </span>
+<span id="cb166-47"><a href="speeding-up-your-stan-code.html#cb166-47" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> dprob <span class="op">=</span> probL<span class="op">-</span>probR<span class="op">;</span></span>
+<span id="cb166-48"><a href="speeding-up-your-stan-code.html#cb166-48" tabindex="-1"></a>  </span>
+<span id="cb166-49"><a href="speeding-up-your-stan-code.html#cb166-49" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb166-50"><a href="speeding-up-your-stan-code.html#cb166-50" tabindex="-1"></a></span>
+<span id="cb166-51"><a href="speeding-up-your-stan-code.html#cb166-51" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb166-52"><a href="speeding-up-your-stan-code.html#cb166-52" tabindex="-1"></a>  real r<span class="op">;</span></span>
+<span id="cb166-53"><a href="speeding-up-your-stan-code.html#cb166-53" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
+<span id="cb166-54"><a href="speeding-up-your-stan-code.html#cb166-54" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb166-55"><a href="speeding-up-your-stan-code.html#cb166-55" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb166-56"><a href="speeding-up-your-stan-code.html#cb166-56" tabindex="-1"></a>  </span>
+<span id="cb166-57"><a href="speeding-up-your-stan-code.html#cb166-57" tabindex="-1"></a>  <span class="co">// priors</span></span>
+<span id="cb166-58"><a href="speeding-up-your-stan-code.html#cb166-58" tabindex="-1"></a>  r <span class="op">~</span> normal<span class="op">(</span>prior_r<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_r<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb166-59"><a href="speeding-up-your-stan-code.html#cb166-59" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb166-60"><a href="speeding-up-your-stan-code.html#cb166-60" tabindex="-1"></a>    </span>
+<span id="cb166-61"><a href="speeding-up-your-stan-code.html#cb166-61" tabindex="-1"></a>    </span>
+<span id="cb166-62"><a href="speeding-up-your-stan-code.html#cb166-62" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>doparallel<span class="op">==</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb166-63"><a href="speeding-up-your-stan-code.html#cb166-63" tabindex="-1"></a>    </span>
+<span id="cb166-64"><a href="speeding-up-your-stan-code.html#cb166-64" tabindex="-1"></a>    target <span class="op">+=</span> reduce_sum<span class="op">(</span></span>
+<span id="cb166-65"><a href="speeding-up-your-stan-code.html#cb166-65" tabindex="-1"></a>      sum_likelihood<span class="op">,</span></span>
+<span id="cb166-66"><a href="speeding-up-your-stan-code.html#cb166-66" tabindex="-1"></a>      Left<span class="op">,</span></span>
+<span id="cb166-67"><a href="speeding-up-your-stan-code.html#cb166-67" tabindex="-1"></a>      grainsize<span class="op">,</span></span>
+<span id="cb166-68"><a href="speeding-up-your-stan-code.html#cb166-68" tabindex="-1"></a>      lambda<span class="op">,</span> r<span class="op">,</span> </span>
+<span id="cb166-69"><a href="speeding-up-your-stan-code.html#cb166-69" tabindex="-1"></a>      dprob<span class="op">,</span> prizes<span class="op">,</span> prizerange</span>
+<span id="cb166-70"><a href="speeding-up-your-stan-code.html#cb166-70" tabindex="-1"></a>    <span class="op">);</span></span>
+<span id="cb166-71"><a href="speeding-up-your-stan-code.html#cb166-71" tabindex="-1"></a>  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb166-72"><a href="speeding-up-your-stan-code.html#cb166-72" tabindex="-1"></a>    </span>
+<span id="cb166-73"><a href="speeding-up-your-stan-code.html#cb166-73" tabindex="-1"></a>    target <span class="op">+=</span> sum_likelihood<span class="op">(</span>Left<span class="op">,</span></span>
+<span id="cb166-74"><a href="speeding-up-your-stan-code.html#cb166-74" tabindex="-1"></a>                         <span class="dv">1</span><span class="op">,</span>N<span class="op">,</span></span>
+<span id="cb166-75"><a href="speeding-up-your-stan-code.html#cb166-75" tabindex="-1"></a>                         lambda<span class="op">,</span>r<span class="op">,</span></span>
+<span id="cb166-76"><a href="speeding-up-your-stan-code.html#cb166-76" tabindex="-1"></a>                         dprob<span class="op">,</span>prizes<span class="op">,</span>prizerange</span>
+<span id="cb166-77"><a href="speeding-up-your-stan-code.html#cb166-77" tabindex="-1"></a>                           <span class="op">);</span></span>
+<span id="cb166-78"><a href="speeding-up-your-stan-code.html#cb166-78" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb166-79"><a href="speeding-up-your-stan-code.html#cb166-79" tabindex="-1"></a>  </span>
+<span id="cb166-80"><a href="speeding-up-your-stan-code.html#cb166-80" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <div id="evaluating-the-implementations" class="section level2 hasAnchor" number="12.6">
 <h2><span class="header-section-number">12.6</span> Evaluating the implementations<a href="speeding-up-your-stan-code.html#evaluating-the-implementations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -909,24 +914,24 @@ Eu(x,q^L\mid r)-Eu(x,p^R\mid r)=\left((q^L-q^R) \cdot \frac{x^{1-r}}{1-r}\right)
 <li><code>refresh = 1000</code>, which only displays progress every 1,000 iterations</li>
 </ul>
 <p>The computation times are summarized in Figure <a href="speeding-up-your-stan-code.html#fig:SpeedyCode1">12.1</a>, which shows the empirical cumulative distributions of these times. The vectorized model runs almost four times faster than the original “slow” model.</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="speeding-up-your-stan-code.html#cb165-1" tabindex="-1"></a>BenchmarkSummary<span class="ot">&lt;-</span><span class="st">&quot;Code/SpeedyCode/BenchmarkSummarySeries.rds&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb165-2"><a href="speeding-up-your-stan-code.html#cb165-2" tabindex="-1"></a>  <span class="fu">readRDS</span>()</span>
-<span id="cb165-3"><a href="speeding-up-your-stan-code.html#cb165-3" tabindex="-1"></a></span>
-<span id="cb165-4"><a href="speeding-up-your-stan-code.html#cb165-4" tabindex="-1"></a>d<span class="ot">&lt;-</span>BenchmarkSummary <span class="sc">|&gt;</span></span>
-<span id="cb165-5"><a href="speeding-up-your-stan-code.html#cb165-5" tabindex="-1"></a>  <span class="fu">group_by</span>(id,model) <span class="sc">|&gt;</span></span>
-<span id="cb165-6"><a href="speeding-up-your-stan-code.html#cb165-6" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb165-7"><a href="speeding-up-your-stan-code.html#cb165-7" tabindex="-1"></a>    <span class="at">time =</span> <span class="fu">mean</span>(time)</span>
-<span id="cb165-8"><a href="speeding-up-your-stan-code.html#cb165-8" tabindex="-1"></a>  ) </span>
-<span id="cb165-9"><a href="speeding-up-your-stan-code.html#cb165-9" tabindex="-1"></a></span>
-<span id="cb165-10"><a href="speeding-up-your-stan-code.html#cb165-10" tabindex="-1"></a>(</span>
-<span id="cb165-11"><a href="speeding-up-your-stan-code.html#cb165-11" tabindex="-1"></a>  <span class="fu">ggplot</span>(d ,<span class="fu">aes</span>(<span class="at">x=</span>time,<span class="at">color=</span>model))</span>
-<span id="cb165-12"><a href="speeding-up-your-stan-code.html#cb165-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_ecdf</span>()</span>
-<span id="cb165-13"><a href="speeding-up-your-stan-code.html#cb165-13" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb165-14"><a href="speeding-up-your-stan-code.html#cb165-14" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;computation time (s)&quot;</span>)</span>
-<span id="cb165-15"><a href="speeding-up-your-stan-code.html#cb165-15" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;empirical cumulative density&quot;</span>)</span>
-<span id="cb165-16"><a href="speeding-up-your-stan-code.html#cb165-16" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">max</span>(d<span class="sc">$</span>time)))</span>
-<span id="cb165-17"><a href="speeding-up-your-stan-code.html#cb165-17" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_discrete</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">&quot;slow&quot;</span>,<span class="st">&quot;precompute&quot;</span>,<span class="st">&quot;vectorized&quot;</span>,<span class="st">&quot;parallel&quot;</span>)) </span>
-<span id="cb165-18"><a href="speeding-up-your-stan-code.html#cb165-18" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="speeding-up-your-stan-code.html#cb167-1" tabindex="-1"></a>BenchmarkSummary<span class="ot">&lt;-</span><span class="st">&quot;Code/SpeedyCode/BenchmarkSummarySeries.rds&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb167-2"><a href="speeding-up-your-stan-code.html#cb167-2" tabindex="-1"></a>  <span class="fu">readRDS</span>()</span>
+<span id="cb167-3"><a href="speeding-up-your-stan-code.html#cb167-3" tabindex="-1"></a></span>
+<span id="cb167-4"><a href="speeding-up-your-stan-code.html#cb167-4" tabindex="-1"></a>d<span class="ot">&lt;-</span>BenchmarkSummary <span class="sc">|&gt;</span></span>
+<span id="cb167-5"><a href="speeding-up-your-stan-code.html#cb167-5" tabindex="-1"></a>  <span class="fu">group_by</span>(id,model) <span class="sc">|&gt;</span></span>
+<span id="cb167-6"><a href="speeding-up-your-stan-code.html#cb167-6" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb167-7"><a href="speeding-up-your-stan-code.html#cb167-7" tabindex="-1"></a>    <span class="at">time =</span> <span class="fu">mean</span>(time)</span>
+<span id="cb167-8"><a href="speeding-up-your-stan-code.html#cb167-8" tabindex="-1"></a>  ) </span>
+<span id="cb167-9"><a href="speeding-up-your-stan-code.html#cb167-9" tabindex="-1"></a></span>
+<span id="cb167-10"><a href="speeding-up-your-stan-code.html#cb167-10" tabindex="-1"></a>(</span>
+<span id="cb167-11"><a href="speeding-up-your-stan-code.html#cb167-11" tabindex="-1"></a>  <span class="fu">ggplot</span>(d ,<span class="fu">aes</span>(<span class="at">x=</span>time,<span class="at">color=</span>model))</span>
+<span id="cb167-12"><a href="speeding-up-your-stan-code.html#cb167-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">stat_ecdf</span>()</span>
+<span id="cb167-13"><a href="speeding-up-your-stan-code.html#cb167-13" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb167-14"><a href="speeding-up-your-stan-code.html#cb167-14" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;computation time (s)&quot;</span>)</span>
+<span id="cb167-15"><a href="speeding-up-your-stan-code.html#cb167-15" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;empirical cumulative density&quot;</span>)</span>
+<span id="cb167-16"><a href="speeding-up-your-stan-code.html#cb167-16" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">max</span>(d<span class="sc">$</span>time)))</span>
+<span id="cb167-17"><a href="speeding-up-your-stan-code.html#cb167-17" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_discrete</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">&quot;slow&quot;</span>,<span class="st">&quot;precompute&quot;</span>,<span class="st">&quot;vectorized&quot;</span>,<span class="st">&quot;parallel&quot;</span>)) </span>
+<span id="cb167-18"><a href="speeding-up-your-stan-code.html#cb167-18" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:SpeedyCode1"></span>
 <img src="index_files/figure-html/SpeedyCode1-1.png" alt="Computation time for individual-level estimation of models, excluding the paralleized program." width="672" />
 <p class="caption">
@@ -938,17 +943,17 @@ Figure 12.1: Computation time for individual-level estimation of models, excludi
 <h3><span class="header-section-number">12.6.2</span> Within-chain parallelization<a href="speeding-up-your-stan-code.html#within-chain-parallelization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To evaluate the performance improvements due to within-chain paralleization, I give <em>Stan</em> a more difficult problem to solve. This is because there is a substantial fixed time cost associated with managing more than one core, and so there might not be much to see if we just looked at the participant-specific estimations, which only had 100 observations each. Instead, we can increase the number of things that <em>Stan</em> needs to add up to compute the likelihood by estimating a representative-agent model pooling all of the data. This means that instead of having to add up 100 things to compute the likelihood, <em>Stan</em> will need to add up 32,700 things (i.e. 327 participants each making 100 decisions).</p>
 <p>In order to showcase the benefits of parallelization, I estimate the model with just one chain. This means that I can devote all eight cores of my server to within-chain parallelization. I estimate the model for five different values of the tuning parameter <code>grainsize</code>, including <code>grainsize = 1</code>, which allows <em>Stan</em>’s scheduler to determine how the sum is split up. These were chosen to roughly split the summation up into 8ths, 16ths, 32nds and so on on my 8-core server. I also estimate the model without parallelization (setting the data input <code>doparallel</code> to zero). The computation times are summarized in Table <a href="speeding-up-your-stan-code.html#tab:SpeedyCode2">12.1</a>. For the values of <code>grainsize</code> explored, the computation time is about ten times faster for the parallelized process.</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="speeding-up-your-stan-code.html#cb166-1" tabindex="-1"></a>Parallel<span class="ot">&lt;-</span><span class="st">&quot;Code/SpeedyCode/BenchmarkSummaryParallel.rds&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb166-2"><a href="speeding-up-your-stan-code.html#cb166-2" tabindex="-1"></a>  <span class="fu">readRDS</span>() <span class="sc">|&gt;</span></span>
-<span id="cb166-3"><a href="speeding-up-your-stan-code.html#cb166-3" tabindex="-1"></a>  <span class="fu">group_by</span>(grainsize) <span class="sc">|&gt;</span></span>
-<span id="cb166-4"><a href="speeding-up-your-stan-code.html#cb166-4" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb166-5"><a href="speeding-up-your-stan-code.html#cb166-5" tabindex="-1"></a>    <span class="st">`</span><span class="at">Time to estimate model (s)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">mean</span>(time)</span>
-<span id="cb166-6"><a href="speeding-up-your-stan-code.html#cb166-6" tabindex="-1"></a>  ) </span>
-<span id="cb166-7"><a href="speeding-up-your-stan-code.html#cb166-7" tabindex="-1"></a></span>
-<span id="cb166-8"><a href="speeding-up-your-stan-code.html#cb166-8" tabindex="-1"></a>Parallel <span class="sc">|&gt;</span> </span>
-<span id="cb166-9"><a href="speeding-up-your-stan-code.html#cb166-9" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb166-10"><a href="speeding-up-your-stan-code.html#cb166-10" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&quot;Computation time for parallelized model. `grainsize = NA` indicates the un-parallelized process. `grainsize = 1` allows *Stan*&#39;s scheduler to choose how to split up the summation.&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb166-11"><a href="speeding-up-your-stan-code.html#cb166-11" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="speeding-up-your-stan-code.html#cb168-1" tabindex="-1"></a>Parallel<span class="ot">&lt;-</span><span class="st">&quot;Code/SpeedyCode/BenchmarkSummaryParallel.rds&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb168-2"><a href="speeding-up-your-stan-code.html#cb168-2" tabindex="-1"></a>  <span class="fu">readRDS</span>() <span class="sc">|&gt;</span></span>
+<span id="cb168-3"><a href="speeding-up-your-stan-code.html#cb168-3" tabindex="-1"></a>  <span class="fu">group_by</span>(grainsize) <span class="sc">|&gt;</span></span>
+<span id="cb168-4"><a href="speeding-up-your-stan-code.html#cb168-4" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb168-5"><a href="speeding-up-your-stan-code.html#cb168-5" tabindex="-1"></a>    <span class="st">`</span><span class="at">Time to estimate model (s)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">mean</span>(time)</span>
+<span id="cb168-6"><a href="speeding-up-your-stan-code.html#cb168-6" tabindex="-1"></a>  ) </span>
+<span id="cb168-7"><a href="speeding-up-your-stan-code.html#cb168-7" tabindex="-1"></a></span>
+<span id="cb168-8"><a href="speeding-up-your-stan-code.html#cb168-8" tabindex="-1"></a>Parallel <span class="sc">|&gt;</span> </span>
+<span id="cb168-9"><a href="speeding-up-your-stan-code.html#cb168-9" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb168-10"><a href="speeding-up-your-stan-code.html#cb168-10" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&quot;Computation time for parallelized model. `grainsize = NA` indicates the un-parallelized process. `grainsize = 1` allows *Stan*&#39;s scheduler to choose how to split up the summation.&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb168-11"><a href="speeding-up-your-stan-code.html#cb168-11" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <table class=" lightable-classic" style="color: black; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:SpeedyCode2">Table 12.1: </span>Computation time for parallelized model. <code>grainsize = NA</code> indicates the un-parallelized process. <code>grainsize = 1</code> allows <em>Stan</em>’s scheduler to choose how to split up the summation.
@@ -1021,211 +1026,211 @@ NA
 <h2><span class="header-section-number">12.7</span> <em>R</em> code to estimate models<a href="speeding-up-your-stan-code.html#r-code-to-estimate-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="slow-pre-computed-and-vectorized-models" class="section level3 hasAnchor" number="12.7.1">
 <h3><span class="header-section-number">12.7.1</span> Slow, pre-computed, and vectorized models<a href="speeding-up-your-stan-code.html#slow-pre-computed-and-vectorized-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="speeding-up-your-stan-code.html#cb167-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb167-2"><a href="speeding-up-your-stan-code.html#cb167-2" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb167-3"><a href="speeding-up-your-stan-code.html#cb167-3" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
-<span id="cb167-4"><a href="speeding-up-your-stan-code.html#cb167-4" tabindex="-1"></a>  <span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb167-5"><a href="speeding-up-your-stan-code.html#cb167-5" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
-<span id="cb167-6"><a href="speeding-up-your-stan-code.html#cb167-6" tabindex="-1"></a>  <span class="fu">rstan_options</span>(<span class="at">threads_per_chain =</span> <span class="dv">8</span>)</span>
-<span id="cb167-7"><a href="speeding-up-your-stan-code.html#cb167-7" tabindex="-1"></a></span>
-<span id="cb167-8"><a href="speeding-up-your-stan-code.html#cb167-8" tabindex="-1"></a>  </span>
-<span id="cb167-9"><a href="speeding-up-your-stan-code.html#cb167-9" tabindex="-1"></a>numreps<span class="ot">&lt;-</span><span class="dv">1</span></span>
-<span id="cb167-10"><a href="speeding-up-your-stan-code.html#cb167-10" tabindex="-1"></a></span>
-<span id="cb167-11"><a href="speeding-up-your-stan-code.html#cb167-11" tabindex="-1"></a><span class="co"># Note: The show-up fee for the undergrads was $10 and $40 for the MBA students</span></span>
-<span id="cb167-12"><a href="speeding-up-your-stan-code.html#cb167-12" tabindex="-1"></a></span>
-<span id="cb167-13"><a href="speeding-up-your-stan-code.html#cb167-13" tabindex="-1"></a>BenchmarkSummary<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
-<span id="cb167-14"><a href="speeding-up-your-stan-code.html#cb167-14" tabindex="-1"></a></span>
-<span id="cb167-15"><a href="speeding-up-your-stan-code.html#cb167-15" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="st">&quot;Data/HS2023.dta&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb167-16"><a href="speeding-up-your-stan-code.html#cb167-16" tabindex="-1"></a>  <span class="fu">read_dta</span>() <span class="sc">|&gt;</span></span>
-<span id="cb167-17"><a href="speeding-up-your-stan-code.html#cb167-17" tabindex="-1"></a>  <span class="fu">select</span>(id,choice,prize1L<span class="sc">:</span>prob4R,endowment) <span class="sc">|&gt;</span></span>
-<span id="cb167-18"><a href="speeding-up-your-stan-code.html#cb167-18" tabindex="-1"></a>  <span class="co"># add in the endowment</span></span>
-<span id="cb167-19"><a href="speeding-up-your-stan-code.html#cb167-19" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb167-20"><a href="speeding-up-your-stan-code.html#cb167-20" tabindex="-1"></a>    <span class="at">show_up_fee =</span> <span class="fu">ifelse</span>(mba,<span class="dv">40</span>,<span class="dv">10</span>),</span>
-<span id="cb167-21"><a href="speeding-up-your-stan-code.html#cb167-21" tabindex="-1"></a>    <span class="at">Left =</span> <span class="dv">1</span><span class="sc">-</span>choice,</span>
-<span id="cb167-22"><a href="speeding-up-your-stan-code.html#cb167-22" tabindex="-1"></a>    <span class="at">prize1L =</span> prize1L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb167-23"><a href="speeding-up-your-stan-code.html#cb167-23" tabindex="-1"></a>    <span class="at">prize2L =</span> prize2L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb167-24"><a href="speeding-up-your-stan-code.html#cb167-24" tabindex="-1"></a>    <span class="at">prize3L =</span> prize3L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb167-25"><a href="speeding-up-your-stan-code.html#cb167-25" tabindex="-1"></a>    <span class="at">prize4L =</span> prize4L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb167-26"><a href="speeding-up-your-stan-code.html#cb167-26" tabindex="-1"></a>    <span class="at">prize1R =</span> prize1R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb167-27"><a href="speeding-up-your-stan-code.html#cb167-27" tabindex="-1"></a>    <span class="at">prize2R =</span> prize2R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb167-28"><a href="speeding-up-your-stan-code.html#cb167-28" tabindex="-1"></a>    <span class="at">prize3R =</span> prize3R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb167-29"><a href="speeding-up-your-stan-code.html#cb167-29" tabindex="-1"></a>    <span class="at">prize4R =</span> prize4R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee</span>
-<span id="cb167-30"><a href="speeding-up-your-stan-code.html#cb167-30" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb167-31"><a href="speeding-up-your-stan-code.html#cb167-31" tabindex="-1"></a>  <span class="co"># there were never four possible prizes</span></span>
-<span id="cb167-32"><a href="speeding-up-your-stan-code.html#cb167-32" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">&quot;4&quot;</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb167-33"><a href="speeding-up-your-stan-code.html#cb167-33" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb167-34"><a href="speeding-up-your-stan-code.html#cb167-34" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb167-35"><a href="speeding-up-your-stan-code.html#cb167-35" tabindex="-1"></a>    <span class="at">prizerangeLow =</span> <span class="fu">min</span>(<span class="fu">c</span>(prize1L,prize2R,prize3L)),</span>
-<span id="cb167-36"><a href="speeding-up-your-stan-code.html#cb167-36" tabindex="-1"></a>    <span class="at">prizerangeHigh =</span> <span class="fu">max</span>(<span class="fu">c</span>(prize1L,prize2R,prize3L))</span>
-<span id="cb167-37"><a href="speeding-up-your-stan-code.html#cb167-37" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb167-38"><a href="speeding-up-your-stan-code.html#cb167-38" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Left))</span>
-<span id="cb167-39"><a href="speeding-up-your-stan-code.html#cb167-39" tabindex="-1"></a></span>
-<span id="cb167-40"><a href="speeding-up-your-stan-code.html#cb167-40" tabindex="-1"></a></span>
-<span id="cb167-41"><a href="speeding-up-your-stan-code.html#cb167-41" tabindex="-1"></a>ModelList<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
-<span id="cb167-42"><a href="speeding-up-your-stan-code.html#cb167-42" tabindex="-1"></a>  <span class="at">slow =</span> <span class="st">&quot;Code/SpeedyCode/EUT_slow.stan&quot;</span> <span class="sc">|&gt;</span> <span class="fu">stan_model</span>(),</span>
-<span id="cb167-43"><a href="speeding-up-your-stan-code.html#cb167-43" tabindex="-1"></a>  <span class="at">precompute =</span> <span class="st">&quot;Code/SpeedyCode/EUT_precompute.stan&quot;</span> <span class="sc">|&gt;</span> <span class="fu">stan_model</span>(),</span>
-<span id="cb167-44"><a href="speeding-up-your-stan-code.html#cb167-44" tabindex="-1"></a>  <span class="at">vectorized =</span> <span class="st">&quot;Code/SpeedyCode/EUT_vectorized.stan&quot;</span> <span class="sc">|&gt;</span> <span class="fu">stan_model</span>()</span>
-<span id="cb167-45"><a href="speeding-up-your-stan-code.html#cb167-45" tabindex="-1"></a>)</span>
-<span id="cb167-46"><a href="speeding-up-your-stan-code.html#cb167-46" tabindex="-1"></a></span>
-<span id="cb167-47"><a href="speeding-up-your-stan-code.html#cb167-47" tabindex="-1"></a></span>
-<span id="cb167-48"><a href="speeding-up-your-stan-code.html#cb167-48" tabindex="-1"></a><span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>numreps) {</span>
-<span id="cb167-49"><a href="speeding-up-your-stan-code.html#cb167-49" tabindex="-1"></a>  <span class="cf">for</span> (ii  <span class="cf">in</span> <span class="fu">unique</span>(D<span class="sc">$</span>id)) {</span>
-<span id="cb167-50"><a href="speeding-up-your-stan-code.html#cb167-50" tabindex="-1"></a>    </span>
-<span id="cb167-51"><a href="speeding-up-your-stan-code.html#cb167-51" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;rep&quot;</span>,rr,<span class="st">&quot;of&quot;</span>,numreps,<span class="st">&quot;id&quot;</span>,ii,<span class="st">&quot;of&quot;</span>,<span class="fu">length</span>(D<span class="sc">$</span>id <span class="sc">|&gt;</span> <span class="fu">unique</span>())))</span>
-<span id="cb167-52"><a href="speeding-up-your-stan-code.html#cb167-52" tabindex="-1"></a>    </span>
-<span id="cb167-53"><a href="speeding-up-your-stan-code.html#cb167-53" tabindex="-1"></a>    d<span class="ot">&lt;-</span> D<span class="sc">|&gt;</span> <span class="fu">filter</span>(id<span class="sc">==</span>ii)</span>
-<span id="cb167-54"><a href="speeding-up-your-stan-code.html#cb167-54" tabindex="-1"></a>    </span>
-<span id="cb167-55"><a href="speeding-up-your-stan-code.html#cb167-55" tabindex="-1"></a>    dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
-<span id="cb167-56"><a href="speeding-up-your-stan-code.html#cb167-56" tabindex="-1"></a>      <span class="at">N =</span> <span class="fu">dim</span>(d)[<span class="dv">1</span>],</span>
-<span id="cb167-57"><a href="speeding-up-your-stan-code.html#cb167-57" tabindex="-1"></a>      <span class="at">Left =</span> d<span class="sc">$</span>Left,</span>
-<span id="cb167-58"><a href="speeding-up-your-stan-code.html#cb167-58" tabindex="-1"></a>      </span>
-<span id="cb167-59"><a href="speeding-up-your-stan-code.html#cb167-59" tabindex="-1"></a>      <span class="at">prizes =</span> <span class="fu">cbind</span>(d<span class="sc">$</span>prize1L,d<span class="sc">$</span>prize2L,d<span class="sc">$</span>prize3L),</span>
-<span id="cb167-60"><a href="speeding-up-your-stan-code.html#cb167-60" tabindex="-1"></a>      <span class="at">prizerange=</span><span class="fu">cbind</span>(d<span class="sc">$</span>prizerangeLow,d<span class="sc">$</span>prizerangeHigh),</span>
-<span id="cb167-61"><a href="speeding-up-your-stan-code.html#cb167-61" tabindex="-1"></a>      </span>
-<span id="cb167-62"><a href="speeding-up-your-stan-code.html#cb167-62" tabindex="-1"></a>      <span class="at">probL =</span> <span class="fu">cbind</span>(d<span class="sc">$</span>prob1L,d<span class="sc">$</span>prob2L,d<span class="sc">$</span>prob3L),</span>
-<span id="cb167-63"><a href="speeding-up-your-stan-code.html#cb167-63" tabindex="-1"></a>      <span class="at">probR =</span> <span class="fu">cbind</span>(d<span class="sc">$</span>prob1R,d<span class="sc">$</span>prob2R,d<span class="sc">$</span>prob3R),</span>
-<span id="cb167-64"><a href="speeding-up-your-stan-code.html#cb167-64" tabindex="-1"></a>      </span>
-<span id="cb167-65"><a href="speeding-up-your-stan-code.html#cb167-65" tabindex="-1"></a>      <span class="at">prior_r =</span> <span class="fu">c</span>(<span class="fl">0.27</span>,<span class="fl">0.36</span>),</span>
-<span id="cb167-66"><a href="speeding-up-your-stan-code.html#cb167-66" tabindex="-1"></a>      <span class="at">prior_lambda =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">30</span>),<span class="fl">0.5</span>)</span>
-<span id="cb167-67"><a href="speeding-up-your-stan-code.html#cb167-67" tabindex="-1"></a>    )</span>
-<span id="cb167-68"><a href="speeding-up-your-stan-code.html#cb167-68" tabindex="-1"></a>    </span>
-<span id="cb167-69"><a href="speeding-up-your-stan-code.html#cb167-69" tabindex="-1"></a>    <span class="cf">for</span> (mm <span class="cf">in</span> <span class="fu">names</span>(ModelList)) {</span>
-<span id="cb167-70"><a href="speeding-up-your-stan-code.html#cb167-70" tabindex="-1"></a>      </span>
-<span id="cb167-71"><a href="speeding-up-your-stan-code.html#cb167-71" tabindex="-1"></a>      Fit<span class="ot">&lt;-</span>ModelList[[mm]] <span class="sc">|&gt;</span> </span>
-<span id="cb167-72"><a href="speeding-up-your-stan-code.html#cb167-72" tabindex="-1"></a>        <span class="fu">sampling</span>(<span class="at">seed=</span><span class="dv">42</span>,<span class="at">chains=</span><span class="dv">1</span>,<span class="at">data=</span>dStan,<span class="at">refresh=</span><span class="dv">1000</span>)</span>
-<span id="cb167-73"><a href="speeding-up-your-stan-code.html#cb167-73" tabindex="-1"></a>      </span>
-<span id="cb167-74"><a href="speeding-up-your-stan-code.html#cb167-74" tabindex="-1"></a>      BenchmarkSummary<span class="ot">&lt;-</span> BenchmarkSummary <span class="sc">|&gt;</span></span>
-<span id="cb167-75"><a href="speeding-up-your-stan-code.html#cb167-75" tabindex="-1"></a>        <span class="fu">rbind</span>(</span>
-<span id="cb167-76"><a href="speeding-up-your-stan-code.html#cb167-76" tabindex="-1"></a>          <span class="fu">tibble</span>(<span class="at">id=</span>ii,</span>
-<span id="cb167-77"><a href="speeding-up-your-stan-code.html#cb167-77" tabindex="-1"></a>                 <span class="at">model =</span> mm,</span>
-<span id="cb167-78"><a href="speeding-up-your-stan-code.html#cb167-78" tabindex="-1"></a>                 <span class="at">rep =</span> rr,</span>
-<span id="cb167-79"><a href="speeding-up-your-stan-code.html#cb167-79" tabindex="-1"></a>                 <span class="at">grainsize=</span><span class="cn">NA</span>,</span>
-<span id="cb167-80"><a href="speeding-up-your-stan-code.html#cb167-80" tabindex="-1"></a>                 <span class="at">time =</span> <span class="fu">get_elapsed_time</span>(Fit) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span>
-<span id="cb167-81"><a href="speeding-up-your-stan-code.html#cb167-81" tabindex="-1"></a>                 )</span>
-<span id="cb167-82"><a href="speeding-up-your-stan-code.html#cb167-82" tabindex="-1"></a>        )</span>
-<span id="cb167-83"><a href="speeding-up-your-stan-code.html#cb167-83" tabindex="-1"></a>      </span>
-<span id="cb167-84"><a href="speeding-up-your-stan-code.html#cb167-84" tabindex="-1"></a>      </span>
-<span id="cb167-85"><a href="speeding-up-your-stan-code.html#cb167-85" tabindex="-1"></a>      </span>
-<span id="cb167-86"><a href="speeding-up-your-stan-code.html#cb167-86" tabindex="-1"></a>    }</span>
-<span id="cb167-87"><a href="speeding-up-your-stan-code.html#cb167-87" tabindex="-1"></a>    </span>
-<span id="cb167-88"><a href="speeding-up-your-stan-code.html#cb167-88" tabindex="-1"></a>    BenchmarkSummary <span class="sc">|&gt;</span></span>
-<span id="cb167-89"><a href="speeding-up-your-stan-code.html#cb167-89" tabindex="-1"></a>      <span class="fu">saveRDS</span>(<span class="st">&quot;Code/SpeedyCode/BenchmarkSummarySeries.rds&quot;</span>)</span>
-<span id="cb167-90"><a href="speeding-up-your-stan-code.html#cb167-90" tabindex="-1"></a>  </span>
-<span id="cb167-91"><a href="speeding-up-your-stan-code.html#cb167-91" tabindex="-1"></a>  }</span>
-<span id="cb167-92"><a href="speeding-up-your-stan-code.html#cb167-92" tabindex="-1"></a></span>
-<span id="cb167-93"><a href="speeding-up-your-stan-code.html#cb167-93" tabindex="-1"></a>  </span>
-<span id="cb167-94"><a href="speeding-up-your-stan-code.html#cb167-94" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="speeding-up-your-stan-code.html#cb169-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb169-2"><a href="speeding-up-your-stan-code.html#cb169-2" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb169-3"><a href="speeding-up-your-stan-code.html#cb169-3" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb169-4"><a href="speeding-up-your-stan-code.html#cb169-4" tabindex="-1"></a>  <span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb169-5"><a href="speeding-up-your-stan-code.html#cb169-5" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb169-6"><a href="speeding-up-your-stan-code.html#cb169-6" tabindex="-1"></a>  <span class="fu">rstan_options</span>(<span class="at">threads_per_chain =</span> <span class="dv">8</span>)</span>
+<span id="cb169-7"><a href="speeding-up-your-stan-code.html#cb169-7" tabindex="-1"></a></span>
+<span id="cb169-8"><a href="speeding-up-your-stan-code.html#cb169-8" tabindex="-1"></a>  </span>
+<span id="cb169-9"><a href="speeding-up-your-stan-code.html#cb169-9" tabindex="-1"></a>numreps<span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb169-10"><a href="speeding-up-your-stan-code.html#cb169-10" tabindex="-1"></a></span>
+<span id="cb169-11"><a href="speeding-up-your-stan-code.html#cb169-11" tabindex="-1"></a><span class="co"># Note: The show-up fee for the undergrads was $10 and $40 for the MBA students</span></span>
+<span id="cb169-12"><a href="speeding-up-your-stan-code.html#cb169-12" tabindex="-1"></a></span>
+<span id="cb169-13"><a href="speeding-up-your-stan-code.html#cb169-13" tabindex="-1"></a>BenchmarkSummary<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
+<span id="cb169-14"><a href="speeding-up-your-stan-code.html#cb169-14" tabindex="-1"></a></span>
+<span id="cb169-15"><a href="speeding-up-your-stan-code.html#cb169-15" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="st">&quot;Data/HS2023.dta&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb169-16"><a href="speeding-up-your-stan-code.html#cb169-16" tabindex="-1"></a>  <span class="fu">read_dta</span>() <span class="sc">|&gt;</span></span>
+<span id="cb169-17"><a href="speeding-up-your-stan-code.html#cb169-17" tabindex="-1"></a>  <span class="fu">select</span>(id,choice,prize1L<span class="sc">:</span>prob4R,endowment) <span class="sc">|&gt;</span></span>
+<span id="cb169-18"><a href="speeding-up-your-stan-code.html#cb169-18" tabindex="-1"></a>  <span class="co"># add in the endowment</span></span>
+<span id="cb169-19"><a href="speeding-up-your-stan-code.html#cb169-19" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb169-20"><a href="speeding-up-your-stan-code.html#cb169-20" tabindex="-1"></a>    <span class="at">show_up_fee =</span> <span class="fu">ifelse</span>(mba,<span class="dv">40</span>,<span class="dv">10</span>),</span>
+<span id="cb169-21"><a href="speeding-up-your-stan-code.html#cb169-21" tabindex="-1"></a>    <span class="at">Left =</span> <span class="dv">1</span><span class="sc">-</span>choice,</span>
+<span id="cb169-22"><a href="speeding-up-your-stan-code.html#cb169-22" tabindex="-1"></a>    <span class="at">prize1L =</span> prize1L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb169-23"><a href="speeding-up-your-stan-code.html#cb169-23" tabindex="-1"></a>    <span class="at">prize2L =</span> prize2L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb169-24"><a href="speeding-up-your-stan-code.html#cb169-24" tabindex="-1"></a>    <span class="at">prize3L =</span> prize3L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb169-25"><a href="speeding-up-your-stan-code.html#cb169-25" tabindex="-1"></a>    <span class="at">prize4L =</span> prize4L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb169-26"><a href="speeding-up-your-stan-code.html#cb169-26" tabindex="-1"></a>    <span class="at">prize1R =</span> prize1R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb169-27"><a href="speeding-up-your-stan-code.html#cb169-27" tabindex="-1"></a>    <span class="at">prize2R =</span> prize2R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb169-28"><a href="speeding-up-your-stan-code.html#cb169-28" tabindex="-1"></a>    <span class="at">prize3R =</span> prize3R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb169-29"><a href="speeding-up-your-stan-code.html#cb169-29" tabindex="-1"></a>    <span class="at">prize4R =</span> prize4R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee</span>
+<span id="cb169-30"><a href="speeding-up-your-stan-code.html#cb169-30" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb169-31"><a href="speeding-up-your-stan-code.html#cb169-31" tabindex="-1"></a>  <span class="co"># there were never four possible prizes</span></span>
+<span id="cb169-32"><a href="speeding-up-your-stan-code.html#cb169-32" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">&quot;4&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb169-33"><a href="speeding-up-your-stan-code.html#cb169-33" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
+<span id="cb169-34"><a href="speeding-up-your-stan-code.html#cb169-34" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb169-35"><a href="speeding-up-your-stan-code.html#cb169-35" tabindex="-1"></a>    <span class="at">prizerangeLow =</span> <span class="fu">min</span>(<span class="fu">c</span>(prize1L,prize2R,prize3L)),</span>
+<span id="cb169-36"><a href="speeding-up-your-stan-code.html#cb169-36" tabindex="-1"></a>    <span class="at">prizerangeHigh =</span> <span class="fu">max</span>(<span class="fu">c</span>(prize1L,prize2R,prize3L))</span>
+<span id="cb169-37"><a href="speeding-up-your-stan-code.html#cb169-37" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb169-38"><a href="speeding-up-your-stan-code.html#cb169-38" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Left))</span>
+<span id="cb169-39"><a href="speeding-up-your-stan-code.html#cb169-39" tabindex="-1"></a></span>
+<span id="cb169-40"><a href="speeding-up-your-stan-code.html#cb169-40" tabindex="-1"></a></span>
+<span id="cb169-41"><a href="speeding-up-your-stan-code.html#cb169-41" tabindex="-1"></a>ModelList<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb169-42"><a href="speeding-up-your-stan-code.html#cb169-42" tabindex="-1"></a>  <span class="at">slow =</span> <span class="st">&quot;Code/SpeedyCode/EUT_slow.stan&quot;</span> <span class="sc">|&gt;</span> <span class="fu">stan_model</span>(),</span>
+<span id="cb169-43"><a href="speeding-up-your-stan-code.html#cb169-43" tabindex="-1"></a>  <span class="at">precompute =</span> <span class="st">&quot;Code/SpeedyCode/EUT_precompute.stan&quot;</span> <span class="sc">|&gt;</span> <span class="fu">stan_model</span>(),</span>
+<span id="cb169-44"><a href="speeding-up-your-stan-code.html#cb169-44" tabindex="-1"></a>  <span class="at">vectorized =</span> <span class="st">&quot;Code/SpeedyCode/EUT_vectorized.stan&quot;</span> <span class="sc">|&gt;</span> <span class="fu">stan_model</span>()</span>
+<span id="cb169-45"><a href="speeding-up-your-stan-code.html#cb169-45" tabindex="-1"></a>)</span>
+<span id="cb169-46"><a href="speeding-up-your-stan-code.html#cb169-46" tabindex="-1"></a></span>
+<span id="cb169-47"><a href="speeding-up-your-stan-code.html#cb169-47" tabindex="-1"></a></span>
+<span id="cb169-48"><a href="speeding-up-your-stan-code.html#cb169-48" tabindex="-1"></a><span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>numreps) {</span>
+<span id="cb169-49"><a href="speeding-up-your-stan-code.html#cb169-49" tabindex="-1"></a>  <span class="cf">for</span> (ii  <span class="cf">in</span> <span class="fu">unique</span>(D<span class="sc">$</span>id)) {</span>
+<span id="cb169-50"><a href="speeding-up-your-stan-code.html#cb169-50" tabindex="-1"></a>    </span>
+<span id="cb169-51"><a href="speeding-up-your-stan-code.html#cb169-51" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;rep&quot;</span>,rr,<span class="st">&quot;of&quot;</span>,numreps,<span class="st">&quot;id&quot;</span>,ii,<span class="st">&quot;of&quot;</span>,<span class="fu">length</span>(D<span class="sc">$</span>id <span class="sc">|&gt;</span> <span class="fu">unique</span>())))</span>
+<span id="cb169-52"><a href="speeding-up-your-stan-code.html#cb169-52" tabindex="-1"></a>    </span>
+<span id="cb169-53"><a href="speeding-up-your-stan-code.html#cb169-53" tabindex="-1"></a>    d<span class="ot">&lt;-</span> D<span class="sc">|&gt;</span> <span class="fu">filter</span>(id<span class="sc">==</span>ii)</span>
+<span id="cb169-54"><a href="speeding-up-your-stan-code.html#cb169-54" tabindex="-1"></a>    </span>
+<span id="cb169-55"><a href="speeding-up-your-stan-code.html#cb169-55" tabindex="-1"></a>    dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb169-56"><a href="speeding-up-your-stan-code.html#cb169-56" tabindex="-1"></a>      <span class="at">N =</span> <span class="fu">dim</span>(d)[<span class="dv">1</span>],</span>
+<span id="cb169-57"><a href="speeding-up-your-stan-code.html#cb169-57" tabindex="-1"></a>      <span class="at">Left =</span> d<span class="sc">$</span>Left,</span>
+<span id="cb169-58"><a href="speeding-up-your-stan-code.html#cb169-58" tabindex="-1"></a>      </span>
+<span id="cb169-59"><a href="speeding-up-your-stan-code.html#cb169-59" tabindex="-1"></a>      <span class="at">prizes =</span> <span class="fu">cbind</span>(d<span class="sc">$</span>prize1L,d<span class="sc">$</span>prize2L,d<span class="sc">$</span>prize3L),</span>
+<span id="cb169-60"><a href="speeding-up-your-stan-code.html#cb169-60" tabindex="-1"></a>      <span class="at">prizerange=</span><span class="fu">cbind</span>(d<span class="sc">$</span>prizerangeLow,d<span class="sc">$</span>prizerangeHigh),</span>
+<span id="cb169-61"><a href="speeding-up-your-stan-code.html#cb169-61" tabindex="-1"></a>      </span>
+<span id="cb169-62"><a href="speeding-up-your-stan-code.html#cb169-62" tabindex="-1"></a>      <span class="at">probL =</span> <span class="fu">cbind</span>(d<span class="sc">$</span>prob1L,d<span class="sc">$</span>prob2L,d<span class="sc">$</span>prob3L),</span>
+<span id="cb169-63"><a href="speeding-up-your-stan-code.html#cb169-63" tabindex="-1"></a>      <span class="at">probR =</span> <span class="fu">cbind</span>(d<span class="sc">$</span>prob1R,d<span class="sc">$</span>prob2R,d<span class="sc">$</span>prob3R),</span>
+<span id="cb169-64"><a href="speeding-up-your-stan-code.html#cb169-64" tabindex="-1"></a>      </span>
+<span id="cb169-65"><a href="speeding-up-your-stan-code.html#cb169-65" tabindex="-1"></a>      <span class="at">prior_r =</span> <span class="fu">c</span>(<span class="fl">0.27</span>,<span class="fl">0.36</span>),</span>
+<span id="cb169-66"><a href="speeding-up-your-stan-code.html#cb169-66" tabindex="-1"></a>      <span class="at">prior_lambda =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">30</span>),<span class="fl">0.5</span>)</span>
+<span id="cb169-67"><a href="speeding-up-your-stan-code.html#cb169-67" tabindex="-1"></a>    )</span>
+<span id="cb169-68"><a href="speeding-up-your-stan-code.html#cb169-68" tabindex="-1"></a>    </span>
+<span id="cb169-69"><a href="speeding-up-your-stan-code.html#cb169-69" tabindex="-1"></a>    <span class="cf">for</span> (mm <span class="cf">in</span> <span class="fu">names</span>(ModelList)) {</span>
+<span id="cb169-70"><a href="speeding-up-your-stan-code.html#cb169-70" tabindex="-1"></a>      </span>
+<span id="cb169-71"><a href="speeding-up-your-stan-code.html#cb169-71" tabindex="-1"></a>      Fit<span class="ot">&lt;-</span>ModelList[[mm]] <span class="sc">|&gt;</span> </span>
+<span id="cb169-72"><a href="speeding-up-your-stan-code.html#cb169-72" tabindex="-1"></a>        <span class="fu">sampling</span>(<span class="at">seed=</span><span class="dv">42</span>,<span class="at">chains=</span><span class="dv">1</span>,<span class="at">data=</span>dStan,<span class="at">refresh=</span><span class="dv">1000</span>)</span>
+<span id="cb169-73"><a href="speeding-up-your-stan-code.html#cb169-73" tabindex="-1"></a>      </span>
+<span id="cb169-74"><a href="speeding-up-your-stan-code.html#cb169-74" tabindex="-1"></a>      BenchmarkSummary<span class="ot">&lt;-</span> BenchmarkSummary <span class="sc">|&gt;</span></span>
+<span id="cb169-75"><a href="speeding-up-your-stan-code.html#cb169-75" tabindex="-1"></a>        <span class="fu">rbind</span>(</span>
+<span id="cb169-76"><a href="speeding-up-your-stan-code.html#cb169-76" tabindex="-1"></a>          <span class="fu">tibble</span>(<span class="at">id=</span>ii,</span>
+<span id="cb169-77"><a href="speeding-up-your-stan-code.html#cb169-77" tabindex="-1"></a>                 <span class="at">model =</span> mm,</span>
+<span id="cb169-78"><a href="speeding-up-your-stan-code.html#cb169-78" tabindex="-1"></a>                 <span class="at">rep =</span> rr,</span>
+<span id="cb169-79"><a href="speeding-up-your-stan-code.html#cb169-79" tabindex="-1"></a>                 <span class="at">grainsize=</span><span class="cn">NA</span>,</span>
+<span id="cb169-80"><a href="speeding-up-your-stan-code.html#cb169-80" tabindex="-1"></a>                 <span class="at">time =</span> <span class="fu">get_elapsed_time</span>(Fit) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span>
+<span id="cb169-81"><a href="speeding-up-your-stan-code.html#cb169-81" tabindex="-1"></a>                 )</span>
+<span id="cb169-82"><a href="speeding-up-your-stan-code.html#cb169-82" tabindex="-1"></a>        )</span>
+<span id="cb169-83"><a href="speeding-up-your-stan-code.html#cb169-83" tabindex="-1"></a>      </span>
+<span id="cb169-84"><a href="speeding-up-your-stan-code.html#cb169-84" tabindex="-1"></a>      </span>
+<span id="cb169-85"><a href="speeding-up-your-stan-code.html#cb169-85" tabindex="-1"></a>      </span>
+<span id="cb169-86"><a href="speeding-up-your-stan-code.html#cb169-86" tabindex="-1"></a>    }</span>
+<span id="cb169-87"><a href="speeding-up-your-stan-code.html#cb169-87" tabindex="-1"></a>    </span>
+<span id="cb169-88"><a href="speeding-up-your-stan-code.html#cb169-88" tabindex="-1"></a>    BenchmarkSummary <span class="sc">|&gt;</span></span>
+<span id="cb169-89"><a href="speeding-up-your-stan-code.html#cb169-89" tabindex="-1"></a>      <span class="fu">saveRDS</span>(<span class="st">&quot;Code/SpeedyCode/BenchmarkSummarySeries.rds&quot;</span>)</span>
+<span id="cb169-90"><a href="speeding-up-your-stan-code.html#cb169-90" tabindex="-1"></a>  </span>
+<span id="cb169-91"><a href="speeding-up-your-stan-code.html#cb169-91" tabindex="-1"></a>  }</span>
+<span id="cb169-92"><a href="speeding-up-your-stan-code.html#cb169-92" tabindex="-1"></a></span>
+<span id="cb169-93"><a href="speeding-up-your-stan-code.html#cb169-93" tabindex="-1"></a>  </span>
+<span id="cb169-94"><a href="speeding-up-your-stan-code.html#cb169-94" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="parallelized-model" class="section level3 hasAnchor" number="12.7.2">
 <h3><span class="header-section-number">12.7.2</span> Parallelized model<a href="speeding-up-your-stan-code.html#parallelized-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="speeding-up-your-stan-code.html#cb168-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb168-2"><a href="speeding-up-your-stan-code.html#cb168-2" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb168-3"><a href="speeding-up-your-stan-code.html#cb168-3" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
-<span id="cb168-4"><a href="speeding-up-your-stan-code.html#cb168-4" tabindex="-1"></a>  <span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb168-5"><a href="speeding-up-your-stan-code.html#cb168-5" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
-<span id="cb168-6"><a href="speeding-up-your-stan-code.html#cb168-6" tabindex="-1"></a>  <span class="fu">rstan_options</span>(<span class="at">threads_per_chain =</span> <span class="dv">8</span>)</span>
-<span id="cb168-7"><a href="speeding-up-your-stan-code.html#cb168-7" tabindex="-1"></a></span>
-<span id="cb168-8"><a href="speeding-up-your-stan-code.html#cb168-8" tabindex="-1"></a>  </span>
-<span id="cb168-9"><a href="speeding-up-your-stan-code.html#cb168-9" tabindex="-1"></a>numreps<span class="ot">&lt;-</span><span class="dv">10</span></span>
-<span id="cb168-10"><a href="speeding-up-your-stan-code.html#cb168-10" tabindex="-1"></a></span>
-<span id="cb168-11"><a href="speeding-up-your-stan-code.html#cb168-11" tabindex="-1"></a></span>
-<span id="cb168-12"><a href="speeding-up-your-stan-code.html#cb168-12" tabindex="-1"></a></span>
-<span id="cb168-13"><a href="speeding-up-your-stan-code.html#cb168-13" tabindex="-1"></a><span class="co"># Note: The show-up fee for the undergrads was $10 and $40 for the MBA students</span></span>
-<span id="cb168-14"><a href="speeding-up-your-stan-code.html#cb168-14" tabindex="-1"></a></span>
-<span id="cb168-15"><a href="speeding-up-your-stan-code.html#cb168-15" tabindex="-1"></a>BenchmarkSummary<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
-<span id="cb168-16"><a href="speeding-up-your-stan-code.html#cb168-16" tabindex="-1"></a></span>
-<span id="cb168-17"><a href="speeding-up-your-stan-code.html#cb168-17" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="st">&quot;Data/HS2023.dta&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb168-18"><a href="speeding-up-your-stan-code.html#cb168-18" tabindex="-1"></a>  <span class="fu">read_dta</span>() <span class="sc">|&gt;</span></span>
-<span id="cb168-19"><a href="speeding-up-your-stan-code.html#cb168-19" tabindex="-1"></a>  <span class="fu">select</span>(id,choice,prize1L<span class="sc">:</span>prob4R,endowment) <span class="sc">|&gt;</span></span>
-<span id="cb168-20"><a href="speeding-up-your-stan-code.html#cb168-20" tabindex="-1"></a>  <span class="co"># add in the endowment</span></span>
-<span id="cb168-21"><a href="speeding-up-your-stan-code.html#cb168-21" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb168-22"><a href="speeding-up-your-stan-code.html#cb168-22" tabindex="-1"></a>    <span class="at">show_up_fee =</span> <span class="fu">ifelse</span>(mba,<span class="dv">40</span>,<span class="dv">10</span>),</span>
-<span id="cb168-23"><a href="speeding-up-your-stan-code.html#cb168-23" tabindex="-1"></a>    <span class="at">Left =</span> <span class="dv">1</span><span class="sc">-</span>choice,</span>
-<span id="cb168-24"><a href="speeding-up-your-stan-code.html#cb168-24" tabindex="-1"></a>    <span class="at">prize1L =</span> prize1L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb168-25"><a href="speeding-up-your-stan-code.html#cb168-25" tabindex="-1"></a>    <span class="at">prize2L =</span> prize2L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb168-26"><a href="speeding-up-your-stan-code.html#cb168-26" tabindex="-1"></a>    <span class="at">prize3L =</span> prize3L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb168-27"><a href="speeding-up-your-stan-code.html#cb168-27" tabindex="-1"></a>    <span class="at">prize4L =</span> prize4L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb168-28"><a href="speeding-up-your-stan-code.html#cb168-28" tabindex="-1"></a>    <span class="at">prize1R =</span> prize1R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb168-29"><a href="speeding-up-your-stan-code.html#cb168-29" tabindex="-1"></a>    <span class="at">prize2R =</span> prize2R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb168-30"><a href="speeding-up-your-stan-code.html#cb168-30" tabindex="-1"></a>    <span class="at">prize3R =</span> prize3R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
-<span id="cb168-31"><a href="speeding-up-your-stan-code.html#cb168-31" tabindex="-1"></a>    <span class="at">prize4R =</span> prize4R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee</span>
-<span id="cb168-32"><a href="speeding-up-your-stan-code.html#cb168-32" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb168-33"><a href="speeding-up-your-stan-code.html#cb168-33" tabindex="-1"></a>  <span class="co"># there were never four possible prizes</span></span>
-<span id="cb168-34"><a href="speeding-up-your-stan-code.html#cb168-34" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">&quot;4&quot;</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb168-35"><a href="speeding-up-your-stan-code.html#cb168-35" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb168-36"><a href="speeding-up-your-stan-code.html#cb168-36" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb168-37"><a href="speeding-up-your-stan-code.html#cb168-37" tabindex="-1"></a>    <span class="at">prizerangeLow =</span> <span class="fu">min</span>(<span class="fu">c</span>(prize1L,prize2R,prize3L)),</span>
-<span id="cb168-38"><a href="speeding-up-your-stan-code.html#cb168-38" tabindex="-1"></a>    <span class="at">prizerangeHigh =</span> <span class="fu">max</span>(<span class="fu">c</span>(prize1L,prize2R,prize3L))</span>
-<span id="cb168-39"><a href="speeding-up-your-stan-code.html#cb168-39" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb168-40"><a href="speeding-up-your-stan-code.html#cb168-40" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Left))</span>
-<span id="cb168-41"><a href="speeding-up-your-stan-code.html#cb168-41" tabindex="-1"></a></span>
-<span id="cb168-42"><a href="speeding-up-your-stan-code.html#cb168-42" tabindex="-1"></a>GRAINSIZE<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4088</span>,<span class="dv">2044</span>,<span class="dv">1022</span>,<span class="dv">511</span>)</span>
-<span id="cb168-43"><a href="speeding-up-your-stan-code.html#cb168-43" tabindex="-1"></a></span>
-<span id="cb168-44"><a href="speeding-up-your-stan-code.html#cb168-44" tabindex="-1"></a>model<span class="ot">&lt;-</span><span class="st">&quot;Code/SpeedyCode/EUT_parallel.stan&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb168-45"><a href="speeding-up-your-stan-code.html#cb168-45" tabindex="-1"></a>  <span class="fu">stan_model</span>()</span>
-<span id="cb168-46"><a href="speeding-up-your-stan-code.html#cb168-46" tabindex="-1"></a></span>
-<span id="cb168-47"><a href="speeding-up-your-stan-code.html#cb168-47" tabindex="-1"></a></span>
-<span id="cb168-48"><a href="speeding-up-your-stan-code.html#cb168-48" tabindex="-1"></a></span>
-<span id="cb168-49"><a href="speeding-up-your-stan-code.html#cb168-49" tabindex="-1"></a><span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>numreps) {</span>
-<span id="cb168-50"><a href="speeding-up-your-stan-code.html#cb168-50" tabindex="-1"></a>    </span>
-<span id="cb168-51"><a href="speeding-up-your-stan-code.html#cb168-51" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;rep&quot;</span>,rr,<span class="st">&quot;of&quot;</span>,numreps))</span>
-<span id="cb168-52"><a href="speeding-up-your-stan-code.html#cb168-52" tabindex="-1"></a>    </span>
-<span id="cb168-53"><a href="speeding-up-your-stan-code.html#cb168-53" tabindex="-1"></a>    dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
-<span id="cb168-54"><a href="speeding-up-your-stan-code.html#cb168-54" tabindex="-1"></a>      <span class="at">N =</span> <span class="fu">dim</span>(D)[<span class="dv">1</span>],</span>
-<span id="cb168-55"><a href="speeding-up-your-stan-code.html#cb168-55" tabindex="-1"></a>      <span class="at">Left =</span> D<span class="sc">$</span>Left,</span>
-<span id="cb168-56"><a href="speeding-up-your-stan-code.html#cb168-56" tabindex="-1"></a>      </span>
-<span id="cb168-57"><a href="speeding-up-your-stan-code.html#cb168-57" tabindex="-1"></a>      <span class="at">prizes =</span> <span class="fu">cbind</span>(D<span class="sc">$</span>prize1L,D<span class="sc">$</span>prize2L,D<span class="sc">$</span>prize3L),</span>
-<span id="cb168-58"><a href="speeding-up-your-stan-code.html#cb168-58" tabindex="-1"></a>      <span class="at">prizerange=</span><span class="fu">cbind</span>(D<span class="sc">$</span>prizerangeLow,D<span class="sc">$</span>prizerangeHigh),</span>
-<span id="cb168-59"><a href="speeding-up-your-stan-code.html#cb168-59" tabindex="-1"></a>      </span>
-<span id="cb168-60"><a href="speeding-up-your-stan-code.html#cb168-60" tabindex="-1"></a>      <span class="at">probL =</span> <span class="fu">cbind</span>(D<span class="sc">$</span>prob1L,D<span class="sc">$</span>prob2L,D<span class="sc">$</span>prob3L),</span>
-<span id="cb168-61"><a href="speeding-up-your-stan-code.html#cb168-61" tabindex="-1"></a>      <span class="at">probR =</span> <span class="fu">cbind</span>(D<span class="sc">$</span>prob1R,D<span class="sc">$</span>prob2R,D<span class="sc">$</span>prob3R),</span>
-<span id="cb168-62"><a href="speeding-up-your-stan-code.html#cb168-62" tabindex="-1"></a>      </span>
-<span id="cb168-63"><a href="speeding-up-your-stan-code.html#cb168-63" tabindex="-1"></a>      <span class="at">prior_r =</span> <span class="fu">c</span>(<span class="fl">0.27</span>,<span class="fl">0.36</span>),</span>
-<span id="cb168-64"><a href="speeding-up-your-stan-code.html#cb168-64" tabindex="-1"></a>      <span class="at">prior_lambda =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">30</span>),<span class="fl">0.5</span>),</span>
-<span id="cb168-65"><a href="speeding-up-your-stan-code.html#cb168-65" tabindex="-1"></a>      </span>
-<span id="cb168-66"><a href="speeding-up-your-stan-code.html#cb168-66" tabindex="-1"></a>      <span class="at">grainsize=</span><span class="dv">1</span>,</span>
-<span id="cb168-67"><a href="speeding-up-your-stan-code.html#cb168-67" tabindex="-1"></a>      <span class="at">doparallel =</span> <span class="dv">0</span></span>
-<span id="cb168-68"><a href="speeding-up-your-stan-code.html#cb168-68" tabindex="-1"></a>    )</span>
-<span id="cb168-69"><a href="speeding-up-your-stan-code.html#cb168-69" tabindex="-1"></a>    </span>
-<span id="cb168-70"><a href="speeding-up-your-stan-code.html#cb168-70" tabindex="-1"></a>    Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span> </span>
-<span id="cb168-71"><a href="speeding-up-your-stan-code.html#cb168-71" tabindex="-1"></a>      <span class="fu">sampling</span>(<span class="at">seed=</span><span class="dv">42</span>,<span class="at">chains=</span><span class="dv">1</span>,<span class="at">data=</span>dStan,<span class="at">refresh=</span><span class="dv">1000</span>)</span>
-<span id="cb168-72"><a href="speeding-up-your-stan-code.html#cb168-72" tabindex="-1"></a>    BenchmarkSummary<span class="ot">&lt;-</span> BenchmarkSummary <span class="sc">|&gt;</span></span>
-<span id="cb168-73"><a href="speeding-up-your-stan-code.html#cb168-73" tabindex="-1"></a>      <span class="fu">rbind</span>(</span>
-<span id="cb168-74"><a href="speeding-up-your-stan-code.html#cb168-74" tabindex="-1"></a>        <span class="fu">tibble</span>(<span class="at">id=</span>ii,</span>
-<span id="cb168-75"><a href="speeding-up-your-stan-code.html#cb168-75" tabindex="-1"></a>               <span class="at">model =</span> <span class="st">&quot;parallel&quot;</span>,</span>
-<span id="cb168-76"><a href="speeding-up-your-stan-code.html#cb168-76" tabindex="-1"></a>               <span class="at">rep =</span> rr,</span>
-<span id="cb168-77"><a href="speeding-up-your-stan-code.html#cb168-77" tabindex="-1"></a>               <span class="at">grainsize=</span><span class="cn">NA</span>,</span>
-<span id="cb168-78"><a href="speeding-up-your-stan-code.html#cb168-78" tabindex="-1"></a>               <span class="at">time =</span> <span class="fu">get_elapsed_time</span>(Fit) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span>
-<span id="cb168-79"><a href="speeding-up-your-stan-code.html#cb168-79" tabindex="-1"></a>        )</span>
-<span id="cb168-80"><a href="speeding-up-your-stan-code.html#cb168-80" tabindex="-1"></a>      )</span>
-<span id="cb168-81"><a href="speeding-up-your-stan-code.html#cb168-81" tabindex="-1"></a>    </span>
-<span id="cb168-82"><a href="speeding-up-your-stan-code.html#cb168-82" tabindex="-1"></a>    dStan<span class="sc">$</span>doparallel<span class="ot">&lt;-</span><span class="dv">1</span></span>
-<span id="cb168-83"><a href="speeding-up-your-stan-code.html#cb168-83" tabindex="-1"></a>    </span>
-<span id="cb168-84"><a href="speeding-up-your-stan-code.html#cb168-84" tabindex="-1"></a>    <span class="cf">for</span> (gg <span class="cf">in</span> GRAINSIZE) {</span>
-<span id="cb168-85"><a href="speeding-up-your-stan-code.html#cb168-85" tabindex="-1"></a>      dStan<span class="sc">$</span>grainsize<span class="ot">&lt;-</span>gg</span>
-<span id="cb168-86"><a href="speeding-up-your-stan-code.html#cb168-86" tabindex="-1"></a>      Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span> </span>
-<span id="cb168-87"><a href="speeding-up-your-stan-code.html#cb168-87" tabindex="-1"></a>        <span class="fu">sampling</span>(<span class="at">seed=</span><span class="dv">42</span>,<span class="at">chains=</span><span class="dv">1</span>,<span class="at">data=</span>dStan,<span class="at">refresh=</span><span class="dv">1000</span>)</span>
-<span id="cb168-88"><a href="speeding-up-your-stan-code.html#cb168-88" tabindex="-1"></a>      </span>
-<span id="cb168-89"><a href="speeding-up-your-stan-code.html#cb168-89" tabindex="-1"></a>      BenchmarkSummary<span class="ot">&lt;-</span> BenchmarkSummary <span class="sc">|&gt;</span></span>
-<span id="cb168-90"><a href="speeding-up-your-stan-code.html#cb168-90" tabindex="-1"></a>        <span class="fu">rbind</span>(</span>
-<span id="cb168-91"><a href="speeding-up-your-stan-code.html#cb168-91" tabindex="-1"></a>          <span class="fu">tibble</span>(<span class="at">id=</span>ii,</span>
-<span id="cb168-92"><a href="speeding-up-your-stan-code.html#cb168-92" tabindex="-1"></a>                 <span class="at">model =</span> <span class="st">&quot;parallel&quot;</span>,</span>
-<span id="cb168-93"><a href="speeding-up-your-stan-code.html#cb168-93" tabindex="-1"></a>                 <span class="at">rep =</span> rr,</span>
-<span id="cb168-94"><a href="speeding-up-your-stan-code.html#cb168-94" tabindex="-1"></a>                 <span class="at">grainsize=</span>gg,</span>
-<span id="cb168-95"><a href="speeding-up-your-stan-code.html#cb168-95" tabindex="-1"></a>                 <span class="at">time =</span> <span class="fu">get_elapsed_time</span>(Fit) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span>
-<span id="cb168-96"><a href="speeding-up-your-stan-code.html#cb168-96" tabindex="-1"></a>          )</span>
-<span id="cb168-97"><a href="speeding-up-your-stan-code.html#cb168-97" tabindex="-1"></a>        )</span>
-<span id="cb168-98"><a href="speeding-up-your-stan-code.html#cb168-98" tabindex="-1"></a>      </span>
-<span id="cb168-99"><a href="speeding-up-your-stan-code.html#cb168-99" tabindex="-1"></a>    }</span>
-<span id="cb168-100"><a href="speeding-up-your-stan-code.html#cb168-100" tabindex="-1"></a>    </span>
-<span id="cb168-101"><a href="speeding-up-your-stan-code.html#cb168-101" tabindex="-1"></a>    </span>
-<span id="cb168-102"><a href="speeding-up-your-stan-code.html#cb168-102" tabindex="-1"></a>    </span>
-<span id="cb168-103"><a href="speeding-up-your-stan-code.html#cb168-103" tabindex="-1"></a>    BenchmarkSummary <span class="sc">|&gt;</span></span>
-<span id="cb168-104"><a href="speeding-up-your-stan-code.html#cb168-104" tabindex="-1"></a>      <span class="fu">saveRDS</span>(<span class="st">&quot;Code/SpeedyCode/BenchmarkSummaryParallel.rds&quot;</span>)</span>
-<span id="cb168-105"><a href="speeding-up-your-stan-code.html#cb168-105" tabindex="-1"></a>  </span>
-<span id="cb168-106"><a href="speeding-up-your-stan-code.html#cb168-106" tabindex="-1"></a></span>
-<span id="cb168-107"><a href="speeding-up-your-stan-code.html#cb168-107" tabindex="-1"></a>  </span>
-<span id="cb168-108"><a href="speeding-up-your-stan-code.html#cb168-108" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="speeding-up-your-stan-code.html#cb170-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb170-2"><a href="speeding-up-your-stan-code.html#cb170-2" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb170-3"><a href="speeding-up-your-stan-code.html#cb170-3" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb170-4"><a href="speeding-up-your-stan-code.html#cb170-4" tabindex="-1"></a>  <span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb170-5"><a href="speeding-up-your-stan-code.html#cb170-5" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb170-6"><a href="speeding-up-your-stan-code.html#cb170-6" tabindex="-1"></a>  <span class="fu">rstan_options</span>(<span class="at">threads_per_chain =</span> <span class="dv">8</span>)</span>
+<span id="cb170-7"><a href="speeding-up-your-stan-code.html#cb170-7" tabindex="-1"></a></span>
+<span id="cb170-8"><a href="speeding-up-your-stan-code.html#cb170-8" tabindex="-1"></a>  </span>
+<span id="cb170-9"><a href="speeding-up-your-stan-code.html#cb170-9" tabindex="-1"></a>numreps<span class="ot">&lt;-</span><span class="dv">10</span></span>
+<span id="cb170-10"><a href="speeding-up-your-stan-code.html#cb170-10" tabindex="-1"></a></span>
+<span id="cb170-11"><a href="speeding-up-your-stan-code.html#cb170-11" tabindex="-1"></a></span>
+<span id="cb170-12"><a href="speeding-up-your-stan-code.html#cb170-12" tabindex="-1"></a></span>
+<span id="cb170-13"><a href="speeding-up-your-stan-code.html#cb170-13" tabindex="-1"></a><span class="co"># Note: The show-up fee for the undergrads was $10 and $40 for the MBA students</span></span>
+<span id="cb170-14"><a href="speeding-up-your-stan-code.html#cb170-14" tabindex="-1"></a></span>
+<span id="cb170-15"><a href="speeding-up-your-stan-code.html#cb170-15" tabindex="-1"></a>BenchmarkSummary<span class="ot">&lt;-</span><span class="fu">tibble</span>()</span>
+<span id="cb170-16"><a href="speeding-up-your-stan-code.html#cb170-16" tabindex="-1"></a></span>
+<span id="cb170-17"><a href="speeding-up-your-stan-code.html#cb170-17" tabindex="-1"></a>D<span class="ot">&lt;-</span><span class="st">&quot;Data/HS2023.dta&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb170-18"><a href="speeding-up-your-stan-code.html#cb170-18" tabindex="-1"></a>  <span class="fu">read_dta</span>() <span class="sc">|&gt;</span></span>
+<span id="cb170-19"><a href="speeding-up-your-stan-code.html#cb170-19" tabindex="-1"></a>  <span class="fu">select</span>(id,choice,prize1L<span class="sc">:</span>prob4R,endowment) <span class="sc">|&gt;</span></span>
+<span id="cb170-20"><a href="speeding-up-your-stan-code.html#cb170-20" tabindex="-1"></a>  <span class="co"># add in the endowment</span></span>
+<span id="cb170-21"><a href="speeding-up-your-stan-code.html#cb170-21" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb170-22"><a href="speeding-up-your-stan-code.html#cb170-22" tabindex="-1"></a>    <span class="at">show_up_fee =</span> <span class="fu">ifelse</span>(mba,<span class="dv">40</span>,<span class="dv">10</span>),</span>
+<span id="cb170-23"><a href="speeding-up-your-stan-code.html#cb170-23" tabindex="-1"></a>    <span class="at">Left =</span> <span class="dv">1</span><span class="sc">-</span>choice,</span>
+<span id="cb170-24"><a href="speeding-up-your-stan-code.html#cb170-24" tabindex="-1"></a>    <span class="at">prize1L =</span> prize1L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb170-25"><a href="speeding-up-your-stan-code.html#cb170-25" tabindex="-1"></a>    <span class="at">prize2L =</span> prize2L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb170-26"><a href="speeding-up-your-stan-code.html#cb170-26" tabindex="-1"></a>    <span class="at">prize3L =</span> prize3L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb170-27"><a href="speeding-up-your-stan-code.html#cb170-27" tabindex="-1"></a>    <span class="at">prize4L =</span> prize4L<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb170-28"><a href="speeding-up-your-stan-code.html#cb170-28" tabindex="-1"></a>    <span class="at">prize1R =</span> prize1R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb170-29"><a href="speeding-up-your-stan-code.html#cb170-29" tabindex="-1"></a>    <span class="at">prize2R =</span> prize2R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb170-30"><a href="speeding-up-your-stan-code.html#cb170-30" tabindex="-1"></a>    <span class="at">prize3R =</span> prize3R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee,</span>
+<span id="cb170-31"><a href="speeding-up-your-stan-code.html#cb170-31" tabindex="-1"></a>    <span class="at">prize4R =</span> prize4R<span class="sc">+</span>endowment<span class="sc">+</span>show_up_fee</span>
+<span id="cb170-32"><a href="speeding-up-your-stan-code.html#cb170-32" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb170-33"><a href="speeding-up-your-stan-code.html#cb170-33" tabindex="-1"></a>  <span class="co"># there were never four possible prizes</span></span>
+<span id="cb170-34"><a href="speeding-up-your-stan-code.html#cb170-34" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">&quot;4&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb170-35"><a href="speeding-up-your-stan-code.html#cb170-35" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
+<span id="cb170-36"><a href="speeding-up-your-stan-code.html#cb170-36" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb170-37"><a href="speeding-up-your-stan-code.html#cb170-37" tabindex="-1"></a>    <span class="at">prizerangeLow =</span> <span class="fu">min</span>(<span class="fu">c</span>(prize1L,prize2R,prize3L)),</span>
+<span id="cb170-38"><a href="speeding-up-your-stan-code.html#cb170-38" tabindex="-1"></a>    <span class="at">prizerangeHigh =</span> <span class="fu">max</span>(<span class="fu">c</span>(prize1L,prize2R,prize3L))</span>
+<span id="cb170-39"><a href="speeding-up-your-stan-code.html#cb170-39" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb170-40"><a href="speeding-up-your-stan-code.html#cb170-40" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Left))</span>
+<span id="cb170-41"><a href="speeding-up-your-stan-code.html#cb170-41" tabindex="-1"></a></span>
+<span id="cb170-42"><a href="speeding-up-your-stan-code.html#cb170-42" tabindex="-1"></a>GRAINSIZE<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4088</span>,<span class="dv">2044</span>,<span class="dv">1022</span>,<span class="dv">511</span>)</span>
+<span id="cb170-43"><a href="speeding-up-your-stan-code.html#cb170-43" tabindex="-1"></a></span>
+<span id="cb170-44"><a href="speeding-up-your-stan-code.html#cb170-44" tabindex="-1"></a>model<span class="ot">&lt;-</span><span class="st">&quot;Code/SpeedyCode/EUT_parallel.stan&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb170-45"><a href="speeding-up-your-stan-code.html#cb170-45" tabindex="-1"></a>  <span class="fu">stan_model</span>()</span>
+<span id="cb170-46"><a href="speeding-up-your-stan-code.html#cb170-46" tabindex="-1"></a></span>
+<span id="cb170-47"><a href="speeding-up-your-stan-code.html#cb170-47" tabindex="-1"></a></span>
+<span id="cb170-48"><a href="speeding-up-your-stan-code.html#cb170-48" tabindex="-1"></a></span>
+<span id="cb170-49"><a href="speeding-up-your-stan-code.html#cb170-49" tabindex="-1"></a><span class="cf">for</span> (rr <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>numreps) {</span>
+<span id="cb170-50"><a href="speeding-up-your-stan-code.html#cb170-50" tabindex="-1"></a>    </span>
+<span id="cb170-51"><a href="speeding-up-your-stan-code.html#cb170-51" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;rep&quot;</span>,rr,<span class="st">&quot;of&quot;</span>,numreps))</span>
+<span id="cb170-52"><a href="speeding-up-your-stan-code.html#cb170-52" tabindex="-1"></a>    </span>
+<span id="cb170-53"><a href="speeding-up-your-stan-code.html#cb170-53" tabindex="-1"></a>    dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb170-54"><a href="speeding-up-your-stan-code.html#cb170-54" tabindex="-1"></a>      <span class="at">N =</span> <span class="fu">dim</span>(D)[<span class="dv">1</span>],</span>
+<span id="cb170-55"><a href="speeding-up-your-stan-code.html#cb170-55" tabindex="-1"></a>      <span class="at">Left =</span> D<span class="sc">$</span>Left,</span>
+<span id="cb170-56"><a href="speeding-up-your-stan-code.html#cb170-56" tabindex="-1"></a>      </span>
+<span id="cb170-57"><a href="speeding-up-your-stan-code.html#cb170-57" tabindex="-1"></a>      <span class="at">prizes =</span> <span class="fu">cbind</span>(D<span class="sc">$</span>prize1L,D<span class="sc">$</span>prize2L,D<span class="sc">$</span>prize3L),</span>
+<span id="cb170-58"><a href="speeding-up-your-stan-code.html#cb170-58" tabindex="-1"></a>      <span class="at">prizerange=</span><span class="fu">cbind</span>(D<span class="sc">$</span>prizerangeLow,D<span class="sc">$</span>prizerangeHigh),</span>
+<span id="cb170-59"><a href="speeding-up-your-stan-code.html#cb170-59" tabindex="-1"></a>      </span>
+<span id="cb170-60"><a href="speeding-up-your-stan-code.html#cb170-60" tabindex="-1"></a>      <span class="at">probL =</span> <span class="fu">cbind</span>(D<span class="sc">$</span>prob1L,D<span class="sc">$</span>prob2L,D<span class="sc">$</span>prob3L),</span>
+<span id="cb170-61"><a href="speeding-up-your-stan-code.html#cb170-61" tabindex="-1"></a>      <span class="at">probR =</span> <span class="fu">cbind</span>(D<span class="sc">$</span>prob1R,D<span class="sc">$</span>prob2R,D<span class="sc">$</span>prob3R),</span>
+<span id="cb170-62"><a href="speeding-up-your-stan-code.html#cb170-62" tabindex="-1"></a>      </span>
+<span id="cb170-63"><a href="speeding-up-your-stan-code.html#cb170-63" tabindex="-1"></a>      <span class="at">prior_r =</span> <span class="fu">c</span>(<span class="fl">0.27</span>,<span class="fl">0.36</span>),</span>
+<span id="cb170-64"><a href="speeding-up-your-stan-code.html#cb170-64" tabindex="-1"></a>      <span class="at">prior_lambda =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">30</span>),<span class="fl">0.5</span>),</span>
+<span id="cb170-65"><a href="speeding-up-your-stan-code.html#cb170-65" tabindex="-1"></a>      </span>
+<span id="cb170-66"><a href="speeding-up-your-stan-code.html#cb170-66" tabindex="-1"></a>      <span class="at">grainsize=</span><span class="dv">1</span>,</span>
+<span id="cb170-67"><a href="speeding-up-your-stan-code.html#cb170-67" tabindex="-1"></a>      <span class="at">doparallel =</span> <span class="dv">0</span></span>
+<span id="cb170-68"><a href="speeding-up-your-stan-code.html#cb170-68" tabindex="-1"></a>    )</span>
+<span id="cb170-69"><a href="speeding-up-your-stan-code.html#cb170-69" tabindex="-1"></a>    </span>
+<span id="cb170-70"><a href="speeding-up-your-stan-code.html#cb170-70" tabindex="-1"></a>    Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span> </span>
+<span id="cb170-71"><a href="speeding-up-your-stan-code.html#cb170-71" tabindex="-1"></a>      <span class="fu">sampling</span>(<span class="at">seed=</span><span class="dv">42</span>,<span class="at">chains=</span><span class="dv">1</span>,<span class="at">data=</span>dStan,<span class="at">refresh=</span><span class="dv">1000</span>)</span>
+<span id="cb170-72"><a href="speeding-up-your-stan-code.html#cb170-72" tabindex="-1"></a>    BenchmarkSummary<span class="ot">&lt;-</span> BenchmarkSummary <span class="sc">|&gt;</span></span>
+<span id="cb170-73"><a href="speeding-up-your-stan-code.html#cb170-73" tabindex="-1"></a>      <span class="fu">rbind</span>(</span>
+<span id="cb170-74"><a href="speeding-up-your-stan-code.html#cb170-74" tabindex="-1"></a>        <span class="fu">tibble</span>(<span class="at">id=</span>ii,</span>
+<span id="cb170-75"><a href="speeding-up-your-stan-code.html#cb170-75" tabindex="-1"></a>               <span class="at">model =</span> <span class="st">&quot;parallel&quot;</span>,</span>
+<span id="cb170-76"><a href="speeding-up-your-stan-code.html#cb170-76" tabindex="-1"></a>               <span class="at">rep =</span> rr,</span>
+<span id="cb170-77"><a href="speeding-up-your-stan-code.html#cb170-77" tabindex="-1"></a>               <span class="at">grainsize=</span><span class="cn">NA</span>,</span>
+<span id="cb170-78"><a href="speeding-up-your-stan-code.html#cb170-78" tabindex="-1"></a>               <span class="at">time =</span> <span class="fu">get_elapsed_time</span>(Fit) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span>
+<span id="cb170-79"><a href="speeding-up-your-stan-code.html#cb170-79" tabindex="-1"></a>        )</span>
+<span id="cb170-80"><a href="speeding-up-your-stan-code.html#cb170-80" tabindex="-1"></a>      )</span>
+<span id="cb170-81"><a href="speeding-up-your-stan-code.html#cb170-81" tabindex="-1"></a>    </span>
+<span id="cb170-82"><a href="speeding-up-your-stan-code.html#cb170-82" tabindex="-1"></a>    dStan<span class="sc">$</span>doparallel<span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb170-83"><a href="speeding-up-your-stan-code.html#cb170-83" tabindex="-1"></a>    </span>
+<span id="cb170-84"><a href="speeding-up-your-stan-code.html#cb170-84" tabindex="-1"></a>    <span class="cf">for</span> (gg <span class="cf">in</span> GRAINSIZE) {</span>
+<span id="cb170-85"><a href="speeding-up-your-stan-code.html#cb170-85" tabindex="-1"></a>      dStan<span class="sc">$</span>grainsize<span class="ot">&lt;-</span>gg</span>
+<span id="cb170-86"><a href="speeding-up-your-stan-code.html#cb170-86" tabindex="-1"></a>      Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span> </span>
+<span id="cb170-87"><a href="speeding-up-your-stan-code.html#cb170-87" tabindex="-1"></a>        <span class="fu">sampling</span>(<span class="at">seed=</span><span class="dv">42</span>,<span class="at">chains=</span><span class="dv">1</span>,<span class="at">data=</span>dStan,<span class="at">refresh=</span><span class="dv">1000</span>)</span>
+<span id="cb170-88"><a href="speeding-up-your-stan-code.html#cb170-88" tabindex="-1"></a>      </span>
+<span id="cb170-89"><a href="speeding-up-your-stan-code.html#cb170-89" tabindex="-1"></a>      BenchmarkSummary<span class="ot">&lt;-</span> BenchmarkSummary <span class="sc">|&gt;</span></span>
+<span id="cb170-90"><a href="speeding-up-your-stan-code.html#cb170-90" tabindex="-1"></a>        <span class="fu">rbind</span>(</span>
+<span id="cb170-91"><a href="speeding-up-your-stan-code.html#cb170-91" tabindex="-1"></a>          <span class="fu">tibble</span>(<span class="at">id=</span>ii,</span>
+<span id="cb170-92"><a href="speeding-up-your-stan-code.html#cb170-92" tabindex="-1"></a>                 <span class="at">model =</span> <span class="st">&quot;parallel&quot;</span>,</span>
+<span id="cb170-93"><a href="speeding-up-your-stan-code.html#cb170-93" tabindex="-1"></a>                 <span class="at">rep =</span> rr,</span>
+<span id="cb170-94"><a href="speeding-up-your-stan-code.html#cb170-94" tabindex="-1"></a>                 <span class="at">grainsize=</span>gg,</span>
+<span id="cb170-95"><a href="speeding-up-your-stan-code.html#cb170-95" tabindex="-1"></a>                 <span class="at">time =</span> <span class="fu">get_elapsed_time</span>(Fit) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span>
+<span id="cb170-96"><a href="speeding-up-your-stan-code.html#cb170-96" tabindex="-1"></a>          )</span>
+<span id="cb170-97"><a href="speeding-up-your-stan-code.html#cb170-97" tabindex="-1"></a>        )</span>
+<span id="cb170-98"><a href="speeding-up-your-stan-code.html#cb170-98" tabindex="-1"></a>      </span>
+<span id="cb170-99"><a href="speeding-up-your-stan-code.html#cb170-99" tabindex="-1"></a>    }</span>
+<span id="cb170-100"><a href="speeding-up-your-stan-code.html#cb170-100" tabindex="-1"></a>    </span>
+<span id="cb170-101"><a href="speeding-up-your-stan-code.html#cb170-101" tabindex="-1"></a>    </span>
+<span id="cb170-102"><a href="speeding-up-your-stan-code.html#cb170-102" tabindex="-1"></a>    </span>
+<span id="cb170-103"><a href="speeding-up-your-stan-code.html#cb170-103" tabindex="-1"></a>    BenchmarkSummary <span class="sc">|&gt;</span></span>
+<span id="cb170-104"><a href="speeding-up-your-stan-code.html#cb170-104" tabindex="-1"></a>      <span class="fu">saveRDS</span>(<span class="st">&quot;Code/SpeedyCode/BenchmarkSummaryParallel.rds&quot;</span>)</span>
+<span id="cb170-105"><a href="speeding-up-your-stan-code.html#cb170-105" tabindex="-1"></a>  </span>
+<span id="cb170-106"><a href="speeding-up-your-stan-code.html#cb170-106" tabindex="-1"></a></span>
+<span id="cb170-107"><a href="speeding-up-your-stan-code.html#cb170-107" tabindex="-1"></a>  </span>
+<span id="cb170-108"><a href="speeding-up-your-stan-code.html#cb170-108" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
 </div>
