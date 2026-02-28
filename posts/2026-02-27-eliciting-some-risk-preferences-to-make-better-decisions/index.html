@@ -2219,7 +2219,7 @@ EU(p,\hat p)&amp;=pu(1+\log_2(\hat p))+(1-p)u(1+\log_2(1-\hat p))
 <p><img src="eliciting-some-risk-preferences-to-make-better-decisions_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
 </div>
 <p>One thing I noticed here is that the expected value curve (black line) is <em>really</em> flat, so there could be a <em>lot</em> of trading off between expected value and variance!</p>
-<h1 id="eleiciting-our-risk-preferences">Eleiciting our risk preferences</h1>
+<h1 id="eliciting-our-risk-preferences">Eliciting our risk preferences</h1>
 <p>So in order to make good decisions, Tony and I needed to know our risk preferences. As I wanted to <em>automate</em> my tiping process as much as possible, this meant telling my model how risk-averse I am. For simplicity, I went with a common one-parameter specification for <span class="math inline">\(u(\cdot)\)</span>, the constant absolute risk aversion (CARA) utility function:</p>
 <p><span class="math display">\[
 u(x)=\frac{1-\exp(-rx)}{r}
