@@ -23,7 +23,7 @@
 <meta name="author" content="James R. Bland" />
 
 
-<meta name="date" content="2026-10-29" />
+<meta name="date" content="2026-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -624,39 +624,39 @@ U_i(x,y)&amp;=x-\alpha_i\underbrace{\max\{0,y-x\}}_{\text{disadvantageous inequa
 \end{aligned}
 \]</span></p>
 <p>Furthermore, as with all of the other applications so far, I will assume a logit probabilistic choice rule with precision parameter <span class="math inline">\(\lambda_i\)</span>.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="filling-in-the-blanks-imputation.html#cb121-1" tabindex="-1"></a>d1<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp1.csv&quot;</span>)</span>
-<span id="cb121-2"><a href="filling-in-the-blanks-imputation.html#cb121-2" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">1</span>)</span>
-<span id="cb121-3"><a href="filling-in-the-blanks-imputation.html#cb121-3" tabindex="-1"></a>)</span>
-<span id="cb121-4"><a href="filling-in-the-blanks-imputation.html#cb121-4" tabindex="-1"></a>d2<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp2.csv&quot;</span>)</span>
-<span id="cb121-5"><a href="filling-in-the-blanks-imputation.html#cb121-5" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">2</span>)    </span>
-<span id="cb121-6"><a href="filling-in-the-blanks-imputation.html#cb121-6" tabindex="-1"></a>)</span>
-<span id="cb121-7"><a href="filling-in-the-blanks-imputation.html#cb121-7" tabindex="-1"></a>D<span class="ot">&lt;-</span>(<span class="fu">rbind</span>(d1,d2)</span>
-<span id="cb121-8"><a href="filling-in-the-blanks-imputation.html#cb121-8" tabindex="-1"></a>    <span class="co"># Just use the dictator game data</span></span>
-<span id="cb121-9"><a href="filling-in-the-blanks-imputation.html#cb121-9" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">filter</span>(dg<span class="sc">==</span><span class="dv">1</span>)  </span>
-<span id="cb121-10"><a href="filling-in-the-blanks-imputation.html#cb121-10" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
-<span id="cb121-11"><a href="filling-in-the-blanks-imputation.html#cb121-11" tabindex="-1"></a>      <span class="at">self_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,self_x,self_y),</span>
-<span id="cb121-12"><a href="filling-in-the-blanks-imputation.html#cb121-12" tabindex="-1"></a>      <span class="at">other_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,other_x,other_y)</span>
-<span id="cb121-13"><a href="filling-in-the-blanks-imputation.html#cb121-13" tabindex="-1"></a>    )</span>
-<span id="cb121-14"><a href="filling-in-the-blanks-imputation.html#cb121-14" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb121-15"><a href="filling-in-the-blanks-imputation.html#cb121-15" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb121-16"><a href="filling-in-the-blanks-imputation.html#cb121-16" tabindex="-1"></a>    <span class="at">domain.x =</span> <span class="fu">ifelse</span>(self_x<span class="sc">&gt;</span>other_x,<span class="st">&quot;adv&quot;</span>,<span class="st">&quot;disadv&quot;</span>),</span>
-<span id="cb121-17"><a href="filling-in-the-blanks-imputation.html#cb121-17" tabindex="-1"></a>    <span class="at">domain.y =</span> <span class="fu">ifelse</span>(self_y<span class="sc">&gt;</span>other_y,<span class="st">&quot;adv&quot;</span>,<span class="st">&quot;disadv&quot;</span>),</span>
-<span id="cb121-18"><a href="filling-in-the-blanks-imputation.html#cb121-18" tabindex="-1"></a>    <span class="at">domain =</span> <span class="fu">ifelse</span>(domain.x <span class="sc">==</span> <span class="st">&quot;adv&quot;</span> <span class="sc">&amp;</span> domain.y <span class="sc">==</span> <span class="st">&quot;adv&quot;</span>,<span class="st">&quot;advantageous inequality&quot;</span>,</span>
-<span id="cb121-19"><a href="filling-in-the-blanks-imputation.html#cb121-19" tabindex="-1"></a>                            <span class="fu">ifelse</span>(domain.x <span class="sc">==</span> <span class="st">&quot;disadv&quot;</span> <span class="sc">&amp;</span> domain.y <span class="sc">==</span> <span class="st">&quot;disadv&quot;</span>,<span class="st">&quot;disadvantageous inequality&quot;</span>,</span>
-<span id="cb121-20"><a href="filling-in-the-blanks-imputation.html#cb121-20" tabindex="-1"></a>                            <span class="st">&quot;mixed&quot;</span>)</span>
-<span id="cb121-21"><a href="filling-in-the-blanks-imputation.html#cb121-21" tabindex="-1"></a>                            )</span>
-<span id="cb121-22"><a href="filling-in-the-blanks-imputation.html#cb121-22" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb121-23"><a href="filling-in-the-blanks-imputation.html#cb121-23" tabindex="-1"></a>  <span class="fu">filter</span>(sid<span class="sc">==</span>sid[<span class="dv">1</span>])</span>
-<span id="cb121-24"><a href="filling-in-the-blanks-imputation.html#cb121-24" tabindex="-1"></a></span>
-<span id="cb121-25"><a href="filling-in-the-blanks-imputation.html#cb121-25" tabindex="-1"></a>(</span>
-<span id="cb121-26"><a href="filling-in-the-blanks-imputation.html#cb121-26" tabindex="-1"></a>  <span class="fu">ggplot</span>(D,<span class="fu">aes</span>(<span class="at">x=</span>self_x,<span class="at">y=</span>other_x,<span class="at">xend=</span>self_y,<span class="at">yend=</span>other_y,<span class="at">color=</span>domain))</span>
-<span id="cb121-27"><a href="filling-in-the-blanks-imputation.html#cb121-27" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_segment</span>()</span>
-<span id="cb121-28"><a href="filling-in-the-blanks-imputation.html#cb121-28" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb121-29"><a href="filling-in-the-blanks-imputation.html#cb121-29" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">coord_fixed</span>()</span>
-<span id="cb121-30"><a href="filling-in-the-blanks-imputation.html#cb121-30" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Payoff to self&quot;</span>)</span>
-<span id="cb121-31"><a href="filling-in-the-blanks-imputation.html#cb121-31" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Payoff to other&quot;</span>)</span>
-<span id="cb121-32"><a href="filling-in-the-blanks-imputation.html#cb121-32" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>,<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
-<span id="cb121-33"><a href="filling-in-the-blanks-imputation.html#cb121-33" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="filling-in-the-blanks-imputation.html#cb123-1" tabindex="-1"></a>d1<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp1.csv&quot;</span>)</span>
+<span id="cb123-2"><a href="filling-in-the-blanks-imputation.html#cb123-2" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">1</span>)</span>
+<span id="cb123-3"><a href="filling-in-the-blanks-imputation.html#cb123-3" tabindex="-1"></a>)</span>
+<span id="cb123-4"><a href="filling-in-the-blanks-imputation.html#cb123-4" tabindex="-1"></a>d2<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp2.csv&quot;</span>)</span>
+<span id="cb123-5"><a href="filling-in-the-blanks-imputation.html#cb123-5" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">2</span>)    </span>
+<span id="cb123-6"><a href="filling-in-the-blanks-imputation.html#cb123-6" tabindex="-1"></a>)</span>
+<span id="cb123-7"><a href="filling-in-the-blanks-imputation.html#cb123-7" tabindex="-1"></a>D<span class="ot">&lt;-</span>(<span class="fu">rbind</span>(d1,d2)</span>
+<span id="cb123-8"><a href="filling-in-the-blanks-imputation.html#cb123-8" tabindex="-1"></a>    <span class="co"># Just use the dictator game data</span></span>
+<span id="cb123-9"><a href="filling-in-the-blanks-imputation.html#cb123-9" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">filter</span>(dg<span class="sc">==</span><span class="dv">1</span>)  </span>
+<span id="cb123-10"><a href="filling-in-the-blanks-imputation.html#cb123-10" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
+<span id="cb123-11"><a href="filling-in-the-blanks-imputation.html#cb123-11" tabindex="-1"></a>      <span class="at">self_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,self_x,self_y),</span>
+<span id="cb123-12"><a href="filling-in-the-blanks-imputation.html#cb123-12" tabindex="-1"></a>      <span class="at">other_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,other_x,other_y)</span>
+<span id="cb123-13"><a href="filling-in-the-blanks-imputation.html#cb123-13" tabindex="-1"></a>    )</span>
+<span id="cb123-14"><a href="filling-in-the-blanks-imputation.html#cb123-14" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb123-15"><a href="filling-in-the-blanks-imputation.html#cb123-15" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb123-16"><a href="filling-in-the-blanks-imputation.html#cb123-16" tabindex="-1"></a>    <span class="at">domain.x =</span> <span class="fu">ifelse</span>(self_x<span class="sc">&gt;</span>other_x,<span class="st">&quot;adv&quot;</span>,<span class="st">&quot;disadv&quot;</span>),</span>
+<span id="cb123-17"><a href="filling-in-the-blanks-imputation.html#cb123-17" tabindex="-1"></a>    <span class="at">domain.y =</span> <span class="fu">ifelse</span>(self_y<span class="sc">&gt;</span>other_y,<span class="st">&quot;adv&quot;</span>,<span class="st">&quot;disadv&quot;</span>),</span>
+<span id="cb123-18"><a href="filling-in-the-blanks-imputation.html#cb123-18" tabindex="-1"></a>    <span class="at">domain =</span> <span class="fu">ifelse</span>(domain.x <span class="sc">==</span> <span class="st">&quot;adv&quot;</span> <span class="sc">&amp;</span> domain.y <span class="sc">==</span> <span class="st">&quot;adv&quot;</span>,<span class="st">&quot;advantageous inequality&quot;</span>,</span>
+<span id="cb123-19"><a href="filling-in-the-blanks-imputation.html#cb123-19" tabindex="-1"></a>                            <span class="fu">ifelse</span>(domain.x <span class="sc">==</span> <span class="st">&quot;disadv&quot;</span> <span class="sc">&amp;</span> domain.y <span class="sc">==</span> <span class="st">&quot;disadv&quot;</span>,<span class="st">&quot;disadvantageous inequality&quot;</span>,</span>
+<span id="cb123-20"><a href="filling-in-the-blanks-imputation.html#cb123-20" tabindex="-1"></a>                            <span class="st">&quot;mixed&quot;</span>)</span>
+<span id="cb123-21"><a href="filling-in-the-blanks-imputation.html#cb123-21" tabindex="-1"></a>                            )</span>
+<span id="cb123-22"><a href="filling-in-the-blanks-imputation.html#cb123-22" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb123-23"><a href="filling-in-the-blanks-imputation.html#cb123-23" tabindex="-1"></a>  <span class="fu">filter</span>(sid<span class="sc">==</span>sid[<span class="dv">1</span>])</span>
+<span id="cb123-24"><a href="filling-in-the-blanks-imputation.html#cb123-24" tabindex="-1"></a></span>
+<span id="cb123-25"><a href="filling-in-the-blanks-imputation.html#cb123-25" tabindex="-1"></a>(</span>
+<span id="cb123-26"><a href="filling-in-the-blanks-imputation.html#cb123-26" tabindex="-1"></a>  <span class="fu">ggplot</span>(D,<span class="fu">aes</span>(<span class="at">x=</span>self_x,<span class="at">y=</span>other_x,<span class="at">xend=</span>self_y,<span class="at">yend=</span>other_y,<span class="at">color=</span>domain))</span>
+<span id="cb123-27"><a href="filling-in-the-blanks-imputation.html#cb123-27" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_segment</span>()</span>
+<span id="cb123-28"><a href="filling-in-the-blanks-imputation.html#cb123-28" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb123-29"><a href="filling-in-the-blanks-imputation.html#cb123-29" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">coord_fixed</span>()</span>
+<span id="cb123-30"><a href="filling-in-the-blanks-imputation.html#cb123-30" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Payoff to self&quot;</span>)</span>
+<span id="cb123-31"><a href="filling-in-the-blanks-imputation.html#cb123-31" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Payoff to other&quot;</span>)</span>
+<span id="cb123-32"><a href="filling-in-the-blanks-imputation.html#cb123-32" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>,<span class="at">intercept=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb123-33"><a href="filling-in-the-blanks-imputation.html#cb123-33" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:imputingBFS2019"></span>
 <img src="index_files/figure-html/imputingBFS2019-1.png" alt="Choices presented to participants in @BFS2019. Each line segment represents a binary choice, where the two allocations are the endpoints of the line segment. Black dashed line is a $45^\circ$ line." width="672" />
 <p class="caption">
@@ -669,29 +669,29 @@ Figure 9.1: Choices presented to participants in <span class="citation">Bruhin e
 <div id="how-is-this-going-to-work" class="section level2 hasAnchor" number="9.2">
 <h2><span class="header-section-number">9.2</span> How is this going to work?<a href="filling-in-the-blanks-imputation.html#how-is-this-going-to-work" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Consider again the individual-level estimates of <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\beta_i\)</span> from the hierarchical models chapter (specifically the estimates from the hierarchical model with an explicit correlation matrix <span class="math inline">\(\Omega\)</span> assumed in the specification). I reproduce these posterior mean estimates in Figure <a href="filling-in-the-blanks-imputation.html#fig:imputingFullModelPosteriors">9.2</a>.</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="filling-in-the-blanks-imputation.html#cb122-1" tabindex="-1"></a>AllData<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_alldata.csv&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb122-2"><a href="filling-in-the-blanks-imputation.html#cb122-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
-<span id="cb122-3"><a href="filling-in-the-blanks-imputation.html#cb122-3" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb122-4"><a href="filling-in-the-blanks-imputation.html#cb122-4" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
-<span id="cb122-5"><a href="filling-in-the-blanks-imputation.html#cb122-5" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb122-6"><a href="filling-in-the-blanks-imputation.html#cb122-6" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb122-7"><a href="filling-in-the-blanks-imputation.html#cb122-7" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
-<span id="cb122-8"><a href="filling-in-the-blanks-imputation.html#cb122-8" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
-<span id="cb122-9"><a href="filling-in-the-blanks-imputation.html#cb122-9" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb122-10"><a href="filling-in-the-blanks-imputation.html#cb122-10" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb122-11"><a href="filling-in-the-blanks-imputation.html#cb122-11" tabindex="-1"></a>    <span class="at">id_cols =</span> id,</span>
-<span id="cb122-12"><a href="filling-in-the-blanks-imputation.html#cb122-12" tabindex="-1"></a>    <span class="at">names_from =</span> parameter,</span>
-<span id="cb122-13"><a href="filling-in-the-blanks-imputation.html#cb122-13" tabindex="-1"></a>    <span class="at">values_from =</span> mean</span>
-<span id="cb122-14"><a href="filling-in-the-blanks-imputation.html#cb122-14" tabindex="-1"></a>  )</span>
-<span id="cb122-15"><a href="filling-in-the-blanks-imputation.html#cb122-15" tabindex="-1"></a></span>
-<span id="cb122-16"><a href="filling-in-the-blanks-imputation.html#cb122-16" tabindex="-1"></a>(</span>
-<span id="cb122-17"><a href="filling-in-the-blanks-imputation.html#cb122-17" tabindex="-1"></a>  <span class="fu">ggplot</span>(AllData, <span class="fu">aes</span>(<span class="at">x=</span>alpha,<span class="at">y=</span>beta,<span class="at">color=</span><span class="fu">log</span>(lambda)))</span>
-<span id="cb122-18"><a href="filling-in-the-blanks-imputation.html#cb122-18" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
-<span id="cb122-19"><a href="filling-in-the-blanks-imputation.html#cb122-19" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_viridis</span>()</span>
-<span id="cb122-20"><a href="filling-in-the-blanks-imputation.html#cb122-20" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb122-21"><a href="filling-in-the-blanks-imputation.html#cb122-21" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(alpha[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
-<span id="cb122-22"><a href="filling-in-the-blanks-imputation.html#cb122-22" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
-<span id="cb122-23"><a href="filling-in-the-blanks-imputation.html#cb122-23" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="filling-in-the-blanks-imputation.html#cb124-1" tabindex="-1"></a>AllData<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_alldata.csv&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb124-2"><a href="filling-in-the-blanks-imputation.html#cb124-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb124-3"><a href="filling-in-the-blanks-imputation.html#cb124-3" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb124-4"><a href="filling-in-the-blanks-imputation.html#cb124-4" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
+<span id="cb124-5"><a href="filling-in-the-blanks-imputation.html#cb124-5" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb124-6"><a href="filling-in-the-blanks-imputation.html#cb124-6" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb124-7"><a href="filling-in-the-blanks-imputation.html#cb124-7" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
+<span id="cb124-8"><a href="filling-in-the-blanks-imputation.html#cb124-8" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
+<span id="cb124-9"><a href="filling-in-the-blanks-imputation.html#cb124-9" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb124-10"><a href="filling-in-the-blanks-imputation.html#cb124-10" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb124-11"><a href="filling-in-the-blanks-imputation.html#cb124-11" tabindex="-1"></a>    <span class="at">id_cols =</span> id,</span>
+<span id="cb124-12"><a href="filling-in-the-blanks-imputation.html#cb124-12" tabindex="-1"></a>    <span class="at">names_from =</span> parameter,</span>
+<span id="cb124-13"><a href="filling-in-the-blanks-imputation.html#cb124-13" tabindex="-1"></a>    <span class="at">values_from =</span> mean</span>
+<span id="cb124-14"><a href="filling-in-the-blanks-imputation.html#cb124-14" tabindex="-1"></a>  )</span>
+<span id="cb124-15"><a href="filling-in-the-blanks-imputation.html#cb124-15" tabindex="-1"></a></span>
+<span id="cb124-16"><a href="filling-in-the-blanks-imputation.html#cb124-16" tabindex="-1"></a>(</span>
+<span id="cb124-17"><a href="filling-in-the-blanks-imputation.html#cb124-17" tabindex="-1"></a>  <span class="fu">ggplot</span>(AllData, <span class="fu">aes</span>(<span class="at">x=</span>alpha,<span class="at">y=</span>beta,<span class="at">color=</span><span class="fu">log</span>(lambda)))</span>
+<span id="cb124-18"><a href="filling-in-the-blanks-imputation.html#cb124-18" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb124-19"><a href="filling-in-the-blanks-imputation.html#cb124-19" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_viridis</span>()</span>
+<span id="cb124-20"><a href="filling-in-the-blanks-imputation.html#cb124-20" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb124-21"><a href="filling-in-the-blanks-imputation.html#cb124-21" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(alpha[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
+<span id="cb124-22"><a href="filling-in-the-blanks-imputation.html#cb124-22" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
+<span id="cb124-23"><a href="filling-in-the-blanks-imputation.html#cb124-23" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:imputingFullModelPosteriors"></span>
 <img src="index_files/figure-html/imputingFullModelPosteriors-1.png" alt="Posterior means of the individual-level parameters from the hierarchical model using the full dataset and a correlation matrix" width="672" />
 <p class="caption">
@@ -704,197 +704,114 @@ Figure 9.2: Posterior means of the individual-level parameters from the hierarch
 <div id="implementation" class="section level2 hasAnchor" number="9.3">
 <h2><span class="header-section-number">9.3</span> Implementation<a href="filling-in-the-blanks-imputation.html#implementation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here the implementation is almost exactly the same as the hierarchical model I already took to these data (with the demand for giving bit in the <code>generated quantities</code> block taken out). Instead, we just feed it different data (i.e. taking out half of the mixed and advantageous inequality decisions). But in order to demonstrate the heavy lifting that the correlation matrix is doing for this task, I wanted to have a <em>Stan</em> program that could estimate a model both with and without a correlation matrix. Here is that program, where the <code>UseCorr</code> data variable turns on or off the use of the correlation matrix:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb123-1"><a href="filling-in-the-blanks-imputation.html#cb123-1" tabindex="-1"></a></span>
-<span id="cb123-2"><a href="filling-in-the-blanks-imputation.html#cb123-2" tabindex="-1"></a>data <span class="op">{</span></span>
-<span id="cb123-3"><a href="filling-in-the-blanks-imputation.html#cb123-3" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> n<span class="op">;</span> <span class="co">// number of observations</span></span>
-<span id="cb123-4"><a href="filling-in-the-blanks-imputation.html#cb123-4" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> self_x<span class="op">;</span> <span class="co">// payoff to self with allocation x</span></span>
-<span id="cb123-5"><a href="filling-in-the-blanks-imputation.html#cb123-5" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> other_x<span class="op">;</span> <span class="co">// payoff to other with allocation x</span></span>
-<span id="cb123-6"><a href="filling-in-the-blanks-imputation.html#cb123-6" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> self_y<span class="op">;</span> <span class="co">// payoff to self with allocation y</span></span>
-<span id="cb123-7"><a href="filling-in-the-blanks-imputation.html#cb123-7" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> other_y<span class="op">;</span> <span class="co">// payoff to other with allocation y</span></span>
-<span id="cb123-8"><a href="filling-in-the-blanks-imputation.html#cb123-8" tabindex="-1"></a>  array<span class="op">[</span>n<span class="op">]</span> <span class="dt">int</span> choice_x<span class="op">;</span> <span class="co">// =1 iff allocation x is chosen</span></span>
-<span id="cb123-9"><a href="filling-in-the-blanks-imputation.html#cb123-9" tabindex="-1"></a>  </span>
-<span id="cb123-10"><a href="filling-in-the-blanks-imputation.html#cb123-10" tabindex="-1"></a>  array<span class="op">[</span>n<span class="op">]</span> <span class="dt">int</span> id<span class="op">;</span></span>
-<span id="cb123-11"><a href="filling-in-the-blanks-imputation.html#cb123-11" tabindex="-1"></a>  <span class="dt">int</span> nParticipants<span class="op">;</span></span>
-<span id="cb123-12"><a href="filling-in-the-blanks-imputation.html#cb123-12" tabindex="-1"></a>  </span>
-<span id="cb123-13"><a href="filling-in-the-blanks-imputation.html#cb123-13" tabindex="-1"></a></span>
-<span id="cb123-14"><a href="filling-in-the-blanks-imputation.html#cb123-14" tabindex="-1"></a>  </span>
-<span id="cb123-15"><a href="filling-in-the-blanks-imputation.html#cb123-15" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_mu<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span>
-<span id="cb123-16"><a href="filling-in-the-blanks-imputation.html#cb123-16" tabindex="-1"></a>  real prior_tau<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span>
-<span id="cb123-17"><a href="filling-in-the-blanks-imputation.html#cb123-17" tabindex="-1"></a>  real prior_LKJ<span class="op">;</span></span>
-<span id="cb123-18"><a href="filling-in-the-blanks-imputation.html#cb123-18" tabindex="-1"></a>  </span>
-<span id="cb123-19"><a href="filling-in-the-blanks-imputation.html#cb123-19" tabindex="-1"></a>  <span class="dt">int</span> UseCorr<span class="op">;</span> <span class="co">// &gt;0 iff we are using the correlation matrix</span></span>
-<span id="cb123-20"><a href="filling-in-the-blanks-imputation.html#cb123-20" tabindex="-1"></a>  </span>
-<span id="cb123-21"><a href="filling-in-the-blanks-imputation.html#cb123-21" tabindex="-1"></a>  </span>
-<span id="cb123-22"><a href="filling-in-the-blanks-imputation.html#cb123-22" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb123-23"><a href="filling-in-the-blanks-imputation.html#cb123-23" tabindex="-1"></a></span>
-<span id="cb123-24"><a href="filling-in-the-blanks-imputation.html#cb123-24" tabindex="-1"></a>transformed data <span class="op">{</span></span>
-<span id="cb123-25"><a href="filling-in-the-blanks-imputation.html#cb123-25" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dX<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation x</span></span>
-<span id="cb123-26"><a href="filling-in-the-blanks-imputation.html#cb123-26" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dY<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation y</span></span>
-<span id="cb123-27"><a href="filling-in-the-blanks-imputation.html#cb123-27" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aX<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
-<span id="cb123-28"><a href="filling-in-the-blanks-imputation.html#cb123-28" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aY<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
-<span id="cb123-29"><a href="filling-in-the-blanks-imputation.html#cb123-29" tabindex="-1"></a>  </span>
-<span id="cb123-30"><a href="filling-in-the-blanks-imputation.html#cb123-30" tabindex="-1"></a>  dX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_x<span class="op">-</span>self_x<span class="op">);</span></span>
-<span id="cb123-31"><a href="filling-in-the-blanks-imputation.html#cb123-31" tabindex="-1"></a>  dY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_y<span class="op">-</span>self_y<span class="op">);</span></span>
-<span id="cb123-32"><a href="filling-in-the-blanks-imputation.html#cb123-32" tabindex="-1"></a>  aX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_x<span class="op">-</span>other_x<span class="op">);</span></span>
-<span id="cb123-33"><a href="filling-in-the-blanks-imputation.html#cb123-33" tabindex="-1"></a>  aY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_y<span class="op">-</span>other_y<span class="op">);</span></span>
-<span id="cb123-34"><a href="filling-in-the-blanks-imputation.html#cb123-34" tabindex="-1"></a>  </span>
-<span id="cb123-35"><a href="filling-in-the-blanks-imputation.html#cb123-35" tabindex="-1"></a>  </span>
-<span id="cb123-36"><a href="filling-in-the-blanks-imputation.html#cb123-36" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb123-37"><a href="filling-in-the-blanks-imputation.html#cb123-37" tabindex="-1"></a>parameters <span class="op">{</span></span>
-<span id="cb123-38"><a href="filling-in-the-blanks-imputation.html#cb123-38" tabindex="-1"></a>  </span>
-<span id="cb123-39"><a href="filling-in-the-blanks-imputation.html#cb123-39" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> mu<span class="op">;</span> <span class="co">// population mean</span></span>
-<span id="cb123-40"><a href="filling-in-the-blanks-imputation.html#cb123-40" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;[</span><span class="dv">3</span><span class="op">]</span> tau<span class="op">;</span> <span class="co">// population standard deviation</span></span>
-<span id="cb123-41"><a href="filling-in-the-blanks-imputation.html#cb123-41" tabindex="-1"></a>  cholesky_factor_corr<span class="op">[</span><span class="dv">3</span><span class="op">]</span> L_Omega<span class="op">;</span> <span class="co">// Cholesky factorization of the correlation matrix</span></span>
-<span id="cb123-42"><a href="filling-in-the-blanks-imputation.html#cb123-42" tabindex="-1"></a>  </span>
-<span id="cb123-43"><a href="filling-in-the-blanks-imputation.html#cb123-43" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> z<span class="op">;</span> <span class="co">// standard normals determinig participants&#39; parameters</span></span>
-<span id="cb123-44"><a href="filling-in-the-blanks-imputation.html#cb123-44" tabindex="-1"></a>  </span>
-<span id="cb123-45"><a href="filling-in-the-blanks-imputation.html#cb123-45" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb123-46"><a href="filling-in-the-blanks-imputation.html#cb123-46" tabindex="-1"></a></span>
-<span id="cb123-47"><a href="filling-in-the-blanks-imputation.html#cb123-47" tabindex="-1"></a>transformed parameters <span class="op">{</span></span>
-<span id="cb123-48"><a href="filling-in-the-blanks-imputation.html#cb123-48" tabindex="-1"></a>  </span>
-<span id="cb123-49"><a href="filling-in-the-blanks-imputation.html#cb123-49" tabindex="-1"></a>  vector<span class="op">[</span>nParticipants<span class="op">]</span> alpha<span class="op">;</span></span>
-<span id="cb123-50"><a href="filling-in-the-blanks-imputation.html#cb123-50" tabindex="-1"></a>  vector<span class="op">[</span>nParticipants<span class="op">]</span> beta<span class="op">;</span></span>
-<span id="cb123-51"><a href="filling-in-the-blanks-imputation.html#cb123-51" tabindex="-1"></a>  vector<span class="op">[</span>nParticipants<span class="op">]</span> lambda<span class="op">;</span></span>
-<span id="cb123-52"><a href="filling-in-the-blanks-imputation.html#cb123-52" tabindex="-1"></a>  </span>
-<span id="cb123-53"><a href="filling-in-the-blanks-imputation.html#cb123-53" tabindex="-1"></a>  <span class="op">{</span></span>
-<span id="cb123-54"><a href="filling-in-the-blanks-imputation.html#cb123-54" tabindex="-1"></a>    matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> theta<span class="op">;</span></span>
-<span id="cb123-55"><a href="filling-in-the-blanks-imputation.html#cb123-55" tabindex="-1"></a>    </span>
-<span id="cb123-56"><a href="filling-in-the-blanks-imputation.html#cb123-56" tabindex="-1"></a>    </span>
-<span id="cb123-57"><a href="filling-in-the-blanks-imputation.html#cb123-57" tabindex="-1"></a>    </span>
-<span id="cb123-58"><a href="filling-in-the-blanks-imputation.html#cb123-58" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>UseCorr<span class="op">&gt;</span><span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb123-59"><a href="filling-in-the-blanks-imputation.html#cb123-59" tabindex="-1"></a>      <span class="co">// if we are using the correlation matrix</span></span>
-<span id="cb123-60"><a href="filling-in-the-blanks-imputation.html#cb123-60" tabindex="-1"></a>      </span>
-<span id="cb123-61"><a href="filling-in-the-blanks-imputation.html#cb123-61" tabindex="-1"></a>      theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
-<span id="cb123-62"><a href="filling-in-the-blanks-imputation.html#cb123-62" tabindex="-1"></a>                    <span class="op">+</span>diag_pre_multiply<span class="op">(</span>tau<span class="op">,</span>L_Omega<span class="op">)*</span>z<span class="op">;</span></span>
-<span id="cb123-63"><a href="filling-in-the-blanks-imputation.html#cb123-63" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb123-64"><a href="filling-in-the-blanks-imputation.html#cb123-64" tabindex="-1"></a>      <span class="co">// if we are not using the correlation matrix</span></span>
-<span id="cb123-65"><a href="filling-in-the-blanks-imputation.html#cb123-65" tabindex="-1"></a>      theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
-<span id="cb123-66"><a href="filling-in-the-blanks-imputation.html#cb123-66" tabindex="-1"></a>                    <span class="op">+</span>diag_matrix<span class="op">(</span>tau<span class="op">)*</span>z<span class="op">;</span></span>
-<span id="cb123-67"><a href="filling-in-the-blanks-imputation.html#cb123-67" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb123-68"><a href="filling-in-the-blanks-imputation.html#cb123-68" tabindex="-1"></a>                    </span>
-<span id="cb123-69"><a href="filling-in-the-blanks-imputation.html#cb123-69" tabindex="-1"></a>    alpha  <span class="op">=</span> theta<span class="op">[</span><span class="dv">1</span><span class="op">,]</span><span class="ch">&#39;;</span></span>
-<span id="cb123-70"><a href="filling-in-the-blanks-imputation.html#cb123-70" tabindex="-1"></a>    beta   <span class="op">=</span> theta<span class="op">[</span><span class="dv">2</span><span class="op">,]</span><span class="ch">&#39;;</span></span>
-<span id="cb123-71"><a href="filling-in-the-blanks-imputation.html#cb123-71" tabindex="-1"></a>    lambda <span class="op">=</span> exp<span class="op">(</span>theta<span class="op">[</span><span class="dv">3</span><span class="op">,]</span><span class="ch">&#39;)</span><span class="er">;</span></span>
-<span id="cb123-72"><a href="filling-in-the-blanks-imputation.html#cb123-72" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb123-73"><a href="filling-in-the-blanks-imputation.html#cb123-73" tabindex="-1"></a>  </span>
-<span id="cb123-74"><a href="filling-in-the-blanks-imputation.html#cb123-74" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb123-75"><a href="filling-in-the-blanks-imputation.html#cb123-75" tabindex="-1"></a>model <span class="op">{</span></span>
-<span id="cb123-76"><a href="filling-in-the-blanks-imputation.html#cb123-76" tabindex="-1"></a>  </span>
-<span id="cb123-77"><a href="filling-in-the-blanks-imputation.html#cb123-77" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Ux<span class="op">;</span> <span class="co">// utility of allocation x</span></span>
-<span id="cb123-78"><a href="filling-in-the-blanks-imputation.html#cb123-78" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Uy<span class="op">;</span> <span class="co">// utility of allocation y</span></span>
-<span id="cb123-79"><a href="filling-in-the-blanks-imputation.html#cb123-79" tabindex="-1"></a></span>
-<span id="cb123-80"><a href="filling-in-the-blanks-imputation.html#cb123-80" tabindex="-1"></a></span>
-<span id="cb123-81"><a href="filling-in-the-blanks-imputation.html#cb123-81" tabindex="-1"></a>  Ux <span class="op">=</span> self_x<span class="op">-</span>alpha<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> dX<span class="op">-</span>beta<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> aX<span class="op">;</span></span>
-<span id="cb123-82"><a href="filling-in-the-blanks-imputation.html#cb123-82" tabindex="-1"></a>  Uy <span class="op">=</span> self_y<span class="op">-</span>alpha<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> dY<span class="op">-</span>beta<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> aY<span class="op">;</span></span>
-<span id="cb123-83"><a href="filling-in-the-blanks-imputation.html#cb123-83" tabindex="-1"></a>  </span>
-<span id="cb123-84"><a href="filling-in-the-blanks-imputation.html#cb123-84" tabindex="-1"></a>  </span>
-<span id="cb123-85"><a href="filling-in-the-blanks-imputation.html#cb123-85" tabindex="-1"></a></span>
-<span id="cb123-86"><a href="filling-in-the-blanks-imputation.html#cb123-86" tabindex="-1"></a>  choice_x <span class="op">~</span> bernoulli_logit<span class="op">(</span>lambda<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> <span class="op">(</span>Ux<span class="op">-</span>Uy<span class="op">));</span></span>
-<span id="cb123-87"><a href="filling-in-the-blanks-imputation.html#cb123-87" tabindex="-1"></a>      </span>
-<span id="cb123-88"><a href="filling-in-the-blanks-imputation.html#cb123-88" tabindex="-1"></a>  to_vector<span class="op">(</span>z<span class="op">)</span> <span class="op">~</span> std_normal<span class="op">();</span></span>
-<span id="cb123-89"><a href="filling-in-the-blanks-imputation.html#cb123-89" tabindex="-1"></a>  </span>
-<span id="cb123-90"><a href="filling-in-the-blanks-imputation.html#cb123-90" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>pp in <span class="dv">1</span><span class="op">:</span><span class="dv">3</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb123-91"><a href="filling-in-the-blanks-imputation.html#cb123-91" tabindex="-1"></a>    mu<span class="op">[</span>pp<span class="op">]</span> <span class="op">~</span> normal<span class="op">(</span>prior_mu<span class="op">[</span>pp<span class="op">][</span><span class="dv">1</span><span class="op">],</span>prior_mu<span class="op">[</span>pp<span class="op">][</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb123-92"><a href="filling-in-the-blanks-imputation.html#cb123-92" tabindex="-1"></a>    tau<span class="op">[</span>pp<span class="op">]</span> <span class="op">~</span> cauchy<span class="op">(</span><span class="fl">0.0</span><span class="op">,</span>prior_tau<span class="op">[</span>pp<span class="op">]);</span></span>
-<span id="cb123-93"><a href="filling-in-the-blanks-imputation.html#cb123-93" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb123-94"><a href="filling-in-the-blanks-imputation.html#cb123-94" tabindex="-1"></a>  </span>
-<span id="cb123-95"><a href="filling-in-the-blanks-imputation.html#cb123-95" tabindex="-1"></a>   L_Omega <span class="op">~</span> lkj_corr_cholesky<span class="op">(</span>prior_LKJ<span class="op">);</span></span>
-<span id="cb123-96"><a href="filling-in-the-blanks-imputation.html#cb123-96" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb123-97"><a href="filling-in-the-blanks-imputation.html#cb123-97" tabindex="-1"></a></span>
-<span id="cb123-98"><a href="filling-in-the-blanks-imputation.html#cb123-98" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
-<span id="cb123-99"><a href="filling-in-the-blanks-imputation.html#cb123-99" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span><span class="dv">3</span><span class="op">]</span> Omega<span class="op">;</span></span>
-<span id="cb123-100"><a href="filling-in-the-blanks-imputation.html#cb123-100" tabindex="-1"></a>  Omega <span class="op">=</span> L_Omega<span class="op">*</span>L_Omega<span class="ch">&#39;;</span></span>
-<span id="cb123-101"><a href="filling-in-the-blanks-imputation.html#cb123-101" tabindex="-1"></a>  </span>
-<span id="cb123-102"><a href="filling-in-the-blanks-imputation.html#cb123-102" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb125-1"><a href="filling-in-the-blanks-imputation.html#cb125-1" tabindex="-1"></a></span>
+<span id="cb125-2"><a href="filling-in-the-blanks-imputation.html#cb125-2" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb125-3"><a href="filling-in-the-blanks-imputation.html#cb125-3" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> n<span class="op">;</span> <span class="co">// number of observations</span></span>
+<span id="cb125-4"><a href="filling-in-the-blanks-imputation.html#cb125-4" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> self_x<span class="op">;</span> <span class="co">// payoff to self with allocation x</span></span>
+<span id="cb125-5"><a href="filling-in-the-blanks-imputation.html#cb125-5" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> other_x<span class="op">;</span> <span class="co">// payoff to other with allocation x</span></span>
+<span id="cb125-6"><a href="filling-in-the-blanks-imputation.html#cb125-6" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> self_y<span class="op">;</span> <span class="co">// payoff to self with allocation y</span></span>
+<span id="cb125-7"><a href="filling-in-the-blanks-imputation.html#cb125-7" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> other_y<span class="op">;</span> <span class="co">// payoff to other with allocation y</span></span>
+<span id="cb125-8"><a href="filling-in-the-blanks-imputation.html#cb125-8" tabindex="-1"></a>  array<span class="op">[</span>n<span class="op">]</span> <span class="dt">int</span> choice_x<span class="op">;</span> <span class="co">// =1 iff allocation x is chosen</span></span>
+<span id="cb125-9"><a href="filling-in-the-blanks-imputation.html#cb125-9" tabindex="-1"></a>  </span>
+<span id="cb125-10"><a href="filling-in-the-blanks-imputation.html#cb125-10" tabindex="-1"></a>  array<span class="op">[</span>n<span class="op">]</span> <span class="dt">int</span> id<span class="op">;</span></span>
+<span id="cb125-11"><a href="filling-in-the-blanks-imputation.html#cb125-11" tabindex="-1"></a>  <span class="dt">int</span> nParticipants<span class="op">;</span></span>
+<span id="cb125-12"><a href="filling-in-the-blanks-imputation.html#cb125-12" tabindex="-1"></a>  </span>
+<span id="cb125-13"><a href="filling-in-the-blanks-imputation.html#cb125-13" tabindex="-1"></a></span>
+<span id="cb125-14"><a href="filling-in-the-blanks-imputation.html#cb125-14" tabindex="-1"></a>  </span>
+<span id="cb125-15"><a href="filling-in-the-blanks-imputation.html#cb125-15" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">2</span><span class="op">]</span> prior_mu<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span>
+<span id="cb125-16"><a href="filling-in-the-blanks-imputation.html#cb125-16" tabindex="-1"></a>  real prior_tau<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span>
+<span id="cb125-17"><a href="filling-in-the-blanks-imputation.html#cb125-17" tabindex="-1"></a>  real prior_LKJ<span class="op">;</span></span>
+<span id="cb125-18"><a href="filling-in-the-blanks-imputation.html#cb125-18" tabindex="-1"></a>  </span>
+<span id="cb125-19"><a href="filling-in-the-blanks-imputation.html#cb125-19" tabindex="-1"></a>  <span class="dt">int</span> UseCorr<span class="op">;</span> <span class="co">// &gt;0 iff we are using the correlation matrix</span></span>
+<span id="cb125-20"><a href="filling-in-the-blanks-imputation.html#cb125-20" tabindex="-1"></a>  </span>
+<span id="cb125-21"><a href="filling-in-the-blanks-imputation.html#cb125-21" tabindex="-1"></a>  </span>
+<span id="cb125-22"><a href="filling-in-the-blanks-imputation.html#cb125-22" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb125-23"><a href="filling-in-the-blanks-imputation.html#cb125-23" tabindex="-1"></a></span>
+<span id="cb125-24"><a href="filling-in-the-blanks-imputation.html#cb125-24" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb125-25"><a href="filling-in-the-blanks-imputation.html#cb125-25" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dX<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation x</span></span>
+<span id="cb125-26"><a href="filling-in-the-blanks-imputation.html#cb125-26" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> dY<span class="op">;</span> <span class="co">// disadvantageous inequality at allocation y</span></span>
+<span id="cb125-27"><a href="filling-in-the-blanks-imputation.html#cb125-27" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aX<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
+<span id="cb125-28"><a href="filling-in-the-blanks-imputation.html#cb125-28" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> aY<span class="op">;</span> <span class="co">// advantageous inequality at allocation X</span></span>
+<span id="cb125-29"><a href="filling-in-the-blanks-imputation.html#cb125-29" tabindex="-1"></a>  </span>
+<span id="cb125-30"><a href="filling-in-the-blanks-imputation.html#cb125-30" tabindex="-1"></a>  dX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_x<span class="op">-</span>self_x<span class="op">);</span></span>
+<span id="cb125-31"><a href="filling-in-the-blanks-imputation.html#cb125-31" tabindex="-1"></a>  dY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>other_y<span class="op">-</span>self_y<span class="op">);</span></span>
+<span id="cb125-32"><a href="filling-in-the-blanks-imputation.html#cb125-32" tabindex="-1"></a>  aX <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_x<span class="op">-</span>other_x<span class="op">);</span></span>
+<span id="cb125-33"><a href="filling-in-the-blanks-imputation.html#cb125-33" tabindex="-1"></a>  aY <span class="op">=</span> fmax<span class="op">(</span><span class="dv">0</span><span class="op">,</span>self_y<span class="op">-</span>other_y<span class="op">);</span></span>
+<span id="cb125-34"><a href="filling-in-the-blanks-imputation.html#cb125-34" tabindex="-1"></a>  </span>
+<span id="cb125-35"><a href="filling-in-the-blanks-imputation.html#cb125-35" tabindex="-1"></a>  </span>
+<span id="cb125-36"><a href="filling-in-the-blanks-imputation.html#cb125-36" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb125-37"><a href="filling-in-the-blanks-imputation.html#cb125-37" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb125-38"><a href="filling-in-the-blanks-imputation.html#cb125-38" tabindex="-1"></a>  </span>
+<span id="cb125-39"><a href="filling-in-the-blanks-imputation.html#cb125-39" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> mu<span class="op">;</span> <span class="co">// population mean</span></span>
+<span id="cb125-40"><a href="filling-in-the-blanks-imputation.html#cb125-40" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;[</span><span class="dv">3</span><span class="op">]</span> tau<span class="op">;</span> <span class="co">// population standard deviation</span></span>
+<span id="cb125-41"><a href="filling-in-the-blanks-imputation.html#cb125-41" tabindex="-1"></a>  cholesky_factor_corr<span class="op">[</span><span class="dv">3</span><span class="op">]</span> L_Omega<span class="op">;</span> <span class="co">// Cholesky factorization of the correlation matrix</span></span>
+<span id="cb125-42"><a href="filling-in-the-blanks-imputation.html#cb125-42" tabindex="-1"></a>  </span>
+<span id="cb125-43"><a href="filling-in-the-blanks-imputation.html#cb125-43" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> z<span class="op">;</span> <span class="co">// standard normals determinig participants&#39; parameters</span></span>
+<span id="cb125-44"><a href="filling-in-the-blanks-imputation.html#cb125-44" tabindex="-1"></a>  </span>
+<span id="cb125-45"><a href="filling-in-the-blanks-imputation.html#cb125-45" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb125-46"><a href="filling-in-the-blanks-imputation.html#cb125-46" tabindex="-1"></a></span>
+<span id="cb125-47"><a href="filling-in-the-blanks-imputation.html#cb125-47" tabindex="-1"></a>transformed parameters <span class="op">{</span></span>
+<span id="cb125-48"><a href="filling-in-the-blanks-imputation.html#cb125-48" tabindex="-1"></a>  </span>
+<span id="cb125-49"><a href="filling-in-the-blanks-imputation.html#cb125-49" tabindex="-1"></a>  vector<span class="op">[</span>nParticipants<span class="op">]</span> alpha<span class="op">;</span></span>
+<span id="cb125-50"><a href="filling-in-the-blanks-imputation.html#cb125-50" tabindex="-1"></a>  vector<span class="op">[</span>nParticipants<span class="op">]</span> beta<span class="op">;</span></span>
+<span id="cb125-51"><a href="filling-in-the-blanks-imputation.html#cb125-51" tabindex="-1"></a>  vector<span class="op">[</span>nParticipants<span class="op">]</span> lambda<span class="op">;</span></span>
+<span id="cb125-52"><a href="filling-in-the-blanks-imputation.html#cb125-52" tabindex="-1"></a>  </span>
+<span id="cb125-53"><a href="filling-in-the-blanks-imputation.html#cb125-53" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb125-54"><a href="filling-in-the-blanks-imputation.html#cb125-54" tabindex="-1"></a>    matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span>nParticipants<span class="op">]</span> theta<span class="op">;</span></span>
+<span id="cb125-55"><a href="filling-in-the-blanks-imputation.html#cb125-55" tabindex="-1"></a>    </span>
+<span id="cb125-56"><a href="filling-in-the-blanks-imputation.html#cb125-56" tabindex="-1"></a>    </span>
+<span id="cb125-57"><a href="filling-in-the-blanks-imputation.html#cb125-57" tabindex="-1"></a>    </span>
+<span id="cb125-58"><a href="filling-in-the-blanks-imputation.html#cb125-58" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>UseCorr<span class="op">&gt;</span><span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb125-59"><a href="filling-in-the-blanks-imputation.html#cb125-59" tabindex="-1"></a>      <span class="co">// if we are using the correlation matrix</span></span>
+<span id="cb125-60"><a href="filling-in-the-blanks-imputation.html#cb125-60" tabindex="-1"></a>      </span>
+<span id="cb125-61"><a href="filling-in-the-blanks-imputation.html#cb125-61" tabindex="-1"></a>      theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
+<span id="cb125-62"><a href="filling-in-the-blanks-imputation.html#cb125-62" tabindex="-1"></a>                    <span class="op">+</span>diag_pre_multiply<span class="op">(</span>tau<span class="op">,</span>L_Omega<span class="op">)*</span>z<span class="op">;</span></span>
+<span id="cb125-63"><a href="filling-in-the-blanks-imputation.html#cb125-63" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb125-64"><a href="filling-in-the-blanks-imputation.html#cb125-64" tabindex="-1"></a>      <span class="co">// if we are not using the correlation matrix</span></span>
+<span id="cb125-65"><a href="filling-in-the-blanks-imputation.html#cb125-65" tabindex="-1"></a>      theta <span class="op">=</span> mu<span class="op">*</span>rep_row_vector<span class="op">(</span><span class="fl">1.0</span><span class="op">,</span>nParticipants<span class="op">)</span></span>
+<span id="cb125-66"><a href="filling-in-the-blanks-imputation.html#cb125-66" tabindex="-1"></a>                    <span class="op">+</span>diag_matrix<span class="op">(</span>tau<span class="op">)*</span>z<span class="op">;</span></span>
+<span id="cb125-67"><a href="filling-in-the-blanks-imputation.html#cb125-67" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb125-68"><a href="filling-in-the-blanks-imputation.html#cb125-68" tabindex="-1"></a>                    </span>
+<span id="cb125-69"><a href="filling-in-the-blanks-imputation.html#cb125-69" tabindex="-1"></a>    alpha  <span class="op">=</span> theta<span class="op">[</span><span class="dv">1</span><span class="op">,]</span><span class="ch">&#39;;</span></span>
+<span id="cb125-70"><a href="filling-in-the-blanks-imputation.html#cb125-70" tabindex="-1"></a>    beta   <span class="op">=</span> theta<span class="op">[</span><span class="dv">2</span><span class="op">,]</span><span class="ch">&#39;;</span></span>
+<span id="cb125-71"><a href="filling-in-the-blanks-imputation.html#cb125-71" tabindex="-1"></a>    lambda <span class="op">=</span> exp<span class="op">(</span>theta<span class="op">[</span><span class="dv">3</span><span class="op">,]</span><span class="ch">&#39;)</span><span class="er">;</span></span>
+<span id="cb125-72"><a href="filling-in-the-blanks-imputation.html#cb125-72" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb125-73"><a href="filling-in-the-blanks-imputation.html#cb125-73" tabindex="-1"></a>  </span>
+<span id="cb125-74"><a href="filling-in-the-blanks-imputation.html#cb125-74" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb125-75"><a href="filling-in-the-blanks-imputation.html#cb125-75" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb125-76"><a href="filling-in-the-blanks-imputation.html#cb125-76" tabindex="-1"></a>  </span>
+<span id="cb125-77"><a href="filling-in-the-blanks-imputation.html#cb125-77" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Ux<span class="op">;</span> <span class="co">// utility of allocation x</span></span>
+<span id="cb125-78"><a href="filling-in-the-blanks-imputation.html#cb125-78" tabindex="-1"></a>  vector<span class="op">[</span>n<span class="op">]</span> Uy<span class="op">;</span> <span class="co">// utility of allocation y</span></span>
+<span id="cb125-79"><a href="filling-in-the-blanks-imputation.html#cb125-79" tabindex="-1"></a></span>
+<span id="cb125-80"><a href="filling-in-the-blanks-imputation.html#cb125-80" tabindex="-1"></a></span>
+<span id="cb125-81"><a href="filling-in-the-blanks-imputation.html#cb125-81" tabindex="-1"></a>  Ux <span class="op">=</span> self_x<span class="op">-</span>alpha<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> dX<span class="op">-</span>beta<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> aX<span class="op">;</span></span>
+<span id="cb125-82"><a href="filling-in-the-blanks-imputation.html#cb125-82" tabindex="-1"></a>  Uy <span class="op">=</span> self_y<span class="op">-</span>alpha<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> dY<span class="op">-</span>beta<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> aY<span class="op">;</span></span>
+<span id="cb125-83"><a href="filling-in-the-blanks-imputation.html#cb125-83" tabindex="-1"></a>  </span>
+<span id="cb125-84"><a href="filling-in-the-blanks-imputation.html#cb125-84" tabindex="-1"></a>  </span>
+<span id="cb125-85"><a href="filling-in-the-blanks-imputation.html#cb125-85" tabindex="-1"></a></span>
+<span id="cb125-86"><a href="filling-in-the-blanks-imputation.html#cb125-86" tabindex="-1"></a>  choice_x <span class="op">~</span> bernoulli_logit<span class="op">(</span>lambda<span class="op">[</span>id<span class="op">]</span> <span class="op">.*</span> <span class="op">(</span>Ux<span class="op">-</span>Uy<span class="op">));</span></span>
+<span id="cb125-87"><a href="filling-in-the-blanks-imputation.html#cb125-87" tabindex="-1"></a>      </span>
+<span id="cb125-88"><a href="filling-in-the-blanks-imputation.html#cb125-88" tabindex="-1"></a>  to_vector<span class="op">(</span>z<span class="op">)</span> <span class="op">~</span> std_normal<span class="op">();</span></span>
+<span id="cb125-89"><a href="filling-in-the-blanks-imputation.html#cb125-89" tabindex="-1"></a>  </span>
+<span id="cb125-90"><a href="filling-in-the-blanks-imputation.html#cb125-90" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>pp in <span class="dv">1</span><span class="op">:</span><span class="dv">3</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb125-91"><a href="filling-in-the-blanks-imputation.html#cb125-91" tabindex="-1"></a>    mu<span class="op">[</span>pp<span class="op">]</span> <span class="op">~</span> normal<span class="op">(</span>prior_mu<span class="op">[</span>pp<span class="op">][</span><span class="dv">1</span><span class="op">],</span>prior_mu<span class="op">[</span>pp<span class="op">][</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb125-92"><a href="filling-in-the-blanks-imputation.html#cb125-92" tabindex="-1"></a>    tau<span class="op">[</span>pp<span class="op">]</span> <span class="op">~</span> cauchy<span class="op">(</span><span class="fl">0.0</span><span class="op">,</span>prior_tau<span class="op">[</span>pp<span class="op">]);</span></span>
+<span id="cb125-93"><a href="filling-in-the-blanks-imputation.html#cb125-93" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb125-94"><a href="filling-in-the-blanks-imputation.html#cb125-94" tabindex="-1"></a>  </span>
+<span id="cb125-95"><a href="filling-in-the-blanks-imputation.html#cb125-95" tabindex="-1"></a>   L_Omega <span class="op">~</span> lkj_corr_cholesky<span class="op">(</span>prior_LKJ<span class="op">);</span></span>
+<span id="cb125-96"><a href="filling-in-the-blanks-imputation.html#cb125-96" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb125-97"><a href="filling-in-the-blanks-imputation.html#cb125-97" tabindex="-1"></a></span>
+<span id="cb125-98"><a href="filling-in-the-blanks-imputation.html#cb125-98" tabindex="-1"></a>generated quantities <span class="op">{</span></span>
+<span id="cb125-99"><a href="filling-in-the-blanks-imputation.html#cb125-99" tabindex="-1"></a>  matrix<span class="op">[</span><span class="dv">3</span><span class="op">,</span><span class="dv">3</span><span class="op">]</span> Omega<span class="op">;</span></span>
+<span id="cb125-100"><a href="filling-in-the-blanks-imputation.html#cb125-100" tabindex="-1"></a>  Omega <span class="op">=</span> L_Omega<span class="op">*</span>L_Omega<span class="ch">&#39;;</span></span>
+<span id="cb125-101"><a href="filling-in-the-blanks-imputation.html#cb125-101" tabindex="-1"></a>  </span>
+<span id="cb125-102"><a href="filling-in-the-blanks-imputation.html#cb125-102" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <div id="results" class="section level2 hasAnchor" number="9.4">
 <h2><span class="header-section-number">9.4</span> Results<a href="filling-in-the-blanks-imputation.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="using-the-correlation-matrix" class="section level3 hasAnchor" number="9.4.1">
 <h3><span class="header-section-number">9.4.1</span> Using the correlation matrix<a href="filling-in-the-blanks-imputation.html#using-the-correlation-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>First, I estimate the model with the correlation matrix. This model is able to extrapolate estimates beyond their marginal population means. Figure <a href="filling-in-the-blanks-imputation.html#fig:ImputingThingsCorr">9.3</a> shows the individual posterior means for <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\beta_i\)</span> for the missing data (imputed for <span class="math inline">\(\beta_i\)</span>, blue) and not missing data (red).<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a> While there is quite a lot of overlap between these two slices of the data, one noticeable difference is that the blue (imputed) dots are pulled to the center vertically. This is to be expected, as they are shrinkage estimates. In particular, since there is no information about <span class="math inline">\(\beta_i\)</span> in the likelihood for these subjects there is more shrinkage to the mean.<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a></p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="filling-in-the-blanks-imputation.html#cb124-1" tabindex="-1"></a>dcorr<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_corr.csv&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb124-2"><a href="filling-in-the-blanks-imputation.html#cb124-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
-<span id="cb124-3"><a href="filling-in-the-blanks-imputation.html#cb124-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb124-4"><a href="filling-in-the-blanks-imputation.html#cb124-4" tabindex="-1"></a>    <span class="at">data =</span> <span class="st">&quot;missing&quot;</span></span>
-<span id="cb124-5"><a href="filling-in-the-blanks-imputation.html#cb124-5" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
-<span id="cb124-6"><a href="filling-in-the-blanks-imputation.html#cb124-6" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb124-7"><a href="filling-in-the-blanks-imputation.html#cb124-7" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
-<span id="cb124-8"><a href="filling-in-the-blanks-imputation.html#cb124-8" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb124-9"><a href="filling-in-the-blanks-imputation.html#cb124-9" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb124-10"><a href="filling-in-the-blanks-imputation.html#cb124-10" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb124-11"><a href="filling-in-the-blanks-imputation.html#cb124-11" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
-<span id="cb124-12"><a href="filling-in-the-blanks-imputation.html#cb124-12" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
-<span id="cb124-13"><a href="filling-in-the-blanks-imputation.html#cb124-13" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb124-14"><a href="filling-in-the-blanks-imputation.html#cb124-14" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb124-15"><a href="filling-in-the-blanks-imputation.html#cb124-15" tabindex="-1"></a>    <span class="at">id_cols =</span> id,</span>
-<span id="cb124-16"><a href="filling-in-the-blanks-imputation.html#cb124-16" tabindex="-1"></a>    <span class="at">names_from =</span> parameter,</span>
-<span id="cb124-17"><a href="filling-in-the-blanks-imputation.html#cb124-17" tabindex="-1"></a>    <span class="at">values_from =</span> mean</span>
-<span id="cb124-18"><a href="filling-in-the-blanks-imputation.html#cb124-18" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb124-19"><a href="filling-in-the-blanks-imputation.html#cb124-19" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb124-20"><a href="filling-in-the-blanks-imputation.html#cb124-20" tabindex="-1"></a>    <span class="at">imputed =</span> <span class="fu">ifelse</span>(id<span class="sc">&lt;=</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>),<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>)</span>
-<span id="cb124-21"><a href="filling-in-the-blanks-imputation.html#cb124-21" tabindex="-1"></a>  )</span>
-<span id="cb124-22"><a href="filling-in-the-blanks-imputation.html#cb124-22" tabindex="-1"></a></span>
-<span id="cb124-23"><a href="filling-in-the-blanks-imputation.html#cb124-23" tabindex="-1"></a>(</span>
-<span id="cb124-24"><a href="filling-in-the-blanks-imputation.html#cb124-24" tabindex="-1"></a>  <span class="fu">ggplot</span>(dcorr, <span class="fu">aes</span>(<span class="at">x=</span>alpha,<span class="at">y=</span>beta,<span class="at">color=</span>imputed))</span>
-<span id="cb124-25"><a href="filling-in-the-blanks-imputation.html#cb124-25" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
-<span id="cb124-26"><a href="filling-in-the-blanks-imputation.html#cb124-26" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
-<span id="cb124-27"><a href="filling-in-the-blanks-imputation.html#cb124-27" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb124-28"><a href="filling-in-the-blanks-imputation.html#cb124-28" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(alpha[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
-<span id="cb124-29"><a href="filling-in-the-blanks-imputation.html#cb124-29" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
-<span id="cb124-30"><a href="filling-in-the-blanks-imputation.html#cb124-30" tabindex="-1"></a>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:ImputingThingsCorr"></span>
-<img src="index_files/figure-html/ImputingThingsCorr-1.png" alt="Posterior mean estimates of individual-level parameters using data with missing mixed and advantageous inequality participants. " width="672" />
-<p class="caption">
-Figure 9.3: Posterior mean estimates of individual-level parameters using data with missing mixed and advantageous inequality participants.
-</p>
-</div>
-<p>Next, I do something that we can only do because we actually have the full dataset. In Figure <a href="filling-in-the-blanks-imputation.html#fig:imputingThingsCorrCompare">9.4</a> I compare the estimates of <span class="math inline">\(\beta_i\)</span> from the data with missing observations (vertical coordinate) to the same estimates when the full dataset is used (horizontal coordinate). Here we can see that the red posterior means, which correspond to participants whose observations were not dropped, are in very strong agreement. On the other hand, the imputed <span class="math inline">\(\beta_i\)</span>s are, understandably, shrunk toward their population mean vertically. Again, this is a feature of the model: we are using the population quantities <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\tau\)</span>, and <span class="math inline">\(\Omega\)</span> to get better estimates of <span class="math inline">\(\beta_i\)</span> when there is no information in the likelihood for these participants. Here we can see a general upward trend, meaning that participants with larger <span class="math inline">\(\beta_i\)</span>s are typically imputed as such, but there is substantial noise.</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="filling-in-the-blanks-imputation.html#cb125-1" tabindex="-1"></a>dcorr<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_corr.csv&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb125-2"><a href="filling-in-the-blanks-imputation.html#cb125-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
-<span id="cb125-3"><a href="filling-in-the-blanks-imputation.html#cb125-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb125-4"><a href="filling-in-the-blanks-imputation.html#cb125-4" tabindex="-1"></a>    <span class="at">data =</span> <span class="st">&quot;missing&quot;</span></span>
-<span id="cb125-5"><a href="filling-in-the-blanks-imputation.html#cb125-5" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb125-6"><a href="filling-in-the-blanks-imputation.html#cb125-6" tabindex="-1"></a>  <span class="fu">rbind</span>(</span>
-<span id="cb125-7"><a href="filling-in-the-blanks-imputation.html#cb125-7" tabindex="-1"></a>    <span class="st">&quot;Code/ImputingStuff/00_run_alldata.csv&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb125-8"><a href="filling-in-the-blanks-imputation.html#cb125-8" tabindex="-1"></a>      <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
-<span id="cb125-9"><a href="filling-in-the-blanks-imputation.html#cb125-9" tabindex="-1"></a>      <span class="fu">mutate</span>(</span>
-<span id="cb125-10"><a href="filling-in-the-blanks-imputation.html#cb125-10" tabindex="-1"></a>        <span class="at">data =</span> <span class="st">&quot;full&quot;</span></span>
-<span id="cb125-11"><a href="filling-in-the-blanks-imputation.html#cb125-11" tabindex="-1"></a>      )</span>
-<span id="cb125-12"><a href="filling-in-the-blanks-imputation.html#cb125-12" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb125-13"><a href="filling-in-the-blanks-imputation.html#cb125-13" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb125-14"><a href="filling-in-the-blanks-imputation.html#cb125-14" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
-<span id="cb125-15"><a href="filling-in-the-blanks-imputation.html#cb125-15" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb125-16"><a href="filling-in-the-blanks-imputation.html#cb125-16" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb125-17"><a href="filling-in-the-blanks-imputation.html#cb125-17" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
-<span id="cb125-18"><a href="filling-in-the-blanks-imputation.html#cb125-18" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
-<span id="cb125-19"><a href="filling-in-the-blanks-imputation.html#cb125-19" tabindex="-1"></a>  )  <span class="sc">|&gt;</span></span>
-<span id="cb125-20"><a href="filling-in-the-blanks-imputation.html#cb125-20" tabindex="-1"></a>  <span class="fu">filter</span>(parameter <span class="sc">==</span> <span class="st">&quot;beta&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb125-21"><a href="filling-in-the-blanks-imputation.html#cb125-21" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb125-22"><a href="filling-in-the-blanks-imputation.html#cb125-22" tabindex="-1"></a>    <span class="at">id_cols =</span> id,</span>
-<span id="cb125-23"><a href="filling-in-the-blanks-imputation.html#cb125-23" tabindex="-1"></a>    <span class="at">names_from =</span> data,</span>
-<span id="cb125-24"><a href="filling-in-the-blanks-imputation.html#cb125-24" tabindex="-1"></a>    <span class="at">values_from =</span> mean</span>
-<span id="cb125-25"><a href="filling-in-the-blanks-imputation.html#cb125-25" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb125-26"><a href="filling-in-the-blanks-imputation.html#cb125-26" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb125-27"><a href="filling-in-the-blanks-imputation.html#cb125-27" tabindex="-1"></a>    <span class="at">imputed =</span> <span class="fu">ifelse</span>(id<span class="sc">&lt;=</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>),<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>)</span>
-<span id="cb125-28"><a href="filling-in-the-blanks-imputation.html#cb125-28" tabindex="-1"></a>  )</span>
-<span id="cb125-29"><a href="filling-in-the-blanks-imputation.html#cb125-29" tabindex="-1"></a></span>
-<span id="cb125-30"><a href="filling-in-the-blanks-imputation.html#cb125-30" tabindex="-1"></a></span>
-<span id="cb125-31"><a href="filling-in-the-blanks-imputation.html#cb125-31" tabindex="-1"></a>(</span>
-<span id="cb125-32"><a href="filling-in-the-blanks-imputation.html#cb125-32" tabindex="-1"></a>  <span class="fu">ggplot</span>(dcorr,<span class="fu">aes</span>(<span class="at">x=</span>full,<span class="at">y=</span>missing,<span class="at">color=</span>imputed))</span>
-<span id="cb125-33"><a href="filling-in-the-blanks-imputation.html#cb125-33" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
-<span id="cb125-34"><a href="filling-in-the-blanks-imputation.html#cb125-34" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
-<span id="cb125-35"><a href="filling-in-the-blanks-imputation.html#cb125-35" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb125-36"><a href="filling-in-the-blanks-imputation.html#cb125-36" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>, <span class="at">intercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
-<span id="cb125-37"><a href="filling-in-the-blanks-imputation.html#cb125-37" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;estimated using full dataset (posterior means)&quot;</span>))</span>
-<span id="cb125-38"><a href="filling-in-the-blanks-imputation.html#cb125-38" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;estimated with missing data (posterior means)&quot;</span>))</span>
-<span id="cb125-39"><a href="filling-in-the-blanks-imputation.html#cb125-39" tabindex="-1"></a>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:imputingThingsCorrCompare"></span>
-<img src="index_files/figure-html/imputingThingsCorrCompare-1.png" alt="Comparison between estimates of $\beta_i$ using the full dataset (horizontal coordinate) to those using the dataset with missing data (vertical coordinate). Dashed black line is a $45^\circ$ line." width="672" />
-<p class="caption">
-Figure 9.4: Comparison between estimates of <span class="math inline">\(\beta_i\)</span> using the full dataset (horizontal coordinate) to those using the dataset with missing data (vertical coordinate). Dashed black line is a <span class="math inline">\(45^\circ\)</span> line.
-</p>
-</div>
-<p>Of course, looking just at the posterior means masks any sense of uncertainty we have in these estimates, and there is a <em>lot</em> of uncertainty. Fortunately, since we have a full posterior simulation, it is easy to investigate that uncertainty as well. Figure <a href="filling-in-the-blanks-imputation.html#fig:imputingThingsPostSD">9.5</a> plots the kernel-smoothed density of the individual-level posterior standard deviations. Here we can see that especially for <span class="math inline">\(\beta_i\)</span> (middle panel), the imputed posteriors (blue) are much more spread out than those that had an informative likelihood (red). This is to be expected because we have less information for these observations.</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="filling-in-the-blanks-imputation.html#cb126-1" tabindex="-1"></a>dcorr<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_corr.csv&quot;</span> <span class="sc">|&gt;</span></span>
 <span id="cb126-2"><a href="filling-in-the-blanks-imputation.html#cb126-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
 <span id="cb126-3"><a href="filling-in-the-blanks-imputation.html#cb126-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
@@ -908,19 +825,102 @@ Figure 9.4: Comparison between estimates of <span class="math inline">\(\beta_i\
 <span id="cb126-11"><a href="filling-in-the-blanks-imputation.html#cb126-11" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
 <span id="cb126-12"><a href="filling-in-the-blanks-imputation.html#cb126-12" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
 <span id="cb126-13"><a href="filling-in-the-blanks-imputation.html#cb126-13" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb126-14"><a href="filling-in-the-blanks-imputation.html#cb126-14" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb126-15"><a href="filling-in-the-blanks-imputation.html#cb126-15" tabindex="-1"></a>    <span class="at">imputed =</span> <span class="fu">ifelse</span>(id<span class="sc">&lt;=</span>(<span class="fu">max</span>(id)<span class="sc">/</span><span class="dv">2</span>),<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>)</span>
-<span id="cb126-16"><a href="filling-in-the-blanks-imputation.html#cb126-16" tabindex="-1"></a>  )</span>
-<span id="cb126-17"><a href="filling-in-the-blanks-imputation.html#cb126-17" tabindex="-1"></a></span>
-<span id="cb126-18"><a href="filling-in-the-blanks-imputation.html#cb126-18" tabindex="-1"></a>(</span>
-<span id="cb126-19"><a href="filling-in-the-blanks-imputation.html#cb126-19" tabindex="-1"></a>  <span class="fu">ggplot</span>(dcorr,<span class="fu">aes</span>(<span class="at">x=</span>sd,<span class="at">color=</span>imputed))</span>
-<span id="cb126-20"><a href="filling-in-the-blanks-imputation.html#cb126-20" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_density</span>(<span class="at">linewidth=</span><span class="dv">1</span>) </span>
-<span id="cb126-21"><a href="filling-in-the-blanks-imputation.html#cb126-21" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>parameter,<span class="at">labeller =</span> label_parsed)</span>
-<span id="cb126-22"><a href="filling-in-the-blanks-imputation.html#cb126-22" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb126-23"><a href="filling-in-the-blanks-imputation.html#cb126-23" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
-<span id="cb126-24"><a href="filling-in-the-blanks-imputation.html#cb126-24" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;posterior standard deviation&quot;</span>)</span>
-<span id="cb126-25"><a href="filling-in-the-blanks-imputation.html#cb126-25" tabindex="-1"></a>  </span>
-<span id="cb126-26"><a href="filling-in-the-blanks-imputation.html#cb126-26" tabindex="-1"></a>)</span></code></pre></div>
+<span id="cb126-14"><a href="filling-in-the-blanks-imputation.html#cb126-14" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb126-15"><a href="filling-in-the-blanks-imputation.html#cb126-15" tabindex="-1"></a>    <span class="at">id_cols =</span> id,</span>
+<span id="cb126-16"><a href="filling-in-the-blanks-imputation.html#cb126-16" tabindex="-1"></a>    <span class="at">names_from =</span> parameter,</span>
+<span id="cb126-17"><a href="filling-in-the-blanks-imputation.html#cb126-17" tabindex="-1"></a>    <span class="at">values_from =</span> mean</span>
+<span id="cb126-18"><a href="filling-in-the-blanks-imputation.html#cb126-18" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb126-19"><a href="filling-in-the-blanks-imputation.html#cb126-19" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb126-20"><a href="filling-in-the-blanks-imputation.html#cb126-20" tabindex="-1"></a>    <span class="at">imputed =</span> <span class="fu">ifelse</span>(id<span class="sc">&lt;=</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>),<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>)</span>
+<span id="cb126-21"><a href="filling-in-the-blanks-imputation.html#cb126-21" tabindex="-1"></a>  )</span>
+<span id="cb126-22"><a href="filling-in-the-blanks-imputation.html#cb126-22" tabindex="-1"></a></span>
+<span id="cb126-23"><a href="filling-in-the-blanks-imputation.html#cb126-23" tabindex="-1"></a>(</span>
+<span id="cb126-24"><a href="filling-in-the-blanks-imputation.html#cb126-24" tabindex="-1"></a>  <span class="fu">ggplot</span>(dcorr, <span class="fu">aes</span>(<span class="at">x=</span>alpha,<span class="at">y=</span>beta,<span class="at">color=</span>imputed))</span>
+<span id="cb126-25"><a href="filling-in-the-blanks-imputation.html#cb126-25" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb126-26"><a href="filling-in-the-blanks-imputation.html#cb126-26" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb126-27"><a href="filling-in-the-blanks-imputation.html#cb126-27" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb126-28"><a href="filling-in-the-blanks-imputation.html#cb126-28" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(alpha[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
+<span id="cb126-29"><a href="filling-in-the-blanks-imputation.html#cb126-29" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
+<span id="cb126-30"><a href="filling-in-the-blanks-imputation.html#cb126-30" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:ImputingThingsCorr"></span>
+<img src="index_files/figure-html/ImputingThingsCorr-1.png" alt="Posterior mean estimates of individual-level parameters using data with missing mixed and advantageous inequality participants. " width="672" />
+<p class="caption">
+Figure 9.3: Posterior mean estimates of individual-level parameters using data with missing mixed and advantageous inequality participants.
+</p>
+</div>
+<p>Next, I do something that we can only do because we actually have the full dataset. In Figure <a href="filling-in-the-blanks-imputation.html#fig:imputingThingsCorrCompare">9.4</a> I compare the estimates of <span class="math inline">\(\beta_i\)</span> from the data with missing observations (vertical coordinate) to the same estimates when the full dataset is used (horizontal coordinate). Here we can see that the red posterior means, which correspond to participants whose observations were not dropped, are in very strong agreement. On the other hand, the imputed <span class="math inline">\(\beta_i\)</span>s are, understandably, shrunk toward their population mean vertically. Again, this is a feature of the model: we are using the population quantities <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\tau\)</span>, and <span class="math inline">\(\Omega\)</span> to get better estimates of <span class="math inline">\(\beta_i\)</span> when there is no information in the likelihood for these participants. Here we can see a general upward trend, meaning that participants with larger <span class="math inline">\(\beta_i\)</span>s are typically imputed as such, but there is substantial noise.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="filling-in-the-blanks-imputation.html#cb127-1" tabindex="-1"></a>dcorr<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_corr.csv&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb127-2"><a href="filling-in-the-blanks-imputation.html#cb127-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb127-3"><a href="filling-in-the-blanks-imputation.html#cb127-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb127-4"><a href="filling-in-the-blanks-imputation.html#cb127-4" tabindex="-1"></a>    <span class="at">data =</span> <span class="st">&quot;missing&quot;</span></span>
+<span id="cb127-5"><a href="filling-in-the-blanks-imputation.html#cb127-5" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb127-6"><a href="filling-in-the-blanks-imputation.html#cb127-6" tabindex="-1"></a>  <span class="fu">rbind</span>(</span>
+<span id="cb127-7"><a href="filling-in-the-blanks-imputation.html#cb127-7" tabindex="-1"></a>    <span class="st">&quot;Code/ImputingStuff/00_run_alldata.csv&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb127-8"><a href="filling-in-the-blanks-imputation.html#cb127-8" tabindex="-1"></a>      <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb127-9"><a href="filling-in-the-blanks-imputation.html#cb127-9" tabindex="-1"></a>      <span class="fu">mutate</span>(</span>
+<span id="cb127-10"><a href="filling-in-the-blanks-imputation.html#cb127-10" tabindex="-1"></a>        <span class="at">data =</span> <span class="st">&quot;full&quot;</span></span>
+<span id="cb127-11"><a href="filling-in-the-blanks-imputation.html#cb127-11" tabindex="-1"></a>      )</span>
+<span id="cb127-12"><a href="filling-in-the-blanks-imputation.html#cb127-12" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb127-13"><a href="filling-in-the-blanks-imputation.html#cb127-13" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb127-14"><a href="filling-in-the-blanks-imputation.html#cb127-14" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
+<span id="cb127-15"><a href="filling-in-the-blanks-imputation.html#cb127-15" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb127-16"><a href="filling-in-the-blanks-imputation.html#cb127-16" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb127-17"><a href="filling-in-the-blanks-imputation.html#cb127-17" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
+<span id="cb127-18"><a href="filling-in-the-blanks-imputation.html#cb127-18" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
+<span id="cb127-19"><a href="filling-in-the-blanks-imputation.html#cb127-19" tabindex="-1"></a>  )  <span class="sc">|&gt;</span></span>
+<span id="cb127-20"><a href="filling-in-the-blanks-imputation.html#cb127-20" tabindex="-1"></a>  <span class="fu">filter</span>(parameter <span class="sc">==</span> <span class="st">&quot;beta&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb127-21"><a href="filling-in-the-blanks-imputation.html#cb127-21" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb127-22"><a href="filling-in-the-blanks-imputation.html#cb127-22" tabindex="-1"></a>    <span class="at">id_cols =</span> id,</span>
+<span id="cb127-23"><a href="filling-in-the-blanks-imputation.html#cb127-23" tabindex="-1"></a>    <span class="at">names_from =</span> data,</span>
+<span id="cb127-24"><a href="filling-in-the-blanks-imputation.html#cb127-24" tabindex="-1"></a>    <span class="at">values_from =</span> mean</span>
+<span id="cb127-25"><a href="filling-in-the-blanks-imputation.html#cb127-25" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb127-26"><a href="filling-in-the-blanks-imputation.html#cb127-26" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb127-27"><a href="filling-in-the-blanks-imputation.html#cb127-27" tabindex="-1"></a>    <span class="at">imputed =</span> <span class="fu">ifelse</span>(id<span class="sc">&lt;=</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>),<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>)</span>
+<span id="cb127-28"><a href="filling-in-the-blanks-imputation.html#cb127-28" tabindex="-1"></a>  )</span>
+<span id="cb127-29"><a href="filling-in-the-blanks-imputation.html#cb127-29" tabindex="-1"></a></span>
+<span id="cb127-30"><a href="filling-in-the-blanks-imputation.html#cb127-30" tabindex="-1"></a></span>
+<span id="cb127-31"><a href="filling-in-the-blanks-imputation.html#cb127-31" tabindex="-1"></a>(</span>
+<span id="cb127-32"><a href="filling-in-the-blanks-imputation.html#cb127-32" tabindex="-1"></a>  <span class="fu">ggplot</span>(dcorr,<span class="fu">aes</span>(<span class="at">x=</span>full,<span class="at">y=</span>missing,<span class="at">color=</span>imputed))</span>
+<span id="cb127-33"><a href="filling-in-the-blanks-imputation.html#cb127-33" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb127-34"><a href="filling-in-the-blanks-imputation.html#cb127-34" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb127-35"><a href="filling-in-the-blanks-imputation.html#cb127-35" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb127-36"><a href="filling-in-the-blanks-imputation.html#cb127-36" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>, <span class="at">intercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>)</span>
+<span id="cb127-37"><a href="filling-in-the-blanks-imputation.html#cb127-37" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;estimated using full dataset (posterior means)&quot;</span>))</span>
+<span id="cb127-38"><a href="filling-in-the-blanks-imputation.html#cb127-38" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;estimated with missing data (posterior means)&quot;</span>))</span>
+<span id="cb127-39"><a href="filling-in-the-blanks-imputation.html#cb127-39" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:imputingThingsCorrCompare"></span>
+<img src="index_files/figure-html/imputingThingsCorrCompare-1.png" alt="Comparison between estimates of $\beta_i$ using the full dataset (horizontal coordinate) to those using the dataset with missing data (vertical coordinate). Dashed black line is a $45^\circ$ line." width="672" />
+<p class="caption">
+Figure 9.4: Comparison between estimates of <span class="math inline">\(\beta_i\)</span> using the full dataset (horizontal coordinate) to those using the dataset with missing data (vertical coordinate). Dashed black line is a <span class="math inline">\(45^\circ\)</span> line.
+</p>
+</div>
+<p>Of course, looking just at the posterior means masks any sense of uncertainty we have in these estimates, and there is a <em>lot</em> of uncertainty. Fortunately, since we have a full posterior simulation, it is easy to investigate that uncertainty as well. Figure <a href="filling-in-the-blanks-imputation.html#fig:imputingThingsPostSD">9.5</a> plots the kernel-smoothed density of the individual-level posterior standard deviations. Here we can see that especially for <span class="math inline">\(\beta_i\)</span> (middle panel), the imputed posteriors (blue) are much more spread out than those that had an informative likelihood (red). This is to be expected because we have less information for these observations.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="filling-in-the-blanks-imputation.html#cb128-1" tabindex="-1"></a>dcorr<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_corr.csv&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb128-2"><a href="filling-in-the-blanks-imputation.html#cb128-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb128-3"><a href="filling-in-the-blanks-imputation.html#cb128-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb128-4"><a href="filling-in-the-blanks-imputation.html#cb128-4" tabindex="-1"></a>    <span class="at">data =</span> <span class="st">&quot;missing&quot;</span></span>
+<span id="cb128-5"><a href="filling-in-the-blanks-imputation.html#cb128-5" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb128-6"><a href="filling-in-the-blanks-imputation.html#cb128-6" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb128-7"><a href="filling-in-the-blanks-imputation.html#cb128-7" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
+<span id="cb128-8"><a href="filling-in-the-blanks-imputation.html#cb128-8" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb128-9"><a href="filling-in-the-blanks-imputation.html#cb128-9" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb128-10"><a href="filling-in-the-blanks-imputation.html#cb128-10" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb128-11"><a href="filling-in-the-blanks-imputation.html#cb128-11" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
+<span id="cb128-12"><a href="filling-in-the-blanks-imputation.html#cb128-12" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
+<span id="cb128-13"><a href="filling-in-the-blanks-imputation.html#cb128-13" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb128-14"><a href="filling-in-the-blanks-imputation.html#cb128-14" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb128-15"><a href="filling-in-the-blanks-imputation.html#cb128-15" tabindex="-1"></a>    <span class="at">imputed =</span> <span class="fu">ifelse</span>(id<span class="sc">&lt;=</span>(<span class="fu">max</span>(id)<span class="sc">/</span><span class="dv">2</span>),<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>)</span>
+<span id="cb128-16"><a href="filling-in-the-blanks-imputation.html#cb128-16" tabindex="-1"></a>  )</span>
+<span id="cb128-17"><a href="filling-in-the-blanks-imputation.html#cb128-17" tabindex="-1"></a></span>
+<span id="cb128-18"><a href="filling-in-the-blanks-imputation.html#cb128-18" tabindex="-1"></a>(</span>
+<span id="cb128-19"><a href="filling-in-the-blanks-imputation.html#cb128-19" tabindex="-1"></a>  <span class="fu">ggplot</span>(dcorr,<span class="fu">aes</span>(<span class="at">x=</span>sd,<span class="at">color=</span>imputed))</span>
+<span id="cb128-20"><a href="filling-in-the-blanks-imputation.html#cb128-20" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_density</span>(<span class="at">linewidth=</span><span class="dv">1</span>) </span>
+<span id="cb128-21"><a href="filling-in-the-blanks-imputation.html#cb128-21" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>parameter,<span class="at">labeller =</span> label_parsed)</span>
+<span id="cb128-22"><a href="filling-in-the-blanks-imputation.html#cb128-22" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb128-23"><a href="filling-in-the-blanks-imputation.html#cb128-23" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb128-24"><a href="filling-in-the-blanks-imputation.html#cb128-24" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;posterior standard deviation&quot;</span>)</span>
+<span id="cb128-25"><a href="filling-in-the-blanks-imputation.html#cb128-25" tabindex="-1"></a>  </span>
+<span id="cb128-26"><a href="filling-in-the-blanks-imputation.html#cb128-26" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:imputingThingsPostSD"></span>
 <img src="index_files/figure-html/imputingThingsPostSD-1.png" alt="Distribution of posterior standard deviations of individual-level parameters from the model with a corelation matrix, leaving out half of the decisions in the mixed and advantageous inequality domains." width="672" />
 <p class="caption">
@@ -931,36 +931,36 @@ Figure 9.5: Distribution of posterior standard deviations of individual-level pa
 <div id="the-correlation-matrix-is-doing-a-lot-of-heavy-lifting-here" class="section level3 hasAnchor" number="9.4.2">
 <h3><span class="header-section-number">9.4.2</span> The correlation matrix is doing a lot of heavy lifting here<a href="filling-in-the-blanks-imputation.html#the-correlation-matrix-is-doing-a-lot-of-heavy-lifting-here" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>So what happens if we leave out the correlation matrix? This is why in my <em>Stan</em> program above I added the <code>UseCorr</code> data variable so it could easily be turned on or off. In this case, the model has no understanding of the correlation between the individual-level parameters. In fact, it has a <em>lot</em> of understanding, but that understanding is wrong. It <em>knows</em> dogmatically that there is no correlation between these parameters! Therefore, it is going to ignore all the information we give it about <span class="math inline">\(\alpha_i\)</span> and <span class="math inline">\(\lambda_i\)</span> when trying to impute <span class="math inline">\(\beta_i\)</span>, because according to the model there is nothing we could possibly learn about <span class="math inline">\(\beta_i\)</span> from these other parameters.</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="filling-in-the-blanks-imputation.html#cb127-1" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_nocorr.csv&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb127-2"><a href="filling-in-the-blanks-imputation.html#cb127-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
-<span id="cb127-3"><a href="filling-in-the-blanks-imputation.html#cb127-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb127-4"><a href="filling-in-the-blanks-imputation.html#cb127-4" tabindex="-1"></a>    <span class="at">data =</span> <span class="st">&quot;missing&quot;</span></span>
-<span id="cb127-5"><a href="filling-in-the-blanks-imputation.html#cb127-5" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
-<span id="cb127-6"><a href="filling-in-the-blanks-imputation.html#cb127-6" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb127-7"><a href="filling-in-the-blanks-imputation.html#cb127-7" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
-<span id="cb127-8"><a href="filling-in-the-blanks-imputation.html#cb127-8" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb127-9"><a href="filling-in-the-blanks-imputation.html#cb127-9" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb127-10"><a href="filling-in-the-blanks-imputation.html#cb127-10" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb127-11"><a href="filling-in-the-blanks-imputation.html#cb127-11" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
-<span id="cb127-12"><a href="filling-in-the-blanks-imputation.html#cb127-12" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
-<span id="cb127-13"><a href="filling-in-the-blanks-imputation.html#cb127-13" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb127-14"><a href="filling-in-the-blanks-imputation.html#cb127-14" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb127-15"><a href="filling-in-the-blanks-imputation.html#cb127-15" tabindex="-1"></a>    <span class="at">id_cols =</span> id,</span>
-<span id="cb127-16"><a href="filling-in-the-blanks-imputation.html#cb127-16" tabindex="-1"></a>    <span class="at">names_from =</span> parameter,</span>
-<span id="cb127-17"><a href="filling-in-the-blanks-imputation.html#cb127-17" tabindex="-1"></a>    <span class="at">values_from =</span> mean</span>
-<span id="cb127-18"><a href="filling-in-the-blanks-imputation.html#cb127-18" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb127-19"><a href="filling-in-the-blanks-imputation.html#cb127-19" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb127-20"><a href="filling-in-the-blanks-imputation.html#cb127-20" tabindex="-1"></a>    <span class="at">imputed =</span> <span class="fu">ifelse</span>(id<span class="sc">&lt;=</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>),<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>)</span>
-<span id="cb127-21"><a href="filling-in-the-blanks-imputation.html#cb127-21" tabindex="-1"></a>  )</span>
-<span id="cb127-22"><a href="filling-in-the-blanks-imputation.html#cb127-22" tabindex="-1"></a></span>
-<span id="cb127-23"><a href="filling-in-the-blanks-imputation.html#cb127-23" tabindex="-1"></a>(</span>
-<span id="cb127-24"><a href="filling-in-the-blanks-imputation.html#cb127-24" tabindex="-1"></a>  <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x=</span>alpha,<span class="at">y=</span>beta,<span class="at">color=</span>imputed))</span>
-<span id="cb127-25"><a href="filling-in-the-blanks-imputation.html#cb127-25" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
-<span id="cb127-26"><a href="filling-in-the-blanks-imputation.html#cb127-26" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
-<span id="cb127-27"><a href="filling-in-the-blanks-imputation.html#cb127-27" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb127-28"><a href="filling-in-the-blanks-imputation.html#cb127-28" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(alpha[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
-<span id="cb127-29"><a href="filling-in-the-blanks-imputation.html#cb127-29" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
-<span id="cb127-30"><a href="filling-in-the-blanks-imputation.html#cb127-30" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="filling-in-the-blanks-imputation.html#cb129-1" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_nocorr.csv&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb129-2"><a href="filling-in-the-blanks-imputation.html#cb129-2" tabindex="-1"></a>  <span class="fu">read.csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb129-3"><a href="filling-in-the-blanks-imputation.html#cb129-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb129-4"><a href="filling-in-the-blanks-imputation.html#cb129-4" tabindex="-1"></a>    <span class="at">data =</span> <span class="st">&quot;missing&quot;</span></span>
+<span id="cb129-5"><a href="filling-in-the-blanks-imputation.html#cb129-5" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb129-6"><a href="filling-in-the-blanks-imputation.html#cb129-6" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb129-7"><a href="filling-in-the-blanks-imputation.html#cb129-7" tabindex="-1"></a>    <span class="fu">grepl</span>(<span class="st">&quot;alpha&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;beta&quot;</span>,par) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;lambda&quot;</span>, par)</span>
+<span id="cb129-8"><a href="filling-in-the-blanks-imputation.html#cb129-8" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb129-9"><a href="filling-in-the-blanks-imputation.html#cb129-9" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb129-10"><a href="filling-in-the-blanks-imputation.html#cb129-10" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb129-11"><a href="filling-in-the-blanks-imputation.html#cb129-11" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">parse_number</span>(par),</span>
+<span id="cb129-12"><a href="filling-in-the-blanks-imputation.html#cb129-12" tabindex="-1"></a>    <span class="at">parameter =</span> <span class="fu">gsub</span>(<span class="st">&quot;[^A-Za-z]&quot;</span>, <span class="st">&quot;&quot;</span>, par)</span>
+<span id="cb129-13"><a href="filling-in-the-blanks-imputation.html#cb129-13" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb129-14"><a href="filling-in-the-blanks-imputation.html#cb129-14" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb129-15"><a href="filling-in-the-blanks-imputation.html#cb129-15" tabindex="-1"></a>    <span class="at">id_cols =</span> id,</span>
+<span id="cb129-16"><a href="filling-in-the-blanks-imputation.html#cb129-16" tabindex="-1"></a>    <span class="at">names_from =</span> parameter,</span>
+<span id="cb129-17"><a href="filling-in-the-blanks-imputation.html#cb129-17" tabindex="-1"></a>    <span class="at">values_from =</span> mean</span>
+<span id="cb129-18"><a href="filling-in-the-blanks-imputation.html#cb129-18" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb129-19"><a href="filling-in-the-blanks-imputation.html#cb129-19" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb129-20"><a href="filling-in-the-blanks-imputation.html#cb129-20" tabindex="-1"></a>    <span class="at">imputed =</span> <span class="fu">ifelse</span>(id<span class="sc">&lt;=</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>),<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>)</span>
+<span id="cb129-21"><a href="filling-in-the-blanks-imputation.html#cb129-21" tabindex="-1"></a>  )</span>
+<span id="cb129-22"><a href="filling-in-the-blanks-imputation.html#cb129-22" tabindex="-1"></a></span>
+<span id="cb129-23"><a href="filling-in-the-blanks-imputation.html#cb129-23" tabindex="-1"></a>(</span>
+<span id="cb129-24"><a href="filling-in-the-blanks-imputation.html#cb129-24" tabindex="-1"></a>  <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x=</span>alpha,<span class="at">y=</span>beta,<span class="at">color=</span>imputed))</span>
+<span id="cb129-25"><a href="filling-in-the-blanks-imputation.html#cb129-25" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_point</span>()</span>
+<span id="cb129-26"><a href="filling-in-the-blanks-imputation.html#cb129-26" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb129-27"><a href="filling-in-the-blanks-imputation.html#cb129-27" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb129-28"><a href="filling-in-the-blanks-imputation.html#cb129-28" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="fu">expression</span>(alpha[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
+<span id="cb129-29"><a href="filling-in-the-blanks-imputation.html#cb129-29" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="fu">expression</span>(beta[i]<span class="sc">~</span><span class="st">&quot;(posterior mean)&quot;</span>))</span>
+<span id="cb129-30"><a href="filling-in-the-blanks-imputation.html#cb129-30" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:ImputingThingsNoCorr"></span>
 <img src="index_files/figure-html/ImputingThingsNoCorr-1.png" alt="Posterior mean estimates of individual-level parameters using data with missing mixed and advantageous inequality participants. Model assumes identity correlation matrix (i.e. no correlation between the individual-level parameters). " width="672" />
 <p class="caption">
@@ -978,195 +978,195 @@ Figure 9.6: Posterior mean estimates of individual-level parameters using data w
 </div>
 <div id="r-code-used-for-this-chapter-2" class="section level2 hasAnchor" number="9.6">
 <h2><span class="header-section-number">9.6</span> <em>R</em> code used for this chapter<a href="filling-in-the-blanks-imputation.html#r-code-used-for-this-chapter-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="filling-in-the-blanks-imputation.html#cb128-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb128-2"><a href="filling-in-the-blanks-imputation.html#cb128-2" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
-<span id="cb128-3"><a href="filling-in-the-blanks-imputation.html#cb128-3" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
-<span id="cb128-4"><a href="filling-in-the-blanks-imputation.html#cb128-4" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb128-5"><a href="filling-in-the-blanks-imputation.html#cb128-5" tabindex="-1"></a></span>
-<span id="cb128-6"><a href="filling-in-the-blanks-imputation.html#cb128-6" tabindex="-1"></a>RERUN<span class="ot">&lt;-</span><span class="cn">TRUE</span></span>
-<span id="cb128-7"><a href="filling-in-the-blanks-imputation.html#cb128-7" tabindex="-1"></a></span>
-<span id="cb128-8"><a href="filling-in-the-blanks-imputation.html#cb128-8" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb128-9"><a href="filling-in-the-blanks-imputation.html#cb128-9" tabindex="-1"></a></span>
-<span id="cb128-10"><a href="filling-in-the-blanks-imputation.html#cb128-10" tabindex="-1"></a>d1<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp1.csv&quot;</span>)</span>
-<span id="cb128-11"><a href="filling-in-the-blanks-imputation.html#cb128-11" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">1</span>)</span>
-<span id="cb128-12"><a href="filling-in-the-blanks-imputation.html#cb128-12" tabindex="-1"></a>)</span>
-<span id="cb128-13"><a href="filling-in-the-blanks-imputation.html#cb128-13" tabindex="-1"></a>d2<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp2.csv&quot;</span>)</span>
-<span id="cb128-14"><a href="filling-in-the-blanks-imputation.html#cb128-14" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">2</span>)    </span>
-<span id="cb128-15"><a href="filling-in-the-blanks-imputation.html#cb128-15" tabindex="-1"></a>)</span>
-<span id="cb128-16"><a href="filling-in-the-blanks-imputation.html#cb128-16" tabindex="-1"></a>D<span class="ot">&lt;-</span>(<span class="fu">rbind</span>(d1,d2)</span>
-<span id="cb128-17"><a href="filling-in-the-blanks-imputation.html#cb128-17" tabindex="-1"></a>    <span class="co"># Just use the dictator game data</span></span>
-<span id="cb128-18"><a href="filling-in-the-blanks-imputation.html#cb128-18" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">filter</span>(dg<span class="sc">==</span><span class="dv">1</span>)  </span>
-<span id="cb128-19"><a href="filling-in-the-blanks-imputation.html#cb128-19" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
-<span id="cb128-20"><a href="filling-in-the-blanks-imputation.html#cb128-20" tabindex="-1"></a>      <span class="at">self_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,self_x,self_y),</span>
-<span id="cb128-21"><a href="filling-in-the-blanks-imputation.html#cb128-21" tabindex="-1"></a>      <span class="at">other_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,other_x,other_y)</span>
-<span id="cb128-22"><a href="filling-in-the-blanks-imputation.html#cb128-22" tabindex="-1"></a>    )</span>
-<span id="cb128-23"><a href="filling-in-the-blanks-imputation.html#cb128-23" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb128-24"><a href="filling-in-the-blanks-imputation.html#cb128-24" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb128-25"><a href="filling-in-the-blanks-imputation.html#cb128-25" tabindex="-1"></a>    <span class="at">domain.x =</span> <span class="fu">ifelse</span>(self_x<span class="sc">&gt;</span>other_x,<span class="st">&quot;adv&quot;</span>,<span class="st">&quot;disadv&quot;</span>),</span>
-<span id="cb128-26"><a href="filling-in-the-blanks-imputation.html#cb128-26" tabindex="-1"></a>    <span class="at">domain.y =</span> <span class="fu">ifelse</span>(self_y<span class="sc">&gt;</span>other_y,<span class="st">&quot;adv&quot;</span>,<span class="st">&quot;disadv&quot;</span>),</span>
-<span id="cb128-27"><a href="filling-in-the-blanks-imputation.html#cb128-27" tabindex="-1"></a>    <span class="at">domain.overall =</span> <span class="fu">ifelse</span>(domain.x <span class="sc">==</span> <span class="st">&quot;adv&quot;</span> <span class="sc">&amp;</span> domain.y <span class="sc">==</span> <span class="st">&quot;adv&quot;</span>,<span class="st">&quot;adv&quot;</span>,</span>
-<span id="cb128-28"><a href="filling-in-the-blanks-imputation.html#cb128-28" tabindex="-1"></a>                            <span class="fu">ifelse</span>(domain.x <span class="sc">==</span> <span class="st">&quot;disadv&quot;</span> <span class="sc">&amp;</span> domain.y <span class="sc">==</span> <span class="st">&quot;disadv&quot;</span>,<span class="st">&quot;disadv&quot;</span>,</span>
-<span id="cb128-29"><a href="filling-in-the-blanks-imputation.html#cb128-29" tabindex="-1"></a>                            <span class="st">&quot;mixed&quot;</span>)</span>
-<span id="cb128-30"><a href="filling-in-the-blanks-imputation.html#cb128-30" tabindex="-1"></a>                            )</span>
-<span id="cb128-31"><a href="filling-in-the-blanks-imputation.html#cb128-31" tabindex="-1"></a>  )</span>
-<span id="cb128-32"><a href="filling-in-the-blanks-imputation.html#cb128-32" tabindex="-1"></a></span>
-<span id="cb128-33"><a href="filling-in-the-blanks-imputation.html#cb128-33" tabindex="-1"></a>sid.list<span class="ot">&lt;-</span>D <span class="sc">|&gt;</span></span>
-<span id="cb128-34"><a href="filling-in-the-blanks-imputation.html#cb128-34" tabindex="-1"></a>  <span class="fu">select</span>(sid) <span class="sc">|&gt;</span></span>
-<span id="cb128-35"><a href="filling-in-the-blanks-imputation.html#cb128-35" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
-<span id="cb128-36"><a href="filling-in-the-blanks-imputation.html#cb128-36" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb128-37"><a href="filling-in-the-blanks-imputation.html#cb128-37" tabindex="-1"></a>    <span class="at">i =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()</span>
-<span id="cb128-38"><a href="filling-in-the-blanks-imputation.html#cb128-38" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb128-39"><a href="filling-in-the-blanks-imputation.html#cb128-39" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb128-40"><a href="filling-in-the-blanks-imputation.html#cb128-40" tabindex="-1"></a>    <span class="at">holdout =</span> i<span class="sc">&lt;=</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>)</span>
-<span id="cb128-41"><a href="filling-in-the-blanks-imputation.html#cb128-41" tabindex="-1"></a>  )</span>
-<span id="cb128-42"><a href="filling-in-the-blanks-imputation.html#cb128-42" tabindex="-1"></a></span>
-<span id="cb128-43"><a href="filling-in-the-blanks-imputation.html#cb128-43" tabindex="-1"></a>D<span class="ot">&lt;-</span>D <span class="sc">|&gt;</span></span>
-<span id="cb128-44"><a href="filling-in-the-blanks-imputation.html#cb128-44" tabindex="-1"></a>  <span class="fu">full_join</span>(sid.list,</span>
-<span id="cb128-45"><a href="filling-in-the-blanks-imputation.html#cb128-45" tabindex="-1"></a>        <span class="at">by =</span> <span class="st">&quot;sid&quot;</span>    </span>
-<span id="cb128-46"><a href="filling-in-the-blanks-imputation.html#cb128-46" tabindex="-1"></a>            ) <span class="sc">|&gt;</span></span>
-<span id="cb128-47"><a href="filling-in-the-blanks-imputation.html#cb128-47" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb128-48"><a href="filling-in-the-blanks-imputation.html#cb128-48" tabindex="-1"></a>    <span class="at">drop =</span> (holdout <span class="sc">&amp;</span> domain.overall <span class="sc">==</span> <span class="st">&quot;mixed&quot;</span>) <span class="sc">|</span> (holdout <span class="sc">&amp;</span> domain.overall <span class="sc">==</span><span class="st">&quot;adv&quot;</span>) </span>
-<span id="cb128-49"><a href="filling-in-the-blanks-imputation.html#cb128-49" tabindex="-1"></a>  )</span>
-<span id="cb128-50"><a href="filling-in-the-blanks-imputation.html#cb128-50" tabindex="-1"></a></span>
-<span id="cb128-51"><a href="filling-in-the-blanks-imputation.html#cb128-51" tabindex="-1"></a></span>
-<span id="cb128-52"><a href="filling-in-the-blanks-imputation.html#cb128-52" tabindex="-1"></a>model<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/Hierarchical_BFS2019_correlated_onoff.stan&quot;</span> <span class="sc">|&gt;</span></span>
-<span id="cb128-53"><a href="filling-in-the-blanks-imputation.html#cb128-53" tabindex="-1"></a>  <span class="fu">stan_model</span>()</span>
-<span id="cb128-54"><a href="filling-in-the-blanks-imputation.html#cb128-54" tabindex="-1"></a></span>
-<span id="cb128-55"><a href="filling-in-the-blanks-imputation.html#cb128-55" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_nocorr.csv&quot;</span></span>
-<span id="cb128-56"><a href="filling-in-the-blanks-imputation.html#cb128-56" tabindex="-1"></a></span>
-<span id="cb128-57"><a href="filling-in-the-blanks-imputation.html#cb128-57" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file) <span class="sc">|</span> RERUN) {</span>
-<span id="cb128-58"><a href="filling-in-the-blanks-imputation.html#cb128-58" tabindex="-1"></a>  </span>
-<span id="cb128-59"><a href="filling-in-the-blanks-imputation.html#cb128-59" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Estimating model with held-out data and no correlation matrix&quot;</span>)</span>
-<span id="cb128-60"><a href="filling-in-the-blanks-imputation.html#cb128-60" tabindex="-1"></a>  </span>
-<span id="cb128-61"><a href="filling-in-the-blanks-imputation.html#cb128-61" tabindex="-1"></a>  d<span class="ot">&lt;-</span> D <span class="sc">|&gt;</span></span>
-<span id="cb128-62"><a href="filling-in-the-blanks-imputation.html#cb128-62" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>drop)</span>
-<span id="cb128-63"><a href="filling-in-the-blanks-imputation.html#cb128-63" tabindex="-1"></a>  </span>
-<span id="cb128-64"><a href="filling-in-the-blanks-imputation.html#cb128-64" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
-<span id="cb128-65"><a href="filling-in-the-blanks-imputation.html#cb128-65" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">dim</span>(d)[<span class="dv">1</span>],</span>
-<span id="cb128-66"><a href="filling-in-the-blanks-imputation.html#cb128-66" tabindex="-1"></a>    <span class="at">self_x =</span> d<span class="sc">$</span>self_x,</span>
-<span id="cb128-67"><a href="filling-in-the-blanks-imputation.html#cb128-67" tabindex="-1"></a>    <span class="at">other_x =</span> d<span class="sc">$</span>other_x,</span>
-<span id="cb128-68"><a href="filling-in-the-blanks-imputation.html#cb128-68" tabindex="-1"></a>    <span class="at">self_y =</span> d<span class="sc">$</span>self_y,</span>
-<span id="cb128-69"><a href="filling-in-the-blanks-imputation.html#cb128-69" tabindex="-1"></a>    <span class="at">other_y =</span> d<span class="sc">$</span>other_y,</span>
-<span id="cb128-70"><a href="filling-in-the-blanks-imputation.html#cb128-70" tabindex="-1"></a>    <span class="at">choice_x =</span> d<span class="sc">$</span>choice_x,</span>
-<span id="cb128-71"><a href="filling-in-the-blanks-imputation.html#cb128-71" tabindex="-1"></a>    </span>
-<span id="cb128-72"><a href="filling-in-the-blanks-imputation.html#cb128-72" tabindex="-1"></a>    <span class="at">id =</span> d<span class="sc">$</span>i,</span>
-<span id="cb128-73"><a href="filling-in-the-blanks-imputation.html#cb128-73" tabindex="-1"></a>    <span class="at">nParticipants =</span> <span class="fu">max</span>(d<span class="sc">$</span>i),</span>
-<span id="cb128-74"><a href="filling-in-the-blanks-imputation.html#cb128-74" tabindex="-1"></a>    </span>
-<span id="cb128-75"><a href="filling-in-the-blanks-imputation.html#cb128-75" tabindex="-1"></a>    <span class="at">prior_mu =</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
-<span id="cb128-76"><a href="filling-in-the-blanks-imputation.html#cb128-76" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
-<span id="cb128-77"><a href="filling-in-the-blanks-imputation.html#cb128-77" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>)</span>
-<span id="cb128-78"><a href="filling-in-the-blanks-imputation.html#cb128-78" tabindex="-1"></a>    ),</span>
-<span id="cb128-79"><a href="filling-in-the-blanks-imputation.html#cb128-79" tabindex="-1"></a>    <span class="at">prior_tau =</span> <span class="fu">c</span>(<span class="fl">0.79</span>,<span class="fl">0.79</span>,<span class="fl">0.24</span>),</span>
-<span id="cb128-80"><a href="filling-in-the-blanks-imputation.html#cb128-80" tabindex="-1"></a>    <span class="at">prior_LKJ =</span> <span class="dv">2</span>,</span>
-<span id="cb128-81"><a href="filling-in-the-blanks-imputation.html#cb128-81" tabindex="-1"></a>    </span>
-<span id="cb128-82"><a href="filling-in-the-blanks-imputation.html#cb128-82" tabindex="-1"></a>    <span class="at">UseCorr =</span> <span class="dv">0</span></span>
-<span id="cb128-83"><a href="filling-in-the-blanks-imputation.html#cb128-83" tabindex="-1"></a>    </span>
-<span id="cb128-84"><a href="filling-in-the-blanks-imputation.html#cb128-84" tabindex="-1"></a>  )</span>
-<span id="cb128-85"><a href="filling-in-the-blanks-imputation.html#cb128-85" tabindex="-1"></a>  </span>
-<span id="cb128-86"><a href="filling-in-the-blanks-imputation.html#cb128-86" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span></span>
-<span id="cb128-87"><a href="filling-in-the-blanks-imputation.html#cb128-87" tabindex="-1"></a>    <span class="fu">sampling</span>(<span class="at">data=</span>dStan,</span>
-<span id="cb128-88"><a href="filling-in-the-blanks-imputation.html#cb128-88" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">10000</span>, <span class="at">chains=</span><span class="dv">8</span>,</span>
-<span id="cb128-89"><a href="filling-in-the-blanks-imputation.html#cb128-89" tabindex="-1"></a>             <span class="at">par =</span> <span class="st">&quot;z&quot;</span>, <span class="at">include =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb128-90"><a href="filling-in-the-blanks-imputation.html#cb128-90" tabindex="-1"></a>             <span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb128-91"><a href="filling-in-the-blanks-imputation.html#cb128-91" tabindex="-1"></a>  </span>
-<span id="cb128-92"><a href="filling-in-the-blanks-imputation.html#cb128-92" tabindex="-1"></a>  <span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
-<span id="cb128-93"><a href="filling-in-the-blanks-imputation.html#cb128-93" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
-<span id="cb128-94"><a href="filling-in-the-blanks-imputation.html#cb128-94" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;par&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb128-95"><a href="filling-in-the-blanks-imputation.html#cb128-95" tabindex="-1"></a>    <span class="fu">write.csv</span>(file)</span>
-<span id="cb128-96"><a href="filling-in-the-blanks-imputation.html#cb128-96" tabindex="-1"></a>  </span>
-<span id="cb128-97"><a href="filling-in-the-blanks-imputation.html#cb128-97" tabindex="-1"></a>  </span>
-<span id="cb128-98"><a href="filling-in-the-blanks-imputation.html#cb128-98" tabindex="-1"></a>}</span>
-<span id="cb128-99"><a href="filling-in-the-blanks-imputation.html#cb128-99" tabindex="-1"></a></span>
-<span id="cb128-100"><a href="filling-in-the-blanks-imputation.html#cb128-100" tabindex="-1"></a></span>
-<span id="cb128-101"><a href="filling-in-the-blanks-imputation.html#cb128-101" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_corr.csv&quot;</span></span>
-<span id="cb128-102"><a href="filling-in-the-blanks-imputation.html#cb128-102" tabindex="-1"></a></span>
-<span id="cb128-103"><a href="filling-in-the-blanks-imputation.html#cb128-103" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file) <span class="sc">|</span> RERUN) {</span>
-<span id="cb128-104"><a href="filling-in-the-blanks-imputation.html#cb128-104" tabindex="-1"></a>  </span>
-<span id="cb128-105"><a href="filling-in-the-blanks-imputation.html#cb128-105" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Estimating model with held-out data and correlation matrix&quot;</span>)</span>
-<span id="cb128-106"><a href="filling-in-the-blanks-imputation.html#cb128-106" tabindex="-1"></a>  </span>
-<span id="cb128-107"><a href="filling-in-the-blanks-imputation.html#cb128-107" tabindex="-1"></a>  d<span class="ot">&lt;-</span> D <span class="sc">|&gt;</span></span>
-<span id="cb128-108"><a href="filling-in-the-blanks-imputation.html#cb128-108" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>drop)</span>
-<span id="cb128-109"><a href="filling-in-the-blanks-imputation.html#cb128-109" tabindex="-1"></a>  </span>
-<span id="cb128-110"><a href="filling-in-the-blanks-imputation.html#cb128-110" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
-<span id="cb128-111"><a href="filling-in-the-blanks-imputation.html#cb128-111" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">dim</span>(d)[<span class="dv">1</span>],</span>
-<span id="cb128-112"><a href="filling-in-the-blanks-imputation.html#cb128-112" tabindex="-1"></a>    <span class="at">self_x =</span> d<span class="sc">$</span>self_x,</span>
-<span id="cb128-113"><a href="filling-in-the-blanks-imputation.html#cb128-113" tabindex="-1"></a>    <span class="at">other_x =</span> d<span class="sc">$</span>other_x,</span>
-<span id="cb128-114"><a href="filling-in-the-blanks-imputation.html#cb128-114" tabindex="-1"></a>    <span class="at">self_y =</span> d<span class="sc">$</span>self_y,</span>
-<span id="cb128-115"><a href="filling-in-the-blanks-imputation.html#cb128-115" tabindex="-1"></a>    <span class="at">other_y =</span> d<span class="sc">$</span>other_y,</span>
-<span id="cb128-116"><a href="filling-in-the-blanks-imputation.html#cb128-116" tabindex="-1"></a>    <span class="at">choice_x =</span> d<span class="sc">$</span>choice_x,</span>
-<span id="cb128-117"><a href="filling-in-the-blanks-imputation.html#cb128-117" tabindex="-1"></a>    </span>
-<span id="cb128-118"><a href="filling-in-the-blanks-imputation.html#cb128-118" tabindex="-1"></a>    <span class="at">id =</span> d<span class="sc">$</span>i,</span>
-<span id="cb128-119"><a href="filling-in-the-blanks-imputation.html#cb128-119" tabindex="-1"></a>    <span class="at">nParticipants =</span> <span class="fu">max</span>(d<span class="sc">$</span>i),</span>
-<span id="cb128-120"><a href="filling-in-the-blanks-imputation.html#cb128-120" tabindex="-1"></a>    </span>
-<span id="cb128-121"><a href="filling-in-the-blanks-imputation.html#cb128-121" tabindex="-1"></a>    <span class="at">prior_mu =</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
-<span id="cb128-122"><a href="filling-in-the-blanks-imputation.html#cb128-122" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
-<span id="cb128-123"><a href="filling-in-the-blanks-imputation.html#cb128-123" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>)</span>
-<span id="cb128-124"><a href="filling-in-the-blanks-imputation.html#cb128-124" tabindex="-1"></a>    ),</span>
-<span id="cb128-125"><a href="filling-in-the-blanks-imputation.html#cb128-125" tabindex="-1"></a>    <span class="at">prior_tau =</span> <span class="fu">c</span>(<span class="fl">0.79</span>,<span class="fl">0.79</span>,<span class="fl">0.24</span>),</span>
-<span id="cb128-126"><a href="filling-in-the-blanks-imputation.html#cb128-126" tabindex="-1"></a>    <span class="at">prior_LKJ =</span> <span class="dv">2</span>,</span>
-<span id="cb128-127"><a href="filling-in-the-blanks-imputation.html#cb128-127" tabindex="-1"></a>    </span>
-<span id="cb128-128"><a href="filling-in-the-blanks-imputation.html#cb128-128" tabindex="-1"></a>    <span class="at">UseCorr =</span> <span class="dv">1</span></span>
-<span id="cb128-129"><a href="filling-in-the-blanks-imputation.html#cb128-129" tabindex="-1"></a>    </span>
-<span id="cb128-130"><a href="filling-in-the-blanks-imputation.html#cb128-130" tabindex="-1"></a>  )</span>
-<span id="cb128-131"><a href="filling-in-the-blanks-imputation.html#cb128-131" tabindex="-1"></a>  </span>
-<span id="cb128-132"><a href="filling-in-the-blanks-imputation.html#cb128-132" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span></span>
-<span id="cb128-133"><a href="filling-in-the-blanks-imputation.html#cb128-133" tabindex="-1"></a>    <span class="fu">sampling</span>(<span class="at">data=</span>dStan,</span>
-<span id="cb128-134"><a href="filling-in-the-blanks-imputation.html#cb128-134" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">10000</span>, <span class="at">chains=</span><span class="dv">8</span>,</span>
-<span id="cb128-135"><a href="filling-in-the-blanks-imputation.html#cb128-135" tabindex="-1"></a>             <span class="at">par =</span> <span class="st">&quot;z&quot;</span>, <span class="at">include =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb128-136"><a href="filling-in-the-blanks-imputation.html#cb128-136" tabindex="-1"></a>             <span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb128-137"><a href="filling-in-the-blanks-imputation.html#cb128-137" tabindex="-1"></a>  </span>
-<span id="cb128-138"><a href="filling-in-the-blanks-imputation.html#cb128-138" tabindex="-1"></a>  <span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
-<span id="cb128-139"><a href="filling-in-the-blanks-imputation.html#cb128-139" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
-<span id="cb128-140"><a href="filling-in-the-blanks-imputation.html#cb128-140" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;par&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb128-141"><a href="filling-in-the-blanks-imputation.html#cb128-141" tabindex="-1"></a>    <span class="fu">write.csv</span>(file)</span>
-<span id="cb128-142"><a href="filling-in-the-blanks-imputation.html#cb128-142" tabindex="-1"></a>  </span>
-<span id="cb128-143"><a href="filling-in-the-blanks-imputation.html#cb128-143" tabindex="-1"></a>  </span>
-<span id="cb128-144"><a href="filling-in-the-blanks-imputation.html#cb128-144" tabindex="-1"></a>}</span>
-<span id="cb128-145"><a href="filling-in-the-blanks-imputation.html#cb128-145" tabindex="-1"></a></span>
-<span id="cb128-146"><a href="filling-in-the-blanks-imputation.html#cb128-146" tabindex="-1"></a></span>
-<span id="cb128-147"><a href="filling-in-the-blanks-imputation.html#cb128-147" tabindex="-1"></a></span>
-<span id="cb128-148"><a href="filling-in-the-blanks-imputation.html#cb128-148" tabindex="-1"></a></span>
-<span id="cb128-149"><a href="filling-in-the-blanks-imputation.html#cb128-149" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_alldata.csv&quot;</span></span>
-<span id="cb128-150"><a href="filling-in-the-blanks-imputation.html#cb128-150" tabindex="-1"></a></span>
-<span id="cb128-151"><a href="filling-in-the-blanks-imputation.html#cb128-151" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file) <span class="sc">|</span> RERUN) {</span>
-<span id="cb128-152"><a href="filling-in-the-blanks-imputation.html#cb128-152" tabindex="-1"></a>  </span>
-<span id="cb128-153"><a href="filling-in-the-blanks-imputation.html#cb128-153" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Estimating model with all data&quot;</span>)</span>
-<span id="cb128-154"><a href="filling-in-the-blanks-imputation.html#cb128-154" tabindex="-1"></a>  </span>
-<span id="cb128-155"><a href="filling-in-the-blanks-imputation.html#cb128-155" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
-<span id="cb128-156"><a href="filling-in-the-blanks-imputation.html#cb128-156" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">dim</span>(D)[<span class="dv">1</span>],</span>
-<span id="cb128-157"><a href="filling-in-the-blanks-imputation.html#cb128-157" tabindex="-1"></a>    <span class="at">self_x =</span> D<span class="sc">$</span>self_x,</span>
-<span id="cb128-158"><a href="filling-in-the-blanks-imputation.html#cb128-158" tabindex="-1"></a>    <span class="at">other_x =</span> D<span class="sc">$</span>other_x,</span>
-<span id="cb128-159"><a href="filling-in-the-blanks-imputation.html#cb128-159" tabindex="-1"></a>    <span class="at">self_y =</span> D<span class="sc">$</span>self_y,</span>
-<span id="cb128-160"><a href="filling-in-the-blanks-imputation.html#cb128-160" tabindex="-1"></a>    <span class="at">other_y =</span> D<span class="sc">$</span>other_y,</span>
-<span id="cb128-161"><a href="filling-in-the-blanks-imputation.html#cb128-161" tabindex="-1"></a>    <span class="at">choice_x =</span> D<span class="sc">$</span>choice_x,</span>
-<span id="cb128-162"><a href="filling-in-the-blanks-imputation.html#cb128-162" tabindex="-1"></a>    </span>
-<span id="cb128-163"><a href="filling-in-the-blanks-imputation.html#cb128-163" tabindex="-1"></a>    <span class="at">id =</span> D<span class="sc">$</span>i,</span>
-<span id="cb128-164"><a href="filling-in-the-blanks-imputation.html#cb128-164" tabindex="-1"></a>    <span class="at">nParticipants =</span> <span class="fu">max</span>(D<span class="sc">$</span>i),</span>
-<span id="cb128-165"><a href="filling-in-the-blanks-imputation.html#cb128-165" tabindex="-1"></a>    </span>
-<span id="cb128-166"><a href="filling-in-the-blanks-imputation.html#cb128-166" tabindex="-1"></a>    <span class="at">prior_mu =</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
-<span id="cb128-167"><a href="filling-in-the-blanks-imputation.html#cb128-167" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
-<span id="cb128-168"><a href="filling-in-the-blanks-imputation.html#cb128-168" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>)</span>
-<span id="cb128-169"><a href="filling-in-the-blanks-imputation.html#cb128-169" tabindex="-1"></a>    ),</span>
-<span id="cb128-170"><a href="filling-in-the-blanks-imputation.html#cb128-170" tabindex="-1"></a>    <span class="at">prior_tau =</span> <span class="fu">c</span>(<span class="fl">0.79</span>,<span class="fl">0.79</span>,<span class="fl">0.24</span>),</span>
-<span id="cb128-171"><a href="filling-in-the-blanks-imputation.html#cb128-171" tabindex="-1"></a>    <span class="at">prior_LKJ =</span> <span class="dv">2</span>,</span>
-<span id="cb128-172"><a href="filling-in-the-blanks-imputation.html#cb128-172" tabindex="-1"></a>    </span>
-<span id="cb128-173"><a href="filling-in-the-blanks-imputation.html#cb128-173" tabindex="-1"></a>    <span class="at">UseCorr =</span> <span class="dv">1</span></span>
-<span id="cb128-174"><a href="filling-in-the-blanks-imputation.html#cb128-174" tabindex="-1"></a>    </span>
-<span id="cb128-175"><a href="filling-in-the-blanks-imputation.html#cb128-175" tabindex="-1"></a>  )</span>
-<span id="cb128-176"><a href="filling-in-the-blanks-imputation.html#cb128-176" tabindex="-1"></a>  </span>
-<span id="cb128-177"><a href="filling-in-the-blanks-imputation.html#cb128-177" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span></span>
-<span id="cb128-178"><a href="filling-in-the-blanks-imputation.html#cb128-178" tabindex="-1"></a>    <span class="fu">sampling</span>(<span class="at">data=</span>dStan,</span>
-<span id="cb128-179"><a href="filling-in-the-blanks-imputation.html#cb128-179" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">10000</span>, <span class="at">chains=</span><span class="dv">8</span>,</span>
-<span id="cb128-180"><a href="filling-in-the-blanks-imputation.html#cb128-180" tabindex="-1"></a>             <span class="at">par =</span> <span class="st">&quot;z&quot;</span>, <span class="at">include =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb128-181"><a href="filling-in-the-blanks-imputation.html#cb128-181" tabindex="-1"></a>             <span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb128-182"><a href="filling-in-the-blanks-imputation.html#cb128-182" tabindex="-1"></a>  </span>
-<span id="cb128-183"><a href="filling-in-the-blanks-imputation.html#cb128-183" tabindex="-1"></a>  <span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
-<span id="cb128-184"><a href="filling-in-the-blanks-imputation.html#cb128-184" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
-<span id="cb128-185"><a href="filling-in-the-blanks-imputation.html#cb128-185" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;par&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb128-186"><a href="filling-in-the-blanks-imputation.html#cb128-186" tabindex="-1"></a>    <span class="fu">write.csv</span>(file)</span>
-<span id="cb128-187"><a href="filling-in-the-blanks-imputation.html#cb128-187" tabindex="-1"></a>  </span>
-<span id="cb128-188"><a href="filling-in-the-blanks-imputation.html#cb128-188" tabindex="-1"></a>  </span>
-<span id="cb128-189"><a href="filling-in-the-blanks-imputation.html#cb128-189" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="filling-in-the-blanks-imputation.html#cb130-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb130-2"><a href="filling-in-the-blanks-imputation.html#cb130-2" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb130-3"><a href="filling-in-the-blanks-imputation.html#cb130-3" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb130-4"><a href="filling-in-the-blanks-imputation.html#cb130-4" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb130-5"><a href="filling-in-the-blanks-imputation.html#cb130-5" tabindex="-1"></a></span>
+<span id="cb130-6"><a href="filling-in-the-blanks-imputation.html#cb130-6" tabindex="-1"></a>RERUN<span class="ot">&lt;-</span><span class="cn">TRUE</span></span>
+<span id="cb130-7"><a href="filling-in-the-blanks-imputation.html#cb130-7" tabindex="-1"></a></span>
+<span id="cb130-8"><a href="filling-in-the-blanks-imputation.html#cb130-8" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb130-9"><a href="filling-in-the-blanks-imputation.html#cb130-9" tabindex="-1"></a></span>
+<span id="cb130-10"><a href="filling-in-the-blanks-imputation.html#cb130-10" tabindex="-1"></a>d1<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp1.csv&quot;</span>)</span>
+<span id="cb130-11"><a href="filling-in-the-blanks-imputation.html#cb130-11" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">1</span>)</span>
+<span id="cb130-12"><a href="filling-in-the-blanks-imputation.html#cb130-12" tabindex="-1"></a>)</span>
+<span id="cb130-13"><a href="filling-in-the-blanks-imputation.html#cb130-13" tabindex="-1"></a>d2<span class="ot">&lt;-</span>(<span class="fu">read.csv</span>(<span class="st">&quot;Data/BFS2019_choices_exp2.csv&quot;</span>)</span>
+<span id="cb130-14"><a href="filling-in-the-blanks-imputation.html#cb130-14" tabindex="-1"></a>     <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">experiment=</span><span class="dv">2</span>)    </span>
+<span id="cb130-15"><a href="filling-in-the-blanks-imputation.html#cb130-15" tabindex="-1"></a>)</span>
+<span id="cb130-16"><a href="filling-in-the-blanks-imputation.html#cb130-16" tabindex="-1"></a>D<span class="ot">&lt;-</span>(<span class="fu">rbind</span>(d1,d2)</span>
+<span id="cb130-17"><a href="filling-in-the-blanks-imputation.html#cb130-17" tabindex="-1"></a>    <span class="co"># Just use the dictator game data</span></span>
+<span id="cb130-18"><a href="filling-in-the-blanks-imputation.html#cb130-18" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">filter</span>(dg<span class="sc">==</span><span class="dv">1</span>)  </span>
+<span id="cb130-19"><a href="filling-in-the-blanks-imputation.html#cb130-19" tabindex="-1"></a>    <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
+<span id="cb130-20"><a href="filling-in-the-blanks-imputation.html#cb130-20" tabindex="-1"></a>      <span class="at">self_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,self_x,self_y),</span>
+<span id="cb130-21"><a href="filling-in-the-blanks-imputation.html#cb130-21" tabindex="-1"></a>      <span class="at">other_alloc =</span> <span class="fu">ifelse</span>(choice_x<span class="sc">==</span><span class="dv">1</span>,other_x,other_y)</span>
+<span id="cb130-22"><a href="filling-in-the-blanks-imputation.html#cb130-22" tabindex="-1"></a>    )</span>
+<span id="cb130-23"><a href="filling-in-the-blanks-imputation.html#cb130-23" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb130-24"><a href="filling-in-the-blanks-imputation.html#cb130-24" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb130-25"><a href="filling-in-the-blanks-imputation.html#cb130-25" tabindex="-1"></a>    <span class="at">domain.x =</span> <span class="fu">ifelse</span>(self_x<span class="sc">&gt;</span>other_x,<span class="st">&quot;adv&quot;</span>,<span class="st">&quot;disadv&quot;</span>),</span>
+<span id="cb130-26"><a href="filling-in-the-blanks-imputation.html#cb130-26" tabindex="-1"></a>    <span class="at">domain.y =</span> <span class="fu">ifelse</span>(self_y<span class="sc">&gt;</span>other_y,<span class="st">&quot;adv&quot;</span>,<span class="st">&quot;disadv&quot;</span>),</span>
+<span id="cb130-27"><a href="filling-in-the-blanks-imputation.html#cb130-27" tabindex="-1"></a>    <span class="at">domain.overall =</span> <span class="fu">ifelse</span>(domain.x <span class="sc">==</span> <span class="st">&quot;adv&quot;</span> <span class="sc">&amp;</span> domain.y <span class="sc">==</span> <span class="st">&quot;adv&quot;</span>,<span class="st">&quot;adv&quot;</span>,</span>
+<span id="cb130-28"><a href="filling-in-the-blanks-imputation.html#cb130-28" tabindex="-1"></a>                            <span class="fu">ifelse</span>(domain.x <span class="sc">==</span> <span class="st">&quot;disadv&quot;</span> <span class="sc">&amp;</span> domain.y <span class="sc">==</span> <span class="st">&quot;disadv&quot;</span>,<span class="st">&quot;disadv&quot;</span>,</span>
+<span id="cb130-29"><a href="filling-in-the-blanks-imputation.html#cb130-29" tabindex="-1"></a>                            <span class="st">&quot;mixed&quot;</span>)</span>
+<span id="cb130-30"><a href="filling-in-the-blanks-imputation.html#cb130-30" tabindex="-1"></a>                            )</span>
+<span id="cb130-31"><a href="filling-in-the-blanks-imputation.html#cb130-31" tabindex="-1"></a>  )</span>
+<span id="cb130-32"><a href="filling-in-the-blanks-imputation.html#cb130-32" tabindex="-1"></a></span>
+<span id="cb130-33"><a href="filling-in-the-blanks-imputation.html#cb130-33" tabindex="-1"></a>sid.list<span class="ot">&lt;-</span>D <span class="sc">|&gt;</span></span>
+<span id="cb130-34"><a href="filling-in-the-blanks-imputation.html#cb130-34" tabindex="-1"></a>  <span class="fu">select</span>(sid) <span class="sc">|&gt;</span></span>
+<span id="cb130-35"><a href="filling-in-the-blanks-imputation.html#cb130-35" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb130-36"><a href="filling-in-the-blanks-imputation.html#cb130-36" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb130-37"><a href="filling-in-the-blanks-imputation.html#cb130-37" tabindex="-1"></a>    <span class="at">i =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()</span>
+<span id="cb130-38"><a href="filling-in-the-blanks-imputation.html#cb130-38" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb130-39"><a href="filling-in-the-blanks-imputation.html#cb130-39" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb130-40"><a href="filling-in-the-blanks-imputation.html#cb130-40" tabindex="-1"></a>    <span class="at">holdout =</span> i<span class="sc">&lt;=</span>(<span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb130-41"><a href="filling-in-the-blanks-imputation.html#cb130-41" tabindex="-1"></a>  )</span>
+<span id="cb130-42"><a href="filling-in-the-blanks-imputation.html#cb130-42" tabindex="-1"></a></span>
+<span id="cb130-43"><a href="filling-in-the-blanks-imputation.html#cb130-43" tabindex="-1"></a>D<span class="ot">&lt;-</span>D <span class="sc">|&gt;</span></span>
+<span id="cb130-44"><a href="filling-in-the-blanks-imputation.html#cb130-44" tabindex="-1"></a>  <span class="fu">full_join</span>(sid.list,</span>
+<span id="cb130-45"><a href="filling-in-the-blanks-imputation.html#cb130-45" tabindex="-1"></a>        <span class="at">by =</span> <span class="st">&quot;sid&quot;</span>    </span>
+<span id="cb130-46"><a href="filling-in-the-blanks-imputation.html#cb130-46" tabindex="-1"></a>            ) <span class="sc">|&gt;</span></span>
+<span id="cb130-47"><a href="filling-in-the-blanks-imputation.html#cb130-47" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb130-48"><a href="filling-in-the-blanks-imputation.html#cb130-48" tabindex="-1"></a>    <span class="at">drop =</span> (holdout <span class="sc">&amp;</span> domain.overall <span class="sc">==</span> <span class="st">&quot;mixed&quot;</span>) <span class="sc">|</span> (holdout <span class="sc">&amp;</span> domain.overall <span class="sc">==</span><span class="st">&quot;adv&quot;</span>) </span>
+<span id="cb130-49"><a href="filling-in-the-blanks-imputation.html#cb130-49" tabindex="-1"></a>  )</span>
+<span id="cb130-50"><a href="filling-in-the-blanks-imputation.html#cb130-50" tabindex="-1"></a></span>
+<span id="cb130-51"><a href="filling-in-the-blanks-imputation.html#cb130-51" tabindex="-1"></a></span>
+<span id="cb130-52"><a href="filling-in-the-blanks-imputation.html#cb130-52" tabindex="-1"></a>model<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/Hierarchical_BFS2019_correlated_onoff.stan&quot;</span> <span class="sc">|&gt;</span></span>
+<span id="cb130-53"><a href="filling-in-the-blanks-imputation.html#cb130-53" tabindex="-1"></a>  <span class="fu">stan_model</span>()</span>
+<span id="cb130-54"><a href="filling-in-the-blanks-imputation.html#cb130-54" tabindex="-1"></a></span>
+<span id="cb130-55"><a href="filling-in-the-blanks-imputation.html#cb130-55" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_nocorr.csv&quot;</span></span>
+<span id="cb130-56"><a href="filling-in-the-blanks-imputation.html#cb130-56" tabindex="-1"></a></span>
+<span id="cb130-57"><a href="filling-in-the-blanks-imputation.html#cb130-57" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file) <span class="sc">|</span> RERUN) {</span>
+<span id="cb130-58"><a href="filling-in-the-blanks-imputation.html#cb130-58" tabindex="-1"></a>  </span>
+<span id="cb130-59"><a href="filling-in-the-blanks-imputation.html#cb130-59" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Estimating model with held-out data and no correlation matrix&quot;</span>)</span>
+<span id="cb130-60"><a href="filling-in-the-blanks-imputation.html#cb130-60" tabindex="-1"></a>  </span>
+<span id="cb130-61"><a href="filling-in-the-blanks-imputation.html#cb130-61" tabindex="-1"></a>  d<span class="ot">&lt;-</span> D <span class="sc">|&gt;</span></span>
+<span id="cb130-62"><a href="filling-in-the-blanks-imputation.html#cb130-62" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>drop)</span>
+<span id="cb130-63"><a href="filling-in-the-blanks-imputation.html#cb130-63" tabindex="-1"></a>  </span>
+<span id="cb130-64"><a href="filling-in-the-blanks-imputation.html#cb130-64" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb130-65"><a href="filling-in-the-blanks-imputation.html#cb130-65" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">dim</span>(d)[<span class="dv">1</span>],</span>
+<span id="cb130-66"><a href="filling-in-the-blanks-imputation.html#cb130-66" tabindex="-1"></a>    <span class="at">self_x =</span> d<span class="sc">$</span>self_x,</span>
+<span id="cb130-67"><a href="filling-in-the-blanks-imputation.html#cb130-67" tabindex="-1"></a>    <span class="at">other_x =</span> d<span class="sc">$</span>other_x,</span>
+<span id="cb130-68"><a href="filling-in-the-blanks-imputation.html#cb130-68" tabindex="-1"></a>    <span class="at">self_y =</span> d<span class="sc">$</span>self_y,</span>
+<span id="cb130-69"><a href="filling-in-the-blanks-imputation.html#cb130-69" tabindex="-1"></a>    <span class="at">other_y =</span> d<span class="sc">$</span>other_y,</span>
+<span id="cb130-70"><a href="filling-in-the-blanks-imputation.html#cb130-70" tabindex="-1"></a>    <span class="at">choice_x =</span> d<span class="sc">$</span>choice_x,</span>
+<span id="cb130-71"><a href="filling-in-the-blanks-imputation.html#cb130-71" tabindex="-1"></a>    </span>
+<span id="cb130-72"><a href="filling-in-the-blanks-imputation.html#cb130-72" tabindex="-1"></a>    <span class="at">id =</span> d<span class="sc">$</span>i,</span>
+<span id="cb130-73"><a href="filling-in-the-blanks-imputation.html#cb130-73" tabindex="-1"></a>    <span class="at">nParticipants =</span> <span class="fu">max</span>(d<span class="sc">$</span>i),</span>
+<span id="cb130-74"><a href="filling-in-the-blanks-imputation.html#cb130-74" tabindex="-1"></a>    </span>
+<span id="cb130-75"><a href="filling-in-the-blanks-imputation.html#cb130-75" tabindex="-1"></a>    <span class="at">prior_mu =</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb130-76"><a href="filling-in-the-blanks-imputation.html#cb130-76" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb130-77"><a href="filling-in-the-blanks-imputation.html#cb130-77" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>)</span>
+<span id="cb130-78"><a href="filling-in-the-blanks-imputation.html#cb130-78" tabindex="-1"></a>    ),</span>
+<span id="cb130-79"><a href="filling-in-the-blanks-imputation.html#cb130-79" tabindex="-1"></a>    <span class="at">prior_tau =</span> <span class="fu">c</span>(<span class="fl">0.79</span>,<span class="fl">0.79</span>,<span class="fl">0.24</span>),</span>
+<span id="cb130-80"><a href="filling-in-the-blanks-imputation.html#cb130-80" tabindex="-1"></a>    <span class="at">prior_LKJ =</span> <span class="dv">2</span>,</span>
+<span id="cb130-81"><a href="filling-in-the-blanks-imputation.html#cb130-81" tabindex="-1"></a>    </span>
+<span id="cb130-82"><a href="filling-in-the-blanks-imputation.html#cb130-82" tabindex="-1"></a>    <span class="at">UseCorr =</span> <span class="dv">0</span></span>
+<span id="cb130-83"><a href="filling-in-the-blanks-imputation.html#cb130-83" tabindex="-1"></a>    </span>
+<span id="cb130-84"><a href="filling-in-the-blanks-imputation.html#cb130-84" tabindex="-1"></a>  )</span>
+<span id="cb130-85"><a href="filling-in-the-blanks-imputation.html#cb130-85" tabindex="-1"></a>  </span>
+<span id="cb130-86"><a href="filling-in-the-blanks-imputation.html#cb130-86" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span></span>
+<span id="cb130-87"><a href="filling-in-the-blanks-imputation.html#cb130-87" tabindex="-1"></a>    <span class="fu">sampling</span>(<span class="at">data=</span>dStan,</span>
+<span id="cb130-88"><a href="filling-in-the-blanks-imputation.html#cb130-88" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">10000</span>, <span class="at">chains=</span><span class="dv">8</span>,</span>
+<span id="cb130-89"><a href="filling-in-the-blanks-imputation.html#cb130-89" tabindex="-1"></a>             <span class="at">par =</span> <span class="st">&quot;z&quot;</span>, <span class="at">include =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb130-90"><a href="filling-in-the-blanks-imputation.html#cb130-90" tabindex="-1"></a>             <span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb130-91"><a href="filling-in-the-blanks-imputation.html#cb130-91" tabindex="-1"></a>  </span>
+<span id="cb130-92"><a href="filling-in-the-blanks-imputation.html#cb130-92" tabindex="-1"></a>  <span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
+<span id="cb130-93"><a href="filling-in-the-blanks-imputation.html#cb130-93" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb130-94"><a href="filling-in-the-blanks-imputation.html#cb130-94" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;par&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb130-95"><a href="filling-in-the-blanks-imputation.html#cb130-95" tabindex="-1"></a>    <span class="fu">write.csv</span>(file)</span>
+<span id="cb130-96"><a href="filling-in-the-blanks-imputation.html#cb130-96" tabindex="-1"></a>  </span>
+<span id="cb130-97"><a href="filling-in-the-blanks-imputation.html#cb130-97" tabindex="-1"></a>  </span>
+<span id="cb130-98"><a href="filling-in-the-blanks-imputation.html#cb130-98" tabindex="-1"></a>}</span>
+<span id="cb130-99"><a href="filling-in-the-blanks-imputation.html#cb130-99" tabindex="-1"></a></span>
+<span id="cb130-100"><a href="filling-in-the-blanks-imputation.html#cb130-100" tabindex="-1"></a></span>
+<span id="cb130-101"><a href="filling-in-the-blanks-imputation.html#cb130-101" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_leaveout_corr.csv&quot;</span></span>
+<span id="cb130-102"><a href="filling-in-the-blanks-imputation.html#cb130-102" tabindex="-1"></a></span>
+<span id="cb130-103"><a href="filling-in-the-blanks-imputation.html#cb130-103" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file) <span class="sc">|</span> RERUN) {</span>
+<span id="cb130-104"><a href="filling-in-the-blanks-imputation.html#cb130-104" tabindex="-1"></a>  </span>
+<span id="cb130-105"><a href="filling-in-the-blanks-imputation.html#cb130-105" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Estimating model with held-out data and correlation matrix&quot;</span>)</span>
+<span id="cb130-106"><a href="filling-in-the-blanks-imputation.html#cb130-106" tabindex="-1"></a>  </span>
+<span id="cb130-107"><a href="filling-in-the-blanks-imputation.html#cb130-107" tabindex="-1"></a>  d<span class="ot">&lt;-</span> D <span class="sc">|&gt;</span></span>
+<span id="cb130-108"><a href="filling-in-the-blanks-imputation.html#cb130-108" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>drop)</span>
+<span id="cb130-109"><a href="filling-in-the-blanks-imputation.html#cb130-109" tabindex="-1"></a>  </span>
+<span id="cb130-110"><a href="filling-in-the-blanks-imputation.html#cb130-110" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb130-111"><a href="filling-in-the-blanks-imputation.html#cb130-111" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">dim</span>(d)[<span class="dv">1</span>],</span>
+<span id="cb130-112"><a href="filling-in-the-blanks-imputation.html#cb130-112" tabindex="-1"></a>    <span class="at">self_x =</span> d<span class="sc">$</span>self_x,</span>
+<span id="cb130-113"><a href="filling-in-the-blanks-imputation.html#cb130-113" tabindex="-1"></a>    <span class="at">other_x =</span> d<span class="sc">$</span>other_x,</span>
+<span id="cb130-114"><a href="filling-in-the-blanks-imputation.html#cb130-114" tabindex="-1"></a>    <span class="at">self_y =</span> d<span class="sc">$</span>self_y,</span>
+<span id="cb130-115"><a href="filling-in-the-blanks-imputation.html#cb130-115" tabindex="-1"></a>    <span class="at">other_y =</span> d<span class="sc">$</span>other_y,</span>
+<span id="cb130-116"><a href="filling-in-the-blanks-imputation.html#cb130-116" tabindex="-1"></a>    <span class="at">choice_x =</span> d<span class="sc">$</span>choice_x,</span>
+<span id="cb130-117"><a href="filling-in-the-blanks-imputation.html#cb130-117" tabindex="-1"></a>    </span>
+<span id="cb130-118"><a href="filling-in-the-blanks-imputation.html#cb130-118" tabindex="-1"></a>    <span class="at">id =</span> d<span class="sc">$</span>i,</span>
+<span id="cb130-119"><a href="filling-in-the-blanks-imputation.html#cb130-119" tabindex="-1"></a>    <span class="at">nParticipants =</span> <span class="fu">max</span>(d<span class="sc">$</span>i),</span>
+<span id="cb130-120"><a href="filling-in-the-blanks-imputation.html#cb130-120" tabindex="-1"></a>    </span>
+<span id="cb130-121"><a href="filling-in-the-blanks-imputation.html#cb130-121" tabindex="-1"></a>    <span class="at">prior_mu =</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb130-122"><a href="filling-in-the-blanks-imputation.html#cb130-122" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb130-123"><a href="filling-in-the-blanks-imputation.html#cb130-123" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>)</span>
+<span id="cb130-124"><a href="filling-in-the-blanks-imputation.html#cb130-124" tabindex="-1"></a>    ),</span>
+<span id="cb130-125"><a href="filling-in-the-blanks-imputation.html#cb130-125" tabindex="-1"></a>    <span class="at">prior_tau =</span> <span class="fu">c</span>(<span class="fl">0.79</span>,<span class="fl">0.79</span>,<span class="fl">0.24</span>),</span>
+<span id="cb130-126"><a href="filling-in-the-blanks-imputation.html#cb130-126" tabindex="-1"></a>    <span class="at">prior_LKJ =</span> <span class="dv">2</span>,</span>
+<span id="cb130-127"><a href="filling-in-the-blanks-imputation.html#cb130-127" tabindex="-1"></a>    </span>
+<span id="cb130-128"><a href="filling-in-the-blanks-imputation.html#cb130-128" tabindex="-1"></a>    <span class="at">UseCorr =</span> <span class="dv">1</span></span>
+<span id="cb130-129"><a href="filling-in-the-blanks-imputation.html#cb130-129" tabindex="-1"></a>    </span>
+<span id="cb130-130"><a href="filling-in-the-blanks-imputation.html#cb130-130" tabindex="-1"></a>  )</span>
+<span id="cb130-131"><a href="filling-in-the-blanks-imputation.html#cb130-131" tabindex="-1"></a>  </span>
+<span id="cb130-132"><a href="filling-in-the-blanks-imputation.html#cb130-132" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span></span>
+<span id="cb130-133"><a href="filling-in-the-blanks-imputation.html#cb130-133" tabindex="-1"></a>    <span class="fu">sampling</span>(<span class="at">data=</span>dStan,</span>
+<span id="cb130-134"><a href="filling-in-the-blanks-imputation.html#cb130-134" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">10000</span>, <span class="at">chains=</span><span class="dv">8</span>,</span>
+<span id="cb130-135"><a href="filling-in-the-blanks-imputation.html#cb130-135" tabindex="-1"></a>             <span class="at">par =</span> <span class="st">&quot;z&quot;</span>, <span class="at">include =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb130-136"><a href="filling-in-the-blanks-imputation.html#cb130-136" tabindex="-1"></a>             <span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb130-137"><a href="filling-in-the-blanks-imputation.html#cb130-137" tabindex="-1"></a>  </span>
+<span id="cb130-138"><a href="filling-in-the-blanks-imputation.html#cb130-138" tabindex="-1"></a>  <span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
+<span id="cb130-139"><a href="filling-in-the-blanks-imputation.html#cb130-139" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb130-140"><a href="filling-in-the-blanks-imputation.html#cb130-140" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;par&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb130-141"><a href="filling-in-the-blanks-imputation.html#cb130-141" tabindex="-1"></a>    <span class="fu">write.csv</span>(file)</span>
+<span id="cb130-142"><a href="filling-in-the-blanks-imputation.html#cb130-142" tabindex="-1"></a>  </span>
+<span id="cb130-143"><a href="filling-in-the-blanks-imputation.html#cb130-143" tabindex="-1"></a>  </span>
+<span id="cb130-144"><a href="filling-in-the-blanks-imputation.html#cb130-144" tabindex="-1"></a>}</span>
+<span id="cb130-145"><a href="filling-in-the-blanks-imputation.html#cb130-145" tabindex="-1"></a></span>
+<span id="cb130-146"><a href="filling-in-the-blanks-imputation.html#cb130-146" tabindex="-1"></a></span>
+<span id="cb130-147"><a href="filling-in-the-blanks-imputation.html#cb130-147" tabindex="-1"></a></span>
+<span id="cb130-148"><a href="filling-in-the-blanks-imputation.html#cb130-148" tabindex="-1"></a></span>
+<span id="cb130-149"><a href="filling-in-the-blanks-imputation.html#cb130-149" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/ImputingStuff/00_run_alldata.csv&quot;</span></span>
+<span id="cb130-150"><a href="filling-in-the-blanks-imputation.html#cb130-150" tabindex="-1"></a></span>
+<span id="cb130-151"><a href="filling-in-the-blanks-imputation.html#cb130-151" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file) <span class="sc">|</span> RERUN) {</span>
+<span id="cb130-152"><a href="filling-in-the-blanks-imputation.html#cb130-152" tabindex="-1"></a>  </span>
+<span id="cb130-153"><a href="filling-in-the-blanks-imputation.html#cb130-153" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Estimating model with all data&quot;</span>)</span>
+<span id="cb130-154"><a href="filling-in-the-blanks-imputation.html#cb130-154" tabindex="-1"></a>  </span>
+<span id="cb130-155"><a href="filling-in-the-blanks-imputation.html#cb130-155" tabindex="-1"></a>  dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb130-156"><a href="filling-in-the-blanks-imputation.html#cb130-156" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">dim</span>(D)[<span class="dv">1</span>],</span>
+<span id="cb130-157"><a href="filling-in-the-blanks-imputation.html#cb130-157" tabindex="-1"></a>    <span class="at">self_x =</span> D<span class="sc">$</span>self_x,</span>
+<span id="cb130-158"><a href="filling-in-the-blanks-imputation.html#cb130-158" tabindex="-1"></a>    <span class="at">other_x =</span> D<span class="sc">$</span>other_x,</span>
+<span id="cb130-159"><a href="filling-in-the-blanks-imputation.html#cb130-159" tabindex="-1"></a>    <span class="at">self_y =</span> D<span class="sc">$</span>self_y,</span>
+<span id="cb130-160"><a href="filling-in-the-blanks-imputation.html#cb130-160" tabindex="-1"></a>    <span class="at">other_y =</span> D<span class="sc">$</span>other_y,</span>
+<span id="cb130-161"><a href="filling-in-the-blanks-imputation.html#cb130-161" tabindex="-1"></a>    <span class="at">choice_x =</span> D<span class="sc">$</span>choice_x,</span>
+<span id="cb130-162"><a href="filling-in-the-blanks-imputation.html#cb130-162" tabindex="-1"></a>    </span>
+<span id="cb130-163"><a href="filling-in-the-blanks-imputation.html#cb130-163" tabindex="-1"></a>    <span class="at">id =</span> D<span class="sc">$</span>i,</span>
+<span id="cb130-164"><a href="filling-in-the-blanks-imputation.html#cb130-164" tabindex="-1"></a>    <span class="at">nParticipants =</span> <span class="fu">max</span>(D<span class="sc">$</span>i),</span>
+<span id="cb130-165"><a href="filling-in-the-blanks-imputation.html#cb130-165" tabindex="-1"></a>    </span>
+<span id="cb130-166"><a href="filling-in-the-blanks-imputation.html#cb130-166" tabindex="-1"></a>    <span class="at">prior_mu =</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb130-167"><a href="filling-in-the-blanks-imputation.html#cb130-167" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.39</span>),</span>
+<span id="cb130-168"><a href="filling-in-the-blanks-imputation.html#cb130-168" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="sc">-</span><span class="fl">5.76</span>,<span class="dv">1</span>)</span>
+<span id="cb130-169"><a href="filling-in-the-blanks-imputation.html#cb130-169" tabindex="-1"></a>    ),</span>
+<span id="cb130-170"><a href="filling-in-the-blanks-imputation.html#cb130-170" tabindex="-1"></a>    <span class="at">prior_tau =</span> <span class="fu">c</span>(<span class="fl">0.79</span>,<span class="fl">0.79</span>,<span class="fl">0.24</span>),</span>
+<span id="cb130-171"><a href="filling-in-the-blanks-imputation.html#cb130-171" tabindex="-1"></a>    <span class="at">prior_LKJ =</span> <span class="dv">2</span>,</span>
+<span id="cb130-172"><a href="filling-in-the-blanks-imputation.html#cb130-172" tabindex="-1"></a>    </span>
+<span id="cb130-173"><a href="filling-in-the-blanks-imputation.html#cb130-173" tabindex="-1"></a>    <span class="at">UseCorr =</span> <span class="dv">1</span></span>
+<span id="cb130-174"><a href="filling-in-the-blanks-imputation.html#cb130-174" tabindex="-1"></a>    </span>
+<span id="cb130-175"><a href="filling-in-the-blanks-imputation.html#cb130-175" tabindex="-1"></a>  )</span>
+<span id="cb130-176"><a href="filling-in-the-blanks-imputation.html#cb130-176" tabindex="-1"></a>  </span>
+<span id="cb130-177"><a href="filling-in-the-blanks-imputation.html#cb130-177" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span>model <span class="sc">|&gt;</span></span>
+<span id="cb130-178"><a href="filling-in-the-blanks-imputation.html#cb130-178" tabindex="-1"></a>    <span class="fu">sampling</span>(<span class="at">data=</span>dStan,</span>
+<span id="cb130-179"><a href="filling-in-the-blanks-imputation.html#cb130-179" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">10000</span>, <span class="at">chains=</span><span class="dv">8</span>,</span>
+<span id="cb130-180"><a href="filling-in-the-blanks-imputation.html#cb130-180" tabindex="-1"></a>             <span class="at">par =</span> <span class="st">&quot;z&quot;</span>, <span class="at">include =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb130-181"><a href="filling-in-the-blanks-imputation.html#cb130-181" tabindex="-1"></a>             <span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb130-182"><a href="filling-in-the-blanks-imputation.html#cb130-182" tabindex="-1"></a>  </span>
+<span id="cb130-183"><a href="filling-in-the-blanks-imputation.html#cb130-183" tabindex="-1"></a>  <span class="fu">summary</span>(Fit)<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
+<span id="cb130-184"><a href="filling-in-the-blanks-imputation.html#cb130-184" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb130-185"><a href="filling-in-the-blanks-imputation.html#cb130-185" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;par&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb130-186"><a href="filling-in-the-blanks-imputation.html#cb130-186" tabindex="-1"></a>    <span class="fu">write.csv</span>(file)</span>
+<span id="cb130-187"><a href="filling-in-the-blanks-imputation.html#cb130-187" tabindex="-1"></a>  </span>
+<span id="cb130-188"><a href="filling-in-the-blanks-imputation.html#cb130-188" tabindex="-1"></a>  </span>
+<span id="cb130-189"><a href="filling-in-the-blanks-imputation.html#cb130-189" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="acknowedgements" class="section level2 unnumbered hasAnchor">
 <h2>Acknowedgements<a href="filling-in-the-blanks-imputation.html#acknowedgements" class="anchor-section" aria-label="Anchor link to header"></a></h2>

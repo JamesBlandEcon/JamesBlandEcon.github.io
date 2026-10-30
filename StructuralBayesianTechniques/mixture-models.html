@@ -23,7 +23,7 @@
 <meta name="author" content="James R. Bland" />
 
 
-<meta name="date" content="2026-10-29" />
+<meta name="date" content="2026-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -661,22 +661,22 @@ On the other hand in a toolbox mixture model, participants can use all of the mo
 <div id="example-experiment-av2001" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Example experiment: <span class="citation">Andreoni and Vesterlund (<a href="#ref-AV2001">2001</a>)</span><a href="mixture-models.html#example-experiment-av2001" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><span class="citation">Andreoni and Vesterlund (<a href="#ref-AV2001">2001</a>)</span> investigate whether there are any differences in other-regarding preferences between male and female participants. In their experiment, each participant was presented with eight different budget sets, which are shown in Figure <a href="mixture-models.html#fig:MixtureAV2001BudgetSets">8.1</a>.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="mixture-models.html#cb113-1" tabindex="-1"></a>AV2001choices<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/AV2001choices.csv&quot;</span>)</span>
-<span id="cb113-2"><a href="mixture-models.html#cb113-2" tabindex="-1"></a>AV2001parameters<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/AV2001parameters.csv&quot;</span>)</span>
-<span id="cb113-3"><a href="mixture-models.html#cb113-3" tabindex="-1"></a></span>
-<span id="cb113-4"><a href="mixture-models.html#cb113-4" tabindex="-1"></a>(</span>
-<span id="cb113-5"><a href="mixture-models.html#cb113-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(AV2001parameters,</span>
-<span id="cb113-6"><a href="mixture-models.html#cb113-6" tabindex="-1"></a>         <span class="fu">aes</span>(<span class="at">x=</span><span class="dv">0</span>,<span class="at">y=</span>income<span class="sc">*</span>pOther,</span>
-<span id="cb113-7"><a href="mixture-models.html#cb113-7" tabindex="-1"></a>             <span class="at">xend =</span> income<span class="sc">*</span>pSelf,<span class="at">yend=</span><span class="dv">0</span>))</span>
-<span id="cb113-8"><a href="mixture-models.html#cb113-8" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_segment</span>()</span>
-<span id="cb113-9"><a href="mixture-models.html#cb113-9" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb113-10"><a href="mixture-models.html#cb113-10" tabindex="-1"></a>  <span class="co">#+xlim(c(0,100))+ylim(c(0,100))</span></span>
-<span id="cb113-11"><a href="mixture-models.html#cb113-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">coord_fixed</span>()</span>
-<span id="cb113-12"><a href="mixture-models.html#cb113-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linewidth=</span><span class="dv">1</span>)</span>
-<span id="cb113-13"><a href="mixture-models.html#cb113-13" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linewidth=</span><span class="dv">1</span>)</span>
-<span id="cb113-14"><a href="mixture-models.html#cb113-14" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Payoff to self&quot;</span>)</span>
-<span id="cb113-15"><a href="mixture-models.html#cb113-15" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Payoff to other&quot;</span>)</span>
-<span id="cb113-16"><a href="mixture-models.html#cb113-16" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="mixture-models.html#cb115-1" tabindex="-1"></a>AV2001choices<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/AV2001choices.csv&quot;</span>)</span>
+<span id="cb115-2"><a href="mixture-models.html#cb115-2" tabindex="-1"></a>AV2001parameters<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/AV2001parameters.csv&quot;</span>)</span>
+<span id="cb115-3"><a href="mixture-models.html#cb115-3" tabindex="-1"></a></span>
+<span id="cb115-4"><a href="mixture-models.html#cb115-4" tabindex="-1"></a>(</span>
+<span id="cb115-5"><a href="mixture-models.html#cb115-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(AV2001parameters,</span>
+<span id="cb115-6"><a href="mixture-models.html#cb115-6" tabindex="-1"></a>         <span class="fu">aes</span>(<span class="at">x=</span><span class="dv">0</span>,<span class="at">y=</span>income<span class="sc">*</span>pOther,</span>
+<span id="cb115-7"><a href="mixture-models.html#cb115-7" tabindex="-1"></a>             <span class="at">xend =</span> income<span class="sc">*</span>pSelf,<span class="at">yend=</span><span class="dv">0</span>))</span>
+<span id="cb115-8"><a href="mixture-models.html#cb115-8" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_segment</span>()</span>
+<span id="cb115-9"><a href="mixture-models.html#cb115-9" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb115-10"><a href="mixture-models.html#cb115-10" tabindex="-1"></a>  <span class="co">#+xlim(c(0,100))+ylim(c(0,100))</span></span>
+<span id="cb115-11"><a href="mixture-models.html#cb115-11" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">coord_fixed</span>()</span>
+<span id="cb115-12"><a href="mixture-models.html#cb115-12" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linewidth=</span><span class="dv">1</span>)</span>
+<span id="cb115-13"><a href="mixture-models.html#cb115-13" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linewidth=</span><span class="dv">1</span>)</span>
+<span id="cb115-14"><a href="mixture-models.html#cb115-14" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">xlab</span>(<span class="st">&quot;Payoff to self&quot;</span>)</span>
+<span id="cb115-15"><a href="mixture-models.html#cb115-15" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">ylab</span>(<span class="st">&quot;Payoff to other&quot;</span>)</span>
+<span id="cb115-16"><a href="mixture-models.html#cb115-16" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:MixtureAV2001BudgetSets"></span>
 <img src="index_files/figure-html/MixtureAV2001BudgetSets-1.png" alt="The eight budget sets presented to participants in Andreoni and Vesterlund (2001)." width="672" />
 <p class="caption">
@@ -735,155 +735,155 @@ p(y_{i,t}\mid \rho,\lambda,m)&amp;=\frac{\exp(\lambda \mathrm{income}_{i,t}U^m(y
 <h3><span class="header-section-number">8.4.1</span> As basic as it gets<a href="mixture-models.html#as-basic-as-it-gets" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To begin with, I will assume that <span class="math inline">\(\lambda\)</span> is homogeneous so I can just show you how a mixture model is different from a representative agent model. This will probably lead to some strange results, as it is likely that participants are heterogeneous along this dimension, but it helps to see the actual mixture part of the mixture model.</p>
 <p>Here is the <em>Stan</em> file I used for the dichotomous mixture model:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb114-1"><a href="mixture-models.html#cb114-1" tabindex="-1"></a></span>
-<span id="cb114-2"><a href="mixture-models.html#cb114-2" tabindex="-1"></a><span class="co">/*</span></span>
-<span id="cb114-3"><a href="mixture-models.html#cb114-3" tabindex="-1"></a><span class="co">AV2001_3typesDichotomous.stan</span></span>
-<span id="cb114-4"><a href="mixture-models.html#cb114-4" tabindex="-1"></a><span class="co">Mixture model assuming each participant is one type forever</span></span>
-<span id="cb114-5"><a href="mixture-models.html#cb114-5" tabindex="-1"></a><span class="co">*/</span></span>
-<span id="cb114-6"><a href="mixture-models.html#cb114-6" tabindex="-1"></a></span>
-<span id="cb114-7"><a href="mixture-models.html#cb114-7" tabindex="-1"></a>data <span class="op">{</span></span>
-<span id="cb114-8"><a href="mixture-models.html#cb114-8" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span></span>
-<span id="cb114-9"><a href="mixture-models.html#cb114-9" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> nParticipants<span class="op">;</span></span>
-<span id="cb114-10"><a href="mixture-models.html#cb114-10" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> id<span class="op">[</span>N<span class="op">];</span></span>
-<span id="cb114-11"><a href="mixture-models.html#cb114-11" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> idStart<span class="op">[</span>nParticipants<span class="op">];</span></span>
-<span id="cb114-12"><a href="mixture-models.html#cb114-12" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> idEnd<span class="op">[</span>nParticipants<span class="op">];</span></span>
-<span id="cb114-13"><a href="mixture-models.html#cb114-13" tabindex="-1"></a>  </span>
-<span id="cb114-14"><a href="mixture-models.html#cb114-14" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> income<span class="op">;</span></span>
-<span id="cb114-15"><a href="mixture-models.html#cb114-15" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> pSelf<span class="op">;</span></span>
-<span id="cb114-16"><a href="mixture-models.html#cb114-16" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> pOther<span class="op">;</span></span>
-<span id="cb114-17"><a href="mixture-models.html#cb114-17" tabindex="-1"></a>  </span>
-<span id="cb114-18"><a href="mixture-models.html#cb114-18" tabindex="-1"></a>  <span class="dt">int</span> binLength<span class="op">;</span></span>
-<span id="cb114-19"><a href="mixture-models.html#cb114-19" tabindex="-1"></a>  </span>
-<span id="cb114-20"><a href="mixture-models.html#cb114-20" tabindex="-1"></a>  vector<span class="op">[</span>binLength<span class="op">]</span> bin_grid<span class="op">;</span></span>
-<span id="cb114-21"><a href="mixture-models.html#cb114-21" tabindex="-1"></a>  </span>
-<span id="cb114-22"><a href="mixture-models.html#cb114-22" tabindex="-1"></a>  <span class="dt">int</span> bin_kept<span class="op">[</span>N<span class="op">];</span></span>
-<span id="cb114-23"><a href="mixture-models.html#cb114-23" tabindex="-1"></a>  </span>
-<span id="cb114-24"><a href="mixture-models.html#cb114-24" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> prior_mix<span class="op">;</span></span>
-<span id="cb114-25"><a href="mixture-models.html#cb114-25" tabindex="-1"></a>  </span>
-<span id="cb114-26"><a href="mixture-models.html#cb114-26" tabindex="-1"></a>  real prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
-<span id="cb114-27"><a href="mixture-models.html#cb114-27" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb114-28"><a href="mixture-models.html#cb114-28" tabindex="-1"></a></span>
-<span id="cb114-29"><a href="mixture-models.html#cb114-29" tabindex="-1"></a>transformed data <span class="op">{</span></span>
-<span id="cb114-30"><a href="mixture-models.html#cb114-30" tabindex="-1"></a>  </span>
-<span id="cb114-31"><a href="mixture-models.html#cb114-31" tabindex="-1"></a>  </span>
-<span id="cb114-32"><a href="mixture-models.html#cb114-32" tabindex="-1"></a>  </span>
-<span id="cb114-33"><a href="mixture-models.html#cb114-33" tabindex="-1"></a>  </span>
-<span id="cb114-34"><a href="mixture-models.html#cb114-34" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb114-35"><a href="mixture-models.html#cb114-35" tabindex="-1"></a></span>
-<span id="cb114-36"><a href="mixture-models.html#cb114-36" tabindex="-1"></a></span>
-<span id="cb114-37"><a href="mixture-models.html#cb114-37" tabindex="-1"></a>parameters <span class="op">{</span></span>
-<span id="cb114-38"><a href="mixture-models.html#cb114-38" tabindex="-1"></a>  </span>
-<span id="cb114-39"><a href="mixture-models.html#cb114-39" tabindex="-1"></a>  simplex<span class="op">[</span><span class="dv">3</span><span class="op">]</span> mix<span class="op">;</span></span>
-<span id="cb114-40"><a href="mixture-models.html#cb114-40" tabindex="-1"></a>  </span>
-<span id="cb114-41"><a href="mixture-models.html#cb114-41" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
-<span id="cb114-42"><a href="mixture-models.html#cb114-42" tabindex="-1"></a></span>
-<span id="cb114-43"><a href="mixture-models.html#cb114-43" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb114-44"><a href="mixture-models.html#cb114-44" tabindex="-1"></a></span>
-<span id="cb114-45"><a href="mixture-models.html#cb114-45" tabindex="-1"></a>model <span class="op">{</span></span>
-<span id="cb114-46"><a href="mixture-models.html#cb114-46" tabindex="-1"></a>  </span>
-<span id="cb114-47"><a href="mixture-models.html#cb114-47" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> like_i<span class="op">;</span></span>
-<span id="cb114-48"><a href="mixture-models.html#cb114-48" tabindex="-1"></a>  </span>
-<span id="cb114-49"><a href="mixture-models.html#cb114-49" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb114-50"><a href="mixture-models.html#cb114-50" tabindex="-1"></a>    </span>
-<span id="cb114-51"><a href="mixture-models.html#cb114-51" tabindex="-1"></a>    <span class="co">// Selfish</span></span>
-<span id="cb114-52"><a href="mixture-models.html#cb114-52" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>income<span class="op">[</span>ii<span class="op">]*</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">])[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
-<span id="cb114-53"><a href="mixture-models.html#cb114-53" tabindex="-1"></a>    <span class="co">// Perfect substituties</span></span>
-<span id="cb114-54"><a href="mixture-models.html#cb114-54" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>income<span class="op">[</span>ii<span class="op">]*(</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">]+(</span><span class="fl">1.0</span><span class="op">-</span>bin_grid<span class="op">)*</span>pOther<span class="op">[</span>ii<span class="op">]))[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
-<span id="cb114-55"><a href="mixture-models.html#cb114-55" tabindex="-1"></a>    <span class="co">// Perfect complements</span></span>
-<span id="cb114-56"><a href="mixture-models.html#cb114-56" tabindex="-1"></a>    vector<span class="op">[</span>binLength<span class="op">]</span> UPC<span class="op">;</span></span>
-<span id="cb114-57"><a href="mixture-models.html#cb114-57" tabindex="-1"></a>    </span>
-<span id="cb114-58"><a href="mixture-models.html#cb114-58" tabindex="-1"></a>    UPC <span class="op">=</span> fmin<span class="op">(</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">],(</span><span class="fl">1.0</span><span class="op">-</span>bin_grid<span class="op">)*</span>pOther<span class="op">[</span>ii<span class="op">]);</span></span>
-<span id="cb114-59"><a href="mixture-models.html#cb114-59" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>income<span class="op">[</span>ii<span class="op">]*</span>UPC<span class="op">)[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
-<span id="cb114-60"><a href="mixture-models.html#cb114-60" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb114-61"><a href="mixture-models.html#cb114-61" tabindex="-1"></a>  </span>
-<span id="cb114-62"><a href="mixture-models.html#cb114-62" tabindex="-1"></a>  </span>
-<span id="cb114-63"><a href="mixture-models.html#cb114-63" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>nParticipants<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb114-64"><a href="mixture-models.html#cb114-64" tabindex="-1"></a>    <span class="dt">int</span> iStart <span class="op">=</span> idStart<span class="op">[</span>ii<span class="op">];</span></span>
-<span id="cb114-65"><a href="mixture-models.html#cb114-65" tabindex="-1"></a>    <span class="dt">int</span> iEnd   <span class="op">=</span> idEnd<span class="op">[</span>ii<span class="op">];</span></span>
-<span id="cb114-66"><a href="mixture-models.html#cb114-66" tabindex="-1"></a>    </span>
-<span id="cb114-67"><a href="mixture-models.html#cb114-67" tabindex="-1"></a>    vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> like_type <span class="op">=</span> like_i<span class="op">[</span>iStart<span class="op">:</span>iEnd<span class="op">,]</span><span class="ch">&#39;*</span><span class="er">rep_vector(1.0,iEnd-iStart+1);</span></span>
-<span id="cb114-68"><a href="mixture-models.html#cb114-68" tabindex="-1"></a>    </span>
-<span id="cb114-69"><a href="mixture-models.html#cb114-69" tabindex="-1"></a>    target <span class="op">+=</span> log_sum_exp<span class="op">(</span>like_type <span class="op">+</span>log<span class="op">(</span>mix<span class="op">));</span></span>
-<span id="cb114-70"><a href="mixture-models.html#cb114-70" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb114-71"><a href="mixture-models.html#cb114-71" tabindex="-1"></a>  </span>
-<span id="cb114-72"><a href="mixture-models.html#cb114-72" tabindex="-1"></a>  </span>
-<span id="cb114-73"><a href="mixture-models.html#cb114-73" tabindex="-1"></a>  <span class="co">// priors</span></span>
-<span id="cb114-74"><a href="mixture-models.html#cb114-74" tabindex="-1"></a>  mix <span class="op">~</span> dirichlet<span class="op">(</span>prior_mix<span class="op">);</span></span>
-<span id="cb114-75"><a href="mixture-models.html#cb114-75" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb114-76"><a href="mixture-models.html#cb114-76" tabindex="-1"></a></span>
-<span id="cb114-77"><a href="mixture-models.html#cb114-77" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb116-1"><a href="mixture-models.html#cb116-1" tabindex="-1"></a></span>
+<span id="cb116-2"><a href="mixture-models.html#cb116-2" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb116-3"><a href="mixture-models.html#cb116-3" tabindex="-1"></a><span class="co">AV2001_3typesDichotomous.stan</span></span>
+<span id="cb116-4"><a href="mixture-models.html#cb116-4" tabindex="-1"></a><span class="co">Mixture model assuming each participant is one type forever</span></span>
+<span id="cb116-5"><a href="mixture-models.html#cb116-5" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb116-6"><a href="mixture-models.html#cb116-6" tabindex="-1"></a></span>
+<span id="cb116-7"><a href="mixture-models.html#cb116-7" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb116-8"><a href="mixture-models.html#cb116-8" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span></span>
+<span id="cb116-9"><a href="mixture-models.html#cb116-9" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> nParticipants<span class="op">;</span></span>
+<span id="cb116-10"><a href="mixture-models.html#cb116-10" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> id<span class="op">[</span>N<span class="op">];</span></span>
+<span id="cb116-11"><a href="mixture-models.html#cb116-11" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> idStart<span class="op">[</span>nParticipants<span class="op">];</span></span>
+<span id="cb116-12"><a href="mixture-models.html#cb116-12" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> idEnd<span class="op">[</span>nParticipants<span class="op">];</span></span>
+<span id="cb116-13"><a href="mixture-models.html#cb116-13" tabindex="-1"></a>  </span>
+<span id="cb116-14"><a href="mixture-models.html#cb116-14" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> income<span class="op">;</span></span>
+<span id="cb116-15"><a href="mixture-models.html#cb116-15" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> pSelf<span class="op">;</span></span>
+<span id="cb116-16"><a href="mixture-models.html#cb116-16" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> pOther<span class="op">;</span></span>
+<span id="cb116-17"><a href="mixture-models.html#cb116-17" tabindex="-1"></a>  </span>
+<span id="cb116-18"><a href="mixture-models.html#cb116-18" tabindex="-1"></a>  <span class="dt">int</span> binLength<span class="op">;</span></span>
+<span id="cb116-19"><a href="mixture-models.html#cb116-19" tabindex="-1"></a>  </span>
+<span id="cb116-20"><a href="mixture-models.html#cb116-20" tabindex="-1"></a>  vector<span class="op">[</span>binLength<span class="op">]</span> bin_grid<span class="op">;</span></span>
+<span id="cb116-21"><a href="mixture-models.html#cb116-21" tabindex="-1"></a>  </span>
+<span id="cb116-22"><a href="mixture-models.html#cb116-22" tabindex="-1"></a>  <span class="dt">int</span> bin_kept<span class="op">[</span>N<span class="op">];</span></span>
+<span id="cb116-23"><a href="mixture-models.html#cb116-23" tabindex="-1"></a>  </span>
+<span id="cb116-24"><a href="mixture-models.html#cb116-24" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> prior_mix<span class="op">;</span></span>
+<span id="cb116-25"><a href="mixture-models.html#cb116-25" tabindex="-1"></a>  </span>
+<span id="cb116-26"><a href="mixture-models.html#cb116-26" tabindex="-1"></a>  real prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb116-27"><a href="mixture-models.html#cb116-27" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb116-28"><a href="mixture-models.html#cb116-28" tabindex="-1"></a></span>
+<span id="cb116-29"><a href="mixture-models.html#cb116-29" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb116-30"><a href="mixture-models.html#cb116-30" tabindex="-1"></a>  </span>
+<span id="cb116-31"><a href="mixture-models.html#cb116-31" tabindex="-1"></a>  </span>
+<span id="cb116-32"><a href="mixture-models.html#cb116-32" tabindex="-1"></a>  </span>
+<span id="cb116-33"><a href="mixture-models.html#cb116-33" tabindex="-1"></a>  </span>
+<span id="cb116-34"><a href="mixture-models.html#cb116-34" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb116-35"><a href="mixture-models.html#cb116-35" tabindex="-1"></a></span>
+<span id="cb116-36"><a href="mixture-models.html#cb116-36" tabindex="-1"></a></span>
+<span id="cb116-37"><a href="mixture-models.html#cb116-37" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb116-38"><a href="mixture-models.html#cb116-38" tabindex="-1"></a>  </span>
+<span id="cb116-39"><a href="mixture-models.html#cb116-39" tabindex="-1"></a>  simplex<span class="op">[</span><span class="dv">3</span><span class="op">]</span> mix<span class="op">;</span></span>
+<span id="cb116-40"><a href="mixture-models.html#cb116-40" tabindex="-1"></a>  </span>
+<span id="cb116-41"><a href="mixture-models.html#cb116-41" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
+<span id="cb116-42"><a href="mixture-models.html#cb116-42" tabindex="-1"></a></span>
+<span id="cb116-43"><a href="mixture-models.html#cb116-43" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb116-44"><a href="mixture-models.html#cb116-44" tabindex="-1"></a></span>
+<span id="cb116-45"><a href="mixture-models.html#cb116-45" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb116-46"><a href="mixture-models.html#cb116-46" tabindex="-1"></a>  </span>
+<span id="cb116-47"><a href="mixture-models.html#cb116-47" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> like_i<span class="op">;</span></span>
+<span id="cb116-48"><a href="mixture-models.html#cb116-48" tabindex="-1"></a>  </span>
+<span id="cb116-49"><a href="mixture-models.html#cb116-49" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb116-50"><a href="mixture-models.html#cb116-50" tabindex="-1"></a>    </span>
+<span id="cb116-51"><a href="mixture-models.html#cb116-51" tabindex="-1"></a>    <span class="co">// Selfish</span></span>
+<span id="cb116-52"><a href="mixture-models.html#cb116-52" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>income<span class="op">[</span>ii<span class="op">]*</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">])[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
+<span id="cb116-53"><a href="mixture-models.html#cb116-53" tabindex="-1"></a>    <span class="co">// Perfect substituties</span></span>
+<span id="cb116-54"><a href="mixture-models.html#cb116-54" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>income<span class="op">[</span>ii<span class="op">]*(</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">]+(</span><span class="fl">1.0</span><span class="op">-</span>bin_grid<span class="op">)*</span>pOther<span class="op">[</span>ii<span class="op">]))[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
+<span id="cb116-55"><a href="mixture-models.html#cb116-55" tabindex="-1"></a>    <span class="co">// Perfect complements</span></span>
+<span id="cb116-56"><a href="mixture-models.html#cb116-56" tabindex="-1"></a>    vector<span class="op">[</span>binLength<span class="op">]</span> UPC<span class="op">;</span></span>
+<span id="cb116-57"><a href="mixture-models.html#cb116-57" tabindex="-1"></a>    </span>
+<span id="cb116-58"><a href="mixture-models.html#cb116-58" tabindex="-1"></a>    UPC <span class="op">=</span> fmin<span class="op">(</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">],(</span><span class="fl">1.0</span><span class="op">-</span>bin_grid<span class="op">)*</span>pOther<span class="op">[</span>ii<span class="op">]);</span></span>
+<span id="cb116-59"><a href="mixture-models.html#cb116-59" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>income<span class="op">[</span>ii<span class="op">]*</span>UPC<span class="op">)[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
+<span id="cb116-60"><a href="mixture-models.html#cb116-60" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb116-61"><a href="mixture-models.html#cb116-61" tabindex="-1"></a>  </span>
+<span id="cb116-62"><a href="mixture-models.html#cb116-62" tabindex="-1"></a>  </span>
+<span id="cb116-63"><a href="mixture-models.html#cb116-63" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>nParticipants<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb116-64"><a href="mixture-models.html#cb116-64" tabindex="-1"></a>    <span class="dt">int</span> iStart <span class="op">=</span> idStart<span class="op">[</span>ii<span class="op">];</span></span>
+<span id="cb116-65"><a href="mixture-models.html#cb116-65" tabindex="-1"></a>    <span class="dt">int</span> iEnd   <span class="op">=</span> idEnd<span class="op">[</span>ii<span class="op">];</span></span>
+<span id="cb116-66"><a href="mixture-models.html#cb116-66" tabindex="-1"></a>    </span>
+<span id="cb116-67"><a href="mixture-models.html#cb116-67" tabindex="-1"></a>    vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> like_type <span class="op">=</span> like_i<span class="op">[</span>iStart<span class="op">:</span>iEnd<span class="op">,]</span><span class="ch">&#39;*</span><span class="er">rep_vector(1.0,iEnd-iStart+1);</span></span>
+<span id="cb116-68"><a href="mixture-models.html#cb116-68" tabindex="-1"></a>    </span>
+<span id="cb116-69"><a href="mixture-models.html#cb116-69" tabindex="-1"></a>    target <span class="op">+=</span> log_sum_exp<span class="op">(</span>like_type <span class="op">+</span>log<span class="op">(</span>mix<span class="op">));</span></span>
+<span id="cb116-70"><a href="mixture-models.html#cb116-70" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb116-71"><a href="mixture-models.html#cb116-71" tabindex="-1"></a>  </span>
+<span id="cb116-72"><a href="mixture-models.html#cb116-72" tabindex="-1"></a>  </span>
+<span id="cb116-73"><a href="mixture-models.html#cb116-73" tabindex="-1"></a>  <span class="co">// priors</span></span>
+<span id="cb116-74"><a href="mixture-models.html#cb116-74" tabindex="-1"></a>  mix <span class="op">~</span> dirichlet<span class="op">(</span>prior_mix<span class="op">);</span></span>
+<span id="cb116-75"><a href="mixture-models.html#cb116-75" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb116-76"><a href="mixture-models.html#cb116-76" tabindex="-1"></a></span>
+<span id="cb116-77"><a href="mixture-models.html#cb116-77" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>And here is the <em>Stan</em> file I used for the toolbox mixture model:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb115-1"><a href="mixture-models.html#cb115-1" tabindex="-1"></a></span>
-<span id="cb115-2"><a href="mixture-models.html#cb115-2" tabindex="-1"></a><span class="co">/*</span></span>
-<span id="cb115-3"><a href="mixture-models.html#cb115-3" tabindex="-1"></a><span class="co">AV2001_3types_toolbox.stan</span></span>
-<span id="cb115-4"><a href="mixture-models.html#cb115-4" tabindex="-1"></a><span class="co">Mixture model assuming each decision is one type</span></span>
-<span id="cb115-5"><a href="mixture-models.html#cb115-5" tabindex="-1"></a><span class="co">*/</span></span>
-<span id="cb115-6"><a href="mixture-models.html#cb115-6" tabindex="-1"></a></span>
-<span id="cb115-7"><a href="mixture-models.html#cb115-7" tabindex="-1"></a>data <span class="op">{</span></span>
-<span id="cb115-8"><a href="mixture-models.html#cb115-8" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span></span>
-<span id="cb115-9"><a href="mixture-models.html#cb115-9" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> nParticipants<span class="op">;</span></span>
-<span id="cb115-10"><a href="mixture-models.html#cb115-10" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> id<span class="op">[</span>N<span class="op">];</span></span>
-<span id="cb115-11"><a href="mixture-models.html#cb115-11" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> idStart<span class="op">[</span>nParticipants<span class="op">];</span></span>
-<span id="cb115-12"><a href="mixture-models.html#cb115-12" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> idEnd<span class="op">[</span>nParticipants<span class="op">];</span></span>
-<span id="cb115-13"><a href="mixture-models.html#cb115-13" tabindex="-1"></a>  </span>
-<span id="cb115-14"><a href="mixture-models.html#cb115-14" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> income<span class="op">;</span></span>
-<span id="cb115-15"><a href="mixture-models.html#cb115-15" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> pSelf<span class="op">;</span></span>
-<span id="cb115-16"><a href="mixture-models.html#cb115-16" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> pOther<span class="op">;</span></span>
-<span id="cb115-17"><a href="mixture-models.html#cb115-17" tabindex="-1"></a>  </span>
-<span id="cb115-18"><a href="mixture-models.html#cb115-18" tabindex="-1"></a>  <span class="dt">int</span> binLength<span class="op">;</span></span>
-<span id="cb115-19"><a href="mixture-models.html#cb115-19" tabindex="-1"></a>  </span>
-<span id="cb115-20"><a href="mixture-models.html#cb115-20" tabindex="-1"></a>  vector<span class="op">[</span>binLength<span class="op">]</span> bin_grid<span class="op">;</span></span>
-<span id="cb115-21"><a href="mixture-models.html#cb115-21" tabindex="-1"></a>  </span>
-<span id="cb115-22"><a href="mixture-models.html#cb115-22" tabindex="-1"></a>  <span class="dt">int</span> bin_kept<span class="op">[</span>N<span class="op">];</span></span>
-<span id="cb115-23"><a href="mixture-models.html#cb115-23" tabindex="-1"></a>  </span>
-<span id="cb115-24"><a href="mixture-models.html#cb115-24" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> prior_mix<span class="op">;</span></span>
-<span id="cb115-25"><a href="mixture-models.html#cb115-25" tabindex="-1"></a>  </span>
-<span id="cb115-26"><a href="mixture-models.html#cb115-26" tabindex="-1"></a>  real prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
-<span id="cb115-27"><a href="mixture-models.html#cb115-27" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb115-28"><a href="mixture-models.html#cb115-28" tabindex="-1"></a></span>
-<span id="cb115-29"><a href="mixture-models.html#cb115-29" tabindex="-1"></a>transformed data <span class="op">{</span></span>
-<span id="cb115-30"><a href="mixture-models.html#cb115-30" tabindex="-1"></a>  </span>
-<span id="cb115-31"><a href="mixture-models.html#cb115-31" tabindex="-1"></a>  </span>
-<span id="cb115-32"><a href="mixture-models.html#cb115-32" tabindex="-1"></a>  </span>
-<span id="cb115-33"><a href="mixture-models.html#cb115-33" tabindex="-1"></a>  </span>
-<span id="cb115-34"><a href="mixture-models.html#cb115-34" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb115-35"><a href="mixture-models.html#cb115-35" tabindex="-1"></a></span>
-<span id="cb115-36"><a href="mixture-models.html#cb115-36" tabindex="-1"></a></span>
-<span id="cb115-37"><a href="mixture-models.html#cb115-37" tabindex="-1"></a>parameters <span class="op">{</span></span>
-<span id="cb115-38"><a href="mixture-models.html#cb115-38" tabindex="-1"></a>  </span>
-<span id="cb115-39"><a href="mixture-models.html#cb115-39" tabindex="-1"></a>  simplex<span class="op">[</span><span class="dv">3</span><span class="op">]</span> mix<span class="op">;</span></span>
-<span id="cb115-40"><a href="mixture-models.html#cb115-40" tabindex="-1"></a>  </span>
-<span id="cb115-41"><a href="mixture-models.html#cb115-41" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
-<span id="cb115-42"><a href="mixture-models.html#cb115-42" tabindex="-1"></a></span>
-<span id="cb115-43"><a href="mixture-models.html#cb115-43" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb115-44"><a href="mixture-models.html#cb115-44" tabindex="-1"></a></span>
-<span id="cb115-45"><a href="mixture-models.html#cb115-45" tabindex="-1"></a>model <span class="op">{</span></span>
-<span id="cb115-46"><a href="mixture-models.html#cb115-46" tabindex="-1"></a>  </span>
-<span id="cb115-47"><a href="mixture-models.html#cb115-47" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> like_i<span class="op">;</span></span>
-<span id="cb115-48"><a href="mixture-models.html#cb115-48" tabindex="-1"></a>  </span>
-<span id="cb115-49"><a href="mixture-models.html#cb115-49" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb115-50"><a href="mixture-models.html#cb115-50" tabindex="-1"></a>    </span>
-<span id="cb115-51"><a href="mixture-models.html#cb115-51" tabindex="-1"></a>    <span class="co">// Selfish</span></span>
-<span id="cb115-52"><a href="mixture-models.html#cb115-52" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>income<span class="op">[</span>ii<span class="op">]*</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">])[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
-<span id="cb115-53"><a href="mixture-models.html#cb115-53" tabindex="-1"></a>    <span class="co">// Perfect substituties</span></span>
-<span id="cb115-54"><a href="mixture-models.html#cb115-54" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>income<span class="op">[</span>ii<span class="op">]*(</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">]+(</span><span class="fl">1.0</span><span class="op">-</span>bin_grid<span class="op">)*</span>pOther<span class="op">[</span>ii<span class="op">]))[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
-<span id="cb115-55"><a href="mixture-models.html#cb115-55" tabindex="-1"></a>    <span class="co">// Perfect complements</span></span>
-<span id="cb115-56"><a href="mixture-models.html#cb115-56" tabindex="-1"></a>    vector<span class="op">[</span>binLength<span class="op">]</span> UPC<span class="op">;</span></span>
-<span id="cb115-57"><a href="mixture-models.html#cb115-57" tabindex="-1"></a>    </span>
-<span id="cb115-58"><a href="mixture-models.html#cb115-58" tabindex="-1"></a>    UPC <span class="op">=</span> fmin<span class="op">(</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">],(</span><span class="fl">1.0</span><span class="op">-</span>bin_grid<span class="op">)*</span>pOther<span class="op">[</span>ii<span class="op">]);</span></span>
-<span id="cb115-59"><a href="mixture-models.html#cb115-59" tabindex="-1"></a>    </span>
-<span id="cb115-60"><a href="mixture-models.html#cb115-60" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>income<span class="op">[</span>ii<span class="op">]*</span>UPC<span class="op">)[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
-<span id="cb115-61"><a href="mixture-models.html#cb115-61" tabindex="-1"></a>    </span>
-<span id="cb115-62"><a href="mixture-models.html#cb115-62" tabindex="-1"></a>    target <span class="op">+=</span> log_sum_exp<span class="op">(</span>like_i<span class="op">[</span>ii<span class="op">,]</span><span class="ch">&#39;+</span><span class="er">log(mix));</span></span>
-<span id="cb115-63"><a href="mixture-models.html#cb115-63" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb115-64"><a href="mixture-models.html#cb115-64" tabindex="-1"></a>  </span>
-<span id="cb115-65"><a href="mixture-models.html#cb115-65" tabindex="-1"></a>  </span>
-<span id="cb115-66"><a href="mixture-models.html#cb115-66" tabindex="-1"></a>  </span>
-<span id="cb115-67"><a href="mixture-models.html#cb115-67" tabindex="-1"></a>  <span class="co">// priors</span></span>
-<span id="cb115-68"><a href="mixture-models.html#cb115-68" tabindex="-1"></a>  mix <span class="op">~</span> dirichlet<span class="op">(</span>prior_mix<span class="op">);</span></span>
-<span id="cb115-69"><a href="mixture-models.html#cb115-69" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb115-70"><a href="mixture-models.html#cb115-70" tabindex="-1"></a></span>
-<span id="cb115-71"><a href="mixture-models.html#cb115-71" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb117-1"><a href="mixture-models.html#cb117-1" tabindex="-1"></a></span>
+<span id="cb117-2"><a href="mixture-models.html#cb117-2" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb117-3"><a href="mixture-models.html#cb117-3" tabindex="-1"></a><span class="co">AV2001_3types_toolbox.stan</span></span>
+<span id="cb117-4"><a href="mixture-models.html#cb117-4" tabindex="-1"></a><span class="co">Mixture model assuming each decision is one type</span></span>
+<span id="cb117-5"><a href="mixture-models.html#cb117-5" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb117-6"><a href="mixture-models.html#cb117-6" tabindex="-1"></a></span>
+<span id="cb117-7"><a href="mixture-models.html#cb117-7" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb117-8"><a href="mixture-models.html#cb117-8" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span></span>
+<span id="cb117-9"><a href="mixture-models.html#cb117-9" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> nParticipants<span class="op">;</span></span>
+<span id="cb117-10"><a href="mixture-models.html#cb117-10" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> id<span class="op">[</span>N<span class="op">];</span></span>
+<span id="cb117-11"><a href="mixture-models.html#cb117-11" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> idStart<span class="op">[</span>nParticipants<span class="op">];</span></span>
+<span id="cb117-12"><a href="mixture-models.html#cb117-12" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> idEnd<span class="op">[</span>nParticipants<span class="op">];</span></span>
+<span id="cb117-13"><a href="mixture-models.html#cb117-13" tabindex="-1"></a>  </span>
+<span id="cb117-14"><a href="mixture-models.html#cb117-14" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> income<span class="op">;</span></span>
+<span id="cb117-15"><a href="mixture-models.html#cb117-15" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> pSelf<span class="op">;</span></span>
+<span id="cb117-16"><a href="mixture-models.html#cb117-16" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> pOther<span class="op">;</span></span>
+<span id="cb117-17"><a href="mixture-models.html#cb117-17" tabindex="-1"></a>  </span>
+<span id="cb117-18"><a href="mixture-models.html#cb117-18" tabindex="-1"></a>  <span class="dt">int</span> binLength<span class="op">;</span></span>
+<span id="cb117-19"><a href="mixture-models.html#cb117-19" tabindex="-1"></a>  </span>
+<span id="cb117-20"><a href="mixture-models.html#cb117-20" tabindex="-1"></a>  vector<span class="op">[</span>binLength<span class="op">]</span> bin_grid<span class="op">;</span></span>
+<span id="cb117-21"><a href="mixture-models.html#cb117-21" tabindex="-1"></a>  </span>
+<span id="cb117-22"><a href="mixture-models.html#cb117-22" tabindex="-1"></a>  <span class="dt">int</span> bin_kept<span class="op">[</span>N<span class="op">];</span></span>
+<span id="cb117-23"><a href="mixture-models.html#cb117-23" tabindex="-1"></a>  </span>
+<span id="cb117-24"><a href="mixture-models.html#cb117-24" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> prior_mix<span class="op">;</span></span>
+<span id="cb117-25"><a href="mixture-models.html#cb117-25" tabindex="-1"></a>  </span>
+<span id="cb117-26"><a href="mixture-models.html#cb117-26" tabindex="-1"></a>  real prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb117-27"><a href="mixture-models.html#cb117-27" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb117-28"><a href="mixture-models.html#cb117-28" tabindex="-1"></a></span>
+<span id="cb117-29"><a href="mixture-models.html#cb117-29" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb117-30"><a href="mixture-models.html#cb117-30" tabindex="-1"></a>  </span>
+<span id="cb117-31"><a href="mixture-models.html#cb117-31" tabindex="-1"></a>  </span>
+<span id="cb117-32"><a href="mixture-models.html#cb117-32" tabindex="-1"></a>  </span>
+<span id="cb117-33"><a href="mixture-models.html#cb117-33" tabindex="-1"></a>  </span>
+<span id="cb117-34"><a href="mixture-models.html#cb117-34" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb117-35"><a href="mixture-models.html#cb117-35" tabindex="-1"></a></span>
+<span id="cb117-36"><a href="mixture-models.html#cb117-36" tabindex="-1"></a></span>
+<span id="cb117-37"><a href="mixture-models.html#cb117-37" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb117-38"><a href="mixture-models.html#cb117-38" tabindex="-1"></a>  </span>
+<span id="cb117-39"><a href="mixture-models.html#cb117-39" tabindex="-1"></a>  simplex<span class="op">[</span><span class="dv">3</span><span class="op">]</span> mix<span class="op">;</span></span>
+<span id="cb117-40"><a href="mixture-models.html#cb117-40" tabindex="-1"></a>  </span>
+<span id="cb117-41"><a href="mixture-models.html#cb117-41" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambda<span class="op">;</span></span>
+<span id="cb117-42"><a href="mixture-models.html#cb117-42" tabindex="-1"></a></span>
+<span id="cb117-43"><a href="mixture-models.html#cb117-43" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb117-44"><a href="mixture-models.html#cb117-44" tabindex="-1"></a></span>
+<span id="cb117-45"><a href="mixture-models.html#cb117-45" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb117-46"><a href="mixture-models.html#cb117-46" tabindex="-1"></a>  </span>
+<span id="cb117-47"><a href="mixture-models.html#cb117-47" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> like_i<span class="op">;</span></span>
+<span id="cb117-48"><a href="mixture-models.html#cb117-48" tabindex="-1"></a>  </span>
+<span id="cb117-49"><a href="mixture-models.html#cb117-49" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb117-50"><a href="mixture-models.html#cb117-50" tabindex="-1"></a>    </span>
+<span id="cb117-51"><a href="mixture-models.html#cb117-51" tabindex="-1"></a>    <span class="co">// Selfish</span></span>
+<span id="cb117-52"><a href="mixture-models.html#cb117-52" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>income<span class="op">[</span>ii<span class="op">]*</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">])[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
+<span id="cb117-53"><a href="mixture-models.html#cb117-53" tabindex="-1"></a>    <span class="co">// Perfect substituties</span></span>
+<span id="cb117-54"><a href="mixture-models.html#cb117-54" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>income<span class="op">[</span>ii<span class="op">]*(</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">]+(</span><span class="fl">1.0</span><span class="op">-</span>bin_grid<span class="op">)*</span>pOther<span class="op">[</span>ii<span class="op">]))[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
+<span id="cb117-55"><a href="mixture-models.html#cb117-55" tabindex="-1"></a>    <span class="co">// Perfect complements</span></span>
+<span id="cb117-56"><a href="mixture-models.html#cb117-56" tabindex="-1"></a>    vector<span class="op">[</span>binLength<span class="op">]</span> UPC<span class="op">;</span></span>
+<span id="cb117-57"><a href="mixture-models.html#cb117-57" tabindex="-1"></a>    </span>
+<span id="cb117-58"><a href="mixture-models.html#cb117-58" tabindex="-1"></a>    UPC <span class="op">=</span> fmin<span class="op">(</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">],(</span><span class="fl">1.0</span><span class="op">-</span>bin_grid<span class="op">)*</span>pOther<span class="op">[</span>ii<span class="op">]);</span></span>
+<span id="cb117-59"><a href="mixture-models.html#cb117-59" tabindex="-1"></a>    </span>
+<span id="cb117-60"><a href="mixture-models.html#cb117-60" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">*</span>income<span class="op">[</span>ii<span class="op">]*</span>UPC<span class="op">)[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
+<span id="cb117-61"><a href="mixture-models.html#cb117-61" tabindex="-1"></a>    </span>
+<span id="cb117-62"><a href="mixture-models.html#cb117-62" tabindex="-1"></a>    target <span class="op">+=</span> log_sum_exp<span class="op">(</span>like_i<span class="op">[</span>ii<span class="op">,]</span><span class="ch">&#39;+</span><span class="er">log(mix));</span></span>
+<span id="cb117-63"><a href="mixture-models.html#cb117-63" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb117-64"><a href="mixture-models.html#cb117-64" tabindex="-1"></a>  </span>
+<span id="cb117-65"><a href="mixture-models.html#cb117-65" tabindex="-1"></a>  </span>
+<span id="cb117-66"><a href="mixture-models.html#cb117-66" tabindex="-1"></a>  </span>
+<span id="cb117-67"><a href="mixture-models.html#cb117-67" tabindex="-1"></a>  <span class="co">// priors</span></span>
+<span id="cb117-68"><a href="mixture-models.html#cb117-68" tabindex="-1"></a>  mix <span class="op">~</span> dirichlet<span class="op">(</span>prior_mix<span class="op">);</span></span>
+<span id="cb117-69"><a href="mixture-models.html#cb117-69" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>prior_lambda<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb117-70"><a href="mixture-models.html#cb117-70" tabindex="-1"></a></span>
+<span id="cb117-71"><a href="mixture-models.html#cb117-71" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>As you can see, there isn’t much of a difference between them: only the way the model-specific likelihoods enter the grand likelihood. Note that the only difference between them is in the <code>model</code> block, and even then after all of the likelihoods for the individual models are calculated.</p>
 <p>A problem I ran into when coding this was that the token endowment was different for different decisions. As participants could choose an endowment in integer multiples of tokens, this means that the size of the choice set changes with the variable <code>income</code>. I decided to re-scale the problem by focusing on the derived variable <span class="math inline">\(y_{i,t}\)</span>, which is the <em>fraction</em> of tokens kept by the participant. I then discrietize this fraction into 20 evenly-spaced bins, which I call <code>bin_grid</code>, and generate the variable <code>bin_kept</code>, which identifies the closest fraction on the grid to the actual fraction <span class="math inline">\(y_{i,t}\)</span>.</p>
 <p>Now that we have the models coded up, we can move on to thinking about priors. As you can see in the above code, I have chosen a log-normal prior for <span class="math inline">\(\lambda\)</span>. This makes sense because <span class="math inline">\(\lambda\)</span> must be greater than zero. For the mixing probabilities, their support is the 3-dimensional simplex. A good choice of prior when we have a parameter that has a simplex support is the <em>Dirichlet</em> distribution, which is a generalization of the Beta distribution to more than two categories. That is, the Beta distribution is to binary variables as the Dirichlet distribution is to categorical variables. For <span class="math inline">\(\rho\)</span> then, I choose a prior of:</p>
@@ -899,34 +899,34 @@ p(y_{i,t}\mid \rho,\lambda,m)&amp;=\frac{\exp(\lambda \mathrm{income}_{i,t}U^m(y
 <p><span class="math display">\[
 \log\lambda\sim N(\log1,1^2)
 \]</span></p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="mixture-models.html#cb116-1" tabindex="-1"></a>pSelf<span class="ot">&lt;-</span><span class="dv">1</span></span>
-<span id="cb116-2"><a href="mixture-models.html#cb116-2" tabindex="-1"></a>pOther<span class="ot">&lt;-</span><span class="dv">2</span></span>
-<span id="cb116-3"><a href="mixture-models.html#cb116-3" tabindex="-1"></a>income<span class="ot">&lt;-</span><span class="dv">50</span></span>
-<span id="cb116-4"><a href="mixture-models.html#cb116-4" tabindex="-1"></a></span>
-<span id="cb116-5"><a href="mixture-models.html#cb116-5" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">expand_grid</span>(<span class="at">fraction_kept =</span> <span class="fu">seq</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>,<span class="at">by=</span><span class="fl">0.05</span>),</span>
-<span id="cb116-6"><a href="mixture-models.html#cb116-6" tabindex="-1"></a>               <span class="at">lambda =</span> <span class="fu">c</span>(<span class="fl">0.01</span>,<span class="fl">0.1</span>,<span class="dv">1</span>,<span class="dv">10</span>),</span>
-<span id="cb116-7"><a href="mixture-models.html#cb116-7" tabindex="-1"></a>               <span class="at">type =</span> <span class="fu">c</span>(<span class="st">&quot;S&quot;</span>,<span class="st">&quot;PS&quot;</span>,<span class="st">&quot;PC&quot;</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb116-8"><a href="mixture-models.html#cb116-8" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb116-9"><a href="mixture-models.html#cb116-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">LU =</span> <span class="fu">ifelse</span>(type<span class="sc">==</span><span class="st">&quot;S&quot;</span>,lambda<span class="sc">*</span>income<span class="sc">*</span>fraction_kept<span class="sc">*</span>pSelf,</span>
-<span id="cb116-10"><a href="mixture-models.html#cb116-10" tabindex="-1"></a>              <span class="fu">ifelse</span>(type<span class="sc">==</span><span class="st">&quot;PS&quot;</span>,lambda<span class="sc">*</span>income<span class="sc">*</span>(fraction_kept<span class="sc">*</span>pSelf<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>fraction_kept)<span class="sc">*</span>pOther),</span>
-<span id="cb116-11"><a href="mixture-models.html#cb116-11" tabindex="-1"></a>                     lambda<span class="sc">*</span>income<span class="sc">*</span><span class="fu">min</span>(fraction_kept<span class="sc">*</span>pSelf,(<span class="dv">1</span><span class="sc">-</span>fraction_kept)<span class="sc">*</span>pOther))</span>
-<span id="cb116-12"><a href="mixture-models.html#cb116-12" tabindex="-1"></a>         )</span>
-<span id="cb116-13"><a href="mixture-models.html#cb116-13" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb116-14"><a href="mixture-models.html#cb116-14" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb116-15"><a href="mixture-models.html#cb116-15" tabindex="-1"></a>  <span class="fu">arrange</span>(type,lambda,fraction_kept) <span class="sc">|&gt;</span></span>
-<span id="cb116-16"><a href="mixture-models.html#cb116-16" tabindex="-1"></a>  <span class="fu">group_by</span>(type,lambda) <span class="sc">|&gt;</span></span>
-<span id="cb116-17"><a href="mixture-models.html#cb116-17" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">expLU =</span> <span class="fu">exp</span>(LU<span class="sc">-</span><span class="fu">max</span>(LU)),</span>
-<span id="cb116-18"><a href="mixture-models.html#cb116-18" tabindex="-1"></a>         <span class="at">p =</span> expLU<span class="sc">/</span><span class="fu">sum</span>(expLU),</span>
-<span id="cb116-19"><a href="mixture-models.html#cb116-19" tabindex="-1"></a>         <span class="at">lambda =</span> <span class="fu">paste</span>(<span class="st">&quot;\u03bb =&quot;</span>,lambda)</span>
-<span id="cb116-20"><a href="mixture-models.html#cb116-20" tabindex="-1"></a>         )</span>
-<span id="cb116-21"><a href="mixture-models.html#cb116-21" tabindex="-1"></a></span>
-<span id="cb116-22"><a href="mixture-models.html#cb116-22" tabindex="-1"></a>(</span>
-<span id="cb116-23"><a href="mixture-models.html#cb116-23" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>fraction_kept,<span class="at">y=</span>p))</span>
-<span id="cb116-24"><a href="mixture-models.html#cb116-24" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>()</span>
-<span id="cb116-25"><a href="mixture-models.html#cb116-25" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_grid</span>(lambda <span class="sc">~</span> type,<span class="at">scales=</span><span class="st">&quot;free&quot;</span>)</span>
-<span id="cb116-26"><a href="mixture-models.html#cb116-26" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
-<span id="cb116-27"><a href="mixture-models.html#cb116-27" tabindex="-1"></a>  </span>
-<span id="cb116-28"><a href="mixture-models.html#cb116-28" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="mixture-models.html#cb118-1" tabindex="-1"></a>pSelf<span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb118-2"><a href="mixture-models.html#cb118-2" tabindex="-1"></a>pOther<span class="ot">&lt;-</span><span class="dv">2</span></span>
+<span id="cb118-3"><a href="mixture-models.html#cb118-3" tabindex="-1"></a>income<span class="ot">&lt;-</span><span class="dv">50</span></span>
+<span id="cb118-4"><a href="mixture-models.html#cb118-4" tabindex="-1"></a></span>
+<span id="cb118-5"><a href="mixture-models.html#cb118-5" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">expand_grid</span>(<span class="at">fraction_kept =</span> <span class="fu">seq</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>,<span class="at">by=</span><span class="fl">0.05</span>),</span>
+<span id="cb118-6"><a href="mixture-models.html#cb118-6" tabindex="-1"></a>               <span class="at">lambda =</span> <span class="fu">c</span>(<span class="fl">0.01</span>,<span class="fl">0.1</span>,<span class="dv">1</span>,<span class="dv">10</span>),</span>
+<span id="cb118-7"><a href="mixture-models.html#cb118-7" tabindex="-1"></a>               <span class="at">type =</span> <span class="fu">c</span>(<span class="st">&quot;S&quot;</span>,<span class="st">&quot;PS&quot;</span>,<span class="st">&quot;PC&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb118-8"><a href="mixture-models.html#cb118-8" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
+<span id="cb118-9"><a href="mixture-models.html#cb118-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">LU =</span> <span class="fu">ifelse</span>(type<span class="sc">==</span><span class="st">&quot;S&quot;</span>,lambda<span class="sc">*</span>income<span class="sc">*</span>fraction_kept<span class="sc">*</span>pSelf,</span>
+<span id="cb118-10"><a href="mixture-models.html#cb118-10" tabindex="-1"></a>              <span class="fu">ifelse</span>(type<span class="sc">==</span><span class="st">&quot;PS&quot;</span>,lambda<span class="sc">*</span>income<span class="sc">*</span>(fraction_kept<span class="sc">*</span>pSelf<span class="sc">+</span>(<span class="dv">1</span><span class="sc">-</span>fraction_kept)<span class="sc">*</span>pOther),</span>
+<span id="cb118-11"><a href="mixture-models.html#cb118-11" tabindex="-1"></a>                     lambda<span class="sc">*</span>income<span class="sc">*</span><span class="fu">min</span>(fraction_kept<span class="sc">*</span>pSelf,(<span class="dv">1</span><span class="sc">-</span>fraction_kept)<span class="sc">*</span>pOther))</span>
+<span id="cb118-12"><a href="mixture-models.html#cb118-12" tabindex="-1"></a>         )</span>
+<span id="cb118-13"><a href="mixture-models.html#cb118-13" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb118-14"><a href="mixture-models.html#cb118-14" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb118-15"><a href="mixture-models.html#cb118-15" tabindex="-1"></a>  <span class="fu">arrange</span>(type,lambda,fraction_kept) <span class="sc">|&gt;</span></span>
+<span id="cb118-16"><a href="mixture-models.html#cb118-16" tabindex="-1"></a>  <span class="fu">group_by</span>(type,lambda) <span class="sc">|&gt;</span></span>
+<span id="cb118-17"><a href="mixture-models.html#cb118-17" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">expLU =</span> <span class="fu">exp</span>(LU<span class="sc">-</span><span class="fu">max</span>(LU)),</span>
+<span id="cb118-18"><a href="mixture-models.html#cb118-18" tabindex="-1"></a>         <span class="at">p =</span> expLU<span class="sc">/</span><span class="fu">sum</span>(expLU),</span>
+<span id="cb118-19"><a href="mixture-models.html#cb118-19" tabindex="-1"></a>         <span class="at">lambda =</span> <span class="fu">paste</span>(<span class="st">&quot;\u03bb =&quot;</span>,lambda)</span>
+<span id="cb118-20"><a href="mixture-models.html#cb118-20" tabindex="-1"></a>         )</span>
+<span id="cb118-21"><a href="mixture-models.html#cb118-21" tabindex="-1"></a></span>
+<span id="cb118-22"><a href="mixture-models.html#cb118-22" tabindex="-1"></a>(</span>
+<span id="cb118-23"><a href="mixture-models.html#cb118-23" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data=</span>d,<span class="fu">aes</span>(<span class="at">x=</span>fraction_kept,<span class="at">y=</span>p))</span>
+<span id="cb118-24"><a href="mixture-models.html#cb118-24" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">geom_path</span>()</span>
+<span id="cb118-25"><a href="mixture-models.html#cb118-25" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">facet_grid</span>(lambda <span class="sc">~</span> type,<span class="at">scales=</span><span class="st">&quot;free&quot;</span>)</span>
+<span id="cb118-26"><a href="mixture-models.html#cb118-26" tabindex="-1"></a>  <span class="sc">+</span><span class="fu">theme_bw</span>()</span>
+<span id="cb118-27"><a href="mixture-models.html#cb118-27" tabindex="-1"></a>  </span>
+<span id="cb118-28"><a href="mixture-models.html#cb118-28" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:MixtureModelsLambdaCalibration"></span>
 <img src="index_files/figure-html/MixtureModelsLambdaCalibration-1.png" alt="Implied choice probabilities for various values of $\lambda$." width="672" />
 <p class="caption">
@@ -934,36 +934,36 @@ Figure 8.2: Implied choice probabilities for various values of <span class="math
 </p>
 </div>
 <p>Now that we have fully specified the likelihood and priors, we can go and estimate the model! Since <span class="citation">Andreoni and Vesterlund (<a href="#ref-AV2001">2001</a>)</span> were interested in differences in other-regarding preferences between male and female participants, I estimate both the dichotomous and toolbox models using all of the data, as well as estimating them just with the female participants, and just with the male participants. The estimates can be seen in Table <a href="mixture-models.html#tab:MixtureModelsHomogeneousTable">8.1</a>.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="mixture-models.html#cb117-1" tabindex="-1"></a>rounding<span class="ot">&lt;-</span><span class="dv">3</span></span>
-<span id="cb117-2"><a href="mixture-models.html#cb117-2" tabindex="-1"></a></span>
-<span id="cb117-3"><a href="mixture-models.html#cb117-3" tabindex="-1"></a>FileList<span class="ot">&lt;-</span><span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">&quot;Code/MixtureModels&quot;</span>)</span>
-<span id="cb117-4"><a href="mixture-models.html#cb117-4" tabindex="-1"></a></span>
-<span id="cb117-5"><a href="mixture-models.html#cb117-5" tabindex="-1"></a>FileList<span class="ot">&lt;-</span>FileList[<span class="fu">grepl</span>(<span class="st">&quot;AV2001Dichotomous&quot;</span>,FileList) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;AV2001Toolbox&quot;</span>,FileList)]</span>
-<span id="cb117-6"><a href="mixture-models.html#cb117-6" tabindex="-1"></a></span>
-<span id="cb117-7"><a href="mixture-models.html#cb117-7" tabindex="-1"></a>EstSum<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb117-8"><a href="mixture-models.html#cb117-8" tabindex="-1"></a></span>
-<span id="cb117-9"><a href="mixture-models.html#cb117-9" tabindex="-1"></a><span class="cf">for</span> (ff <span class="cf">in</span> FileList) {</span>
-<span id="cb117-10"><a href="mixture-models.html#cb117-10" tabindex="-1"></a>  EstSum<span class="ot">&lt;-</span><span class="fu">summary</span>(<span class="fu">readRDS</span>(<span class="fu">paste0</span>(<span class="st">&quot;Code/MixtureModels/&quot;</span>,ff)))<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
-<span id="cb117-11"><a href="mixture-models.html#cb117-11" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
-<span id="cb117-12"><a href="mixture-models.html#cb117-12" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">file=</span>ff,</span>
-<span id="cb117-13"><a href="mixture-models.html#cb117-13" tabindex="-1"></a>           <span class="at">parameter =</span> <span class="fu">c</span>(<span class="st">&quot;Mix: S&quot;</span>,<span class="st">&quot;Mix: PS&quot;</span>,<span class="st">&quot;Mix: PC&quot;</span>,<span class="st">&quot;lambda&quot;</span>,<span class="st">&quot;lp__&quot;</span>)</span>
-<span id="cb117-14"><a href="mixture-models.html#cb117-14" tabindex="-1"></a>           ) <span class="sc">|&gt;</span></span>
-<span id="cb117-15"><a href="mixture-models.html#cb117-15" tabindex="-1"></a>    <span class="fu">rbind</span>(EstSum)</span>
-<span id="cb117-16"><a href="mixture-models.html#cb117-16" tabindex="-1"></a>}</span>
-<span id="cb117-17"><a href="mixture-models.html#cb117-17" tabindex="-1"></a></span>
-<span id="cb117-18"><a href="mixture-models.html#cb117-18" tabindex="-1"></a>EstSum<span class="ot">&lt;-</span>EstSum <span class="sc">|&gt;</span></span>
-<span id="cb117-19"><a href="mixture-models.html#cb117-19" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb117-20"><a href="mixture-models.html#cb117-20" tabindex="-1"></a>    <span class="st">`</span><span class="at">Model type</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Dichotomous&quot;</span>,file),<span class="st">&quot;Dichotomous&quot;</span>,<span class="st">&quot;Toolbox&quot;</span>),</span>
-<span id="cb117-21"><a href="mixture-models.html#cb117-21" tabindex="-1"></a>    <span class="at">Group =</span> <span class="fu">sub</span>(<span class="st">&quot;.rds&quot;</span>,<span class="st">&quot;&quot;</span>,<span class="fu">sub</span>(<span class="st">&quot;.*_&quot;</span>,<span class="st">&quot;&quot;</span>,file)),</span>
-<span id="cb117-22"><a href="mixture-models.html#cb117-22" tabindex="-1"></a>    <span class="at">msd =</span> <span class="fu">paste0</span>(</span>
-<span id="cb117-23"><a href="mixture-models.html#cb117-23" tabindex="-1"></a>      mean <span class="sc">|&gt;</span> <span class="fu">round</span>(rounding),</span>
-<span id="cb117-24"><a href="mixture-models.html#cb117-24" tabindex="-1"></a>      <span class="st">&quot; (&quot;</span>,sd <span class="sc">|&gt;</span> <span class="fu">round</span>(rounding),<span class="st">&quot;)&quot;</span></span>
-<span id="cb117-25"><a href="mixture-models.html#cb117-25" tabindex="-1"></a>    )</span>
-<span id="cb117-26"><a href="mixture-models.html#cb117-26" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb117-27"><a href="mixture-models.html#cb117-27" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(parameter,<span class="st">`</span><span class="at">Model type</span><span class="st">`</span>,Group,msd))<span class="sc">|&gt;</span></span>
-<span id="cb117-28"><a href="mixture-models.html#cb117-28" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">Model type</span><span class="st">`</span>,Group),<span class="at">values_from =</span> msd,<span class="at">names_sep=</span><span class="st">&quot; &quot;</span>)</span>
-<span id="cb117-29"><a href="mixture-models.html#cb117-29" tabindex="-1"></a></span>
-<span id="cb117-30"><a href="mixture-models.html#cb117-30" tabindex="-1"></a>EstSum <span class="sc">|&gt;</span> <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&quot;Estimates from the 3-type mixture model using data from Andreoni and Vesterlund (2001).&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="mixture-models.html#cb119-1" tabindex="-1"></a>rounding<span class="ot">&lt;-</span><span class="dv">3</span></span>
+<span id="cb119-2"><a href="mixture-models.html#cb119-2" tabindex="-1"></a></span>
+<span id="cb119-3"><a href="mixture-models.html#cb119-3" tabindex="-1"></a>FileList<span class="ot">&lt;-</span><span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">&quot;Code/MixtureModels&quot;</span>)</span>
+<span id="cb119-4"><a href="mixture-models.html#cb119-4" tabindex="-1"></a></span>
+<span id="cb119-5"><a href="mixture-models.html#cb119-5" tabindex="-1"></a>FileList<span class="ot">&lt;-</span>FileList[<span class="fu">grepl</span>(<span class="st">&quot;AV2001Dichotomous&quot;</span>,FileList) <span class="sc">|</span> <span class="fu">grepl</span>(<span class="st">&quot;AV2001Toolbox&quot;</span>,FileList)]</span>
+<span id="cb119-6"><a href="mixture-models.html#cb119-6" tabindex="-1"></a></span>
+<span id="cb119-7"><a href="mixture-models.html#cb119-7" tabindex="-1"></a>EstSum<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb119-8"><a href="mixture-models.html#cb119-8" tabindex="-1"></a></span>
+<span id="cb119-9"><a href="mixture-models.html#cb119-9" tabindex="-1"></a><span class="cf">for</span> (ff <span class="cf">in</span> FileList) {</span>
+<span id="cb119-10"><a href="mixture-models.html#cb119-10" tabindex="-1"></a>  EstSum<span class="ot">&lt;-</span><span class="fu">summary</span>(<span class="fu">readRDS</span>(<span class="fu">paste0</span>(<span class="st">&quot;Code/MixtureModels/&quot;</span>,ff)))<span class="sc">$</span>summary <span class="sc">|&gt;</span></span>
+<span id="cb119-11"><a href="mixture-models.html#cb119-11" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb119-12"><a href="mixture-models.html#cb119-12" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">file=</span>ff,</span>
+<span id="cb119-13"><a href="mixture-models.html#cb119-13" tabindex="-1"></a>           <span class="at">parameter =</span> <span class="fu">c</span>(<span class="st">&quot;Mix: S&quot;</span>,<span class="st">&quot;Mix: PS&quot;</span>,<span class="st">&quot;Mix: PC&quot;</span>,<span class="st">&quot;lambda&quot;</span>,<span class="st">&quot;lp__&quot;</span>)</span>
+<span id="cb119-14"><a href="mixture-models.html#cb119-14" tabindex="-1"></a>           ) <span class="sc">|&gt;</span></span>
+<span id="cb119-15"><a href="mixture-models.html#cb119-15" tabindex="-1"></a>    <span class="fu">rbind</span>(EstSum)</span>
+<span id="cb119-16"><a href="mixture-models.html#cb119-16" tabindex="-1"></a>}</span>
+<span id="cb119-17"><a href="mixture-models.html#cb119-17" tabindex="-1"></a></span>
+<span id="cb119-18"><a href="mixture-models.html#cb119-18" tabindex="-1"></a>EstSum<span class="ot">&lt;-</span>EstSum <span class="sc">|&gt;</span></span>
+<span id="cb119-19"><a href="mixture-models.html#cb119-19" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb119-20"><a href="mixture-models.html#cb119-20" tabindex="-1"></a>    <span class="st">`</span><span class="at">Model type</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Dichotomous&quot;</span>,file),<span class="st">&quot;Dichotomous&quot;</span>,<span class="st">&quot;Toolbox&quot;</span>),</span>
+<span id="cb119-21"><a href="mixture-models.html#cb119-21" tabindex="-1"></a>    <span class="at">Group =</span> <span class="fu">sub</span>(<span class="st">&quot;.rds&quot;</span>,<span class="st">&quot;&quot;</span>,<span class="fu">sub</span>(<span class="st">&quot;.*_&quot;</span>,<span class="st">&quot;&quot;</span>,file)),</span>
+<span id="cb119-22"><a href="mixture-models.html#cb119-22" tabindex="-1"></a>    <span class="at">msd =</span> <span class="fu">paste0</span>(</span>
+<span id="cb119-23"><a href="mixture-models.html#cb119-23" tabindex="-1"></a>      mean <span class="sc">|&gt;</span> <span class="fu">round</span>(rounding),</span>
+<span id="cb119-24"><a href="mixture-models.html#cb119-24" tabindex="-1"></a>      <span class="st">&quot; (&quot;</span>,sd <span class="sc">|&gt;</span> <span class="fu">round</span>(rounding),<span class="st">&quot;)&quot;</span></span>
+<span id="cb119-25"><a href="mixture-models.html#cb119-25" tabindex="-1"></a>    )</span>
+<span id="cb119-26"><a href="mixture-models.html#cb119-26" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb119-27"><a href="mixture-models.html#cb119-27" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(parameter,<span class="st">`</span><span class="at">Model type</span><span class="st">`</span>,Group,msd))<span class="sc">|&gt;</span></span>
+<span id="cb119-28"><a href="mixture-models.html#cb119-28" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">Model type</span><span class="st">`</span>,Group),<span class="at">values_from =</span> msd,<span class="at">names_sep=</span><span class="st">&quot; &quot;</span>)</span>
+<span id="cb119-29"><a href="mixture-models.html#cb119-29" tabindex="-1"></a></span>
+<span id="cb119-30"><a href="mixture-models.html#cb119-30" tabindex="-1"></a>EstSum <span class="sc">|&gt;</span> <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&quot;Estimates from the 3-type mixture model using data from Andreoni and Vesterlund (2001).&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <table class=" lightable-classic" style="color: black; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:MixtureModelsHomogeneousTable">Table 8.1: </span>Estimates from the 3-type mixture model using data from Andreoni and Vesterlund (2001).
@@ -1128,124 +1128,124 @@ lp__
 \end{aligned}
 \]</span></p>
 <p>Here is the <em>Stan</em> program that estimates the dichotomous model. For this section, I will just focus on the dichotomous model because it is most similar to the classification in <span class="citation">Andreoni and Vesterlund (<a href="#ref-AV2001">2001</a>)</span>.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb118-1"><a href="mixture-models.html#cb118-1" tabindex="-1"></a></span>
-<span id="cb118-2"><a href="mixture-models.html#cb118-2" tabindex="-1"></a><span class="co">/*</span></span>
-<span id="cb118-3"><a href="mixture-models.html#cb118-3" tabindex="-1"></a><span class="co">AV2001_3types_dichotomous_hlambda.stan</span></span>
-<span id="cb118-4"><a href="mixture-models.html#cb118-4" tabindex="-1"></a><span class="co">Mixture model assuming each participant is one type forever</span></span>
-<span id="cb118-5"><a href="mixture-models.html#cb118-5" tabindex="-1"></a><span class="co">lambda is participant specific and log-normally distributed</span></span>
-<span id="cb118-6"><a href="mixture-models.html#cb118-6" tabindex="-1"></a><span class="co">*/</span></span>
-<span id="cb118-7"><a href="mixture-models.html#cb118-7" tabindex="-1"></a></span>
-<span id="cb118-8"><a href="mixture-models.html#cb118-8" tabindex="-1"></a>data <span class="op">{</span></span>
-<span id="cb118-9"><a href="mixture-models.html#cb118-9" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span></span>
-<span id="cb118-10"><a href="mixture-models.html#cb118-10" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> nParticipants<span class="op">;</span></span>
-<span id="cb118-11"><a href="mixture-models.html#cb118-11" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> id<span class="op">[</span>N<span class="op">];</span> </span>
-<span id="cb118-12"><a href="mixture-models.html#cb118-12" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> idStart<span class="op">[</span>nParticipants<span class="op">];</span></span>
-<span id="cb118-13"><a href="mixture-models.html#cb118-13" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> idEnd<span class="op">[</span>nParticipants<span class="op">];</span></span>
-<span id="cb118-14"><a href="mixture-models.html#cb118-14" tabindex="-1"></a>  </span>
-<span id="cb118-15"><a href="mixture-models.html#cb118-15" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> income<span class="op">;</span> </span>
-<span id="cb118-16"><a href="mixture-models.html#cb118-16" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> pSelf<span class="op">;</span></span>
-<span id="cb118-17"><a href="mixture-models.html#cb118-17" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> pOther<span class="op">;</span></span>
-<span id="cb118-18"><a href="mixture-models.html#cb118-18" tabindex="-1"></a>  </span>
-<span id="cb118-19"><a href="mixture-models.html#cb118-19" tabindex="-1"></a>  <span class="dt">int</span> binLength<span class="op">;</span></span>
-<span id="cb118-20"><a href="mixture-models.html#cb118-20" tabindex="-1"></a>  </span>
-<span id="cb118-21"><a href="mixture-models.html#cb118-21" tabindex="-1"></a>  vector<span class="op">[</span>binLength<span class="op">]</span> bin_grid<span class="op">;</span></span>
-<span id="cb118-22"><a href="mixture-models.html#cb118-22" tabindex="-1"></a>  </span>
-<span id="cb118-23"><a href="mixture-models.html#cb118-23" tabindex="-1"></a>  <span class="dt">int</span> bin_kept<span class="op">[</span>N<span class="op">];</span></span>
-<span id="cb118-24"><a href="mixture-models.html#cb118-24" tabindex="-1"></a>  </span>
-<span id="cb118-25"><a href="mixture-models.html#cb118-25" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> prior_mix<span class="op">;</span></span>
-<span id="cb118-26"><a href="mixture-models.html#cb118-26" tabindex="-1"></a>  </span>
-<span id="cb118-27"><a href="mixture-models.html#cb118-27" tabindex="-1"></a>  real prior_lambda_mean<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
-<span id="cb118-28"><a href="mixture-models.html#cb118-28" tabindex="-1"></a>  real prior_lambda_sd<span class="op">;</span></span>
-<span id="cb118-29"><a href="mixture-models.html#cb118-29" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb118-30"><a href="mixture-models.html#cb118-30" tabindex="-1"></a></span>
-<span id="cb118-31"><a href="mixture-models.html#cb118-31" tabindex="-1"></a>transformed data <span class="op">{</span></span>
-<span id="cb118-32"><a href="mixture-models.html#cb118-32" tabindex="-1"></a>  </span>
-<span id="cb118-33"><a href="mixture-models.html#cb118-33" tabindex="-1"></a>  </span>
-<span id="cb118-34"><a href="mixture-models.html#cb118-34" tabindex="-1"></a>  </span>
-<span id="cb118-35"><a href="mixture-models.html#cb118-35" tabindex="-1"></a>  </span>
-<span id="cb118-36"><a href="mixture-models.html#cb118-36" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb118-37"><a href="mixture-models.html#cb118-37" tabindex="-1"></a></span>
-<span id="cb118-38"><a href="mixture-models.html#cb118-38" tabindex="-1"></a></span>
-<span id="cb118-39"><a href="mixture-models.html#cb118-39" tabindex="-1"></a>parameters <span class="op">{</span></span>
-<span id="cb118-40"><a href="mixture-models.html#cb118-40" tabindex="-1"></a>  </span>
-<span id="cb118-41"><a href="mixture-models.html#cb118-41" tabindex="-1"></a>  simplex<span class="op">[</span><span class="dv">3</span><span class="op">]</span> mix<span class="op">;</span></span>
-<span id="cb118-42"><a href="mixture-models.html#cb118-42" tabindex="-1"></a>  </span>
-<span id="cb118-43"><a href="mixture-models.html#cb118-43" tabindex="-1"></a>  real lambdaMean<span class="op">;</span></span>
-<span id="cb118-44"><a href="mixture-models.html#cb118-44" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambdaSD<span class="op">;</span></span>
-<span id="cb118-45"><a href="mixture-models.html#cb118-45" tabindex="-1"></a>  </span>
-<span id="cb118-46"><a href="mixture-models.html#cb118-46" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;[</span>nParticipants<span class="op">]</span> lambda<span class="op">;</span></span>
-<span id="cb118-47"><a href="mixture-models.html#cb118-47" tabindex="-1"></a></span>
-<span id="cb118-48"><a href="mixture-models.html#cb118-48" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb118-49"><a href="mixture-models.html#cb118-49" tabindex="-1"></a></span>
-<span id="cb118-50"><a href="mixture-models.html#cb118-50" tabindex="-1"></a>model <span class="op">{</span></span>
-<span id="cb118-51"><a href="mixture-models.html#cb118-51" tabindex="-1"></a>  </span>
-<span id="cb118-52"><a href="mixture-models.html#cb118-52" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> like_i<span class="op">;</span></span>
-<span id="cb118-53"><a href="mixture-models.html#cb118-53" tabindex="-1"></a>  </span>
-<span id="cb118-54"><a href="mixture-models.html#cb118-54" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb118-55"><a href="mixture-models.html#cb118-55" tabindex="-1"></a>    </span>
-<span id="cb118-56"><a href="mixture-models.html#cb118-56" tabindex="-1"></a>    <span class="co">// Selfish</span></span>
-<span id="cb118-57"><a href="mixture-models.html#cb118-57" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">[</span>id<span class="op">[</span>ii<span class="op">]]*</span>income<span class="op">[</span>ii<span class="op">]*</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">])[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
-<span id="cb118-58"><a href="mixture-models.html#cb118-58" tabindex="-1"></a>    <span class="co">// Perfect substituties</span></span>
-<span id="cb118-59"><a href="mixture-models.html#cb118-59" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">[</span>id<span class="op">[</span>ii<span class="op">]]*</span>income<span class="op">[</span>ii<span class="op">]*(</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">]+(</span><span class="fl">1.0</span><span class="op">-</span>bin_grid<span class="op">)*</span>pOther<span class="op">[</span>ii<span class="op">]))[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
-<span id="cb118-60"><a href="mixture-models.html#cb118-60" tabindex="-1"></a>    <span class="co">// Perfect complements</span></span>
-<span id="cb118-61"><a href="mixture-models.html#cb118-61" tabindex="-1"></a>    vector<span class="op">[</span>binLength<span class="op">]</span> UPC<span class="op">;</span></span>
-<span id="cb118-62"><a href="mixture-models.html#cb118-62" tabindex="-1"></a>    </span>
-<span id="cb118-63"><a href="mixture-models.html#cb118-63" tabindex="-1"></a>    UPC <span class="op">=</span> fmin<span class="op">(</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">],(</span><span class="fl">1.0</span><span class="op">-</span>bin_grid<span class="op">)*</span>pOther<span class="op">[</span>ii<span class="op">]);</span></span>
-<span id="cb118-64"><a href="mixture-models.html#cb118-64" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">[</span>id<span class="op">[</span>ii<span class="op">]]*</span>income<span class="op">[</span>ii<span class="op">]*</span>UPC<span class="op">)[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
-<span id="cb118-65"><a href="mixture-models.html#cb118-65" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb118-66"><a href="mixture-models.html#cb118-66" tabindex="-1"></a>  </span>
-<span id="cb118-67"><a href="mixture-models.html#cb118-67" tabindex="-1"></a>  </span>
-<span id="cb118-68"><a href="mixture-models.html#cb118-68" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>nParticipants<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb118-69"><a href="mixture-models.html#cb118-69" tabindex="-1"></a>    <span class="dt">int</span> iStart <span class="op">=</span> idStart<span class="op">[</span>ii<span class="op">];</span></span>
-<span id="cb118-70"><a href="mixture-models.html#cb118-70" tabindex="-1"></a>    <span class="dt">int</span> iEnd   <span class="op">=</span> idEnd<span class="op">[</span>ii<span class="op">];</span></span>
-<span id="cb118-71"><a href="mixture-models.html#cb118-71" tabindex="-1"></a>    </span>
-<span id="cb118-72"><a href="mixture-models.html#cb118-72" tabindex="-1"></a>    vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> like_type <span class="op">=</span> like_i<span class="op">[</span>iStart<span class="op">:</span>iEnd<span class="op">,]</span><span class="ch">&#39;*</span><span class="er">rep_vector(1.0,iEnd-iStart+1);</span></span>
-<span id="cb118-73"><a href="mixture-models.html#cb118-73" tabindex="-1"></a>    </span>
-<span id="cb118-74"><a href="mixture-models.html#cb118-74" tabindex="-1"></a>    target <span class="op">+=</span> log_sum_exp<span class="op">(</span>like_type <span class="op">+</span>log<span class="op">(</span>mix<span class="op">));</span></span>
-<span id="cb118-75"><a href="mixture-models.html#cb118-75" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb118-76"><a href="mixture-models.html#cb118-76" tabindex="-1"></a>  </span>
-<span id="cb118-77"><a href="mixture-models.html#cb118-77" tabindex="-1"></a>  </span>
-<span id="cb118-78"><a href="mixture-models.html#cb118-78" tabindex="-1"></a>  <span class="co">// priors</span></span>
-<span id="cb118-79"><a href="mixture-models.html#cb118-79" tabindex="-1"></a>  mix <span class="op">~</span> dirichlet<span class="op">(</span>prior_mix<span class="op">);</span></span>
-<span id="cb118-80"><a href="mixture-models.html#cb118-80" tabindex="-1"></a>  lambdaMean <span class="op">~</span> normal<span class="op">(</span>prior_lambda_mean<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda_mean<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
-<span id="cb118-81"><a href="mixture-models.html#cb118-81" tabindex="-1"></a>  lambdaSD <span class="op">~</span> cauchy<span class="op">(</span><span class="dv">0</span><span class="op">,</span>prior_lambda_sd<span class="op">);</span></span>
-<span id="cb118-82"><a href="mixture-models.html#cb118-82" tabindex="-1"></a>  </span>
-<span id="cb118-83"><a href="mixture-models.html#cb118-83" tabindex="-1"></a>  </span>
-<span id="cb118-84"><a href="mixture-models.html#cb118-84" tabindex="-1"></a>  <span class="co">// Hierarchical structure</span></span>
-<span id="cb118-85"><a href="mixture-models.html#cb118-85" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>lambdaMean<span class="op">,</span>lambdaSD<span class="op">);</span></span>
-<span id="cb118-86"><a href="mixture-models.html#cb118-86" tabindex="-1"></a></span>
-<span id="cb118-87"><a href="mixture-models.html#cb118-87" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb120-1"><a href="mixture-models.html#cb120-1" tabindex="-1"></a></span>
+<span id="cb120-2"><a href="mixture-models.html#cb120-2" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb120-3"><a href="mixture-models.html#cb120-3" tabindex="-1"></a><span class="co">AV2001_3types_dichotomous_hlambda.stan</span></span>
+<span id="cb120-4"><a href="mixture-models.html#cb120-4" tabindex="-1"></a><span class="co">Mixture model assuming each participant is one type forever</span></span>
+<span id="cb120-5"><a href="mixture-models.html#cb120-5" tabindex="-1"></a><span class="co">lambda is participant specific and log-normally distributed</span></span>
+<span id="cb120-6"><a href="mixture-models.html#cb120-6" tabindex="-1"></a><span class="co">*/</span></span>
+<span id="cb120-7"><a href="mixture-models.html#cb120-7" tabindex="-1"></a></span>
+<span id="cb120-8"><a href="mixture-models.html#cb120-8" tabindex="-1"></a>data <span class="op">{</span></span>
+<span id="cb120-9"><a href="mixture-models.html#cb120-9" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> N<span class="op">;</span></span>
+<span id="cb120-10"><a href="mixture-models.html#cb120-10" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> nParticipants<span class="op">;</span></span>
+<span id="cb120-11"><a href="mixture-models.html#cb120-11" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> id<span class="op">[</span>N<span class="op">];</span> </span>
+<span id="cb120-12"><a href="mixture-models.html#cb120-12" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> idStart<span class="op">[</span>nParticipants<span class="op">];</span></span>
+<span id="cb120-13"><a href="mixture-models.html#cb120-13" tabindex="-1"></a>  <span class="dt">int</span><span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> idEnd<span class="op">[</span>nParticipants<span class="op">];</span></span>
+<span id="cb120-14"><a href="mixture-models.html#cb120-14" tabindex="-1"></a>  </span>
+<span id="cb120-15"><a href="mixture-models.html#cb120-15" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> income<span class="op">;</span> </span>
+<span id="cb120-16"><a href="mixture-models.html#cb120-16" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> pSelf<span class="op">;</span></span>
+<span id="cb120-17"><a href="mixture-models.html#cb120-17" tabindex="-1"></a>  vector<span class="op">[</span>N<span class="op">]</span> pOther<span class="op">;</span></span>
+<span id="cb120-18"><a href="mixture-models.html#cb120-18" tabindex="-1"></a>  </span>
+<span id="cb120-19"><a href="mixture-models.html#cb120-19" tabindex="-1"></a>  <span class="dt">int</span> binLength<span class="op">;</span></span>
+<span id="cb120-20"><a href="mixture-models.html#cb120-20" tabindex="-1"></a>  </span>
+<span id="cb120-21"><a href="mixture-models.html#cb120-21" tabindex="-1"></a>  vector<span class="op">[</span>binLength<span class="op">]</span> bin_grid<span class="op">;</span></span>
+<span id="cb120-22"><a href="mixture-models.html#cb120-22" tabindex="-1"></a>  </span>
+<span id="cb120-23"><a href="mixture-models.html#cb120-23" tabindex="-1"></a>  <span class="dt">int</span> bin_kept<span class="op">[</span>N<span class="op">];</span></span>
+<span id="cb120-24"><a href="mixture-models.html#cb120-24" tabindex="-1"></a>  </span>
+<span id="cb120-25"><a href="mixture-models.html#cb120-25" tabindex="-1"></a>  vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> prior_mix<span class="op">;</span></span>
+<span id="cb120-26"><a href="mixture-models.html#cb120-26" tabindex="-1"></a>  </span>
+<span id="cb120-27"><a href="mixture-models.html#cb120-27" tabindex="-1"></a>  real prior_lambda_mean<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
+<span id="cb120-28"><a href="mixture-models.html#cb120-28" tabindex="-1"></a>  real prior_lambda_sd<span class="op">;</span></span>
+<span id="cb120-29"><a href="mixture-models.html#cb120-29" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb120-30"><a href="mixture-models.html#cb120-30" tabindex="-1"></a></span>
+<span id="cb120-31"><a href="mixture-models.html#cb120-31" tabindex="-1"></a>transformed data <span class="op">{</span></span>
+<span id="cb120-32"><a href="mixture-models.html#cb120-32" tabindex="-1"></a>  </span>
+<span id="cb120-33"><a href="mixture-models.html#cb120-33" tabindex="-1"></a>  </span>
+<span id="cb120-34"><a href="mixture-models.html#cb120-34" tabindex="-1"></a>  </span>
+<span id="cb120-35"><a href="mixture-models.html#cb120-35" tabindex="-1"></a>  </span>
+<span id="cb120-36"><a href="mixture-models.html#cb120-36" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb120-37"><a href="mixture-models.html#cb120-37" tabindex="-1"></a></span>
+<span id="cb120-38"><a href="mixture-models.html#cb120-38" tabindex="-1"></a></span>
+<span id="cb120-39"><a href="mixture-models.html#cb120-39" tabindex="-1"></a>parameters <span class="op">{</span></span>
+<span id="cb120-40"><a href="mixture-models.html#cb120-40" tabindex="-1"></a>  </span>
+<span id="cb120-41"><a href="mixture-models.html#cb120-41" tabindex="-1"></a>  simplex<span class="op">[</span><span class="dv">3</span><span class="op">]</span> mix<span class="op">;</span></span>
+<span id="cb120-42"><a href="mixture-models.html#cb120-42" tabindex="-1"></a>  </span>
+<span id="cb120-43"><a href="mixture-models.html#cb120-43" tabindex="-1"></a>  real lambdaMean<span class="op">;</span></span>
+<span id="cb120-44"><a href="mixture-models.html#cb120-44" tabindex="-1"></a>  real<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;</span> lambdaSD<span class="op">;</span></span>
+<span id="cb120-45"><a href="mixture-models.html#cb120-45" tabindex="-1"></a>  </span>
+<span id="cb120-46"><a href="mixture-models.html#cb120-46" tabindex="-1"></a>  vector<span class="op">&lt;</span>lower<span class="op">=</span><span class="dv">0</span><span class="op">&gt;[</span>nParticipants<span class="op">]</span> lambda<span class="op">;</span></span>
+<span id="cb120-47"><a href="mixture-models.html#cb120-47" tabindex="-1"></a></span>
+<span id="cb120-48"><a href="mixture-models.html#cb120-48" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb120-49"><a href="mixture-models.html#cb120-49" tabindex="-1"></a></span>
+<span id="cb120-50"><a href="mixture-models.html#cb120-50" tabindex="-1"></a>model <span class="op">{</span></span>
+<span id="cb120-51"><a href="mixture-models.html#cb120-51" tabindex="-1"></a>  </span>
+<span id="cb120-52"><a href="mixture-models.html#cb120-52" tabindex="-1"></a>  matrix<span class="op">[</span>N<span class="op">,</span><span class="dv">3</span><span class="op">]</span> like_i<span class="op">;</span></span>
+<span id="cb120-53"><a href="mixture-models.html#cb120-53" tabindex="-1"></a>  </span>
+<span id="cb120-54"><a href="mixture-models.html#cb120-54" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>N<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb120-55"><a href="mixture-models.html#cb120-55" tabindex="-1"></a>    </span>
+<span id="cb120-56"><a href="mixture-models.html#cb120-56" tabindex="-1"></a>    <span class="co">// Selfish</span></span>
+<span id="cb120-57"><a href="mixture-models.html#cb120-57" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">[</span>id<span class="op">[</span>ii<span class="op">]]*</span>income<span class="op">[</span>ii<span class="op">]*</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">])[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
+<span id="cb120-58"><a href="mixture-models.html#cb120-58" tabindex="-1"></a>    <span class="co">// Perfect substituties</span></span>
+<span id="cb120-59"><a href="mixture-models.html#cb120-59" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">[</span>id<span class="op">[</span>ii<span class="op">]]*</span>income<span class="op">[</span>ii<span class="op">]*(</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">]+(</span><span class="fl">1.0</span><span class="op">-</span>bin_grid<span class="op">)*</span>pOther<span class="op">[</span>ii<span class="op">]))[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
+<span id="cb120-60"><a href="mixture-models.html#cb120-60" tabindex="-1"></a>    <span class="co">// Perfect complements</span></span>
+<span id="cb120-61"><a href="mixture-models.html#cb120-61" tabindex="-1"></a>    vector<span class="op">[</span>binLength<span class="op">]</span> UPC<span class="op">;</span></span>
+<span id="cb120-62"><a href="mixture-models.html#cb120-62" tabindex="-1"></a>    </span>
+<span id="cb120-63"><a href="mixture-models.html#cb120-63" tabindex="-1"></a>    UPC <span class="op">=</span> fmin<span class="op">(</span>bin_grid<span class="op">*</span>pSelf<span class="op">[</span>ii<span class="op">],(</span><span class="fl">1.0</span><span class="op">-</span>bin_grid<span class="op">)*</span>pOther<span class="op">[</span>ii<span class="op">]);</span></span>
+<span id="cb120-64"><a href="mixture-models.html#cb120-64" tabindex="-1"></a>    like_i<span class="op">[</span>ii<span class="op">,</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> log_softmax<span class="op">(</span>lambda<span class="op">[</span>id<span class="op">[</span>ii<span class="op">]]*</span>income<span class="op">[</span>ii<span class="op">]*</span>UPC<span class="op">)[</span>bin_kept<span class="op">[</span>ii<span class="op">]];</span></span>
+<span id="cb120-65"><a href="mixture-models.html#cb120-65" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb120-66"><a href="mixture-models.html#cb120-66" tabindex="-1"></a>  </span>
+<span id="cb120-67"><a href="mixture-models.html#cb120-67" tabindex="-1"></a>  </span>
+<span id="cb120-68"><a href="mixture-models.html#cb120-68" tabindex="-1"></a>  <span class="cf">for</span> <span class="op">(</span>ii in <span class="dv">1</span><span class="op">:</span>nParticipants<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb120-69"><a href="mixture-models.html#cb120-69" tabindex="-1"></a>    <span class="dt">int</span> iStart <span class="op">=</span> idStart<span class="op">[</span>ii<span class="op">];</span></span>
+<span id="cb120-70"><a href="mixture-models.html#cb120-70" tabindex="-1"></a>    <span class="dt">int</span> iEnd   <span class="op">=</span> idEnd<span class="op">[</span>ii<span class="op">];</span></span>
+<span id="cb120-71"><a href="mixture-models.html#cb120-71" tabindex="-1"></a>    </span>
+<span id="cb120-72"><a href="mixture-models.html#cb120-72" tabindex="-1"></a>    vector<span class="op">[</span><span class="dv">3</span><span class="op">]</span> like_type <span class="op">=</span> like_i<span class="op">[</span>iStart<span class="op">:</span>iEnd<span class="op">,]</span><span class="ch">&#39;*</span><span class="er">rep_vector(1.0,iEnd-iStart+1);</span></span>
+<span id="cb120-73"><a href="mixture-models.html#cb120-73" tabindex="-1"></a>    </span>
+<span id="cb120-74"><a href="mixture-models.html#cb120-74" tabindex="-1"></a>    target <span class="op">+=</span> log_sum_exp<span class="op">(</span>like_type <span class="op">+</span>log<span class="op">(</span>mix<span class="op">));</span></span>
+<span id="cb120-75"><a href="mixture-models.html#cb120-75" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb120-76"><a href="mixture-models.html#cb120-76" tabindex="-1"></a>  </span>
+<span id="cb120-77"><a href="mixture-models.html#cb120-77" tabindex="-1"></a>  </span>
+<span id="cb120-78"><a href="mixture-models.html#cb120-78" tabindex="-1"></a>  <span class="co">// priors</span></span>
+<span id="cb120-79"><a href="mixture-models.html#cb120-79" tabindex="-1"></a>  mix <span class="op">~</span> dirichlet<span class="op">(</span>prior_mix<span class="op">);</span></span>
+<span id="cb120-80"><a href="mixture-models.html#cb120-80" tabindex="-1"></a>  lambdaMean <span class="op">~</span> normal<span class="op">(</span>prior_lambda_mean<span class="op">[</span><span class="dv">1</span><span class="op">],</span>prior_lambda_mean<span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span>
+<span id="cb120-81"><a href="mixture-models.html#cb120-81" tabindex="-1"></a>  lambdaSD <span class="op">~</span> cauchy<span class="op">(</span><span class="dv">0</span><span class="op">,</span>prior_lambda_sd<span class="op">);</span></span>
+<span id="cb120-82"><a href="mixture-models.html#cb120-82" tabindex="-1"></a>  </span>
+<span id="cb120-83"><a href="mixture-models.html#cb120-83" tabindex="-1"></a>  </span>
+<span id="cb120-84"><a href="mixture-models.html#cb120-84" tabindex="-1"></a>  <span class="co">// Hierarchical structure</span></span>
+<span id="cb120-85"><a href="mixture-models.html#cb120-85" tabindex="-1"></a>  lambda <span class="op">~</span> lognormal<span class="op">(</span>lambdaMean<span class="op">,</span>lambdaSD<span class="op">);</span></span>
+<span id="cb120-86"><a href="mixture-models.html#cb120-86" tabindex="-1"></a></span>
+<span id="cb120-87"><a href="mixture-models.html#cb120-87" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>As before, I estimate the model using all of the data, as well as the data for male and female participants separately. Here is a posterior distribution summary table of these models:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="mixture-models.html#cb119-1" tabindex="-1"></a>rounding<span class="ot">&lt;-</span><span class="dv">3</span></span>
-<span id="cb119-2"><a href="mixture-models.html#cb119-2" tabindex="-1"></a>FileList<span class="ot">&lt;-</span><span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">&quot;Code/MixtureModels&quot;</span>)</span>
-<span id="cb119-3"><a href="mixture-models.html#cb119-3" tabindex="-1"></a>FileList<span class="ot">&lt;-</span>FileList[<span class="fu">grepl</span>(<span class="st">&quot;AV2001hlambdaDichotomous&quot;</span>,FileList)]</span>
-<span id="cb119-4"><a href="mixture-models.html#cb119-4" tabindex="-1"></a></span>
-<span id="cb119-5"><a href="mixture-models.html#cb119-5" tabindex="-1"></a>EstSum<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
-<span id="cb119-6"><a href="mixture-models.html#cb119-6" tabindex="-1"></a></span>
-<span id="cb119-7"><a href="mixture-models.html#cb119-7" tabindex="-1"></a>SelectThis<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;mix[1]&quot;</span>,<span class="st">&quot;mix[2]&quot;</span>,<span class="st">&quot;mix[3]&quot;</span>,<span class="st">&quot;lambdaMean&quot;</span>,<span class="st">&quot;lambdaSD&quot;</span>)</span>
-<span id="cb119-8"><a href="mixture-models.html#cb119-8" tabindex="-1"></a>labels<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Mix: S&quot;</span>,<span class="st">&quot;Mix: PS&quot;</span>,<span class="st">&quot;Mix: PC&quot;</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">lambda$ mean&quot;</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">lambda$ sd&quot;</span>)</span>
-<span id="cb119-9"><a href="mixture-models.html#cb119-9" tabindex="-1"></a><span class="cf">for</span> (ff <span class="cf">in</span> FileList) {</span>
-<span id="cb119-10"><a href="mixture-models.html#cb119-10" tabindex="-1"></a>  EstSum<span class="ot">&lt;-</span><span class="fu">summary</span>(<span class="fu">readRDS</span>(<span class="fu">paste0</span>(<span class="st">&quot;Code/MixtureModels/&quot;</span>,ff)))<span class="sc">$</span>summary[SelectThis,] <span class="sc">|&gt;</span></span>
-<span id="cb119-11"><a href="mixture-models.html#cb119-11" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
-<span id="cb119-12"><a href="mixture-models.html#cb119-12" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">parameter =</span> labels,</span>
-<span id="cb119-13"><a href="mixture-models.html#cb119-13" tabindex="-1"></a>           <span class="at">file =</span> ff</span>
-<span id="cb119-14"><a href="mixture-models.html#cb119-14" tabindex="-1"></a>           ) <span class="sc">|&gt;</span></span>
-<span id="cb119-15"><a href="mixture-models.html#cb119-15" tabindex="-1"></a>    <span class="fu">rbind</span>(EstSum)</span>
-<span id="cb119-16"><a href="mixture-models.html#cb119-16" tabindex="-1"></a>}</span>
-<span id="cb119-17"><a href="mixture-models.html#cb119-17" tabindex="-1"></a></span>
-<span id="cb119-18"><a href="mixture-models.html#cb119-18" tabindex="-1"></a>EstSum<span class="ot">&lt;-</span>EstSum <span class="sc">|&gt;</span></span>
-<span id="cb119-19"><a href="mixture-models.html#cb119-19" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb119-20"><a href="mixture-models.html#cb119-20" tabindex="-1"></a>    <span class="st">`</span><span class="at">Model type</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Dichotomous&quot;</span>,file),<span class="st">&quot;Dichotomous&quot;</span>,<span class="st">&quot;Toolbox&quot;</span>),</span>
-<span id="cb119-21"><a href="mixture-models.html#cb119-21" tabindex="-1"></a>    <span class="at">Group =</span> <span class="fu">sub</span>(<span class="st">&quot;.rds&quot;</span>,<span class="st">&quot;&quot;</span>,<span class="fu">sub</span>(<span class="st">&quot;.*_&quot;</span>,<span class="st">&quot;&quot;</span>,file)),</span>
-<span id="cb119-22"><a href="mixture-models.html#cb119-22" tabindex="-1"></a>    <span class="at">msd =</span> <span class="fu">paste0</span>(</span>
-<span id="cb119-23"><a href="mixture-models.html#cb119-23" tabindex="-1"></a>      mean <span class="sc">|&gt;</span> <span class="fu">round</span>(rounding),</span>
-<span id="cb119-24"><a href="mixture-models.html#cb119-24" tabindex="-1"></a>      <span class="st">&quot; (&quot;</span>,sd <span class="sc">|&gt;</span> <span class="fu">round</span>(rounding),<span class="st">&quot;)&quot;</span></span>
-<span id="cb119-25"><a href="mixture-models.html#cb119-25" tabindex="-1"></a>    )</span>
-<span id="cb119-26"><a href="mixture-models.html#cb119-26" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb119-27"><a href="mixture-models.html#cb119-27" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(parameter,Group,msd)<span class="sc">|&gt;</span></span>
-<span id="cb119-28"><a href="mixture-models.html#cb119-28" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="fu">c</span>(Group),<span class="at">values_from =</span> msd) </span>
-<span id="cb119-29"><a href="mixture-models.html#cb119-29" tabindex="-1"></a></span>
-<span id="cb119-30"><a href="mixture-models.html#cb119-30" tabindex="-1"></a>EstSum <span class="sc">|&gt;</span> <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&quot;Estimates from the 3-type dichotomous mixture models with heterogeneous $</span><span class="sc">\\</span><span class="st">lambda$ using data from Andreoni and Vesterlund (2001). Note that reported $</span><span class="sc">\\</span><span class="st">lambda$ estimates are reported in log units.&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="mixture-models.html#cb121-1" tabindex="-1"></a>rounding<span class="ot">&lt;-</span><span class="dv">3</span></span>
+<span id="cb121-2"><a href="mixture-models.html#cb121-2" tabindex="-1"></a>FileList<span class="ot">&lt;-</span><span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">&quot;Code/MixtureModels&quot;</span>)</span>
+<span id="cb121-3"><a href="mixture-models.html#cb121-3" tabindex="-1"></a>FileList<span class="ot">&lt;-</span>FileList[<span class="fu">grepl</span>(<span class="st">&quot;AV2001hlambdaDichotomous&quot;</span>,FileList)]</span>
+<span id="cb121-4"><a href="mixture-models.html#cb121-4" tabindex="-1"></a></span>
+<span id="cb121-5"><a href="mixture-models.html#cb121-5" tabindex="-1"></a>EstSum<span class="ot">&lt;-</span><span class="fu">data.frame</span>()</span>
+<span id="cb121-6"><a href="mixture-models.html#cb121-6" tabindex="-1"></a></span>
+<span id="cb121-7"><a href="mixture-models.html#cb121-7" tabindex="-1"></a>SelectThis<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;mix[1]&quot;</span>,<span class="st">&quot;mix[2]&quot;</span>,<span class="st">&quot;mix[3]&quot;</span>,<span class="st">&quot;lambdaMean&quot;</span>,<span class="st">&quot;lambdaSD&quot;</span>)</span>
+<span id="cb121-8"><a href="mixture-models.html#cb121-8" tabindex="-1"></a>labels<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Mix: S&quot;</span>,<span class="st">&quot;Mix: PS&quot;</span>,<span class="st">&quot;Mix: PC&quot;</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">lambda$ mean&quot;</span>,<span class="st">&quot;$</span><span class="sc">\\</span><span class="st">lambda$ sd&quot;</span>)</span>
+<span id="cb121-9"><a href="mixture-models.html#cb121-9" tabindex="-1"></a><span class="cf">for</span> (ff <span class="cf">in</span> FileList) {</span>
+<span id="cb121-10"><a href="mixture-models.html#cb121-10" tabindex="-1"></a>  EstSum<span class="ot">&lt;-</span><span class="fu">summary</span>(<span class="fu">readRDS</span>(<span class="fu">paste0</span>(<span class="st">&quot;Code/MixtureModels/&quot;</span>,ff)))<span class="sc">$</span>summary[SelectThis,] <span class="sc">|&gt;</span></span>
+<span id="cb121-11"><a href="mixture-models.html#cb121-11" tabindex="-1"></a>    <span class="fu">data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb121-12"><a href="mixture-models.html#cb121-12" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">parameter =</span> labels,</span>
+<span id="cb121-13"><a href="mixture-models.html#cb121-13" tabindex="-1"></a>           <span class="at">file =</span> ff</span>
+<span id="cb121-14"><a href="mixture-models.html#cb121-14" tabindex="-1"></a>           ) <span class="sc">|&gt;</span></span>
+<span id="cb121-15"><a href="mixture-models.html#cb121-15" tabindex="-1"></a>    <span class="fu">rbind</span>(EstSum)</span>
+<span id="cb121-16"><a href="mixture-models.html#cb121-16" tabindex="-1"></a>}</span>
+<span id="cb121-17"><a href="mixture-models.html#cb121-17" tabindex="-1"></a></span>
+<span id="cb121-18"><a href="mixture-models.html#cb121-18" tabindex="-1"></a>EstSum<span class="ot">&lt;-</span>EstSum <span class="sc">|&gt;</span></span>
+<span id="cb121-19"><a href="mixture-models.html#cb121-19" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb121-20"><a href="mixture-models.html#cb121-20" tabindex="-1"></a>    <span class="st">`</span><span class="at">Model type</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Dichotomous&quot;</span>,file),<span class="st">&quot;Dichotomous&quot;</span>,<span class="st">&quot;Toolbox&quot;</span>),</span>
+<span id="cb121-21"><a href="mixture-models.html#cb121-21" tabindex="-1"></a>    <span class="at">Group =</span> <span class="fu">sub</span>(<span class="st">&quot;.rds&quot;</span>,<span class="st">&quot;&quot;</span>,<span class="fu">sub</span>(<span class="st">&quot;.*_&quot;</span>,<span class="st">&quot;&quot;</span>,file)),</span>
+<span id="cb121-22"><a href="mixture-models.html#cb121-22" tabindex="-1"></a>    <span class="at">msd =</span> <span class="fu">paste0</span>(</span>
+<span id="cb121-23"><a href="mixture-models.html#cb121-23" tabindex="-1"></a>      mean <span class="sc">|&gt;</span> <span class="fu">round</span>(rounding),</span>
+<span id="cb121-24"><a href="mixture-models.html#cb121-24" tabindex="-1"></a>      <span class="st">&quot; (&quot;</span>,sd <span class="sc">|&gt;</span> <span class="fu">round</span>(rounding),<span class="st">&quot;)&quot;</span></span>
+<span id="cb121-25"><a href="mixture-models.html#cb121-25" tabindex="-1"></a>    )</span>
+<span id="cb121-26"><a href="mixture-models.html#cb121-26" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb121-27"><a href="mixture-models.html#cb121-27" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(parameter,Group,msd)<span class="sc">|&gt;</span></span>
+<span id="cb121-28"><a href="mixture-models.html#cb121-28" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="fu">c</span>(Group),<span class="at">values_from =</span> msd) </span>
+<span id="cb121-29"><a href="mixture-models.html#cb121-29" tabindex="-1"></a></span>
+<span id="cb121-30"><a href="mixture-models.html#cb121-30" tabindex="-1"></a>EstSum <span class="sc">|&gt;</span> <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">&quot;Estimates from the 3-type dichotomous mixture models with heterogeneous $</span><span class="sc">\\</span><span class="st">lambda$ using data from Andreoni and Vesterlund (2001). Note that reported $</span><span class="sc">\\</span><span class="st">lambda$ estimates are reported in log units.&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">kable_classic</span>(<span class="at">full_width=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <table class=" lightable-classic" style="color: black; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:MixtureModelsHLambdaTable">Table 8.2: </span>Estimates from the 3-type dichotomous mixture models with heterogeneous <span class="math inline">\(\lambda\)</span> using data from Andreoni and Vesterlund (2001). Note that reported <span class="math inline">\(\lambda\)</span> estimates are reported in log units.
@@ -1344,202 +1344,202 @@ Mix: PC
 </div>
 <div id="some-code-used-to-estimate-the-models" class="section level2 hasAnchor" number="8.5">
 <h2><span class="header-section-number">8.5</span> Some code used to estimate the models<a href="mixture-models.html#some-code-used-to-estimate-the-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="mixture-models.html#cb120-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb120-2"><a href="mixture-models.html#cb120-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb120-3"><a href="mixture-models.html#cb120-3" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
-<span id="cb120-4"><a href="mixture-models.html#cb120-4" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
-<span id="cb120-5"><a href="mixture-models.html#cb120-5" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb120-6"><a href="mixture-models.html#cb120-6" tabindex="-1"></a></span>
-<span id="cb120-7"><a href="mixture-models.html#cb120-7" tabindex="-1"></a>rounding_grid<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>,<span class="at">by=</span><span class="fl">0.05</span>)</span>
-<span id="cb120-8"><a href="mixture-models.html#cb120-8" tabindex="-1"></a></span>
-<span id="cb120-9"><a href="mixture-models.html#cb120-9" tabindex="-1"></a>AV2001parameters<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/AV2001parameters.csv&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb120-10"><a href="mixture-models.html#cb120-10" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>X) <span class="sc">|&gt;</span></span>
-<span id="cb120-11"><a href="mixture-models.html#cb120-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">decision =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
-<span id="cb120-12"><a href="mixture-models.html#cb120-12" tabindex="-1"></a></span>
-<span id="cb120-13"><a href="mixture-models.html#cb120-13" tabindex="-1"></a>AV2001<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/AV2001choices.csv&quot;</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb120-14"><a href="mixture-models.html#cb120-14" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb120-15"><a href="mixture-models.html#cb120-15" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> keep1<span class="sc">:</span>keep8,</span>
-<span id="cb120-16"><a href="mixture-models.html#cb120-16" tabindex="-1"></a>               <span class="at">names_prefix =</span> <span class="st">&quot;keep&quot;</span>,</span>
-<span id="cb120-17"><a href="mixture-models.html#cb120-17" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;decision&quot;</span>,</span>
-<span id="cb120-18"><a href="mixture-models.html#cb120-18" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;amount_kept&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb120-19"><a href="mixture-models.html#cb120-19" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">decision =</span> decision <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb120-20"><a href="mixture-models.html#cb120-20" tabindex="-1"></a>  <span class="fu">left_join</span>(AV2001parameters,<span class="at">by=</span><span class="st">&quot;decision&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb120-21"><a href="mixture-models.html#cb120-21" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rownum =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>(),</span>
-<span id="cb120-22"><a href="mixture-models.html#cb120-22" tabindex="-1"></a>         <span class="at">fraction_kept =</span> amount_kept<span class="sc">/</span>income</span>
-<span id="cb120-23"><a href="mixture-models.html#cb120-23" tabindex="-1"></a>         ) <span class="sc">|&gt;</span></span>
-<span id="cb120-24"><a href="mixture-models.html#cb120-24" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb120-25"><a href="mixture-models.html#cb120-25" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bin_kept =</span> <span class="fu">which</span>(<span class="fu">abs</span>(rounding_grid<span class="sc">-</span>fraction_kept)<span class="sc">==</span><span class="fu">min</span>(<span class="fu">abs</span>(rounding_grid<span class="sc">-</span>fraction_kept)))[<span class="dv">1</span>])</span>
-<span id="cb120-26"><a href="mixture-models.html#cb120-26" tabindex="-1"></a></span>
-<span id="cb120-27"><a href="mixture-models.html#cb120-27" tabindex="-1"></a>idstartend<span class="ot">&lt;-</span>AV2001 <span class="sc">|&gt;</span> <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span></span>
-<span id="cb120-28"><a href="mixture-models.html#cb120-28" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">start =</span> <span class="fu">min</span>(rownum),<span class="at">end=</span><span class="fu">max</span>(rownum))</span>
-<span id="cb120-29"><a href="mixture-models.html#cb120-29" tabindex="-1"></a>  </span>
-<span id="cb120-30"><a href="mixture-models.html#cb120-30" tabindex="-1"></a></span>
-<span id="cb120-31"><a href="mixture-models.html#cb120-31" tabindex="-1"></a></span>
-<span id="cb120-32"><a href="mixture-models.html#cb120-32" tabindex="-1"></a></span>
-<span id="cb120-33"><a href="mixture-models.html#cb120-33" tabindex="-1"></a></span>
-<span id="cb120-34"><a href="mixture-models.html#cb120-34" tabindex="-1"></a></span>
-<span id="cb120-35"><a href="mixture-models.html#cb120-35" tabindex="-1"></a></span>
-<span id="cb120-36"><a href="mixture-models.html#cb120-36" tabindex="-1"></a>Dichotomous<span class="ot">&lt;-</span><span class="fu">stan_model</span>(<span class="st">&quot;Code/MixtureModels/AV2001_3types_dichotomous.stan&quot;</span>)</span>
-<span id="cb120-37"><a href="mixture-models.html#cb120-37" tabindex="-1"></a>Toolbox<span class="ot">&lt;-</span><span class="fu">stan_model</span>(<span class="st">&quot;Code/MixtureModels/AV2001_3types_toolbox.stan&quot;</span>)</span>
-<span id="cb120-38"><a href="mixture-models.html#cb120-38" tabindex="-1"></a>Dichotomous_hlambda<span class="ot">&lt;-</span><span class="fu">stan_model</span>(<span class="st">&quot;Code/MixtureModels/AV2001_3types_dichotomous_hlambda.stan&quot;</span>)</span>
-<span id="cb120-39"><a href="mixture-models.html#cb120-39" tabindex="-1"></a><span class="do">###########################################################</span></span>
-<span id="cb120-40"><a href="mixture-models.html#cb120-40" tabindex="-1"></a><span class="co">#  mixture models using all of the data</span></span>
-<span id="cb120-41"><a href="mixture-models.html#cb120-41" tabindex="-1"></a><span class="do">###########################################################</span></span>
-<span id="cb120-42"><a href="mixture-models.html#cb120-42" tabindex="-1"></a></span>
-<span id="cb120-43"><a href="mixture-models.html#cb120-43" tabindex="-1"></a>dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
-<span id="cb120-44"><a href="mixture-models.html#cb120-44" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">dim</span>(AV2001)[<span class="dv">1</span>],</span>
-<span id="cb120-45"><a href="mixture-models.html#cb120-45" tabindex="-1"></a>  <span class="at">nParticipants =</span> AV2001<span class="sc">$</span>id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>(),</span>
-<span id="cb120-46"><a href="mixture-models.html#cb120-46" tabindex="-1"></a>  <span class="at">id =</span> AV2001<span class="sc">$</span>id,</span>
-<span id="cb120-47"><a href="mixture-models.html#cb120-47" tabindex="-1"></a>  <span class="at">idStart =</span> idstartend<span class="sc">$</span>start,</span>
-<span id="cb120-48"><a href="mixture-models.html#cb120-48" tabindex="-1"></a>  <span class="at">idEnd =</span> idstartend<span class="sc">$</span>end,</span>
-<span id="cb120-49"><a href="mixture-models.html#cb120-49" tabindex="-1"></a>  </span>
-<span id="cb120-50"><a href="mixture-models.html#cb120-50" tabindex="-1"></a>  <span class="at">income =</span> AV2001<span class="sc">$</span>income,</span>
-<span id="cb120-51"><a href="mixture-models.html#cb120-51" tabindex="-1"></a>  <span class="at">pSelf =</span> AV2001<span class="sc">$</span>pSelf,</span>
-<span id="cb120-52"><a href="mixture-models.html#cb120-52" tabindex="-1"></a>  <span class="at">pOther =</span> AV2001<span class="sc">$</span>pOther,</span>
-<span id="cb120-53"><a href="mixture-models.html#cb120-53" tabindex="-1"></a>  </span>
-<span id="cb120-54"><a href="mixture-models.html#cb120-54" tabindex="-1"></a>  <span class="at">binLength =</span> <span class="fu">length</span>(rounding_grid),</span>
-<span id="cb120-55"><a href="mixture-models.html#cb120-55" tabindex="-1"></a>  <span class="at">bin_grid =</span> rounding_grid,</span>
-<span id="cb120-56"><a href="mixture-models.html#cb120-56" tabindex="-1"></a>  <span class="at">bin_kept =</span> AV2001<span class="sc">$</span>bin_kept,</span>
-<span id="cb120-57"><a href="mixture-models.html#cb120-57" tabindex="-1"></a>  </span>
-<span id="cb120-58"><a href="mixture-models.html#cb120-58" tabindex="-1"></a>  <span class="at">prior_mix =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
-<span id="cb120-59"><a href="mixture-models.html#cb120-59" tabindex="-1"></a>  <span class="at">prior_lambda =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1</span>),<span class="dv">1</span>),</span>
-<span id="cb120-60"><a href="mixture-models.html#cb120-60" tabindex="-1"></a>  </span>
-<span id="cb120-61"><a href="mixture-models.html#cb120-61" tabindex="-1"></a>  <span class="at">prior_lambda_mean =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1</span>),<span class="dv">1</span>),</span>
-<span id="cb120-62"><a href="mixture-models.html#cb120-62" tabindex="-1"></a>  <span class="at">prior_lambda_sd =</span> <span class="fl">0.05</span></span>
-<span id="cb120-63"><a href="mixture-models.html#cb120-63" tabindex="-1"></a>  </span>
-<span id="cb120-64"><a href="mixture-models.html#cb120-64" tabindex="-1"></a>)</span>
-<span id="cb120-65"><a href="mixture-models.html#cb120-65" tabindex="-1"></a></span>
-<span id="cb120-66"><a href="mixture-models.html#cb120-66" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001Dichotomous_Both.rds&quot;</span></span>
-<span id="cb120-67"><a href="mixture-models.html#cb120-67" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
-<span id="cb120-68"><a href="mixture-models.html#cb120-68" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Dichotomous,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb120-69"><a href="mixture-models.html#cb120-69" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
-<span id="cb120-70"><a href="mixture-models.html#cb120-70" tabindex="-1"></a>}</span>
-<span id="cb120-71"><a href="mixture-models.html#cb120-71" tabindex="-1"></a></span>
-<span id="cb120-72"><a href="mixture-models.html#cb120-72" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001Toolbox_Both.rds&quot;</span></span>
-<span id="cb120-73"><a href="mixture-models.html#cb120-73" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
-<span id="cb120-74"><a href="mixture-models.html#cb120-74" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Toolbox,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb120-75"><a href="mixture-models.html#cb120-75" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
-<span id="cb120-76"><a href="mixture-models.html#cb120-76" tabindex="-1"></a>}</span>
-<span id="cb120-77"><a href="mixture-models.html#cb120-77" tabindex="-1"></a></span>
-<span id="cb120-78"><a href="mixture-models.html#cb120-78" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001hlambdaDichotomous_Both.rds&quot;</span></span>
-<span id="cb120-79"><a href="mixture-models.html#cb120-79" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
-<span id="cb120-80"><a href="mixture-models.html#cb120-80" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Dichotomous_hlambda,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb120-81"><a href="mixture-models.html#cb120-81" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
-<span id="cb120-82"><a href="mixture-models.html#cb120-82" tabindex="-1"></a>}</span>
-<span id="cb120-83"><a href="mixture-models.html#cb120-83" tabindex="-1"></a></span>
-<span id="cb120-84"><a href="mixture-models.html#cb120-84" tabindex="-1"></a><span class="do">###########################################################</span></span>
-<span id="cb120-85"><a href="mixture-models.html#cb120-85" tabindex="-1"></a><span class="co"># Mixture models using just the data from female participants</span></span>
-<span id="cb120-86"><a href="mixture-models.html#cb120-86" tabindex="-1"></a><span class="do">###########################################################</span></span>
-<span id="cb120-87"><a href="mixture-models.html#cb120-87" tabindex="-1"></a></span>
-<span id="cb120-88"><a href="mixture-models.html#cb120-88" tabindex="-1"></a>d<span class="ot">&lt;-</span>AV2001 <span class="sc">|&gt;</span></span>
-<span id="cb120-89"><a href="mixture-models.html#cb120-89" tabindex="-1"></a>  <span class="fu">filter</span>(female<span class="sc">==</span><span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb120-90"><a href="mixture-models.html#cb120-90" tabindex="-1"></a>  <span class="co"># I need to re-number the id variables so they go from 1:n only</span></span>
-<span id="cb120-91"><a href="mixture-models.html#cb120-91" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">idFull =</span> id) <span class="sc">|&gt;</span></span>
-<span id="cb120-92"><a href="mixture-models.html#cb120-92" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb120-93"><a href="mixture-models.html#cb120-93" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">paste</span>(<span class="st">&quot;id&quot;</span>,idFull) <span class="sc">|&gt;</span> <span class="fu">as.factor</span>() <span class="sc">|&gt;</span> <span class="fu">as.integer</span>())</span>
-<span id="cb120-94"><a href="mixture-models.html#cb120-94" tabindex="-1"></a></span>
-<span id="cb120-95"><a href="mixture-models.html#cb120-95" tabindex="-1"></a>idstartend<span class="ot">&lt;-</span>d <span class="sc">|&gt;</span></span>
-<span id="cb120-96"><a href="mixture-models.html#cb120-96" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rownum =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb120-97"><a href="mixture-models.html#cb120-97" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span></span>
-<span id="cb120-98"><a href="mixture-models.html#cb120-98" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">start =</span> <span class="fu">min</span>(rownum),<span class="at">end=</span><span class="fu">max</span>(rownum))</span>
-<span id="cb120-99"><a href="mixture-models.html#cb120-99" tabindex="-1"></a></span>
-<span id="cb120-100"><a href="mixture-models.html#cb120-100" tabindex="-1"></a>dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
-<span id="cb120-101"><a href="mixture-models.html#cb120-101" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">dim</span>(d)[<span class="dv">1</span>],</span>
-<span id="cb120-102"><a href="mixture-models.html#cb120-102" tabindex="-1"></a>  <span class="at">nParticipants =</span> d<span class="sc">$</span>id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>(),</span>
-<span id="cb120-103"><a href="mixture-models.html#cb120-103" tabindex="-1"></a>  <span class="at">id =</span> d<span class="sc">$</span>id,</span>
-<span id="cb120-104"><a href="mixture-models.html#cb120-104" tabindex="-1"></a>  <span class="at">idStart =</span> idstartend<span class="sc">$</span>start,</span>
-<span id="cb120-105"><a href="mixture-models.html#cb120-105" tabindex="-1"></a>  <span class="at">idEnd =</span> idstartend<span class="sc">$</span>end,</span>
-<span id="cb120-106"><a href="mixture-models.html#cb120-106" tabindex="-1"></a>  </span>
-<span id="cb120-107"><a href="mixture-models.html#cb120-107" tabindex="-1"></a>  <span class="at">income =</span> d<span class="sc">$</span>income,</span>
-<span id="cb120-108"><a href="mixture-models.html#cb120-108" tabindex="-1"></a>  <span class="at">pSelf =</span> d<span class="sc">$</span>pSelf,</span>
-<span id="cb120-109"><a href="mixture-models.html#cb120-109" tabindex="-1"></a>  <span class="at">pOther =</span> d<span class="sc">$</span>pOther,</span>
-<span id="cb120-110"><a href="mixture-models.html#cb120-110" tabindex="-1"></a>  </span>
-<span id="cb120-111"><a href="mixture-models.html#cb120-111" tabindex="-1"></a>  <span class="at">binLength =</span> <span class="fu">length</span>(rounding_grid),</span>
-<span id="cb120-112"><a href="mixture-models.html#cb120-112" tabindex="-1"></a>  <span class="at">bin_grid =</span> rounding_grid,</span>
-<span id="cb120-113"><a href="mixture-models.html#cb120-113" tabindex="-1"></a>  <span class="at">bin_kept =</span> d<span class="sc">$</span>bin_kept,</span>
-<span id="cb120-114"><a href="mixture-models.html#cb120-114" tabindex="-1"></a>  </span>
-<span id="cb120-115"><a href="mixture-models.html#cb120-115" tabindex="-1"></a>  <span class="at">prior_mix =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
-<span id="cb120-116"><a href="mixture-models.html#cb120-116" tabindex="-1"></a>  <span class="at">prior_lambda =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1</span>),<span class="dv">1</span>),</span>
-<span id="cb120-117"><a href="mixture-models.html#cb120-117" tabindex="-1"></a>  </span>
-<span id="cb120-118"><a href="mixture-models.html#cb120-118" tabindex="-1"></a>  <span class="at">prior_lambda_mean =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1</span>),<span class="dv">1</span>),</span>
-<span id="cb120-119"><a href="mixture-models.html#cb120-119" tabindex="-1"></a>  <span class="at">prior_lambda_sd =</span> <span class="fl">0.05</span></span>
-<span id="cb120-120"><a href="mixture-models.html#cb120-120" tabindex="-1"></a>  </span>
-<span id="cb120-121"><a href="mixture-models.html#cb120-121" tabindex="-1"></a>)</span>
-<span id="cb120-122"><a href="mixture-models.html#cb120-122" tabindex="-1"></a></span>
-<span id="cb120-123"><a href="mixture-models.html#cb120-123" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001Dichotomous_Female.rds&quot;</span></span>
-<span id="cb120-124"><a href="mixture-models.html#cb120-124" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
-<span id="cb120-125"><a href="mixture-models.html#cb120-125" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Dichotomous,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb120-126"><a href="mixture-models.html#cb120-126" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
-<span id="cb120-127"><a href="mixture-models.html#cb120-127" tabindex="-1"></a>}</span>
-<span id="cb120-128"><a href="mixture-models.html#cb120-128" tabindex="-1"></a></span>
-<span id="cb120-129"><a href="mixture-models.html#cb120-129" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001Toolbox_Female.rds&quot;</span></span>
-<span id="cb120-130"><a href="mixture-models.html#cb120-130" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
-<span id="cb120-131"><a href="mixture-models.html#cb120-131" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Toolbox,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb120-132"><a href="mixture-models.html#cb120-132" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
-<span id="cb120-133"><a href="mixture-models.html#cb120-133" tabindex="-1"></a>}</span>
-<span id="cb120-134"><a href="mixture-models.html#cb120-134" tabindex="-1"></a></span>
-<span id="cb120-135"><a href="mixture-models.html#cb120-135" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001hlambdaDichotomous_Female.rds&quot;</span></span>
-<span id="cb120-136"><a href="mixture-models.html#cb120-136" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
-<span id="cb120-137"><a href="mixture-models.html#cb120-137" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Dichotomous_hlambda,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb120-138"><a href="mixture-models.html#cb120-138" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
-<span id="cb120-139"><a href="mixture-models.html#cb120-139" tabindex="-1"></a>}</span>
-<span id="cb120-140"><a href="mixture-models.html#cb120-140" tabindex="-1"></a></span>
-<span id="cb120-141"><a href="mixture-models.html#cb120-141" tabindex="-1"></a><span class="do">###########################################################</span></span>
-<span id="cb120-142"><a href="mixture-models.html#cb120-142" tabindex="-1"></a><span class="co"># Mixture models using just the data from male participants</span></span>
-<span id="cb120-143"><a href="mixture-models.html#cb120-143" tabindex="-1"></a><span class="do">###########################################################</span></span>
-<span id="cb120-144"><a href="mixture-models.html#cb120-144" tabindex="-1"></a></span>
-<span id="cb120-145"><a href="mixture-models.html#cb120-145" tabindex="-1"></a>d<span class="ot">&lt;-</span>AV2001 <span class="sc">|&gt;</span></span>
-<span id="cb120-146"><a href="mixture-models.html#cb120-146" tabindex="-1"></a>  <span class="fu">filter</span>(female<span class="sc">==</span><span class="dv">0</span>) <span class="sc">|&gt;</span></span>
-<span id="cb120-147"><a href="mixture-models.html#cb120-147" tabindex="-1"></a>  <span class="co"># I need to re-number the id variables so they go from 1:n only</span></span>
-<span id="cb120-148"><a href="mixture-models.html#cb120-148" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">idFull =</span> id) <span class="sc">|&gt;</span></span>
-<span id="cb120-149"><a href="mixture-models.html#cb120-149" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb120-150"><a href="mixture-models.html#cb120-150" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">paste</span>(<span class="st">&quot;id&quot;</span>,idFull) <span class="sc">|&gt;</span> <span class="fu">as.factor</span>() <span class="sc">|&gt;</span> <span class="fu">as.integer</span>())</span>
-<span id="cb120-151"><a href="mixture-models.html#cb120-151" tabindex="-1"></a></span>
-<span id="cb120-152"><a href="mixture-models.html#cb120-152" tabindex="-1"></a>idstartend<span class="ot">&lt;-</span>d <span class="sc">|&gt;</span></span>
-<span id="cb120-153"><a href="mixture-models.html#cb120-153" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rownum =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb120-154"><a href="mixture-models.html#cb120-154" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span></span>
-<span id="cb120-155"><a href="mixture-models.html#cb120-155" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">start =</span> <span class="fu">min</span>(rownum),<span class="at">end=</span><span class="fu">max</span>(rownum))</span>
-<span id="cb120-156"><a href="mixture-models.html#cb120-156" tabindex="-1"></a></span>
-<span id="cb120-157"><a href="mixture-models.html#cb120-157" tabindex="-1"></a>dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
-<span id="cb120-158"><a href="mixture-models.html#cb120-158" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">dim</span>(d)[<span class="dv">1</span>],</span>
-<span id="cb120-159"><a href="mixture-models.html#cb120-159" tabindex="-1"></a>  <span class="at">nParticipants =</span> d<span class="sc">$</span>id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>(),</span>
-<span id="cb120-160"><a href="mixture-models.html#cb120-160" tabindex="-1"></a>  <span class="at">id =</span> d<span class="sc">$</span>id,</span>
-<span id="cb120-161"><a href="mixture-models.html#cb120-161" tabindex="-1"></a>  <span class="at">idStart =</span> idstartend<span class="sc">$</span>start,</span>
-<span id="cb120-162"><a href="mixture-models.html#cb120-162" tabindex="-1"></a>  <span class="at">idEnd =</span> idstartend<span class="sc">$</span>end,</span>
-<span id="cb120-163"><a href="mixture-models.html#cb120-163" tabindex="-1"></a>  </span>
-<span id="cb120-164"><a href="mixture-models.html#cb120-164" tabindex="-1"></a>  <span class="at">income =</span> d<span class="sc">$</span>income,</span>
-<span id="cb120-165"><a href="mixture-models.html#cb120-165" tabindex="-1"></a>  <span class="at">pSelf =</span> d<span class="sc">$</span>pSelf,</span>
-<span id="cb120-166"><a href="mixture-models.html#cb120-166" tabindex="-1"></a>  <span class="at">pOther =</span> d<span class="sc">$</span>pOther,</span>
-<span id="cb120-167"><a href="mixture-models.html#cb120-167" tabindex="-1"></a>  </span>
-<span id="cb120-168"><a href="mixture-models.html#cb120-168" tabindex="-1"></a>  <span class="at">binLength =</span> <span class="fu">length</span>(rounding_grid),</span>
-<span id="cb120-169"><a href="mixture-models.html#cb120-169" tabindex="-1"></a>  <span class="at">bin_grid =</span> rounding_grid,</span>
-<span id="cb120-170"><a href="mixture-models.html#cb120-170" tabindex="-1"></a>  <span class="at">bin_kept =</span> d<span class="sc">$</span>bin_kept,</span>
-<span id="cb120-171"><a href="mixture-models.html#cb120-171" tabindex="-1"></a>  </span>
-<span id="cb120-172"><a href="mixture-models.html#cb120-172" tabindex="-1"></a>  <span class="at">prior_mix =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
-<span id="cb120-173"><a href="mixture-models.html#cb120-173" tabindex="-1"></a>  <span class="at">prior_lambda =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1</span>),<span class="dv">1</span>),</span>
-<span id="cb120-174"><a href="mixture-models.html#cb120-174" tabindex="-1"></a>  </span>
-<span id="cb120-175"><a href="mixture-models.html#cb120-175" tabindex="-1"></a>  <span class="at">prior_lambda_mean =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1</span>),<span class="dv">1</span>),</span>
-<span id="cb120-176"><a href="mixture-models.html#cb120-176" tabindex="-1"></a>  <span class="at">prior_lambda_sd =</span> <span class="fl">0.05</span></span>
-<span id="cb120-177"><a href="mixture-models.html#cb120-177" tabindex="-1"></a>  </span>
-<span id="cb120-178"><a href="mixture-models.html#cb120-178" tabindex="-1"></a>)</span>
-<span id="cb120-179"><a href="mixture-models.html#cb120-179" tabindex="-1"></a></span>
-<span id="cb120-180"><a href="mixture-models.html#cb120-180" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001Dichotomous_Male.rds&quot;</span></span>
-<span id="cb120-181"><a href="mixture-models.html#cb120-181" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
-<span id="cb120-182"><a href="mixture-models.html#cb120-182" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Dichotomous,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb120-183"><a href="mixture-models.html#cb120-183" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
-<span id="cb120-184"><a href="mixture-models.html#cb120-184" tabindex="-1"></a>}</span>
-<span id="cb120-185"><a href="mixture-models.html#cb120-185" tabindex="-1"></a></span>
-<span id="cb120-186"><a href="mixture-models.html#cb120-186" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001Toolbox_Male.rds&quot;</span></span>
-<span id="cb120-187"><a href="mixture-models.html#cb120-187" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
-<span id="cb120-188"><a href="mixture-models.html#cb120-188" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Toolbox,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb120-189"><a href="mixture-models.html#cb120-189" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
-<span id="cb120-190"><a href="mixture-models.html#cb120-190" tabindex="-1"></a>}</span>
-<span id="cb120-191"><a href="mixture-models.html#cb120-191" tabindex="-1"></a></span>
-<span id="cb120-192"><a href="mixture-models.html#cb120-192" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001hlambdaDichotomous_Male.rds&quot;</span></span>
-<span id="cb120-193"><a href="mixture-models.html#cb120-193" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
-<span id="cb120-194"><a href="mixture-models.html#cb120-194" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Dichotomous_hlambda,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
-<span id="cb120-195"><a href="mixture-models.html#cb120-195" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
-<span id="cb120-196"><a href="mixture-models.html#cb120-196" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="mixture-models.html#cb122-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb122-2"><a href="mixture-models.html#cb122-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb122-3"><a href="mixture-models.html#cb122-3" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb122-4"><a href="mixture-models.html#cb122-4" tabindex="-1"></a><span class="fu">options</span>(<span class="at">mc.cores =</span> parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb122-5"><a href="mixture-models.html#cb122-5" tabindex="-1"></a><span class="fu">rstan_options</span>(<span class="at">auto_write =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb122-6"><a href="mixture-models.html#cb122-6" tabindex="-1"></a></span>
+<span id="cb122-7"><a href="mixture-models.html#cb122-7" tabindex="-1"></a>rounding_grid<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>,<span class="at">by=</span><span class="fl">0.05</span>)</span>
+<span id="cb122-8"><a href="mixture-models.html#cb122-8" tabindex="-1"></a></span>
+<span id="cb122-9"><a href="mixture-models.html#cb122-9" tabindex="-1"></a>AV2001parameters<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/AV2001parameters.csv&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb122-10"><a href="mixture-models.html#cb122-10" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>X) <span class="sc">|&gt;</span></span>
+<span id="cb122-11"><a href="mixture-models.html#cb122-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">decision =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())</span>
+<span id="cb122-12"><a href="mixture-models.html#cb122-12" tabindex="-1"></a></span>
+<span id="cb122-13"><a href="mixture-models.html#cb122-13" tabindex="-1"></a>AV2001<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;Data/AV2001choices.csv&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb122-14"><a href="mixture-models.html#cb122-14" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb122-15"><a href="mixture-models.html#cb122-15" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> keep1<span class="sc">:</span>keep8,</span>
+<span id="cb122-16"><a href="mixture-models.html#cb122-16" tabindex="-1"></a>               <span class="at">names_prefix =</span> <span class="st">&quot;keep&quot;</span>,</span>
+<span id="cb122-17"><a href="mixture-models.html#cb122-17" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;decision&quot;</span>,</span>
+<span id="cb122-18"><a href="mixture-models.html#cb122-18" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;amount_kept&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb122-19"><a href="mixture-models.html#cb122-19" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">decision =</span> decision <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb122-20"><a href="mixture-models.html#cb122-20" tabindex="-1"></a>  <span class="fu">left_join</span>(AV2001parameters,<span class="at">by=</span><span class="st">&quot;decision&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb122-21"><a href="mixture-models.html#cb122-21" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rownum =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>(),</span>
+<span id="cb122-22"><a href="mixture-models.html#cb122-22" tabindex="-1"></a>         <span class="at">fraction_kept =</span> amount_kept<span class="sc">/</span>income</span>
+<span id="cb122-23"><a href="mixture-models.html#cb122-23" tabindex="-1"></a>         ) <span class="sc">|&gt;</span></span>
+<span id="cb122-24"><a href="mixture-models.html#cb122-24" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
+<span id="cb122-25"><a href="mixture-models.html#cb122-25" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bin_kept =</span> <span class="fu">which</span>(<span class="fu">abs</span>(rounding_grid<span class="sc">-</span>fraction_kept)<span class="sc">==</span><span class="fu">min</span>(<span class="fu">abs</span>(rounding_grid<span class="sc">-</span>fraction_kept)))[<span class="dv">1</span>])</span>
+<span id="cb122-26"><a href="mixture-models.html#cb122-26" tabindex="-1"></a></span>
+<span id="cb122-27"><a href="mixture-models.html#cb122-27" tabindex="-1"></a>idstartend<span class="ot">&lt;-</span>AV2001 <span class="sc">|&gt;</span> <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span></span>
+<span id="cb122-28"><a href="mixture-models.html#cb122-28" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">start =</span> <span class="fu">min</span>(rownum),<span class="at">end=</span><span class="fu">max</span>(rownum))</span>
+<span id="cb122-29"><a href="mixture-models.html#cb122-29" tabindex="-1"></a>  </span>
+<span id="cb122-30"><a href="mixture-models.html#cb122-30" tabindex="-1"></a></span>
+<span id="cb122-31"><a href="mixture-models.html#cb122-31" tabindex="-1"></a></span>
+<span id="cb122-32"><a href="mixture-models.html#cb122-32" tabindex="-1"></a></span>
+<span id="cb122-33"><a href="mixture-models.html#cb122-33" tabindex="-1"></a></span>
+<span id="cb122-34"><a href="mixture-models.html#cb122-34" tabindex="-1"></a></span>
+<span id="cb122-35"><a href="mixture-models.html#cb122-35" tabindex="-1"></a></span>
+<span id="cb122-36"><a href="mixture-models.html#cb122-36" tabindex="-1"></a>Dichotomous<span class="ot">&lt;-</span><span class="fu">stan_model</span>(<span class="st">&quot;Code/MixtureModels/AV2001_3types_dichotomous.stan&quot;</span>)</span>
+<span id="cb122-37"><a href="mixture-models.html#cb122-37" tabindex="-1"></a>Toolbox<span class="ot">&lt;-</span><span class="fu">stan_model</span>(<span class="st">&quot;Code/MixtureModels/AV2001_3types_toolbox.stan&quot;</span>)</span>
+<span id="cb122-38"><a href="mixture-models.html#cb122-38" tabindex="-1"></a>Dichotomous_hlambda<span class="ot">&lt;-</span><span class="fu">stan_model</span>(<span class="st">&quot;Code/MixtureModels/AV2001_3types_dichotomous_hlambda.stan&quot;</span>)</span>
+<span id="cb122-39"><a href="mixture-models.html#cb122-39" tabindex="-1"></a><span class="do">###########################################################</span></span>
+<span id="cb122-40"><a href="mixture-models.html#cb122-40" tabindex="-1"></a><span class="co">#  mixture models using all of the data</span></span>
+<span id="cb122-41"><a href="mixture-models.html#cb122-41" tabindex="-1"></a><span class="do">###########################################################</span></span>
+<span id="cb122-42"><a href="mixture-models.html#cb122-42" tabindex="-1"></a></span>
+<span id="cb122-43"><a href="mixture-models.html#cb122-43" tabindex="-1"></a>dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb122-44"><a href="mixture-models.html#cb122-44" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">dim</span>(AV2001)[<span class="dv">1</span>],</span>
+<span id="cb122-45"><a href="mixture-models.html#cb122-45" tabindex="-1"></a>  <span class="at">nParticipants =</span> AV2001<span class="sc">$</span>id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>(),</span>
+<span id="cb122-46"><a href="mixture-models.html#cb122-46" tabindex="-1"></a>  <span class="at">id =</span> AV2001<span class="sc">$</span>id,</span>
+<span id="cb122-47"><a href="mixture-models.html#cb122-47" tabindex="-1"></a>  <span class="at">idStart =</span> idstartend<span class="sc">$</span>start,</span>
+<span id="cb122-48"><a href="mixture-models.html#cb122-48" tabindex="-1"></a>  <span class="at">idEnd =</span> idstartend<span class="sc">$</span>end,</span>
+<span id="cb122-49"><a href="mixture-models.html#cb122-49" tabindex="-1"></a>  </span>
+<span id="cb122-50"><a href="mixture-models.html#cb122-50" tabindex="-1"></a>  <span class="at">income =</span> AV2001<span class="sc">$</span>income,</span>
+<span id="cb122-51"><a href="mixture-models.html#cb122-51" tabindex="-1"></a>  <span class="at">pSelf =</span> AV2001<span class="sc">$</span>pSelf,</span>
+<span id="cb122-52"><a href="mixture-models.html#cb122-52" tabindex="-1"></a>  <span class="at">pOther =</span> AV2001<span class="sc">$</span>pOther,</span>
+<span id="cb122-53"><a href="mixture-models.html#cb122-53" tabindex="-1"></a>  </span>
+<span id="cb122-54"><a href="mixture-models.html#cb122-54" tabindex="-1"></a>  <span class="at">binLength =</span> <span class="fu">length</span>(rounding_grid),</span>
+<span id="cb122-55"><a href="mixture-models.html#cb122-55" tabindex="-1"></a>  <span class="at">bin_grid =</span> rounding_grid,</span>
+<span id="cb122-56"><a href="mixture-models.html#cb122-56" tabindex="-1"></a>  <span class="at">bin_kept =</span> AV2001<span class="sc">$</span>bin_kept,</span>
+<span id="cb122-57"><a href="mixture-models.html#cb122-57" tabindex="-1"></a>  </span>
+<span id="cb122-58"><a href="mixture-models.html#cb122-58" tabindex="-1"></a>  <span class="at">prior_mix =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb122-59"><a href="mixture-models.html#cb122-59" tabindex="-1"></a>  <span class="at">prior_lambda =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1</span>),<span class="dv">1</span>),</span>
+<span id="cb122-60"><a href="mixture-models.html#cb122-60" tabindex="-1"></a>  </span>
+<span id="cb122-61"><a href="mixture-models.html#cb122-61" tabindex="-1"></a>  <span class="at">prior_lambda_mean =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1</span>),<span class="dv">1</span>),</span>
+<span id="cb122-62"><a href="mixture-models.html#cb122-62" tabindex="-1"></a>  <span class="at">prior_lambda_sd =</span> <span class="fl">0.05</span></span>
+<span id="cb122-63"><a href="mixture-models.html#cb122-63" tabindex="-1"></a>  </span>
+<span id="cb122-64"><a href="mixture-models.html#cb122-64" tabindex="-1"></a>)</span>
+<span id="cb122-65"><a href="mixture-models.html#cb122-65" tabindex="-1"></a></span>
+<span id="cb122-66"><a href="mixture-models.html#cb122-66" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001Dichotomous_Both.rds&quot;</span></span>
+<span id="cb122-67"><a href="mixture-models.html#cb122-67" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
+<span id="cb122-68"><a href="mixture-models.html#cb122-68" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Dichotomous,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb122-69"><a href="mixture-models.html#cb122-69" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
+<span id="cb122-70"><a href="mixture-models.html#cb122-70" tabindex="-1"></a>}</span>
+<span id="cb122-71"><a href="mixture-models.html#cb122-71" tabindex="-1"></a></span>
+<span id="cb122-72"><a href="mixture-models.html#cb122-72" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001Toolbox_Both.rds&quot;</span></span>
+<span id="cb122-73"><a href="mixture-models.html#cb122-73" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
+<span id="cb122-74"><a href="mixture-models.html#cb122-74" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Toolbox,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb122-75"><a href="mixture-models.html#cb122-75" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
+<span id="cb122-76"><a href="mixture-models.html#cb122-76" tabindex="-1"></a>}</span>
+<span id="cb122-77"><a href="mixture-models.html#cb122-77" tabindex="-1"></a></span>
+<span id="cb122-78"><a href="mixture-models.html#cb122-78" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001hlambdaDichotomous_Both.rds&quot;</span></span>
+<span id="cb122-79"><a href="mixture-models.html#cb122-79" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
+<span id="cb122-80"><a href="mixture-models.html#cb122-80" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Dichotomous_hlambda,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb122-81"><a href="mixture-models.html#cb122-81" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
+<span id="cb122-82"><a href="mixture-models.html#cb122-82" tabindex="-1"></a>}</span>
+<span id="cb122-83"><a href="mixture-models.html#cb122-83" tabindex="-1"></a></span>
+<span id="cb122-84"><a href="mixture-models.html#cb122-84" tabindex="-1"></a><span class="do">###########################################################</span></span>
+<span id="cb122-85"><a href="mixture-models.html#cb122-85" tabindex="-1"></a><span class="co"># Mixture models using just the data from female participants</span></span>
+<span id="cb122-86"><a href="mixture-models.html#cb122-86" tabindex="-1"></a><span class="do">###########################################################</span></span>
+<span id="cb122-87"><a href="mixture-models.html#cb122-87" tabindex="-1"></a></span>
+<span id="cb122-88"><a href="mixture-models.html#cb122-88" tabindex="-1"></a>d<span class="ot">&lt;-</span>AV2001 <span class="sc">|&gt;</span></span>
+<span id="cb122-89"><a href="mixture-models.html#cb122-89" tabindex="-1"></a>  <span class="fu">filter</span>(female<span class="sc">==</span><span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb122-90"><a href="mixture-models.html#cb122-90" tabindex="-1"></a>  <span class="co"># I need to re-number the id variables so they go from 1:n only</span></span>
+<span id="cb122-91"><a href="mixture-models.html#cb122-91" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">idFull =</span> id) <span class="sc">|&gt;</span></span>
+<span id="cb122-92"><a href="mixture-models.html#cb122-92" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb122-93"><a href="mixture-models.html#cb122-93" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">paste</span>(<span class="st">&quot;id&quot;</span>,idFull) <span class="sc">|&gt;</span> <span class="fu">as.factor</span>() <span class="sc">|&gt;</span> <span class="fu">as.integer</span>())</span>
+<span id="cb122-94"><a href="mixture-models.html#cb122-94" tabindex="-1"></a></span>
+<span id="cb122-95"><a href="mixture-models.html#cb122-95" tabindex="-1"></a>idstartend<span class="ot">&lt;-</span>d <span class="sc">|&gt;</span></span>
+<span id="cb122-96"><a href="mixture-models.html#cb122-96" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rownum =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb122-97"><a href="mixture-models.html#cb122-97" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span></span>
+<span id="cb122-98"><a href="mixture-models.html#cb122-98" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">start =</span> <span class="fu">min</span>(rownum),<span class="at">end=</span><span class="fu">max</span>(rownum))</span>
+<span id="cb122-99"><a href="mixture-models.html#cb122-99" tabindex="-1"></a></span>
+<span id="cb122-100"><a href="mixture-models.html#cb122-100" tabindex="-1"></a>dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb122-101"><a href="mixture-models.html#cb122-101" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">dim</span>(d)[<span class="dv">1</span>],</span>
+<span id="cb122-102"><a href="mixture-models.html#cb122-102" tabindex="-1"></a>  <span class="at">nParticipants =</span> d<span class="sc">$</span>id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>(),</span>
+<span id="cb122-103"><a href="mixture-models.html#cb122-103" tabindex="-1"></a>  <span class="at">id =</span> d<span class="sc">$</span>id,</span>
+<span id="cb122-104"><a href="mixture-models.html#cb122-104" tabindex="-1"></a>  <span class="at">idStart =</span> idstartend<span class="sc">$</span>start,</span>
+<span id="cb122-105"><a href="mixture-models.html#cb122-105" tabindex="-1"></a>  <span class="at">idEnd =</span> idstartend<span class="sc">$</span>end,</span>
+<span id="cb122-106"><a href="mixture-models.html#cb122-106" tabindex="-1"></a>  </span>
+<span id="cb122-107"><a href="mixture-models.html#cb122-107" tabindex="-1"></a>  <span class="at">income =</span> d<span class="sc">$</span>income,</span>
+<span id="cb122-108"><a href="mixture-models.html#cb122-108" tabindex="-1"></a>  <span class="at">pSelf =</span> d<span class="sc">$</span>pSelf,</span>
+<span id="cb122-109"><a href="mixture-models.html#cb122-109" tabindex="-1"></a>  <span class="at">pOther =</span> d<span class="sc">$</span>pOther,</span>
+<span id="cb122-110"><a href="mixture-models.html#cb122-110" tabindex="-1"></a>  </span>
+<span id="cb122-111"><a href="mixture-models.html#cb122-111" tabindex="-1"></a>  <span class="at">binLength =</span> <span class="fu">length</span>(rounding_grid),</span>
+<span id="cb122-112"><a href="mixture-models.html#cb122-112" tabindex="-1"></a>  <span class="at">bin_grid =</span> rounding_grid,</span>
+<span id="cb122-113"><a href="mixture-models.html#cb122-113" tabindex="-1"></a>  <span class="at">bin_kept =</span> d<span class="sc">$</span>bin_kept,</span>
+<span id="cb122-114"><a href="mixture-models.html#cb122-114" tabindex="-1"></a>  </span>
+<span id="cb122-115"><a href="mixture-models.html#cb122-115" tabindex="-1"></a>  <span class="at">prior_mix =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb122-116"><a href="mixture-models.html#cb122-116" tabindex="-1"></a>  <span class="at">prior_lambda =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1</span>),<span class="dv">1</span>),</span>
+<span id="cb122-117"><a href="mixture-models.html#cb122-117" tabindex="-1"></a>  </span>
+<span id="cb122-118"><a href="mixture-models.html#cb122-118" tabindex="-1"></a>  <span class="at">prior_lambda_mean =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1</span>),<span class="dv">1</span>),</span>
+<span id="cb122-119"><a href="mixture-models.html#cb122-119" tabindex="-1"></a>  <span class="at">prior_lambda_sd =</span> <span class="fl">0.05</span></span>
+<span id="cb122-120"><a href="mixture-models.html#cb122-120" tabindex="-1"></a>  </span>
+<span id="cb122-121"><a href="mixture-models.html#cb122-121" tabindex="-1"></a>)</span>
+<span id="cb122-122"><a href="mixture-models.html#cb122-122" tabindex="-1"></a></span>
+<span id="cb122-123"><a href="mixture-models.html#cb122-123" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001Dichotomous_Female.rds&quot;</span></span>
+<span id="cb122-124"><a href="mixture-models.html#cb122-124" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
+<span id="cb122-125"><a href="mixture-models.html#cb122-125" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Dichotomous,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb122-126"><a href="mixture-models.html#cb122-126" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
+<span id="cb122-127"><a href="mixture-models.html#cb122-127" tabindex="-1"></a>}</span>
+<span id="cb122-128"><a href="mixture-models.html#cb122-128" tabindex="-1"></a></span>
+<span id="cb122-129"><a href="mixture-models.html#cb122-129" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001Toolbox_Female.rds&quot;</span></span>
+<span id="cb122-130"><a href="mixture-models.html#cb122-130" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
+<span id="cb122-131"><a href="mixture-models.html#cb122-131" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Toolbox,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb122-132"><a href="mixture-models.html#cb122-132" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
+<span id="cb122-133"><a href="mixture-models.html#cb122-133" tabindex="-1"></a>}</span>
+<span id="cb122-134"><a href="mixture-models.html#cb122-134" tabindex="-1"></a></span>
+<span id="cb122-135"><a href="mixture-models.html#cb122-135" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001hlambdaDichotomous_Female.rds&quot;</span></span>
+<span id="cb122-136"><a href="mixture-models.html#cb122-136" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
+<span id="cb122-137"><a href="mixture-models.html#cb122-137" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Dichotomous_hlambda,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb122-138"><a href="mixture-models.html#cb122-138" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
+<span id="cb122-139"><a href="mixture-models.html#cb122-139" tabindex="-1"></a>}</span>
+<span id="cb122-140"><a href="mixture-models.html#cb122-140" tabindex="-1"></a></span>
+<span id="cb122-141"><a href="mixture-models.html#cb122-141" tabindex="-1"></a><span class="do">###########################################################</span></span>
+<span id="cb122-142"><a href="mixture-models.html#cb122-142" tabindex="-1"></a><span class="co"># Mixture models using just the data from male participants</span></span>
+<span id="cb122-143"><a href="mixture-models.html#cb122-143" tabindex="-1"></a><span class="do">###########################################################</span></span>
+<span id="cb122-144"><a href="mixture-models.html#cb122-144" tabindex="-1"></a></span>
+<span id="cb122-145"><a href="mixture-models.html#cb122-145" tabindex="-1"></a>d<span class="ot">&lt;-</span>AV2001 <span class="sc">|&gt;</span></span>
+<span id="cb122-146"><a href="mixture-models.html#cb122-146" tabindex="-1"></a>  <span class="fu">filter</span>(female<span class="sc">==</span><span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb122-147"><a href="mixture-models.html#cb122-147" tabindex="-1"></a>  <span class="co"># I need to re-number the id variables so they go from 1:n only</span></span>
+<span id="cb122-148"><a href="mixture-models.html#cb122-148" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">idFull =</span> id) <span class="sc">|&gt;</span></span>
+<span id="cb122-149"><a href="mixture-models.html#cb122-149" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb122-150"><a href="mixture-models.html#cb122-150" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">paste</span>(<span class="st">&quot;id&quot;</span>,idFull) <span class="sc">|&gt;</span> <span class="fu">as.factor</span>() <span class="sc">|&gt;</span> <span class="fu">as.integer</span>())</span>
+<span id="cb122-151"><a href="mixture-models.html#cb122-151" tabindex="-1"></a></span>
+<span id="cb122-152"><a href="mixture-models.html#cb122-152" tabindex="-1"></a>idstartend<span class="ot">&lt;-</span>d <span class="sc">|&gt;</span></span>
+<span id="cb122-153"><a href="mixture-models.html#cb122-153" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rownum =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb122-154"><a href="mixture-models.html#cb122-154" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span></span>
+<span id="cb122-155"><a href="mixture-models.html#cb122-155" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">start =</span> <span class="fu">min</span>(rownum),<span class="at">end=</span><span class="fu">max</span>(rownum))</span>
+<span id="cb122-156"><a href="mixture-models.html#cb122-156" tabindex="-1"></a></span>
+<span id="cb122-157"><a href="mixture-models.html#cb122-157" tabindex="-1"></a>dStan<span class="ot">&lt;-</span><span class="fu">list</span>(</span>
+<span id="cb122-158"><a href="mixture-models.html#cb122-158" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">dim</span>(d)[<span class="dv">1</span>],</span>
+<span id="cb122-159"><a href="mixture-models.html#cb122-159" tabindex="-1"></a>  <span class="at">nParticipants =</span> d<span class="sc">$</span>id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>(),</span>
+<span id="cb122-160"><a href="mixture-models.html#cb122-160" tabindex="-1"></a>  <span class="at">id =</span> d<span class="sc">$</span>id,</span>
+<span id="cb122-161"><a href="mixture-models.html#cb122-161" tabindex="-1"></a>  <span class="at">idStart =</span> idstartend<span class="sc">$</span>start,</span>
+<span id="cb122-162"><a href="mixture-models.html#cb122-162" tabindex="-1"></a>  <span class="at">idEnd =</span> idstartend<span class="sc">$</span>end,</span>
+<span id="cb122-163"><a href="mixture-models.html#cb122-163" tabindex="-1"></a>  </span>
+<span id="cb122-164"><a href="mixture-models.html#cb122-164" tabindex="-1"></a>  <span class="at">income =</span> d<span class="sc">$</span>income,</span>
+<span id="cb122-165"><a href="mixture-models.html#cb122-165" tabindex="-1"></a>  <span class="at">pSelf =</span> d<span class="sc">$</span>pSelf,</span>
+<span id="cb122-166"><a href="mixture-models.html#cb122-166" tabindex="-1"></a>  <span class="at">pOther =</span> d<span class="sc">$</span>pOther,</span>
+<span id="cb122-167"><a href="mixture-models.html#cb122-167" tabindex="-1"></a>  </span>
+<span id="cb122-168"><a href="mixture-models.html#cb122-168" tabindex="-1"></a>  <span class="at">binLength =</span> <span class="fu">length</span>(rounding_grid),</span>
+<span id="cb122-169"><a href="mixture-models.html#cb122-169" tabindex="-1"></a>  <span class="at">bin_grid =</span> rounding_grid,</span>
+<span id="cb122-170"><a href="mixture-models.html#cb122-170" tabindex="-1"></a>  <span class="at">bin_kept =</span> d<span class="sc">$</span>bin_kept,</span>
+<span id="cb122-171"><a href="mixture-models.html#cb122-171" tabindex="-1"></a>  </span>
+<span id="cb122-172"><a href="mixture-models.html#cb122-172" tabindex="-1"></a>  <span class="at">prior_mix =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb122-173"><a href="mixture-models.html#cb122-173" tabindex="-1"></a>  <span class="at">prior_lambda =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1</span>),<span class="dv">1</span>),</span>
+<span id="cb122-174"><a href="mixture-models.html#cb122-174" tabindex="-1"></a>  </span>
+<span id="cb122-175"><a href="mixture-models.html#cb122-175" tabindex="-1"></a>  <span class="at">prior_lambda_mean =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1</span>),<span class="dv">1</span>),</span>
+<span id="cb122-176"><a href="mixture-models.html#cb122-176" tabindex="-1"></a>  <span class="at">prior_lambda_sd =</span> <span class="fl">0.05</span></span>
+<span id="cb122-177"><a href="mixture-models.html#cb122-177" tabindex="-1"></a>  </span>
+<span id="cb122-178"><a href="mixture-models.html#cb122-178" tabindex="-1"></a>)</span>
+<span id="cb122-179"><a href="mixture-models.html#cb122-179" tabindex="-1"></a></span>
+<span id="cb122-180"><a href="mixture-models.html#cb122-180" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001Dichotomous_Male.rds&quot;</span></span>
+<span id="cb122-181"><a href="mixture-models.html#cb122-181" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
+<span id="cb122-182"><a href="mixture-models.html#cb122-182" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Dichotomous,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb122-183"><a href="mixture-models.html#cb122-183" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
+<span id="cb122-184"><a href="mixture-models.html#cb122-184" tabindex="-1"></a>}</span>
+<span id="cb122-185"><a href="mixture-models.html#cb122-185" tabindex="-1"></a></span>
+<span id="cb122-186"><a href="mixture-models.html#cb122-186" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001Toolbox_Male.rds&quot;</span></span>
+<span id="cb122-187"><a href="mixture-models.html#cb122-187" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
+<span id="cb122-188"><a href="mixture-models.html#cb122-188" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Toolbox,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb122-189"><a href="mixture-models.html#cb122-189" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
+<span id="cb122-190"><a href="mixture-models.html#cb122-190" tabindex="-1"></a>}</span>
+<span id="cb122-191"><a href="mixture-models.html#cb122-191" tabindex="-1"></a></span>
+<span id="cb122-192"><a href="mixture-models.html#cb122-192" tabindex="-1"></a>file<span class="ot">&lt;-</span><span class="st">&quot;Code/MixtureModels/AV2001hlambdaDichotomous_Male.rds&quot;</span></span>
+<span id="cb122-193"><a href="mixture-models.html#cb122-193" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) {</span>
+<span id="cb122-194"><a href="mixture-models.html#cb122-194" tabindex="-1"></a>  Fit<span class="ot">&lt;-</span><span class="fu">sampling</span>(Dichotomous_hlambda,<span class="at">data=</span>dStan,<span class="at">seed=</span><span class="dv">42</span>)</span>
+<span id="cb122-195"><a href="mixture-models.html#cb122-195" tabindex="-1"></a>  Fit <span class="sc">|&gt;</span> <span class="fu">saveRDS</span>(file)</span>
+<span id="cb122-196"><a href="mixture-models.html#cb122-196" tabindex="-1"></a>}</span></code></pre></div>
 <!--
 
 ## Not Bayes: A replication of parts of @AV2001
